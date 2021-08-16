@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -135,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html">MusicSongCheckToolsRename</a> &amp;song = <a class="code" href="../../d4/db8/class_music_song_check_tools_rename_thread.html#a8015ea7bf1af6d10b0fbe1f058eef2df">m_datas</a>[index];</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> QFileInfo info(song.<a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html#a6276fa6c1c380477bf9cd6b402f80359">m_path</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                QFile::rename(song.<a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html#a6276fa6c1c380477bf9cd6b402f80359">m_path</a>, QString(<span class="stringliteral">&quot;%1%2%3.%4&quot;</span>).arg(info.absolutePath()).arg(<span class="stringliteral">&quot;/&quot;</span>).arg(song.<a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html#a168970bf05460d03400718d30e8f2268">m_RecommendName</a>).arg(info.suffix()));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                QFile::rename(song.<a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html#a6276fa6c1c380477bf9cd6b402f80359">m_path</a>, QString(<span class="stringliteral">&quot;%1/%2.%3&quot;</span>).arg(info.absolutePath()).arg(song.<a class="code" href="../../de/d90/struct_music_song_check_tools_rename.html#a168970bf05460d03400718d30e8f2268">m_RecommendName</a>).arg(info.suffix()));</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
@@ -263,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_song_html_aa30b5fb6f676a07103eb4588b3cda859"><div class="ttname"><a href="../../d6/de4/class_music_song.html#aa30b5fb6f676a07103eb4588b3cda859">MusicSong::getMusicPath</a></div><div class="ttdeci">QString getMusicPath() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00110">musicsong.h:110</a></div></div>
 <div class="ttc" id="struct_music_song_check_tools_duplicate_html"><div class="ttname"><a href="../../db/d2d/struct_music_song_check_tools_duplicate.html">MusicSongCheckToolsDuplicate</a></div><div class="ttdoc">The class of the song check tools duplicate. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d61/musicsongchecktoolsunit_8h_source.html#l00038">musicsongchecktoolsunit.h:38</a></div></div>
 <div class="ttc" id="struct_music_song_check_tools_rename_html_a6276fa6c1c380477bf9cd6b402f80359"><div class="ttname"><a href="../../de/d90/struct_music_song_check_tools_rename.html#a6276fa6c1c380477bf9cd6b402f80359">MusicSongCheckToolsRename::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d61/musicsongchecktoolsunit_8h_source.html#l00023">musicsongchecktoolsunit.h:23</a></div></div>
-<div class="ttc" id="class_music_abstract_thread_html_afdb18450c4f7729e1d227a76cd30f35a"><div class="ttname"><a href="../../d5/d46/class_music_abstract_thread.html#afdb18450c4f7729e1d227a76cd30f35a">MusicAbstractThread::m_running</a></div><div class="ttdeci">bool m_running</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d97/musicabstractthread_8h_source.html#l00059">musicabstractthread.h:59</a></div></div>
+<div class="ttc" id="class_music_abstract_thread_html_afdb18450c4f7729e1d227a76cd30f35a"><div class="ttname"><a href="../../d5/d46/class_music_abstract_thread.html#afdb18450c4f7729e1d227a76cd30f35a">MusicAbstractThread::m_running</a></div><div class="ttdeci">bool m_running</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d97/musicabstractthread_8h_source.html#l00058">musicabstractthread.h:58</a></div></div>
 <div class="ttc" id="class_music_song_check_tools_duplicate_thread_html_a85eb5c8b5081d3fc6788c180e05fde6a"><div class="ttname"><a href="../../dc/d23/class_music_song_check_tools_duplicate_thread.html#a85eb5c8b5081d3fc6788c180e05fde6a">MusicSongCheckToolsDuplicateThread::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Definition:</b> <a href="../../df/de5/musicsongchecktoolsthread_8cpp_source.html#l00079">musicsongchecktoolsthread.cpp:79</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_adbdfe454ef868a82d774e981e319462c"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#adbdfe454ef868a82d774e981e319462c">MusicSongMeta::read</a></div><div class="ttdeci">bool read(const QString &amp;file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00036">musicsongmeta.cpp:36</a></div></div>
 <div class="ttc" id="class_music_song_check_tools_quality_thread_html_abaf66e545689f1ac1008cd773157e3c8"><div class="ttname"><a href="../../d0/dff/class_music_song_check_tools_quality_thread.html#abaf66e545689f1ac1008cd773157e3c8">MusicSongCheckToolsQualityThread::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Definition:</b> <a href="../../df/de5/musicsongchecktoolsthread_8cpp_source.html#l00136">musicsongchecktoolsthread.cpp:136</a></div></div>
@@ -284,7 +284,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:51:47 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

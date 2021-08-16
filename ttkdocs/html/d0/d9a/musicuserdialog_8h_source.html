@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -114,65 +114,64 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d4/d1d/class_music_user_dialog.html">MusicUserDialog</a>)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d4/d1d/class_music_user_dialog.html">MusicUserDialog</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ~<a class="code" href="../../d4/d1d/class_music_user_dialog.html">MusicUserDialog</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> checkToAutoLogin();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setUserModel(<a class="code" href="../../dd/dda/class_music_user_model.html">MusicUserModel</a> *model);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> userLoginSuccess(<span class="keyword">const</span> <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> &amp;uid, <span class="keyword">const</span> QString &amp;icon);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> userLogin();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> checkUserLogin();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> registerUser();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> checkRegisterUser();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> userForgotPasswd();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> checkUserForgotPasswd();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> changeVerificationCode();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> userComboBoxChanged(<span class="keyword">const</span> QString &amp;uid);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> userEditTextChanged(<span class="keyword">const</span> QString &amp;uid);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> firstStatckWidget();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> secondStatckWidget();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> thirdStatckWidget();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> clearOriginData();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> readFromUserConfig();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">int</span> findUserNameIndex(<span class="keyword">const</span> <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> &amp;uid);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> readFromUserSettings();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> writeToUserConfig();</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> writeToUserSettings();</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">void</span> windowRectChanged(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">  146</a></span>&#160;    Ui::MusicUserDialog *<a class="code" href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">m_ui</a>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">  147</a></span>&#160;    <a class="code" href="../../dd/dda/class_music_user_model.html">MusicUserModel</a> *<a class="code" href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">m_userModel</a>;</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">  148</a></span>&#160;    MusicUserRecords <a class="code" href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">m_records</a>;</div>
-<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">  149</a></span>&#160;    <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> <a class="code" href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">m_userUID</a>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;};</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif // MUSICUSERDIALOG_H</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ~<a class="code" href="../../d4/d1d/class_music_user_dialog.html">MusicUserDialog</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> checkToAutoLogin();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setUserModel(<a class="code" href="../../dd/dda/class_music_user_model.html">MusicUserModel</a> *model);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> userLoginSuccess(<span class="keyword">const</span> <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> &amp;uid, <span class="keyword">const</span> QString &amp;icon);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> userLogin();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> checkUserLogin();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> registerUser();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> checkRegisterUser();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> userForgotPasswd();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> checkUserForgotPasswd();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> changeVerificationCode();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> userComboBoxChanged(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> userEditTextChanged(<span class="keyword">const</span> QString &amp;uid);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> firstStatckWidget();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> secondStatckWidget();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> thirdStatckWidget();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> clearOriginData();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> readFromUserConfig();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">int</span> findUserNameIndex(<span class="keyword">const</span> <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> &amp;uid);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> readFromUserSettings();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> writeToUserConfig();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> writeToUserSettings();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> windowRectChanged(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">  145</a></span>&#160;    Ui::MusicUserDialog *<a class="code" href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">m_ui</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">  146</a></span>&#160;    <a class="code" href="../../dd/dda/class_music_user_model.html">MusicUserModel</a> *<a class="code" href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">m_userModel</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">  147</a></span>&#160;    MusicUserRecords <a class="code" href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">m_records</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">  148</a></span>&#160;    <a class="code" href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a> <a class="code" href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">m_userUID</a>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;};</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif // MUSICUSERDIALOG_H</span></div>
 <div class="ttc" id="musicabstractmovedialog_8h_html"><div class="ttname"><a href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a></div></div>
 <div class="ttc" id="class_music_user_model_html"><div class="ttname"><a href="../../dd/dda/class_music_user_model.html">MusicUserModel</a></div><div class="ttdoc">The class of the user data model. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d09/musicusermodel_8h_source.html#l00030">musicusermodel.h:30</a></div></div>
-<div class="ttc" id="class_music_user_dialog_html_a57b8d0d0c2790a94687963266577b670"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">MusicUserDialog::m_userUID</a></div><div class="ttdeci">MusicUserUIDItem m_userUID</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00149">musicuserdialog.h:149</a></div></div>
+<div class="ttc" id="class_music_user_dialog_html_a57b8d0d0c2790a94687963266577b670"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#a57b8d0d0c2790a94687963266577b670">MusicUserDialog::m_userUID</a></div><div class="ttdeci">MusicUserUIDItem m_userUID</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00148">musicuserdialog.h:148</a></div></div>
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00033">musicapplication.h:33</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
-<div class="ttc" id="class_music_user_dialog_html_ad9e4e83b42e416343b98f1da154ff5e1"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">MusicUserDialog::m_userModel</a></div><div class="ttdeci">MusicUserModel * m_userModel</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00147">musicuserdialog.h:147</a></div></div>
+<div class="ttc" id="class_music_user_dialog_html_ad9e4e83b42e416343b98f1da154ff5e1"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#ad9e4e83b42e416343b98f1da154ff5e1">MusicUserDialog::m_userModel</a></div><div class="ttdeci">MusicUserModel * m_userModel</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00146">musicuserdialog.h:146</a></div></div>
 <div class="ttc" id="musicdatabaseobject_8h_html"><div class="ttname"><a href="../../da/df5/musicdatabaseobject_8h.html">musicdatabaseobject.h</a></div></div>
-<div class="ttc" id="class_music_user_dialog_html_a3971f450750eff0b53d82b3c1fb4be27"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">MusicUserDialog::m_ui</a></div><div class="ttdeci">Ui::MusicUserDialog * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00146">musicuserdialog.h:146</a></div></div>
+<div class="ttc" id="class_music_user_dialog_html_a3971f450750eff0b53d82b3c1fb4be27"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#a3971f450750eff0b53d82b3c1fb4be27">MusicUserDialog::m_ui</a></div><div class="ttdeci">Ui::MusicUserDialog * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00145">musicuserdialog.h:145</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00029">musicabstractmovedialog.h:29</a></div></div>
 <div class="ttc" id="struct_music_user_u_i_d_item_html"><div class="ttname"><a href="../../df/dc7/struct_music_user_u_i_d_item.html">MusicUserUIDItem</a></div><div class="ttdoc">The class of the user uid item. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df5/musicdatabaseobject_8h_source.html#l00043">musicdatabaseobject.h:43</a></div></div>
-<div class="ttc" id="class_music_user_dialog_html_afbe2c4cbe2b54260c64b3c26f5d04ffb"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">MusicUserDialog::m_records</a></div><div class="ttdeci">MusicUserRecords m_records</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00148">musicuserdialog.h:148</a></div></div>
+<div class="ttc" id="class_music_user_dialog_html_afbe2c4cbe2b54260c64b3c26f5d04ffb"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html#afbe2c4cbe2b54260c64b3c26f5d04ffb">MusicUserDialog::m_records</a></div><div class="ttdeci">MusicUserRecords m_records</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00147">musicuserdialog.h:147</a></div></div>
 <div class="ttc" id="class_music_user_dialog_html"><div class="ttname"><a href="../../d4/d1d/class_music_user_dialog.html">MusicUserDialog</a></div><div class="ttdoc">The class of the user dialog. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d9a/musicuserdialog_8h_source.html#l00035">musicuserdialog.h:35</a></div></div>
 <div class="ttc" id="musicuserconfigmanager_8h_html"><div class="ttname"><a href="../../d7/d0c/musicuserconfigmanager_8h.html">musicuserconfigmanager.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:17 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:52:01 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

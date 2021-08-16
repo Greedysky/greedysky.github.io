@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -112,49 +112,48 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html">MusicSongRingtoneMaker</a>)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html">MusicSongRingtoneMaker</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html">MusicSongRingtoneMaker</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> initInputPath();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> initOutputPath();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> playInputSong();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> playRingtone();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> durationChanged(qint64 duration);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> posChanged(qint64 start, qint64 end);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> buttonReleaseChanged(qint64 pos);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> initControlParameter() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> playButtonStateChanged();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">   93</a></span>&#160;    Ui::MusicSongRingtoneMaker *<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">m_ui</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">   94</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">m_playRingtone</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">   95</a></span>&#160;    QString <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">m_inputFilePath</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">   96</a></span>&#160;    <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a> *<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">m_mediaPlayer</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">   97</a></span>&#160;    qint64 m_startPos, <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">m_stopPos</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif // MUSICSONGRINGTONEMAKER_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html">MusicSongRingtoneMaker</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> initInputPath();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> initOutputPath();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> playInputSong();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> playRingtone();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> durationChanged(qint64 duration);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> posChanged(qint64 start, qint64 end);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> buttonReleaseChanged(qint64 pos);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> initControlParameter() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> playButtonStateChanged();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">   92</a></span>&#160;    Ui::MusicSongRingtoneMaker *<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">m_ui</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">   93</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">m_playRingtone</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">   94</a></span>&#160;    QString <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">m_inputFilePath</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">   95</a></span>&#160;    <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a> *<a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">m_mediaPlayer</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">   96</a></span>&#160;    qint64 m_startPos, <a class="code" href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">m_stopPos</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // MUSICSONGRINGTONEMAKER_H</span></div>
 <div class="ttc" id="musicabstractmovedialog_8h_html"><div class="ttname"><a href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a></div></div>
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00033">musicapplication.h:33</a></div></div>
-<div class="ttc" id="class_music_song_ringtone_maker_html_a41c044f87776c6a6e3fc1eb25ec5f427"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">MusicSongRingtoneMaker::m_inputFilePath</a></div><div class="ttdeci">QString m_inputFilePath</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00095">musicsongringtonemakerwidget.h:95</a></div></div>
+<div class="ttc" id="class_music_song_ringtone_maker_html_a41c044f87776c6a6e3fc1eb25ec5f427"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a41c044f87776c6a6e3fc1eb25ec5f427">MusicSongRingtoneMaker::m_inputFilePath</a></div><div class="ttdeci">QString m_inputFilePath</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00094">musicsongringtonemakerwidget.h:94</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
 <div class="ttc" id="class_music_song_ringtone_maker_html"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html">MusicSongRingtoneMaker</a></div><div class="ttdoc">The class of the song ringtone maker widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00033">musicsongringtonemakerwidget.h:33</a></div></div>
-<div class="ttc" id="class_music_song_ringtone_maker_html_abdcec026a6fe3c84811488701b00ab3c"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">MusicSongRingtoneMaker::m_stopPos</a></div><div class="ttdeci">qint64 m_stopPos</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00097">musicsongringtonemakerwidget.h:97</a></div></div>
-<div class="ttc" id="class_music_song_ringtone_maker_html_a50270524f505d923aeb04776a4fcee9c"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">MusicSongRingtoneMaker::m_mediaPlayer</a></div><div class="ttdeci">MusicCoreMPlayer * m_mediaPlayer</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00096">musicsongringtonemakerwidget.h:96</a></div></div>
+<div class="ttc" id="class_music_song_ringtone_maker_html_abdcec026a6fe3c84811488701b00ab3c"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#abdcec026a6fe3c84811488701b00ab3c">MusicSongRingtoneMaker::m_stopPos</a></div><div class="ttdeci">qint64 m_stopPos</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00096">musicsongringtonemakerwidget.h:96</a></div></div>
+<div class="ttc" id="class_music_song_ringtone_maker_html_a50270524f505d923aeb04776a4fcee9c"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a50270524f505d923aeb04776a4fcee9c">MusicSongRingtoneMaker::m_mediaPlayer</a></div><div class="ttdeci">MusicCoreMPlayer * m_mediaPlayer</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00095">musicsongringtonemakerwidget.h:95</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00029">musicabstractmovedialog.h:29</a></div></div>
 <div class="ttc" id="class_music_core_m_player_html"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a></div><div class="ttdoc">The class of the mplayer core. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00031">musiccoremplayer.h:31</a></div></div>
-<div class="ttc" id="class_music_song_ringtone_maker_html_a40adb60e67ef10e28550996b2bad48f0"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">MusicSongRingtoneMaker::m_playRingtone</a></div><div class="ttdeci">bool m_playRingtone</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00094">musicsongringtonemakerwidget.h:94</a></div></div>
-<div class="ttc" id="class_music_song_ringtone_maker_html_aab0504f05f43a0fd6de03659755dd0a8"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">MusicSongRingtoneMaker::m_ui</a></div><div class="ttdeci">Ui::MusicSongRingtoneMaker * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00093">musicsongringtonemakerwidget.h:93</a></div></div>
+<div class="ttc" id="class_music_song_ringtone_maker_html_a40adb60e67ef10e28550996b2bad48f0"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#a40adb60e67ef10e28550996b2bad48f0">MusicSongRingtoneMaker::m_playRingtone</a></div><div class="ttdeci">bool m_playRingtone</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00093">musicsongringtonemakerwidget.h:93</a></div></div>
+<div class="ttc" id="class_music_song_ringtone_maker_html_aab0504f05f43a0fd6de03659755dd0a8"><div class="ttname"><a href="../../d3/de0/class_music_song_ringtone_maker.html#aab0504f05f43a0fd6de03659755dd0a8">MusicSongRingtoneMaker::m_ui</a></div><div class="ttdeci">Ui::MusicSongRingtoneMaker * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d67/musicsongringtonemakerwidget_8h_source.html#l00092">musicsongringtonemakerwidget.h:92</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:16 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:52:00 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

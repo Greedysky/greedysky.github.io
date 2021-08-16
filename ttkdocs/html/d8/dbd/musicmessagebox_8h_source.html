@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -112,38 +112,37 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a>(<span class="keyword">const</span> QString &amp;title, <span class="keyword">const</span> QString &amp;text, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setTitle(<span class="keyword">const</span> QString &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QString title() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    QString text() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> buttonClicked(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> show();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">   83</a></span>&#160;    Ui::MusicMessageBox *<a class="code" href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">m_ui</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">   84</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">m_status</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // MUSICMESSAGEBOX_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ~<a class="code" href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setTitle(<span class="keyword">const</span> QString &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QString title() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QString text() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> buttonClicked(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> show();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">   82</a></span>&#160;    Ui::MusicMessageBox *<a class="code" href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">m_ui</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">   83</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">m_status</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif // MUSICMESSAGEBOX_H</span></div>
 <div class="ttc" id="musicabstractmovedialog_8h_html"><div class="ttname"><a href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a></div></div>
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00033">musicapplication.h:33</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="class_music_message_box_html"><div class="ttname"><a href="../../d8/d39/class_music_message_box.html">MusicMessageBox</a></div><div class="ttdoc">The class of the messagebox widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dbd/musicmessagebox_8h_source.html#l00031">musicmessagebox.h:31</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
-<div class="ttc" id="class_music_message_box_html_a5d063eed675ed72776e7723a32d85787"><div class="ttname"><a href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">MusicMessageBox::m_ui</a></div><div class="ttdeci">Ui::MusicMessageBox * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dbd/musicmessagebox_8h_source.html#l00083">musicmessagebox.h:83</a></div></div>
+<div class="ttc" id="class_music_message_box_html_a5d063eed675ed72776e7723a32d85787"><div class="ttname"><a href="../../d8/d39/class_music_message_box.html#a5d063eed675ed72776e7723a32d85787">MusicMessageBox::m_ui</a></div><div class="ttdeci">Ui::MusicMessageBox * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dbd/musicmessagebox_8h_source.html#l00082">musicmessagebox.h:82</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00029">musicabstractmovedialog.h:29</a></div></div>
-<div class="ttc" id="class_music_message_box_html_abbe26c7529d1cc4fe89cf698d349e94e"><div class="ttname"><a href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">MusicMessageBox::m_status</a></div><div class="ttdeci">int m_status</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dbd/musicmessagebox_8h_source.html#l00084">musicmessagebox.h:84</a></div></div>
+<div class="ttc" id="class_music_message_box_html_abbe26c7529d1cc4fe89cf698d349e94e"><div class="ttname"><a href="../../d8/d39/class_music_message_box.html#abbe26c7529d1cc4fe89cf698d349e94e">MusicMessageBox::m_status</a></div><div class="ttdeci">int m_status</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dbd/musicmessagebox_8h_source.html#l00083">musicmessagebox.h:83</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:51:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

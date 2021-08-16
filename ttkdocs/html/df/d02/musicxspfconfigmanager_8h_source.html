@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -101,12 +101,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d83/musicabstractxml_8h.html">musicabstractxml.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dc0/musicplaylistinterface_8h.html">musicplaylistinterface.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../da/daf/class_music_x_s_p_f_config_manager.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a> : <span class="keyword">public</span> <a class="code" href="../../d7/d53/class_music_abstract_xml.html">MusicAbstractXml</a>, <span class="keyword">public</span> <a class="code" href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../da/daf/class_music_x_s_p_f_config_manager.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a> : <span class="keyword">public</span> <a class="code" href="../../d7/d53/class_music_abstract_xml.html">MusicAbstractXml</a>, <span class="keyword">private</span> <a class="code" href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a>)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/d56/class_music_playlist_interface.html#a71143520c7320d54709f626acc8ea366">readPlaylistData</a>(MusicSongItems &amp;items) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/d56/class_music_playlist_interface.html#a4d366a1d76f3fb19fc6978aece0ef493">writePlaylistData</a>(<span class="keyword">const</span> MusicSongItems &amp;items, <span class="keyword">const</span> QString &amp;path) <span class="keyword">override</span>;</div>
@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_abstract_xml_html"><div class="ttname"><a href="../../d7/d53/class_music_abstract_xml.html">MusicAbstractXml</a></div><div class="ttdoc">The class of the base class of xml interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d83/musicabstractxml_8h_source.html#l00082">musicabstractxml.h:82</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
-<div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
+<div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00055">musicplaylistinterface.h:55</a></div></div>
 <div class="ttc" id="musicabstractxml_8h_html"><div class="ttname"><a href="../../d5/d83/musicabstractxml_8h.html">musicabstractxml.h</a></div></div>
 <div class="ttc" id="class_music_playlist_interface_html_a71143520c7320d54709f626acc8ea366"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html#a71143520c7320d54709f626acc8ea366">MusicPlaylistInterface::readPlaylistData</a></div><div class="ttdeci">virtual bool readPlaylistData(MusicSongItems &amp;items)=0</div></div>
 <div class="ttc" id="class_music_playlist_interface_html_a4d366a1d76f3fb19fc6978aece0ef493"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html#a4d366a1d76f3fb19fc6978aece0ef493">MusicPlaylistInterface::writePlaylistData</a></div><div class="ttdeci">virtual bool writePlaylistData(const MusicSongItems &amp;items, const QString &amp;path)=0</div></div>
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:51:46 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

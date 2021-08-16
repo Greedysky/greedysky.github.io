@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -109,51 +109,50 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ~<a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setFontMargin(<span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setTimerInterval(<span class="keywordtype">int</span> msecond);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> getTimerInterval() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> setFontSize(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> getFontSize() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> setBold(<span class="keywordtype">bool</span> bold);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> bold() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> popup(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> popup(<span class="keyword">const</span> QString &amp;text);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> animationCloseChanged();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> closeAnimation();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">  107</a></span>&#160;    QTimer <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">  108</a></span>&#160;    QFont <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">  109</a></span>&#160;    QPoint <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // MUSICTOASTLABEL_H</span></div>
-<div class="ttc" id="class_music_toast_label_html_afea3fddf87dcca9a551759528b22853a"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">MusicToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00108">musictoastlabel.h:108</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> setFontMargin(<span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> setTimerInterval(<span class="keywordtype">int</span> msecond);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> getTimerInterval() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setFontSize(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> getFontSize() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> setBold(<span class="keywordtype">bool</span> bold);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> bold() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> popup(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> popup(<span class="keyword">const</span> QString &amp;text);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> animationCloseChanged();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> closeAnimation();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">  106</a></span>&#160;    QTimer <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">  107</a></span>&#160;    QFont <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">  108</a></span>&#160;    QPoint <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif // MUSICTOASTLABEL_H</span></div>
+<div class="ttc" id="class_music_toast_label_html_afea3fddf87dcca9a551759528b22853a"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">MusicToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00107">musictoastlabel.h:107</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
 <div class="ttc" id="class_music_toast_label_html"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a></div><div class="ttdoc">The class of the toast widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00029">musictoastlabel.h:29</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a6842b402c6baf72eafd2f2083c73787c"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">MusicToastLabel::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00107">musictoastlabel.h:107</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a6d1deef69f2e031d066e73d226e497ce"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">MusicToastLabel::m_margin</a></div><div class="ttdeci">QPoint m_margin</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00109">musictoastlabel.h:109</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a6842b402c6baf72eafd2f2083c73787c"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">MusicToastLabel::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00106">musictoastlabel.h:106</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a6d1deef69f2e031d066e73d226e497ce"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">MusicToastLabel::m_margin</a></div><div class="ttdeci">QPoint m_margin</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00108">musictoastlabel.h:108</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:15 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:51:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

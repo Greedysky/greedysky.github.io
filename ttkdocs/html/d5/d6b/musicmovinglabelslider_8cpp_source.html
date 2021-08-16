@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -134,40 +134,44 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">m_textLabel</a>-&gt;setText(<a class="code" href="../../dc/d95/class_music_time.html#a36b0b6797beb00f42e3f989ef6bcfd6f">MusicTime::msecTime2LabelJustified</a>(changePos.y()));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">MusicMovingLabelSlider::enterEvent</a>(QEvent *event)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    MusicClickedSlider::enterEvent(event);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#ifndef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">m_textLabel</a>-&gt;show();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">   66</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">MusicMovingLabelSlider::leaveEvent</a>(QEvent *event)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    MusicClickedSlider::leaveEvent(event);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">m_textLabel</a>-&gt;hide();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">   72</a></span>&#160;QPoint <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">MusicMovingLabelSlider::limitLableGeometry</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> z)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    QPoint pt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(0 &lt; x &amp;&amp; x &lt; z)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        pt.setX(y + x);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        pt.setY(qint64(x) * maximum() / z);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span>(x &lt;= 0)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        pt.setX(y);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        pt.setY(0);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span>(x &gt;= z)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        pt.setX(y + z);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        pt.setY(maximum());</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> pt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">MusicMovingLabelSlider::enterEvent</a>(QEnterEvent *event)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">MusicMovingLabelSlider::enterEvent</a>(QEvent *event)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    MusicClickedSlider::enterEvent(event);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#ifndef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    m_textLabel-&gt;show();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">MusicMovingLabelSlider::leaveEvent</a>(QEvent *event)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    MusicClickedSlider::leaveEvent(event);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">m_textLabel</a>-&gt;hide();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">   76</a></span>&#160;QPoint <a class="code" href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">MusicMovingLabelSlider::limitLableGeometry</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> z)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    QPoint pt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>(0 &lt; x &amp;&amp; x &lt; z)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        pt.setX(y + x);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        pt.setY(qint64(x) * maximum() / z);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(x &lt;= 0)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        pt.setX(y);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        pt.setY(0);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(x &gt;= z)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        pt.setX(y + z);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        pt.setY(maximum());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> pt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="ttc" id="musicuiobject_8h_html"><div class="ttname"><a href="../../d0/deb/musicuiobject_8h.html">musicuiobject.h</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="class_music_moving_label_slider_html"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html">MusicMovingLabelSlider</a></div><div class="ttdoc">The class of the slider that can show such as tooltip. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d52/musicmovinglabelslider_8h_source.html#l00028">musicmovinglabelslider.h:28</a></div></div>
@@ -175,12 +179,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_moving_clicked_slider_html_a91d2701632ad11f96ecc3555a137886c"><div class="ttname"><a href="../../d5/d96/class_music_moving_clicked_slider.html#a91d2701632ad11f96ecc3555a137886c">MusicMovingClickedSlider::mouseMoveEvent</a></div><div class="ttdeci">virtual void mouseMoveEvent(QMouseEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d56/musicmovingclickedslider_8cpp_source.html#l00038">musicmovingclickedslider.cpp:38</a></div></div>
 <div class="ttc" id="musictime_8h_html"><div class="ttname"><a href="../../d9/dcc/musictime_8h.html">musictime.h</a></div></div>
 <div class="ttc" id="class_music_moving_label_slider_html_ac46a3d4f6b7302c77efaf4d33db50e18"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#ac46a3d4f6b7302c77efaf4d33db50e18">MusicMovingLabelSlider::~MusicMovingLabelSlider</a></div><div class="ttdeci">~MusicMovingLabelSlider()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00022">musicmovinglabelslider.cpp:22</a></div></div>
-<div class="ttc" id="class_music_moving_label_slider_html_a29eff7f7105605693e41f146a2476a51"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">MusicMovingLabelSlider::leaveEvent</a></div><div class="ttdeci">virtual void leaveEvent(QEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00066">musicmovinglabelslider.cpp:66</a></div></div>
-<div class="ttc" id="class_music_moving_label_slider_html_a84f9421732e6612e0447c7f9221a3dc6"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">MusicMovingLabelSlider::enterEvent</a></div><div class="ttdeci">virtual void enterEvent(QEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00058">musicmovinglabelslider.cpp:58</a></div></div>
+<div class="ttc" id="class_music_moving_label_slider_html_a29eff7f7105605693e41f146a2476a51"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a29eff7f7105605693e41f146a2476a51">MusicMovingLabelSlider::leaveEvent</a></div><div class="ttdeci">virtual void leaveEvent(QEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00070">musicmovinglabelslider.cpp:70</a></div></div>
+<div class="ttc" id="class_music_moving_label_slider_html_a84f9421732e6612e0447c7f9221a3dc6"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a84f9421732e6612e0447c7f9221a3dc6">MusicMovingLabelSlider::enterEvent</a></div><div class="ttdeci">virtual void enterEvent(QEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00061">musicmovinglabelslider.cpp:61</a></div></div>
 <div class="ttc" id="class_music_moving_clicked_slider_html_a88db88cf56be80eff9a46fb619130a17"><div class="ttname"><a href="../../d5/d96/class_music_moving_clicked_slider.html#a88db88cf56be80eff9a46fb619130a17">MusicMovingClickedSlider::m_orientation</a></div><div class="ttdeci">Qt::Orientation m_orientation</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/da9/musicmovingclickedslider_8h_source.html#l00071">musicmovingclickedslider.h:71</a></div></div>
 <div class="ttc" id="class_music_moving_clicked_slider_html_ad1ed83d2cda9f9a8ff0b026ca5c2880e"><div class="ttname"><a href="../../d5/d96/class_music_moving_clicked_slider.html#ad1ed83d2cda9f9a8ff0b026ca5c2880e">MusicMovingClickedSlider::mousePressEvent</a></div><div class="ttdeci">virtual void mousePressEvent(QMouseEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d56/musicmovingclickedslider_8cpp_source.html#l00028">musicmovingclickedslider.cpp:28</a></div></div>
-<div class="ttc" id="class_music_moving_label_slider_html_a224616999fb89285e834a19140df2327"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">MusicMovingLabelSlider::limitLableGeometry</a></div><div class="ttdeci">QPoint limitLableGeometry(int x, int y, int z)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00072">musicmovinglabelslider.cpp:72</a></div></div>
-<div class="ttc" id="class_music_moving_label_slider_html_a7c1bc236b1f16cec9a9408b95540e794"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">MusicMovingLabelSlider::m_textLabel</a></div><div class="ttdeci">QLabel * m_textLabel</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d52/musicmovinglabelslider_8h_source.html#l00057">musicmovinglabelslider.h:57</a></div></div>
+<div class="ttc" id="class_music_moving_label_slider_html_a224616999fb89285e834a19140df2327"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a224616999fb89285e834a19140df2327">MusicMovingLabelSlider::limitLableGeometry</a></div><div class="ttdeci">QPoint limitLableGeometry(int x, int y, int z)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00076">musicmovinglabelslider.cpp:76</a></div></div>
+<div class="ttc" id="class_music_moving_label_slider_html_a7c1bc236b1f16cec9a9408b95540e794"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a7c1bc236b1f16cec9a9408b95540e794">MusicMovingLabelSlider::m_textLabel</a></div><div class="ttdeci">QLabel * m_textLabel</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d52/musicmovinglabelslider_8h_source.html#l00060">musicmovinglabelslider.h:60</a></div></div>
 <div class="ttc" id="class_music_moving_label_slider_html_a4392ad1492b0e47d7b1875ee5c1786c6"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#a4392ad1492b0e47d7b1875ee5c1786c6">MusicMovingLabelSlider::mouseMoveEvent</a></div><div class="ttdeci">virtual void mouseMoveEvent(QMouseEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00036">musicmovinglabelslider.cpp:36</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_abc735349d9745340e505cf0c387700ee"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#abc735349d9745340e505cf0c387700ee">MusicUIObject::MQSSLabelStyle01</a></div><div class="ttdeci">const QString MQSSLabelStyle01</div><div class="ttdoc">Label. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00355">musicuiobject.h:355</a></div></div>
 <div class="ttc" id="class_music_moving_label_slider_html_aaa32bd89670596d09189307872320a53"><div class="ttname"><a href="../../da/dd3/class_music_moving_label_slider.html#aaa32bd89670596d09189307872320a53">MusicMovingLabelSlider::mousePressEvent</a></div><div class="ttdeci">virtual void mousePressEvent(QMouseEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/musicmovinglabelslider_8cpp_source.html#l00027">musicmovinglabelslider.cpp:27</a></div></div>
@@ -190,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:51:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 Protected Slots</h2></td></tr>
 <tr class="memitem:aab99969d2be24d6079216337ae711b44"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2e/class_q_sync_data_interface.html#aab99969d2be24d6079216337ae711b44">receiveDataFromServer</a> ()=0</td></tr>
 <tr class="separator:aab99969d2be24d6079216337ae711b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a351b23e4b0ee2a6d242c848b46249a6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2e/class_q_sync_data_interface.html#a351b23e4b0ee2a6d242c848b46249a6f">handleError</a> (QNetworkReply::NetworkError error)</td></tr>
-<tr class="separator:a351b23e4b0ee2a6d242c848b46249a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad571dcc1d7a5441d82f2da2ca9b419aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2e/class_q_sync_data_interface.html#ad571dcc1d7a5441d82f2da2ca9b419aa">replyError</a> (QNetworkReply::NetworkError error)</td></tr>
+<tr class="separator:ad571dcc1d7a5441d82f2da2ca9b419aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -210,37 +210,6 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a351b23e4b0ee2a6d242c848b46249a6f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QSyncDataInterface::handleError </td>
-          <td>(</td>
-          <td class="paramtype">QNetworkReply::NetworkError&#160;</td>
-          <td class="paramname"><em>error</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Get handle error. </p>
-
-<p>Definition at line <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html">qsyncdatainterface.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00032">TTK_LOGGER_ERROR</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00010">QSyncDeleteData::deleteDataOperator()</a>, <a class="el" href="../../df/d23/qsyncdownloaddata_8cpp_source.html#l00030">QSyncDownloadData::downloadDataOperator()</a>, <a class="el" href="../../d5/ddd/qsynclistdata_8cpp_source.html#l00013">QSyncListData::listDataOperator()</a>, and <a class="el" href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00028">QSyncUploadData::uploadDataOperator()</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a29acd1a4b27ec5cbb18f9e757212e370"></a>
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +262,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html">qsyncdatainterface.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/d23/qsyncdownloaddata_8cpp_source.html#l00074">QSyncDownloadData::getDownloadUrl()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d23/qsyncdownloaddata_8cpp_source.html#l00078">QSyncDownloadData::getDownloadUrl()</a>.</p>
 
 </div>
 </div>
@@ -321,6 +290,37 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad571dcc1d7a5441d82f2da2ca9b419aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QSyncDataInterface::replyError </td>
+          <td>(</td>
+          <td class="paramtype">QNetworkReply::NetworkError&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get handle error. </p>
+
+<p>Definition at line <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html">qsyncdatainterface.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00038">TTK_LOGGER_ERROR</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00010">QSyncDeleteData::deleteDataOperator()</a>, <a class="el" href="../../df/d23/qsyncdownloaddata_8cpp_source.html#l00030">QSyncDownloadData::downloadDataOperator()</a>, <a class="el" href="../../d5/ddd/qsynclistdata_8cpp_source.html#l00013">QSyncListData::listDataOperator()</a>, and <a class="el" href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00028">QSyncUploadData::uploadDataOperator()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>TTKThirdParty/TTKExtras/qsync/<a class="el" href="../../d1/dfe/qsyncdatainterface_8h_source.html">qsyncdatainterface.h</a></li>
 <li>TTKThirdParty/TTKExtras/qsync/<a class="el" href="../../db/da9/qsyncdatainterface_8cpp_source.html">qsyncdatainterface.cpp</a></li>
@@ -328,7 +328,7 @@ Protected Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:29:09 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:53:06 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

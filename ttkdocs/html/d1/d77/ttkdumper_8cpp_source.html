@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.1.0</span>
+   &#160;<span id="projectnumber">2.15.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,15 +84,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d6/d54/class_t_t_k_dumper.html#a618ccffe1d7df291750fa983bf749b41">    5</a></span>&#160;<a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a618ccffe1d7df291750fa983bf749b41">TTKDumper::TTKDumper</a>()</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a7dbe788b27fe6083cb7ada8318cac58a">m_winDump</a> = <span class="keyword">new</span> MiniDumper(L<span class="stringliteral">&quot;TTK&quot;</span>, <a class="code" href="../../d4/da6/ttkversion_8h.html#a1fbd84811eeba4582f29af54d15ab15b">TTKMUSIC_VERSION_WSTR</a>);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a341ed6ce61fe1256e6faffde9700d553">m_dump</a> = <span class="keyword">new</span> MiniDumper(L<span class="stringliteral">&quot;TTK&quot;</span>, <a class="code" href="../../d4/da6/ttkversion_8h.html#a1fbd84811eeba4582f29af54d15ab15b">TTKMUSIC_VERSION_WSTR</a>);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a7dbe788b27fe6083cb7ada8318cac58a">m_winDump</a> = <span class="keyword">new</span> MiniDumper();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a341ed6ce61fe1256e6faffde9700d553">m_dump</a> = <span class="keyword">new</span> MiniDumper();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d6/d54/class_t_t_k_dumper.html#a16b436de9a8caaa56dcf158d01d9cf40">   14</a></span>&#160;<a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a16b436de9a8caaa56dcf158d01d9cf40">TTKDumper::~TTKDumper</a>()</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a7dbe788b27fe6083cb7ada8318cac58a">m_winDump</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#a341ed6ce61fe1256e6faffde9700d553">m_dump</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a>()</div>
@@ -101,15 +101,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_dumper_html_a16b436de9a8caaa56dcf158d01d9cf40"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a16b436de9a8caaa56dcf158d01d9cf40">TTKDumper::~TTKDumper</a></div><div class="ttdeci">~TTKDumper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00014">ttkdumper.cpp:14</a></div></div>
 <div class="ttc" id="minidumper_8h_html"><div class="ttname"><a href="../../dd/d6f/minidumper_8h.html">minidumper.h</a></div></div>
 <div class="ttc" id="ttkversion_8h_html"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a></div></div>
-<div class="ttc" id="class_t_t_k_dumper_html_a7dbe788b27fe6083cb7ada8318cac58a"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a7dbe788b27fe6083cb7ada8318cac58a">TTKDumper::m_winDump</a></div><div class="ttdeci">MiniDumper * m_winDump</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d84/ttkdumper_8h_source.html#l00044">ttkdumper.h:44</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html_a618ccffe1d7df291750fa983bf749b41"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a618ccffe1d7df291750fa983bf749b41">TTKDumper::TTKDumper</a></div><div class="ttdeci">TTKDumper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00005">ttkdumper.cpp:5</a></div></div>
+<div class="ttc" id="class_t_t_k_dumper_html_a341ed6ce61fe1256e6faffde9700d553"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a341ed6ce61fe1256e6faffde9700d553">TTKDumper::m_dump</a></div><div class="ttdeci">MiniDumper * m_dump</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d84/ttkdumper_8h_source.html#l00044">ttkdumper.h:44</a></div></div>
 <div class="ttc" id="ttkversion_8h_html_a1fbd84811eeba4582f29af54d15ab15b"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#a1fbd84811eeba4582f29af54d15ab15b">TTKMUSIC_VERSION_WSTR</a></div><div class="ttdeci">#define TTKMUSIC_VERSION_WSTR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00145">ttkversion.h:145</a></div></div>
 <div class="ttc" id="ttkdumper_8h_html"><div class="ttname"><a href="../../d5/d84/ttkdumper_8h.html">ttkdumper.h</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html_acd9238a8e12a64c30cfbad7384fbcd51"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00019">ttkdumper.cpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 27 2021 13:28:19 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 16 2021 22:52:09 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
