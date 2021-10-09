@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ string 类详解 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记得小编还在C语言里摸爬滚打的时候，对字符串的处理一直有种莫名的恐惧，这里指针偏移错了，那里字符串拷贝越界等等。学习了C++string类以后，发现原来字符串处理可以这么简单。那么本文会带领大家回顾一下string类的相关操作，查缺补漏。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ string 类详解">
+<meta property="og:url" content="http://greedysky.github.io/2020/03/28/C++ string 类详解/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="记得小编还在C语言里摸爬滚打的时候，对字符串的处理一直有种莫名的恐惧，这里指针偏移错了，那里字符串拷贝越界等等。学习了C++string类以后，发现原来字符串处理可以这么简单。那么本文会带领大家回顾一下string类的相关操作，查缺补漏。">
+<meta property="og:image" content="http://greedysky.github.io/image/63/63_1.png">
+<meta property="og:image" content="http://greedysky.github.io/image/63/63_2.png">
+<meta property="og:image" content="http://greedysky.github.io/image/63/63_3.png">
+<meta property="og:updated_time" content="2020-03-28T09:25:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ string 类详解">
+<meta name="twitter:description" content="记得小编还在C语言里摸爬滚打的时候，对字符串的处理一直有种莫名的恐惧，这里指针偏移错了，那里字符串拷贝越界等等。学习了C++string类以后，发现原来字符串处理可以这么简单。那么本文会带领大家回顾一下string类的相关操作，查缺补漏。">
+<meta name="twitter:image" content="http://greedysky.github.io/image/63/63_1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl facebook" target="_blank" href="#" title="facebook">facebook</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 12.86px;">Android</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 18.57px;">C++11</a> <a href="/tags/C-17/" style="font-size: 14.29px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.86px;">C++20</a> <a href="/tags/C语言/" style="font-size: 15.71px;">C语言</a> <a href="/tags/DICOM/" style="font-size: 10px;">DICOM</a> <a href="/tags/MFC/" style="font-size: 11.43px;">MFC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Qt/" style="font-size: 14.29px;">Qt</a> <a href="/tags/二叉树/" style="font-size: 11.43px;">二叉树</a> <a href="/tags/图像处理/" style="font-size: 11.43px;">图像处理</a> <a href="/tags/幽默冷笑/" style="font-size: 12.86px;">幽默冷笑</a> <a href="/tags/情感/" style="font-size: 17.14px;">情感</a> <a href="/tags/有趣精选/" style="font-size: 17.14px;">有趣精选</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/英文/" style="font-size: 14.29px;">英文</a> <a href="/tags/诗歌/" style="font-size: 14.29px;">诗歌</a> <a href="/tags/调试技术/" style="font-size: 10px;">调试技术</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="facebook" target="_blank" href="#" title="facebook">facebook</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++ string 类详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/03/28/C++ string 类详解/" class="article-date">
+      <time datetime="2020-03-28T08:46:20.000Z" itemprop="datePublished">2020-03-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ string 类详解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;字符串是存储在内存的连续字节中的一系列字符。C++ 处理字符串的方式有两种，一种来自 C 语言，常被称为 C-风格字符串，另一种是基于 string 类库的字符串处理方式。C 风格字符串的处理可以参考 <a href="https://www.cnblogs.com/tongye/p/10688941.html" target="_blank" rel="external">https://www.cnblogs.com/tongye/p/10688941.html</a> ，本文着重介绍 string 类库的使用。</p>
+<h2 id="string-类简介"><a href="#string-类简介" class="headerlink" title="string 类简介"></a><strong>string 类简介</strong></h2><p>&#160; &#160; &#160; &#160;C++ 中提供了专门的头文件 string（注意不是 string.h，这个是 C 风格字符串相关函数的头文件），来支持 string 类型。string 类定义隐藏了字符串的数组性质，让我们可以像处理普通变量那样处理字符串。string 对象和字符数组之间的主要区别是：可以将 string 对象声明为简单变量，而不是数组。</p>
+<h3 id="string-类几种常见的构造函数"><a href="#string-类几种常见的构造函数" class="headerlink" title="string 类几种常见的构造函数"></a><strong>string 类几种常见的构造函数</strong></h3><p>&#160; &#160; &#160; &#160;1）string(const char *s) ：将 string 对象初始化为 s 指向的字符串<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello!"</span>)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;2）string(size_type n,char c) ：创建一个包含 n 个元素的 string 对象，其中每个元素都被初始化为字符 c<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="number">10</span>,<span class="string">'a'</span>)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;3）string(const string &amp;str) ：将一个 string 对象初始化为 string 对象 str（复制构造函数）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"hello!"</span>)</span></span>;</div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(str1)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;4）string() ：创建一个默认的 string 对象，长度为 0（默认构造函数）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str; 　　　　<span class="comment">// 创建一个空的 string 对象</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;string 类的设计允许程序自动处理 string 的大小，因此，上述代码创建了一个长度为 0 的string 对象，但是向 str 中写入数据时，程序会自动调整 str 的长度。因此，与使用数组相比，使用 string 对象更方便，也更安全。</p>
+<h3 id="用-C-语言风格初始化-string-对象"><a href="#用-C-语言风格初始化-string-对象" class="headerlink" title="用 C 语言风格初始化 string 对象"></a><strong>用 C 语言风格初始化 string 对象</strong></h3><p>C++ 允许使用 C 语言风格来初始化 string 对象：<br>&#160; &#160; &#160; &#160;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str = <span class="string">"hello!"</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="获取-string-对象的长度"><a href="#获取-string-对象的长度" class="headerlink" title="获取 string 对象的长度"></a><strong>获取 string 对象的长度</strong></h2><p>&#160; &#160; &#160; &#160;在 C 语言中，使用 strlen 函数获取字符串的长度。在 C++ 中，可以使用 string.size() 函数或 string.length() 函数来获得 string 对象的长度。在 C++ 标准库中，两者的源代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">size_type   <span class="number">__</span><span class="function">CLR_OR_THIS_CALL   <span class="title">length</span><span class="params">()</span>   <span class="keyword">const</span>   </span></div><div class="line">&#123; <span class="comment">//   return   length   of   sequence</span></div><div class="line"><span class="keyword">return</span>   (<span class="number">_</span>Mysize);</div><div class="line">&#125;</div><div class="line"></div><div class="line">size_type   <span class="number">__</span><span class="function">CLR_OR_THIS_CALL   <span class="title">size</span><span class="params">()</span>   <span class="keyword">const</span>   </span></div><div class="line">&#123; <span class="comment">//   return   length   of   sequence</span></div><div class="line"><span class="keyword">return</span>   (<span class="number">_</span>Mysize);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;可见，这两个方法是完全一样的，并没有区别。length() 方法是 C 语言习惯保留的，size() 方法则是为了兼容 STL 容器而引入的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</div><div class="line"><span class="keyword">int</span> strLen1 = str.length();</div><div class="line"><span class="keyword">int</span> strLen2 = str.size();</div></pre></td></tr></table></figure></p>
+<h2 id="复制-string-对象"><a href="#复制-string-对象" class="headerlink" title="复制 string 对象"></a><strong>复制 string 对象</strong></h2><p>&#160; &#160; &#160; &#160;在 C 语言中，使用 strcpy、strncpy 函数来实现字符串的复制。在 C++ 中则方便很多，可以直接将一个 string 对象赋值给另一个 string 对象，即：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</div><div class="line"><span class="built_in">string</span> str2;</div><div class="line">str2 = str1;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;由于 string 类会自动调整对象的大小，因此不需要担心目标数组不够大的问题。</p>
+<h2 id="string-对象的拼接和附加"><a href="#string-对象的拼接和附加" class="headerlink" title="string 对象的拼接和附加"></a><strong>string 对象的拼接和附加</strong></h2><p>&#160; &#160; &#160; &#160;在 C 语言中，使用 strcat、strncat 函数来进行字符串拼接操作。在 C++ 中也有多种方法来实现字符串拼接和附加操作：</p>
+<h3 id="使用-操作符拼接两个字符串"><a href="#使用-操作符拼接两个字符串" class="headerlink" title="使用 + 操作符拼接两个字符串"></a><strong>使用 + 操作符拼接两个字符串</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"hello "</span>)</span></span>;</div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(<span class="string">"world!"</span>)</span></span>;</div><div class="line"><span class="built_in">string</span> str3 = str1 + str2;</div></pre></td></tr></table></figure>
+<h3 id="使用-操作符在字符串后面附加内容"><a href="#使用-操作符在字符串后面附加内容" class="headerlink" title="使用 += 操作符在字符串后面附加内容"></a><strong>使用 += 操作符在字符串后面附加内容</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"hello "</span>)</span></span>;</div><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(<span class="string">"world!\n"</span>)</span></span>;</div><div class="line"></div><div class="line">str1 += str2;</div><div class="line">str1 += <span class="string">"nice job\n"</span>;</div><div class="line">str1 += <span class="string">'a'</span>;</div></pre></td></tr></table></figure>
+<h3 id="使用-string-append-函数"><a href="#使用-string-append-函数" class="headerlink" title="使用 string.append() 函数"></a><strong>使用 string.append() 函数</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str1 = <span class="string">"hello,world!"</span>;</div><div class="line"><span class="built_in">string</span> str2 = <span class="string">"HELLO,WORLD!"</span>;</div><div class="line">    </div><div class="line">str1.append(str2);</div><div class="line">str1.append(<span class="string">"C string"</span>);</div></pre></td></tr></table></figure>
+<h3 id="使用-string-push-back-函数"><a href="#使用-string-push-back-函数" class="headerlink" title="使用 string.push_back() 函数"></a><strong>使用 string.push_back() 函数</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello"</span>)</span></span>;</div><div class="line">str.push_back(<span class="string">'a'</span>);</div></pre></td></tr></table></figure>
+<h2 id="string-对象的比较"><a href="#string-对象的比较" class="headerlink" title="string 对象的比较"></a><strong>string 对象的比较</strong></h2><p>&#160; &#160; &#160; &#160;在 C 语言中，使用 strcmp、strncmp 函数来进行字符串的比较。在 C++ 中，由于将 string 对象声明为了简单变量，故而对字符串的比较操作十分简单了，直接使用关系运算符（==、!=、&lt;、&lt;=、&gt;、&gt;=）即可：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"hello"</span>)</span></span>;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(<span class="string">"hello"</span>)</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (str1 == str2)</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"str1 = str2"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (str1 &lt; str2)</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"str1 &lt; str2"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"str1 &gt; str2"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;当然，也可以使用类似 strcmp 的函数来进行 string 对象的比较，string 类提供的是 string.compare() 方法，函数原型如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp;str)</span> <span class="keyword">const</span></span>;</div><div class="line"><span class="keyword">int</span> compare（<span class="keyword">size_t</span> pos，<span class="keyword">size_t</span> len，<span class="keyword">const</span> <span class="built_in">string</span>&amp;str）<span class="keyword">const</span>;　　　　<span class="comment">// 参数 pos 为比较字符串中第一个字符的位置，len 为比较字符串的长度</span></div><div class="line"><span class="keyword">int</span> compare（<span class="keyword">size_t</span> pos，<span class="keyword">size_t</span> len，<span class="keyword">const</span> <span class="built_in">string</span>&amp;str, <span class="keyword">size_t</span> subpos，<span class="keyword">size_t</span> sublen）<span class="keyword">const</span>;</div><div class="line"><span class="keyword">int</span> compare（<span class="keyword">const</span> <span class="keyword">char</span> * s）<span class="keyword">const</span>;</div><div class="line"><span class="keyword">int</span> compare（<span class="keyword">size_t</span> pos，<span class="keyword">size_t</span> len，<span class="keyword">const</span> <span class="keyword">char</span> * s）<span class="keyword">const</span>;</div><div class="line"><span class="keyword">int</span> compare（<span class="keyword">size_t</span> pos，<span class="keyword">size_t</span> len，<span class="keyword">const</span> <span class="keyword">char</span> * s，<span class="keyword">size_t</span> n）<span class="keyword">const</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;compare 方法的返回值如下：<br>&#160; &#160; &#160; &#160;1）返回 0，表示相等；<br>&#160; &#160; &#160; &#160;2）返回结果小于 0，表示比较字符串中第一个不匹配的字符比源字符串小，或者所有字符都匹配但是比较字符串比源字符串短；<br>&#160; &#160; &#160; &#160;3）返回结果大于 0，表示比较字符串中第一个不匹配的字符比源字符串大，或者所有字符都匹配但是比较字符串比源字符串长。</p>
+<h2 id="使用-string-substr-函数来获取子串"><a href="#使用-string-substr-函数来获取子串" class="headerlink" title="使用 string.substr() 函数来获取子串"></a><strong>使用 string.substr() 函数来获取子串</strong></h2><p>&#160; &#160; &#160; &#160;可以使用 string.substr() 函数来获取子串，string.substr() 函数的定义如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> substr（<span class="keyword">size_t</span> pos = <span class="number">0</span>，<span class="keyword">size_t</span> len = npos）<span class="keyword">const</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;其中，pos 是子字符串的起始位置（索引，第一个字符的索引为 0），len 是子串的长度。这个函数的功能是：复制一个 string 对象中从 pos 处开始的 len 个字符到 string 对象 substr 中去，并返回 substr。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</div><div class="line"><span class="built_in">string</span> subStr = str.substr(<span class="number">3</span>,<span class="number">5</span>);</div><div class="line"><span class="built_in">cout</span> &lt;&lt; subStr &lt;&lt; <span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码的输出结果为：”lo,Wo”。</p>
+<h2 id="访问-string-字符串的元素"><a href="#访问-string-字符串的元素" class="headerlink" title="访问 string 字符串的元素"></a><strong>访问 string 字符串的元素</strong></h2><p>&#160; &#160; &#160; &#160;可以像 C 语言中一样，将 string 对象当做一个数组，然后使用数组下标的方式来访问字符串中的元素；也可以使用 string.at(index) 的方式来访问元素（索引号从 0 开始）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; str[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;　　　　　　<span class="comment">// 使用数组下标的方式访问 string 字符串的元素</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; str.at(<span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;　　　　 <span class="comment">// 使用 at 索引访问 string 字符串的元素</span></div></pre></td></tr></table></figure></p>
+<h2 id="string-对象的查找操作"><a href="#string-对象的查找操作" class="headerlink" title="string 对象的查找操作"></a><strong>string 对象的查找操作</strong></h2><h3 id="使用-string-find-方法查找字符"><a href="#使用-string-find-方法查找字符" class="headerlink" title="使用 string.find() 方法查找字符"></a><strong>使用 string.find() 方法查找字符</strong></h3><p>&#160; &#160; &#160; &#160;find 方法的函数原型如下：<br>&#160; &#160; &#160; &#160;1）从字符串的 pos 位置开始（若不指定 pos 的值，则默认从索引 0 处开始），查找子字符串 str。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回 string::npos：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">size_type <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, size_type pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;2）从字符串的 pos 位置开始（若不指定 pos 的值，则默认从索引 0 处开始），查找子字符串 s。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回 string::npos：　　<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">size_type <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, size_type pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;3）从字符串的 pos 位置开始（若不指定 pos 的值，则默认从索引 0 处开始），查找 s 的前 n 个字符组成的子字符串。如果找到，则返回该子字符串首次出现时其首字符的索引；否则，返回 string::npos：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">size_type <span class="title">find</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s, size_type pos, size_type n)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;4）从字符串的 pos 位置开始（若不指定 pos 的值，则默认从索引 0 处开始），查找字符 ch 。如果找到，则返回该字符首次出现的位置；否则，返回 string::npos：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">size_type <span class="title">find</span> <span class="params">(<span class="keyword">char</span> ch, size_type pos = <span class="number">0</span>)</span> <span class="keyword">const</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;举个查找子字符串的例子（查找字符的代码与这一样，只需要将 find 函数的参数换成字符即可）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"cat,dog,cat,pig,little cat,hotdog,little pig,angry dog"</span>)</span></span>;</div><div class="line">    <span class="keyword">size_t</span> catPos = str.find(<span class="string">"cat"</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (catPos == <span class="built_in">string</span>::npos) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"没有找到字符串\n"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (catPos != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"在索引 "</span> &lt;&lt; catPos &lt;&lt; <span class="string">" 处找到字符串"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        catPos = str.find(<span class="string">"cat"</span>, catPos + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;程序输出结果如下：<br><img src="/image/63/63_1.png" alt="demo"> </p>
+<h3 id="string-rfind"><a href="#string-rfind" class="headerlink" title="string.rfind()"></a><strong>string.rfind()</strong></h3><p>&#160; &#160; &#160; &#160;string.rfind() 与 string.find() 方法类似，只是查找顺序不一样， string.rfind() 是从指定位置 pos （默认为字符串末尾）开始向前查找，直到字符串的首部，并返回第一次查找到匹配项时匹配项首字符的索引。换句话说，就是查找子字符串或字符最后一次出现的位置。还是以上面的程序为例，稍作修改：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"cat,dog,cat,pig,little cat,hotdog,little pig,angry dog"</span>)</span></span>;</div><div class="line">    <span class="keyword">size_t</span> catPos = str.rfind(<span class="string">"cat"</span>,str.length()<span class="number">-1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (catPos == <span class="built_in">string</span>::npos) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"没有找到字符串\n"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (catPos != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"在索引 "</span> &lt;&lt; catPos &lt;&lt; <span class="string">" 处找到字符串"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        catPos = str.rfind(<span class="string">"cat"</span>, catPos - <span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (catPos == <span class="number">0</span>) &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"在索引 "</span> &lt;&lt; catPos &lt;&lt; <span class="string">" 处找到字符串"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;程序输出结果如下：<br><img src="/image/63/63_2.png" alt="demo"><br>&#160; &#160; &#160; &#160;可以看到，rfind 方法是从字符串末开始查找的。</p>
+<h3 id="string-find-first-of"><a href="#string-find-first-of" class="headerlink" title="string.find_first_of()"></a><strong>string.find_first_of()</strong></h3><p>&#160; &#160; &#160; &#160;string.find_first_of() 方法在字符串中从指定位置开始向后（默认为索引 0 处）查找参数中任何一个字符首次出现的位置。举个例子说明：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"cat,dog,cat,pig,little cat,hotdog,little pig,angry dog"</span>)</span></span>;</div><div class="line">    <span class="keyword">size_t</span> pos = str.find_first_of(<span class="string">"zywfgat"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (pos == <span class="built_in">string</span>::npos) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"没有匹配到\n"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"在索引 "</span> &lt;&lt; pos &lt;&lt; <span class="string">" 处匹配到"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160; 程序输出结果是：在索引 1 处匹配到。所查找的字符串 zywfgat 中，第一次出现在字符串 str 中的字符是 ‘a’，该字符在 str 中的索引是 1.</p>
+<h3 id="string-find-last-of"><a href="#string-find-last-of" class="headerlink" title="string.find_last_of()"></a><strong>string.find_last_of()</strong></h3><p>&#160; &#160; &#160; &#160;string.find_last_of() 方法在字符串中查找参数中任何一个字符最后一次出现的位置（也就是从指定位置开始往前查找，第一个出现的位置）。</p>
+<h3 id="string-find-first-not-of"><a href="#string-find-first-not-of" class="headerlink" title="string.find_first_not_of()"></a><strong>string.find_first_not_of()</strong></h3><p>&#160; &#160; &#160; &#160;string.find_first_not_of() 方法在字符串中查找第一个不包含在参数中的字符。</p>
+<h3 id="string-find-last-not-of"><a href="#string-find-last-not-of" class="headerlink" title="string.find_last_not_of()"></a><strong>string.find_last_not_of()</strong></h3><p>&#160; &#160; &#160; &#160;string.find_last_not_of() 方法在字符串中查找最后一个不包含在参数中的字符（从指定位置开始往前查找，第一个不包含在参数中的字符）。</p>
+<h2 id="string-对象的插入和删除操作"><a href="#string-对象的插入和删除操作" class="headerlink" title="string 对象的插入和删除操作"></a><strong>string 对象的插入和删除操作</strong></h2><h3 id="使用-string-insert-进行插入操作"><a href="#使用-string-insert-进行插入操作" class="headerlink" title="使用 string.insert() 进行插入操作"></a><strong>使用 string.insert() 进行插入操作</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span>＆insert（<span class="keyword">size_t</span> pos，<span class="keyword">const</span> <span class="built_in">string</span>＆str）;　　　<span class="comment">// 在位置 pos 处插入字符串 str</span></div><div class="line"><span class="built_in">string</span>＆insert（<span class="keyword">size_t</span> pos，<span class="keyword">const</span> <span class="built_in">string</span>＆str，<span class="keyword">size_t</span> subpos，<span class="keyword">size_t</span> sublen）;　<span class="comment">// 在位置 pos 处插入字符串 str 的从位置 subpos 处开始的 sublen 个字符</span></div><div class="line"><span class="built_in">string</span>＆insert（<span class="keyword">size_t</span> pos，<span class="keyword">const</span> <span class="keyword">char</span> * s）;　　　　<span class="comment">// 在位置 pos 处插入字符串 s</span></div><div class="line"><span class="built_in">string</span>＆insert（<span class="keyword">size_t</span> pos，<span class="keyword">const</span> <span class="keyword">char</span> * s，<span class="keyword">size_t</span> n）;　<span class="comment">// 在位置 pos 处插入字符串 s 的前 n 个字符</span></div><div class="line"><span class="built_in">string</span>＆insert（<span class="keyword">size_t</span> pos，<span class="keyword">size_t</span> n，<span class="keyword">char</span> c）;　　　　　 <span class="comment">// 在位置 pos 处插入 n 个字符 c</span></div><div class="line"><span class="function">iterator <span class="title">insert</span> <span class="params">(const_iterator p, <span class="keyword">size_t</span> n, <span class="keyword">char</span> c)</span></span>;　<span class="comment">// 在 p 处插入 n 个字符 c，并返回插入后迭代器的位置</span></div><div class="line"><span class="function">iterator <span class="title">insert</span> <span class="params">(const_iterator p, <span class="keyword">char</span> c)</span></span>;　　　　　　 <span class="comment">// 在 p 处插入字符 c，并返回插入后迭代器的位置</span></div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160; 举个例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"abcdefgh"</span>)</span></span>;</div><div class="line">    str.insert(<span class="number">1</span>,<span class="string">"INSERT"</span>);        <span class="comment">// 在位置 1 处插入字符串 "INSERT"</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    str.insert(<span class="number">10</span>, <span class="number">5</span>, <span class="string">'A'</span>);        <span class="comment">// 在位置 10 处插入 5 个字符 'A'</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;输出结果如下：<br><img src="/image/63/63_3.png" alt="demo"> </p>
+<h3 id="使用-string-erase-进行元素删除操作"><a href="#使用-string-erase-进行元素删除操作" class="headerlink" title="使用 string.erase() 进行元素删除操作"></a><strong>使用 string.erase() 进行元素删除操作</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">erase</span> <span class="params">(<span class="keyword">size_t</span> pos = <span class="number">0</span>, <span class="keyword">size_t</span> len = npos)</span></span>;　　　<span class="comment">// 删除从 pos 处开始的 n 个字符</span></div><div class="line"><span class="function">iterator <span class="title">erase</span> <span class="params">(const_iterator p)</span></span>;　　　　　　　　　　　　<span class="comment">// 删除 p 处的一个字符，并返回删除后迭代器的位置</span></div><div class="line"><span class="function">iterator <span class="title">erase</span> <span class="params">(const_iterator first, const_iterator last)</span></span>;　<span class="comment">// 删除从 first 到last 之间的字符，并返回删除后迭代器的位置</span></div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160;举个例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"Hello,World!"</span>)</span></span>;</div><div class="line">    str.erase(<span class="number">5</span>,<span class="number">6</span>);                    <span class="comment">// 删除从索引位置 5 开始的 6 个字符</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"str 为："</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;关于 erase() 函数的用法可以参考 <a href="https://www.cnblogs.com/liyazhou/archive/2010/02/07/1665421.html" target="_blank" rel="external">https://www.cnblogs.com/liyazhou/archive/2010/02/07/1665421.html</a></p>
+<h2 id="string-对象的一些其他操作"><a href="#string-对象的一些其他操作" class="headerlink" title="string 对象的一些其他操作"></a><strong>string 对象的一些其他操作</strong></h2><h3 id="使用-getline-函数来获取-string-输入"><a href="#使用-getline-函数来获取-string-输入" class="headerlink" title="使用 getline() 函数来获取 string 输入"></a><strong>使用 getline() 函数来获取 string 输入</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line">getline(<span class="built_in">cin</span>,str);    <span class="comment">// 从输入流中读取一行数据到 str</span></div></pre></td></tr></table></figure>
+<h3 id="使用-empty-函数判断字符串是否为空"><a href="#使用-empty-函数判断字符串是否为空" class="headerlink" title="使用 empty() 函数判断字符串是否为空"></a><strong>使用 empty() 函数判断字符串是否为空</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="keyword">if</span>(str.empty())&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"字符串为空"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160;string.empty() 函数，若字符串为空，则返回真，否则返回假。</p>
+<h3 id="使用-swap-函数交换两个字符串"><a href="#使用-swap-函数交换两个字符串" class="headerlink" title="使用 swap 函数交换两个字符串"></a><strong>使用 swap 函数交换两个字符串</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">string</span> str1 = <span class="string">"hello,world!"</span>;</div><div class="line">    <span class="built_in">string</span> str2 = <span class="string">"HELLO,WORLD!"</span>;</div><div class="line"></div><div class="line">    str1.swap(str2);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; str1 &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; str2 &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/03/28/C++ string 类详解/">C++ string 类详解</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2020年03月28日 - 16时46分</p>
+        <p><span>最后更新:</span>2020年03月28日 - 17时25分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/03/28/C++ string 类详解/" title="C++ string 类详解">http://greedysky.github.io/2020/03/28/C++ string 类详解/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2020/03/28/C++ string 类详解/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/04/05/C++ const和constexpr还在傻傻分不清/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++ const和constexpr还在傻傻分不清
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/08/C++ 函数指针与指针函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 函数指针与指针函数</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-类简介"><span class="toc-number">2.</span> <span class="toc-text">string 类简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-类几种常见的构造函数"><span class="toc-number">2.1.</span> <span class="toc-text">string 类几种常见的构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-C-语言风格初始化-string-对象"><span class="toc-number">2.2.</span> <span class="toc-text">用 C 语言风格初始化 string 对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取-string-对象的长度"><span class="toc-number">3.</span> <span class="toc-text">获取 string 对象的长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制-string-对象"><span class="toc-number">4.</span> <span class="toc-text">复制 string 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-对象的拼接和附加"><span class="toc-number">5.</span> <span class="toc-text">string 对象的拼接和附加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-操作符拼接两个字符串"><span class="toc-number">5.1.</span> <span class="toc-text">使用 + 操作符拼接两个字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-操作符在字符串后面附加内容"><span class="toc-number">5.2.</span> <span class="toc-text">使用 += 操作符在字符串后面附加内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-string-append-函数"><span class="toc-number">5.3.</span> <span class="toc-text">使用 string.append() 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-string-push-back-函数"><span class="toc-number">5.4.</span> <span class="toc-text">使用 string.push_back() 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-对象的比较"><span class="toc-number">6.</span> <span class="toc-text">string 对象的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-string-substr-函数来获取子串"><span class="toc-number">7.</span> <span class="toc-text">使用 string.substr() 函数来获取子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问-string-字符串的元素"><span class="toc-number">8.</span> <span class="toc-text">访问 string 字符串的元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-对象的查找操作"><span class="toc-number">9.</span> <span class="toc-text">string 对象的查找操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-string-find-方法查找字符"><span class="toc-number">9.1.</span> <span class="toc-text">使用 string.find() 方法查找字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-rfind"><span class="toc-number">9.2.</span> <span class="toc-text">string.rfind()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-find-first-of"><span class="toc-number">9.3.</span> <span class="toc-text">string.find_first_of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-find-last-of"><span class="toc-number">9.4.</span> <span class="toc-text">string.find_last_of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-find-first-not-of"><span class="toc-number">9.5.</span> <span class="toc-text">string.find_first_not_of()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-find-last-not-of"><span class="toc-number">9.6.</span> <span class="toc-text">string.find_last_not_of()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-对象的插入和删除操作"><span class="toc-number">10.</span> <span class="toc-text">string 对象的插入和删除操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-string-insert-进行插入操作"><span class="toc-number">10.1.</span> <span class="toc-text">使用 string.insert() 进行插入操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-string-erase-进行元素删除操作"><span class="toc-number">10.2.</span> <span class="toc-text">使用 string.erase() 进行元素删除操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string-对象的一些其他操作"><span class="toc-number">11.</span> <span class="toc-text">string 对象的一些其他操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-getline-函数来获取-string-输入"><span class="toc-number">11.1.</span> <span class="toc-text">使用 getline() 函数来获取 string 输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-empty-函数判断字符串是否为空"><span class="toc-number">11.2.</span> <span class="toc-text">使用 empty() 函数判断字符串是否为空</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-swap-函数交换两个字符串"><span class="toc-number">11.3.</span> <span class="toc-text">使用 swap 函数交换两个字符串</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2020/03/28/C++ string 类详解/" data-title="C++ string 类详解" data-url="http://greedysky.github.io/2020/03/28/C++ string 类详解/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/04/05/C++ const和constexpr还在傻傻分不清/" title="上一篇: C++ const和constexpr还在傻傻分不清">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/03/08/C++ 函数指针与指针函数/" title="下一篇: C++ 函数指针与指针函数">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/C++ array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/C++ STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/10/C++ typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/26/C++ 高阶操作：模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/C++ 模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/02/C++ type traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/18/C++20 标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/01/C++17 折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/C++20 协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/C++ volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/C++ assert 函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/29/C++ 优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/21/C++ 多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/C++ 6 种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/05/C++ 线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/23/C++ 基于范围的 for 循环/">C++ 基于范围的 for 循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/C++ 列表初始化详解/">C++ 列表初始化详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/03/C++11 中的 Lambda 函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/13/C++11 右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/08/C++ 虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/C++ 仿函数了解一下/">C++仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/10/C++11 异步操作不只是 thread/">C++11 的异步操作不只是 thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++ 字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11 中智能指针的原理、使用、实现/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/05/C++ const和constexpr还在傻傻分不清/">C++ const和constexpr还在傻傻分不清</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/C++ string 类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/C++ 函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/握手/">握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/C++11 新特性之强制类型转换static_cast/">C++11 新特性之强制类型转换static_cast</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/C++11 新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/C++20 最新进展：加入模块化和协程，进入特性冻结阶段/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/C++ 中是如何调用 C 接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/08/C++ 一句话帮你理解 typedef 的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/C++ NULL，0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/C++ 类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/C++ vector 使用注意事项/">C++ vector 使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树 - Copy/">C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/C++ const 的使用/">C++ const 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/C++ 对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/C++11 中的左值、右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/C++ 指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C++17 中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/06/你需要了解的 C++ 17 Top 19 新特性/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/28/因为心无所恃 所以随遇而安/">因为心无所恃，所以随遇而安！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/C++11 新特性之正则表达式/">C++ 11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/C++11 新特性之template/">C++ 11 新特性之 template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/C++11 新特性之右值引用与移动/">C++ 11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/C++11 新特性之随机数库/">C++ 11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/字符串匹配的 Boyer-Moore 算法/">字符串匹配的 Boyer-Moore 算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/每个人心底都有那么一个人/">每个人心底都有那么一个人！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/C++11 新特性之Class/">C++11 新特性之 Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/C++11 新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/​想回到以前 如果我想你/">​想回到以前，如果我想你！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/C++11 新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/C++11 新特性之lambda/">C++11 新特性之 lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11 新特性之类型推断与类型获取/">C++11新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/C++11 新特性之新类型与初始化/">C++11新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/爱你的时候奋不顾身/">爱你的时候奋不顾身！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/幽默冷笑话/">幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/相忘于江湖 却怀念到哭泣/">相忘于江湖，却怀念到哭泣！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/别去试人心 它会让你失望/">别去试人心， 它会让你失望！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/08/Qt QStackedWidget切换动画/">Qt QStackedWidget切换动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/30个幽默冷笑话 /">30个幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/28/父爱无边/">父 爱 无 边</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/28/Qt on Android http下载与Json解析(下)/">Qt on Android http下载与Json解析(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/My Father/">My Father</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Qt on Android http下载与Json解析(上)/">Qt on Android http下载与Json解析(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/07/Qt on Android怎样适应不同的屏幕尺寸/">Qt on Android怎样适应不同的屏幕尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/31/高级程序员装逼指南/">高级程序员装逼指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/27/树的三种遍历（递归实现） /">树的三种遍历（递归实现）</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/21/永不放弃/">永不放弃</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/16/Never Give Up /">Never Give Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/20/最为奇葩的四个问题/">最为奇葩的四个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/16/[MFC]透明图展示/">MFC透明图展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/15/[MFC]图形附加alpha透明通道/">MFC图形附加alpha透明通道</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/12/虚函数占用大小Sizeof/">虚函数占用大小Sizeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/08/C++中的explicit关键字/">C++中的explicit关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/05/DICOM Object基本概念/">DICOM Object基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/28/Different between Debug and Release/">Different between Debug and Release</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/26/淡静安然自显珍贵/">淡静安然自显珍贵</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/21/每个程序员都该知道的10大编码原则/">每个程序员都该知道的10大编码原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/20/Love is a telephone/">Love is a telephone</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/19/Lorem ipsum dolor sit amet/">Lorem ipsum dolor sit amet</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/18/简短小诗/">简短小诗</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

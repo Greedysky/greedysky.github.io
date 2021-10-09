@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++20 协程初探 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="C++20 终于引入了协程特性，给库作者提供了一个实现协程的机制，让用户方便使用协程来编写异步逻辑，降低了异步并发编程的难度。结合我最近协程的学习，在这里记录一下相关内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++20 协程初探">
+<meta property="og:url" content="http://greedysky.github.io/2020/11/23/C++20 协程初探/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="C++20 终于引入了协程特性，给库作者提供了一个实现协程的机制，让用户方便使用协程来编写异步逻辑，降低了异步并发编程的难度。结合我最近协程的学习，在这里记录一下相关内容。">
+<meta property="og:updated_time" content="2020-11-23T11:45:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++20 协程初探">
+<meta name="twitter:description" content="C++20 终于引入了协程特性，给库作者提供了一个实现协程的机制，让用户方便使用协程来编写异步逻辑，降低了异步并发编程的难度。结合我最近协程的学习，在这里记录一下相关内容。">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl facebook" target="_blank" href="#" title="facebook">facebook</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 12.86px;">Android</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 18.57px;">C++11</a> <a href="/tags/C-17/" style="font-size: 14.29px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.86px;">C++20</a> <a href="/tags/C语言/" style="font-size: 15.71px;">C语言</a> <a href="/tags/DICOM/" style="font-size: 10px;">DICOM</a> <a href="/tags/MFC/" style="font-size: 11.43px;">MFC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Qt/" style="font-size: 14.29px;">Qt</a> <a href="/tags/二叉树/" style="font-size: 11.43px;">二叉树</a> <a href="/tags/图像处理/" style="font-size: 11.43px;">图像处理</a> <a href="/tags/幽默冷笑/" style="font-size: 12.86px;">幽默冷笑</a> <a href="/tags/情感/" style="font-size: 17.14px;">情感</a> <a href="/tags/有趣精选/" style="font-size: 17.14px;">有趣精选</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/英文/" style="font-size: 14.29px;">英文</a> <a href="/tags/诗歌/" style="font-size: 14.29px;">诗歌</a> <a href="/tags/调试技术/" style="font-size: 10px;">调试技术</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="facebook" target="_blank" href="#" title="facebook">facebook</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++20 协程初探" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/23/C++20 协程初探/" class="article-date">
+      <time datetime="2020-11-23T11:01:30.000Z" itemprop="datePublished">2020-11-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++20 协程初探
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-20/">C++20</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;C++20 终于引入了协程特性，给库作者提供了一个实现协程的机制，让用户方便使用协程来编写异步逻辑，降低了异步并发编程的难度。结合我最近协程的学习，在这里记录一下相关内容。</p>
+<h2 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a><strong>概念模型</strong></h2><p>&#160; &#160; &#160; &#160;协程和普通函数相比，多了个中途随时 挂起 ，随后 恢复 的过程，当用户调用一个阻塞请求接口，从而让出控制权，当响应时，恢复之前的控制流，从而大大提高线程复用率，这也注意了协程只是并发的，并不是真正意义上的并行，在 IO 密集型场景下，协程能够很好的提高资源利用率，用少数的线程达到并发成百上万个协程的效果。<br>&#160; &#160; &#160; &#160;而相对传统的线程池 + 回调模式，每发起一个请求，为了避免阻塞当前线程，需要挂一个回调函数处理后续过程，而回调函数又可能产生竞争，导致得加锁处理。而协程却能够以同步方式写实现异步，后续过程直接挂起，当响应的时候恢复执行。<br>&#160; &#160; &#160; &#160;我参与的项目中，对象随时都可能起个线程干活，或者常驻于对象生命周期里，统计下来整个项目居然开了几百个线程，由于多线程编程难免导致竞争，从而需要锁这种很低级的机制做同步，而一旦引入了锁，就不可避免的扩散开来，大家看到这里加把锁，那我也加把锁，统计下来代码里面居然也有几百把锁。真是维护的噩梦。<br>&#160; &#160; &#160; &#160;由于协程能够随时挂起，后续恢复，这就能实现一些延迟计算的特性，例如生成器。<br>&#160; &#160; &#160; &#160;扯远了，本文主题是关于 C++20 的协程，在 C++20 还没稳定之前，先来学习一下相关知识，读完本文后你应该能利用这个机制实现一些想要的协程了。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a><strong>使用场景</strong></h2><p>&#160; &#160; &#160; &#160;C++20 的协程设计为无栈协程，相对于有栈协程，省掉了上下文切换开销[1]，只能手动切换，效率更高，也不用管理复杂的寄存器状态，移植性更好，但这同时也导致了不能被非协程函数嵌套调用。<br>&#160; &#160; &#160; &#160;同时引入了 3 个关键字：<br>&#160; &#160; &#160; &#160;1. co_yield: 挂起并返回值<br>&#160; &#160; &#160; &#160;2. co_await: 挂起<br>&#160; &#160; &#160; &#160;3. co_return: 结束协程<br>&#160; &#160; &#160; &#160;当一个函数出现了上面的关键字，则该函数是个协程。</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a><strong>Promise</strong></h2><p>&#160; &#160; &#160; &#160;当 caller 调用一个 callee 协程的时候，协程自身的状态信息 [2]（形参，局部变量，自带数据，各个阶段点执行点）会被保存在堆上的 Promise 对象中，这也是编译器会在协程里面插入 Promise 相关代码，以及一些执行点。由于 Promise 的大小可以在编译期计算出来，从而避免了内存浪费。而 Promise 对象所有权可由coroutine_handle 句柄持有。</p>
+<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a><strong>Future</strong></h2><p>&#160; &#160; &#160; &#160;而 Future 对象主要是与 Promise 对象交互的桥梁，既 caller 与 callee 之间的通信：<br>&#160; &#160; &#160; &#160;1. callee 挂起时，将值返回给 caller: yield 语义<br>&#160; &#160; &#160; &#160;2. callee 执行结束时，将值返回给 caller: return 语义<br>&#160; &#160; &#160; &#160;3. callee 恢复时，caller 将值带给 callee<br>&#160; &#160; &#160; &#160;需要注意的是，这些概念和标准库的 std::promise/std::future 不是同一个东西，后者用于做同步用，std::future会阻塞等待直到 std::promise 提供值，可以看做是条件变量的封装，同样地，和其他语言的 Promise/Future 概念也不一样。</p>
+<h2 id="Awaitable"><a href="#Awaitable" class="headerlink" title="Awaitable"></a><strong>Awaitable</strong></h2><p>&#160; &#160; &#160; &#160;如果一个对象是 Awaitable 对象，那么可以用 co_await 操作符去触发该对象的动作 ready/suspend/resume，从而转移、恢复控制权，co_await 细节留到后面在介绍。</p>
+<h2 id="具体机制"><a href="#具体机制" class="headerlink" title="具体机制"></a><strong>具体机制</strong></h2><p>&#160; &#160; &#160; &#160;了解了概念模型后，我们可以进一步探讨背后的机制了。</p>
+<h2 id="Promise-Future-对象"><a href="#Promise-Future-对象" class="headerlink" title="Promise/Future 对象"></a><strong>Promise/Future 对象</strong></h2><p>&#160; &#160; &#160; &#160;当一个协程被调用时，会创建 Promise 对象，然后编译器会在各个阶段插入一些代码[3]：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  co_await promise.initial_suspend();</div><div class="line">  <span class="keyword">try</span></div><div class="line">  &#123;</div><div class="line">    &lt;body-statements&gt;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">catch</span> (...)</div><div class="line">  &#123;</div><div class="line">    promise.unhandled_exception();</div><div class="line">  &#125;</div><div class="line">FinalSuspend:</div><div class="line">  co_await promise.final_suspend();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;可以看到一个协程函数，分为如下几个步骤：<br>&#160; &#160; &#160; &#160;1. 从堆上 (operator new) 创建 Promise 对象，保存协程的状态信息<br>&#160; &#160; &#160; &#160;2. initial_suspend 阶段，用于在执行协程主体 <body-statements> 代码前做些事情<br>&#160; &#160; &#160; &#160;3. <body-statements>阶段，执行协程的主体代码<br>&#160; &#160; &#160; &#160;4. unhandled_exception 阶段，若抛异常，处理异常<br>&#160; &#160; &#160; &#160;5. final_suspend阶段，协程结束收尾动作，在这阶段的 coroutine_handle<promise>::done 方法为 true，caller 可以通过这个方法判断协程是否结束，从而不再调用 resume 恢复协程。<br>&#160; &#160; &#160; &#160;而协程返回类型则是一个 Future 对象，这一步编译器通过 Promise::get_return_object() 来创建 Future 对象。而 Future 对象一般持有 Promise 的句柄：coroutine_handle<promise>，这样 caller 可以通过 Future 与 Promise 交互，从而恢复协程。<br>&#160; &#160; &#160; &#160;而 Promise 对象释放的时间点有两个，避免重复执行，否则会 double free：1. final_suspend 阶段 resume 后<br>&#160; &#160; &#160; &#160;1. final_suspend 阶段 resume 后<br>&#160; &#160; &#160; &#160;2. 调用 coroutine_handle<promise>::destroy() 方法<br>&#160; &#160; &#160; &#160;比较好的做法是在 final_suspend 阶段挂起，这时候就不可 resume 了，在 caller 通过调用 Future 持有的句柄 destroy() 方法释放 Promise 对象。综上，一个 Promise 对象需要实现如下方法：<br>&#160; &#160; &#160; &#160;1. initial_suspend: 返回一个 Awaitable 对象<br>&#160; &#160; &#160; &#160;2. final_suspend: 返回一个 Awaitable 对象<br>&#160; &#160; &#160; &#160;3. get_return_object: 返回一个 Future 对象给 caller<br>&#160; &#160; &#160; &#160;4. unhandled_exception: 处理异常<br>&#160; &#160; &#160; &#160;5. return_value/return_void: co_return 时返回值给 caller<br>&#160; &#160; &#160; &#160;6. yield_value: 挂起时返回值给 caller<br>&#160; &#160; &#160; &#160;再来看看其 coroutine_handle<promise> 句柄编译器提供了哪些主要方法：<br>&#160; &#160; &#160; &#160;1. destroy: 销毁 Promise 对象<br>&#160; &#160; &#160; &#160;2. from_promise: 静态方法，从 Promise 对象返回其 coroutine_handle 句柄<br>&#160; &#160; &#160; &#160;3. done: 是否处于 final_suspend 阶段<br>&#160; &#160; &#160; &#160;4. promise: 返回 Promise 对象引用<br>&#160; &#160; &#160; &#160;5. resume/operator(): 恢复到协程</promise></promise></promise></promise></body-statements></body-statements></p>
+<h2 id="Awaitable-对象"><a href="#Awaitable-对象" class="headerlink" title="Awaitable 对象"></a><strong>Awaitable 对象</strong></h2><p>&#160; &#160; &#160; &#160;前面提到的 co_await 关键字[4]，其操作的对象其实是 Awaiter 对象，若对象实现如下方法，则说明该对象是 Awaitable 的：<br>&#160; &#160; &#160; &#160;1. await_ready<br>&#160; &#160; &#160; &#160;2. await_suspend(coroutine_handle&lt;&gt;)<br>&#160; &#160; &#160; &#160;3. await_resume<br>&#160; &#160; &#160; &#160;那么当执行 co_await <expr> 表达式时，编译器会生成如下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">auto</span>&amp;&amp; value = &lt;expr&gt;;</div><div class="line">  <span class="keyword">auto</span>&amp;&amp; awaitable = get_awaitable(promise, <span class="keyword">static_cast</span>&lt;<span class="keyword">decltype</span>(value)&gt;(value));</div><div class="line">  <span class="keyword">auto</span>&amp;&amp; awaiter = get_awaiter(<span class="keyword">static_cast</span>&lt;<span class="keyword">decltype</span>(awaitable)&gt;(awaitable));</div><div class="line">  <span class="keyword">if</span> (!awaiter.await_ready())</div><div class="line">  &#123;</div><div class="line">    &lt;suspend-coroutine&gt;</div><div class="line"></div><div class="line">    <span class="comment">//if await_suspend returns void</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        awaiter.await_suspend(coroutine_handle);</div><div class="line">        return_to_the_caller();</div><div class="line">    &#125; <span class="keyword">catch</span> (...) &#123;</div><div class="line">        exception = <span class="built_in">std</span>::current_exception();</div><div class="line">        <span class="keyword">goto</span> resume_point;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//endif</span></div><div class="line">    <span class="comment">//if await_suspend returns bool</span></div><div class="line">    <span class="keyword">bool</span> await_suspend_result;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        await_suspend_result = awaiter.await_suspend(coroutine_handle);</div><div class="line">    &#125; <span class="keyword">catch</span> (...) &#123;</div><div class="line">        exception = <span class="built_in">std</span>::current_exception();</div><div class="line">        <span class="keyword">goto</span> resume_point;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (not await_suspend_result)</div><div class="line">        <span class="keyword">goto</span> resume_point;</div><div class="line">    return_to_the_caller();</div><div class="line">    <span class="comment">//endif</span></div><div class="line">    <span class="comment">//if await_suspend returns another coroutine_handle</span></div><div class="line">    <span class="keyword">decltype</span>(awaiter.await_suspend(<span class="built_in">std</span>::declval&lt;<span class="keyword">coro_handle_t</span>&gt;())) another_coro_handle;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        another_coro_handle = awaiter.await_suspend(coroutine_handle);</div><div class="line">    &#125; <span class="keyword">catch</span> (...) &#123;</div><div class="line">        exception = <span class="built_in">std</span>::current_exception();</div><div class="line">        <span class="keyword">goto</span> resume_point;</div><div class="line">    &#125;</div><div class="line">    another_coro_handle.resume();</div><div class="line">    return_to_the_caller();</div><div class="line">    <span class="comment">//endif</span></div><div class="line">  &#125;</div><div class="line">  resume_point:</div><div class="line"><span class="keyword">if</span>(exception)</div><div class="line">  <span class="built_in">std</span>::rethrow_exception(exception);</div><div class="line"><span class="string">"return"</span> awaiter.await_resume();</div><div class="line">&#125;</div></pre></td></tr></table></figure></expr></p>
+<p>&#160; &#160; &#160; &#160;也就是：<br>&#160; &#160; &#160; &#160;1. 通过 <expr> 拿到 Awaiter 对象<br>&#160; &#160; &#160; &#160;2. 通过 Awaiter.await_ready()方法判断是否需要挂起，若为 true 则无需挂起<br>&#160; &#160; &#160; &#160;3. 判断 Awaiter.await_suspend()的返回值类型：<br>&#160; &#160; &#160; &#160;        3.1 void，无返回值，直接挂起返回 caller<br>&#160; &#160; &#160; &#160;        3.2 bool，若为 true，则返挂起返回 caller，否则不挂起，直接 resume<br>&#160; &#160; &#160; &#160;        3.3 coroutine_handle&lt;&gt;, 则挂起并将控制权转移到另一个协程上，另一个协程可以再 resume 回来，到达resume_point。<br>&#160; &#160; &#160; &#160;4. Awaiter.await_resume()的返回值即为 co_await 的结果<br>&#160; &#160; &#160; &#160;那么问题来了，谁来创建 Awaiter 对象呢？有两种方法：<br>&#160; &#160; &#160; &#160;1. 通过 Promise 对象的 await_transform(<expr>) 方法，得到 Awaiter 对象<br>&#160; &#160; &#160; &#160;2. 通过重载 operator co_await 操作符，得到 Awaiter 对象<br>&#160; &#160; &#160; &#160;3. 直接用 Awaitable 对象<br>&#160; &#160; &#160; &#160;标准库里面实现了两种 Awaiter，分别如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> suspend_never &#123;</div><div class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">await_ready</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">await_suspend</span><span class="params">(coroutine_handle&lt;&gt;)</span> <span class="keyword">const</span> </span>&#123;&#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">await_resume</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> suspend_always &#123;</div><div class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">await_ready</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">await_suspend</span><span class="params">(coroutine_handle&lt;&gt;)</span> <span class="keyword">const</span> </span>&#123;&#125;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">await_resume</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></expr></expr></p>
+<p>&#160; &#160; &#160; &#160;主要在 await_ready 阶段判断是否需要挂起协程。<br>&#160; &#160; &#160; &#160;最后 co_yield <expr> 其实是 co_await 的语法糖，生成如下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">co_await promise.yield_value(expression);</div></pre></td></tr></table></figure></expr></p>
+<p>&#160; &#160; &#160; &#160;而 co_return 则会调用 Promise 对象的 return_void/return_value 方法。</p>
+<h2 id="协程实战"><a href="#协程实战" class="headerlink" title="协程实战"></a><strong>协程实战</strong></h2><p>&#160; &#160; &#160; &#160;有了以上知识，应该足够实现一些协程了。<br>&#160; &#160; &#160; &#160;为了简单起见，这里我实现一个 Fibonacci 的生成器。<br>&#160; &#160; &#160; &#160;首先先写协程函数，并在 main caller 中调用，内容如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function">FiboFuture <span class="title">generate_fibo</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</div><div class="line">        co_yield j;</div><div class="line">        <span class="built_in">std</span>::tie(i, j) = <span class="built_in">std</span>::make_pair(j, i + j);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x = generate_fibo(); x &lt; <span class="number">1000</span>; x.resume())</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"fibo:"</span> &lt;&lt; x &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;接着实现我们所需要的 Proimse 对象，用于将结果传给 caller：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> promise_type &#123;</div><div class="line">    <span class="keyword">int</span> value_; <span class="comment">// 返回结果给 caller</span></div><div class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">initial_suspend</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> suspend_never&#123;&#125;; &#125;</div><div class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">final_suspend</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> suspend_always&#123;&#125;; &#125; <span class="comment">// final_suspend 挂起，由 FiboFuture 释放 promise 对象</span></div><div class="line">    <span class="function">FiboFuture <span class="title">get_return_object</span><span class="params">()</span></span></div><div class="line">&#123; <span class="keyword">return</span> &#123;coroutine_handle&lt;promise_type&gt;::from_promise(*<span class="keyword">this</span>)&#125;; &#125; <span class="comment">// 返回 FiboFuture 对象</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unhandled_exception</span><span class="params">()</span> </span>&#123; <span class="built_in">std</span>::terminate(); &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">yield_value</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123; <span class="comment">// yield 一个值并挂起返回 caller</span></div><div class="line">        value_ = value;</div><div class="line">        <span class="keyword">return</span> suspend_always&#123;&#125;;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">return_void</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;还有对应的 Future：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> FiboFuture &#123;</div><div class="line">    <span class="keyword">struct</span> promise_type;</div><div class="line">    FiboFuture(coroutine_handle&lt;promise_type&gt; handle): handle_(handle) &#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> handle_.promise().value_; &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">resume</span><span class="params">()</span> </span>&#123; <span class="keyword">if</span> (! handle_.done()) handle_.resume(); &#125;</div><div class="line">    ~FiboFuture() &#123; handle_.destroy(); &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    coroutine_handle&lt;promise_type&gt; handle_;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;一切搞定，这就是目前生成器的实现，待后续集成到标准库中去，方便使用。<br>&#160; &#160; &#160; &#160;还有一个例子是 caller/callee 相互协作，互相通信完成任务。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;期待 C++20 协程的稳定成熟，这样写业务代码就简单多了，心智负担没那么重了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/23/C++20 协程初探/">C++20 协程初探</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2020年11月23日 - 19时01分</p>
+        <p><span>最后更新:</span>2020年11月23日 - 19时45分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/23/C++20 协程初探/" title="C++20 协程初探">http://greedysky.github.io/2020/11/23/C++20 协程初探/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2020/11/23/C++20 协程初探/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/01/C++17 折叠表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++17 折叠表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/10/C++ volatile详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ volatile详解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念模型"><span class="toc-number">2.</span> <span class="toc-text">概念模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-number">3.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-number">4.</span> <span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Future"><span class="toc-number">5.</span> <span class="toc-text">Future</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Awaitable"><span class="toc-number">6.</span> <span class="toc-text">Awaitable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体机制"><span class="toc-number">7.</span> <span class="toc-text">具体机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-Future-对象"><span class="toc-number">8.</span> <span class="toc-text">Promise/Future 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Awaitable-对象"><span class="toc-number">9.</span> <span class="toc-text">Awaitable 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协程实战"><span class="toc-number">10.</span> <span class="toc-text">协程实战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">11.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2020/11/23/C++20 协程初探/" data-title="C++20 协程初探" data-url="http://greedysky.github.io/2020/11/23/C++20 协程初探/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/12/01/C++17 折叠表达式/" title="上一篇: C++17 折叠表达式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/11/10/C++ volatile详解/" title="下一篇: C++ volatile详解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/C++ array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/C++ STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/10/C++ typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/26/C++ 高阶操作：模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/C++ 模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/02/C++ type traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/18/C++20 标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/01/C++17 折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/C++20 协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/C++ volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/C++ assert 函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/29/C++ 优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/21/C++ 多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/C++ 6 种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/05/C++ 线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/23/C++ 基于范围的 for 循环/">C++ 基于范围的 for 循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/C++ 列表初始化详解/">C++ 列表初始化详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/03/C++11 中的 Lambda 函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/13/C++11 右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/08/C++ 虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/C++ 仿函数了解一下/">C++仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/10/C++11 异步操作不只是 thread/">C++11 的异步操作不只是 thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++ 字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11 中智能指针的原理、使用、实现/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/05/C++ const和constexpr还在傻傻分不清/">C++ const和constexpr还在傻傻分不清</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/C++ string 类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/C++ 函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/握手/">握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/C++11 新特性之强制类型转换static_cast/">C++11 新特性之强制类型转换static_cast</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/C++11 新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/C++20 最新进展：加入模块化和协程，进入特性冻结阶段/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/C++ 中是如何调用 C 接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/08/C++ 一句话帮你理解 typedef 的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/C++ NULL，0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/C++ 类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/C++ vector 使用注意事项/">C++ vector 使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树 - Copy/">C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/C++ const 的使用/">C++ const 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/C++ 对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/C++11 中的左值、右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/C++ 指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C++17 中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/06/你需要了解的 C++ 17 Top 19 新特性/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/28/因为心无所恃 所以随遇而安/">因为心无所恃，所以随遇而安！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/C++11 新特性之正则表达式/">C++ 11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/C++11 新特性之template/">C++ 11 新特性之 template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/C++11 新特性之右值引用与移动/">C++ 11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/C++11 新特性之随机数库/">C++ 11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/字符串匹配的 Boyer-Moore 算法/">字符串匹配的 Boyer-Moore 算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/每个人心底都有那么一个人/">每个人心底都有那么一个人！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/C++11 新特性之Class/">C++11 新特性之 Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/C++11 新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/​想回到以前 如果我想你/">​想回到以前，如果我想你！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/C++11 新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/C++11 新特性之lambda/">C++11 新特性之 lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11 新特性之类型推断与类型获取/">C++11新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/C++11 新特性之新类型与初始化/">C++11新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/爱你的时候奋不顾身/">爱你的时候奋不顾身！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/幽默冷笑话/">幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/相忘于江湖 却怀念到哭泣/">相忘于江湖，却怀念到哭泣！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/别去试人心 它会让你失望/">别去试人心， 它会让你失望！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/08/Qt QStackedWidget切换动画/">Qt QStackedWidget切换动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/30个幽默冷笑话 /">30个幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/28/父爱无边/">父 爱 无 边</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/28/Qt on Android http下载与Json解析(下)/">Qt on Android http下载与Json解析(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/My Father/">My Father</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Qt on Android http下载与Json解析(上)/">Qt on Android http下载与Json解析(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/07/Qt on Android怎样适应不同的屏幕尺寸/">Qt on Android怎样适应不同的屏幕尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/31/高级程序员装逼指南/">高级程序员装逼指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/27/树的三种遍历（递归实现） /">树的三种遍历（递归实现）</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/21/永不放弃/">永不放弃</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/16/Never Give Up /">Never Give Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/20/最为奇葩的四个问题/">最为奇葩的四个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/16/[MFC]透明图展示/">MFC透明图展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/15/[MFC]图形附加alpha透明通道/">MFC图形附加alpha透明通道</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/12/虚函数占用大小Sizeof/">虚函数占用大小Sizeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/08/C++中的explicit关键字/">C++中的explicit关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/05/DICOM Object基本概念/">DICOM Object基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/28/Different between Debug and Release/">Different between Debug and Release</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/26/淡静安然自显珍贵/">淡静安然自显珍贵</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/21/每个程序员都该知道的10大编码原则/">每个程序员都该知道的10大编码原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/20/Love is a telephone/">Love is a telephone</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/19/Lorem ipsum dolor sit amet/">Lorem ipsum dolor sit amet</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/18/简短小诗/">简短小诗</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

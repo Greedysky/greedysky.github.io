@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ 模板之SFINAE和enable_if分析 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文主要介绍C++如何实现类型萃取以及如何禁止函数编译期间根据特定的条件来选择启用或禁用特定的重载，感兴趣的同学一起和小编学习吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 模板之SFINAE和enable_if分析">
+<meta property="og:url" content="http://greedysky.github.io/2021/06/25/C++ 模板之SFINAE和enable_if分析/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="本文主要介绍C++如何实现类型萃取以及如何禁止函数编译期间根据特定的条件来选择启用或禁用特定的重载，感兴趣的同学一起和小编学习吧。">
+<meta property="og:updated_time" content="2021-06-25T12:06:37.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 模板之SFINAE和enable_if分析">
+<meta name="twitter:description" content="本文主要介绍C++如何实现类型萃取以及如何禁止函数编译期间根据特定的条件来选择启用或禁用特定的重载，感兴趣的同学一起和小编学习吧。">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl facebook" target="_blank" href="#" title="facebook">facebook</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 12.86px;">Android</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 18.57px;">C++11</a> <a href="/tags/C-17/" style="font-size: 14.29px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.86px;">C++20</a> <a href="/tags/C语言/" style="font-size: 15.71px;">C语言</a> <a href="/tags/DICOM/" style="font-size: 10px;">DICOM</a> <a href="/tags/MFC/" style="font-size: 11.43px;">MFC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Qt/" style="font-size: 14.29px;">Qt</a> <a href="/tags/二叉树/" style="font-size: 11.43px;">二叉树</a> <a href="/tags/图像处理/" style="font-size: 11.43px;">图像处理</a> <a href="/tags/幽默冷笑/" style="font-size: 12.86px;">幽默冷笑</a> <a href="/tags/情感/" style="font-size: 17.14px;">情感</a> <a href="/tags/有趣精选/" style="font-size: 17.14px;">有趣精选</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/英文/" style="font-size: 14.29px;">英文</a> <a href="/tags/诗歌/" style="font-size: 14.29px;">诗歌</a> <a href="/tags/调试技术/" style="font-size: 10px;">调试技术</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="facebook" target="_blank" href="#" title="facebook">facebook</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++ 模板之SFINAE和enable_if分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/" class="article-date">
+      <time datetime="2021-06-25T12:06:14.000Z" itemprop="datePublished">2021-06-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ 模板之SFINAE和enable_if分析
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;本文主要介绍C++如何实现类型萃取以及如何禁止函数编译期间根据特定的条件来选择启用或禁用特定的重载，感兴趣的同学一起和小编学习吧。<br>&#160; &#160; &#160; &#160;在《C++ type traits分析》 这篇文章中，我们讲述了type traits的实现用法和基本原理。<br>&#160; &#160; &#160; &#160;本文我们讨论一下两个问题：<br>&#160; &#160; &#160; &#160;如果实现is_class的type traits。<br>&#160; &#160; &#160; &#160;怎么样禁止函数编译期间根据特定的条件来选择启用或禁用特定的重载。</p>
+<h2 id="SFINAE"><a href="#SFINAE" class="headerlink" title="SFINAE"></a><strong>SFINAE</strong></h2><p>&#160; &#160; &#160; &#160;SFINAE是”Substitution failure is not an error”(替换失败不是错误)，官方给的解释为：在函数模板的重载决议中：为模板形参替换推导类型失败时，从重载集抛弃特化，而非导致编译错误。<br>&#160; &#160; &#160; &#160;用一句简单的话来说，C++在编译的时候，模板实例化的时候就算实例化失败也不会出现错误。<br>&#160; &#160; &#160; &#160;例如我们用一个简单的例子来描述：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">typename</span> T::noexist t)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> t)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> args, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">  test(<span class="number">100.1</span>);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;我们在使用test(100.1)实例化模板test的时候，并不会编译错误，只是会实例化失败，使用void test(int t)这个函数。<br>&#160; &#160; &#160; &#160;所以SFINAE 的含义是：编译器在将函数模板形参替换成实参的过程中，如果针对某个函数模板产生了不合法的代码，其不会直接抛出错误信息，而是继续尝试去匹配其他可能的重载函数。<br>&#160; &#160; &#160; &#160;What… 这是什么鬼？不是本来C++特性就是这样嘛？有必要讲的那么高大上嘛？不急，我们使用这个特性看一下SFINAE可以做什么事情。</p>
+<h2 id="isClass的实现"><a href="#isClass的实现" class="headerlink" title="isClass的实现"></a><strong>isClass的实现</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> SFINAE</div><div class="line">&#123;</div><div class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line">  <span class="keyword">class</span> IsClass</div><div class="line">  &#123;</div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">bool</span> <span class="title">is_class</span><span class="params">(<span class="keyword">int</span> U::*)</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">bool</span> <span class="title">is_class</span><span class="params">(...)</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">bool</span> value = is_class&lt;T&gt;(<span class="literal">nullptr</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> A</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> B</div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> a;</div><div class="line">  <span class="keyword">int</span> b;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> args, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"A is class: "</span> &lt;&lt; SFINAE::IsClass&lt;A&gt;::value &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"B is class: "</span> &lt;&lt; SFINAE::IsClass&lt;B&gt;::value &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"int is class: "</span> &lt;&lt; SFINAE::IsClass&lt;<span class="keyword">int</span>&gt;::value &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"double is class: "</span> &lt;&lt; SFINAE::IsClass&lt;<span class="keyword">double</span>&gt;::value &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160;这里有两个技巧：<br>&#160; &#160; &#160; &#160;int U::* 使用这个来模板实例化，如果是类，可以定义类的成员指针，这个最佳匹配。<br>&#160; &#160; &#160; &#160;is_class(…) 如果不是类，那么这个函数适配所有的类型。<br>&#160; &#160; &#160; &#160;这个的运行结构为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">A is <span class="keyword">class</span>: <span class="number">1</span></div><div class="line">B is <span class="keyword">class</span>: <span class="number">1</span></div><div class="line"><span class="keyword">int</span> is <span class="keyword">class</span>: <span class="number">0</span></div><div class="line"><span class="keyword">double</span> is <span class="keyword">class</span>: <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这个就是利用模板实例化的时候，如果第一个实例化不了，会继续实例化其他而不会出错的特性。</p>
+<h2 id="enable-if"><a href="#enable-if" class="headerlink" title="enable_if"></a><strong>enable_if</strong></h2><p>&#160; &#160; &#160; &#160;enable_if解决的一个问题是：如何在函数编译期间根据特定的条件来选择启用或禁用模板实例化。加入我们存在一个Add加法操作，但是我们限定一个东西，就是Add只能使用整数，像std::string不能适配，我们可以使用如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//整数</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, </div><div class="line">  <span class="keyword">typename</span> <span class="built_in">std</span>::enable_if&lt;<span class="built_in">std</span>::is_integral&lt;T&gt;::value&gt;::type* = <span class="literal">nullptr</span>&gt;</div><div class="line"><span class="keyword">auto</span> Add(T a, T b) -&gt; T</div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> args, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str = <span class="string">"abc"</span>;</div><div class="line">  Add(<span class="number">100</span>, <span class="number">200</span>);</div><div class="line">  str + <span class="string">"abc"</span>;</div><div class="line">  Add(str, str);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时编译的时候就会出错：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">: error C2672: 'Add': no matching overloaded function found</div><div class="line">: error C2783: 'T Add(T,T)': could not deduce template argument for '__formal'</div><div class="line">: note: see declaration of 'Add'</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;也就是说在模板实例化的时候并没有成功。enable_if 的主要作用就是当某个 condition 成立时，enable_if可以提供某种类型。<br>&#160; &#160; &#160; &#160;我们看下enable_if的实现原理。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">bool</span> <span class="number">_</span>Test,</div><div class="line">  <span class="keyword">class</span> <span class="number">_</span>Ty = <span class="keyword">void</span>&gt;</div><div class="line">  <span class="keyword">struct</span> enable_if</div><div class="line">  &#123;  <span class="comment">// type is undefined for assumed !_Test</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="number">_</span>Ty&gt;</div><div class="line">  <span class="keyword">struct</span> enable_if&lt;<span class="literal">true</span>, <span class="number">_</span>Ty&gt;</div><div class="line">  &#123;  <span class="comment">// type is _Ty for _Test</span></div><div class="line">  <span class="keyword">using</span> type = <span class="number">_</span>Ty;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;也就是说，默认情况下enable_if是一个空的类定义，如果bool _Test 参数为TRUE的话，使用片特例模板struct enable_if<true, _ty="">，这个模板可以定义type类型。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> A</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">int</span> a;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> args, <span class="keyword">char</span>* argv[])</span></span></div><div class="line">&#123;</div><div class="line">  <span class="built_in">std</span>::enable_if&lt;<span class="built_in">std</span>::is_class&lt;A&gt;::value, A&gt;::type a;</div><div class="line">  a.a = <span class="number">100</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></true,></p>
+<p>&#160; &#160; &#160; &#160;C++库还定义了如下类型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">bool</span> <span class="number">_</span>Test,</div><div class="line">  <span class="keyword">class</span> <span class="number">_</span>Ty = <span class="keyword">void</span>&gt;</div><div class="line">  <span class="keyword">using</span> <span class="keyword">enable_if_t</span> = <span class="keyword">typename</span> enable_if&lt;<span class="number">_</span>Test, <span class="number">_</span>Ty&gt;::type;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;类似的东西在C++标准库中使用很多，例如std::vector，如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="number">_</span>Iter,</div><div class="line">    <span class="keyword">class</span> = <span class="keyword">enable_if_t</span>&lt;<span class="number">_</span>Is_iterator_v&lt;<span class="number">_</span>Iter&gt;&gt;&gt;</div><div class="line">    <span class="built_in">vector</span>(<span class="number">_</span>Iter <span class="number">_F</span>irst, <span class="number">_</span>Iter <span class="number">_L</span>ast, <span class="keyword">const</span> <span class="number">_</span>Alloc&amp; <span class="number">_</span>Al = <span class="number">_</span>Alloc())</div><div class="line">    : <span class="number">_</span>Mybase(<span class="number">_</span>Al)</div><div class="line">    &#123;  <span class="comment">// construct from [_First, _Last) with optional allocator</span></div><div class="line">    <span class="number">_</span>Adl_verify_range(<span class="number">_F</span>irst, <span class="number">_L</span>ast);</div><div class="line">    <span class="number">_</span>Range_construct_or_tidy(<span class="number">_</span>Get_unwrapped(<span class="number">_F</span>irst), <span class="number">_</span>Get_unwrapped(<span class="number">_L</span>ast), <span class="number">_</span>Iter_cat_t&lt;<span class="number">_</span>Iter&gt;&#123;&#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2021年06月25日 - 20时06分</p>
+        <p><span>最后更新:</span>2021年06月25日 - 20时06分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/" title="C++ 模板之SFINAE和enable_if分析">http://greedysky.github.io/2021/06/25/C++ 模板之SFINAE和enable_if分析/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2021/06/25/C++ 模板之SFINAE和enable_if分析/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/20/C++ array的神奇用法总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ array的神奇用法总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SFINAE"><span class="toc-number">2.</span> <span class="toc-text">SFINAE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#isClass的实现"><span class="toc-number">3.</span> <span class="toc-text">isClass的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#enable-if"><span class="toc-number">4.</span> <span class="toc-text">enable_if</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2021/06/25/C++ 模板之SFINAE和enable_if分析/" data-title="C++ 模板之SFINAE和enable_if分析" data-url="http://greedysky.github.io/2021/06/25/C++ 模板之SFINAE和enable_if分析/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2021/03/20/C++ array的神奇用法总结/" title="下一篇: C++ array的神奇用法总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/C++ array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/C++ STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/10/C++ typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/26/C++ 高阶操作：模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/C++ 模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/02/C++ type traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/18/C++20 标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/01/C++17 折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/C++20 协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/C++ volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/C++ assert 函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/29/C++ 优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/21/C++ 多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/C++ 6 种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/05/C++ 线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/23/C++ 基于范围的 for 循环/">C++ 基于范围的 for 循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/C++ 列表初始化详解/">C++ 列表初始化详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/03/C++11 中的 Lambda 函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/13/C++11 右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/08/C++ 虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/C++ 仿函数了解一下/">C++仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/10/C++11 异步操作不只是 thread/">C++11 的异步操作不只是 thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++ 字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11 中智能指针的原理、使用、实现/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/05/C++ const和constexpr还在傻傻分不清/">C++ const和constexpr还在傻傻分不清</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/C++ string 类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/C++ 函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/握手/">握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/C++11 新特性之强制类型转换static_cast/">C++11 新特性之强制类型转换static_cast</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/C++11 新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/C++20 最新进展：加入模块化和协程，进入特性冻结阶段/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/C++ 中是如何调用 C 接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/08/C++ 一句话帮你理解 typedef 的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/C++ NULL，0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/C++ 类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/C++ vector 使用注意事项/">C++ vector 使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树 - Copy/">C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/C++ const 的使用/">C++ const 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/C++ 对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/C++11 中的左值、右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/C++ 指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C++17 中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/06/你需要了解的 C++ 17 Top 19 新特性/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/28/因为心无所恃 所以随遇而安/">因为心无所恃，所以随遇而安！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/C++11 新特性之正则表达式/">C++ 11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/C++11 新特性之template/">C++ 11 新特性之 template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/C++11 新特性之右值引用与移动/">C++ 11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/C++11 新特性之随机数库/">C++ 11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/字符串匹配的 Boyer-Moore 算法/">字符串匹配的 Boyer-Moore 算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/每个人心底都有那么一个人/">每个人心底都有那么一个人！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/C++11 新特性之Class/">C++11 新特性之 Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/C++11 新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/​想回到以前 如果我想你/">​想回到以前，如果我想你！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/C++11 新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/C++11 新特性之lambda/">C++11 新特性之 lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11 新特性之类型推断与类型获取/">C++11新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/C++11 新特性之新类型与初始化/">C++11新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/爱你的时候奋不顾身/">爱你的时候奋不顾身！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/幽默冷笑话/">幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/相忘于江湖 却怀念到哭泣/">相忘于江湖，却怀念到哭泣！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/别去试人心 它会让你失望/">别去试人心， 它会让你失望！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/08/Qt QStackedWidget切换动画/">Qt QStackedWidget切换动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/30个幽默冷笑话 /">30个幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/28/父爱无边/">父 爱 无 边</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/28/Qt on Android http下载与Json解析(下)/">Qt on Android http下载与Json解析(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/My Father/">My Father</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Qt on Android http下载与Json解析(上)/">Qt on Android http下载与Json解析(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/07/Qt on Android怎样适应不同的屏幕尺寸/">Qt on Android怎样适应不同的屏幕尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/31/高级程序员装逼指南/">高级程序员装逼指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/27/树的三种遍历（递归实现） /">树的三种遍历（递归实现）</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/21/永不放弃/">永不放弃</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/16/Never Give Up /">Never Give Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/20/最为奇葩的四个问题/">最为奇葩的四个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/16/[MFC]透明图展示/">MFC透明图展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/15/[MFC]图形附加alpha透明通道/">MFC图形附加alpha透明通道</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/12/虚函数占用大小Sizeof/">虚函数占用大小Sizeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/08/C++中的explicit关键字/">C++中的explicit关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/05/DICOM Object基本概念/">DICOM Object基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/28/Different between Debug and Release/">Different between Debug and Release</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/26/淡静安然自显珍贵/">淡静安然自显珍贵</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/21/每个程序员都该知道的10大编码原则/">每个程序员都该知道的10大编码原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/20/Love is a telephone/">Love is a telephone</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/19/Lorem ipsum dolor sit amet/">Lorem ipsum dolor sit amet</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/18/简短小诗/">简短小诗</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ shared_ptr 从原理来看看栈溢出的危害 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ shared_ptr 从原理来看看栈溢出的危害">
+<meta property="og:url" content="http://greedysky.github.io/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：">
+<meta property="og:image" content="http://greedysky.github.io/image/52/52_1.webp">
+<meta property="og:updated_time" content="2019-11-12T12:19:45.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ shared_ptr 从原理来看看栈溢出的危害">
+<meta name="twitter:description" content="上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：">
+<meta name="twitter:image" content="http://greedysky.github.io/image/52/52_1.webp">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl facebook" target="_blank" href="#" title="facebook">facebook</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 12.86px;">Android</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 18.57px;">C++11</a> <a href="/tags/C-17/" style="font-size: 14.29px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.86px;">C++20</a> <a href="/tags/C语言/" style="font-size: 15.71px;">C语言</a> <a href="/tags/DICOM/" style="font-size: 10px;">DICOM</a> <a href="/tags/MFC/" style="font-size: 11.43px;">MFC</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Qt/" style="font-size: 14.29px;">Qt</a> <a href="/tags/二叉树/" style="font-size: 11.43px;">二叉树</a> <a href="/tags/图像处理/" style="font-size: 11.43px;">图像处理</a> <a href="/tags/幽默冷笑/" style="font-size: 12.86px;">幽默冷笑</a> <a href="/tags/情感/" style="font-size: 17.14px;">情感</a> <a href="/tags/有趣精选/" style="font-size: 17.14px;">有趣精选</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编码/" style="font-size: 10px;">编码</a> <a href="/tags/英文/" style="font-size: 14.29px;">英文</a> <a href="/tags/诗歌/" style="font-size: 14.29px;">诗歌</a> <a href="/tags/调试技术/" style="font-size: 10px;">调试技术</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="facebook" target="_blank" href="#" title="facebook">facebook</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++ shared_ptr 从原理来看看栈溢出的危害" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/" class="article-date">
+      <time datetime="2018-01-12T12:11:20.000Z" itemprop="datePublished">2018-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ shared_ptr 从原理来看看栈溢出的危害
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="C-std-shared-ptr-实现原理"><a href="#C-std-shared-ptr-实现原理" class="headerlink" title="C++ std::shared_ptr 实现原理"></a><strong>C++ std::shared_ptr 实现原理</strong></h2><p>&#160; &#160; &#160; &#160;上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：<br>&#160; &#160; &#160; &#160;shared_ptr共享被管理对象，同一时刻可以有多个shared_ptr拥有对象的所有权，当最后一个shared_ptr对象销毁时，被管理对象自动销毁。<br>&#160; &#160; &#160; &#160;shared_ptr 实现<br><img src="/image/52/52_1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;简单来说，shared_ptr实现包含了两部分<br>&#160; &#160; &#160; &#160;● 一个指向堆上创建的对象的裸指针，raw_ptr<br>&#160; &#160; &#160; &#160;● 一个指向内部隐藏的、共享的管理对象。share_count_object<br>&#160; &#160; &#160; &#160;第一部分没什么好说的，第二部分是需要关注的重点：<br>&#160; &#160; &#160; &#160;● use_count，当前这个堆上对象被多少对象引用了，简单来说就是引用计数。<br>&#160; &#160; &#160; &#160;● weak_count，这个管理对象被多少个智能指针共享了，简单来说就是管理对象的引用计数。<br>&#160; &#160; &#160; &#160;<strong>不同指针创建的对同一个堆上对象的智能管理，并不共享管理对象，因此存在double free的可能性</strong><br>&#160; &#160; &#160; &#160;_shared_ptr直接包含的裸指针，即raw prt，是为了实现一般指针的-&gt;,✱等操作，通过<strong>shared_count object间接包含的指针是为了管理对象的生命周期，回收相关资源。换句话说，</strong>shared_count object内部的use_count主要用来标记被管理对象的生命周期，weak_count主要用来标记管理对象的生命周期。<br>&#160; &#160; &#160; &#160;<strong>注意区分管理和被管理。</strong></p>
+<p>##<strong>问题原因</strong><br>&#160; &#160; &#160; &#160;了解了原理，可以看出std::share_ptr本身的raw ptr指向了堆上通过new创建的对象。但是其自身这个raw ptr却会如果在不当操作上，被修改，比如栈越界操作，就会被破坏，导致产生对非法对象的访问：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">XXX::XX df = XXX::XX::buildDataFrame();</div><div class="line"><span class="keyword">int</span> a[<span class="number">1</span>] = &#123;<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    a[i] = i;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;上述这段代码就会引发问题，这里XXX::XX的具体内部设计使用了经典的RAII。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2018年01月12日 - 20时11分</p>
+        <p><span>最后更新:</span>2019年11月12日 - 20时19分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/" title="C++ shared_ptr 从原理来看看栈溢出的危害">http://greedysky.github.io/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/03/20/C++ 类的默认函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++ 类的默认函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/19/C++ vector 使用注意事项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ vector 使用注意事项</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-std-shared-ptr-实现原理"><span class="toc-number">1.</span> <span class="toc-text">C++ std::shared_ptr 实现原理</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/" data-title="C++ shared_ptr 从原理来看看栈溢出的危害" data-url="http://greedysky.github.io/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"null"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/03/20/C++ 类的默认函数/" title="上一篇: C++ 类的默认函数">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/12/19/C++ vector 使用注意事项/" title="下一篇: C++ vector 使用注意事项">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/06/25/C++ 模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/20/C++ array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/C++ STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/10/C++ typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/26/C++ 高阶操作：模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/17/C++ 模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/02/C++ type traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/18/C++20 标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/01/C++17 折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/23/C++20 协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/C++ volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/C++ assert 函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/29/C++ 优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/21/C++ 多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/12/C++ 6 种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/05/C++ 线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/23/C++ 基于范围的 for 循环/">C++ 基于范围的 for 循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/16/C++ 列表初始化详解/">C++ 列表初始化详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/03/C++11 中的 Lambda 函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/13/C++11 右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/08/C++ 虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/02/C++ 仿函数了解一下/">C++仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/06/10/C++11 异步操作不只是 thread/">C++11 的异步操作不只是 thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++ 字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11 中智能指针的原理、使用、实现/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/05/C++ const和constexpr还在傻傻分不清/">C++ const和constexpr还在傻傻分不清</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/C++ string 类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/08/C++ 函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/握手/">握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/10/C++11 新特性之强制类型转换static_cast/">C++11 新特性之强制类型转换static_cast</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/C++11 新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/20/C++20 最新进展：加入模块化和协程，进入特性冻结阶段/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/C++ 中是如何调用 C 接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/08/C++ 一句话帮你理解 typedef 的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/12/C++ NULL，0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/20/C++ 类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/12/C++ shared_ptr 从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/19/C++ vector 使用注意事项/">C++ vector 使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/11/C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树 - Copy/">C++ 智能指针和二叉树：图解层序遍历和逐层打印二叉树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/27/C++ const 的使用/">C++ const 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/22/C++ 对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/C++11 中的左值、右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/C++ 指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C++17 中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/06/你需要了解的 C++ 17 Top 19 新特性/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/28/因为心无所恃 所以随遇而安/">因为心无所恃，所以随遇而安！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/20/C++11 新特性之正则表达式/">C++ 11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/C++11 新特性之template/">C++ 11 新特性之 template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/C++11 新特性之右值引用与移动/">C++ 11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/C++11 新特性之随机数库/">C++ 11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/字符串匹配的 Boyer-Moore 算法/">字符串匹配的 Boyer-Moore 算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/每个人心底都有那么一个人/">每个人心底都有那么一个人！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/26/C++11 新特性之Class/">C++11 新特性之 Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/C++11 新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/​想回到以前 如果我想你/">​想回到以前，如果我想你！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/C++11 新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/06/C++11 新特性之lambda/">C++11 新特性之 lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11 新特性之类型推断与类型获取/">C++11新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/30/C++11 新特性之新类型与初始化/">C++11新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/28/爱你的时候奋不顾身/">爱你的时候奋不顾身！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/10/幽默冷笑话/">幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/相忘于江湖 却怀念到哭泣/">相忘于江湖，却怀念到哭泣！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/30/别去试人心 它会让你失望/">别去试人心， 它会让你失望！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/08/Qt QStackedWidget切换动画/">Qt QStackedWidget切换动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/21/30个幽默冷笑话 /">30个幽默冷笑话</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/28/父爱无边/">父 爱 无 边</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/28/Qt on Android http下载与Json解析(下)/">Qt on Android http下载与Json解析(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/My Father/">My Father</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Qt on Android http下载与Json解析(上)/">Qt on Android http下载与Json解析(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/07/Qt on Android怎样适应不同的屏幕尺寸/">Qt on Android怎样适应不同的屏幕尺寸</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/31/高级程序员装逼指南/">高级程序员装逼指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/27/树的三种遍历（递归实现） /">树的三种遍历（递归实现）</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/21/永不放弃/">永不放弃</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/16/Never Give Up /">Never Give Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/20/最为奇葩的四个问题/">最为奇葩的四个问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/16/[MFC]透明图展示/">MFC透明图展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/15/[MFC]图形附加alpha透明通道/">MFC图形附加alpha透明通道</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/12/虚函数占用大小Sizeof/">虚函数占用大小Sizeof</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/08/C++中的explicit关键字/">C++中的explicit关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/05/DICOM Object基本概念/">DICOM Object基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/28/Different between Debug and Release/">Different between Debug and Release</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/26/淡静安然自显珍贵/">淡静安然自显珍贵</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/21/每个程序员都该知道的10大编码原则/">每个程序员都该知道的10大编码原则</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/20/Love is a telephone/">Love is a telephone</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/19/Lorem ipsum dolor sit amet/">Lorem ipsum dolor sit amet</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/10/18/简短小诗/">简短小诗</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
