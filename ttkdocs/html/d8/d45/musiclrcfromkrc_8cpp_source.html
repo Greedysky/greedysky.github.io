@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.4.0</span>
+   &#160;<span id="projectnumber">2.15.5.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -113,13 +113,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>((fp = fopen(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a>(input), <span class="stringliteral">&quot;rb&quot;</span>)) == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;open file error&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Open file error&quot;</span>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(fstat(fileno(fp), &amp;st))</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;fstat file error&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Fstat file error&quot;</span>);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        fclose(fp);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    uchar *src = <span class="keyword">new</span> uchar[st.st_size];</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(fread(src, <span class="keyword">sizeof</span>(uchar), st.st_size, fp) != st.st_size)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;fread file error&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Fread file error&quot;</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">delete</span>[] src;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        fclose(fp);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -135,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(memcmp(src, <span class="stringliteral">&quot;krc1&quot;</span>, 4) != 0)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;error file format&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Error file format&quot;</span>);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">delete</span>[] src;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        fclose(fp);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -322,7 +322,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_lrc_from_krc_html_ae8bd67b3e59df576b14c5e84997d9b72"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#ae8bd67b3e59df576b14c5e84997d9b72">MusicLrcFromKrc::sncasecmp</a></div><div class="ttdeci">int sncasecmp(char *s1, char *s2, size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00101">musiclrcfromkrc.cpp:101</a></div></div>
 <div class="ttc" id="zlib_8h_html"><div class="ttname"><a href="../../d4/dae/zlib_8h.html">zlib.h</a></div></div>
 <div class="ttc" id="class_music_lrc_from_krc_html_a6c1de6b4ae2f57212b41f66d8881a163"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#a6c1de6b4ae2f57212b41f66d8881a163">MusicLrcFromKrc::isfilter</a></div><div class="ttdeci">int isfilter(char *tok)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00136">musiclrcfromkrc.cpp:136</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_adc87ef97b3c46a194cf8edfc719821ca"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00194">ttkglobal.h:194</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_adc87ef97b3c46a194cf8edfc719821ca"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00184">ttkglobal.h:184</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ac7f64d346c45318df36293f7dfa4e375"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac7f64d346c45318df36293f7dfa4e375">TTKConst_cast</a></div><div class="ttdeci">#define TTKConst_cast(x, y)</div><div class="ttdoc">cast </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00071">ttkglobal.h:71</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8h_html"><div class="ttname"><a href="../../d3/d6d/musiclrcfromkrc_8h.html">musiclrcfromkrc.h</a></div></div>
 <div class="ttc" id="musicnumberdefine_8h_html_a3af14a83a94905bf1607fa74d49bb899"><div class="ttname"><a href="../../dd/d01/musicnumberdefine_8h.html#a3af14a83a94905bf1607fa74d49bb899">MT_H2MS</a></div><div class="ttdeci">#define MT_H2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d01/musicnumberdefine_8h_source.html#l00039">musicnumberdefine.h:39</a></div></div>
@@ -339,7 +339,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 8 2021 22:15:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 19 2021 22:24:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

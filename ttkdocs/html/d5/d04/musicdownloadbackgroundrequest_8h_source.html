@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/musicdownloadbackgroundrequest.h Source File</title>
+<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/image/musicdownloadbackgroundrequest.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.4.0</span>
+   &#160;<span id="projectnumber">2.15.5.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_0c63858d6a262a0c033112e753ad93dd.html">image</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -98,42 +98,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ================================================= */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d07/musicobject_8h.html">musicobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/daa/musicabstractnetwork_8h.html">musicabstractnetwork.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a> : <span class="keyword">public</span> <a class="code" href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QString &amp;save, QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> startToDownload() = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">downLoadFinished</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ddd/musicdownloadimagerequest_8h.html">musicdownloadimagerequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a> : <span class="keyword">public</span> <a class="code" href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QString &amp;save, QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/dc2/class_music_download_image_request.html#af10e070122b4aed9cd1ce295eab1327b">startToDownload</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../dd/dc2/class_music_download_image_request.html#af7bb3ec6458c3e5bf0f7469cf1ce404f">downLoadFinished</a>(<span class="keyword">const</span> QString &amp;bytes);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a6e792f150396cbb1c4db4bed91b460a6">   51</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d9/dd8/class_music_download_background_request.html#a6e792f150396cbb1c4db4bed91b460a6">m_index</a>, m_counter;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a1e9ab07913b21a1e852bf123dea8d8ab">   52</a></span>&#160;    QString m_artName, <a class="code" href="../../d9/dd8/class_music_download_background_request.html#a1e9ab07913b21a1e852bf123dea8d8ab">m_savePath</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif // MUSICDOWNLOADBACKGROUNDREQUEST_H</span></div>
-<div class="ttc" id="class_music_download_background_request_html_a6e792f150396cbb1c4db4bed91b460a6"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a6e792f150396cbb1c4db4bed91b460a6">MusicDownloadBackgroundRequest::m_index</a></div><div class="ttdeci">int m_index</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00051">musicdownloadbackgroundrequest.h:51</a></div></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // MUSICDOWNLOADBACKGROUNDREQUEST_H</span></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
-<div class="ttc" id="class_music_abstract_network_html_a37e4dedb459ced0de0768837f430415e"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00032">musicabstractnetwork.cpp:32</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00144">ttkglobal.h:144</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="class_music_download_background_request_html"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a></div><div class="ttdoc">The class of download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00028">musicdownloadbackgroundrequest.h:28</a></div></div>
-<div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
-<div class="ttc" id="class_music_download_background_request_html_a1e9ab07913b21a1e852bf123dea8d8ab"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a1e9ab07913b21a1e852bf123dea8d8ab">MusicDownloadBackgroundRequest::m_savePath</a></div><div class="ttdeci">QString m_savePath</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00052">musicdownloadbackgroundrequest.h:52</a></div></div>
-<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of abstract downloading data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00036">musicabstractnetwork.h:36</a></div></div>
-<div class="ttc" id="musicabstractnetwork_8h_html"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html">musicabstractnetwork.h</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html">MusicDownloadBackgroundRequest</a></div><div class="ttdoc">The class of download art photo image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00027">musicdownloadbackgroundrequest.h:27</a></div></div>
+<div class="ttc" id="class_music_download_image_request_html_af10e070122b4aed9cd1ce295eab1327b"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#af10e070122b4aed9cd1ce295eab1327b">MusicDownloadImageRequest::startToDownload</a></div><div class="ttdeci">virtual void startToDownload()=0</div></div>
+<div class="ttc" id="class_music_download_image_request_html"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a></div><div class="ttdoc">The class of download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddd/musicdownloadimagerequest_8h_source.html#l00028">musicdownloadimagerequest.h:28</a></div></div>
+<div class="ttc" id="class_music_download_image_request_html_af7bb3ec6458c3e5bf0f7469cf1ce404f"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#af7bb3ec6458c3e5bf0f7469cf1ce404f">MusicDownloadImageRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d5a/musicdownloadimagerequest_8cpp_source.html#l00015">musicdownloadimagerequest.cpp:15</a></div></div>
+<div class="ttc" id="musicdownloadimagerequest_8h_html"><div class="ttname"><a href="../../d7/ddd/musicdownloadimagerequest_8h.html">musicdownloadimagerequest.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 8 2021 22:15:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 19 2021 22:24:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

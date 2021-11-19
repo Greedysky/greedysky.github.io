@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.4.0</span>
+   &#160;<span id="projectnumber">2.15.5.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QStringList&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html#ae12871a54e334350831fef4aea7e4abd">    6</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html#ae12871a54e334350831fef4aea7e4abd">MusicHotKeyManager::setInputObject</a>(QObject *<span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html#a211ec9fb780ea2bfc2930dcb3e4ecdad">    6</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html#a211ec9fb780ea2bfc2930dcb3e4ecdad">MusicHotKeyManager::setInputModule</a>(QObject *<span class="keywordtype">object</span>)</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;8; ++i)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
@@ -198,11 +198,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">const</span> quint32 modList[] = {Qt::ControlModifier, Qt::ShiftModifier, Qt::AltModifier};</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    QString keyStr;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=0; j&lt;3; j++)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;3; i++)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span>(modifiers &amp; modList[j])</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span>(modifiers &amp; modList[i])</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            keyStr.append(strModList[j] + <span class="stringliteral">&quot;+&quot;</span>);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            keyStr.append(strModList[i] + <span class="stringliteral">&quot;+&quot;</span>);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
@@ -241,7 +241,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_hot_key_manager_html_a5d90d71f5b19d22e9ce6f01d7fa5ccd0"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#a5d90d71f5b19d22e9ce6f01d7fa5ccd0">MusicHotKeyManager::enabledAll</a></div><div class="ttdeci">void enabledAll(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00108">musichotkeymanager.cpp:108</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_abc59cc424416ab5f4461057de90c4472"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#abc59cc424416ab5f4461057de90c4472">MusicHotKeyManager::setEnabled</a></div><div class="ttdeci">void setEnabled(int index, bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00090">musichotkeymanager.cpp:90</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_afb1a05fae7e02b56d9f440397e6d6aa9"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#afb1a05fae7e02b56d9f440397e6d6aa9">MusicHotKeyManager::count</a></div><div class="ttdeci">int count() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00139">musichotkeymanager.cpp:139</a></div></div>
-<div class="ttc" id="class_music_hot_key_manager_html_ae720cdbb697d2ba5c1e985a786c3a6ac"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">MusicHotKeyManager::m_hotkeys</a></div><div class="ttdeci">QList&lt; QGlobalShortcut * &gt; m_hotkeys</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00106">musichotkeymanager.h:106</a></div></div>
+<div class="ttc" id="class_music_hot_key_manager_html_ae720cdbb697d2ba5c1e985a786c3a6ac"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">MusicHotKeyManager::m_hotkeys</a></div><div class="ttdeci">QList&lt; QGlobalShortcut * &gt; m_hotkeys</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00105">musichotkeymanager.h:105</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_ad706e4249347c1cd1381934a5691137d"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a></div><div class="ttdeci">const wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00015">musiclrcfromkrc.cpp:15</a></div></div>
 <div class="ttc" id="musichotkeymanager_8h_html"><div class="ttname"><a href="../../d7/d7c/musichotkeymanager_8h.html">musichotkeymanager.h</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_ab102cb870e63ae7ef2635b9afcea5715"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ab102cb870e63ae7ef2635b9afcea5715">MusicHotKeyManager::setHotKeys</a></div><div class="ttdeci">void setHotKeys(const QStringList &amp;keys)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00035">musichotkeymanager.cpp:35</a></div></div>
@@ -254,12 +254,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_global_shortcut_html"><div class="ttname"><a href="../../dc/d1d/class_q_global_shortcut.html">QGlobalShortcut</a></div><div class="ttdoc">The class of the qglobal shortcut. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de4/qglobalshortcut_8h_source.html#l00031">qglobalshortcut.h:31</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_ac7de6717239f0308f46e9bbb8c3d4f95"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ac7de6717239f0308f46e9bbb8c3d4f95">MusicHotKeyManager::setHotKey</a></div><div class="ttdeci">void setHotKey(int index, const QString &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00044">musichotkeymanager.cpp:44</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_a8901c79415e202cb432994de12a599c6"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#a8901c79415e202cb432994de12a599c6">MusicHotKeyManager::toString</a></div><div class="ttdeci">QString toString(int key, int modifiers)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00116">musichotkeymanager.cpp:116</a></div></div>
+<div class="ttc" id="class_music_hot_key_manager_html_a211ec9fb780ea2bfc2930dcb3e4ecdad"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#a211ec9fb780ea2bfc2930dcb3e4ecdad">MusicHotKeyManager::setInputModule</a></div><div class="ttdeci">void setInputModule(QObject *object)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00006">musichotkeymanager.cpp:6</a></div></div>
 <div class="ttc" id="class_music_hot_key_manager_html_a448ba86d0f42902eb8a43ca79faed896"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#a448ba86d0f42902eb8a43ca79faed896">MusicHotKeyManager::hotKey</a></div><div class="ttdeci">QString hotKey(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00062">musichotkeymanager.cpp:62</a></div></div>
-<div class="ttc" id="class_music_hot_key_manager_html_ae12871a54e334350831fef4aea7e4abd"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ae12871a54e334350831fef4aea7e4abd">MusicHotKeyManager::setInputObject</a></div><div class="ttdeci">void setInputObject(QObject *object)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db4/musichotkeymanager_8cpp_source.html#l00006">musichotkeymanager.cpp:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 8 2021 22:15:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 19 2021 22:24:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

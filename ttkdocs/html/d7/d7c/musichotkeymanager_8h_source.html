@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.4.0</span>
+   &#160;<span id="projectnumber">2.15.5.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -99,61 +99,59 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ================================================= */</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d1d/class_q_global_shortcut.html">QGlobalShortcut</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setInputObject(QObject *<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> setHotKeys(<span class="keyword">const</span> QStringList &amp;keys);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setHotKey(<span class="keywordtype">int</span> index, <span class="keyword">const</span> QString &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> setHotKey(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> key);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QString hotKey(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QObject* getHotKey(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> addHotKey(<span class="keyword">const</span> QString &amp;key);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> addHotKey(<span class="keywordtype">int</span> key);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> setEnabled(<span class="keywordtype">int</span> index, <span class="keywordtype">bool</span> enable);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> enabled(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> enabledAll(<span class="keywordtype">bool</span> enable);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QString toString(<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> modifiers);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> count() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QStringList getDefaultKeys() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QStringList getKeys() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> setDefaultKey();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">  106</a></span>&#160;    QList&lt;QGlobalShortcut*&gt; <a class="code" href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">m_hotkeys</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d7/d7c/musichotkeymanager_8h.html#afe050bd2816ad53c68e57a05f9606aba">  111</a></span>&#160;<span class="preprocessor">#define G_HOTKEY_PTR GetMusicHotKeyManager()</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>* <a class="code" href="../../d7/d7c/musichotkeymanager_8h.html#aa59c6b062e3faf8152a3fe8faf2c334b">GetMusicHotKeyManager</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif // MUSICHOTKEYMANAGER_H</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d1d/class_q_global_shortcut.html">QGlobalShortcut</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setInputModule(QObject *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> setHotKeys(<span class="keyword">const</span> QStringList &amp;keys);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setHotKey(<span class="keywordtype">int</span> index, <span class="keyword">const</span> QString &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setHotKey(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QString hotKey(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    QObject* getHotKey(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> addHotKey(<span class="keyword">const</span> QString &amp;key);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> addHotKey(<span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> setEnabled(<span class="keywordtype">int</span> index, <span class="keywordtype">bool</span> enable);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> enabled(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> enabledAll(<span class="keywordtype">bool</span> enable);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QString toString(<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> modifiers);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span> count() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    QStringList getDefaultKeys() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    QStringList getKeys() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> setDefaultKey();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">  105</a></span>&#160;    QList&lt;QGlobalShortcut*&gt; <a class="code" href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">m_hotkeys</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d7/d7c/musichotkeymanager_8h.html#afe050bd2816ad53c68e57a05f9606aba">  110</a></span>&#160;<span class="preprocessor">#define G_HOTKEY_PTR GetMusicHotKeyManager()</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a>* <a class="code" href="../../d7/d7c/musichotkeymanager_8h.html#aa59c6b062e3faf8152a3fe8faf2c334b">GetMusicHotKeyManager</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // MUSICHOTKEYMANAGER_H</span></div>
 <div class="ttc" id="musichotkeymanager_8h_html_aa59c6b062e3faf8152a3fe8faf2c334b"><div class="ttname"><a href="../../d7/d7c/musichotkeymanager_8h.html#aa59c6b062e3faf8152a3fe8faf2c334b">GetMusicHotKeyManager</a></div><div class="ttdeci">TTK_MODULE_EXPORT MusicHotKeyManager * GetMusicHotKeyManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daf/musicsingleton_8cpp_source.html#l00025">musicsingleton.cpp:25</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a></div></div>
-<div class="ttc" id="class_music_hot_key_manager_html_ae720cdbb697d2ba5c1e985a786c3a6ac"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">MusicHotKeyManager::m_hotkeys</a></div><div class="ttdeci">QList&lt; QGlobalShortcut * &gt; m_hotkeys</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00106">musichotkeymanager.h:106</a></div></div>
+<div class="ttc" id="class_music_hot_key_manager_html_ae720cdbb697d2ba5c1e985a786c3a6ac"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html#ae720cdbb697d2ba5c1e985a786c3a6ac">MusicHotKeyManager::m_hotkeys</a></div><div class="ttdeci">QList&lt; QGlobalShortcut * &gt; m_hotkeys</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00105">musichotkeymanager.h:105</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_ad706e4249347c1cd1381934a5691137d"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a></div><div class="ttdeci">const wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00015">musiclrcfromkrc.cpp:15</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00157">ttkglobal.h:157</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00144">ttkglobal.h:144</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html_a8d62f3ef8a22e40d7a4ff45f03d0ce0e"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00083">ttksingleton.h:83</a></div></div>
-<div class="ttc" id="class_music_hot_key_manager_html"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a></div><div class="ttdoc">The class of the global hotkey setting manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00030">musichotkeymanager.h:30</a></div></div>
-<div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
+<div class="ttc" id="class_music_hot_key_manager_html"><div class="ttname"><a href="../../d5/d95/class_music_hot_key_manager.html">MusicHotKeyManager</a></div><div class="ttdoc">The class of the global hotkey setting manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d7c/musichotkeymanager_8h_source.html#l00029">musichotkeymanager.h:29</a></div></div>
 <div class="ttc" id="class_q_global_shortcut_html"><div class="ttname"><a href="../../dc/d1d/class_q_global_shortcut.html">QGlobalShortcut</a></div><div class="ttdoc">The class of the qglobal shortcut. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de4/qglobalshortcut_8h_source.html#l00031">qglobalshortcut.h:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 8 2021 22:15:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 19 2021 22:24:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

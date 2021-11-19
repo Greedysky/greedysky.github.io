@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.4.0</span>
+   &#160;<span id="projectnumber">2.15.5.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QPixmap image = input.scaled(rect.size());</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    image.setMask(<a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#a54ef4add8705cbcf707cc646be95e9cb">GenerateMask</a>(rect, ratioX, ratioY));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    image.setMask(<a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#af87fddcb821713c045bdb75e21baff4e">generateMask</a>(rect, ratioX, ratioY));</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">return</span> image;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
@@ -122,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> image;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d8/d75/namespace_music_utils_1_1_image.html#a54ef4add8705cbcf707cc646be95e9cb">   46</a></span>&#160;QBitmap <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#a54ef4add8705cbcf707cc646be95e9cb">MusicUtils::Image::GenerateMask</a>(<span class="keyword">const</span> QRect &amp;rect, <span class="keywordtype">int</span> ratioX, <span class="keywordtype">int</span> ratioY)</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d8/d75/namespace_music_utils_1_1_image.html#af87fddcb821713c045bdb75e21baff4e">   46</a></span>&#160;QBitmap <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#af87fddcb821713c045bdb75e21baff4e">MusicUtils::Image::generateMask</a>(<span class="keyword">const</span> QRect &amp;rect, <span class="keywordtype">int</span> ratioX, <span class="keywordtype">int</span> ratioY)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QBitmap mask(rect.size());</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QPainter painter(&amp;mask);</div>
@@ -133,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> mask;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d8/d75/namespace_music_utils_1_1_image.html#ad10bf36e0bca492992e2c90a295d0309">   57</a></span>&#160;QByteArray <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#ad10bf36e0bca492992e2c90a295d0309">MusicUtils::Image::GeneratePixmapData</a>(<span class="keyword">const</span> QPixmap &amp;input)</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d8/d75/namespace_music_utils_1_1_image.html#ad75f6fe08450bbe1f87dd01592c716ad">   57</a></span>&#160;QByteArray <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#ad75f6fe08450bbe1f87dd01592c716ad">MusicUtils::Image::generatePixmapData</a>(<span class="keyword">const</span> QPixmap &amp;input)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span>(input.isNull())</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
@@ -236,21 +236,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
 <div class="ttc" id="namespace_music_utils_1_1_image_html_a228bb0ad812b19893e67754696ced826"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#a228bb0ad812b19893e67754696ced826">MusicUtils::Image::grayScaleAverage</a></div><div class="ttdeci">TTK_MODULE_EXPORT int grayScaleAverage(const QImage &amp;input, int width, int height)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00114">musicimageutils.cpp:114</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_image_html_ad75f6fe08450bbe1f87dd01592c716ad"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#ad75f6fe08450bbe1f87dd01592c716ad">MusicUtils::Image::generatePixmapData</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray generatePixmapData(const QPixmap &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00057">musicimageutils.cpp:57</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
-<div class="ttc" id="musicobject_8h_html_af3f3ca7aa945b0135d807f3fcfd722ba"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af3f3ca7aa945b0135d807f3fcfd722ba">JPG_FILE_PREFIX</a></div><div class="ttdeci">#define JPG_FILE_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00035">musicobject.h:35</a></div></div>
+<div class="ttc" id="musicobject_8h_html_af3f3ca7aa945b0135d807f3fcfd722ba"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af3f3ca7aa945b0135d807f3fcfd722ba">JPG_FILE_PREFIX</a></div><div class="ttdeci">#define JPG_FILE_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00033">musicobject.h:33</a></div></div>
 <div class="ttc" id="musicimageutils_8h_html"><div class="ttname"><a href="../../de/d18/musicimageutils_8h.html">musicimageutils.h</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_image_html_a28ab293202e6834a9b87f8ec4dc04c27"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#a28ab293202e6834a9b87f8ec4dc04c27">MusicUtils::Image::reRenderImage</a></div><div class="ttdeci">TTK_MODULE_EXPORT void reRenderImage(int delta, const QImage *input, QImage *output)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00146">musicimageutils.cpp:146</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_image_html_a922a8ab52cacd4f31d2cb4920a51cbca"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#a922a8ab52cacd4f31d2cb4920a51cbca">MusicUtils::Image::pixmapToRound</a></div><div class="ttdeci">TTK_MODULE_EXPORT QPixmap pixmapToRound(const QPixmap &amp;input, int ratioX, int ratioY)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00008">musicimageutils.cpp:8</a></div></div>
 <div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_image_html_a8abf6ecb574e3b2b977f7d323e6be50b"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#a8abf6ecb574e3b2b977f7d323e6be50b">MusicUtils::Image::grayScalePixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT QPixmap grayScalePixmap(const QPixmap &amp;input, int radius=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00098">musicimageutils.cpp:98</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_image_html_ad10bf36e0bca492992e2c90a295d0309"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#ad10bf36e0bca492992e2c90a295d0309">MusicUtils::Image::GeneratePixmapData</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray GeneratePixmapData(const QPixmap &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00057">musicimageutils.cpp:57</a></div></div>
 <div class="ttc" id="musicimageutils_8cpp_html_ae264043923e166f374a5fe5a790e9ae3"><div class="ttname"><a href="../../de/d84/musicimageutils_8cpp.html#ae264043923e166f374a5fe5a790e9ae3">colorBurnTransform</a></div><div class="ttdeci">static int colorBurnTransform(int c, int delta)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00127">musicimageutils.cpp:127</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_image_html_a54ef4add8705cbcf707cc646be95e9cb"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#a54ef4add8705cbcf707cc646be95e9cb">MusicUtils::Image::GenerateMask</a></div><div class="ttdeci">TTK_MODULE_EXPORT QBitmap GenerateMask(const QRect &amp;rect, int ratioX, int ratioY)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00046">musicimageutils.cpp:46</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_image_html_ae9cbd9698bce02014e8b220143e2a959"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#ae9cbd9698bce02014e8b220143e2a959">MusicUtils::Image::fusionPixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT void fusionPixmap(QPixmap &amp;back, const QPixmap &amp;front, const QPoint &amp;pt)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00074">musicimageutils.cpp:74</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_image_html_af87fddcb821713c045bdb75e21baff4e"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#af87fddcb821713c045bdb75e21baff4e">MusicUtils::Image::generateMask</a></div><div class="ttdeci">TTK_MODULE_EXPORT QBitmap generateMask(const QRect &amp;rect, int ratioX, int ratioY)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00046">musicimageutils.cpp:46</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 8 2021 22:15:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 19 2021 22:24:26 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
