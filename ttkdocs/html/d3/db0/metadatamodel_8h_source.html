@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -100,86 +100,83 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef METADATAMODEL_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define METADATAMODEL_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;QHash&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;QString&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QVariant&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QFlags&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dbf/tagmodel_8h.html">tagmodel.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d5b/regularwrapper_8h.html">regularwrapper.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QVariant &amp;value, <span class="keyword">const</span> QString &amp;suffix = QString());</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setName(<span class="keyword">const</span> QString &amp;name);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> QVariant &amp;value() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setValue(<span class="keyword">const</span> QString &amp;value);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> QString &amp;suffix() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> setSuffix(<span class="keyword">const</span> QString &amp;suffix);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">   73</a></span>&#160;    QString m_name, <a class="code" href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">m_suffix</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">   74</a></span>&#160;    QVariant <a class="code" href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">m_value</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html">   81</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">   87</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">DialogHint</a></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7a6b738f6dd228d236cfabee52ef46c326">   89</a></span>&#160;        IsCoverEditable = 0x1,      </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7ad29f876a181b54ba5a074035b0ccf44e">   90</a></span>&#160;        CompletePropertyList = 0x2, </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7ab4d0e012f076ddba7fd12ab7bff046aa">   91</a></span>&#160;        IsCueEditable = 0x4         </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    };</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    Q_DECLARE_FLAGS(DialogHints, DialogHint)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    explicit <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a>(<span class="keywordtype">bool</span> readOnly, DialogHints hints = DialogHints());</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    virtual ~<a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a>();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    virtual QList&lt;<a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>&gt; extraProperties() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    virtual QList&lt;<a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>&gt; descriptions() const;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    virtual QList&lt;<a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>*&gt; tags() const;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    virtual QPixmap cover() const;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    virtual <span class="keywordtype">void</span> setCover(const QPixmap &amp;pix);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    virtual <span class="keywordtype">void</span> removeCover();</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    virtual QString coverPath() const;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    virtual QString cue() const;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    virtual <span class="keywordtype">void</span> setCue(const QString &amp;content);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    virtual <span class="keywordtype">void</span> removeCue();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">bool</span> isReadOnly() const;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    const DialogHints &amp;dialogHints() const;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;protected:</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span> setDialogHints(const DialogHints &amp;hints);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> setReadOnly(<span class="keywordtype">bool</span> readOnly);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;private:</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a0b62d20419e454a34e428d8dfae519cc">  172</a></span>&#160;    <span class="keywordtype">bool</span> m_readOnly;</div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a1c684eaf693a00f87d79cc85961256fb">  173</a></span>&#160;    DialogHints m_dialogHints;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;};</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(MetaDataModel::DialogHints)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_meta_data_item_html"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a></div><div class="ttdoc">Container of extra file/track property. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00037">metadatamodel.h:37</a></div></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;QVariant&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QFlags&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dbf/tagmodel_8h.html">tagmodel.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d5b/regularwrapper_8h.html">regularwrapper.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QVariant &amp;value, <span class="keyword">const</span> QString &amp;suffix = QString());</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> setName(<span class="keyword">const</span> QString &amp;name);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> QVariant &amp;value() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setValue(<span class="keyword">const</span> QString &amp;value);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">const</span> QString &amp;suffix() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> setSuffix(<span class="keyword">const</span> QString &amp;suffix);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">   70</a></span>&#160;    QString m_name, <a class="code" href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">m_suffix</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">   71</a></span>&#160;    QVariant <a class="code" href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">m_value</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">   84</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">DialogHint</a></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7a6b738f6dd228d236cfabee52ef46c326">   86</a></span>&#160;        IsCoverEditable = 0x1,      </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7ad29f876a181b54ba5a074035b0ccf44e">   87</a></span>&#160;        CompletePropertyList = 0x2, </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7ab4d0e012f076ddba7fd12ab7bff046aa">   88</a></span>&#160;        IsCueEditable = 0x4         </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    Q_DECLARE_FLAGS(DialogHints, DialogHint)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    explicit <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a>(<span class="keywordtype">bool</span> readOnly, DialogHints hints = DialogHints());</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    virtual ~<a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    virtual QList&lt;<a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>&gt; extraProperties() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    virtual QList&lt;<a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a>&gt; descriptions() const;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    virtual QList&lt;<a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>*&gt; tags() const;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    virtual QPixmap cover() const;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    virtual <span class="keywordtype">void</span> setCover(const QPixmap &amp;pix);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    virtual <span class="keywordtype">void</span> removeCover();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    virtual QString coverPath() const;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    virtual QString cue() const;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    virtual <span class="keywordtype">void</span> setCue(const QString &amp;content);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    virtual <span class="keywordtype">void</span> removeCue();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">bool</span> isReadOnly() const;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    const DialogHints &amp;dialogHints() const;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;protected:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">void</span> setDialogHints(const DialogHints &amp;hints);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span> setReadOnly(<span class="keywordtype">bool</span> readOnly);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;private:</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a0b62d20419e454a34e428d8dfae519cc">  169</a></span>&#160;    <span class="keywordtype">bool</span> m_readOnly;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../df/dff/class_meta_data_model.html#a1c684eaf693a00f87d79cc85961256fb">  170</a></span>&#160;    DialogHints m_dialogHints;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(MetaDataModel::DialogHints)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_meta_data_item_html"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a></div><div class="ttdoc">Container of extra file/track property. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00034">metadatamodel.h:34</a></div></div>
 <div class="ttc" id="regularwrapper_8h_html"><div class="ttname"><a href="../../d6/d5b/regularwrapper_8h.html">regularwrapper.h</a></div></div>
-<div class="ttc" id="class_meta_data_item_html_ab9e9eb00d918bc2e2eb0930d3fc77c6a"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">MetaDataItem::m_suffix</a></div><div class="ttdeci">QString m_suffix</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00073">metadatamodel.h:73</a></div></div>
-<div class="ttc" id="class_tag_model_html"><div class="ttname"><a href="../../dc/d29/class_tag_model.html">TagModel</a></div><div class="ttdoc">The StateHandler class provides is the base interface class of tag editor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dbf/tagmodel_8h_source.html#l00032">tagmodel.h:32</a></div></div>
-<div class="ttc" id="class_meta_data_model_html"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div><div class="ttdoc">The MetaDataModel is the base interface class of metadata access. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00081">metadatamodel.h:81</a></div></div>
+<div class="ttc" id="class_meta_data_item_html_ab9e9eb00d918bc2e2eb0930d3fc77c6a"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html#ab9e9eb00d918bc2e2eb0930d3fc77c6a">MetaDataItem::m_suffix</a></div><div class="ttdeci">QString m_suffix</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00070">metadatamodel.h:70</a></div></div>
+<div class="ttc" id="class_tag_model_html"><div class="ttname"><a href="../../dc/d29/class_tag_model.html">TagModel</a></div><div class="ttdoc">The StateHandler class provides is the base interface class of tag editor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dbf/tagmodel_8h_source.html#l00030">tagmodel.h:30</a></div></div>
+<div class="ttc" id="class_meta_data_model_html"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div><div class="ttdoc">The MetaDataModel is the base interface class of metadata access. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00078">metadatamodel.h:78</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
 <div class="ttc" id="tagmodel_8h_html"><div class="ttname"><a href="../../d1/dbf/tagmodel_8h.html">tagmodel.h</a></div></div>
-<div class="ttc" id="class_meta_data_model_html_a503a67178079347a4a382e18d54e7fe7"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">MetaDataModel::DialogHint</a></div><div class="ttdeci">DialogHint</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00087">metadatamodel.h:87</a></div></div>
+<div class="ttc" id="class_meta_data_model_html_a503a67178079347a4a382e18d54e7fe7"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html#a503a67178079347a4a382e18d54e7fe7">MetaDataModel::DialogHint</a></div><div class="ttdeci">DialogHint</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00084">metadatamodel.h:84</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00230">zconf.h:230</a></div></div>
-<div class="ttc" id="class_meta_data_item_html_ad2e2c2ebd903641dfbc6d6024bb7903e"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">MetaDataItem::m_value</a></div><div class="ttdeci">QVariant m_value</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00074">metadatamodel.h:74</a></div></div>
+<div class="ttc" id="class_meta_data_item_html_ad2e2c2ebd903641dfbc6d6024bb7903e"><div class="ttname"><a href="../../dd/d7d/class_meta_data_item.html#ad2e2c2ebd903641dfbc6d6024bb7903e">MetaDataItem::m_value</a></div><div class="ttdeci">QVariant m_value</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00071">metadatamodel.h:71</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:21 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

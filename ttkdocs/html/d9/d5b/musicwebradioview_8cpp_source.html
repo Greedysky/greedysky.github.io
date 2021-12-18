@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -79,97 +79,95 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <a href="../../d9/d5b/musicwebradioview_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d99/musicwebradioview_8h.html">musicwebradioview.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/dc6/musicwebfmradiowidget_8h.html">musicwebfmradiowidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/deb/musicuiobject_8h.html">musicuiobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d37/musicrightareawidget_8h.html">musicrightareawidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">    7</a></span>&#160;<a class="code" href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">MusicWebRadioView::MusicWebRadioView</a>(QWidget *parent)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : QWidget(parent)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a> = <span class="keyword">new</span> <a class="code" href="../../dd/dd7/class_music_web_f_m_radio_widget.html">MusicWebFMRadioWidget</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QWidget *bottomWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    bottomWidget-&gt;setFixedHeight(40);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QHBoxLayout *bottomLayout = <span class="keyword">new</span> QHBoxLayout(bottomWidget);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    bottomLayout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    bottomLayout-&gt;setContentsMargins(5, 0, 0, 0);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    QPushButton *dj = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    dj-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_dj_radio&quot;</span>));</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    dj-&gt;setToolTip(tr(<span class="stringliteral">&quot;DJRadio&quot;</span>));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    dj-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    dj-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    dj-&gt;setFixedWidth(40);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QPushButton *mv = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mv-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_mv_radio&quot;</span>));</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mv-&gt;setToolTip(tr(<span class="stringliteral">&quot;MVRadio&quot;</span>));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    mv-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mv-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mv-&gt;setFixedWidth(40);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    dj-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mv-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    bottomLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    bottomLayout-&gt;addWidget(dj);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    bottomLayout-&gt;addWidget(mv);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    bottomWidget-&gt;setLayout(bottomLayout);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    layout-&gt;addWidget(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    layout-&gt;addWidget(bottomWidget);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    connect(dj, SIGNAL(clicked()), SLOT(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">openDJRadioWindow</a>()));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    connect(mv, SIGNAL(clicked()), SLOT(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">openMVRadioWindow</a>()));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">   53</a></span>&#160;<a class="code" href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">MusicWebRadioView::~MusicWebRadioView</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">MusicWebRadioView::init</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>-&gt;<a class="code" href="../../dd/dd7/class_music_web_f_m_radio_widget.html#abde523d4dbcf0b63ec59c23a35b15e62">initListItems</a>(index);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">MusicWebRadioView::openDJRadioWindow</a>()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a>()-&gt;<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a829299d664366c53038505ebbb86205f">functionClicked</a>(<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a0df7322da4259998d92eaad941d6fd4d">MusicRightAreaWidget::WebDJRadioWidget</a>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">MusicWebRadioView::openMVRadioWindow</a>()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a>()-&gt;<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a829299d664366c53038505ebbb86205f">functionClicked</a>(<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a629fd1ce4838aeb031cca139b3b7fe9c">MusicRightAreaWidget::WebMVRadioWidget</a>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="ttc" id="class_music_web_f_m_radio_widget_html_abde523d4dbcf0b63ec59c23a35b15e62"><div class="ttname"><a href="../../dd/dd7/class_music_web_f_m_radio_widget.html#abde523d4dbcf0b63ec59c23a35b15e62">MusicWebFMRadioWidget::initListItems</a></div><div class="ttdeci">void initListItems(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0d/musicwebfmradiowidget_8cpp_source.html#l00048">musicwebfmradiowidget.cpp:48</a></div></div>
-<div class="ttc" id="class_music_right_area_widget_html_a7673c3aa8cda17983076fdf08b90779c"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a></div><div class="ttdeci">static MusicRightAreaWidget * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00073">musicrightareawidget.cpp:73</a></div></div>
-<div class="ttc" id="class_music_web_radio_view_html_a4eb1b1e130fee432e48634e024f1ebc9"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">MusicWebRadioView::openMVRadioWindow</a></div><div class="ttdeci">void openMVRadioWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00068">musicwebradioview.cpp:68</a></div></div>
-<div class="ttc" id="musicuiobject_8h_html"><div class="ttname"><a href="../../d0/deb/musicuiobject_8h.html">musicuiobject.h</a></div></div>
-<div class="ttc" id="class_music_right_area_widget_html_a829299d664366c53038505ebbb86205f"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a829299d664366c53038505ebbb86205f">MusicRightAreaWidget::functionClicked</a></div><div class="ttdeci">void functionClicked(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00362">musicrightareawidget.cpp:362</a></div></div>
-<div class="ttc" id="class_music_web_radio_view_html_acf19a58f5698e5946202e6a4944b7f3a"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">MusicWebRadioView::MusicWebRadioView</a></div><div class="ttdeci">MusicWebRadioView(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00007">musicwebradioview.cpp:7</a></div></div>
-<div class="ttc" id="class_music_web_radio_view_html_ad874a9eae35148bbbc530d50d828ccf3"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">MusicWebRadioView::openDJRadioWindow</a></div><div class="ttdeci">void openDJRadioWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00063">musicwebradioview.cpp:63</a></div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d37/musicrightareawidget_8h.html">musicrightareawidget.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">    6</a></span>&#160;<a class="code" href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">MusicWebRadioView::MusicWebRadioView</a>(QWidget *parent)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : QWidget(parent)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a> = <span class="keyword">new</span> <a class="code" href="../../dd/dd7/class_music_web_f_m_radio_widget.html">MusicWebFMRadioWidget</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QWidget *bottomWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    bottomWidget-&gt;setFixedHeight(40);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QHBoxLayout *bottomLayout = <span class="keyword">new</span> QHBoxLayout(bottomWidget);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    bottomLayout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    bottomLayout-&gt;setContentsMargins(5, 0, 0, 0);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QPushButton *dj = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    dj-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_dj_radio&quot;</span>));</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    dj-&gt;setToolTip(tr(<span class="stringliteral">&quot;DJRadio&quot;</span>));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    dj-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    dj-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    dj-&gt;setFixedWidth(40);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QPushButton *mv = <span class="keyword">new</span> QPushButton(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mv-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_mv_radio&quot;</span>));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    mv-&gt;setToolTip(tr(<span class="stringliteral">&quot;MVRadio&quot;</span>));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    mv-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    mv-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    mv-&gt;setFixedWidth(40);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    dj-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mv-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    bottomLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    bottomLayout-&gt;addWidget(dj);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    bottomLayout-&gt;addWidget(mv);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    bottomWidget-&gt;setLayout(bottomLayout);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    layout-&gt;addWidget(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    layout-&gt;addWidget(bottomWidget);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    connect(dj, SIGNAL(clicked()), SLOT(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">openDJRadioWindow</a>()));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    connect(mv, SIGNAL(clicked()), SLOT(<a class="code" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">openMVRadioWindow</a>()));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">   52</a></span>&#160;<a class="code" href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">MusicWebRadioView::~MusicWebRadioView</a>()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">   57</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">MusicWebRadioView::init</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">m_musicRadio</a>-&gt;<a class="code" href="../../dd/dd7/class_music_web_f_m_radio_widget.html#abde523d4dbcf0b63ec59c23a35b15e62">initListItems</a>(index);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">MusicWebRadioView::openDJRadioWindow</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a>()-&gt;<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a0c873f54feaf75c6b289fcb2dcd89fbb">functionClicked</a>(<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a0df7322da4259998d92eaad941d6fd4d">MusicRightAreaWidget::WebDJRadioWidget</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">MusicWebRadioView::openMVRadioWindow</a>()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a>()-&gt;<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a0c873f54feaf75c6b289fcb2dcd89fbb">functionClicked</a>(<a class="code" href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a629fd1ce4838aeb031cca139b3b7fe9c">MusicRightAreaWidget::WebMVRadioWidget</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="ttc" id="class_music_web_f_m_radio_widget_html_abde523d4dbcf0b63ec59c23a35b15e62"><div class="ttname"><a href="../../dd/dd7/class_music_web_f_m_radio_widget.html#abde523d4dbcf0b63ec59c23a35b15e62">MusicWebFMRadioWidget::initListItems</a></div><div class="ttdeci">void initListItems(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0d/musicwebfmradiowidget_8cpp_source.html#l00047">musicwebfmradiowidget.cpp:47</a></div></div>
+<div class="ttc" id="class_music_right_area_widget_html_a7673c3aa8cda17983076fdf08b90779c"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a7673c3aa8cda17983076fdf08b90779c">MusicRightAreaWidget::instance</a></div><div class="ttdeci">static MusicRightAreaWidget * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00071">musicrightareawidget.cpp:71</a></div></div>
+<div class="ttc" id="class_music_web_radio_view_html_a4eb1b1e130fee432e48634e024f1ebc9"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#a4eb1b1e130fee432e48634e024f1ebc9">MusicWebRadioView::openMVRadioWindow</a></div><div class="ttdeci">void openMVRadioWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00067">musicwebradioview.cpp:67</a></div></div>
+<div class="ttc" id="class_music_web_radio_view_html_acf19a58f5698e5946202e6a4944b7f3a"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#acf19a58f5698e5946202e6a4944b7f3a">MusicWebRadioView::MusicWebRadioView</a></div><div class="ttdeci">MusicWebRadioView(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00006">musicwebradioview.cpp:6</a></div></div>
+<div class="ttc" id="class_music_web_radio_view_html_ad874a9eae35148bbbc530d50d828ccf3"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#ad874a9eae35148bbbc530d50d828ccf3">MusicWebRadioView::openDJRadioWindow</a></div><div class="ttdeci">void openDJRadioWindow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00062">musicwebradioview.cpp:62</a></div></div>
 <div class="ttc" id="class_music_web_radio_view_html_a58a37b9402ede8b2b2592ace41876e0e"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#a58a37b9402ede8b2b2592ace41876e0e">MusicWebRadioView::m_musicRadio</a></div><div class="ttdeci">MusicWebFMRadioWidget * m_musicRadio</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d99/musicwebradioview_8h_source.html#l00057">musicwebradioview.h:57</a></div></div>
 <div class="ttc" id="musicwidgetheaders_8h_html"><div class="ttname"><a href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a></div></div>
 <div class="ttc" id="musicwebradioview_8h_html"><div class="ttname"><a href="../../dc/d99/musicwebradioview_8h.html">musicwebradioview.h</a></div></div>
-<div class="ttc" id="class_music_web_radio_view_html_a3048e79809fa641e5b62e2c3a6c6a757"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">MusicWebRadioView::init</a></div><div class="ttdeci">void init(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00058">musicwebradioview.cpp:58</a></div></div>
+<div class="ttc" id="class_music_web_radio_view_html_a3048e79809fa641e5b62e2c3a6c6a757"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#a3048e79809fa641e5b62e2c3a6c6a757">MusicWebRadioView::init</a></div><div class="ttdeci">void init(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00057">musicwebradioview.cpp:57</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_ab9edc8b4504e99685f12f382ddbbcba1"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a></div><div class="ttdeci">const QString MQSSPushButtonStyle01</div><div class="ttdoc">PushButton. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00224">musicuiobject.h:224</a></div></div>
 <div class="ttc" id="class_music_right_area_widget_html_a495b6764da6fcfb1bac8c0ef1f432d38a629fd1ce4838aeb031cca139b3b7fe9c"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a629fd1ce4838aeb031cca139b3b7fe9c">MusicRightAreaWidget::WebMVRadioWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d37/musicrightareawidget_8h_source.html#l00067">musicrightareawidget.h:67</a></div></div>
 <div class="ttc" id="musicwebfmradiowidget_8h_html"><div class="ttname"><a href="../../d8/dc6/musicwebfmradiowidget_8h.html">musicwebfmradiowidget.h</a></div></div>
 <div class="ttc" id="musicrightareawidget_8h_html"><div class="ttname"><a href="../../dc/d37/musicrightareawidget_8h.html">musicrightareawidget.h</a></div></div>
 <div class="ttc" id="class_music_right_area_widget_html_a495b6764da6fcfb1bac8c0ef1f432d38a0df7322da4259998d92eaad941d6fd4d"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a495b6764da6fcfb1bac8c0ef1f432d38a0df7322da4259998d92eaad941d6fd4d">MusicRightAreaWidget::WebDJRadioWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d37/musicrightareawidget_8h_source.html#l00066">musicrightareawidget.h:66</a></div></div>
-<div class="ttc" id="class_music_web_radio_view_html_aa074c720dbf065fe0128f8530921ae76"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">MusicWebRadioView::~MusicWebRadioView</a></div><div class="ttdeci">~MusicWebRadioView()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00053">musicwebradioview.cpp:53</a></div></div>
+<div class="ttc" id="class_music_web_radio_view_html_aa074c720dbf065fe0128f8530921ae76"><div class="ttname"><a href="../../d5/d25/class_music_web_radio_view.html#aa074c720dbf065fe0128f8530921ae76">MusicWebRadioView::~MusicWebRadioView</a></div><div class="ttdeci">~MusicWebRadioView()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5b/musicwebradioview_8cpp_source.html#l00052">musicwebradioview.cpp:52</a></div></div>
 <div class="ttc" id="class_music_web_f_m_radio_widget_html"><div class="ttname"><a href="../../dd/dd7/class_music_web_f_m_radio_widget.html">MusicWebFMRadioWidget</a></div><div class="ttdoc">The class of the web music radio list widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dc6/musicwebfmradiowidget_8h_source.html#l00030">musicwebfmradiowidget.h:30</a></div></div>
+<div class="ttc" id="class_music_right_area_widget_html_a0c873f54feaf75c6b289fcb2dcd89fbb"><div class="ttname"><a href="../../d3/d6a/class_music_right_area_widget.html#a0c873f54feaf75c6b289fcb2dcd89fbb">MusicRightAreaWidget::functionClicked</a></div><div class="ttdeci">void functionClicked(int index, QWidget *widget=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00360">musicrightareawidget.cpp:360</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:29 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:44 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

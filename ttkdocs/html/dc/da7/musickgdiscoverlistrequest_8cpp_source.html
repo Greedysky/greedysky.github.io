@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../dc/ddf/class_music_k_g_discover_list_request.html#acee1cd731e6df8bfb8c65a443244e3b3">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/ddf/class_music_k_g_discover_list_request.html#acee1cd731e6df8bfb8c65a443244e3b3">MusicKGDiscoverListRequest::startToSearch</a>()</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a>(QString(<span class="stringliteral">&quot;%1 startToSearch&quot;</span>).arg(getClassName()));</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a>(QString(<span class="stringliteral">&quot;%1 startToSearch&quot;</span>).arg(className()));</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a>.clear();</div>
@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dc/ddf/class_music_k_g_discover_list_request.html#a21a948dbd9925fb5438c20f7519bf49e">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/ddf/class_music_k_g_discover_list_request.html#a21a948dbd9925fb5438c20f7519bf49e">MusicKGDiscoverListRequest::downLoadFinished</a>()</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a>(QString(<span class="stringliteral">&quot;%1 downLoadFinished&quot;</span>).arg(getClassName()));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a>(QString(<span class="stringliteral">&quot;%1 downLoadFinished&quot;</span>).arg(className()));</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicDiscoverListRequest::downLoadFinished</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d9c/class_music_abstract_network.html#a016721dd4c30eca0104eddb8ff3e49f0">m_reply</a> &amp;&amp; <a class="code" href="../../da/d9c/class_music_abstract_network.html#a016721dd4c30eca0104eddb8ff3e49f0">m_reply</a>-&gt;error() == QNetworkReply::NoError)</div>
@@ -147,9 +147,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Q_EMIT <a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(<a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="ttc" id="musickgqueryinterface_8h_html_ac2b895adbf2146c387b18408420ee581"><div class="ttname"><a href="../../d0/d82/musickgqueryinterface_8h.html#ac2b895adbf2146c387b18408420ee581">KG_TOPLIST_URL</a></div><div class="ttdeci">const QString KG_TOPLIST_URL</div><div class="ttdoc">toplist url </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d82/musickgqueryinterface_8h_source.html#l00046">musickgqueryinterface.h:46</a></div></div>
+<div class="ttc" id="musickgqueryinterface_8h_html_ac2b895adbf2146c387b18408420ee581"><div class="ttname"><a href="../../d0/d82/musickgqueryinterface_8h.html#ac2b895adbf2146c387b18408420ee581">KG_TOPLIST_URL</a></div><div class="ttdeci">const QString KG_TOPLIST_URL</div><div class="ttdoc">toplist url </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d82/musickgqueryinterface_8h_source.html#l00045">musickgqueryinterface.h:45</a></div></div>
 <div class="ttc" id="musickgqueryinterface_8h_html"><div class="ttname"><a href="../../d0/d82/musickgqueryinterface_8h.html">musickgqueryinterface.h</a></div></div>
-<div class="ttc" id="musicabstractnetwork_8h_html_a0d8d733f4e75f0830dfa147cda02943f"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a></div><div class="ttdeci">#define TTK_NETWORK_QUERY_CHECK(VALUE)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00105">musicabstractnetwork.h:105</a></div></div>
+<div class="ttc" id="musicabstractnetwork_8h_html_a0d8d733f4e75f0830dfa147cda02943f"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a></div><div class="ttdeci">#define TTK_NETWORK_QUERY_CHECK(VALUE)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00102">musicabstractnetwork.h:102</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_a5e5f071a5bb196d53c48fb2be855da67"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString mdII(const QString &amp;data, bool encode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00041">musicalgorithmutils.cpp:41</a></div></div>
 <div class="ttc" id="musickgdiscoverlistrequest_8h_html"><div class="ttname"><a href="../../db/ddc/musickgdiscoverlistrequest_8h.html">musickgdiscoverlistrequest.h</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_a37e4dedb459ced0de0768837f430415e"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00032">musicabstractnetwork.cpp:32</a></div></div>
@@ -172,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:39 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

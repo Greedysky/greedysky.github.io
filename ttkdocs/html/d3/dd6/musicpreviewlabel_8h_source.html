@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -80,9 +80,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a href="../../d3/dd6/musicpreviewlabel_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MUSICPREVIEWLABEL_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MUSICPREVIEWLABEL_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/* =================================================</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2021 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2022 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * You should have received a copy of the GNU General Public License along</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ================================================= */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d22/musicclickedlabel_8h.html">musicclickedlabel.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
@@ -108,8 +108,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../da/d41/class_music_color_preview_label.html">MusicColorPreviewLabel</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setColors(<span class="keyword">const</span> QList&lt;QColor&gt; &amp;colors);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QList&lt;QColor&gt; getColors() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QColor getColor() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QList&lt;QColor&gt; colors() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QColor color() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
@@ -172,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_preview_label_item_html_aba92dc11519b42e9e47e5ca2e40f2018"><div class="ttname"><a href="../../d9/ded/struct_music_preview_label_item.html#aba92dc11519b42e9e47e5ca2e40f2018">MusicPreviewLabelItem::m_type</a></div><div class="ttdeci">int m_type</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00068">musicpreviewlabel.h:68</a></div></div>
 <div class="ttc" id="class_music_preview_label_html"><div class="ttname"><a href="../../d6/de0/class_music_preview_label.html">MusicPreviewLabel</a></div><div class="ttdoc">The class of the lrc setting preview label. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00076">musicpreviewlabel.h:76</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00144">ttkglobal.h:144</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00140">ttkglobal.h:140</a></div></div>
 <div class="ttc" id="class_music_preview_label_html_ace11f498b20671c16c16285d897be920"><div class="ttname"><a href="../../d6/de0/class_music_preview_label.html#ace11f498b20671c16c16285d897be920">MusicPreviewLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00105">musicpreviewlabel.h:105</a></div></div>
 <div class="ttc" id="struct_music_preview_label_item_html_a34e4427fee957a4559f807933b353531"><div class="ttname"><a href="../../d9/ded/struct_music_preview_label_item.html#a34e4427fee957a4559f807933b353531">MusicPreviewLabelItem::m_frontground</a></div><div class="ttdeci">QList&lt; QColor &gt; m_frontground</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00069">musicpreviewlabel.h:69</a></div></div>
 <div class="ttc" id="musicpreviewlabel_8h_html_a992b9b111c2258e4d5dcade51733b584"><div class="ttname"><a href="../../d3/dd6/musicpreviewlabel_8h.html#a992b9b111c2258e4d5dcade51733b584">MusicPreviewLabelItem</a></div><div class="ttdeci">struct TTK_MODULE_EXPORT MusicPreviewLabelItem MusicPreviewLabelItem</div><div class="ttdoc">The class of the label previewed. </div></div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:27 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:43 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

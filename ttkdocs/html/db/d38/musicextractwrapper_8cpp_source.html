@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d6/de3/class_music_extract_wrapper.html#acf4ae17ba449a0c14eb3533fefb6b37b">   77</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/de3/class_music_extract_wrapper.html#acf4ae17ba449a0c14eb3533fefb6b37b">MusicExtractWrapper::outputBinary</a>(<span class="keyword">const</span> QString &amp;input)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d6/de3/class_music_extract_wrapper.html#acf4ae17ba449a0c14eb3533fefb6b37b">outputBinary</a>(input, QFileInfo(input).absolutePath() + <span class="stringliteral">&quot;/&quot;</span> + QFileInfo(input).baseName() + <span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d6/de3/class_music_extract_wrapper.html#acf4ae17ba449a0c14eb3533fefb6b37b">outputBinary</a>(input, QFileInfo(input).absolutePath() + <a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a> + QFileInfo(input).baseName() + <a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d6/de3/class_music_extract_wrapper.html#aabae474dc963961e7190bfbb04aec629">   82</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/de3/class_music_extract_wrapper.html#acf4ae17ba449a0c14eb3533fefb6b37b">MusicExtractWrapper::outputBinary</a>(<span class="keyword">const</span> QString &amp;input, <span class="keyword">const</span> QString &amp;output)</div>
@@ -195,7 +195,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span>(QString(file).contains(<span class="stringliteral">&quot;/&quot;</span>))</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span>(QString(file).contains(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>))</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            dir.mkpath(QFileInfo(file).path());</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
@@ -453,7 +453,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicotherdefine_8h_html_a1cdee3fcaf366a7852ce8dcbb2f6084b"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a1cdee3fcaf366a7852ce8dcbb2f6084b">MUSIC_IMAGE_FILE</a></div><div class="ttdeci">#define MUSIC_IMAGE_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00032">musicotherdefine.h:32</a></div></div>
 <div class="ttc" id="ttklogger_8h_html_a743bf672cf731b656a4eb9f33b7f7582"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a></div><div class="ttdeci">#define TTK_LOGGER_ERROR(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00038">ttklogger.h:38</a></div></div>
 <div class="ttc" id="unzip_8c_html_aa9215f88f27e48cd1f94cf4bf7d31575"><div class="ttname"><a href="../../d6/da7/unzip_8c.html#aa9215f88f27e48cd1f94cf4bf7d31575">unzCloseCurrentFile</a></div><div class="ttdeci">ZEXTERN int ZEXPORT unzCloseCurrentFile(unzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/da7/unzip_8c_source.html#l02004">unzip.c:2004</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_image_html_ad75f6fe08450bbe1f87dd01592c716ad"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#ad75f6fe08450bbe1f87dd01592c716ad">MusicUtils::Image::generatePixmapData</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray generatePixmapData(const QPixmap &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00057">musicimageutils.cpp:57</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_image_html_ad75f6fe08450bbe1f87dd01592c716ad"><div class="ttname"><a href="../../d8/d75/namespace_music_utils_1_1_image.html#ad75f6fe08450bbe1f87dd01592c716ad">MusicUtils::Image::generatePixmapData</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray generatePixmapData(const QPixmap &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00056">musicimageutils.cpp:56</a></div></div>
 <div class="ttc" id="unzip_8h_html"><div class="ttname"><a href="../../d2/d5c/unzip_8h.html">unzip.h</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="class_music_extract_wrapper_html_ae0a74636471025b727bc609d507f5e28"><div class="ttname"><a href="../../d6/de3/class_music_extract_wrapper.html#ae0a74636471025b727bc609d507f5e28">MusicExtractWrapper::outputThunderSkin</a></div><div class="ttdeci">static bool outputThunderSkin(QPixmap &amp;image, const QString &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d38/musicextractwrapper_8cpp_source.html#l00015">musicextractwrapper.cpp:15</a></div></div>
@@ -466,6 +466,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicimageutils_8h_html"><div class="ttname"><a href="../../de/d18/musicimageutils_8h.html">musicimageutils.h</a></div></div>
 <div class="ttc" id="zlib_8h_html_a27a96226f3dc88e4743131c632adf32f"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#a27a96226f3dc88e4743131c632adf32f">Z_DEFLATED</a></div><div class="ttdeci">#define Z_DEFLATED</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00209">zlib.h:209</a></div></div>
 <div class="ttc" id="class_music_extract_wrapper_html_a6614d013228f43ce10bf76bde01dbf35"><div class="ttname"><a href="../../d6/de3/class_music_extract_wrapper.html#a6614d013228f43ce10bf76bde01dbf35">MusicExtractWrapper::outputData</a></div><div class="ttdeci">static bool outputData(QByteArray &amp;data, const QString &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d38/musicextractwrapper_8cpp_source.html#l00276">musicextractwrapper.cpp:276</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00164">ttkglobal.h:164</a></div></div>
 <div class="ttc" id="zip_8c_html_acaa442d344aeae9756cccf317f705f92"><div class="ttname"><a href="../../d0/d5f/zip_8c.html#acaa442d344aeae9756cccf317f705f92">zipOpen64</a></div><div class="ttdeci">ZEXTERN zipFile ZEXPORT zipOpen64(const void *pathname, int append)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d5f/zip_8c_source.html#l00953">zip.c:953</a></div></div>
 <div class="ttc" id="unzip_8c_html_a4dae3d3f76e944981aee0c8467267d29"><div class="ttname"><a href="../../d6/da7/unzip_8c.html#a4dae3d3f76e944981aee0c8467267d29">unzGoToNextFile</a></div><div class="ttdeci">ZEXTERN int ZEXPORT unzGoToNextFile(unzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/da7/unzip_8c_source.html#l01199">unzip.c:1199</a></div></div>
 <div class="ttc" id="zip_8c_html_a2317369d8804b71273d8b0784a21d73d"><div class="ttname"><a href="../../d0/d5f/zip_8c.html#a2317369d8804b71273d8b0784a21d73d">zipClose</a></div><div class="ttdeci">ZEXTERN int ZEXPORT zipClose(zipFile file, const char *global_comment)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d5f/zip_8c_source.html#l01882">zip.c:1882</a></div></div>
@@ -490,7 +491,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:38 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

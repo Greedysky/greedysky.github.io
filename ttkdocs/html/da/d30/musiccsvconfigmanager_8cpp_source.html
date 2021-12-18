@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -102,62 +102,55 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">const</span> QStringList &amp;songInfo = line.split(<span class="stringliteral">&quot;,&quot;</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">if</span>(songInfo.count() &gt; 2)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> song;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            song.<a class="code" href="../../d6/de4/class_music_song.html#a1b0640d40df956466bee9b2e8190e832">setMusicName</a>(songInfo[0]);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            song.<a class="code" href="../../d6/de4/class_music_song.html#a03e830cea8dd3e7019f6340932f17bb0">setMusicPlayTime</a>(songInfo[1]);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            song.<a class="code" href="../../d6/de4/class_music_song.html#a36b94c3852898d5abe96b2452d69df1e">setMusicPath</a>(songInfo[2]);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a> &lt;&lt; song;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a>.isEmpty())</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        items &lt;&lt; item;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">   42</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">MusicCSVConfigManager::writePlaylistData</a>(<span class="keyword">const</span> MusicSongItems &amp;items, <span class="keyword">const</span> QString &amp;path)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty())</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items.first();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QStringList data;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : qAsConst(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a>))</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        data &lt;&lt; song.getMusicName() + <span class="stringliteral">&quot;,&quot;</span> + song.getMusicPlayTime() + <span class="stringliteral">&quot;,&quot;</span> + song.getMusicPath();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.setFileName(path);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.open(QFile::WriteOnly))</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.write(data.join(<span class="stringliteral">&quot;\n&quot;</span>).toUtf8());</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="ttc" id="class_music_song_html_a36b94c3852898d5abe96b2452d69df1e"><div class="ttname"><a href="../../d6/de4/class_music_song.html#a36b94c3852898d5abe96b2452d69df1e">MusicSong::setMusicPath</a></div><div class="ttdeci">void setMusicPath(const QString &amp;p)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00106">musicsong.h:106</a></div></div>
-<div class="ttc" id="class_music_song_html_a03e830cea8dd3e7019f6340932f17bb0"><div class="ttname"><a href="../../d6/de4/class_music_song.html#a03e830cea8dd3e7019f6340932f17bb0">MusicSong::setMusicPlayTime</a></div><div class="ttdeci">void setMusicPlayTime(const QString &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00122">musicsong.h:122</a></div></div>
-<div class="ttc" id="class_music_c_s_v_config_manager_html_aae45461ee326006480350c09c60f922a"><div class="ttname"><a href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">MusicCSVConfigManager::writePlaylistData</a></div><div class="ttdeci">virtual bool writePlaylistData(const MusicSongItems &amp;items, const QString &amp;path) override</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00042">musiccsvconfigmanager.cpp:42</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(songInfo[2], songInfo[1], songInfo[0]);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a>.isEmpty())</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        items &lt;&lt; item;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">MusicCSVConfigManager::writePlaylistData</a>(<span class="keyword">const</span> MusicSongItems &amp;items, <span class="keyword">const</span> QString &amp;path)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty())</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items.first();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QStringList data;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : qAsConst(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">m_songs</a>))</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        data &lt;&lt; song.musicName() + <span class="stringliteral">&quot;,&quot;</span> + song.musicPlayTime() + <span class="stringliteral">&quot;,&quot;</span> + song.musicPath();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.setFileName(path);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.open(QFile::WriteOnly))</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.write(data.join(<span class="stringliteral">&quot;\n&quot;</span>).toUtf8());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="ttc" id="class_music_c_s_v_config_manager_html_aae45461ee326006480350c09c60f922a"><div class="ttname"><a href="../../d0/dd8/class_music_c_s_v_config_manager.html#aae45461ee326006480350c09c60f922a">MusicCSVConfigManager::writePlaylistData</a></div><div class="ttdeci">virtual bool writePlaylistData(const MusicSongItems &amp;items, const QString &amp;path) override</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00038">musiccsvconfigmanager.cpp:38</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html">MusicPlaylistReader</a></div><div class="ttdoc">The class of the playlist reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_a1c7424de06cac096976371e11c2c9878"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">MusicPlaylistReader::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00048">musicplaylistinterface.h:48</a></div></div>
 <div class="ttc" id="class_music_c_s_v_config_manager_html_a4c08a7633048ceec233df16a29823945"><div class="ttname"><a href="../../d0/dd8/class_music_c_s_v_config_manager.html#a4c08a7633048ceec233df16a29823945">MusicCSVConfigManager::MusicCSVConfigManager</a></div><div class="ttdeci">MusicCSVConfigManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00003">musiccsvconfigmanager.cpp:3</a></div></div>
-<div class="ttc" id="struct_music_song_item_html_adfd79c10fd52b31c1b4ffe39143d9ab9"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">MusicSongItem::m_songs</a></div><div class="ttdeci">MusicSongs m_songs</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00210">musicsong.h:210</a></div></div>
-<div class="ttc" id="class_music_song_html_a1b0640d40df956466bee9b2e8190e832"><div class="ttname"><a href="../../d6/de4/class_music_song.html#a1b0640d40df956466bee9b2e8190e832">MusicSong::setMusicName</a></div><div class="ttdeci">void setMusicName(const QString &amp;n)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00098">musicsong.h:98</a></div></div>
+<div class="ttc" id="struct_music_song_item_html_adfd79c10fd52b31c1b4ffe39143d9ab9"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#adfd79c10fd52b31c1b4ffe39143d9ab9">MusicSongItem::m_songs</a></div><div class="ttdeci">MusicSongs m_songs</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00196">musicsong.h:196</a></div></div>
 <div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00055">musicplaylistinterface.h:55</a></div></div>
-<div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00205">musicsong.h:205</a></div></div>
+<div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00191">musicsong.h:191</a></div></div>
 <div class="ttc" id="class_music_c_s_v_config_manager_html_acd40b0e7534c12595a80946877634f0d"><div class="ttname"><a href="../../d0/dd8/class_music_c_s_v_config_manager.html#acd40b0e7534c12595a80946877634f0d">MusicCSVConfigManager::readPlaylistData</a></div><div class="ttdeci">virtual bool readPlaylistData(MusicSongItems &amp;items) override</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00010">musiccsvconfigmanager.cpp:10</a></div></div>
-<div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00208">musicsong.h:208</a></div></div>
-<div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00029">musicsong.h:29</a></div></div>
+<div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00194">musicsong.h:194</a></div></div>
+<div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00028">musicsong.h:28</a></div></div>
 <div class="ttc" id="musiccsvconfigmanager_8h_html"><div class="ttname"><a href="../../d4/d8e/musiccsvconfigmanager_8h.html">musiccsvconfigmanager.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:25 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:42 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

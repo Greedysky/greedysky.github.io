@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,163 +78,166 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/d26/musicqmmputils_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4b/musicqmmputils_8h.html">musicqmmputils.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d07/musicobject_8h.html">musicobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d8/d30/qmmp_8h.html">qmmp/qmmp.h</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d6d/visual_8h.html">qmmp/visual.h</a>&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d7/dcc/visualfactory_8h.html">qmmp/visualfactory.h</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d76/effect_8h.html">qmmp/effect.h</a>&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc2/effectfactory_8h.html">qmmp/effectfactory.h</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">   12</a></span>&#160;QString <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">MusicUtils::QMMP::pluginPath</a>(<span class="keyword">const</span> QString &amp;module, <span class="keyword">const</span> QString &amp;format)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QString path = <a class="code" href="../../df/dbc/namespace_music_object.html#ad1c2d3f54b2bc79f3abba24b5cda6574">MusicObject::getAppDir</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    path = path + QString(<span class="stringliteral">&quot;plugins/%1/%2.dll&quot;</span>).arg(module).arg(format);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    path = path + QString(<span class="stringliteral">&quot;plugins/%1/lib%2.so&quot;</span>).arg(module).arg(format);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> path;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a67b718732b9ee484fd37115536cafd17">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a67b718732b9ee484fd37115536cafd17">MusicUtils::QMMP::updateMidConfigFile</a>()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> QString &amp;confPath = <a class="code" href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a> + QString(<span class="stringliteral">&quot;wildmidi.cfg&quot;</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QSettings settings(<a class="code" href="../../d9/d95/class_qmmp.html#a4b0da0542ad8345720ae4a24b2c5e37c">Qmmp::configFile</a>(), QSettings::IniFormat);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    settings.beginGroup(<span class="stringliteral">&quot;Midi&quot;</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    settings.setValue(<span class="stringliteral">&quot;conf_path&quot;</span>, confPath);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    settings.endGroup();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QFile file(confPath);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span>(file.open(QFile::ReadOnly))</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        QByteArray data = file.readAll();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        file.close();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span>(file.open(QFile::WriteOnly))</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            data.remove(0, data.indexOf(<span class="stringliteral">&quot;\r\n&quot;</span>));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            data.insert(0, QString(<span class="stringliteral">&quot;dir %1freepats/&quot;</span>).arg(<a class="code" href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a>).toUtf8());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            file.write(data);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    file.close();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">MusicUtils::QMMP::enabledVisualPlugin</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keywordtype">bool</span> enable)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a> *v : <a class="code" href="../../dc/d74/class_visual.html#a603132988bfcff866882d568b7850f36">Visual::factories</a>())</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span>(v-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <a class="code" href="../../dc/d74/class_visual.html#a53ef32117764cf98c8bd87a084079cec">Visual::setEnabled</a>(v, enable);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a>(<span class="keywordtype">bool</span> enable)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">Effect::setEnabled</a>(factory, enable);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a9033542960ff90b021320cdb36fa968f">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keywordtype">bool</span> enable)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">Effect::setEnabled</a>(factory, enable);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">   79</a></span>&#160;QStringList <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">MusicUtils::QMMP::effectPlugins</a>()</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    QStringList value;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        value &lt;&lt; factory-&gt;properties().shortName;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    value.removeOne(<span class="stringliteral">&quot;ladspa&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">   92</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">MusicUtils::QMMP::effectHasSetting</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> factory-&gt;properties().hasSettings;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">  104</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">MusicUtils::QMMP::showEffectSetting</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, QWidget *parent)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            factory-&gt;showSettings(parent);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">  116</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">MusicUtils::QMMP::updateRippleSpectrumConfigFile</a>()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    QSettings settings(<a class="code" href="../../d9/d95/class_qmmp.html#a4b0da0542ad8345720ae4a24b2c5e37c">Qmmp::configFile</a>(), QSettings::IniFormat);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    settings.beginGroup(<span class="stringliteral">&quot;OuterBlurWave&quot;</span>);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    QString colors = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a0cf1c35e7e3b50488b395ca99ae1af24">MusicSettingManager::RippleSpectrumColor</a>).toString();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    settings.setValue(<span class="stringliteral">&quot;colors&quot;</span>, colors.remove(<span class="stringliteral">&quot;;&quot;</span>));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> opacity = 1.0;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    settings.setValue(<span class="stringliteral">&quot;opacity&quot;</span>, opacity);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    settings.endGroup();</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a70d345e88c94f38e91949bab21c14780"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a></div><div class="ttdeci">TTK_MODULE_EXPORT void enabledEffectPlugin(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00059">musicqmmputils.cpp:59</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d8/d30/qmmp_8h.html">qmmp/qmmp.h</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d9/d6d/visual_8h.html">qmmp/visual.h</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d7/dcc/visualfactory_8h.html">qmmp/visualfactory.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/d76/effect_8h.html">qmmp/effect.h</a>&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc2/effectfactory_8h.html">qmmp/effectfactory.h</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">   11</a></span>&#160;QString <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">MusicUtils::QMMP::pluginPath</a>(<span class="keyword">const</span> QString &amp;module, <span class="keyword">const</span> QString &amp;format)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QString path = <a class="code" href="../../df/dbc/namespace_music_object.html#a76dca19c8df7b51768f1e6008f64d666">MusicObject::applicationPath</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    path = path + QString(<span class="stringliteral">&quot;plugins/%1/%2.dll&quot;</span>).arg(module).arg(format);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    path = path + QString(<span class="stringliteral">&quot;plugins/%1/lib%2.so&quot;</span>).arg(module).arg(format);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> path;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4a646fc48ceea516ce2be0b8e5a9b833">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4a646fc48ceea516ce2be0b8e5a9b833">MusicUtils::QMMP::updateQmmpConfigFile</a>()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> QString &amp;confPath = <a class="code" href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a> + QString(<span class="stringliteral">&quot;wildmidi.cfg&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QSettings settings(<a class="code" href="../../d9/d95/class_qmmp.html#a4b0da0542ad8345720ae4a24b2c5e37c">Qmmp::configFile</a>(), QSettings::IniFormat);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    settings.beginGroup(<span class="stringliteral">&quot;Midi&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    settings.setValue(<span class="stringliteral">&quot;conf_path&quot;</span>, confPath);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    settings.endGroup();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    settings.beginGroup(<span class="stringliteral">&quot;Network&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    settings.setValue(<span class="stringliteral">&quot;buffer_path&quot;</span>, <a class="code" href="../../d8/d07/musicobject_8h.html#aab088b039c48a2ee47096823a45cac46">CACHE_DIR_FULL</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    settings.endGroup();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QFile file(confPath);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>(file.open(QFile::ReadOnly))</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        QByteArray data = file.readAll();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        file.close();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span>(file.open(QFile::WriteOnly))</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            data.remove(0, data.indexOf(<span class="stringliteral">&quot;\r\n&quot;</span>));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            data.insert(0, QString(<span class="stringliteral">&quot;dir %1freepats/&quot;</span>).arg(<a class="code" href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a>).toUtf8());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            file.write(data);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    file.close();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">MusicUtils::QMMP::enabledVisualPlugin</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keywordtype">bool</span> enable)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a> *v : <a class="code" href="../../dc/d74/class_visual.html#a603132988bfcff866882d568b7850f36">Visual::factories</a>())</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(v-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <a class="code" href="../../dc/d74/class_visual.html#a53ef32117764cf98c8bd87a084079cec">Visual::setEnabled</a>(v, enable);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a>(<span class="keywordtype">bool</span> enable)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">Effect::setEnabled</a>(factory, enable);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a9033542960ff90b021320cdb36fa968f">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keywordtype">bool</span> enable)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">Effect::setEnabled</a>(factory, enable);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">   82</a></span>&#160;QStringList <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">MusicUtils::QMMP::effectPlugins</a>()</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QStringList value;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        value &lt;&lt; factory-&gt;properties().shortName;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    value.removeOne(<span class="stringliteral">&quot;ladspa&quot;</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">   95</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">MusicUtils::QMMP::effectHasSetting</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> factory-&gt;properties().hasSettings;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">MusicUtils::QMMP::showEffectSetting</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, QWidget *parent)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">for</span>(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory : <a class="code" href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a>())</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">if</span>(factory-&gt;properties().shortName == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            factory-&gt;showSettings(parent);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">  119</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">MusicUtils::QMMP::updateRippleSpectrumConfigFile</a>()</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    QSettings settings(<a class="code" href="../../d9/d95/class_qmmp.html#a4b0da0542ad8345720ae4a24b2c5e37c">Qmmp::configFile</a>(), QSettings::IniFormat);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    settings.beginGroup(<span class="stringliteral">&quot;OuterBlurWave&quot;</span>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    QString colors = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a0cf1c35e7e3b50488b395ca99ae1af24">MusicSettingManager::RippleSpectrumColor</a>).toString();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    settings.setValue(<span class="stringliteral">&quot;colors&quot;</span>, colors.remove(<span class="stringliteral">&quot;;&quot;</span>));</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> opacity = 1.0;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    settings.setValue(<span class="stringliteral">&quot;opacity&quot;</span>, opacity);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    settings.endGroup();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="ttc" id="namespace_music_object_html_a76dca19c8df7b51768f1e6008f64d666"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a76dca19c8df7b51768f1e6008f64d666">MusicObject::applicationPath</a></div><div class="ttdeci">static QString applicationPath()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00263">musicobject.h:263</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a70d345e88c94f38e91949bab21c14780"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a70d345e88c94f38e91949bab21c14780">MusicUtils::QMMP::enabledEffectPlugin</a></div><div class="ttdeci">TTK_MODULE_EXPORT void enabledEffectPlugin(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00062">musicqmmputils.cpp:62</a></div></div>
 <div class="ttc" id="effectfactory_8h_html"><div class="ttname"><a href="../../d6/dc2/effectfactory_8h.html">effectfactory.h</a></div></div>
 <div class="ttc" id="class_qmmp_html_a4b0da0542ad8345720ae4a24b2c5e37c"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#a4b0da0542ad8345720ae4a24b2c5e37c">Qmmp::configFile</a></div><div class="ttdeci">static QString configFile()</div></div>
 <div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
 <div class="ttc" id="class_visual_html_a603132988bfcff866882d568b7850f36"><div class="ttname"><a href="../../dc/d74/class_visual.html#a603132988bfcff866882d568b7850f36">Visual::factories</a></div><div class="ttdeci">static QList&lt; VisualFactory * &gt; factories()</div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a4b21147fd30a60412ef2054836d8c182"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">MusicUtils::QMMP::effectHasSetting</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool effectHasSetting(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00092">musicqmmputils.cpp:92</a></div></div>
-<div class="ttc" id="musicobject_8h_html_a54c0294e6176dafdc239dd0a2f12fca1"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a></div><div class="ttdeci">#define MAKE_CONFIG_DIR_FULL</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00165">musicobject.h:165</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a54b837f8213bc5869b39b23bf640538f"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">MusicUtils::QMMP::showEffectSetting</a></div><div class="ttdeci">TTK_MODULE_EXPORT void showEffectSetting(const QString &amp;name, QWidget *parent)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00104">musicqmmputils.cpp:104</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_af92278e39fdf45b1af20fee664dffcae"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">MusicUtils::QMMP::enabledVisualPlugin</a></div><div class="ttdeci">TTK_MODULE_EXPORT void enabledVisualPlugin(const QString &amp;name, bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00047">musicqmmputils.cpp:47</a></div></div>
+<div class="ttc" id="musicobject_8h_html_aab088b039c48a2ee47096823a45cac46"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#aab088b039c48a2ee47096823a45cac46">CACHE_DIR_FULL</a></div><div class="ttdeci">#define CACHE_DIR_FULL</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00144">musicobject.h:144</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a4b21147fd30a60412ef2054836d8c182"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4b21147fd30a60412ef2054836d8c182">MusicUtils::QMMP::effectHasSetting</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool effectHasSetting(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00095">musicqmmputils.cpp:95</a></div></div>
+<div class="ttc" id="musicobject_8h_html_a54c0294e6176dafdc239dd0a2f12fca1"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a54c0294e6176dafdc239dd0a2f12fca1">MAKE_CONFIG_DIR_FULL</a></div><div class="ttdeci">#define MAKE_CONFIG_DIR_FULL</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00162">musicobject.h:162</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a54b837f8213bc5869b39b23bf640538f"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a54b837f8213bc5869b39b23bf640538f">MusicUtils::QMMP::showEffectSetting</a></div><div class="ttdeci">TTK_MODULE_EXPORT void showEffectSetting(const QString &amp;name, QWidget *parent)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00107">musicqmmputils.cpp:107</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_af92278e39fdf45b1af20fee664dffcae"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#af92278e39fdf45b1af20fee664dffcae">MusicUtils::QMMP::enabledVisualPlugin</a></div><div class="ttdeci">TTK_MODULE_EXPORT void enabledVisualPlugin(const QString &amp;name, bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00050">musicqmmputils.cpp:50</a></div></div>
 <div class="ttc" id="effect_8h_html"><div class="ttname"><a href="../../d2/d76/effect_8h.html">effect.h</a></div></div>
 <div class="ttc" id="class_music_setting_manager_html_a146c66bf631250e49944cfbd221e29a5a0cf1c35e7e3b50488b395ca99ae1af24"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a0cf1c35e7e3b50488b395ca99ae1af24">MusicSettingManager::RippleSpectrumColor</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00076">musicsettingmanager.h:76</a></div></div>
 <div class="ttc" id="class_effect_factory_html"><div class="ttname"><a href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div><div class="ttdoc">Effect plugin interface (effect factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00055">effectfactory.h:55</a></div></div>
 <div class="ttc" id="visualfactory_8h_html"><div class="ttname"><a href="../../d7/dcc/visualfactory_8h.html">visualfactory.h</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_ad59e4308682139cf1d6e932483d27196"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">MusicUtils::QMMP::updateRippleSpectrumConfigFile</a></div><div class="ttdeci">TTK_MODULE_EXPORT void updateRippleSpectrumConfigFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00116">musicqmmputils.cpp:116</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_ad59e4308682139cf1d6e932483d27196"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#ad59e4308682139cf1d6e932483d27196">MusicUtils::QMMP::updateRippleSpectrumConfigFile</a></div><div class="ttdeci">TTK_MODULE_EXPORT void updateRippleSpectrumConfigFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00119">musicqmmputils.cpp:119</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a67b718732b9ee484fd37115536cafd17"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a67b718732b9ee484fd37115536cafd17">MusicUtils::QMMP::updateMidConfigFile</a></div><div class="ttdeci">TTK_MODULE_EXPORT void updateMidConfigFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00023">musicqmmputils.cpp:23</a></div></div>
-<div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 <div class="ttc" id="musicqmmputils_8h_html"><div class="ttname"><a href="../../d3/d4b/musicqmmputils_8h.html">musicqmmputils.h</a></div></div>
-<div class="ttc" id="namespace_music_object_html_ad1c2d3f54b2bc79f3abba24b5cda6574"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#ad1c2d3f54b2bc79f3abba24b5cda6574">MusicObject::getAppDir</a></div><div class="ttdeci">static QString getAppDir()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00266">musicobject.h:266</a></div></div>
 <div class="ttc" id="class_effect_html_a5ab6a1f8ba6752b64824366080edd279"><div class="ttname"><a href="../../d6/d58/class_effect.html#a5ab6a1f8ba6752b64824366080edd279">Effect::factories</a></div><div class="ttdeci">static QList&lt; EffectFactory * &gt; factories()</div></div>
 <div class="ttc" id="class_effect_html_a944b2f41b694598f96fc53445d0bacdb"><div class="ttname"><a href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">Effect::setEnabled</a></div><div class="ttdeci">static void setEnabled(EffectFactory *factory, bool enable=true)</div></div>
 <div class="ttc" id="musicsettingmanager_8h_html"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a></div></div>
-<div class="ttc" id="class_visual_factory_html"><div class="ttname"><a href="../../dd/d52/class_visual_factory.html">VisualFactory</a></div><div class="ttdoc">Visual plugin interface (visual factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dcc/visualfactory_8h_source.html#l00045">visualfactory.h:45</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a91e3ecc272fb204668934f3c1b555665"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">MusicUtils::QMMP::pluginPath</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString pluginPath(const QString &amp;module, const QString &amp;format)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00012">musicqmmputils.cpp:12</a></div></div>
+<div class="ttc" id="class_visual_factory_html"><div class="ttname"><a href="../../dd/d52/class_visual_factory.html">VisualFactory</a></div><div class="ttdoc">Visual plugin interface (visual factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dcc/visualfactory_8h_source.html#l00042">visualfactory.h:42</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a4a646fc48ceea516ce2be0b8e5a9b833"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a4a646fc48ceea516ce2be0b8e5a9b833">MusicUtils::QMMP::updateQmmpConfigFile</a></div><div class="ttdeci">TTK_MODULE_EXPORT void updateQmmpConfigFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00022">musicqmmputils.cpp:22</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a91e3ecc272fb204668934f3c1b555665"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a91e3ecc272fb204668934f3c1b555665">MusicUtils::QMMP::pluginPath</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString pluginPath(const QString &amp;module, const QString &amp;format)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00011">musicqmmputils.cpp:11</a></div></div>
 <div class="ttc" id="visual_8h_html"><div class="ttname"><a href="../../d9/d6d/visual_8h.html">visual.h</a></div></div>
 <div class="ttc" id="class_visual_html_a53ef32117764cf98c8bd87a084079cec"><div class="ttname"><a href="../../dc/d74/class_visual.html#a53ef32117764cf98c8bd87a084079cec">Visual::setEnabled</a></div><div class="ttdeci">static void setEnabled(VisualFactory *factory, bool enable=true)</div></div>
-<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a2acd3d555e06a229af5e1e04b3789474"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">MusicUtils::QMMP::effectPlugins</a></div><div class="ttdeci">TTK_MODULE_EXPORT QStringList effectPlugins()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00079">musicqmmputils.cpp:79</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_q_m_m_p_html_a2acd3d555e06a229af5e1e04b3789474"><div class="ttname"><a href="../../dc/d03/namespace_music_utils_1_1_q_m_m_p.html#a2acd3d555e06a229af5e1e04b3789474">MusicUtils::QMMP::effectPlugins</a></div><div class="ttdeci">TTK_MODULE_EXPORT QStringList effectPlugins()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d26/musicqmmputils_8cpp_source.html#l00082">musicqmmputils.cpp:82</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html_aa4b1c2dd92254ebaec27b4f02b2fa404"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a></div><div class="ttdeci">#define G_SETTING_PTR</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00212">musicsettingmanager.h:212</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:26 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:04:42 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

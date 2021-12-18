@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.5.0</span>
+   &#160;<span id="projectnumber">2.15.6.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -81,14 +81,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d07/musicobject_8h_source.html">musicobject.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/da6/ttkversion_8h_source.html">ttkversion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d04/ttkglobaldefine_8h_source.html">ttkglobaldefine.h</a>&quot;</code><br />
 </div>
 <p><a href="../../dd/d23/musicconfigdefine_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6de4cd1b28493e94a997e048f03d0ac0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a>&#160;&#160;&#160;<a class="el" href="../../df/dbc/namespace_music_object.html#ad1c2d3f54b2bc79f3abba24b5cda6574">MusicObject::getAppDir</a>() + &quot;/&quot;</td></tr>
+<tr class="memitem:a6de4cd1b28493e94a997e048f03d0ac0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a>&#160;&#160;&#160;<a class="el" href="../../df/dbc/namespace_music_object.html#a76dca19c8df7b51768f1e6008f64d666">MusicObject::applicationPath</a>()</td></tr>
 <tr class="separator:a6de4cd1b28493e94a997e048f03d0ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a857de55e47527c93fcb9ba5eae034ec8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../&quot; + <a class="el" href="../../d8/d07/musicobject_8h.html#a5974f093c3112939b0bb61dfbf0c852c">DOWNLOAD_DIR</a></td></tr>
+<tr class="memitem:a857de55e47527c93fcb9ba5eae034ec8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#a5974f093c3112939b0bb61dfbf0c852c">DOWNLOAD_DIR</a></td></tr>
 <tr class="separator:a857de55e47527c93fcb9ba5eae034ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a315ca308ead3bcb1b7e9094b80cfae44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a315ca308ead3bcb1b7e9094b80cfae44">TTK_LRC_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#ac4f62f10fa4ae15d0e36bdf45124b9b0">LRC_DIR</a></td></tr>
 <tr class="separator:a315ca308ead3bcb1b7e9094b80cfae44"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,8 +97,6 @@ Macros</h2></td></tr>
 <tr class="separator:a9a7666f6200335f7cd1d4a9e03fa83aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50ca5b1b0e670d377a55953e5ad63080"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a50ca5b1b0e670d377a55953e5ad63080">TTK_MOVIE_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#a08c9bcc5995c8a1c9644485d9363ef3a">MOVIE_DIR</a></td></tr>
 <tr class="separator:a50ca5b1b0e670d377a55953e5ad63080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d5bd238b21ec3822d5bf62855fccd0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a7d5bd238b21ec3822d5bf62855fccd0f">TTK_UPDATE_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#a339e7faab3138b9f7e1ac2f130948716">UPDATE_DIR</a></td></tr>
-<tr class="separator:a7d5bd238b21ec3822d5bf62855fccd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d1b67f54a26b329c0d27e841bf983ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a4d1b67f54a26b329c0d27e841bf983ba">TTK_CACHE_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../d8/d07/musicobject_8h.html#aab088b039c48a2ee47096823a45cac46">CACHE_DIR_FULL</a></td></tr>
 <tr class="separator:a4d1b67f54a26b329c0d27e841bf983ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b9ce5a47a244fb2d059ebeb1584f016"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a7b9ce5a47a244fb2d059ebeb1584f016">TTK_ART_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../d8/d07/musicobject_8h.html#a3feae9c4fa37cd2b42ef443dc6060f19">ART_DIR_FULL</a></td></tr>
@@ -124,9 +123,9 @@ Macros</h2></td></tr>
 <tr class="separator:a037fff33b6e8ef5bb184402caa36e3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a979dee5176dad16e5af22f69660a6be4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a979dee5176dad16e5af22f69660a6be4">TTK_LANGUAGE_DIR_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#ad1e0505983786fa16d5093d82f8ccd27">LANGUAGE_DIR</a></td></tr>
 <tr class="separator:a979dee5176dad16e5af22f69660a6be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa1fd8b8dd63316c74ece8e49f17b68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a1fa1fd8b8dd63316c74ece8e49f17b68">TTK_ROUTINE_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../TTKRoutine.sh&quot;</td></tr>
+<tr class="memitem:a1fa1fd8b8dd63316c74ece8e49f17b68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a1fa1fd8b8dd63316c74ece8e49f17b68">TTK_ROUTINE_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + &quot;TTKRoutine.sh&quot;</td></tr>
 <tr class="separator:a1fa1fd8b8dd63316c74ece8e49f17b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac0b4342f511f6561c93850f36cf450"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#abac0b4342f511f6561c93850f36cf450">TTK_MUSICPLAYER_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../TTKMusicPlayer.sh&quot;</td></tr>
+<tr class="memitem:abac0b4342f511f6561c93850f36cf450"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#abac0b4342f511f6561c93850f36cf450">TTK_MUSICPLAYER_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + &quot;TTKMusicPlayer.sh&quot;</td></tr>
 <tr class="separator:abac0b4342f511f6561c93850f36cf450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d068e3a0a99da9655300a4853aedd65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a8d068e3a0a99da9655300a4853aedd65">TTK_INIT_FULL</a>&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;TTKInit.sh&quot;</td></tr>
 <tr class="separator:a8d068e3a0a99da9655300a4853aedd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,12 +142,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define APP_PATH_DIR&#160;&#160;&#160;<a class="el" href="../../df/dbc/namespace_music_object.html#ad1c2d3f54b2bc79f3abba24b5cda6574">MusicObject::getAppDir</a>() + &quot;/&quot;</td>
+          <td class="memname">#define APP_PATH_DIR&#160;&#160;&#160;<a class="el" href="../../df/dbc/namespace_music_object.html#a76dca19c8df7b51768f1e6008f64d666">MusicObject::applicationPath</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00028">28</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00029">29</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
 </div>
 </div>
@@ -164,7 +163,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00038">38</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -180,7 +179,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00039">39</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -196,7 +195,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00037">37</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -212,7 +211,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00044">44</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>.</p>
 
 </div>
 </div>
@@ -228,7 +227,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00045">45</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>.</p>
 
 </div>
 </div>
@@ -244,7 +243,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00041">41</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00035">MusicConfigObject::reset()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00034">MusicConfigObject::reset()</a>.</p>
 
 </div>
 </div>
@@ -260,7 +259,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00060">60</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -269,12 +268,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TTK_DOWNLOAD_DIR_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../&quot; + <a class="el" href="../../d8/d07/musicobject_8h.html#a5974f093c3112939b0bb61dfbf0c852c">DOWNLOAD_DIR</a></td>
+          <td class="memname">#define TTK_DOWNLOAD_DIR_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#a5974f093c3112939b0bb61dfbf0c852c">DOWNLOAD_DIR</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00031">31</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00032">32</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +289,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00059">59</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -306,7 +305,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00051">51</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -320,9 +319,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00032">32</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00033">33</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -336,9 +335,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00034">34</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00035">35</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -352,9 +351,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00033">33</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00034">34</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -363,14 +362,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TTK_MUSICPLAYER_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../TTKMusicPlayer.sh&quot;</td>
+          <td class="memname">#define TTK_MUSICPLAYER_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + &quot;TTKMusicPlayer.sh&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00058">58</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -386,7 +385,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00043">43</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>.</p>
 
 </div>
 </div>
@@ -402,7 +401,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00042">42</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>.</p>
 
 </div>
 </div>
@@ -418,7 +417,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00050">50</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -427,14 +426,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TTK_ROUTINE_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + &quot;../TTKRoutine.sh&quot;</td>
+          <td class="memname">#define TTK_ROUTINE_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">APP_PATH_DIR</a> + <a class="el" href="../../df/d7f/ttkglobal_8h.html#a2cdce62e9c39c3afc54734e3e09a1a75">TTK_PDIR</a> + &quot;TTKRoutine.sh&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00057">57</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -450,7 +449,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00062">62</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -466,7 +465,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00046">46</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00023">MusicConfigObject::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00022">MusicConfigObject::initialize()</a>.</p>
 
 </div>
 </div>
@@ -482,7 +481,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00061">61</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00067">MusicConfigObject::checkFileNeededExist()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00018">MusicConfigObject::getAppPath()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00017">MusicConfigObject::appPath()</a>, and <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00065">MusicConfigObject::checkFileNeededExist()</a>.</p>
 
 </div>
 </div>
@@ -498,23 +497,7 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00049">49</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7d5bd238b21ec3822d5bf62855fccd0f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TTK_UPDATE_DIR_FULL&#160;&#160;&#160;<a class="el" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">TTK_DOWNLOAD_DIR_FULL</a> + <a class="el" href="../../d8/d07/musicobject_8h.html#a339e7faab3138b9f7e1ac2f130948716">UPDATE_DIR</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00035">35</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
@@ -530,14 +513,14 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html#l00047">47</a> of file <a class="el" href="../../dd/d23/musicconfigdefine_8h_source.html">musicconfigdefine.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00049">MusicConfigObject::checkDirectoryExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d49/musicconfigobject_8cpp_source.html#l00048">MusicConfigObject::checkDirectoryExist()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 19 2021 22:24:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 18 2021 15:05:00 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
