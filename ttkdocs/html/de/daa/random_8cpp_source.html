@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.6.0</span>
+   &#160;<span id="projectnumber">2.15.7.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -83,28 +83,32 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#  include &lt;QRandomGenerator&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../dd/df4/namespace_q_random.html#ac77b456fb203bd93c5d7c147ae744ae4">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/df4/namespace_q_random.html#ac77b456fb203bd93c5d7c147ae744ae4">QRandom::initRandom</a>()</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    qsrand(QDateTime::currentMSecsSinceEpoch());</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../dd/df4/namespace_q_random.html#aad16560f8c76fe7e9fa2a2ee07f33358">   14</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../dd/df4/namespace_q_random.html#aad16560f8c76fe7e9fa2a2ee07f33358">QRandom::random</a>(<span class="keywordtype">int</span> value)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> QRandomGenerator::global()-&gt;bounded(value);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> qrand() % value;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">initRandom</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,10,0)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    qsrand(QDateTime::currentMSecsSinceEpoch());</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">   16</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">random</a>(<span class="keywordtype">int</span> value)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> QRandomGenerator::global()-&gt;bounded(value);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> qrand() % value;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="ttc" id="namespace_q_algorithm_html_ae120d7ac315cfccd3e803529bc0c557f"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">QAlgorithm::initRandom</a></div><div class="ttdeci">void initRandom()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00009">random.cpp:9</a></div></div>
+<div class="ttc" id="namespace_q_algorithm_html"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00026">musictransitionanimationlabel.h:26</a></div></div>
+<div class="ttc" id="namespace_q_algorithm_html_ab7e56a055279331e129ab577b87880f3"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">QAlgorithm::random</a></div><div class="ttdeci">int random(int value)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00016">random.cpp:16</a></div></div>
 <div class="ttc" id="random_8h_html"><div class="ttname"><a href="../../d1/d79/random_8h.html">random.h</a></div></div>
-<div class="ttc" id="namespace_q_random_html_aad16560f8c76fe7e9fa2a2ee07f33358"><div class="ttname"><a href="../../dd/df4/namespace_q_random.html#aad16560f8c76fe7e9fa2a2ee07f33358">QRandom::random</a></div><div class="ttdeci">TTK_MODULE_EXPORT int random(int value)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00014">random.cpp:14</a></div></div>
-<div class="ttc" id="namespace_q_random_html_ac77b456fb203bd93c5d7c147ae744ae4"><div class="ttname"><a href="../../dd/df4/namespace_q_random.html#ac77b456fb203bd93c5d7c147ae744ae4">QRandom::initRandom</a></div><div class="ttdeci">TTK_MODULE_EXPORT void initRandom()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00007">random.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 15:04:56 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 14:29:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.6.0</span>
+   &#160;<span id="projectnumber">2.15.7.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#ad4bf20d4fa2d292891ab35ac553cfa53">m_bitrate</a> = <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a62dd9d45fed8a8c7dc18ed8307faf992">MB_96</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#af8cf763803482509bdae53c767bbe71c">m_format</a> = <a class="code" href="../../d8/d07/musicobject_8h.html#a40031072184d7121d4aa91483df519a0">WMA_FILE_PREFIX</a>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a2da62c78f150df2be35495a5cdf6e235">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a60b33f35cff5bcd96882b9014095fbf6">m_url</a> = QString(<span class="stringliteral">&quot;http://%1/resource/%2&quot;</span>).arg(mp3Url).arg(v);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a60b33f35cff5bcd96882b9014095fbf6">m_url</a> = QString(<span class="stringliteral">&quot;%1%2/resource/%3&quot;</span>).arg(<a class="code" href="../../d8/d07/musicobject_8h.html#a57f34e15cc46880ead30a390a3f3ef2f">HTTP_PREFIX</a>).arg(mp3Url).arg(v);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            info-&gt;<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html#a5f6dfd5461e525a2c481ec25dd019a1e">m_songAttrs</a>.append(attr);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
@@ -130,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#ad4bf20d4fa2d292891ab35ac553cfa53">m_bitrate</a> = <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#af0de7e9a5611a2a628b226f5c10ae13c">MB_32</a>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#af8cf763803482509bdae53c767bbe71c">m_format</a> = <a class="code" href="../../d8/d07/musicobject_8h.html#a76a983fac64486ae8740814d76e87deb">AAC_FILE_PREFIX</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a2da62c78f150df2be35495a5cdf6e235">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a60b33f35cff5bcd96882b9014095fbf6">m_url</a> = QString(<span class="stringliteral">&quot;http://%1/resource/%2&quot;</span>).arg(aacUrl).arg(v);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            attr.<a class="code" href="../../d6/d87/struct_music_object_1_1_music_song_attribute.html#a60b33f35cff5bcd96882b9014095fbf6">m_url</a> = QString(<span class="stringliteral">&quot;%1%2/resource/%3&quot;</span>).arg(<a class="code" href="../../d8/d07/musicobject_8h.html#a57f34e15cc46880ead30a390a3f3ef2f">HTTP_PREFIX</a>).arg(aacUrl).arg(v);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            info-&gt;<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html#a5f6dfd5461e525a2c481ec25dd019a1e">m_songAttrs</a>.append(attr);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
@@ -403,7 +403,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 15:04:40 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 14:29:01 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.6.0</span>
+   &#160;<span id="projectnumber">2.15.7.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,141 +82,140 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QPainter&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QPropertyAnimation&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">    9</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a>(QWidget *parent)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    : QLabel(parent)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    setAttribute(Qt::WA_DeleteOnClose);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">setFontSize</a>(15);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">setFontMargin</a>(20, 20);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a> = font();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    connect(&amp;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>, SIGNAL(timeout()), SLOT(<a class="code" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">closeAnimation</a>()));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.setInterval(<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.start();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#aa72ffd399accc96e560af27315248de7">   25</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    : <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>(parent)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">setText</a>(text);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">   31</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">MusicToastLabel::~MusicToastLabel</a>()</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.stop();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">MusicToastLabel::setFontMargin</a>(<span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.setX(height);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.setY(width);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">   42</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">MusicToastLabel::timerInterval</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.interval();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">MusicToastLabel::setFontSize</a>(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>.setPointSize(size);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    setFont(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a>(QWidget *parent)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(!parent)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> QSize &amp;windowSize = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a>).toSize();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        move((windowSize.width() - width()) / 2, windowSize.height() - 200);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> QPoint &amp;globalPoint = parent-&gt;mapToGlobal(QPoint(0, 0));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        move(globalPoint.x() + (parent-&gt;width() - width()) / 2, globalPoint.y() + (parent-&gt;height() - height()) / 2);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    show();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a043a2e94fd936ecf1d68f38b597aab75">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a>(<span class="keyword">const</span> QString &amp;text)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a> *label = <span class="keyword">new</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel</a>(<a class="code" href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a>());</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    label-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">setText</a>(text);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    label-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">popup</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a>(<span class="keyword">const</span> QString &amp;text)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    setFixedSize(<a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a>(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>, text) + <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.x(),</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                 <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a78199bb4d7d1094f10ce510d88808358">MusicUtils::Widget::fontTextHeight</a>(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>) + <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.y());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QLabel::setText(text);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">MusicToastLabel::closeAnimation</a>()</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.stop();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QPropertyAnimation *animation = <span class="keyword">new</span> QPropertyAnimation(<span class="keyword">this</span>, <span class="stringliteral">&quot;windowOpacity&quot;</span>, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    animation-&gt;setDuration(<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    animation-&gt;setStartValue(1);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    animation-&gt;setEndValue(0);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    animation-&gt;start();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    connect(animation, SIGNAL(finished()), SLOT(close()));</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    connect(animation, SIGNAL(finished()), SIGNAL(<a class="code" href="../../d2/d6f/class_music_toast_label.html#a45899a9626528450ce38a6e9b25c1c76">animationCloseChanged</a>()));</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">MusicToastLabel::paintEvent</a>(QPaintEvent *event)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    Q_UNUSED(event);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    painter.setRenderHint(QPainter::Antialiasing);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    painter.setPen(Qt::NoPen);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    painter.setBrush(QColor(0, 0, 0, 175));</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,13,0)</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    painter.drawRoundedRect(rect(), 6, 6);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    painter.drawRoundRect(rect(), 6, 6);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    painter.setPen(QColor(255, 255, 255));</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    painter.drawText(rect(), Qt::AlignCenter, text());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QPropertyAnimation&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">    8</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a>(QWidget *parent)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QLabel(parent)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setAttribute(Qt::WA_DeleteOnClose);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">setFontSize</a>(15);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">setFontMargin</a>(20, 20);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a> = font();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    connect(&amp;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>, SIGNAL(timeout()), SLOT(<a class="code" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">closeAnimation</a>()));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.setInterval(<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.start();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#aa72ffd399accc96e560af27315248de7">   24</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>(parent)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">setText</a>(text);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">   30</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">MusicToastLabel::~MusicToastLabel</a>()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.stop();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">MusicToastLabel::setFontMargin</a>(<span class="keywordtype">int</span> height, <span class="keywordtype">int</span> width)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.setX(height);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.setY(width);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">   41</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">MusicToastLabel::timerInterval</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.interval();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">MusicToastLabel::setFontSize</a>(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>.setPointSize(size);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    setFont(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a>(QWidget *parent)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(!parent)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> QSize &amp;windowSize = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a>).toSize();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        move((windowSize.width() - width()) / 2, windowSize.height() - 200);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> QPoint &amp;globalPoint = parent-&gt;mapToGlobal(QPoint(0, 0));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        move(globalPoint.x() + (parent-&gt;width() - width()) / 2, globalPoint.y() + (parent-&gt;height() - height()) / 2);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    show();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a043a2e94fd936ecf1d68f38b597aab75">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a>(<span class="keyword">const</span> QString &amp;text)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a> *label = <span class="keyword">new</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel</a>(<a class="code" href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a>());</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    label-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">setText</a>(text);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    label-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">popup</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a>(<span class="keyword">const</span> QString &amp;text)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    setFixedSize(<a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a>(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>, text) + <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.x(),</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                 <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a78199bb4d7d1094f10ce510d88808358">MusicUtils::Widget::fontTextHeight</a>(<a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a>) + <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">m_margin</a>.y());</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    QLabel::setText(text);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">MusicToastLabel::closeAnimation</a>()</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.stop();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QPropertyAnimation *animation = <span class="keyword">new</span> QPropertyAnimation(<span class="keyword">this</span>, <span class="stringliteral">&quot;windowOpacity&quot;</span>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    animation-&gt;setDuration(<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    animation-&gt;setStartValue(1);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    animation-&gt;setEndValue(0);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    animation-&gt;start();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    connect(animation, SIGNAL(finished()), SLOT(close()));</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    connect(animation, SIGNAL(finished()), SIGNAL(<a class="code" href="../../d2/d6f/class_music_toast_label.html#a45899a9626528450ce38a6e9b25c1c76">animationCloseChanged</a>()));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">MusicToastLabel::paintEvent</a>(QPaintEvent *event)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    painter.setRenderHint(QPainter::Antialiasing);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    painter.setPen(Qt::NoPen);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    painter.setBrush(QColor(0, 0, 0, 175));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,13,0)</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    painter.drawRoundedRect(rect(), 6, 6);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    painter.drawRoundRect(rect(), 6, 6);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    painter.setPen(QColor(255, 255, 255));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    painter.drawText(rect(), Qt::AlignCenter, text());</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 <div class="ttc" id="class_music_toast_label_html_afea3fddf87dcca9a551759528b22853a"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">MusicToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00091">musictoastlabel.h:91</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a969d6320cb4f8ea436a2c08f9cffd4c1"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">MusicToastLabel::~MusicToastLabel</a></div><div class="ttdeci">~MusicToastLabel()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00031">musictoastlabel.cpp:31</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a969d6320cb4f8ea436a2c08f9cffd4c1"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">MusicToastLabel::~MusicToastLabel</a></div><div class="ttdeci">~MusicToastLabel()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00030">musictoastlabel.cpp:30</a></div></div>
 <div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00112">musicapplication.cpp:112</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_widget_html_a01c384aa6781270e7fed39404f6b44dc"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextWidth(const QFont &amp;font, const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00058">musicwidgetutils.cpp:58</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a4e0a91a10e36a5bdb36139a746064d47"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a></div><div class="ttdeci">MusicToastLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00009">musictoastlabel.cpp:9</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_ad4123ecdebde92611cb36c56b08b8d26"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">MusicToastLabel::closeAnimation</a></div><div class="ttdeci">void closeAnimation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00082">musictoastlabel.cpp:82</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_widget_html_a01c384aa6781270e7fed39404f6b44dc"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextWidth(const QFont &amp;font, const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00057">musicwidgetutils.cpp:57</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a4e0a91a10e36a5bdb36139a746064d47"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a></div><div class="ttdeci">MusicToastLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00008">musictoastlabel.cpp:8</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_ad4123ecdebde92611cb36c56b08b8d26"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">MusicToastLabel::closeAnimation</a></div><div class="ttdeci">void closeAnimation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00081">musictoastlabel.cpp:81</a></div></div>
 <div class="ttc" id="class_music_setting_manager_html_a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00038">musicsettingmanager.h:38</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a45899a9626528450ce38a6e9b25c1c76"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a45899a9626528450ce38a6e9b25c1c76">MusicToastLabel::animationCloseChanged</a></div><div class="ttdeci">void animationCloseChanged()</div></div>
 <div class="ttc" id="musicapplication_8h_html"><div class="ttname"><a href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
 <div class="ttc" id="class_music_toast_label_html"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a></div><div class="ttdoc">The class of the toast widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00029">musictoastlabel.h:29</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_widget_html_a78199bb4d7d1094f10ce510d88808358"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a78199bb4d7d1094f10ce510d88808358">MusicUtils::Widget::fontTextHeight</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextHeight(const QFont &amp;font)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00068">musicwidgetutils.cpp:68</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_widget_html_a78199bb4d7d1094f10ce510d88808358"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a78199bb4d7d1094f10ce510d88808358">MusicUtils::Widget::fontTextHeight</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextHeight(const QFont &amp;font)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00067">musicwidgetutils.cpp:67</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a6842b402c6baf72eafd2f2083c73787c"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">MusicToastLabel::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00090">musictoastlabel.h:90</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_afbfb38f93452c63f3371a568c83b61fe"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a></div><div class="ttdeci">void popup(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00053">musictoastlabel.cpp:53</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a6f376b8139257a5d994efbc5a2c0d197"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">MusicToastLabel::setFontMargin</a></div><div class="ttdeci">void setFontMargin(int height, int width)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00036">musictoastlabel.cpp:36</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_adccf5f0c161449107848eecdc9efa07f"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">MusicToastLabel::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00095">musictoastlabel.cpp:95</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_afbfb38f93452c63f3371a568c83b61fe"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a></div><div class="ttdeci">void popup(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00052">musictoastlabel.cpp:52</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a6f376b8139257a5d994efbc5a2c0d197"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">MusicToastLabel::setFontMargin</a></div><div class="ttdeci">void setFontMargin(int height, int width)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00035">musictoastlabel.cpp:35</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_adccf5f0c161449107848eecdc9efa07f"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#adccf5f0c161449107848eecdc9efa07f">MusicToastLabel::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00094">musictoastlabel.cpp:94</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a6d1deef69f2e031d066e73d226e497ce"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a6d1deef69f2e031d066e73d226e497ce">MusicToastLabel::m_margin</a></div><div class="ttdeci">QPoint m_margin</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00092">musictoastlabel.h:92</a></div></div>
 <div class="ttc" id="musicnumberdefine_8h_html_a26a0d68f658e1cfc3a2ae7b9d8c6cf76"><div class="ttname"><a href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a></div><div class="ttdeci">#define MT_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d01/musicnumberdefine_8h_source.html#l00028">musicnumberdefine.h:28</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a48437015ecadeef1b5097a4e402f5948"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">MusicToastLabel::setFontSize</a></div><div class="ttdeci">void setFontSize(int size)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00047">musictoastlabel.cpp:47</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a48437015ecadeef1b5097a4e402f5948"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">MusicToastLabel::setFontSize</a></div><div class="ttdeci">void setFontSize(int size)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00046">musictoastlabel.cpp:46</a></div></div>
 <div class="ttc" id="musictoastlabel_8h_html"><div class="ttname"><a href="../../d0/de1/musictoastlabel_8h.html">musictoastlabel.h</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a2fe7be4e50aa1620c8e5dc5be95b6879"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">MusicToastLabel::timerInterval</a></div><div class="ttdeci">int timerInterval() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00042">musictoastlabel.cpp:42</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a1771dd8b41e2365ffdc4ecd19d3a4e57"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a></div><div class="ttdeci">void setText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00075">musictoastlabel.cpp:75</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a2fe7be4e50aa1620c8e5dc5be95b6879"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">MusicToastLabel::timerInterval</a></div><div class="ttdeci">int timerInterval() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00041">musictoastlabel.cpp:41</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a1771dd8b41e2365ffdc4ecd19d3a4e57"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a></div><div class="ttdeci">void setText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00074">musictoastlabel.cpp:74</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html_aa4b1c2dd92254ebaec27b4f02b2fa404"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a></div><div class="ttdeci">#define G_SETTING_PTR</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00212">musicsettingmanager.h:212</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 15:04:43 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 14:29:04 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

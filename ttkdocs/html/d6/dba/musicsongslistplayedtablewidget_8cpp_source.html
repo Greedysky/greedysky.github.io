@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.6.0</span>
+   &#160;<span id="projectnumber">2.15.7.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -284,120 +284,120 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a9e059cbad09279378738befdf78fb23f">  206</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a9e059cbad09279378738befdf78fb23f">MusicSongsListPlayedTableWidget::itemCellEntered</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;{</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    QTableWidgetItem *it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 2);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span>(it)</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        it-&gt;setIcon(QIcon());</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 3);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span>(it)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        it-&gt;setIcon(QIcon());</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 4);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">if</span>(it)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        it-&gt;setIcon(QIcon());</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        it-&gt;setText((*<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a0770f82e6e93529a3bee135e997697f9">m_musicSongs</a>)[<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>].musicPlayTime());</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 2)))</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_download&quot;</span>));</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 3)))</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_delete_normal&quot;</span>));</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 4)))</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        it-&gt;setText(QString());</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_more_normal&quot;</span>));</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">if</span>(column == 2 || column == 3 || column == 4)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        unsetCursor();</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a53ee6cc49c2ca8593091c3a10b931245">MusicAbstractSongsListTableWidget::itemCellEntered</a>(row, column);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;}</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">  255</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">MusicSongsListPlayedTableWidget::itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">if</span>(row == <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">switch</span>(column)</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">case</span> 2: <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa45a3d38d767c137b41b2192b9599c2d">musicSongDownload</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">case</span> 3: <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">setDeleteItemAt</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            QMenu menu(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa7c66eae3300f40dfbf057ebfd105774">createMoreMenu</a>(&amp;menu);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            menu.exec(QCursor::pos());</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">  277</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">MusicSongsListPlayedTableWidget::setDeleteItemAt</a>()</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;{</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> deleteList(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a472cb9291aa63dfdb79267ad42c3e2a5">multiSelectedIndex</a>());</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keywordflow">if</span>(deleteList.isEmpty())</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    {</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">if</span>(deleteList.contains(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>) || deleteList[0] &lt; <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>)</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    {</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a47a4fdec28ad00275318ed4ed36890f4">adjustPlayWidgetRow</a>();</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    }</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=deleteList.count() - 1; i&gt;=0; --i)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> index = deleteList[i];</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        removeRow(index);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a0770f82e6e93529a3bee135e997697f9">m_musicSongs</a>-&gt;removeAt(index);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">//just fix table widget size hint</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    setFixedHeight(qMax(365, <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a6a9ea6b2ce72cc187cfb318457a3a4d9">totalHeight</a>()));</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    Q_EMIT <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#ae72621114020910d965586ceb5e1ea45">deleteItemAt</a>(deleteList);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;}</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">  302</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">MusicSongsListPlayedTableWidget::contextMenuEvent</a>(QContextMenuEvent *event)</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    Q_UNUSED(event);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    QMenu menu(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    menu.setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a2eef6bb083e098fa2bdeabbe56651f0f">MusicUIObject::MQSSMenuStyle02</a>);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_play&quot;</span>), tr(<span class="stringliteral">&quot;Play&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aea65a003848bd3d5a662130e791c13df">musicPlayClicked</a>()));</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Download More...&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa45a3d38d767c137b41b2192b9599c2d">musicSongDownload</a>()));</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    menu.addSeparator();</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa7c66eae3300f40dfbf057ebfd105774">createMoreMenu</a>(&amp;menu);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> status = <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a52a99509338bf43e737b6d97446cc4fe">m_toolIndex</a> != <a class="code" href="../../d2/d77/musicotherdefine_8h.html#a22f11149d0b3f357cb10b1be700ff26a">MUSIC_NETWORK_LIST</a>;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Song Info...&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a5beca8b02d8e5da0420514d2a6c55a2e">musicFileInformation</a>()))-&gt;setEnabled(status);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_localFile&quot;</span>), tr(<span class="stringliteral">&quot;Open File Dir&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a786311ad0e989a8d164bbc796bade643">musicOpenFileDir</a>()))-&gt;setEnabled(status);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_ablum&quot;</span>), tr(<span class="stringliteral">&quot;Ablum&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a24b63918eb3239db8a2d5eec5e86dcfc">musicAlbumQueryWidget</a>()));</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    menu.addSeparator();</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_delete&quot;</span>), tr(<span class="stringliteral">&quot;Delete&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">setDeleteItemAt</a>()));</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    menu.addSeparator();</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    menu.exec(QCursor::pos());</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    QTableWidgetItem *it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 2);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">if</span>(it)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        it-&gt;setIcon(QIcon());</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 3);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span>(it)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        it-&gt;setIcon(QIcon());</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>, 4);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(it)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        it-&gt;setIcon(QIcon());</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        it-&gt;setText((*<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a0770f82e6e93529a3bee135e997697f9">m_musicSongs</a>)[<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">m_previousColorRow</a>].musicPlayTime());</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 2)))</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_download&quot;</span>));</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 3)))</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_delete_normal&quot;</span>));</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">if</span>((it = item(row, 4)))</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        it-&gt;setText(QString());</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        it-&gt;setIcon(QIcon(<span class="stringliteral">&quot;:/tiny/btn_more_normal&quot;</span>));</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">if</span>(column == 2 || column == 3 || column == 4)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        unsetCursor();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a53ee6cc49c2ca8593091c3a10b931245">MusicAbstractSongsListTableWidget::itemCellEntered</a>(row, column);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">  254</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">MusicSongsListPlayedTableWidget::itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;{</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">if</span>(row == <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>)</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">switch</span>(column)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    {</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">case</span> 2: <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa45a3d38d767c137b41b2192b9599c2d">musicSongDownload</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">case</span> 3: <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">setDeleteItemAt</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            QMenu menu(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa7c66eae3300f40dfbf057ebfd105774">createMoreMenu</a>(&amp;menu);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            menu.exec(QCursor::pos());</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">  276</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">MusicSongsListPlayedTableWidget::setDeleteItemAt</a>()</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;{</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> deleteList(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a472cb9291aa63dfdb79267ad42c3e2a5">multiSelectedIndex</a>());</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span>(deleteList.isEmpty())</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keywordflow">if</span>(deleteList.contains(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>) || deleteList[0] &lt; <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#ad7b31ffda5fb784592d9520223d39062">m_playRowIndex</a>)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a47a4fdec28ad00275318ed4ed36890f4">adjustPlayWidgetRow</a>();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=deleteList.count() - 1; i&gt;=0; --i)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> index = deleteList[i];</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        removeRow(index);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a0770f82e6e93529a3bee135e997697f9">m_musicSongs</a>-&gt;removeAt(index);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">//just fix table widget size hint</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    setFixedHeight(qMax(365, <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a6a9ea6b2ce72cc187cfb318457a3a4d9">totalHeight</a>()));</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    Q_EMIT <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#ae72621114020910d965586ceb5e1ea45">deleteItemAt</a>(deleteList);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">  301</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">MusicSongsListPlayedTableWidget::contextMenuEvent</a>(QContextMenuEvent *event)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;{</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    QMenu menu(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    menu.setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a2eef6bb083e098fa2bdeabbe56651f0f">MusicUIObject::MQSSMenuStyle02</a>);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_play&quot;</span>), tr(<span class="stringliteral">&quot;Play&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aea65a003848bd3d5a662130e791c13df">musicPlayClicked</a>()));</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Download More...&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa45a3d38d767c137b41b2192b9599c2d">musicSongDownload</a>()));</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    menu.addSeparator();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa7c66eae3300f40dfbf057ebfd105774">createMoreMenu</a>(&amp;menu);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> status = <a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a52a99509338bf43e737b6d97446cc4fe">m_toolIndex</a> != <a class="code" href="../../d2/d77/musicotherdefine_8h.html#a22f11149d0b3f357cb10b1be700ff26a">MUSIC_NETWORK_LIST</a>;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Song Info...&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a5beca8b02d8e5da0420514d2a6c55a2e">musicFileInformation</a>()))-&gt;setEnabled(status);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_localFile&quot;</span>), tr(<span class="stringliteral">&quot;Open File Dir&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a786311ad0e989a8d164bbc796bade643">musicOpenFileDir</a>()))-&gt;setEnabled(status);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_ablum&quot;</span>), tr(<span class="stringliteral">&quot;Ablum&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a24b63918eb3239db8a2d5eec5e86dcfc">musicAlbumQueryWidget</a>()));</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    menu.addSeparator();</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    menu.addAction(QIcon(<span class="stringliteral">&quot;:/contextMenu/btn_delete&quot;</span>), tr(<span class="stringliteral">&quot;Delete&quot;</span>), <span class="keyword">this</span>, SLOT(<a class="code" href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">setDeleteItemAt</a>()));</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    menu.addSeparator();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    menu.exec(QCursor::pos());</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;}</div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_aa45a3d38d767c137b41b2192b9599c2d"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa45a3d38d767c137b41b2192b9599c2d">MusicAbstractSongsListTableWidget::musicSongDownload</a></div><div class="ttdeci">void musicSongDownload()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00162">musicabstractsongslisttablewidget.cpp:162</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_aaece6daff9ee948b5c0bf5305f3536d6"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#aaece6daff9ee948b5c0bf5305f3536d6">MusicSongsListPlayedTableWidget::updateSongsFileName</a></div><div class="ttdeci">virtual void updateSongsFileName(const MusicSongs &amp;songs) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00037">musicsongslistplayedtablewidget.cpp:37</a></div></div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_a6a9ea6b2ce72cc187cfb318457a3a4d9"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a6a9ea6b2ce72cc187cfb318457a3a4d9">MusicAbstractSongsListTableWidget::totalHeight</a></div><div class="ttdeci">int totalHeight() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00041">musicabstractsongslisttablewidget.cpp:41</a></div></div>
@@ -412,18 +412,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_a176c04d6203f1baf1e4a8f1504013be4"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a176c04d6203f1baf1e4a8f1504013be4">MusicAbstractSongsListTableWidget::m_hasParentToolIndex</a></div><div class="ttdeci">bool m_hasParentToolIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../de/dda/musicabstractsongslisttablewidget_8h_source.html#l00158">musicabstractsongslisttablewidget.h:158</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_ab38cf47e546b247752a514b177d741e1"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#ab38cf47e546b247752a514b177d741e1">MusicSongsListPlayedTableWidget::clearPlayQueueState</a></div><div class="ttdeci">void clearPlayQueueState()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00108">musicsongslistplayedtablewidget.cpp:108</a></div></div>
 <div class="ttc" id="musicsongslistplayedwidget_8h_html"><div class="ttname"><a href="../../dd/d1b/musicsongslistplayedwidget_8h.html">musicsongslistplayedwidget.h</a></div></div>
-<div class="ttc" id="class_music_songs_list_played_table_widget_html_a27a7cae58609a6cd3eb8186a2a27dfd0"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">MusicSongsListPlayedTableWidget::setDeleteItemAt</a></div><div class="ttdeci">virtual void setDeleteItemAt() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00277">musicsongslistplayedtablewidget.cpp:277</a></div></div>
-<div class="ttc" id="class_music_songs_list_played_table_widget_html_a8e31c1bb633f260b60eeb2050cc4ff00"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">MusicSongsListPlayedTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00255">musicsongslistplayedtablewidget.cpp:255</a></div></div>
+<div class="ttc" id="class_music_songs_list_played_table_widget_html_a27a7cae58609a6cd3eb8186a2a27dfd0"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a27a7cae58609a6cd3eb8186a2a27dfd0">MusicSongsListPlayedTableWidget::setDeleteItemAt</a></div><div class="ttdeci">virtual void setDeleteItemAt() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00276">musicsongslistplayedtablewidget.cpp:276</a></div></div>
+<div class="ttc" id="class_music_songs_list_played_table_widget_html_a8e31c1bb633f260b60eeb2050cc4ff00"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8e31c1bb633f260b60eeb2050cc4ff00">MusicSongsListPlayedTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00254">musicsongslistplayedtablewidget.cpp:254</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_a8847bafcdc451b9bf1445dc05bf7bb5e"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a8847bafcdc451b9bf1445dc05bf7bb5e">MusicSongsListPlayedTableWidget::selectPlayedRow</a></div><div class="ttdeci">void selectPlayedRow()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00153">musicsongslistplayedtablewidget.cpp:153</a></div></div>
-<div class="ttc" id="class_music_abstract_table_widget_html_a53ee6cc49c2ca8593091c3a10b931245"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a53ee6cc49c2ca8593091c3a10b931245">MusicAbstractTableWidget::itemCellEntered</a></div><div class="ttdeci">virtual void itemCellEntered(int row, int column)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00068">musicabstracttablewidget.cpp:68</a></div></div>
+<div class="ttc" id="class_music_abstract_table_widget_html_a53ee6cc49c2ca8593091c3a10b931245"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a53ee6cc49c2ca8593091c3a10b931245">MusicAbstractTableWidget::itemCellEntered</a></div><div class="ttdeci">virtual void itemCellEntered(int row, int column)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00072">musicabstracttablewidget.cpp:72</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_a9e059cbad09279378738befdf78fb23f"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a9e059cbad09279378738befdf78fb23f">MusicSongsListPlayedTableWidget::itemCellEntered</a></div><div class="ttdeci">virtual void itemCellEntered(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00206">musicsongslistplayedtablewidget.cpp:206</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_a60348fd471a3d01ed4b6afa78eb7b346"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a60348fd471a3d01ed4b6afa78eb7b346">MusicSongsListPlayedTableWidget::selectRow</a></div><div class="ttdeci">virtual void selectRow(int index) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00077">musicsongslistplayedtablewidget.cpp:77</a></div></div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_a786311ad0e989a8d164bbc796bade643"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a786311ad0e989a8d164bbc796bade643">MusicAbstractSongsListTableWidget::musicOpenFileDir</a></div><div class="ttdeci">void musicOpenFileDir()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00085">musicabstractsongslisttablewidget.cpp:85</a></div></div>
 <div class="ttc" id="musicsongslistplayedtablewidget_8h_html"><div class="ttname"><a href="../../d8/da0/musicsongslistplayedtablewidget_8h.html">musicsongslistplayedtablewidget.h</a></div></div>
 <div class="ttc" id="musicsongsharingwidget_8h_html"><div class="ttname"><a href="../../d6/d1e/musicsongsharingwidget_8h.html">musicsongsharingwidget.h</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_adbcf1f4ce653dc6f14b3cd9c13d4e3b5"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#adbcf1f4ce653dc6f14b3cd9c13d4e3b5">MusicSongsListPlayedTableWidget::setPlayQueueState</a></div><div class="ttdeci">void setPlayQueueState(int row)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00120">musicsongslistplayedtablewidget.cpp:120</a></div></div>
-<div class="ttc" id="class_music_abstract_table_widget_html_a472cb9291aa63dfdb79267ad42c3e2a5"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a472cb9291aa63dfdb79267ad42c3e2a5">MusicAbstractTableWidget::multiSelectedIndex</a></div><div class="ttdeci">TTKIntList multiSelectedIndex() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00055">musicabstracttablewidget.cpp:55</a></div></div>
+<div class="ttc" id="class_music_abstract_table_widget_html_a472cb9291aa63dfdb79267ad42c3e2a5"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a472cb9291aa63dfdb79267ad42c3e2a5">MusicAbstractTableWidget::multiSelectedIndex</a></div><div class="ttdeci">TTKIntList multiSelectedIndex() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00059">musicabstracttablewidget.cpp:59</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_ad77a27173f29a68731d84fd1caaa43f1"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#ad77a27173f29a68731d84fd1caaa43f1">MusicSongsListPlayedTableWidget::m_musicSongsPlayWidget</a></div><div class="ttdeci">MusicSongsListPlayedWidget * m_musicSongsPlayWidget</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/da0/musicsongslistplayedtablewidget_8h_source.html#l00097">musicsongslistplayedtablewidget.h:97</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_table_widget_html_ad523905187a693f8cbc782c75fbc7b69"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#ad523905187a693f8cbc782c75fbc7b69">MusicSongsListPlayedTableWidget::clearAllItems</a></div><div class="ttdeci">void clearAllItems()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00134">musicsongslistplayedtablewidget.cpp:134</a></div></div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_a5beca8b02d8e5da0420514d2a6c55a2e"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a5beca8b02d8e5da0420514d2a6c55a2e">MusicAbstractSongsListTableWidget::musicFileInformation</a></div><div class="ttdeci">void musicFileInformation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00105">musicabstractsongslisttablewidget.cpp:105</a></div></div>
@@ -437,11 +437,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicrightareawidget_8h_html"><div class="ttname"><a href="../../dc/d37/musicrightareawidget_8h.html">musicrightareawidget.h</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a2eef6bb083e098fa2bdeabbe56651f0f"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a2eef6bb083e098fa2bdeabbe56651f0f">MusicUIObject::MQSSMenuStyle02</a></div><div class="ttdeci">const QString MQSSMenuStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00401">musicuiobject.h:401</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html_a22f11149d0b3f357cb10b1be700ff26a"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a22f11149d0b3f357cb10b1be700ff26a">MUSIC_NETWORK_LIST</a></div><div class="ttdeci">#define MUSIC_NETWORK_LIST</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00065">musicotherdefine.h:65</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_widget_html_a209ae36f3c97048141c145c2940ea572"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a209ae36f3c97048141c145c2940ea572">MusicUtils::Widget::elidedText</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString elidedText(const QFont &amp;font, const QString &amp;text, Qt::TextElideMode mode, int width)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00052">musicwidgetutils.cpp:52</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_widget_html_a209ae36f3c97048141c145c2940ea572"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a209ae36f3c97048141c145c2940ea572">MusicUtils::Widget::elidedText</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString elidedText(const QFont &amp;font, const QString &amp;text, Qt::TextElideMode mode, int width)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00051">musicwidgetutils.cpp:51</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a15a0bb72d073f31f44f39345e1759174"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a15a0bb72d073f31f44f39345e1759174">MusicAbstractTableWidget::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00049">musicabstracttablewidget.cpp:49</a></div></div>
-<div class="ttc" id="class_music_songs_list_played_table_widget_html_a3ed7f70a8253bf970e159885759b1764"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">MusicSongsListPlayedTableWidget::contextMenuEvent</a></div><div class="ttdeci">virtual void contextMenuEvent(QContextMenuEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00302">musicsongslistplayedtablewidget.cpp:302</a></div></div>
+<div class="ttc" id="class_music_songs_list_played_table_widget_html_a3ed7f70a8253bf970e159885759b1764"><div class="ttname"><a href="../../dd/d25/class_music_songs_list_played_table_widget.html#a3ed7f70a8253bf970e159885759b1764">MusicSongsListPlayedTableWidget::contextMenuEvent</a></div><div class="ttdeci">virtual void contextMenuEvent(QContextMenuEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/musicsongslistplayedtablewidget_8cpp_source.html#l00301">musicsongslistplayedtablewidget.cpp:301</a></div></div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_a24b63918eb3239db8a2d5eec5e86dcfc"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#a24b63918eb3239db8a2d5eec5e86dcfc">MusicAbstractSongsListTableWidget::musicAlbumQueryWidget</a></div><div class="ttdeci">void musicAlbumQueryWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00127">musicabstractsongslisttablewidget.cpp:127</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_widget_html_add4b3dee560f16862b2f8e63cb190a9f"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setTransparent(QWidget *widget, int alpha)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00097">musicwidgetutils.cpp:97</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_widget_html_add4b3dee560f16862b2f8e63cb190a9f"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setTransparent(QWidget *widget, int alpha)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00096">musicwidgetutils.cpp:96</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a9f1daac066c8513507af2e15b8fa9e9e"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a9f1daac066c8513507af2e15b8fa9e9e">MusicAbstractTableWidget::m_previousColorRow</a></div><div class="ttdeci">int m_previousColorRow</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db4/musicabstracttablewidget_8h_source.html#l00074">musicabstracttablewidget.h:74</a></div></div>
 <div class="ttc" id="class_music_abstract_songs_list_table_widget_html_aa7c66eae3300f40dfbf057ebfd105774"><div class="ttname"><a href="../../d8/daa/class_music_abstract_songs_list_table_widget.html#aa7c66eae3300f40dfbf057ebfd105774">MusicAbstractSongsListTableWidget::createMoreMenu</a></div><div class="ttdeci">void createMoreMenu(QMenu *menu)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db2/musicabstractsongslisttablewidget_8cpp_source.html#l00219">musicabstractsongslisttablewidget.cpp:219</a></div></div>
 <div class="ttc" id="class_music_songs_list_played_widget_html"><div class="ttname"><a href="../../d1/d60/class_music_songs_list_played_widget.html">MusicSongsListPlayedWidget</a></div><div class="ttdoc">The class of the song list played widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d1b/musicsongslistplayedwidget_8h_source.html#l00032">musicsongslistplayedwidget.h:32</a></div></div>
@@ -449,7 +449,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 18 2021 15:04:51 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 2 2022 14:29:11 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
