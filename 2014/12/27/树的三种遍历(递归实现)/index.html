@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>握手 | Greedysky&#39;s Blog</title>
+  <title>树的三种遍历（递归实现） | Greedysky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="握手之事，古已有之，《后汉书》“马援与公孙述少同里闾相善，以为既至常握手，如平生欢。”">
+  <meta name="description" content="树的遍历分为先序遍历，中序遍历和后序遍历 。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="握手">
-<meta property="og:url" content="http://greedysky.github.io/2020/01/02/握手/index.html">
+<meta property="og:title" content="树的三种遍历（递归实现）">
+<meta property="og:url" content="http://greedysky.github.io/2014/12/27/树的三种遍历(递归实现)/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
-<meta property="og:description" content="握手之事，古已有之，《后汉书》“马援与公孙述少同里闾相善，以为既至常握手，如平生欢。”">
-<meta property="og:image" content="http://greedysky.github.io/image/58/58_1.jpg">
-<meta property="og:updated_time" content="2020-01-02T12:14:53.394Z">
+<meta property="og:description" content="树的遍历分为先序遍历，中序遍历和后序遍历 。">
+<meta property="og:updated_time" content="2016-08-14T05:48:55.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="握手">
-<meta name="twitter:description" content="握手之事，古已有之，《后汉书》“马援与公孙述少同里闾相善，以为既至常握手，如平生欢。”">
-<meta name="twitter:image" content="http://greedysky.github.io/image/58/58_1.jpg">
+<meta name="twitter:title" content="树的三种遍历（递归实现）">
+<meta name="twitter:description" content="树的遍历分为先序遍历，中序遍历和后序遍历 。">
   
     <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
   
@@ -243,11 +241,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-握手" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-树的三种遍历(递归实现)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/01/02/握手/" class="article-date">
-      <time datetime="2020-01-02T12:10:21.000Z" itemprop="datePublished">2020-01-02</time>
+      <a href="/2014/12/27/树的三种遍历(递归实现)/" class="article-date">
+      <time datetime="2014-12-27T05:50:03.000Z" itemprop="datePublished">2014-12-27</time>
 </a>
     </div>
   
@@ -260,7 +258,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      握手
+      树的三种遍历（递归实现）
     </h1>
   
 
@@ -269,13 +267,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/有趣精选/">有趣精选</a>
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/情感/">情感</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/有趣精选/">有趣精选</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二叉树/">二叉树</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -285,8 +283,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>　　握手之事，古已有之，《后汉书》“马援与公孙述少同里闾相善，以为既至常握手，如平生欢。”但是现下通行的握手，并非古礼，既无明文规定，亦无此种习俗。大概还是剪了小辫以后的事，我们不能说马援和公孙述握过手便认为是过去有此礼节的明证。<br>　　西装革履我们都可以忍受，简便易行而且惠而不费的握手我们当然无无须反对。不过有几种人，若和他握手，会感觉痛苦。<br>　　第一是做大官或自以为做大官者，那只手不好握。他常常挺着胸膛，伸出一只巨灵之掌，两眼望青天，等你凑上去握的时候，他的手仍是直僵的伸着，他并不握，他等着你来握。你事前不知道他是如此爱惜气力，所以不免要热心的迎上去握，结果是孤掌难鸣，冷冰冰的讨一场没趣。而且你还要及早罢手，赶快撒手，因为这时候他的身体已转向另一个人去，他预备把那巨灵之掌给另一个人去握——不是握，是摸。对付这样的人只有一个办法，便是，你也伸出一只巨灵之掌，你也别握，和他作“打花巴掌”状，看谁先握谁！<br>　　另一种人过犹不及。他握着你的四根手指，恶狠狠的一挤，使你痛彻肺腑，如果没有寒暄笑语皆以俱来，你会误以为他是要和你角力。此种人通常有耐久力，你入了他的掌握，休想逃脱出来。如果你和他很有交情，久别重逢，情不自禁，你的关节虽然痛些，我相信你会原谅他的。不过通常握手用力最大者，往往交情最浅。他是要在向你使压力的时候使你发生一种错觉，以为此人遇我特善。其实他是握了谁的手都是一样卖力的。如果此人曾在某机关做过干事之类，必能一面握手，一面在你的肩头重重的拍一下子，“哈喽，哈喽，怎样好？”<br>　　单就握手时的触觉而论，大概愉快时也就不多。春笋般的纤纤玉指，世上本来少有，更难得一握，我们常握的倒是些冬笋或笋干之类，虽然上面更常有蔻丹的点缀，倒还不如熊掌。狄更斯的《大卫科伯菲尔》里的乌利亚，他的手也是令人不能忘的，永远是湿津津的冷冰冰的，握上去像是五条鳝鱼。手脏一点无妨，因为握前无暇检验，惟独带液体的手不好握，因为事后不便即揩，事前更不便先给他揩。<br>　　“有一桩事，男人站着做，女人坐着做，狗跷起一条腿儿做。”这桩事是——是握手。和狗行握手礼，我尚无经验，不知狗爪是肥是瘦，亦不知狗爪是松是紧，姑置不论。男女握手之法不同。女人握手无须起身，亦无须脱手套，殊失平等之旨，尚未闻妇女运动者倡议纠正。在外国，女人伸出手来，男人照例只握手尖，约一英寸至二英寸，稍握即罢，这一点在我们中国好像禁忌少些，时间空间的限制都不甚严。<br>　　朋友相见，握手言欢，本是很自然的事，有甚于握手者，亦未尝不可，只要双方同意，与人无涉。惟独大庭广众之下，宾客环坐，握手势必普遍举行，面目可憎者，语言无味者，想饱以老拳尚不足以泄忿者，都要一一亲炙，皮肉相接，在这种情形之下握手，我觉得是一种刑罚。<br>　　《哈姆雷特》中波娄尼阿斯诫其子曰：“不要为了应酬每一个新交而磨粗了你的手掌。”我们是要爱惜我们的手掌。<br><img src="/image/58/58_1.jpg" alt="demo"> </p>
-
+        <p>&#160; &#160; &#160; &#160;树的遍历分为先序遍历，中序遍历和后序遍历</p>
+<p>&#160; &#160; &#160; &#160;这三种遍历方法其实都很简单的，举例来说：</p>
+<p>&#160; &#160; &#160; &#160;下面是数据结构<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> TreeNode;</div><div class="line"><span class="keyword">typedef</span> TreeNode* Node;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> EleType;</div><div class="line"><span class="keyword">struct</span> TreeNode&#123;</div><div class="line">　　Node lchild;</div><div class="line">　　Node rchild;</div><div class="line">　　EleType data;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><p>&#160; &#160; &#160; &#160;先序遍历，就是从上到下，从左到右，遇到一个就遍历，上面这个例子遍历的序列就是:a b c 递归代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> TreeNode;</div><div class="line"><span class="keyword">typedef</span> TreeNode* Node;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> EleType;</div><div class="line"><span class="keyword">struct</span> TreeNode&#123;</div><div class="line">　　Node lchild;</div><div class="line">　　Node rchild;</div><div class="line">　　EleType data;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>&#160; &#160; &#160; &#160;中序遍历的序列：b a c 其实中序遍历就是先从左到右，来遍历，先找到最左的，然后找到，它的右孩子，没有的话再找父亲，输出，最后输出右兄弟。 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTree</span><span class="params">(Node node)</span></span></div><div class="line">&#123;</div><div class="line">　<span class="keyword">if</span> (node != <span class="literal">NULL</span>)</div><div class="line">　&#123;</div><div class="line">　　PreOrderTree(node-&gt;lchild);</div><div class="line">　　<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,node-&gt;data);</div><div class="line">　　PreOrderTree(node-&gt;rchild);</div><div class="line">　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>&#160; &#160; &#160; &#160;后序遍历的序列：a c b 其实后序遍历就是把中序遍历的父亲在它右兄弟输出后再输出。 代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTree</span><span class="params">(Node node)</span></span></div><div class="line">&#123;</div><div class="line">　<span class="keyword">if</span> (node != <span class="literal">NULL</span>)</div><div class="line">　&#123;</div><div class="line">　　PreOrderTree(node-&gt;lchild);</div><div class="line">　　PreOrderTree(node-&gt;rchild);</div><div class="line">　　<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,node-&gt;data);</div><div class="line">　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -294,13 +299,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/01/02/握手/">握手</a></p>
+        <p><span>本文标题:</span><a href="/2014/12/27/树的三种遍历(递归实现)/">树的三种遍历（递归实现）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
-        <p><span>发布时间:</span>2020年01月02日 - 20时10分</p>
-        <p><span>最后更新:</span>2020年01月02日 - 20时14分</p>
+        <p><span>发布时间:</span>2014年12月27日 - 13时50分</p>
+        <p><span>最后更新:</span>2016年08月14日 - 13时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/01/02/握手/" title="握手">http://greedysky.github.io/2020/01/02/握手/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2020/01/02/握手/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2014/12/27/树的三种遍历(递归实现)/" title="树的三种遍历（递归实现）">http://greedysky.github.io/2014/12/27/树的三种遍历(递归实现)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2014/12/27/树的三种遍历(递归实现)/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -313,18 +318,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/03/08/C++ 函数指针与指针函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/12/31/高级程序员装逼指南/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          C++ 函数指针与指针函数
+          高级程序员装逼指南
         
       </div>
     </a>
   
   
-    <a href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++ 建议用 nullptr 而不是 NULL</div>
+    <a href="/2014/12/21/永不放弃/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">永不放弃</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -335,7 +340,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#先序遍历"><span class="toc-number">1.</span> <span class="toc-text">先序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中序遍历"><span class="toc-number">2.</span> <span class="toc-text">中序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后序遍历"><span class="toc-number">3.</span> <span class="toc-text">后序遍历</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -383,7 +388,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2020/01/02/握手/" data-title="握手" data-url="http://greedysky.github.io/2020/01/02/握手/"></div>
+    <div class="ds-thread" data-thread-key="2014/12/27/树的三种遍历(递归实现)/" data-title="树的三种遍历（递归实现）" data-url="http://greedysky.github.io/2014/12/27/树的三种遍历(递归实现)/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -406,13 +411,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/03/08/C++ 函数指针与指针函数/" title="上一篇: C++ 函数指针与指针函数">
+            <a href="/2014/12/31/高级程序员装逼指南/" title="上一篇: 高级程序员装逼指南">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2019/11/08/C++ 建议用 nullptr 而不是 NULL/" title="下一篇: C++ 建议用 nullptr 而不是 NULL">
+            <a href="/2014/12/21/永不放弃/" title="下一篇: 永不放弃">
                 <i class="fa fa-angle-right"></i>
             </a>
         
