@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C++11 新特性之 Class | Greedysky&#39;s Blog</title>
+  <title>​想回到以前，如果我想你！ | Greedysky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是C++11新特性介绍的第六部分，涉及到Class的相关内容。">
+  <meta name="description" content="想回到以前 如果我想你 。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++11 新特性之 Class">
-<meta property="og:url" content="http://greedysky.github.io/2016/08/26/C++11 新特性之Class/index.html">
+<meta property="og:title" content="​想回到以前，如果我想你！">
+<meta property="og:url" content="http://greedysky.github.io/2016/08/15/​想回到以前 如果我想你/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
-<meta property="og:description" content="这是C++11新特性介绍的第六部分，涉及到Class的相关内容。">
-<meta property="og:updated_time" content="2016-08-31T13:55:10.995Z">
+<meta property="og:description" content="想回到以前 如果我想你 。">
+<meta property="og:image" content="http://greedysky.github.io/image/36/36_1.jpg">
+<meta property="og:updated_time" content="2016-08-31T13:29:55.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++11 新特性之 Class">
-<meta name="twitter:description" content="这是C++11新特性介绍的第六部分，涉及到Class的相关内容。">
+<meta name="twitter:title" content="​想回到以前，如果我想你！">
+<meta name="twitter:description" content="想回到以前 如果我想你 。">
+<meta name="twitter:image" content="http://greedysky.github.io/image/36/36_1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
   
@@ -241,11 +243,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-C++11 新特性之Class" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-​想回到以前 如果我想你" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/26/C++11 新特性之Class/" class="article-date">
-      <time datetime="2016-08-26T11:06:24.000Z" itemprop="datePublished">2016-08-26</time>
+      <a href="/2016/08/15/​想回到以前 如果我想你/" class="article-date">
+      <time datetime="2016-08-15T08:22:46.000Z" itemprop="datePublished">2016-08-15</time>
 </a>
     </div>
   
@@ -258,7 +260,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++11 新特性之 Class
+      ​想回到以前，如果我想你！
     </h1>
   
 
@@ -267,13 +269,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    <a class="article-category-link" href="/categories/有趣精选/">有趣精选</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/情感/">情感</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/有趣精选/">有趣精选</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -283,17 +285,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第六部分，涉及到Class的相关内容。</p>
-<h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a><strong>sizeof</strong></h2><p>&#160; &#160; &#160; &#160;新标准中，sizeof可以直接用于获取Class::member的大小，而不用通过Class的实例。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test sizeof class member:\n"</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(TestClass::member_i)&lt;&lt;<span class="string">"\t"</span>&lt;&lt;<span class="keyword">sizeof</span>(TestClass::member_c)&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="default-constructor"><a href="#default-constructor" class="headerlink" title="default constructor"></a><strong>default constructor</strong></h2><p>&#160; &#160; &#160; &#160;新标准中，可以通过=default强制编译器生成一个默认constructor。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass() = <span class="keyword">default</span>;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">char</span> c): member_i(i), member_c(c) &#123;&#125;</div><div class="line"> </div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test =default class construct:\n"</span>;</div><div class="line">TestClass tc; <span class="comment">// may cause error if no default construct.</span></div><div class="line"><span class="built_in">cout</span>&lt;&lt;tc.member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;(<span class="keyword">short</span>)tc.member_c&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test =default done."</span>&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;在上面的代码中，如果我们不提供默认constructor的话，无法通过TestClass tc定义一个实例。</p>
-<h2 id="allocator-construct"><a href="#allocator-construct" class="headerlink" title="allocator.construct"></a><strong>allocator.construct</strong></h2><p>&#160; &#160; &#160; &#160;新标准中，allocator.construct可以使用任意的构造函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass() = <span class="keyword">default</span>;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">char</span> c): member_i(i), member_c(c) &#123;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="number">0</span>) &#123; member_c = <span class="string">'T'</span>;&#125;</div><div class="line"> </div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test allocator:\n"</span>;</div><div class="line">allocator&lt;TestClass&gt; alloc;</div><div class="line"><span class="keyword">auto</span> p = alloc.allocate(<span class="number">10</span>);</div><div class="line">alloc.construct(p, <span class="number">10</span>);</div><div class="line"><span class="built_in">cout</span>&lt;&lt;p-&gt;member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;p-&gt;member_c&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="copy-constructor"><a href="#copy-constructor" class="headerlink" title="copy constructor"></a><strong>copy constructor</strong></h2><p>&#160; &#160; &#160; &#160;新标准中，可以通过=default要求编译器合成默认的拷贝/赋值构造函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass() = <span class="keyword">default</span>;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">char</span> c): member_i(i), member_c(c) &#123;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="number">0</span>) &#123; member_c = <span class="string">'T'</span>;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> TestClass&amp;) = <span class="keyword">default</span>;</div><div class="line">  TestClass&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> TestClass&amp;);</div><div class="line"> </div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test =default class copy construct:\n"</span>;</div><div class="line"><span class="function">TestClass <span class="title">tc3</span><span class="params">(tc2)</span></span>;</div><div class="line">TestClass tc4 = tc2;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;tc3.member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;tc3.member_c&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;tc4.member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;tc4.member_c&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;同样，新标准中也允许用=delete禁止拷贝。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass() = <span class="keyword">default</span>;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">char</span> c): member_i(i), member_c(c) &#123;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="number">0</span>) &#123; member_c = <span class="string">'T'</span>;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> TestClass&amp;) = <span class="keyword">delete</span>;</div><div class="line">  TestClass&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> TestClass&amp;);</div><div class="line"> </div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line">TestClass&amp; TestClass::<span class="keyword">operator</span>=(<span class="keyword">const</span> TestClass&amp;) = <span class="keyword">default</span>;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test =delete class copy construct:\n"</span>;</div><div class="line"><span class="comment">//TestClass tc5(tc2); // error: use of deleted function ‘TestClass::TestClass(const TestClass&amp;)’</span></div><div class="line"><span class="comment">//cout&lt;&lt;tc5.member_i&lt;&lt;'\t'&lt;&lt;tc5.member_c&lt;&lt;endl;</span></div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test =delete done."</span>&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="override-和-final"><a href="#override-和-final" class="headerlink" title="override 和 final"></a><strong>override 和 final</strong></h2><p>&#160; &#160; &#160; &#160;新标准中提供了override和final两个关键字，用于标识子类对父类中虚函数的重写（override）或禁止重写（final）。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass() = <span class="keyword">default</span>;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i, <span class="keyword">const</span> <span class="keyword">char</span> c): member_i(i), member_c(c) &#123;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="number">0</span>) &#123; member_c = <span class="string">'T'</span>;&#125;</div><div class="line">  TestClass(<span class="keyword">const</span> TestClass&amp;) = <span class="keyword">default</span>;</div><div class="line">  TestClass&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> TestClass&amp;);</div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">print_msg</span><span class="params">()</span> </span>&#123;<span class="built_in">cout</span>&lt;&lt;member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;member_c&lt;&lt;<span class="built_in">endl</span>;&#125;</div><div class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">final_foo</span><span class="params">()</span> final </span>&#123;&#125;</div><div class="line"> </div><div class="line">  <span class="keyword">int</span> member_i;</div><div class="line">  <span class="keyword">char</span> member_c;</div><div class="line">&#125;;</div><div class="line">TestClass&amp; TestClass::<span class="keyword">operator</span>=(<span class="keyword">const</span> TestClass&amp;) = <span class="keyword">default</span>;</div><div class="line"> </div><div class="line"><span class="keyword">class</span> SubTestClass final: <span class="keyword">public</span> TestClass</div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    <span class="keyword">using</span> TestClass::TestClass;</div><div class="line">    SubTestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="string">'S'</span>) &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print_msg</span><span class="params">()</span> override</span>;</div><div class="line">    <span class="comment">//void print_msg(char c) override;</span></div><div class="line">    <span class="comment">//‘void SubTestClass::print_msg(char)’ marked override, but does not override</span></div><div class="line">    </div><div class="line">    <span class="comment">//void final_foo() &#123;&#125;</span></div><div class="line">    <span class="comment">//overriding final function ‘virtual void TestClass::final_foo()’</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">//class SubSubTestClass: public SubTestClass &#123;&#125;; </span></div><div class="line"><span class="comment">// cannot derive from ‘final’ base ‘SubTestClass’ in derived type ‘SubSubTestClass’</span></div><div class="line"> </div><div class="line"><span class="keyword">void</span> SubTestClass::print_msg() </div><div class="line">&#123;</div><div class="line">  <span class="built_in">cout</span>&lt;&lt;<span class="string">"i: "</span>&lt;&lt;member_i&lt;&lt;<span class="string">'\t'</span>&lt;&lt;<span class="string">"c: "</span>&lt;&lt;member_c&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test override:\n"</span>;</div><div class="line">TestClass *stc_ptr = <span class="keyword">new</span> SubTestClass(<span class="number">10</span>); </div><div class="line">stc_ptr-&gt;print_msg();</div><div class="line"><span class="function">SubTestClass <span class="title">stc</span><span class="params">(<span class="number">10</span>)</span></span>;</div><div class="line">TestClass tc6 = (TestClass)stc;</div><div class="line">tc6.print_msg();</div></pre></td></tr></table></figure></p>
-<h2 id="委托父类构造函数"><a href="#委托父类构造函数" class="headerlink" title="委托父类构造函数"></a><strong>委托父类构造函数</strong></h2><p>&#160; &#160; &#160; &#160;新标准中，也支持子类在初始化列表中直接委托父类的构造函数完成初始化。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> SubTestClass final: <span class="keyword">public</span> TestClass</div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    <span class="keyword">using</span> TestClass::TestClass;</div><div class="line">    SubTestClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i, <span class="string">'S'</span>) &#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print_msg</span><span class="params">()</span> override</span>;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test inherit base class contructor:\n"</span>;</div><div class="line"><span class="function">SubTestClass <span class="title">stc2</span><span class="params">(<span class="number">1024</span>, <span class="string">'H'</span>)</span></span>;</div><div class="line">stc2.print_msg();</div></pre></td></tr></table></figure></p>
-<h2 id="多继承与默认-constructor"><a href="#多继承与默认-constructor" class="headerlink" title="多继承与默认 constructor"></a><strong>多继承与默认 constructor</strong></h2><p>&#160; &#160; &#160; &#160;多重继承的子类可以直接继承父类的构造函数，但是如果父类中有形参列表完全相同的构造函数，则会产生冲突，这时需要子类自己定义一个自己版本的构造函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> TestClass2</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  TestClass2() = <span class="keyword">default</span>;</div><div class="line">  TestClass2(<span class="keyword">const</span> <span class="keyword">int</span> i) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">class</span> MultiSubClass: <span class="keyword">public</span> TestClass, <span class="keyword">public</span> TestClass2</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  <span class="keyword">using</span> TestClass::TestClass;</div><div class="line">  <span class="keyword">using</span> TestClass2::TestClass2;</div><div class="line">  <span class="comment">// conflicts with version inherited from ‘TestClass’</span></div><div class="line">  MultiSubClass(<span class="keyword">const</span> <span class="keyword">int</span> i): TestClass(i) &#123;&#125;</div><div class="line">  MultiSubClass() = <span class="keyword">default</span>;</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test multi inherit constructor:\n"</span>;</div><div class="line"><span class="function">MultiSubClass <span class="title">mtc</span><span class="params">(<span class="number">1024</span>)</span></span>;</div><div class="line">mtc.print_msg();</div><div class="line"><span class="keyword">return</span> <span class="number">0</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;1.sizeof可以直接用于获取Class::member的大小，而不用通过Class的实例。<br>&#160; &#160; &#160; &#160;2.可以通过=default强制编译器生成一个默认constructor。<br>&#160; &#160; &#160; &#160;3.可以在初始化列表中将一个constructor初始化的工作委托给另一个constructor，以及父类的constructor。<br>&#160; &#160; &#160; &#160;4.allocator.construct可以使用任意的构造函数。<br>&#160; &#160; &#160; &#160;5.可以通过=default要求编译器合成默认的拷贝/赋值构造函数，也可以通过=delete禁止拷贝。<br>&#160; &#160; &#160; &#160;6.新标准中提供了override和final两个关键字，用于标识子类对父类中虚函数的重写（override）或禁止重写（final），编译会对这两种情况进行检查。final还可以用于类的标识，表示禁止继承。<br>&#160; &#160; &#160; &#160;7.多重继承的子类可以直接继承父类的构造函数，但是如果父类中有形参列表完全相同的构造函数，则会产生冲突，这时需要子类自己定义一个自己版本的构造函数。</p>
+        <p>　　想回到以前 如果我想你<br>　　我就这样给你写信 然后装进信封<br>　　在邮递员的自行车上辗转 路过城市又路过乡镇<br>　　卷着月亮和星星的味道塞进你的信箱<br>　　信里可能会写到我的猫 我的书<br>　　还有家门口的那颗大槐树<br>　　可是如果我超级想你<br>　　那我就在写完信的时候出发去找你<br>　　抱着猫和书 穿着最好看的新衣服<br><img src="/image/36/36_1.jpg" alt="demo"> </p>
 
       
     </div>
@@ -302,13 +294,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/08/26/C++11 新特性之Class/">C++11 新特性之 Class</a></p>
+        <p><span>本文标题:</span><a href="/2016/08/15/​想回到以前 如果我想你/">​想回到以前，如果我想你！</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
-        <p><span>发布时间:</span>2016年08月26日 - 19时06分</p>
-        <p><span>最后更新:</span>2016年08月31日 - 21时55分</p>
+        <p><span>发布时间:</span>2016年08月15日 - 16时22分</p>
+        <p><span>最后更新:</span>2016年08月31日 - 21时29分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/08/26/C++11 新特性之Class/" title="C++11 新特性之 Class">http://greedysky.github.io/2016/08/26/C++11 新特性之Class/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/08/26/C++11 新特性之Class/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/08/15/​想回到以前 如果我想你/" title="​想回到以前，如果我想你！">http://greedysky.github.io/2016/08/15/​想回到以前 如果我想你/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/08/15/​想回到以前 如果我想你/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -321,18 +313,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2016/08/31/每个人心底都有那么一个人/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/20/C++11 新特性之智能指针/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          每个人心底都有那么一个人！
+          C++11 新特性之智能指针
         
       </div>
     </a>
   
   
-    <a href="/2016/08/20/C++11 新特性之智能指针/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++11 新特性之智能指针</div>
+    <a href="/2016/08/11/C++11 新特性之容器相关特性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++11 新特性之容器相关特性</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -343,7 +335,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sizeof"><span class="toc-number">1.</span> <span class="toc-text">sizeof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#default-constructor"><span class="toc-number">2.</span> <span class="toc-text">default constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#allocator-construct"><span class="toc-number">3.</span> <span class="toc-text">allocator.construct</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#copy-constructor"><span class="toc-number">4.</span> <span class="toc-text">copy constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#override-和-final"><span class="toc-number">5.</span> <span class="toc-text">override 和 final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#委托父类构造函数"><span class="toc-number">6.</span> <span class="toc-text">委托父类构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多继承与默认-constructor"><span class="toc-number">7.</span> <span class="toc-text">多继承与默认 constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -391,7 +383,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/08/26/C++11 新特性之Class/" data-title="C++11 新特性之 Class" data-url="http://greedysky.github.io/2016/08/26/C++11 新特性之Class/"></div>
+    <div class="ds-thread" data-thread-key="2016/08/15/​想回到以前 如果我想你/" data-title="​想回到以前，如果我想你！" data-url="http://greedysky.github.io/2016/08/15/​想回到以前 如果我想你/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -414,13 +406,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/31/每个人心底都有那么一个人/" title="上一篇: 每个人心底都有那么一个人！">
+            <a href="/2016/08/20/C++11 新特性之智能指针/" title="上一篇: C++11 新特性之智能指针">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/08/20/C++11 新特性之智能指针/" title="下一篇: C++11 新特性之智能指针">
+            <a href="/2016/08/11/C++11 新特性之容器相关特性/" title="下一篇: C++11 新特性之容器相关特性">
                 <i class="fa fa-angle-right"></i>
             </a>
         
