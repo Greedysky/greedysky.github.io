@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -98,35 +98,32 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dd/dfb/qsyncconf_8h.html#a645ced3d9907a38384474d8a5a2a916b">   25</a></span>&#160;<span class="preprocessor">#define DATA_BUCKET     &quot;greedysky-data&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dd/dfb/qsyncconf_8h.html#a1344593b642d1b33f034a5e9d2af12eb">   26</a></span>&#160;<span class="preprocessor">#define MUSIC_BUCKET    &quot;greedysky-music&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/db2/struct_q_sync_conf.html">QSyncConf</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">   33</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">HOST</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">   35</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">NAME</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">   36</a></span>&#160;    <span class="keyword">static</span> QByteArray <a class="code" href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">KEY</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dd/dfb/qsyncconf_8h.html#a645ced3d9907a38384474d8a5a2a916b">   24</a></span>&#160;<span class="preprocessor">#define DATA_BUCKET     &quot;greedysky-data&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dd/dfb/qsyncconf_8h.html#a1344593b642d1b33f034a5e9d2af12eb">   25</a></span>&#160;<span class="preprocessor">#define MUSIC_BUCKET    &quot;greedysky-music&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html">   30</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/db2/struct_q_sync_conf.html">QSyncConf</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">   32</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">HOST</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">   33</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">NAME</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">   34</a></span>&#160;    <span class="keyword">static</span> QByteArray <a class="code" href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">KEY</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">   35</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">VERSION</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<a class="code" href="../../dd/dfb/qsyncconf_8h.html#a236072bc4923e7737c122b1b2e183331">QSyncConf</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">   38</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">VERSION</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}<a class="code" href="../../dd/dfb/qsyncconf_8h.html#a236072bc4923e7737c122b1b2e183331">QSyncConf</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="struct_q_sync_conf_html_a50de4ca1f1368e9437b6f9e1622a26dd"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">QSyncConf::HOST</a></div><div class="ttdeci">static QString HOST</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00033">qsyncconf.h:33</a></div></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_q_sync_conf_html_a50de4ca1f1368e9437b6f9e1622a26dd"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#a50de4ca1f1368e9437b6f9e1622a26dd">QSyncConf::HOST</a></div><div class="ttdeci">static QString HOST</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00032">qsyncconf.h:32</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="qsyncconf_8h_html_a236072bc4923e7737c122b1b2e183331"><div class="ttname"><a href="../../dd/dfb/qsyncconf_8h.html#a236072bc4923e7737c122b1b2e183331">QSyncConf</a></div><div class="ttdeci">struct TTK_MODULE_EXPORT QSyncConf QSyncConf</div><div class="ttdoc">The class of the sync data config. </div></div>
-<div class="ttc" id="struct_q_sync_conf_html_af5ae5b726051bbb0d9f44c025c2b9fe7"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">QSyncConf::NAME</a></div><div class="ttdeci">static QString NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00035">qsyncconf.h:35</a></div></div>
-<div class="ttc" id="struct_q_sync_conf_html_a31b21ed23756a6d311db8eb86c452630"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">QSyncConf::VERSION</a></div><div class="ttdeci">static QString VERSION</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00038">qsyncconf.h:38</a></div></div>
-<div class="ttc" id="struct_q_sync_conf_html_aea92458a9ec9be0b2fe33ed6da1bb601"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">QSyncConf::KEY</a></div><div class="ttdeci">static QByteArray KEY</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00036">qsyncconf.h:36</a></div></div>
+<div class="ttc" id="struct_q_sync_conf_html_af5ae5b726051bbb0d9f44c025c2b9fe7"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#af5ae5b726051bbb0d9f44c025c2b9fe7">QSyncConf::NAME</a></div><div class="ttdeci">static QString NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00033">qsyncconf.h:33</a></div></div>
+<div class="ttc" id="struct_q_sync_conf_html_a31b21ed23756a6d311db8eb86c452630"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#a31b21ed23756a6d311db8eb86c452630">QSyncConf::VERSION</a></div><div class="ttdeci">static QString VERSION</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00035">qsyncconf.h:35</a></div></div>
+<div class="ttc" id="struct_q_sync_conf_html_aea92458a9ec9be0b2fe33ed6da1bb601"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html#aea92458a9ec9be0b2fe33ed6da1bb601">QSyncConf::KEY</a></div><div class="ttdeci">static QByteArray KEY</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00034">qsyncconf.h:34</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a></div></div>
-<div class="ttc" id="struct_q_sync_conf_html"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html">QSyncConf</a></div><div class="ttdoc">The class of the sync data config. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00031">qsyncconf.h:31</a></div></div>
+<div class="ttc" id="struct_q_sync_conf_html"><div class="ttname"><a href="../../d3/db2/struct_q_sync_conf.html">QSyncConf</a></div><div class="ttdoc">The class of the sync data config. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dfb/qsyncconf_8h_source.html#l00030">qsyncconf.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:45:10 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

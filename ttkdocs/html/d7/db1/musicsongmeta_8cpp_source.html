@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -255,7 +255,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
 <div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d9/d9a/class_music_song_meta.html#a6eba91ba7f03fef54aab77e72ef65284">  180</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d9a/class_music_song_meta.html#a6eba91ba7f03fef54aab77e72ef65284">MusicSongMeta::setCover</a>(<span class="keyword">const</span> QPixmap &amp;pix)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#if TTKMUSIC_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#if TTK_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    QPixmap p(pix);</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">if</span>(p.width() &gt; 500 || p.height() &gt; 500)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    {</div>
@@ -263,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <a class="code" href="../../d9/d9a/class_music_song_meta.html#a64a4d4e19e4c419a4bbdea612e4ad893">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a5318660d1e6138a433be2bb1ba40166d">m_cover</a> = p;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    Q_UNUSED(data);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    Q_UNUSED(pix);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
@@ -274,7 +274,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Input byte data is empty&quot;</span>);</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#if TTKMUSIC_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#if TTK_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    QPixmap pix;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    pix.loadFromData(data);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <a class="code" href="../../d9/d9a/class_music_song_meta.html#a6eba91ba7f03fef54aab77e72ef65284">setCover</a>(pix);</div>
@@ -285,7 +285,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 <div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d9/d9a/class_music_song_meta.html#ab36d0e04fdefcffee8013dfecec83bea">  210</a></span>&#160;QPixmap <a class="code" href="../../d9/d9a/class_music_song_meta.html#ab36d0e04fdefcffee8013dfecec83bea">MusicSongMeta::cover</a>()</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;{</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#if TTKMUSIC_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#if TTK_VERSION &gt;= TTK_VERSION_CHECK(2,5,3,0)</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/d9a/class_music_song_meta.html#a64a4d4e19e4c419a4bbdea612e4ad893">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a5318660d1e6138a433be2bb1ba40166d">m_cover</a>;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">return</span> QPixmap();</div>
@@ -534,7 +534,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_qmmp_html_aa4a16a069a893d4bf425a793b03d8291a590ae10d25fc643ba54ff9c1d122a03b"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a590ae10d25fc643ba54ff9c1d122a03b">Qmmp::TRACK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00099">qmmp.h:99</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a7e2252133e97d5f1c2ba7e8e4c6db99a"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a7e2252133e97d5f1c2ba7e8e4c6db99a">MusicSongMeta::setGenre</a></div><div class="ttdeci">void setGenre(const QString &amp;genre)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00175">musicsongmeta.cpp:175</a></div></div>
 <div class="ttc" id="musicstringutils_8h_html"><div class="ttname"><a href="../../d4/d50/musicstringutils_8h.html">musicstringutils.h</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_afde13c82a0f65dc314931a45db30d64a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a></div><div class="ttdeci">#define TTK_DEFAULT_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00168">ttkglobal.h:168</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_afde13c82a0f65dc314931a45db30d64a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a></div><div class="ttdeci">#define TTK_DEFAULT_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00173">ttkglobal.h:173</a></div></div>
 <div class="ttc" id="class_tag_wrapper_html_a1e4d1590d6bba761c50cb22510b4666fafdc53b691a4bd4e491e5b0443e660c9d"><div class="ttname"><a href="../../d4/da6/class_tag_wrapper.html#a1e4d1590d6bba761c50cb22510b4666fafdc53b691a4bd4e491e5b0443e660c9d">TagWrapper::TAG_TRACK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/tagwrapper_8h_source.html#l00042">tagwrapper.h:42</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a972d52804b0b35d311a436bda9bc174c"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a972d52804b0b35d311a436bda9bc174c">MusicSongMeta::artist</a></div><div class="ttdeci">QString artist()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00099">musicsongmeta.cpp:99</a></div></div>
 <div class="ttc" id="musicformats_8h_html"><div class="ttname"><a href="../../d3/d12/musicformats_8h.html">musicformats.h</a></div></div>
@@ -568,7 +568,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_meta_data_model_html"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div><div class="ttdoc">The MetaDataModel is the base interface class of metadata access. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00078">metadatamodel.h:78</a></div></div>
 <div class="ttc" id="class_tag_wrapper_html_a54c80ca727d36efe321de4c4e0d143e3"><div class="ttname"><a href="../../d4/da6/class_tag_wrapper.html#a54c80ca727d36efe321de4c4e0d143e3">TagWrapper::readFile</a></div><div class="ttdeci">bool readFile()</div></div>
 <div class="ttc" id="class_music_song_meta_html_ad3d157d6d332582d1cd1762a2a3681f2"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#ad3d157d6d332582d1cd1762a2a3681f2">MusicSongMeta::setYear</a></div><div class="ttdeci">void setYear(const QString &amp;year)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00165">musicsongmeta.cpp:165</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_aa7cb428cf5dab5a9c6a00b4c1e42b1db"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aa7cb428cf5dab5a9c6a00b4c1e42b1db">TTKStringListMap</a></div><div class="ttdeci">QMap&lt; QString, QStringList &gt; TTKStringListMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00196">ttkglobal.h:196</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_aa7cb428cf5dab5a9c6a00b4c1e42b1db"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aa7cb428cf5dab5a9c6a00b4c1e42b1db">TTKStringListMap</a></div><div class="ttdeci">QMap&lt; QString, QStringList &gt; TTKStringListMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00201">ttkglobal.h:201</a></div></div>
 <div class="ttc" id="class_tag_wrapper_html_a1e4d1590d6bba761c50cb22510b4666f"><div class="ttname"><a href="../../d4/da6/class_tag_wrapper.html#a1e4d1590d6bba761c50cb22510b4666f">TagWrapper::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/tagwrapper_8h_source.html#l00031">tagwrapper.h:31</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a4bf2f7da0a58e3be19f2b4247c14c55e"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a4bf2f7da0a58e3be19f2b4247c14c55e">MusicSongMeta::decoder</a></div><div class="ttdeci">QString decoder() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00069">musicsongmeta.cpp:69</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a9ca56ed28cc83ab32bad603310a4cc5a"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a9ca56ed28cc83ab32bad603310a4cc5a">MusicSongMeta::fileRelatedPath</a></div><div class="ttdeci">QString fileRelatedPath()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00094">musicsongmeta.cpp:94</a></div></div>
@@ -624,7 +624,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:01 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:44:58 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

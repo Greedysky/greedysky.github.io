@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">bool</span> play(<span class="keyword">const</span> QString &amp;source, <span class="keywordtype">bool</span> queue = <span class="keyword">false</span>, qint64 <a class="code" href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a> = -1);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> stop();</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span> pause();</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> seek(qint64 pos);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> seek(qint64 time);</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">const</span> QString path() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;signals:</div>
@@ -161,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">void</span> audioParametersChanged(<span class="keyword">const</span> <a class="code" href="../../d2/d77/class_audio_parameters.html">AudioParameters</a> &amp;p);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">void</span> streamInfoChanged();</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">void</span> trackInfoChanged();</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">void</span> stateChanged (<a class="code" href="../../d9/d95/class_qmmp.html#a2626102dc08b87b2a880725327dd867e">Qmmp::State</a> newState);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">void</span> stateChanged(<a class="code" href="../../d9/d95/class_qmmp.html#a2626102dc08b87b2a880725327dd867e">Qmmp::State</a> newState);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">void</span> finished();</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> volumeChanged(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">void</span> mutedChanged(<span class="keywordtype">bool</span> muted);</div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">void</span> startNextEngine();</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> event(QEvent *e) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> event(QEvent *e) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="../../d4/d98/class_sound_core.html#a2254d314000d2c280ddf96f003ad1902">  260</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../d4/d98/class_sound_core.html#a2254d314000d2c280ddf96f003ad1902">NextEngineState</a></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    {</div>
@@ -231,7 +231,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:28:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:44:57 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

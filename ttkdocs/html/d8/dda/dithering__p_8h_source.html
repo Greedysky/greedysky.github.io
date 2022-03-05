@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -109,35 +109,36 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d9/d48/class_dithering.html">Dithering</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a5a231deb996d92d4d965b2ae6ae6dda3">configure</a>(quint32 srate, <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> map) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setFormats(<a class="code" href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cb">Qmmp::AudioFormat</a> in, <a class="code" href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cb">Qmmp::AudioFormat</a> out);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a54c315b7a455a4be611ecc35d78c7a42">applyEffect</a>(<a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a> *b) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">setEnabled</a>(<span class="keywordtype">bool</span> enabled);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> clearHistory();</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a71fc169962e7d769de238803b0226066">   43</a></span>&#160;    <span class="keywordtype">int</span> m_chan = 2;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">   45</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#ad6f2ecc0b6e5d207b8e35ef7143e3d28">   47</a></span>&#160;        <span class="keywordtype">float</span> error[3];</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">   48</a></span>&#160;        quint32 <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">random</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    } <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a003207492b686e156663510d811c352d">   52</a></span>&#160;    <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a> m_dither[9];</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#aa0c04d5487e0996e61b4d8ab5d88819c">   53</a></span>&#160;    <span class="keywordtype">float</span> m_lsb = 0.0f;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a80b20c1a911d4db692779075cc0b7e14">   54</a></span>&#160;    <span class="keywordtype">bool</span> m_required= <span class="keyword">false</span>, m_enabled;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    quint32 prng(quint32 <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">float</span> audioLinearDither(<span class="keywordtype">float</span> sample, <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a> *dither);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="struct_dithering_1_1_audio_dither_html_aaec5ef8cf743c03d4af4e33c92b0c70e"><div class="ttname"><a href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">Dithering::AudioDither::random</a></div><div class="ttdeci">quint32 random</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/dithering__p_8h_source.html#l00048">dithering_p.h:48</a></div></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a5a231deb996d92d4d965b2ae6ae6dda3">configure</a>(quint32 srate, <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> map) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a54c315b7a455a4be611ecc35d78c7a42">applyEffect</a>(<a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a> *b) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> setFormats(<a class="code" href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cb">Qmmp::AudioFormat</a> in, <a class="code" href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cb">Qmmp::AudioFormat</a> out);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d6/d58/class_effect.html#a944b2f41b694598f96fc53445d0bacdb">setEnabled</a>(<span class="keywordtype">bool</span> enabled);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> clearHistory();</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a71fc169962e7d769de238803b0226066">   44</a></span>&#160;    <span class="keywordtype">int</span> m_chan = 2;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">   46</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#ad6f2ecc0b6e5d207b8e35ef7143e3d28">   48</a></span>&#160;        <span class="keywordtype">float</span> error[3];</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">   49</a></span>&#160;        quint32 <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">random</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    } <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a003207492b686e156663510d811c352d">   53</a></span>&#160;    <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a> m_dither[9];</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#aa0c04d5487e0996e61b4d8ab5d88819c">   54</a></span>&#160;    <span class="keywordtype">float</span> m_lsb = 0.0f;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d9/d48/class_dithering.html#a80b20c1a911d4db692779075cc0b7e14">   55</a></span>&#160;    <span class="keywordtype">bool</span> m_required= <span class="keyword">false</span>, m_enabled;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    quint32 prng(quint32 <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">float</span> audioLinearDither(<span class="keywordtype">float</span> sample, <a class="code" href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">AudioDither</a> *dither);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_dithering_1_1_audio_dither_html_aaec5ef8cf743c03d4af4e33c92b0c70e"><div class="ttname"><a href="../../d1/d2a/struct_dithering_1_1_audio_dither.html#aaec5ef8cf743c03d4af4e33c92b0c70e">Dithering::AudioDither::random</a></div><div class="ttdeci">quint32 random</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/dithering__p_8h_source.html#l00049">dithering_p.h:49</a></div></div>
 <div class="ttc" id="class_effect_html"><div class="ttname"><a href="../../d6/d58/class_effect.html">Effect</a></div><div class="ttdoc">The Effect class provides the base interface class of audio effects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00036">effect.h:36</a></div></div>
-<div class="ttc" id="struct_dithering_1_1_audio_dither_html"><div class="ttname"><a href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">Dithering::AudioDither</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/dithering__p_8h_source.html#l00045">dithering_p.h:45</a></div></div>
+<div class="ttc" id="struct_dithering_1_1_audio_dither_html"><div class="ttname"><a href="../../d1/d2a/struct_dithering_1_1_audio_dither.html">Dithering::AudioDither</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dda/dithering__p_8h_source.html#l00046">dithering_p.h:46</a></div></div>
 <div class="ttc" id="effect_8h_html"><div class="ttname"><a href="../../d2/d76/effect_8h.html">effect.h</a></div></div>
 <div class="ttc" id="class_effect_html_a54c315b7a455a4be611ecc35d78c7a42"><div class="ttname"><a href="../../d6/d58/class_effect.html#a54c315b7a455a4be611ecc35d78c7a42">Effect::applyEffect</a></div><div class="ttdeci">virtual void applyEffect(Buffer *b)=0</div></div>
 <div class="ttc" id="class_channel_map_html"><div class="ttname"><a href="../../d1/d72/class_channel_map.html">ChannelMap</a></div><div class="ttdoc">This class represents audio channel mapping. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9d/channelmap_8h_source.html#l00030">channelmap.h:30</a></div></div>
@@ -151,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:28:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:44:57 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

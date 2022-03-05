@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -98,39 +98,37 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QHash&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">   29</a></span>&#160;<span class="keyword">typedef</span> QHash&lt;QString, QString&gt; <a class="code" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// QHttpServer</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d5e/class_q_http_server.html">QHttpServer</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d0e/class_q_http_connection.html">QHttpConnection</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d07/class_q_http_response.html">QHttpResponse</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// Qt</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>QTcpServer;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>QTcpSocket;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// http_parser</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">struct </span><a class="code" href="../../da/d9e/structhttp__parser__settings.html">http_parser_settings</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d1/d04/structhttp__parser.html">http_parser</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">   27</a></span>&#160;<span class="keyword">typedef</span> QHash&lt;QString, QString&gt; <a class="code" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// QHttpServer</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d5e/class_q_http_server.html">QHttpServer</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d0e/class_q_http_connection.html">QHttpConnection</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d07/class_q_http_response.html">QHttpResponse</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// Qt</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>QTcpServer;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>QTcpSocket;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// http_parser</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">struct </span><a class="code" href="../../da/d9e/structhttp__parser__settings.html">http_parser_settings</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d1/d04/structhttp__parser.html">http_parser</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_q_http_response_html"><div class="ttname"><a href="../../da/d07/class_q_http_response.html">QHttpResponse</a></div><div class="ttdoc">The class of the http response. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d94/qhttpresponse_8h_source.html#l00029">qhttpresponse.h:29</a></div></div>
 <div class="ttc" id="class_q_http_connection_html"><div class="ttname"><a href="../../dc/d0e/class_q_http_connection.html">QHttpConnection</a></div><div class="ttdoc">The class of the http connection. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/da4/qhttpconnection_8h_source.html#l00029">qhttpconnection.h:29</a></div></div>
 <div class="ttc" id="structhttp__parser_html"><div class="ttname"><a href="../../d1/d04/structhttp__parser.html">http_parser</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd7/http__parser_8h_source.html#l00206">http_parser.h:206</a></div></div>
 <div class="ttc" id="class_q_http_request_html"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html">QHttpRequest</a></div><div class="ttdoc">The class of the http request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc3/qhttprequest_8h_source.html#l00032">qhttprequest.h:32</a></div></div>
 <div class="ttc" id="structhttp__parser__settings_html"><div class="ttname"><a href="../../da/d9e/structhttp__parser__settings.html">http_parser_settings</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd7/http__parser_8h_source.html#l00236">http_parser.h:236</a></div></div>
 <div class="ttc" id="class_q_http_server_html"><div class="ttname"><a href="../../d0/d5e/class_q_http_server.html">QHttpServer</a></div><div class="ttdoc">The class of the http server. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d5f/qhttpserver_8h_source.html#l00037">qhttpserver.h:37</a></div></div>
-<div class="ttc" id="qhttpserverfwd_8h_html_aad7e73ed2a372edbfbc239f2939eda1a"><div class="ttname"><a href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a></div><div class="ttdeci">QHash&lt; QString, QString &gt; HeaderHash</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d4c/qhttpserverfwd_8h_source.html#l00029">qhttpserverfwd.h:29</a></div></div>
+<div class="ttc" id="qhttpserverfwd_8h_html_aad7e73ed2a372edbfbc239f2939eda1a"><div class="ttname"><a href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a></div><div class="ttdeci">QHash&lt; QString, QString &gt; HeaderHash</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d4c/qhttpserverfwd_8h_source.html#l00027">qhttpserverfwd.h:27</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:45:10 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

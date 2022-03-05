@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -176,8 +176,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../df/dea/namespace_music_utils_1_1_file.html#a7073896b84a075cc96a432717ed5823c">   98</a></span>&#160;QString <a class="code" href="../../df/dea/namespace_music_utils_1_1_file.html#a7073896b84a075cc96a432717ed5823c">MusicUtils::File::saveFileDialog</a>(QWidget *obj, <span class="keyword">const</span> QString &amp;filter)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> QFileDialog::getSaveFileName(obj,  QObject::tr(<span class="stringliteral">&quot;Choose a filename to save under&quot;</span>), QDir::currentPath(), filter);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">const</span> QString &amp;title = QObject::tr(<span class="stringliteral">&quot;Choose a filename to save under&quot;</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#if defined Q_OS_WIN || defined Q_OS_MAC</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> QFileDialog::getSaveFileName(obj, title, QDir::currentPath(), filter);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    QFileDialog dialog(obj, title, QDir::currentPath(), filter);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    dialog.setAcceptMode(QFileDialog::AcceptSave);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(obj)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        dialog.setWindowModality(Qt::WindowModal);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span>(dialog.exec() != QDialog::Accepted)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">return</span> QString();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">const</span> QString &amp;selectFilter = dialog.selectedNameFilter();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">const</span> QStringList &amp;filters = filter.split(<span class="stringliteral">&quot;;;&quot;</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>(!filters.isEmpty())</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        QRegExp regex(<span class="stringliteral">&quot;(?:^\\*\\.(?!.*\\()|\\(\\*\\.)(\\w+)&quot;</span>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span>(regex.indexIn(selectFilter) != -1)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            dialog.setDefaultSuffix(regex.cap(1));</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> dialog.selectedFiles().first();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 <div class="ttc" id="namespace_music_utils_1_1_file_html_a7073896b84a075cc96a432717ed5823c"><div class="ttname"><a href="../../df/dea/namespace_music_utils_1_1_file.html#a7073896b84a075cc96a432717ed5823c">MusicUtils::File::saveFileDialog</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString saveFileDialog(QWidget *obj, const QString &amp;filter=&quot;Images (*.png *.bmp *.jpg)&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4c/musicfileutils_8cpp_source.html#l00098">musicfileutils.cpp:98</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_file_html_acdb76f627e87fcfc32cd6cfc69f3cf08"><div class="ttname"><a href="../../df/dea/namespace_music_utils_1_1_file.html#acdb76f627e87fcfc32cd6cfc69f3cf08">MusicUtils::File::removeRecursively</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool removeRecursively(const QString &amp;dir, bool self=true)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4c/musicfileutils_8cpp_source.html#l00032">musicfileutils.cpp:32</a></div></div>
 <div class="ttc" id="musicfileutils_8h_html"><div class="ttname"><a href="../../d7/de5/musicfileutils_8h.html">musicfileutils.h</a></div></div>
@@ -189,7 +216,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:02 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:44:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -126,9 +126,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> caseButtonOnAndOff();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> focusOutEvent(QFocusEvent *event) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> focusOutEvent(QFocusEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d0/d09/class_music_screen_saver_hover_item.html#a8d9e1a0e2fce4364b15c6e825d499d10">   78</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d0/d09/class_music_screen_saver_hover_item.html#a8d9e1a0e2fce4364b15c6e825d499d10">m_index</a>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d0/d09/class_music_screen_saver_hover_item.html#a71ce2c5cba7741d6de7467edd2385019">   79</a></span>&#160;    QString <a class="code" href="../../d0/d09/class_music_screen_saver_hover_item.html#a71ce2c5cba7741d6de7467edd2385019">m_path</a>;</div>
@@ -152,9 +152,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(QEnterEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(QEnterEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(QEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d8/db5/class_music_screen_saver_list_item.html#a1a2572a7fdd7a7e164073610cff6f2ef">  120</a></span>&#160;    <a class="code" href="../../d0/d09/class_music_screen_saver_hover_item.html">MusicScreenSaverHoverItem</a> *<a class="code" href="../../d8/db5/class_music_screen_saver_list_item.html#a1a2572a7fdd7a7e164073610cff6f2ef">m_hoverItem</a>;</div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resizeWindow();</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resizeEvent(QResizeEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> resizeEvent(QResizeEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="../../d9/d97/class_music_screen_saver_list_widget.html#ad32ec916054681839abfe0d07141971d">  155</a></span>&#160;    QGridLayout *<a class="code" href="../../d9/d97/class_music_screen_saver_list_widget.html#ad32ec916054681839abfe0d07141971d">m_gridLayout</a>;</div>
 <div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d9/d97/class_music_screen_saver_list_widget.html#a1f4716a3d4dd6daa3e012fd768c3d0a7">  156</a></span>&#160;    QList&lt;MusicScreenSaverListItem*&gt; <a class="code" href="../../d9/d97/class_music_screen_saver_list_widget.html#a1f4716a3d4dd6daa3e012fd768c3d0a7">m_items</a>;</div>
@@ -229,7 +229,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">void</span> backgroundTimeout();</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> eventFilter(QObject *watched, QEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> eventFilter(QObject *watched, QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="../../d1/ded/class_music_screen_saver_background_widget.html#a465aa3828fb737199fb306ed1cfefd52">  258</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d1/ded/class_music_screen_saver_background_widget.html#a465aa3828fb737199fb306ed1cfefd52">m_state</a>;</div>
@@ -246,7 +246,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_screen_saver_list_widget_html"><div class="ttname"><a href="../../d9/d97/class_music_screen_saver_list_widget.html">MusicScreenSaverListWidget</a></div><div class="ttdoc">The class of the screen saver list widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/musicscreensaverwidget_8h_source.html#l00128">musicscreensaverwidget.h:128</a></div></div>
 <div class="ttc" id="class_music_screen_saver_hover_item_html_a8d9e1a0e2fce4364b15c6e825d499d10"><div class="ttname"><a href="../../d0/d09/class_music_screen_saver_hover_item.html#a8d9e1a0e2fce4364b15c6e825d499d10">MusicScreenSaverHoverItem::m_index</a></div><div class="ttdeci">int m_index</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/musicscreensaverwidget_8h_source.html#l00078">musicscreensaverwidget.h:78</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00140">ttkglobal.h:140</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00145">ttkglobal.h:145</a></div></div>
 <div class="ttc" id="class_music_download_queue_request_html"><div class="ttname"><a href="../../d6/db0/class_music_download_queue_request.html">MusicDownloadQueueRequest</a></div><div class="ttdoc">The class of download data from queue request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de4/musicdownloadqueuerequest_8h_source.html#l00038">musicdownloadqueuerequest.h:38</a></div></div>
 <div class="ttc" id="class_music_screen_saver_background_widget_html_abc57e93372e01039fc3d786bdcb65e4f"><div class="ttname"><a href="../../d1/ded/class_music_screen_saver_background_widget.html#abc57e93372e01039fc3d786bdcb65e4f">MusicScreenSaverBackgroundWidget::m_runningTimer</a></div><div class="ttdeci">QTimer * m_runningTimer</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/musicscreensaverwidget_8h_source.html#l00260">musicscreensaverwidget.h:260</a></div></div>
 <div class="ttc" id="class_music_screen_saver_background_widget_html"><div class="ttname"><a href="../../d1/ded/class_music_screen_saver_background_widget.html">MusicScreenSaverBackgroundWidget</a></div><div class="ttdoc">The class of the screen saver background widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0a/musicscreensaverwidget_8h_source.html#l00225">musicscreensaverwidget.h:225</a></div></div>
@@ -269,7 +269,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:06 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:45:03 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

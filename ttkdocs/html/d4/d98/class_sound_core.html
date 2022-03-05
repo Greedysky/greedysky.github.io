@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -124,8 +124,8 @@ Public Slots</h2></td></tr>
 <tr class="separator:a607807effa5d9f2365dc48758f690f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abff770377d2d5cfcfb1c227846009c6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#abff770377d2d5cfcfb1c227846009c6b">pause</a> ()</td></tr>
 <tr class="separator:abff770377d2d5cfcfb1c227846009c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657295aa99fcce936f823d04a93f60d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#a657295aa99fcce936f823d04a93f60d9">seek</a> (qint64 pos)</td></tr>
-<tr class="separator:a657295aa99fcce936f823d04a93f60d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dad1b1bc6e7104f2acdc81a7421e6b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#a2dad1b1bc6e7104f2acdc81a7421e6b3">seek</a> (qint64 time)</td></tr>
+<tr class="separator:a2dad1b1bc6e7104f2acdc81a7421e6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a062b230bd26327409c2723069e365788"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#a062b230bd26327409c2723069e365788">path</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> </td></tr>
 <tr class="separator:a062b230bd26327409c2723069e365788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -224,8 +224,8 @@ Private Slots</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a4ccabd8e9ce2431ac9c4e0c753f13ab4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#a4ccabd8e9ce2431ac9c4e0c753f13ab4">event</a> (QEvent *e) override</td></tr>
-<tr class="separator:a4ccabd8e9ce2431ac9c4e0c753f13ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bbe71b4a64a5c1486da0cad211409e0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d98/class_sound_core.html#a2bbe71b4a64a5c1486da0cad211409e0">event</a> (QEvent *e) overridefinal</td></tr>
+<tr class="separator:a2bbe71b4a64a5c1486da0cad211409e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -605,7 +605,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns equalizer settings </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00179">MusicPlayer::setEqEffect()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00186">MusicPlayer::setEqualizerEffect()</a>.</p>
 
 </div>
 </div>
@@ -633,7 +633,7 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4ccabd8e9ce2431ac9c4e0c753f13ab4"></a>
+<a class="anchor" id="a2bbe71b4a64a5c1486da0cad211409e0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -650,7 +650,7 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -892,7 +892,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Pauses/resumes playback </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00159">MusicPlayer::pause()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00123">MusicPlayer::play()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00166">MusicPlayer::pause()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00131">MusicPlayer::play()</a>.</p>
 
 </div>
 </div>
@@ -935,7 +935,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This function plays file or stream with the given path <code>source</code>. Returns <b>true</b> if playback has been started successful or source is not a local file, otherwise returns <b>false</b>. Useful for invalid files skipping. </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00123">MusicPlayer::play()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00131">MusicPlayer::play()</a>.</p>
 
 </div>
 </div>
@@ -955,7 +955,7 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a657295aa99fcce936f823d04a93f60d9"></a>
+<a class="anchor" id="a2dad1b1bc6e7104f2acdc81a7421e6b3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -966,7 +966,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">void SoundCore::seek </td>
           <td>(</td>
           <td class="paramtype">qint64&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1029,7 +1029,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Chages equalizer settings to <b>settings</b>. </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00179">MusicPlayer::setEqEffect()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00186">MusicPlayer::setEqualizerEffect()</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1104,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00102">MusicPlayer::setMusicEnhanced()</a>, <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00085">MusicPlayer::setVolume()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00230">MusicPlayer::update()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00102">MusicPlayer::setMusicEnhanced()</a>, <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00085">MusicPlayer::setVolume()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00231">MusicPlayer::update()</a>.</p>
 
 </div>
 </div>
@@ -1198,7 +1198,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the current state. </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00123">MusicPlayer::play()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00255">MusicMPRISPlayerBase::playbackStatus()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00371">MusicMPRISPlayerBase::stateChanged()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00230">MusicPlayer::update()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00131">MusicPlayer::play()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00255">MusicMPRISPlayerBase::playbackStatus()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00371">MusicMPRISPlayerBase::stateChanged()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00231">MusicPlayer::update()</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1249,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Stops playback </p>
 
-<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00224">MusicPlayer::removeCurrentMedia()</a>, <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00169">MusicPlayer::stop()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00230">MusicPlayer::update()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00176">MusicPlayer::stop()</a>, and <a class="el" href="../../df/d94/musicplayer_8cpp_source.html#l00231">MusicPlayer::update()</a>.</p>
 
 </div>
 </div>
@@ -1677,7 +1677,7 @@ Static Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:30:28 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:46:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

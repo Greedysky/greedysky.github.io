@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.7.0</span>
+   &#160;<span id="projectnumber">2.15.8.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicPlayer::className())</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QObject::connect(first, SIGNAL(setEqEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)), second, SLOT(setEqEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)), second, SLOT(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QObject::connect(first, SIGNAL(setEnabledEffect(<span class="keywordtype">bool</span>)), second, SLOT(setEnabledEffect(<span class="keywordtype">bool</span>)));</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicSoundEffectsWidget::className())</div>
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicSoundEffectsWidget::className() &amp;&amp; to == MusicPlayer::className())</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QObject::connect(first, SIGNAL(setEqInformation()), second, SLOT(setEqInformation()));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerConfig()), second, SLOT(setEqualizerConfig()));</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicSongSearchTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            (from == MusicItemQueryTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
@@ -196,7 +196,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musiclocalsongsmanagerwidget_8h_html"><div class="ttname"><a href="../../d4/d74/musiclocalsongsmanagerwidget_8h.html">musiclocalsongsmanagerwidget.h</a></div></div>
 <div class="ttc" id="class_music_connection_pool_html_a81a195374f3283af7627945393646a07"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">MusicConnectionPool::MusicConnectionPool</a></div><div class="ttdeci">MusicConnectionPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00023">musicconnectionpool.cpp:23</a></div></div>
 <div class="ttc" id="musiclrcmakerwidget_8h_html"><div class="ttname"><a href="../../d7/d0c/musiclrcmakerwidget_8h.html">musiclrcmakerwidget.h</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00191">ttkglobal.h:191</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00196">ttkglobal.h:196</a></div></div>
 <div class="ttc" id="musicdownloadmgmtwidget_8h_html"><div class="ttname"><a href="../../d8/d0a/musicdownloadmgmtwidget_8h.html">musicdownloadmgmtwidget.h</a></div></div>
 <div class="ttc" id="musiccloudmanagerwidget_8h_html"><div class="ttname"><a href="../../da/d28/musiccloudmanagerwidget_8h.html">musiccloudmanagerwidget.h</a></div></div>
 <div class="ttc" id="musicsongchecktoolstablewidget_8h_html"><div class="ttname"><a href="../../da/d9b/musicsongchecktoolstablewidget_8h.html">musicsongchecktoolstablewidget.h</a></div></div>
@@ -223,7 +223,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 2 2022 14:29:00 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 5 2022 14:44:58 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
