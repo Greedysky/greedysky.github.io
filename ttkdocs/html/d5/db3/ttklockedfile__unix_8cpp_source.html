@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -118,46 +118,44 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">bool</span> TTKLockedFile::unlock()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (!isOpen()) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        qWarning(<span class="stringliteral">&quot;TTKLockedFile::unlock(): file is not opened&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (!isLocked())</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">struct </span>flock fl;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    fl.l_whence = <a class="code" href="../../d0/d5f/zip_8c.html#a0d112bae8fd35be772185b6ec6bcbe64">SEEK_SET</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    fl.l_start = 0;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    fl.l_len = 0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    fl.l_type = F_UNLCK;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> ret = fcntl(handle(), F_SETLKW, &amp;fl);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span> (ret == -1) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        qWarning(<span class="stringliteral">&quot;TTKLockedFile::lock(): fcntl: %s&quot;</span>, strerror(errno));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    m_lock_mode = NoLock;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;TTKLockedFile::~TTKLockedFile()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (isOpen())</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        unlock();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> TTKLockedFile::unlock()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (!isOpen()) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        qWarning(<span class="stringliteral">&quot;TTKLockedFile::unlock(): file is not opened&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (!isLocked())</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">struct </span>flock fl;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    fl.l_whence = <a class="code" href="../../d0/d5f/zip_8c.html#a0d112bae8fd35be772185b6ec6bcbe64">SEEK_SET</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    fl.l_start = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    fl.l_len = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    fl.l_type = F_UNLCK;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> ret = fcntl(handle(), F_SETLKW, &amp;fl);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (ret == -1) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        qWarning(<span class="stringliteral">&quot;TTKLockedFile::lock(): fcntl: %s&quot;</span>, strerror(errno));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    m_lock_mode = NoLock;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;TTKLockedFile::~TTKLockedFile()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (isOpen())</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        unlock();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 <div class="ttc" id="ttklockedfile_8h_html"><div class="ttname"><a href="../../da/d17/ttklockedfile_8h.html">ttklockedfile.h</a></div></div>
 <div class="ttc" id="zip_8c_html_a0d112bae8fd35be772185b6ec6bcbe64"><div class="ttname"><a href="../../d0/d5f/zip_8c.html#a0d112bae8fd35be772185b6ec6bcbe64">SEEK_SET</a></div><div class="ttdeci">#define SEEK_SET</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d5f/zip_8c_source.html#l00088">zip.c:88</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a7e43d41c2fe013a373b540cba02505cf"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a></div><div class="ttdeci">const char int mode</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00135">ioapi.h:135</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:09 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:55 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

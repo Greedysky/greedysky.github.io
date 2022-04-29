@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45e">   40</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45e">TransformType</a></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45eae5fb0769ba989818af63e9c7f48fb625">   42</a></span>&#160;        <a class="code" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45eae5fb0769ba989818af63e9c7f48fb625">Music</a>,  </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45ea5578dd20e29598cdce343091406acc69">   43</a></span>&#160;        <a class="code" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45ea5578dd20e29598cdce343091406acc69">Lrc</a>,    </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45ea5578dd20e29598cdce343091406acc69">   43</a></span>&#160;        Lrc     </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d87/class_music_transform_widget.html">MusicTransformWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ~<a class="code" href="../../d7/d87/class_music_transform_widget.html">MusicTransformWidget</a>();</div>
@@ -132,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QString transformSongName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> initControlParameter() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> initialize();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> processTransform(<span class="keyword">const</span> QString &amp;para);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> setMusicCheckedControl(<span class="keywordtype">bool</span> enable);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> setCheckedControl(<span class="keywordtype">bool</span> enable);</div>
@@ -150,18 +150,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00035">musicapplication.h:35</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html_af93320ce242690439f365f656abcc45eae5fb0769ba989818af63e9c7f48fb625"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45eae5fb0769ba989818af63e9c7f48fb625">MusicTransformWidget::Music</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00042">musictransformwidget.h:42</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00145">ttkglobal.h:145</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00154">ttkglobal.h:154</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html_af079e709df0c37b0783bba9a48e638cf"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#af079e709df0c37b0783bba9a48e638cf">MusicTransformWidget::m_currentType</a></div><div class="ttdeci">TransformType m_currentType</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00106">musictransformwidget.h:106</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html_a019c1235da7355cac046de75d58f196d"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#a019c1235da7355cac046de75d58f196d">MusicTransformWidget::m_process</a></div><div class="ttdeci">QProcess * m_process</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00104">musictransformwidget.h:104</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00028">musicabstractmovedialog.h:28</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html_a6f8e27d911e4ebfa0ca40b6e9ad88dcc"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#a6f8e27d911e4ebfa0ca40b6e9ad88dcc">MusicTransformWidget::m_ui</a></div><div class="ttdeci">Ui::MusicTransformWidget * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00103">musictransformwidget.h:103</a></div></div>
-<div class="ttc" id="class_music_transform_widget_html_af93320ce242690439f365f656abcc45ea5578dd20e29598cdce343091406acc69"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#af93320ce242690439f365f656abcc45ea5578dd20e29598cdce343091406acc69">MusicTransformWidget::Lrc</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00043">musictransformwidget.h:43</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html_ab0113f492070afc366945f3c3172183c"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html#ab0113f492070afc366945f3c3172183c">MusicTransformWidget::m_path</a></div><div class="ttdeci">QStringList m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00105">musictransformwidget.h:105</a></div></div>
 <div class="ttc" id="class_music_transform_widget_html"><div class="ttname"><a href="../../d7/d87/class_music_transform_widget.html">MusicTransformWidget</a></div><div class="ttdoc">The class of the transform widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d4c/musictransformwidget_8h_source.html#l00035">musictransformwidget.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:03 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:54 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

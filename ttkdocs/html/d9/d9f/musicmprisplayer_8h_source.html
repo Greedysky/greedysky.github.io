@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -172,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a8921d30959d2eb6bb35255ddfec2db9f">  105</a></span>&#160;    Q_PROPERTY(<span class="keywordtype">double</span> MinimumRate READ minimumRate)</div>
 <div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a633b22c03418f51b874e5f2c132eb271">  106</a></span>&#160;    Q_PROPERTY(QString PlaybackStatus READ playbackStatus)</div>
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a0a3a507b7c814efe9d1f453012a9e3b6">  107</a></span>&#160;    Q_PROPERTY(qlonglong Position READ position)</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a715df69f46e3c567f2b4399aacbeec07">  108</a></span>&#160;    Q_PROPERTY(<span class="keywordtype">double</span> Rate READ <a class="code" href="../../da/dbf/iir_8c.html#adf42a979321286885fe5a447d48d14d6">rate</a> WRITE setRate)</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a715df69f46e3c567f2b4399aacbeec07">  108</a></span>&#160;    Q_PROPERTY(<span class="keywordtype">double</span> Rate READ rate WRITE setRate)</div>
 <div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a7fe126c2649dbb6f77487c82320d4034">  109</a></span>&#160;    Q_PROPERTY(<span class="keywordtype">bool</span> Shuffle READ shuffle WRITE setShuffle)</div>
 <div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#aace5ba77f694c083763e873c4b226b3b">  110</a></span>&#160;    Q_PROPERTY(<span class="keywordtype">double</span> <a class="code" href="../../d7/d83/class_volume.html">Volume</a> READ volume WRITE setVolume)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
@@ -192,7 +192,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">double</span> minimumRate() const;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    QString playbackStatus() const;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    qlonglong position() const;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="../../da/dbf/iir_8c.html#adf42a979321286885fe5a447d48d14d6">rate</a>() const;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">double</span> rate() const;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> setRate(<span class="keywordtype">double</span> value);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> shuffle() const;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> setShuffle(<span class="keywordtype">bool</span> value);</div>
@@ -225,10 +225,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">void</span> syncProperties();</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">void</span> sendProperties();</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a2fd163e4f7a085e3388498ddc9a05318">  176</a></span>&#160;    <span class="keywordtype">int</span> m_prev_track;</div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a3cfe266e011f38e1f0785772d8584be2">  177</a></span>&#160;    qint64 m_prev_pos;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a9d9319cd40377e39f7d455eff3aadf35">  178</a></span>&#160;    <a class="code" href="../../d4/d98/class_sound_core.html">SoundCore</a> *m_music;</div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#ab7adf34a3bcd9f22bf90f7a96760d959">  179</a></span>&#160;    <a class="code" href="../../db/def/class_music_application.html">MusicApplication</a> *m_player;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#ab948facb9648b3b98540b220b70cb4e0">  176</a></span>&#160;    <span class="keywordtype">int</span> m_prevTrack;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#ac639d35bd03e119ed0ec1c4202f4028a">  177</a></span>&#160;    qint64 m_prevPos;</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a0e39e0bfb849630d5211c3ef40a68e7f">  178</a></span>&#160;    <a class="code" href="../../d4/d98/class_sound_core.html">SoundCore</a> *m_core;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a88632cc91cf3c54d0f274d34b63a9c17">  179</a></span>&#160;    <a class="code" href="../../db/def/class_music_application.html">MusicApplication</a> *m_application;</div>
 <div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a53461a1251836d826f6e8e267e547fd6">  180</a></span>&#160;    QDBusObjectPath m_trackID;</div>
 <div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html#a03f338b156fe12cb153570a51f376548">  181</a></span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac81f9642d9fc2479074bffd3cd3a6e1">TTKVariantMap</a> m_properties;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
@@ -238,11 +238,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_volume_html"><div class="ttname"><a href="../../d7/d83/class_volume.html">Volume</a></div><div class="ttdoc">The Volume class provides asbtract volume interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00051">volume.h:51</a></div></div>
 <div class="ttc" id="class_music_application_html"><div class="ttname"><a href="../../db/def/class_music_application.html">MusicApplication</a></div><div class="ttdoc">The class of the app main widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00042">musicapplication.h:42</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00145">ttkglobal.h:145</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00154">ttkglobal.h:154</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a601c4660e8a1a14a1b87fe387e934d19"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a></div><div class="ttdeci">voidpf uLong offset</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00142">ioapi.h:142</a></div></div>
 <div class="ttc" id="class_music_m_p_r_i_s_player_base_html"><div class="ttname"><a href="../../d3/dd8/class_music_m_p_r_i_s_player_base.html">MusicMPRISPlayerBase</a></div><div class="ttdoc">The class of the app mpris player object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9f/musicmprisplayer_8h_source.html#l00092">musicmprisplayer.h:92</a></div></div>
-<div class="ttc" id="iir_8c_html_adf42a979321286885fe5a447d48d14d6"><div class="ttname"><a href="../../da/dbf/iir_8c.html#adf42a979321286885fe5a447d48d14d6">rate</a></div><div class="ttdeci">unsigned int rate</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dbf/iir_8c_source.html#l00052">iir.c:52</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_aac81f9642d9fc2479074bffd3cd3a6e1"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aac81f9642d9fc2479074bffd3cd3a6e1">TTKVariantMap</a></div><div class="ttdeci">QMap&lt; QString, QVariant &gt; TTKVariantMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00199">ttkglobal.h:199</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_aac81f9642d9fc2479074bffd3cd3a6e1"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aac81f9642d9fc2479074bffd3cd3a6e1">TTKVariantMap</a></div><div class="ttdeci">QMap&lt; QString, QVariant &gt; TTKVariantMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00208">ttkglobal.h:208</a></div></div>
 <div class="ttc" id="class_music_m_p_r_i_s_player_html_a3bfb8eacf0f67a8aa76d8bc4de738235"><div class="ttname"><a href="../../dd/ddf/class_music_m_p_r_i_s_player.html#a3bfb8eacf0f67a8aa76d8bc4de738235">MusicMPRISPlayer::m_root</a></div><div class="ttdeci">MusicMPRISPlayerRoot * m_root</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9f/musicmprisplayer_8h_source.html#l00050">musicmprisplayer.h:50</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
 <div class="ttc" id="class_music_m_p_r_i_s_player_html_aac3d7a2a48d81121a361d5c34fdef8ec"><div class="ttname"><a href="../../dd/ddf/class_music_m_p_r_i_s_player.html#aac3d7a2a48d81121a361d5c34fdef8ec">MusicMPRISPlayer::m_player</a></div><div class="ttdeci">MusicMPRISPlayerBase * m_player</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9f/musicmprisplayer_8h_source.html#l00051">musicmprisplayer.h:51</a></div></div>
@@ -253,7 +252,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:58 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

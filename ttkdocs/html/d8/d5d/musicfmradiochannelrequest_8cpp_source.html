@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractFMRadioRequest::downLoadFinished</a>();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../da/d9c/class_music_abstract_network.html#a016721dd4c30eca0104eddb8ff3e49f0">m_reply</a> &amp;&amp; <a class="code" href="../../da/d9c/class_music_abstract_network.html#a016721dd4c30eca0104eddb8ff3e49f0">m_reply</a>-&gt;error() == QNetworkReply::NoError)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3df31f0bb02290ee1f44852dbc71196e">m_channels</a>.clear();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3444c9e42aa2b8a4c561e7982c9f8ccf">m_channels</a>.clear();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d0/dfe/class_q_json_1_1_parser.html">QJson::Parser</a> json;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">bool</span> ok;</div>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            QVariantMap value = data.toMap();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keyword">const</span> QVariantList &amp;groups = value[<span class="stringliteral">&quot;groups&quot;</span>].toList();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;groups.count(); ++i)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; groups.count(); ++i)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                value = groups[i].toMap();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">int</span> group = value[<span class="stringliteral">&quot;group_id&quot;</span>].toInt();</div>
@@ -127,14 +127,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">const</span> QVariantList &amp;channels = value[<span class="stringliteral">&quot;chls&quot;</span>].toList();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;channels.count(); ++i)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; channels.count(); ++i)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    value = channels[i].toMap();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    <a class="code" href="../../d0/d61/struct_music_f_m_radio_channel_data.html">MusicFMRadioChannelData</a> channel;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    channel.<a class="code" href="../../d0/d61/struct_music_f_m_radio_channel_data.html#a58f9d70466ed3716a48c61e7271d1144">m_id</a> = value[<span class="stringliteral">&quot;id&quot;</span>].toString();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    channel.<a class="code" href="../../d0/d61/struct_music_f_m_radio_channel_data.html#aee96c7b71f13090dc4b1a77152e2703c">m_name</a> = value[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    channel.<a class="code" href="../../d0/d61/struct_music_f_m_radio_channel_data.html#afa3766cfa1bfd18038e3d2f815f58daa">m_coverUrl</a> = value[<span class="stringliteral">&quot;cover&quot;</span>].toString();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <a class="code" href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3df31f0bb02290ee1f44852dbc71196e">m_channels</a> &lt;&lt; channel;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <a class="code" href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3444c9e42aa2b8a4c561e7982c9f8ccf">m_channels</a> &lt;&lt; channel;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
@@ -151,8 +151,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_f_m_radio_channel_request_html_a79a8d44203a9bdda725477ea580a560e"><div class="ttname"><a href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a79a8d44203a9bdda725477ea580a560e">MusicFMRadioChannelRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d5d/musicfmradiochannelrequest_8cpp_source.html#l00027">musicfmradiochannelrequest.cpp:27</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_a37e4dedb459ced0de0768837f430415e"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00032">musicabstractnetwork.cpp:32</a></div></div>
 <div class="ttc" id="musicabstractfmradiorequest_8h_html_a677678dd59c9039ef1a2bac1755df7e8"><div class="ttname"><a href="../../d7/d75/musicabstractfmradiorequest_8h.html#a677678dd59c9039ef1a2bac1755df7e8">FM_CHANNEL_URL</a></div><div class="ttdeci">const QString FM_CHANNEL_URL</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d75/musicabstractfmradiorequest_8h_source.html#l00025">musicabstractfmradiorequest.h:25</a></div></div>
-<div class="ttc" id="class_music_f_m_radio_channel_request_html_a3df31f0bb02290ee1f44852dbc71196e"><div class="ttname"><a href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3df31f0bb02290ee1f44852dbc71196e">MusicFMRadioChannelRequest::m_channels</a></div><div class="ttdeci">MusicFMRadioChannelDatas m_channels</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d94/musicfmradiochannelrequest_8h_source.html#l00064">musicfmradiochannelrequest.h:64</a></div></div>
 <div class="ttc" id="qsyncutils_8h_html"><div class="ttname"><a href="../../de/d77/qsyncutils_8h.html">qsyncutils.h</a></div></div>
+<div class="ttc" id="class_music_f_m_radio_channel_request_html_a3444c9e42aa2b8a4c561e7982c9f8ccf"><div class="ttname"><a href="../../d4/dbe/class_music_f_m_radio_channel_request.html#a3444c9e42aa2b8a4c561e7982c9f8ccf">MusicFMRadioChannelRequest::m_channels</a></div><div class="ttdeci">MusicFMRadioChannelDataList m_channels</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d94/musicfmradiochannelrequest_8h_source.html#l00065">musicfmradiochannelrequest.h:65</a></div></div>
 <div class="ttc" id="class_q_json_1_1_parser_html_a9d57257adc3638a8b992cf4dc39a30bf"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">QJson::Parser::parse</a></div><div class="ttdeci">QVariant parse(QIODevice *io, bool *ok=0)</div><div class="ttdoc">Read JSON string from the I/O Device and converts it to a QVariant object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddd/parser_8cpp_source.html#l00069">parser.cpp:69</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_aa9d7fdb4930ec5af3bb49129162ba47c"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">MusicAbstractNetwork::downLoadDataChanged</a></div><div class="ttdeci">void downLoadDataChanged(const QString &amp;bytes)</div></div>
 <div class="ttc" id="musicfmradiochannelrequest_8h_html"><div class="ttname"><a href="../../d9/d94/musicfmradiochannelrequest_8h.html">musicfmradiochannelrequest.h</a></div></div>
@@ -169,7 +169,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:51 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

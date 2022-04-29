@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -180,12 +180,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a4b0da0542ad8345720ae4a24b2c5e37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f62113fa6f65e9b6381abded8e648c8"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#a9f62113fa6f65e9b6381abded8e648c8">configDir</a> ()</td></tr>
 <tr class="separator:a9f62113fa6f65e9b6381abded8e648c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6f9a75b97c06c943b04704fb995164"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#a3d6f9a75b97c06c943b04704fb995164">cacheDir</a> ()</td></tr>
+<tr class="separator:a3d6f9a75b97c06c943b04704fb995164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab336316ef8d23b04464d342458eb4730"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#ab336316ef8d23b04464d342458eb4730">strVersion</a> ()</td></tr>
 <tr class="separator:ab336316ef8d23b04464d342458eb4730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed98c833ef5bf5c2df86a059e4eaf24b"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#aed98c833ef5bf5c2df86a059e4eaf24b">pluginPath</a> ()</td></tr>
 <tr class="separator:aed98c833ef5bf5c2df86a059e4eaf24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0869e80ca69bad5c8e93e1c0f6121084"><td class="memItemLeft" align="right" valign="top">static QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#a0869e80ca69bad5c8e93e1c0f6121084">findPlugins</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;prefix)</td></tr>
 <tr class="separator:a0869e80ca69bad5c8e93e1c0f6121084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaacbf15f42474c961474fb245b82a7a8"><td class="memItemLeft" align="right" valign="top">static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#aaacbf15f42474c961474fb245b82a7a8">ttkPluginPath</a> ()</td></tr>
+<tr class="separator:aaacbf15f42474c961474fb245b82a7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35a5559efa16f7711042e8132ba9a898"><td class="memItemLeft" align="right" valign="top">static QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d95/class_qmmp.html#a35a5559efa16f7711042e8132ba9a898">generatePrintable</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;text)</td></tr>
 <tr class="separator:a35a5559efa16f7711042e8132ba9a898"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -454,6 +458,30 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3d6f9a75b97c06c943b04704fb995164"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QString Qmmp::cacheDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the cache directory path. </p>
+
+</div>
+</div>
 <a class="anchor" id="a9f62113fa6f65e9b6381abded8e648c8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -500,7 +528,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the configuration file name, including the path. </p>
 
-<p>Referenced by <a class="el" href="../../dd/d26/musicqmmputils_8cpp_source.html#l00022">MusicUtils::QMMP::updateQmmpConfigFile()</a>, and <a class="el" href="../../dd/d26/musicqmmputils_8cpp_source.html#l00114">MusicUtils::QMMP::updateRippleSpectrumConfigFile()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/d26/musicqmmputils_8cpp_source.html#l00022">MusicUtils::TTKQmmp::updateConfig()</a>, and <a class="el" href="../../dd/d26/musicqmmputils_8cpp_source.html#l00114">MusicUtils::TTKQmmp::updateRippleConfig()</a>.</p>
 
 </div>
 </div>
@@ -612,13 +640,37 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aaacbf15f42474c961474fb245b82a7a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QString Qmmp::ttkPluginPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the location of the installed ttk plugins. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>TTKExtra/qmmp/<a class="el" href="../../d8/d30/qmmp_8h_source.html">qmmp.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:46:14 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:31:58 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

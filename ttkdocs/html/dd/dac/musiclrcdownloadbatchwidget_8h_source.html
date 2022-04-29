@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d87/class_music_lrc_download_batch_table_widget.html">MusicLrcDownloadBatchTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongs &amp;items);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongList &amp;items);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a889b12c661d22d4115ebaf8cff0e7ffb">itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
@@ -136,29 +136,28 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a24ce2d50c72cd2d9651361d106b89879">   86</a></span>&#160;    Ui::MusicLrcDownloadBatchWidget *<a class="code" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a24ce2d50c72cd2d9651361d106b89879">m_ui</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a93cea73d89832ce2f363cd1f4f3d405c">   88</a></span>&#160;    MusicSongs <a class="code" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a93cea73d89832ce2f363cd1f4f3d405c">m_localSongs</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // MUSICLRCDOWNLOADBATCHWIDGET_H</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a5fff30257657a3e2c7c6b57a1f33d3cf">   87</a></span>&#160;    MusicSongList <a class="code" href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a5fff30257657a3e2c7c6b57a1f33d3cf">m_localSongs</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif // MUSICLRCDOWNLOADBATCHWIDGET_H</span></div>
 <div class="ttc" id="musicabstracttablewidget_8h_html"><div class="ttname"><a href="../../da/db4/musicabstracttablewidget_8h.html">musicabstracttablewidget.h</a></div></div>
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00035">musicapplication.h:35</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html">MusicAbstractTableWidget</a></div><div class="ttdoc">The class of the table widget base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db4/musicabstracttablewidget_8h_source.html#l00036">musicabstracttablewidget.h:36</a></div></div>
+<div class="ttc" id="class_music_lrc_download_batch_widget_html_a5fff30257657a3e2c7c6b57a1f33d3cf"><div class="ttname"><a href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a5fff30257657a3e2c7c6b57a1f33d3cf">MusicLrcDownloadBatchWidget::m_localSongs</a></div><div class="ttdeci">MusicSongList m_localSongs</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dac/musiclrcdownloadbatchwidget_8h_source.html#l00087">musiclrcdownloadbatchwidget.h:87</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="class_music_lrc_download_batch_table_widget_html"><div class="ttname"><a href="../../d2/d87/class_music_lrc_download_batch_table_widget.html">MusicLrcDownloadBatchTableWidget</a></div><div class="ttdoc">The class of the the lrc batch download table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dac/musiclrcdownloadbatchwidget_8h_source.html#l00033">musiclrcdownloadbatchwidget.h:33</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00145">ttkglobal.h:145</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00154">ttkglobal.h:154</a></div></div>
 <div class="ttc" id="class_music_lrc_download_batch_widget_html"><div class="ttname"><a href="../../d0/d9d/class_music_lrc_download_batch_widget.html">MusicLrcDownloadBatchWidget</a></div><div class="ttdoc">The class of the lrc batch download widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dac/musiclrcdownloadbatchwidget_8h_source.html#l00060">musiclrcdownloadbatchwidget.h:60</a></div></div>
 <div class="ttc" id="musicabstractmovewidget_8h_html"><div class="ttname"><a href="../../d8/ddc/musicabstractmovewidget_8h.html">musicabstractmovewidget.h</a></div></div>
 <div class="ttc" id="musicsong_8h_html"><div class="ttname"><a href="../../d4/d03/musicsong_8h.html">musicsong.h</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a889b12c661d22d4115ebaf8cff0e7ffb"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a889b12c661d22d4115ebaf8cff0e7ffb">MusicAbstractTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column)=0</div></div>
-<div class="ttc" id="class_music_lrc_download_batch_widget_html_a93cea73d89832ce2f363cd1f4f3d405c"><div class="ttname"><a href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a93cea73d89832ce2f363cd1f4f3d405c">MusicLrcDownloadBatchWidget::m_localSongs</a></div><div class="ttdeci">MusicSongs m_localSongs</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dac/musiclrcdownloadbatchwidget_8h_source.html#l00088">musiclrcdownloadbatchwidget.h:88</a></div></div>
 <div class="ttc" id="class_music_lrc_download_batch_widget_html_a24ce2d50c72cd2d9651361d106b89879"><div class="ttname"><a href="../../d0/d9d/class_music_lrc_download_batch_widget.html#a24ce2d50c72cd2d9651361d106b89879">MusicLrcDownloadBatchWidget::m_ui</a></div><div class="ttdeci">Ui::MusicLrcDownloadBatchWidget * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dac/musiclrcdownloadbatchwidget_8h_source.html#l00086">musiclrcdownloadbatchwidget.h:86</a></div></div>
 <div class="ttc" id="class_music_abstract_move_widget_html"><div class="ttname"><a href="../../d5/d2d/class_music_abstract_move_widget.html">MusicAbstractMoveWidget</a></div><div class="ttdoc">The class of the moving widget base. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ddc/musicabstractmovewidget_8h_source.html#l00028">musicabstractmovewidget.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:01 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:52 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

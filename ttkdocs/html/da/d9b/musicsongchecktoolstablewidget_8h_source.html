@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -108,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/d5f/class_music_song_check_tools_rename_table_widget.html">MusicSongCheckToolsRenameTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsRenames &amp;items);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsRenameList &amp;items);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d4/db5/class_music_song_check_tools_duplicate_table_widget.html">MusicSongCheckToolsDuplicateTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ~<a class="code" href="../../d4/db5/class_music_song_check_tools_duplicate_table_widget.html">MusicSongCheckToolsDuplicateTableWidget</a>();</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsDuplicates &amp;songs);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsDuplicateList &amp;songs);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;Q_SIGNALS:</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> addSongToPlaylist(<span class="keyword">const</span> QStringList &amp;list);</div>
@@ -154,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d44/class_music_song_check_tools_quality_table_widget.html">MusicSongCheckToolsQualityTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    ~<a class="code" href="../../d2/d44/class_music_song_check_tools_quality_table_widget.html">MusicSongCheckToolsQualityTableWidget</a>();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsQualitys &amp;songs);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> createAllItems(<span class="keyword">const</span> MusicSongCheckToolsQualityList &amp;songs);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;Q_SIGNALS:</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> addSongToPlaylist(<span class="keyword">const</span> QStringList &amp;list);</div>
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_fill_item_table_widget_html_ae1c86f030ecd40600e744fb0d3b9c181"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">MusicFillItemTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00033">musicfillitemtablewidget.cpp:33</a></div></div>
 <div class="ttc" id="class_music_song_check_tools_duplicate_table_widget_html"><div class="ttname"><a href="../../d4/db5/class_music_song_check_tools_duplicate_table_widget.html">MusicSongCheckToolsDuplicateTableWidget</a></div><div class="ttdoc">The class of the song check tools duplicate table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d9b/musicsongchecktoolstablewidget_8h_source.html#l00066">musicsongchecktoolstablewidget.h:66</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00145">ttkglobal.h:145</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00154">ttkglobal.h:154</a></div></div>
 <div class="ttc" id="class_music_fill_item_table_widget_html"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html">MusicFillItemTableWidget</a></div><div class="ttdoc">The class of the fill item table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d42/musicfillitemtablewidget_8h_source.html#l00030">musicfillitemtablewidget.h:30</a></div></div>
 <div class="ttc" id="class_music_song_check_tools_quality_table_widget_html"><div class="ttname"><a href="../../d2/d44/class_music_song_check_tools_quality_table_widget.html">MusicSongCheckToolsQualityTableWidget</a></div><div class="ttdoc">The class of the song check tools quality table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d9b/musicsongchecktoolstablewidget_8h_source.html#l00115">musicsongchecktoolstablewidget.h:115</a></div></div>
 <div class="ttc" id="class_music_song_check_tools_rename_table_widget_html"><div class="ttname"><a href="../../d3/d5f/class_music_song_check_tools_rename_table_widget.html">MusicSongCheckToolsRenameTableWidget</a></div><div class="ttdoc">The class of the song check tools rename table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d9b/musicsongchecktoolstablewidget_8h_source.html#l00028">musicsongchecktoolstablewidget.h:28</a></div></div>
@@ -182,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:03 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:54 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

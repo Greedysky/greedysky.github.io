@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -88,13 +88,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="../../d5/ddc/class_music_remote_widget.html#ad66b4426ba2d5d0bbdf3e5634564962b">adjustPosition</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    QGridLayout* grid = <span class="keyword">new</span> QGridLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;3; i++)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        grid-&gt;setRowMinimumHeight(i, 30);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        grid-&gt;setRowStretch(i, 1);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;3; i++)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        grid-&gt;setColumnMinimumWidth(i, 30);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        grid-&gt;setColumnStretch(i, 1);</div>
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mainWidgetLayout-&gt;addWidget(<a class="code" href="../../d5/ddc/class_music_remote_widget.html#a20ac342471a270525a541bdcf85d4f66">m_volumeWidget</a>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a> = 0.0f;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;4; ++i)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">m_effect</a>[i] = <span class="keyword">new</span> QGraphicsOpacityEffect(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">m_effect</a>[i]-&gt;setOpacity(<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a>);</div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a0467ed9caa738c0e7cfd75f4beeecc35">   49</a></span>&#160;<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a0467ed9caa738c0e7cfd75f4beeecc35">MusicRemoteWidgetForSquare::~MusicRemoteWidgetForSquare</a>()</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;4; ++i)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">delete</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">m_effect</a>[i];</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
@@ -154,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a433a6021ccee2de38d9123605b5bec36">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a433a6021ccee2de38d9123605b5bec36">MusicRemoteWidgetForSquare::enterTimeout</a>()</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a> += 0.1f;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;4; ++i)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">m_effect</a>[i]-&gt;setOpacity(<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#af6c82075b5fb4c107a335d9a71b6513f">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#af6c82075b5fb4c107a335d9a71b6513f">MusicRemoteWidgetForSquare::leaveTimeout</a>()</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a> -= 0.1f;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;4; ++i)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">m_effect</a>[i]-&gt;setOpacity(<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a>);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:02 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:52 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

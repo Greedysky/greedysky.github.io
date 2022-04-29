@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QNetworkRequest request;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> QByteArray &amp;parameter = <a class="code" href="../../da/df3/class_music_w_y_query_interface.html#a3ab1d64814fd697d373e1f098b8f05f7">makeTokenQueryUrl</a>(&amp;request,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> QByteArray &amp;parameter = <a class="code" href="../../da/df3/class_music_w_y_query_interface.html#a8b1ff6a1d62d17d25201fa6a4583dff7">makeTokenQueryUrl</a>(&amp;request,</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                      <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<a class="code" href="../../d1/dd5/musicwyqueryinterface_8h.html#a65b5ff15ccc0c769779a9213ad677c5f">WY_TOPLIST_URL</a>, <span class="keyword">false</span>),</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                      <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<a class="code" href="../../d1/dd5/musicwyqueryinterface_8h.html#a1b38130cf6f91483d4b7c8a505019ef2">WY_TOPLIST_DATA_URL</a>, <span class="keyword">false</span>).arg(19723756));</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
@@ -145,8 +145,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                            <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">const</span> QVariantMap &amp;artistMap = artistValue.toMap();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> = artistMap[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">const</span> QVariantMap &amp;artistObject = artistValue.toMap();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> = artistObject[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> += <span class="stringliteral">&quot; - &quot;</span> + value[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
@@ -159,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Q_EMIT <a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(<a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="ttc" id="class_music_w_y_query_interface_html_a3ab1d64814fd697d373e1f098b8f05f7"><div class="ttname"><a href="../../da/df3/class_music_w_y_query_interface.html#a3ab1d64814fd697d373e1f098b8f05f7">MusicWYQueryInterface::makeTokenQueryUrl</a></div><div class="ttdeci">QByteArray makeTokenQueryUrl(QNetworkRequest *request, const QString &amp;query, const QString &amp;type)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/musicwyqueryinterface_8cpp_source.html#l00019">musicwyqueryinterface.cpp:19</a></div></div>
+<div class="ttc" id="class_music_w_y_query_interface_html_a8b1ff6a1d62d17d25201fa6a4583dff7"><div class="ttname"><a href="../../da/df3/class_music_w_y_query_interface.html#a8b1ff6a1d62d17d25201fa6a4583dff7">MusicWYQueryInterface::makeTokenQueryUrl</a></div><div class="ttdeci">QByteArray makeTokenQueryUrl(QNetworkRequest *request, const QString &amp;query, const QString &amp;type) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/musicwyqueryinterface_8cpp_source.html#l00019">musicwyqueryinterface.cpp:19</a></div></div>
 <div class="ttc" id="class_music_w_y_discover_list_request_html_a5b38097f916ac3a58168276b61067e50"><div class="ttname"><a href="../../d3/d1f/class_music_w_y_discover_list_request.html#a5b38097f916ac3a58168276b61067e50">MusicWYDiscoverListRequest::startToSearch</a></div><div class="ttdeci">virtual void startToSearch() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d08/musicwydiscoverlistrequest_8cpp_source.html#l00010">musicwydiscoverlistrequest.cpp:10</a></div></div>
 <div class="ttc" id="musicabstractnetwork_8h_html_a0d8d733f4e75f0830dfa147cda02943f"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a></div><div class="ttdeci">#define TTK_NETWORK_QUERY_CHECK(VALUE)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00102">musicabstractnetwork.h:102</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_a5e5f071a5bb196d53c48fb2be855da67"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString mdII(const QString &amp;data, bool encode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00041">musicalgorithmutils.cpp:41</a></div></div>
@@ -185,7 +185,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:50 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

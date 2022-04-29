@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,13 +84,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/da4/miniprocess_8h.html">miniprocess.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;qt_windows.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;dbghelp.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#  include &quot;dbghelp.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;execinfo.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;fcntl.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#  include &lt;signal.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#  include &lt;execinfo.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#  include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#  include &lt;fcntl.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d1/d77/ttkdumper_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">   17</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d1/d77/ttkdumper_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">cleanAppicationCache</a>()</div>
@@ -128,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> errorHandler(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a18716294c5df86b0bcc964eecb45fad2">init</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a7c953ad905a2271c07d61fc7820e74ad">initialize</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">   55</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">m_name</a>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">   56</a></span>&#160;    <span class="keyword">static</span> QString <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">m_version</a>;</div>
@@ -143,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a18716294c5df86b0bcc964eecb45fad2">TTKDumperPrivate::init</a>()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a7c953ad905a2271c07d61fc7820e74ad">TTKDumperPrivate::initialize</a>()</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ::SetUnhandledExceptionFilter(errorHandler);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// firstly see if dbghelp.dll is around and has the function we need</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// look next to the EXE first, as the one in System32 might be old</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// (e.g. Windows 2000)</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    HMODULE hDll = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    HMODULE instance = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    WCHAR dbgHelpPath[_MAX_PATH];</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(GetModuleFileNameW(<span class="keyword">nullptr</span>, dbgHelpPath, _MAX_PATH))</div>
@@ -164,20 +164,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span>(slash)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            wcscpy(slash + 1, L<span class="stringliteral">&quot;DBGHELP.DLL&quot;</span>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            hDll = ::LoadLibraryW(dbgHelpPath);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            instance = LoadLibraryW(dbgHelpPath);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span>(hDll == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span>(instance == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="comment">// load any version we can</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        hDll = ::LoadLibraryW(L<span class="stringliteral">&quot;DBGHELP.DLL&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        instance = LoadLibraryW(L<span class="stringliteral">&quot;DBGHELP.DLL&quot;</span>);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(hDll)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(instance)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        MINIDUMPWRITEDUMP dump = (MINIDUMPWRITEDUMP)::GetProcAddress(hDll, <span class="stringliteral">&quot;MiniDumpWriteDump&quot;</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span>(dump)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        MINIDUMPWRITEDUMP dump = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a2265a9c9ebaa4e1c86eda2d2902bce71">TTKVoid_cast</a>(MINIDUMPWRITEDUMP)GetProcAddress(instance, &quot;MiniDumpWriteDump&quot;);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        if(dump)</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            WCHAR dumpPath[_MAX_PATH];</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            WCHAR dumpRootPath[_MAX_PATH];</div>
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">char</span> stamp[50];</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    sprintf(stamp, <span class="stringliteral">&quot;%ld&quot;</span>, time(<span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">const</span> std::string&amp; file_name = (<a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">m_name</a> + <span class="charliteral">&#39;_&#39;</span> + <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">m_version</a>).toStdString() + <span class="stringliteral">&quot;.&quot;</span> + stamp + <span class="stringliteral">&quot;.dmp&quot;</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a>&amp; file_name = (<a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">m_name</a> + <span class="charliteral">&#39;_&#39;</span> + <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">m_version</a>).toStdString() + <span class="stringliteral">&quot;.&quot;</span> + stamp + <span class="stringliteral">&quot;.dmp&quot;</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 512;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span>*     array[<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>];</div>
@@ -276,7 +276,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    exit(0);</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a18716294c5df86b0bcc964eecb45fad2">TTKDumperPrivate::init</a>()</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a7c953ad905a2271c07d61fc7820e74ad">TTKDumperPrivate::initialize</a>()</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;{</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    signal(SIGPIPE, errorHandler);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    signal(SIGSEGV, errorHandler);</div>
@@ -303,15 +303,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a>()</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a>);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    d-&gt;init();</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    d-&gt;initialize();</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;}</div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a5ae1c3be07b6f0ccdf2a3e11756f85bf"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a5ae1c3be07b6f0ccdf2a3e11756f85bf">TTKDumperPrivate::~TTKDumperPrivate</a></div><div class="ttdeci">~TTKDumperPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00210">ttkdumper.cpp:210</a></div></div>
 <div class="ttc" id="miniprocess_8h_html"><div class="ttname"><a href="../../d1/da4/miniprocess_8h.html">miniprocess.h</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html_a61c34894038965bfd1df2b2d37cd7ebf"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a61c34894038965bfd1df2b2d37cd7ebf">MUSIC_COLOR_FILE</a></div><div class="ttdeci">#define MUSIC_COLOR_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00031">musicotherdefine.h:31</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a></div><div class="ttdoc">The class of the ttk dumper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d84/ttkdumper_8h_source.html#l00029">ttkdumper.h:29</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html_a1cdee3fcaf366a7852ce8dcbb2f6084b"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a1cdee3fcaf366a7852ce8dcbb2f6084b">MUSIC_IMAGE_FILE</a></div><div class="ttdeci">#define MUSIC_IMAGE_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00032">musicotherdefine.h:32</a></div></div>
-<div class="ttc" id="musicobject_8h_html_af69b58733a73209edecdaadf7024a007"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af69b58733a73209edecdaadf7024a007">MAKE_PLAYER_PREFIX</a></div><div class="ttdeci">#define MAKE_PLAYER_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00116">musicobject.h:116</a></div></div>
-<div class="ttc" id="musicobject_8h_html_a38e7a56ca0fe3930441d7bd68fa9e916"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a38e7a56ca0fe3930441d7bd68fa9e916">MAKE_TRANSFORM_PREFIX</a></div><div class="ttdeci">#define MAKE_TRANSFORM_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00114">musicobject.h:114</a></div></div>
+<div class="ttc" id="musicobject_8h_html_af69b58733a73209edecdaadf7024a007"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af69b58733a73209edecdaadf7024a007">MAKE_PLAYER_PREFIX</a></div><div class="ttdeci">#define MAKE_PLAYER_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00115">musicobject.h:115</a></div></div>
+<div class="ttc" id="musicobject_8h_html_a38e7a56ca0fe3930441d7bd68fa9e916"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a38e7a56ca0fe3930441d7bd68fa9e916">MAKE_TRANSFORM_PREFIX</a></div><div class="ttdeci">#define MAKE_TRANSFORM_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00113">musicobject.h:113</a></div></div>
 <div class="ttc" id="ttkdumper_8cpp_html_acde5dfe7e524bc0d15e891e1114ff5be"><div class="ttname"><a href="../../d1/d77/ttkdumper_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">cleanAppicationCache</a></div><div class="ttdeci">static void cleanAppicationCache()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00017">ttkdumper.cpp:17</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html_a70174ff88f17aaf62e64ea9a520aa2bc"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a70174ff88f17aaf62e64ea9a520aa2bc">MUSIC_RECORD_FILE</a></div><div class="ttdeci">#define MUSIC_RECORD_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00034">musicotherdefine.h:34</a></div></div>
@@ -320,16 +320,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkversion_8h_html"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a></div></div>
 <div class="ttc" id="iowin32_8c_html_a5fdc7facea201bfce4ad308105f88d0c"><div class="ttname"><a href="../../dc/d6f/iowin32_8c.html#a5fdc7facea201bfce4ad308105f88d0c">INVALID_HANDLE_VALUE</a></div><div class="ttdeci">#define INVALID_HANDLE_VALUE</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d6f/iowin32_8c_source.html#l00021">iowin32.c:21</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html">TTKDumperPrivate</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00033">ttkdumper.cpp:33</a></div></div>
-<div class="ttc" id="musicobject_8h_html_a6fc0ad4578495656ea0f3daee663367a"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a6fc0ad4578495656ea0f3daee663367a">MAKE_GAIN_PREFIX</a></div><div class="ttdeci">#define MAKE_GAIN_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00117">musicobject.h:117</a></div></div>
-<div class="ttc" id="class_t_t_k_dumper_private_html_a18716294c5df86b0bcc964eecb45fad2"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a18716294c5df86b0bcc964eecb45fad2">TTKDumperPrivate::init</a></div><div class="ttdeci">void init()</div></div>
+<div class="ttc" id="ttkglobal_8h_html_adc87ef97b3c46a194cf8edfc719821ca"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00201">ttkglobal.h:201</a></div></div>
+<div class="ttc" id="musicobject_8h_html_a6fc0ad4578495656ea0f3daee663367a"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a6fc0ad4578495656ea0f3daee663367a">MAKE_GAIN_PREFIX</a></div><div class="ttdeci">#define MAKE_GAIN_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00116">musicobject.h:116</a></div></div>
 <div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 <div class="ttc" id="ttklogger_8h_html_ae2a8797595daafbcb53f440f5aca9c8d"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a></div><div class="ttdeci">#define TTK_LOGGER_INFO(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00034">ttklogger.h:34</a></div></div>
-<div class="ttc" id="ttkversion_8h_html_ab424ee3feaf0726c9c0188435a1139aa"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a></div><div class="ttdeci">#define TTK_VERSION_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00146">ttkversion.h:146</a></div></div>
+<div class="ttc" id="ttkversion_8h_html_ab424ee3feaf0726c9c0188435a1139aa"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a></div><div class="ttdeci">#define TTK_VERSION_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00156">ttkversion.h:156</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html">musicotherdefine.h</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html_a618ccffe1d7df291750fa983bf749b41"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a618ccffe1d7df291750fa983bf749b41">TTKDumper::TTKDumper</a></div><div class="ttdeci">TTKDumper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00217">ttkdumper.cpp:217</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a965b9d77a0f4469e59f9691f9eb331c8"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">TTKDumperPrivate::m_name</a></div><div class="ttdeci">static QString m_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00055">ttkdumper.cpp:55</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a8080cc3559d4e5a8799098bc04976017"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">TTKDumperPrivate::m_version</a></div><div class="ttdeci">static QString m_version</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00056">ttkdumper.cpp:56</a></div></div>
-<div class="ttc" id="musicobject_8h_html_abca368213de1c1ab546b6c23bd9bdb96"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#abca368213de1c1ab546b6c23bd9bdb96">MAKE_KRC2LRC_PREFIX</a></div><div class="ttdeci">#define MAKE_KRC2LRC_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00115">musicobject.h:115</a></div></div>
+<div class="ttc" id="class_t_t_k_dumper_private_html_a7c953ad905a2271c07d61fc7820e74ad"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a7c953ad905a2271c07d61fc7820e74ad">TTKDumperPrivate::initialize</a></div><div class="ttdeci">void initialize()</div></div>
+<div class="ttc" id="ttkglobal_8h_html_a2265a9c9ebaa4e1c86eda2d2902bce71"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a2265a9c9ebaa4e1c86eda2d2902bce71">TTKVoid_cast</a></div><div class="ttdeci">#define TTKVoid_cast(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00103">ttkglobal.h:103</a></div></div>
+<div class="ttc" id="musicobject_8h_html_abca368213de1c1ab546b6c23bd9bdb96"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#abca368213de1c1ab546b6c23bd9bdb96">MAKE_KRC2LRC_PREFIX</a></div><div class="ttdeci">#define MAKE_KRC2LRC_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00114">musicobject.h:114</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
 <div class="ttc" id="ttkdumper_8h_html"><div class="ttname"><a href="../../d5/d84/ttkdumper_8h.html">ttkdumper.h</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html_acd9238a8e12a64c30cfbad7384fbcd51"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00225">ttkdumper.cpp:225</a></div></div>
@@ -339,7 +341,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:09 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:55 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

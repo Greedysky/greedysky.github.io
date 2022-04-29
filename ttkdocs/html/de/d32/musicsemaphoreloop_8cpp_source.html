@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -83,31 +83,37 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : QEventLoop(parent)</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>.setInterval(10 * <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    connect(&amp;<a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>, SIGNAL(timeout()), SLOT(quit()));</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    connect(&amp;<a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>, SIGNAL(timeout()), SLOT(<a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ab869f9a1a24429e67935040dd94f4e68">quit</a>()));</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d9/dec/class_music_semaphore_loop.html#a6d79aa350dd99a1473faad781db76a0e">   10</a></span>&#160;<a class="code" href="../../d9/dec/class_music_semaphore_loop.html#a6d79aa350dd99a1473faad781db76a0e">MusicSemaphoreLoop::~MusicSemaphoreLoop</a>()</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>.stop();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    quit();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">   16</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">MusicSemaphoreLoop::exec</a>(ProcessEventsFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>.start();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> QEventLoop::exec(flags);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ab869f9a1a24429e67935040dd94f4e68">quit</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d9/dec/class_music_semaphore_loop.html#ab869f9a1a24429e67935040dd94f4e68">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ab869f9a1a24429e67935040dd94f4e68">MusicSemaphoreLoop::quit</a>()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>.stop();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> QEventLoop::quit();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">   21</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">MusicSemaphoreLoop::exec</a>(ProcessEventsFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">m_timer</a>.start();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> QEventLoop::exec(flags);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="ttc" id="http__parser_8h_html_ab6b306ef981f5e21bb41ea2c2dbe8cd9"><div class="ttname"><a href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a></div><div class="ttdeci">flags</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd7/http__parser_8h_source.html#l00135">http_parser.h:135</a></div></div>
-<div class="ttc" id="class_music_semaphore_loop_html_a623bfa69d1adfcfa7153c32250998bb6"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">MusicSemaphoreLoop::exec</a></div><div class="ttdeci">int exec(ProcessEventsFlags flags=AllEvents)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d32/musicsemaphoreloop_8cpp_source.html#l00016">musicsemaphoreloop.cpp:16</a></div></div>
+<div class="ttc" id="class_music_semaphore_loop_html_a623bfa69d1adfcfa7153c32250998bb6"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#a623bfa69d1adfcfa7153c32250998bb6">MusicSemaphoreLoop::exec</a></div><div class="ttdeci">int exec(ProcessEventsFlags flags=AllEvents)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d32/musicsemaphoreloop_8cpp_source.html#l00021">musicsemaphoreloop.cpp:21</a></div></div>
 <div class="ttc" id="musicsemaphoreloop_8h_html"><div class="ttname"><a href="../../d9/dfd/musicsemaphoreloop_8h.html">musicsemaphoreloop.h</a></div></div>
 <div class="ttc" id="class_music_semaphore_loop_html_a843bddbd9e0e2fcad9b0798c45101852"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#a843bddbd9e0e2fcad9b0798c45101852">MusicSemaphoreLoop::MusicSemaphoreLoop</a></div><div class="ttdeci">MusicSemaphoreLoop(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d32/musicsemaphoreloop_8cpp_source.html#l00003">musicsemaphoreloop.cpp:3</a></div></div>
 <div class="ttc" id="musicnumberdefine_8h_html_a26a0d68f658e1cfc3a2ae7b9d8c6cf76"><div class="ttname"><a href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a></div><div class="ttdeci">#define MT_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d01/musicnumberdefine_8h_source.html#l00027">musicnumberdefine.h:27</a></div></div>
-<div class="ttc" id="class_music_semaphore_loop_html_ad0d6d80a4e033f02512213be72dc6c2e"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">MusicSemaphoreLoop::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dfd/musicsemaphoreloop_8h_source.html#l00046">musicsemaphoreloop.h:46</a></div></div>
+<div class="ttc" id="class_music_semaphore_loop_html_ab869f9a1a24429e67935040dd94f4e68"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#ab869f9a1a24429e67935040dd94f4e68">MusicSemaphoreLoop::quit</a></div><div class="ttdeci">void quit()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d32/musicsemaphoreloop_8cpp_source.html#l00015">musicsemaphoreloop.cpp:15</a></div></div>
+<div class="ttc" id="class_music_semaphore_loop_html_ad0d6d80a4e033f02512213be72dc6c2e"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#ad0d6d80a4e033f02512213be72dc6c2e">MusicSemaphoreLoop::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dfd/musicsemaphoreloop_8h_source.html#l00052">musicsemaphoreloop.h:52</a></div></div>
 <div class="ttc" id="class_music_semaphore_loop_html_a6d79aa350dd99a1473faad781db76a0e"><div class="ttname"><a href="../../d9/dec/class_music_semaphore_loop.html#a6d79aa350dd99a1473faad781db76a0e">MusicSemaphoreLoop::~MusicSemaphoreLoop</a></div><div class="ttdeci">~MusicSemaphoreLoop()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d32/musicsemaphoreloop_8cpp_source.html#l00010">musicsemaphoreloop.cpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:58 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

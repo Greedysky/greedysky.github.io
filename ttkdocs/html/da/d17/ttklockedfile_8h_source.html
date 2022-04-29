@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -108,10 +108,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        LockMode lockMode() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    #ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        Qt::HANDLE wmutex;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Qt::HANDLE rmutex;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        QVector&lt;Qt::HANDLE&gt; rmutexes;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QString mutexname;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        Qt::HANDLE m_wmutex;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        Qt::HANDLE m_rmutex;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        QVector&lt;Qt::HANDLE&gt; m_rmutexes;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QString m_mutexname;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        Qt::HANDLE getMutexHandle(<span class="keywordtype">int</span> idx, <span class="keywordtype">bool</span> doCreate);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> waitMutex(Qt::HANDLE mutex, <span class="keywordtype">bool</span> doBlock);</div>
@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    };</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif //TTKLOCKEDFILE_H</span></div>
-<div class="ttc" id="namespace_t_t_k_locked_private_html"><div class="ttname"><a href="../../dc/d69/namespace_t_t_k_locked_private.html">TTKLockedPrivate</a></div><div class="ttdoc">The namespace of locked private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00023">ttklocalpeer.cpp:23</a></div></div>
+<div class="ttc" id="namespace_t_t_k_locked_private_html"><div class="ttname"><a href="../../dc/d69/namespace_t_t_k_locked_private.html">TTKLockedPrivate</a></div><div class="ttdoc">The namespace of locked private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00027">ttklocalpeer.cpp:27</a></div></div>
 <div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedPrivate::TTKLockedFile</a></div><div class="ttdoc">The class of the ttk local file. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00017">ttklockedfile.h:17</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html_a68c555e7bc751bc1d945b6c7da9d2c41"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a68c555e7bc751bc1d945b6c7da9d2c41">TTKLockedPrivate::TTKLockedFile::m_lock_mode</a></div><div class="ttdeci">LockMode m_lock_mode</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00070">ttklockedfile.h:70</a></div></div>
@@ -133,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:45:09 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:55 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

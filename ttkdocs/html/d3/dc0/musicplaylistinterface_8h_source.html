@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d5/d6d/class_music_playlist_reader.html#ae1f3dee0cfad3e6bb9d3d6dd11678750">   41</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#ae1f3dee0cfad3e6bb9d3d6dd11678750">readConfig</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d5/d6d/class_music_playlist_reader.html#afe9ba02804607de53f7ef2e6dff36aac">   41</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#afe9ba02804607de53f7ef2e6dff36aac">fromFile</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        m_file.setFileName(name);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> m_file.open(QFile::ReadOnly);</div>
@@ -133,27 +133,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> readPlaylistData(MusicSongItems &amp;items) = 0;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> writePlaylistData(<span class="keyword">const</span> MusicSongItems &amp;items, <span class="keyword">const</span> QString &amp;path) = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> readBuffer(MusicSongItemList &amp;items) = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> writeBuffer(<span class="keyword">const</span> MusicSongItemList &amp;items, <span class="keyword">const</span> QString &amp;path) = 0;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // MUSICPLAYLISTINTERFACE_H</span></div>
 <div class="ttc" id="class_music_playlist_interface_html_ab935f6d7720a02201fd4b19734c0d788"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html#ab935f6d7720a02201fd4b19734c0d788">MusicPlaylistInterface::MusicPlaylistInterface</a></div><div class="ttdeci">MusicPlaylistInterface()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00058">musicplaylistinterface.h:58</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_a6a9770cd4863860948d04a334a7b65e2"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#a6a9770cd4863860948d04a334a7b65e2">MusicPlaylistReader::MusicPlaylistReader</a></div><div class="ttdeci">MusicPlaylistReader()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00030">musicplaylistinterface.h:30</a></div></div>
+<div class="ttc" id="class_music_playlist_reader_html_afe9ba02804607de53f7ef2e6dff36aac"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#afe9ba02804607de53f7ef2e6dff36aac">MusicPlaylistReader::fromFile</a></div><div class="ttdeci">bool fromFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">musicplaylistinterface.h:41</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html">MusicPlaylistReader</a></div><div class="ttdoc">The class of the playlist reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_a1c7424de06cac096976371e11c2c9878"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">MusicPlaylistReader::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00048">musicplaylistinterface.h:48</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_ac13db2733ed68848b9869e9ca8cd1bc7"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#ac13db2733ed68848b9869e9ca8cd1bc7">MusicPlaylistReader::~MusicPlaylistReader</a></div><div class="ttdeci">virtual ~MusicPlaylistReader()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00034">musicplaylistinterface.h:34</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="class_music_playlist_reader_html_ae1f3dee0cfad3e6bb9d3d6dd11678750"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#ae1f3dee0cfad3e6bb9d3d6dd11678750">MusicPlaylistReader::readConfig</a></div><div class="ttdeci">bool readConfig(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">musicplaylistinterface.h:41</a></div></div>
 <div class="ttc" id="class_music_playlist_interface_html_a1e23b6a24e22d9f1b6870b527cd46e7e"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html#a1e23b6a24e22d9f1b6870b527cd46e7e">MusicPlaylistInterface::~MusicPlaylistInterface</a></div><div class="ttdeci">virtual ~MusicPlaylistInterface()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00062">musicplaylistinterface.h:62</a></div></div>
 <div class="ttc" id="musicsong_8h_html"><div class="ttname"><a href="../../d4/d03/musicsong_8h.html">musicsong.h</a></div></div>
 <div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00055">musicplaylistinterface.h:55</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:59 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:51 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

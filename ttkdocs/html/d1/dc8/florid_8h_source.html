@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.8.0</span>
+   &#160;<span id="projectnumber">2.15.9.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d30/qmmp_8h.html">qmmp.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d6d/visual_8h.html">visual.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d1/dc8/florid_8h.html#a9d41d147039787c25d6631b276ab4330">   26</a></span>&#160;<span class="preprocessor">#define DISTANCE    100</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d1/dc8/florid_8h.html#a0c34944917bd3d11e41d4a36cf3a855c">   26</a></span>&#160;<span class="preprocessor">#define LABEL_RADIUS    100</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d7/d92/class_round_animation_label.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d7/d92/class_round_animation_label.html">RoundAnimationLabel</a> : <span class="keyword">public</span> QWidget</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
@@ -142,12 +142,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d74/class_visual.html#ada18127a7e2b162f5604af57f4ba297f">stop</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;   <span class="keywordtype">void</span> mediaUrlChanged();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> mediaUrlChanged();</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#a28ab293202e6834a9b87f8ec4dc04c27">reRenderImage</a>(QColor &amp;avg, <span class="keyword">const</span> QImage *input);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> reRenderLabel();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d74/class_visual.html#a00099f77c12bc8f53d07003ebc34b660">processPatch</a>(<span class="keywordtype">bool</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> reRenderLabel();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d8/d75/namespace_music_utils_1_1_image.html#a28ab293202e6834a9b87f8ec4dc04c27">reRenderImage</a>(QColor &amp;avg, <span class="keyword">const</span> QImage *input);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d74/class_visual.html#a792e92854c9095dd1cf917bb665a4cfa">process</a>(<span class="keywordtype">bool</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d74/class_visual.html#acfd8b1b71891f15bb51babdc677ae2d8">hideEvent</a>(QHideEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d74/class_visual.html#adf76102231755127098f14ebd2cef0be">showEvent</a>(QShowEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
@@ -157,13 +157,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#a0cf85460a11bb9840274d14a1b433999">  130</a></span>&#160;    QImage <a class="code" href="../../d0/d8f/class_florid.html#a0cf85460a11bb9840274d14a1b433999">m_image</a>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#a50f585140c088085c84743e2b3866afe">  131</a></span>&#160;    <span class="keywordtype">bool</span> m_renderLabel = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#abd0b39272315fe475041b2af36634dd5">  132</a></span>&#160;    QColor m_averageColor = QColor(255, 255, 255);</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#a21add81930dba9ea557924bcdd6f71f8">  133</a></span>&#160;    <span class="keywordtype">bool</span> m_gradientOn = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#ae72cccd8507b9f0bb1883084366cffb9">  134</a></span>&#160;    <a class="code" href="../../d7/d92/class_round_animation_label.html">RoundAnimationLabel</a> *m_roundLabel = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;};</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#a5d6a97755e194cf8ad6053c591ac296e">  132</a></span>&#160;    <span class="keywordtype">bool</span> m_enabledLabel = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#a0da9d0ae37b62ac07d8c3d4f008da0f4">  133</a></span>&#160;    <span class="keywordtype">bool</span> m_gradientLabel = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#abd0b39272315fe475041b2af36634dd5">  134</a></span>&#160;    QColor m_averageColor = QColor(255, 255, 255);</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d0/d8f/class_florid.html#ae72cccd8507b9f0bb1883084366cffb9">  135</a></span>&#160;    <a class="code" href="../../d7/d92/class_round_animation_label.html">RoundAnimationLabel</a> *m_roundLabel = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_florid_html_a0cf85460a11bb9840274d14a1b433999"><div class="ttname"><a href="../../d0/d8f/class_florid.html#a0cf85460a11bb9840274d14a1b433999">Florid::m_image</a></div><div class="ttdeci">QImage m_image</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc8/florid_8h_source.html#l00130">florid.h:130</a></div></div>
 <div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
 <div class="ttc" id="class_visual_html_adf76102231755127098f14ebd2cef0be"><div class="ttname"><a href="../../dc/d74/class_visual.html#adf76102231755127098f14ebd2cef0be">Visual::showEvent</a></div><div class="ttdeci">virtual void showEvent(QShowEvent *event) override</div></div>
@@ -178,12 +179,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_florid_html"><div class="ttname"><a href="../../d0/d8f/class_florid.html">Florid</a></div><div class="ttdoc">Helper class to florid widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc8/florid_8h_source.html#l00077">florid.h:77</a></div></div>
 <div class="ttc" id="visual_8h_html"><div class="ttname"><a href="../../d9/d6d/visual_8h.html">visual.h</a></div></div>
 <div class="ttc" id="http__parser_8c_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00279">http_parser.c:279</a></div></div>
-<div class="ttc" id="class_visual_html_a00099f77c12bc8f53d07003ebc34b660"><div class="ttname"><a href="../../dc/d74/class_visual.html#a00099f77c12bc8f53d07003ebc34b660">Visual::processPatch</a></div><div class="ttdeci">virtual void processPatch(bool state)</div></div>
+<div class="ttc" id="class_visual_html_a792e92854c9095dd1cf917bb665a4cfa"><div class="ttname"><a href="../../dc/d74/class_visual.html#a792e92854c9095dd1cf917bb665a4cfa">Visual::process</a></div><div class="ttdeci">virtual void process(float *left, float *right)=0</div></div>
 <div class="ttc" id="class_round_animation_label_html"><div class="ttname"><a href="../../d7/d92/class_round_animation_label.html">RoundAnimationLabel</a></div><div class="ttdoc">Helper class to round animation widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc8/florid_8h_source.html#l00031">florid.h:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 5 2022 14:44:57 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 30 2022 00:30:48 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
