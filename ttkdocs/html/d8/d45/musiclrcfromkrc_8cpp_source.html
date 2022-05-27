@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.9.0</span>
+   &#160;<span id="projectnumber">2.15.10.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d8/d37/class_music_lrc_from_krc.html#ac6e5991b836bf1f8d1157b6a952ff04a">   16</a></span>&#160;<a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#ac6e5991b836bf1f8d1157b6a952ff04a">MusicLrcFromKrc::MusicLrcFromKrc</a>()</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#a80ffbdfc14d4bc4bc984bc0c226d6ccc">m_resultBytes</a> = <span class="keyword">new</span> uchar[<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#ab042e2d0b1fc5941610689eca1edea7c">MH_MB2B</a>*<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a388a4c4b3b52e6bcb91f634b11193d85">MH_B2BS</a>];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#a80ffbdfc14d4bc4bc984bc0c226d6ccc">m_resultBytes</a> = <span class="keyword">new</span> uchar[<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#ab042e2d0b1fc5941610689eca1edea7c">MH_MB2B</a> * <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a388a4c4b3b52e6bcb91f634b11193d85">MH_B2BS</a>];</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d8/d37/class_music_lrc_from_krc.html#a00b8afb895ec0e88c07a3c668c870af9">   21</a></span>&#160;<a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#a00b8afb895ec0e88c07a3c668c870af9">MusicLrcFromKrc::~MusicLrcFromKrc</a>()</div>
@@ -201,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d8/d37/class_music_lrc_from_krc.html#a17562cb0a3666e530822a774e8f24d74">  123</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#a17562cb0a3666e530822a774e8f24d74">MusicLrcFromKrc::decompression</a>(uchar *src, <span class="keywordtype">size_t</span> srcsize, <span class="keywordtype">size_t</span> *dstsize)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    *dstsize = <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#ab042e2d0b1fc5941610689eca1edea7c">MH_MB2B</a>*<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a388a4c4b3b52e6bcb91f634b11193d85">MH_B2BS</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    *dstsize = <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#ab042e2d0b1fc5941610689eca1edea7c">MH_MB2B</a> * <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a388a4c4b3b52e6bcb91f634b11193d85">MH_B2BS</a>;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d4/dae/zlib_8h.html#a8cb802b6a11e926478dc6547c514c65c">Z_OK</a> != <a class="code" href="../../d6/dbd/uncompr_8c.html#a8f3c7b8209b3ef38a1d2b9d03f0eb978">uncompress</a>(<a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#a80ffbdfc14d4bc4bc984bc0c226d6ccc">m_resultBytes</a>, (<a class="code" href="../../de/d95/zconf_8h.html#a0426a5a0ed418ec4ae15af8281c64254">uLongf</a>*)dstsize, src, srcsize))</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    {</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> -1;</div>
@@ -335,7 +335,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 30 2022 00:30:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 28 2022 00:22:17 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

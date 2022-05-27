@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.9.0</span>
+   &#160;<span id="projectnumber">2.15.10.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a8c46236d974af13a29c6ccdb7da259a0">m_ui</a>-&gt;fuzzyButton-&gt;isChecked();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">const</span> QStringList &amp;list = QDir(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a45e0e66651fb8e69dac3c6abf1775160">MusicUtils::String::lrcPrefix</a>()).entryList(QDir::Files |  QDir::Hidden | QDir::NoDotAndDotDot);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">const</span> QStringList &amp;list = QDir(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a0887d26ff7e66db510dfebe2863d41d5">MusicUtils::String::lrcDirPrefix</a>()).entryList(QDir::Files |  QDir::Hidden | QDir::NoDotAndDotDot);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    MusicLocalDataItemList items;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;var : list)</div>
@@ -208,7 +208,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="../../d5/d57/struct_music_local_data_item.html">MusicLocalDataItem</a> item;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            item.<a class="code" href="../../d5/d57/struct_music_local_data_item.html#ae1fcf0c4c7c0f5524bb5bc17900fd63d">m_name</a> = var;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            item.<a class="code" href="../../d5/d57/struct_music_local_data_item.html#acb8443d12c58c358380bb2cd9f8b9962">m_path</a> = <a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a45e0e66651fb8e69dac3c6abf1775160">MusicUtils::String::lrcPrefix</a>() + var;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            item.<a class="code" href="../../d5/d57/struct_music_local_data_item.html#acb8443d12c58c358380bb2cd9f8b9962">m_path</a> = <a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a0887d26ff7e66db510dfebe2863d41d5">MusicUtils::String::lrcDirPrefix</a>() + var;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            items &lt;&lt; item;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
@@ -262,36 +262,34 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span>(!fileIn.open(QIODevice::ReadOnly))</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Lrc Input File Error&quot;</span>);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        fileIn.close();</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        close();</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">const</span> QByteArray data(fileIn.readAll());</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    fileIn.close();</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    QFile fileOut(QString(<span class="stringliteral">&quot;%1%2%3&quot;</span>).arg(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a45e0e66651fb8e69dac3c6abf1775160">MusicUtils::String::lrcPrefix</a>(), <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a05fba5ef2c499d0e7c572eb65a99f44d">m_currentName</a>, <a class="code" href="../../d8/d07/musicobject_8h.html#aa05623cf7bf38e9d8f39f475be3b8dc3">LRC_FILE</a>));</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>(!fileOut.open(QIODevice::WriteOnly))</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Lrc Output File Error&quot;</span>);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        fileOut.close();</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        close();</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    fileOut.write(data);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    fileOut.flush();</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    fileOut.close();</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    Q_EMIT <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#af4c29b630848378c517c38557639edea">currentLrcChanged</a>(<span class="stringliteral">&quot;DownloadLrc&quot;</span>);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    close();</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">  211</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">MusicLrcLocalLinkWidget::exec</a>()</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="../../da/df5/class_music_widget_renderer.html#a56be118c8756e278cdc16191cc8373a5">setBackgroundPixmap</a>(<a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a8c46236d974af13a29c6ccdb7da259a0">m_ui</a>-&gt;background, <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>());</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">return</span> MusicAbstractMoveDialog::exec();</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        close();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">const</span> QByteArray data(fileIn.readAll());</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    fileIn.close();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    QFile fileOut(QString(<span class="stringliteral">&quot;%1%2%3&quot;</span>).arg(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#a0887d26ff7e66db510dfebe2863d41d5">MusicUtils::String::lrcDirPrefix</a>(), <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a05fba5ef2c499d0e7c572eb65a99f44d">m_currentName</a>, <a class="code" href="../../d8/d07/musicobject_8h.html#aa05623cf7bf38e9d8f39f475be3b8dc3">LRC_FILE</a>));</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span>(!fileOut.open(QIODevice::WriteOnly))</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Lrc Output File Error&quot;</span>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        close();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    fileOut.write(data);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    fileOut.flush();</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    fileOut.close();</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    Q_EMIT <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#af4c29b630848378c517c38557639edea">currentLrcChanged</a>(<span class="stringliteral">&quot;DownloadLrc&quot;</span>);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    close();</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">  209</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">MusicLrcLocalLinkWidget::exec</a>()</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;{</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="../../da/df5/class_music_widget_renderer.html#a56be118c8756e278cdc16191cc8373a5">setBackgroundPixmap</a>(<a class="code" href="../../d2/d54/class_music_lrc_local_link_widget.html#a8c46236d974af13a29c6ccdb7da259a0">m_ui</a>-&gt;background, <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>());</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">return</span> MusicAbstractMoveDialog::exec();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
 <div class="ttc" id="class_music_lrc_local_link_widget_html"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html">MusicLrcLocalLinkWidget</a></div><div class="ttdoc">The class of the local lrc link widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df9/musiclrclocallinkwidget_8h_source.html#l00073">musiclrclocallinkwidget.h:73</a></div></div>
 <div class="ttc" id="class_music_lrc_local_link_widget_html_ad188bb170c3aff29f58439aedffbe825"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#ad188bb170c3aff29f58439aedffbe825">MusicLrcLocalLinkWidget::MusicLrcLocalLinkWidget</a></div><div class="ttdeci">MusicLrcLocalLinkWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00061">musiclrclocallinkwidget.cpp:61</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a479709e2ba1b8b3d9b17c9bafb2f9bdd"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a479709e2ba1b8b3d9b17c9bafb2f9bdd">MusicUIObject::MQSSPushButtonStyle04</a></div><div class="ttdeci">const QString MQSSPushButtonStyle04</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00195">musicuiobject.h:195</a></div></div>
@@ -316,14 +314,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_lrc_local_link_widget_html_af80ae30d8d471ca373aea2f1357938c5"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#af80ae30d8d471ca373aea2f1357938c5">MusicLrcLocalLinkWidget::fuzzyStateChanged</a></div><div class="ttdeci">void fuzzyStateChanged()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00139">musiclrclocallinkwidget.cpp:139</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a0c4098d8a519f705c31cb890b6a4b896"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a0c4098d8a519f705c31cb890b6a4b896">MusicUIObject::MQSSCheckBoxStyle01</a></div><div class="ttdeci">const QString MQSSCheckBoxStyle01</div><div class="ttdoc">CheckBox. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00241">musicuiobject.h:241</a></div></div>
 <div class="ttc" id="class_music_lrc_local_link_widget_html_a7ed12700cae359bdbf33e9b18050c4b3"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#a7ed12700cae359bdbf33e9b18050c4b3">MusicLrcLocalLinkWidget::findInLocalFile</a></div><div class="ttdeci">void findInLocalFile()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00145">musiclrclocallinkwidget.cpp:145</a></div></div>
-<div class="ttc" id="class_music_lrc_local_link_widget_html_a508b12cfd75277cf5c9f70091e9d423b"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">MusicLrcLocalLinkWidget::exec</a></div><div class="ttdeci">virtual int exec()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00211">musiclrclocallinkwidget.cpp:211</a></div></div>
+<div class="ttc" id="class_music_lrc_local_link_widget_html_a508b12cfd75277cf5c9f70091e9d423b"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#a508b12cfd75277cf5c9f70091e9d423b">MusicLrcLocalLinkWidget::exec</a></div><div class="ttdeci">virtual int exec()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00209">musiclrclocallinkwidget.cpp:209</a></div></div>
 <div class="ttc" id="struct_music_local_data_item_html_acb8443d12c58c358380bb2cd9f8b9962"><div class="ttname"><a href="../../d5/d57/struct_music_local_data_item.html#acb8443d12c58c358380bb2cd9f8b9962">MusicLocalDataItem::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df9/musiclrclocallinkwidget_8h_source.html#l00031">musiclrclocallinkwidget.h:31</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_string_html_a0887d26ff7e66db510dfebe2863d41d5"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#a0887d26ff7e66db510dfebe2863d41d5">MusicUtils::String::lrcDirPrefix</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString lrcDirPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00026">musicstringutils.cpp:26</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a0fe80321802c2e6b6d1b3a51c8f805eb"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a0fe80321802c2e6b6d1b3a51c8f805eb">MusicUIObject::MQSSLineEditStyle01</a></div><div class="ttdeci">const QString MQSSLineEditStyle01</div><div class="ttdoc">LineEdit. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00301">musicuiobject.h:301</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00028">musicabstractmovedialog.h:28</a></div></div>
 <div class="ttc" id="struct_music_local_data_item_html_ae1fcf0c4c7c0f5524bb5bc17900fd63d"><div class="ttname"><a href="../../d5/d57/struct_music_local_data_item.html#ae1fcf0c4c7c0f5524bb5bc17900fd63d">MusicLocalDataItem::m_name</a></div><div class="ttdeci">QString m_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df9/musiclrclocallinkwidget_8h_source.html#l00030">musiclrclocallinkwidget.h:30</a></div></div>
 <div class="ttc" id="class_music_lrc_local_link_table_widget_html_a6e8c4597ebd68cdb147ae8a879e64f0e"><div class="ttname"><a href="../../d8/d6f/class_music_lrc_local_link_table_widget.html#a6e8c4597ebd68cdb147ae8a879e64f0e">MusicLrcLocalLinkTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00053">musiclrclocallinkwidget.cpp:53</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_file_html_a93d943b5c61ac8ce66cd57e57338a65b"><div class="ttname"><a href="../../df/dea/namespace_music_utils_1_1_file.html#a93d943b5c61ac8ce66cd57e57338a65b">MusicUtils::File::openFileDialog</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString openFileDialog(QWidget *obj, const QString &amp;filter=&quot;Images (*.png *.bmp *.jpg)&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4c/musicfileutils_8cpp_source.html#l00088">musicfileutils.cpp:88</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_string_html_a45e0e66651fb8e69dac3c6abf1775160"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#a45e0e66651fb8e69dac3c6abf1775160">MusicUtils::String::lrcPrefix</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString lrcPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00027">musicstringutils.cpp:27</a></div></div>
 <div class="ttc" id="struct_music_local_data_item_html"><div class="ttname"><a href="../../d5/d57/struct_music_local_data_item.html">MusicLocalDataItem</a></div><div class="ttdoc">The class of the local data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df9/musiclrclocallinkwidget_8h_source.html#l00028">musiclrclocallinkwidget.h:28</a></div></div>
 <div class="ttc" id="class_music_lrc_local_link_widget_html_acf5d4bd6a1c104b77b25dd1634f8a1f4"><div class="ttname"><a href="../../d2/d54/class_music_lrc_local_link_widget.html#acf5d4bd6a1c104b77b25dd1634f8a1f4">MusicLrcLocalLinkWidget::~MusicLrcLocalLinkWidget</a></div><div class="ttdeci">~MusicLrcLocalLinkWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dbc/musiclrclocallinkwidget_8cpp_source.html#l00101">musiclrclocallinkwidget.cpp:101</a></div></div>
 <div class="ttc" id="musicconnectionpool_8h_html"><div class="ttname"><a href="../../d8/dcd/musicconnectionpool_8h.html">musicconnectionpool.h</a></div></div>
@@ -337,7 +335,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 30 2022 00:30:52 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 28 2022 00:22:20 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.9.0</span>
+   &#160;<span id="projectnumber">2.15.10.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab2cf601c0d83454bce8fc2e53d5c1bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa23aeeb4fb08d74f45e93656f785626a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dff/class_meta_data_model.html#aa23aeeb4fb08d74f45e93656f785626a">removeCover</a> ()</td></tr>
 <tr class="separator:aa23aeeb4fb08d74f45e93656f785626a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a30d7726e702e9bc4d5013467f399a"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dff/class_meta_data_model.html#a60a30d7726e702e9bc4d5013467f399a">lyrics</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> </td></tr>
+<tr class="separator:a60a30d7726e702e9bc4d5013467f399a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a7a4d1b36f8dbbc35ed072d2ca64875"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dff/class_meta_data_model.html#a4a7a4d1b36f8dbbc35ed072d2ca64875">coverPath</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> </td></tr>
 <tr class="separator:a4a7a4d1b36f8dbbc35ed072d2ca64875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cf926b71671cf970ad021960d07c82f"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dff/class_meta_data_model.html#a1cf926b71671cf970ad021960d07c82f">cue</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> </td></tr>
@@ -261,7 +263,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns cover pixmap. Subclass should reimplement this function. Default implementation returns empty pixmap. </p>
 
-<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00328">MusicSongMeta::readInformation()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00334">MusicSongMeta::readInformation()</a>.</p>
 
 </div>
 </div>
@@ -393,6 +395,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a60a30d7726e702e9bc4d5013467f399a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QString MetaDataModel::lyrics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Lyrics. Subclass should reimplement this function. Default implementation does nothing. </p>
+
+<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00334">MusicSongMeta::readInformation()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa23aeeb4fb08d74f45e93656f785626a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -415,7 +443,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Removes cover. Subclass should reimplement this function. Default implementation does nothing. </p>
 
-<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00394">MusicSongMeta::saveInformation()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00406">MusicSongMeta::saveInformation()</a>.</p>
 
 </div>
 </div>
@@ -471,7 +499,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00394">MusicSongMeta::saveInformation()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00406">MusicSongMeta::saveInformation()</a>.</p>
 
 </div>
 </div>
@@ -577,7 +605,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a list of available tags. Subclass should reimplement this function. Default implementation returns empty array. </p>
 
-<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00394">MusicSongMeta::saveInformation()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/db1/musicsongmeta_8cpp_source.html#l00406">MusicSongMeta::saveInformation()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +628,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d3/db0/metadatamodel_8h_source.html#l00170">170</a> of file <a class="el" href="../../d3/db0/metadatamodel_8h_source.html">metadatamodel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/db0/metadatamodel_8h_source.html#l00175">175</a> of file <a class="el" href="../../d3/db0/metadatamodel_8h_source.html">metadatamodel.h</a>.</p>
 
 </div>
 </div>
@@ -622,7 +650,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d3/db0/metadatamodel_8h_source.html#l00169">169</a> of file <a class="el" href="../../d3/db0/metadatamodel_8h_source.html">metadatamodel.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/db0/metadatamodel_8h_source.html#l00174">174</a> of file <a class="el" href="../../d3/db0/metadatamodel_8h_source.html">metadatamodel.h</a>.</p>
 
 </div>
 </div>
@@ -632,7 +660,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 30 2022 00:31:24 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 28 2022 00:22:34 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
