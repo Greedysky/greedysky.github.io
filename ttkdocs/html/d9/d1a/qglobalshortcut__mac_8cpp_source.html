@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.10.0</span>
+   &#160;<span id="projectnumber">2.15.11.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">bool</span> QGlobalShortcutPrivate::nativeEventFilter(<span class="keyword">const</span> QByteArray &amp;, <span class="keywordtype">void</span> *message, <span class="keywordtype">long</span> *)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">bool</span> QGlobalShortcutPrivate::nativeEventFilter(<span class="keyword">const</span> QByteArray &amp;, <span class="keywordtype">void</span> *message, qint *)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    EventRef <span class="keyword">event</span> = (EventRef) message;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span>(GetEventClass(event) == kEventClassKeyboard &amp;&amp; GetEventKind(event) == kEventHotKeyPressed)</div>
@@ -171,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(key == Qt::Key_Return)              ch = 13;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(key == Qt::Key_Enter)               ch = 3;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(key == Qt::Key_Tab)                 ch = 9;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span>                                                                ch = <a class="code" href="../../df/dbb/class_q_global_shortcut_private.html#a421ea6d831ad6d15a89d84f0cf86f9bd">key</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span>                                                                ch = <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    KeyboardLayoutRef layout;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    KeyboardLayoutKind layoutKind;</div>
@@ -253,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    keyID.signature = <span class="stringliteral">&#39;cute&#39;</span>;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    keyID.id = ++<a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#abb43c1a627e6ebf0702efaea6eac91e5">hotKeySerial</a>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    EventHotKeyRef <a class="code" href="../../df/dbb/class_q_global_shortcut_private.html#a4696a2d57d5ae5742aa9248f202e9209">ref</a> = 0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    EventHotKeyRef ref = 0;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">bool</span> rv = !RegisterEventHotKey(nativeKey, nativeMods, keyID, GetApplicationEventTarget(), 0, &amp;ref);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span>(rv)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
@@ -269,7 +269,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a> id(nativeMods, nativeKey);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#afdcc4878f9533b3f23e29347d97ac794">keyIDs</a>.contains(<span class="keywordtype">id</span>)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    EventHotKeyRef <a class="code" href="../../df/dbb/class_q_global_shortcut_private.html#a4696a2d57d5ae5742aa9248f202e9209">ref</a> = <a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#af5fef1868e142ee19fcffef24dea1345">keyRefs</a>.take(<a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#afdcc4878f9533b3f23e29347d97ac794">keyIDs</a>[<span class="keywordtype">id</span>]);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    EventHotKeyRef ref = <a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#af5fef1868e142ee19fcffef24dea1345">keyRefs</a>.take(<a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#afdcc4878f9533b3f23e29347d97ac794">keyIDs</a>[<span class="keywordtype">id</span>]);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#afdcc4878f9533b3f23e29347d97ac794">keyIDs</a>.remove(<span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">return</span> !UnregisterEventHotKey(ref);</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
@@ -283,18 +283,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkglobal_8h_html_ac7f64d346c45318df36293f7dfa4e375"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac7f64d346c45318df36293f7dfa4e375">TTKConst_cast</a></div><div class="ttdeci">#define TTKConst_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00073">ttkglobal.h:73</a></div></div>
 <div class="ttc" id="class_q_global_shortcut_private_html_aaf4c332d459817f33059d55226e0bf60"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#aaf4c332d459817f33059d55226e0bf60">QGlobalShortcutPrivate::nativeModifiers</a></div><div class="ttdeci">static quint32 nativeModifiers(Qt::KeyboardModifiers modifiers)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00049">qglobalshortcut_mac.cpp:49</a></div></div>
 <div class="ttc" id="qglobalshortcut__mac_8cpp_html_ae5d071e3fa91ef5073799e1ab0e4d725"><div class="ttname"><a href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#ae5d071e3fa91ef5073799e1ab0e4d725">q_mac_handle_hot_key</a></div><div class="ttdeci">OSStatus q_mac_handle_hot_key(EventHandlerCallRef nextHandler, EventRef event, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00012">qglobalshortcut_mac.cpp:12</a></div></div>
-<div class="ttc" id="class_q_global_shortcut_private_html_a4696a2d57d5ae5742aa9248f202e9209"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#a4696a2d57d5ae5742aa9248f202e9209">QGlobalShortcutPrivate::ref</a></div><div class="ttdeci">static int ref</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d02/qglobalshortcut__p_8h_source.html#l00050">qglobalshortcut_p.h:50</a></div></div>
 <div class="ttc" id="class_q_global_shortcut_private_html_a5096c16f64061ac84b880d5e3216bfca"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#a5096c16f64061ac84b880d5e3216bfca">QGlobalShortcutPrivate::unregisterShortcut</a></div><div class="ttdeci">static bool unregisterShortcut(quint32 nativeKey, quint32 nativeMods)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00188">qglobalshortcut_mac.cpp:188</a></div></div>
 <div class="ttc" id="class_q_global_shortcut_private_html_a278f702078fbc3ae735b55aa7bc26e59"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#a278f702078fbc3ae735b55aa7bc26e59">QGlobalShortcutPrivate::eventFilter</a></div><div class="ttdeci">static bool eventFilter(void *message)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00021">qglobalshortcut_mac.cpp:21</a></div></div>
 <div class="ttc" id="class_q_global_shortcut_private_html_af1148e336f7d9aed7811fe9f28556d75"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#af1148e336f7d9aed7811fe9f28556d75">QGlobalShortcutPrivate::registerShortcut</a></div><div class="ttdeci">static bool registerShortcut(quint32 nativeKey, quint32 nativeMods)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00163">qglobalshortcut_mac.cpp:163</a></div></div>
 <div class="ttc" id="qglobalshortcut__mac_8cpp_html_a29e97a95ec25cafb6cb1494d44178717"><div class="ttname"><a href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a></div><div class="ttdeci">QPair&lt; uint, uint &gt; Identifier</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00006">qglobalshortcut_mac.cpp:6</a></div></div>
 <div class="ttc" id="qglobalshortcut__mac_8cpp_html_abb43c1a627e6ebf0702efaea6eac91e5"><div class="ttname"><a href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#abb43c1a627e6ebf0702efaea6eac91e5">hotKeySerial</a></div><div class="ttdeci">static quint32 hotKeySerial</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00009">qglobalshortcut_mac.cpp:9</a></div></div>
-<div class="ttc" id="class_q_global_shortcut_private_html_aff908eb31018cea1f83956eb480c8988"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#aff908eb31018cea1f83956eb480c8988">QGlobalShortcutPrivate::activateShortcut</a></div><div class="ttdeci">static void activateShortcut(quint32 nativeKey, quint32 nativeMods)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1e/qglobalshortcut_8cpp_source.html#l00074">qglobalshortcut.cpp:74</a></div></div>
-<div class="ttc" id="class_q_global_shortcut_private_html_a421ea6d831ad6d15a89d84f0cf86f9bd"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#a421ea6d831ad6d15a89d84f0cf86f9bd">QGlobalShortcutPrivate::key</a></div><div class="ttdeci">Qt::Key key</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d02/qglobalshortcut__p_8h_source.html#l00043">qglobalshortcut_p.h:43</a></div></div>
+<div class="ttc" id="class_q_global_shortcut_private_html_aff908eb31018cea1f83956eb480c8988"><div class="ttname"><a href="../../df/dbb/class_q_global_shortcut_private.html#aff908eb31018cea1f83956eb480c8988">QGlobalShortcutPrivate::activateShortcut</a></div><div class="ttdeci">static void activateShortcut(quint32 nativeKey, quint32 nativeMods)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d1e/qglobalshortcut_8cpp_source.html#l00089">qglobalshortcut.cpp:89</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 28 2022 00:22:24 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 2 2022 00:22:13 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

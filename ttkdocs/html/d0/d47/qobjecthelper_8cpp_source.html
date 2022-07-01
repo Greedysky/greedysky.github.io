@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.10.0</span>
+   &#160;<span id="projectnumber">2.15.11.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -104,67 +104,70 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;QtCore/QMetaObject&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QtCore/QMetaProperty&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QtCore/QObject&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span><a class="code" href="../../d3/d7b/namespace_q_json.html">QJson</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">   32</a></span>&#160;<a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">QObjectHelper::QObjectHelper</a>()</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">   37</a></span>&#160;QVariantMap <a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">QObjectHelper::qobject2qvariant</a>( <span class="keyword">const</span> QObject* <span class="keywordtype">object</span>,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                              <span class="keyword">const</span> QStringList&amp; ignoredProperties)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  QVariantMap result;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">const</span> QMetaObject *metaobject = <span class="keywordtype">object</span>-&gt;metaObject();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">int</span> count = metaobject-&gt;propertyCount();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;count; ++i) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QMetaProperty metaproperty = metaobject-&gt;property(i);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a> = metaproperty.name();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (!metaproperty.isReadable() || ignoredProperties.contains(QLatin1String(name)))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QVariant value = <span class="keywordtype">object</span>-&gt;property(name);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    result[QLatin1String(name)] = value;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">QObjectHelper::qvariant2qobject</a>(<span class="keyword">const</span> QVariantMap &amp;variant, QObject* <span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">const</span> QMetaObject *metaobject = <span class="keywordtype">object</span>-&gt;metaObject();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordflow">for</span> (QVariantMap::const_iterator iter = variant.constBegin(),</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       end = variant.constEnd(); iter != end; ++iter) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> pIdx = metaobject-&gt;indexOfProperty( iter.key().toLatin1() );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> ( pIdx &lt; 0 ) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    QMetaProperty metaproperty = metaobject-&gt;property( pIdx );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    QVariant::Type type = metaproperty.type();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    QVariant v( iter.value() );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> ( v.canConvert( type ) ) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      v.convert( type );</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      metaproperty.write( <span class="keywordtype">object</span>, v );</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (QLatin1String(<span class="stringliteral">&quot;QVariant&quot;</span>) == QLatin1String(metaproperty.typeName())) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;     metaproperty.write( <span class="keywordtype">object</span>, v );</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="ttc" id="class_q_json_1_1_q_object_helper_html_a096adece3d65732b1d7881e7b12ccd0c"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">QJson::QObjectHelper::QObjectHelper</a></div><div class="ttdeci">QObjectHelper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00032">qobjecthelper.cpp:32</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span><a class="code" href="../../d3/d7b/namespace_q_json.html">QJson</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">   31</a></span>&#160;<a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">QObjectHelper::QObjectHelper</a>()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">   36</a></span>&#160;QVariantMap <a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">QObjectHelper::qobject2qvariant</a>( <span class="keyword">const</span> QObject* <span class="keywordtype">object</span>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                              <span class="keyword">const</span> QStringList&amp; ignoredProperties)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  QVariantMap result;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">const</span> QMetaObject *metaobject = <span class="keywordtype">object</span>-&gt;metaObject();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordtype">int</span> count = metaobject-&gt;propertyCount();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;count; ++i) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QMetaProperty metaproperty = metaobject-&gt;property(i);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a> = metaproperty.name();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (!metaproperty.isReadable() || ignoredProperties.contains(QLatin1String(name)))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QVariant value = <span class="keywordtype">object</span>-&gt;property(name);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    result[QLatin1String(name)] = value;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">QObjectHelper::qvariant2qobject</a>(<span class="keyword">const</span> QVariantMap &amp;variant, QObject* <span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">const</span> QMetaObject *metaobject = <span class="keywordtype">object</span>-&gt;metaObject();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">for</span> (QVariantMap::const_iterator iter = variant.constBegin(),</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       end = variant.constEnd(); iter != end; ++iter) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> pIdx = metaobject-&gt;indexOfProperty( iter.key().toLatin1() );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> ( pIdx &lt; 0 ) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QMetaProperty metaproperty = metaobject-&gt;property( pIdx );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">const</span> QMetaType type = metaproperty.metaType();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> QVariant::Type type = metaproperty.type();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    QVariant v( iter.value() );</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> ( v.canConvert( type ) ) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      v.convert( type );</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      metaproperty.write( <span class="keywordtype">object</span>, v );</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (QLatin1String(<span class="stringliteral">&quot;QVariant&quot;</span>) == QLatin1String(metaproperty.typeName())) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;     metaproperty.write( <span class="keywordtype">object</span>, v );</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="ttc" id="class_q_json_1_1_q_object_helper_html_a096adece3d65732b1d7881e7b12ccd0c"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a096adece3d65732b1d7881e7b12ccd0c">QJson::QObjectHelper::QObjectHelper</a></div><div class="ttdeci">QObjectHelper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00031">qobjecthelper.cpp:31</a></div></div>
 <div class="ttc" id="qobjecthelper_8h_html"><div class="ttname"><a href="../../d1/d1b/qobjecthelper_8h.html">qobjecthelper.h</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
 <div class="ttc" id="namespace_q_json_html"><div class="ttname"><a href="../../d3/d7b/namespace_q_json.html">QJson</a></div><div class="ttdoc">Namespace used by QJson. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d36/parser_8h_source.html#l00034">parser.h:34</a></div></div>
-<div class="ttc" id="class_q_json_1_1_q_object_helper_html_a69dd8a0be3fbc682f0f418882ec1337b"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">QJson::QObjectHelper::qvariant2qobject</a></div><div class="ttdeci">static void qvariant2qobject(const QVariantMap &amp;variant, QObject *object)</div><div class="ttdoc">This method converts a QVariantMap instance into a QObject. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00056">qobjecthelper.cpp:56</a></div></div>
-<div class="ttc" id="class_q_json_1_1_q_object_helper_html_ac5fd74ad328752d47e62e1ac4a50df58"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">QJson::QObjectHelper::qobject2qvariant</a></div><div class="ttdeci">static QVariantMap qobject2qvariant(const QObject *object, const QStringList &amp;ignoredProperties=QStringList(QString(QLatin1String(&quot;objectName&quot;))))</div><div class="ttdoc">This method converts a QObject instance into a QVariantMap. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00037">qobjecthelper.cpp:37</a></div></div>
+<div class="ttc" id="class_q_json_1_1_q_object_helper_html_a69dd8a0be3fbc682f0f418882ec1337b"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#a69dd8a0be3fbc682f0f418882ec1337b">QJson::QObjectHelper::qvariant2qobject</a></div><div class="ttdeci">static void qvariant2qobject(const QVariantMap &amp;variant, QObject *object)</div><div class="ttdoc">This method converts a QVariantMap instance into a QObject. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00055">qobjecthelper.cpp:55</a></div></div>
+<div class="ttc" id="class_q_json_1_1_q_object_helper_html_ac5fd74ad328752d47e62e1ac4a50df58"><div class="ttname"><a href="../../d8/d58/class_q_json_1_1_q_object_helper.html#ac5fd74ad328752d47e62e1ac4a50df58">QJson::QObjectHelper::qobject2qvariant</a></div><div class="ttdeci">static QVariantMap qobject2qvariant(const QObject *object, const QStringList &amp;ignoredProperties=QStringList(QString(QLatin1String(&quot;objectName&quot;))))</div><div class="ttdoc">This method converts a QObject instance into a QVariantMap. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d47/qobjecthelper_8cpp_source.html#l00036">qobjecthelper.cpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 28 2022 00:22:24 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 2 2022 00:22:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

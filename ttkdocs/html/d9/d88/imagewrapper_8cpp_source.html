@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.10.0</span>
+   &#160;<span id="projectnumber">2.15.11.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -557,35 +557,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;{</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../da/d2c/class_q_algorithm_1_1_water_wave.html">WaterWave</a>);</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    d-&gt;render();</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    QImage image = pixmap.toImage();</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    memcpy(image.bits(), (<span class="keyword">const</span> uchar*)d-&gt;data(), image.sizeInBytes());</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    memcpy(image.bits(), (<span class="keyword">const</span> uchar*)d-&gt;data(), image.byteCount());</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    QPixmap pix(d-&gt;m_rectangle.size());</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    pix.fill(Qt::transparent);</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    QPainter paint(&amp;pix);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    paint.fillRect(d-&gt;m_rectangle, QColor(0xFF, 0xFF, 0xFF, qMin(2.55 * 2 * value, 255.0)));</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    paint.setCompositionMode(QPainter::CompositionMode_SourceIn);</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    paint.drawPixmap(d-&gt;m_rectangle, QPixmap::fromImage(image));</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    paint.end();</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    QImage image = pixmap.toImage();</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    memcpy(image.bits(), (<span class="keyword">const</span> uchar*)d-&gt;data(), <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a35dcd471ba5f65fc3076c6372145edeb">QtImageBytes</a>(image));</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    QPixmap pix(d-&gt;m_rectangle.size());</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    pix.fill(Qt::transparent);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    QPainter paint(&amp;pix);</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    paint.fillRect(d-&gt;m_rectangle, QColor(0xFF, 0xFF, 0xFF, qMin(2.55 * 2 * value, 255.0)));</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    paint.setCompositionMode(QPainter::CompositionMode_SourceIn);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    paint.drawPixmap(d-&gt;m_rectangle, QPixmap::fromImage(image));</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    paint.end();</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keywordflow">return</span> pix;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;}</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keywordflow">return</span> pix;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;}</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;}</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;}</div>
 <div class="ttc" id="class_q_algorithm_1_1_sharpe_image_html"><div class="ttname"><a href="../../d2/d55/class_q_algorithm_1_1_sharpe_image.html">QAlgorithm::SharpeImage</a></div><div class="ttdoc">The class of the sharpe image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d6a/imagewrapper_8h_source.html#l00032">imagewrapper.h:32</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_sharpe_image_private_html_aa8012192e011051d36b27aafe58741c4"><div class="ttname"><a href="../../d8/dd6/class_q_algorithm_1_1_sharpe_image_private.html#aa8012192e011051d36b27aafe58741c4">QAlgorithm::SharpeImagePrivate::m_rectangle</a></div><div class="ttdeci">QRect m_rectangle</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00018">imagewrapper.cpp:18</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_sharpe_image_private_html_abf6cedd0ca67b1e6d943213eb3a20045"><div class="ttname"><a href="../../d8/dd6/class_q_algorithm_1_1_sharpe_image_private.html#abf6cedd0ca67b1e6d943213eb3a20045">QAlgorithm::SharpeImagePrivate::~SharpeImagePrivate</a></div><div class="ttdeci">~SharpeImagePrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00026">imagewrapper.cpp:26</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_water_wave_html"><div class="ttname"><a href="../../da/d2c/class_q_algorithm_1_1_water_wave.html">QAlgorithm::WaterWave</a></div><div class="ttdoc">The class of the water wave. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d6a/imagewrapper_8h_source.html#l00095">imagewrapper.h:95</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_cube_wave_private_html_a41e9774809592c48fad36914974fe861"><div class="ttname"><a href="../../dd/dc0/class_q_algorithm_1_1_cube_wave_private.html#a41e9774809592c48fad36914974fe861">QAlgorithm::CubeWavePrivate::m_column</a></div><div class="ttdeci">int m_column</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00189">imagewrapper.cpp:189</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_water_wave_private_html_aaaefa9d97ec2fa63f7fa5e258bf64f57"><div class="ttname"><a href="../../d6/d06/class_q_algorithm_1_1_water_wave_private.html#aaaefa9d97ec2fa63f7fa5e258bf64f57">QAlgorithm::WaterWavePrivate::m_sourceDepth</a></div><div class="ttdeci">int m_sourceDepth</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00311">imagewrapper.cpp:311</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_a35dcd471ba5f65fc3076c6372145edeb"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a35dcd471ba5f65fc3076c6372145edeb">QtImageBytes</a></div><div class="ttdeci">#define QtImageBytes(p)</div><div class="ttdoc">Image byte count. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00057">ttkqtwrapper.h:57</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_cube_wave_html_a8ae23028fed9fdd3d8f4e81179712ba6"><div class="ttname"><a href="../../d5/dbd/class_q_algorithm_1_1_cube_wave.html#a8ae23028fed9fdd3d8f4e81179712ba6">QAlgorithm::CubeWave::CubeWave</a></div><div class="ttdeci">CubeWave()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00224">imagewrapper.cpp:224</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_water_wave_html_a0104a1d1c2b88ebfaeef1cadfbd85752"><div class="ttname"><a href="../../da/d2c/class_q_algorithm_1_1_water_wave.html#a0104a1d1c2b88ebfaeef1cadfbd85752">QAlgorithm::WaterWave::WaterWave</a></div><div class="ttdeci">WaterWave(const QImage &amp;image, int radius)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00472">imagewrapper.cpp:472</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00205">ttkglobal.h:205</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00218">ttkglobal.h:218</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_water_wave_private_html_a5df756f90ac4a7ef444a8e3943dcfce7"><div class="ttname"><a href="../../d6/d06/class_q_algorithm_1_1_water_wave_private.html#a5df756f90ac4a7ef444a8e3943dcfce7">QAlgorithm::WaterWavePrivate::m_height</a></div><div class="ttdeci">int m_height</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00305">imagewrapper.cpp:305</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_water_wave_private_html"><div class="ttname"><a href="../../d6/d06/class_q_algorithm_1_1_water_wave_private.html">QAlgorithm::WaterWavePrivate</a></div><div class="ttdoc">The class of the water wave private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d88/imagewrapper_8cpp_source.html#l00279">imagewrapper.cpp:279</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
@@ -642,7 +640,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 28 2022 00:22:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 2 2022 00:22:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
