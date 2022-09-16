@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -238,16 +238,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
 <div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d6/d6a/class_music_platform_extras.html#a36bc50b5955eb9694704214127ed278c">  187</a></span>&#160;<a class="code" href="../../d6/d6a/class_music_platform_extras.html#a36bc50b5955eb9694704214127ed278c">MusicPlatformExtras::MusicPlatformExtras</a>(QObject *parent)</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    : QObject(parent)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;{</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> MusicWindowsExtras;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#elif defined Q_OS_LINUX</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> MusicLinuxExtras;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> <a class="code" href="../../d8/d4e/class_music_mac_extras.html">MusicMacExtras</a>;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#adc767e64e5440e29ff0caef03be4c629">m_disableBlurBehindWindow</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    : QObject(parent),</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      m_disableBlurBehindWindow(true)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;{</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> MusicWindowsExtras;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#elif defined Q_OS_LINUX</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> MusicLinuxExtras;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a> = <span class="keyword">new</span> <a class="code" href="../../d8/d4e/class_music_mac_extras.html">MusicMacExtras</a>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
 <div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="../../d6/d6a/class_music_platform_extras.html#acbe63925c7e8d6408e2e193e1d73b822">  200</a></span>&#160;<a class="code" href="../../d6/d6a/class_music_platform_extras.html#acbe63925c7e8d6408e2e193e1d73b822">MusicPlatformExtras::~MusicPlatformExtras</a>()</div>
@@ -266,7 +266,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">m_platformExtras</a>-&gt;<a class="code" href="../../db/d3c/class_music_abstract_platform_extras.html#a90409417c2a21fa86b396048c4a32d7e">action</a>();</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}</div>
 <div class="ttc" id="musicplatformextras_8h_html"><div class="ttname"><a href="../../df/d74/musicplatformextras_8h.html">musicplatformextras.h</a></div></div>
-<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00111">musicapplication.cpp:111</a></div></div>
+<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00109">musicapplication.cpp:109</a></div></div>
 <div class="ttc" id="class_music_mac_extras_html_a8afeac49a0e848897687b26e5552238c"><div class="ttname"><a href="../../d8/d4e/class_music_mac_extras.html#a8afeac49a0e848897687b26e5552238c">MusicMacExtras::action</a></div><div class="ttdeci">virtual void action() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3f/musicplatformextras_8cpp_source.html#l00179">musicplatformextras.cpp:179</a></div></div>
 <div class="ttc" id="class_music_platform_extras_html_a34bc386ece5d1e83e760d88e9e19f88c"><div class="ttname"><a href="../../d6/d6a/class_music_platform_extras.html#a34bc386ece5d1e83e760d88e9e19f88c">MusicPlatformExtras::setCurrentPlayStatus</a></div><div class="ttdeci">void setCurrentPlayStatus(bool status) const </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d3f/musicplatformextras_8cpp_source.html#l00205">musicplatformextras.cpp:205</a></div></div>
 <div class="ttc" id="class_music_platform_extras_html_af512fc46b131769827bf92b4450e9536"><div class="ttname"><a href="../../d6/d6a/class_music_platform_extras.html#af512fc46b131769827bf92b4450e9536">MusicPlatformExtras::m_platformExtras</a></div><div class="ttdeci">MusicAbstractPlatformExtras * m_platformExtras</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/musicplatformextras_8h_source.html#l00055">musicplatformextras.h:55</a></div></div>
@@ -288,7 +288,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:10 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:43 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

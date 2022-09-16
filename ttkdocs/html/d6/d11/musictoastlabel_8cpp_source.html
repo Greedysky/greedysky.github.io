@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -85,16 +85,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QPropertyAnimation&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">    8</a></span>&#160;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a>(QWidget *parent)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QLabel(parent)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setAttribute(Qt::WA_DeleteOnClose);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">setFontSize</a>(15);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">setFontMargin</a>(20, 20);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">m_font</a> = font();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QLabel(parent),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      m_font(font())</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    setAttribute(Qt::WA_DeleteOnClose);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">setFontSize</a>(15);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6f376b8139257a5d994efbc5a2c0d197">setFontMargin</a>(20, 20);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    connect(&amp;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>, SIGNAL(timeout()), SLOT(<a class="code" href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">closeAnimation</a>()));</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.setInterval(<a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../d2/d6f/class_music_toast_label.html#a6842b402c6baf72eafd2f2083c73787c">m_timer</a>.start();</div>
@@ -132,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(!parent)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> QSize &amp;windowSize = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a>).toSize();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> QSize &amp;windowSize = <a class="code" href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a>-&gt;value(<a class="code" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a>).toSize();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        move((windowSize.width() - width()) / 2, windowSize.height() - 200);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">else</span></div>
@@ -185,11 +185,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
 <div class="ttc" id="class_music_toast_label_html_afea3fddf87dcca9a551759528b22853a"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afea3fddf87dcca9a551759528b22853a">MusicToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00091">musictoastlabel.h:91</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a969d6320cb4f8ea436a2c08f9cffd4c1"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a969d6320cb4f8ea436a2c08f9cffd4c1">MusicToastLabel::~MusicToastLabel</a></div><div class="ttdeci">~MusicToastLabel()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00030">musictoastlabel.cpp:30</a></div></div>
-<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00111">musicapplication.cpp:111</a></div></div>
+<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00109">musicapplication.cpp:109</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_widget_html_a01c384aa6781270e7fed39404f6b44dc"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextWidth(const QFont &amp;font, const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00057">musicwidgetutils.cpp:57</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a4e0a91a10e36a5bdb36139a746064d47"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a4e0a91a10e36a5bdb36139a746064d47">MusicToastLabel::MusicToastLabel</a></div><div class="ttdeci">MusicToastLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00008">musictoastlabel.cpp:8</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_ad4123ecdebde92611cb36c56b08b8d26"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#ad4123ecdebde92611cb36c56b08b8d26">MusicToastLabel::closeAnimation</a></div><div class="ttdeci">void closeAnimation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00081">musictoastlabel.cpp:81</a></div></div>
-<div class="ttc" id="class_music_setting_manager_html_a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a146c66bf631250e49944cfbd221e29a5a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00038">musicsettingmanager.h:38</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a45899a9626528450ce38a6e9b25c1c76"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a45899a9626528450ce38a6e9b25c1c76">MusicToastLabel::animationCloseChanged</a></div><div class="ttdeci">void animationCloseChanged()</div></div>
 <div class="ttc" id="musicapplication_8h_html"><div class="ttname"><a href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a></div></div>
@@ -204,15 +203,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicnumberdefine_8h_html_a26a0d68f658e1cfc3a2ae7b9d8c6cf76"><div class="ttname"><a href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a></div><div class="ttdeci">#define MT_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d01/musicnumberdefine_8h_source.html#l00027">musicnumberdefine.h:27</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a48437015ecadeef1b5097a4e402f5948"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a48437015ecadeef1b5097a4e402f5948">MusicToastLabel::setFontSize</a></div><div class="ttdeci">void setFontSize(int size)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00046">musictoastlabel.cpp:46</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_a1668867cdb27b5bda062f0a70d2852b8"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a1668867cdb27b5bda062f0a70d2852b8">QtDrawRoundedRect</a></div><div class="ttdeci">#define QtDrawRoundedRect(p, r, x, y)</div><div class="ttdoc">Painter. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00090">ttkqtwrapper.h:90</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_a1668867cdb27b5bda062f0a70d2852b8"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a1668867cdb27b5bda062f0a70d2852b8">QtDrawRoundedRect</a></div><div class="ttdeci">#define QtDrawRoundedRect(p, r, x, y)</div><div class="ttdoc">Painter. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00095">ttkqtwrapper.h:95</a></div></div>
 <div class="ttc" id="musictoastlabel_8h_html"><div class="ttname"><a href="../../d0/de1/musictoastlabel_8h.html">musictoastlabel.h</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a2fe7be4e50aa1620c8e5dc5be95b6879"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a2fe7be4e50aa1620c8e5dc5be95b6879">MusicToastLabel::timerInterval</a></div><div class="ttdeci">int timerInterval() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00041">musictoastlabel.cpp:41</a></div></div>
 <div class="ttc" id="class_music_toast_label_html_a1771dd8b41e2365ffdc4ecd19d3a4e57"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a></div><div class="ttdeci">void setText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00074">musictoastlabel.cpp:74</a></div></div>
+<div class="ttc" id="class_music_setting_manager_html_a197ee2f5b421c06504a70793a16d6611a9b3a890f0bca8384274e25ff41c447b4"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a9b3a890f0bca8384274e25ff41c447b4">MusicSettingManager::ScreenSize</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00038">musicsettingmanager.h:38</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html_aa4b1c2dd92254ebaec27b4f02b2fa404"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a></div><div class="ttdeci">#define G_SETTING_PTR</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00213">musicsettingmanager.h:213</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:07 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

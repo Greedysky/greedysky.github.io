@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -87,100 +87,86 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0249fed12d0a7eab9daea105c257da86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a0249fed12d0a7eab9daea105c257da86">TBLS</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a0249fed12d0a7eab9daea105c257da86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff265ea9630e020c8ac850c18d5d972f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>&#160;&#160;&#160;crc = <a class="el" href="../../dc/d24/crc32_8h.html#a986309491edc1f872ec298c2c5fa5157">crc_table</a>[0][((<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>)crc ^ (*<a class="el" href="../../d2/db7/ioapi_8h.html#a8ad8a13c88886b9f623034ff88570adb">buf</a>++)) &amp; 0xff] ^ (crc &gt;&gt; 8)</td></tr>
-<tr class="separator:aff265ea9630e020c8ac850c18d5d972f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed1b41414efee0773c67c28e09317455"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aed1b41414efee0773c67c28e09317455">DO8</a>&#160;&#160;&#160;<a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a></td></tr>
-<tr class="separator:aed1b41414efee0773c67c28e09317455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a366ddceacb9041c5f12bb75fa6d75163"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a366ddceacb9041c5f12bb75fa6d75163">GF2_DIM</a>&#160;&#160;&#160;32      /* dimension of GF(2) vectors (length of CRC) */</td></tr>
-<tr class="separator:a366ddceacb9041c5f12bb75fa6d75163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0240ac851181b84ac374872dc5434ee4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a0240ac851181b84ac374872dc5434ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649b8f01fd6c0f47ff3cbddaeba63bfb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a649b8f01fd6c0f47ff3cbddaeba63bfb">W</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a649b8f01fd6c0f47ff3cbddaeba63bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55bbb692b1c5e89d3a5c3bee1ce8399"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aa55bbb692b1c5e89d3a5c3bee1ce8399">POLY</a>&#160;&#160;&#160;0xedb88320         /* p(x) reflected, with x^32 implied */</td></tr>
+<tr class="separator:aa55bbb692b1c5e89d3a5c3bee1ce8399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab5e9ce61df5c0090a4c91ed4df20bd15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> <a class="el" href="../../d7/d44/crc32_8c.html#a388bdea9cd672b42ff9d424c3357a71c">gf2_matrix_times</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#ab5e9ce61df5c0090a4c91ed4df20bd15">OF</a> ((unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> vec))</td></tr>
-<tr class="separator:ab5e9ce61df5c0090a4c91ed4df20bd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97302400540a4804a933ce8f829f1517"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> void <a class="el" href="../../d7/d44/crc32_8c.html#a797362ba54180ad549b381abfcde80c3">gf2_matrix_square</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a97302400540a4804a933ce8f829f1517">OF</a> ((unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *square, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat))</td></tr>
-<tr class="separator:a97302400540a4804a933ce8f829f1517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafbb122e835f0f7f8e60a29d785fc0a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../d7/d44/crc32_8c.html#a36a8eb95bf402949b5a68f7157df7ca2">crc32_combine_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aafbb122e835f0f7f8e60a29d785fc0a9">OF</a> ((<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> len2))</td></tr>
-<tr class="separator:aafbb122e835f0f7f8e60a29d785fc0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0310c996e8701d832ab9b4ec1e39ba35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> <a class="el" href="../../d7/d44/crc32_8c.html#a535ca8a610da84adbc0a3c27e9f6af85">multmodp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a0310c996e8701d832ab9b4ec1e39ba35">OF</a> ((<a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> a, <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> b))</td></tr>
+<tr class="separator:a0310c996e8701d832ab9b4ec1e39ba35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62894ff969188d263cb003ee21e690f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> <a class="el" href="../../d7/d44/crc32_8c.html#a433bbde4589c02ab19ef3b69465c3959">x2nmodp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a62894ff969188d263cb003ee21e690f1">OF</a> ((<a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> n, unsigned k))</td></tr>
+<tr class="separator:a62894ff969188d263cb003ee21e690f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535ca8a610da84adbc0a3c27e9f6af85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a535ca8a610da84adbc0a3c27e9f6af85">multmodp</a> (<a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> a, <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> b)</td></tr>
+<tr class="separator:a535ca8a610da84adbc0a3c27e9f6af85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a433bbde4589c02ab19ef3b69465c3959"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a433bbde4589c02ab19ef3b69465c3959">x2nmodp</a> (<a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> n, unsigned k)</td></tr>
+<tr class="separator:a433bbde4589c02ab19ef3b69465c3959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d4540ffeee6cb5c74978e3040b7a69a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> <a class="el" href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a> *<a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a7d4540ffeee6cb5c74978e3040b7a69a">get_crc_table</a> ()</td></tr>
 <tr class="separator:a7d4540ffeee6cb5c74978e3040b7a69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d41f3ecde9abd85bfa68ba506f91daf"><td class="memItemLeft" align="right" valign="top">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a5d41f3ecde9abd85bfa68ba506f91daf">crc32_z</a> (unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> crc, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> unsigned char <a class="el" href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a> *<a class="el" href="../../d2/db7/ioapi_8h.html#a8ad8a13c88886b9f623034ff88570adb">buf</a>, <a class="el" href="../../de/d95/zconf_8h.html#ac049a4b91bbe1112841d2890b206b890">z_size_t</a> len)</td></tr>
 <tr class="separator:a5d41f3ecde9abd85bfa68ba506f91daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5a1c7b05170540ef3bb084e6cf903c4"><td class="memItemLeft" align="right" valign="top">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#af5a1c7b05170540ef3bb084e6cf903c4">crc32</a> (unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> crc, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> unsigned char <a class="el" href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a> *<a class="el" href="../../d2/db7/ioapi_8h.html#a8ad8a13c88886b9f623034ff88570adb">buf</a>, <a class="el" href="../../de/d95/zconf_8h.html#a87d141052bcd5ec8a80812a565c70369">uInt</a> len)</td></tr>
 <tr class="separator:af5a1c7b05170540ef3bb084e6cf903c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388bdea9cd672b42ff9d424c3357a71c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a388bdea9cd672b42ff9d424c3357a71c">gf2_matrix_times</a> (unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> vec)</td></tr>
-<tr class="separator:a388bdea9cd672b42ff9d424c3357a71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a797362ba54180ad549b381abfcde80c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a797362ba54180ad549b381abfcde80c3">gf2_matrix_square</a> (unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *square, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat)</td></tr>
-<tr class="separator:a797362ba54180ad549b381abfcde80c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a8eb95bf402949b5a68f7157df7ca2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#a36a8eb95bf402949b5a68f7157df7ca2">crc32_combine_</a> (<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> len2)</td></tr>
-<tr class="separator:a36a8eb95bf402949b5a68f7157df7ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7a1dc42a5d07c76263f4130f23d4515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aa7a1dc42a5d07c76263f4130f23d4515">crc32_combine</a> (<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a> len2)</td></tr>
-<tr class="separator:aa7a1dc42a5d07c76263f4130f23d4515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac14c100da9646dc4b3d1422ffe736829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#ac14c100da9646dc4b3d1422ffe736829">crc32_combine64</a> (<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> len2)</td></tr>
 <tr class="separator:ac14c100da9646dc4b3d1422ffe736829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a1dc42a5d07c76263f4130f23d4515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#aa7a1dc42a5d07c76263f4130f23d4515">crc32_combine</a> (<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a> len2)</td></tr>
+<tr class="separator:aa7a1dc42a5d07c76263f4130f23d4515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8aad967c878ae879d16e39942fab1cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#ae8aad967c878ae879d16e39942fab1cd">crc32_combine_gen64</a> (<a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> len2)</td></tr>
+<tr class="separator:ae8aad967c878ae879d16e39942fab1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64e222328dd4ce728f7b28ac6426f9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#ae64e222328dd4ce728f7b28ac6426f9f">crc32_combine_gen</a> (<a class="el" href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a> len2)</td></tr>
+<tr class="separator:ae64e222328dd4ce728f7b28ac6426f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc3ca3177338da054f6d35d9b0f38354"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d44/crc32_8c.html#adc3ca3177338da054f6d35d9b0f38354">crc32_combine_op</a> (<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> op)</td></tr>
+<tr class="separator:adc3ca3177338da054f6d35d9b0f38354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="aff265ea9630e020c8ac850c18d5d972f"></a>
+<a class="anchor" id="a0240ac851181b84ac374872dc5434ee4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DO1&#160;&#160;&#160;crc = <a class="el" href="../../dc/d24/crc32_8h.html#a986309491edc1f872ec298c2c5fa5157">crc_table</a>[0][((<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>)crc ^ (*<a class="el" href="../../d2/db7/ioapi_8h.html#a8ad8a13c88886b9f623034ff88570adb">buf</a>++)) &amp; 0xff] ^ (crc &gt;&gt; 8)</td>
+          <td class="memname">#define N&#160;&#160;&#160;5</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00198">198</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00057">57</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00202">crc32_z()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00739">crc32_z()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aed1b41414efee0773c67c28e09317455"></a>
+<a class="anchor" id="aa55bbb692b1c5e89d3a5c3bee1ce8399"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DO8&#160;&#160;&#160;<a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a>; <a class="el" href="../../d7/d44/crc32_8c.html#aff265ea9630e020c8ac850c18d5d972f">DO1</a></td>
+          <td class="memname">#define POLY&#160;&#160;&#160;0xedb88320         /* p(x) reflected, with x^32 implied */</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00199">199</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00141">141</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00202">crc32_z()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00542">multmodp()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a366ddceacb9041c5f12bb75fa6d75163"></a>
+<a class="anchor" id="a649b8f01fd6c0f47ff3cbddaeba63bfb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GF2_DIM&#160;&#160;&#160;32      /* dimension of GF(2) vectors (length of CRC) */</td>
+          <td class="memname">#define W&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00341">341</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00085">85</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">crc32_combine_()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00361">gf2_matrix_square()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0249fed12d0a7eab9daea105c257da86"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TBLS&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00044">44</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00739">crc32_z()</a>.</p>
 
 </div>
 </div>
@@ -215,11 +201,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00237">237</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01063">1063</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00202">crc32_z()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00739">crc32_z()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00467">deflateResetKeep()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00622">inflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01164">read_buf()</a>, <a class="el" href="../../d6/da7/unzip_8c_source.html#l01684">unzReadCurrentFile()</a>, and <a class="el" href="../../d0/d5f/zip_8c_source.html#l01402">zipWriteInFileInZip()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00507">deflateResetKeep()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00623">inflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01204">read_buf()</a>, <a class="el" href="../../d6/da7/unzip_8c_source.html#l01684">unzReadCurrentFile()</a>, and <a class="el" href="../../d0/d5f/zip_8c_source.html#l01402">zipWriteInFileInZip()</a>.</p>
 
 </div>
 </div>
@@ -253,9 +239,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00428">428</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01084">1084</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">crc32_combine_()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l01072">crc32_combine64()</a>, and <a class="el" href="../../de/d95/zconf_8h_source.html#l00513">z_off64_t</a>.</p>
 
 </div>
 </div>
@@ -289,18 +275,62 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00436">436</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01072">1072</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">crc32_combine_()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00542">multmodp()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00566">x2nmodp()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l01084">crc32_combine()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a36a8eb95bf402949b5a68f7157df7ca2"></a>
+<a class="anchor" id="ae64e222328dd4ce728f7b28ac6426f9f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc32_combine_ </td>
+          <td class="memname"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a> crc32_combine_gen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a>&#160;</td>
+          <td class="paramname"><em>len2</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01103">1103</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l01093">crc32_combine_gen64()</a>, and <a class="el" href="../../de/d95/zconf_8h_source.html#l00513">z_off64_t</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8aad967c878ae879d16e39942fab1cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a> crc32_combine_gen64 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a>&#160;</td>
+          <td class="paramname"><em>len2</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01093">1093</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00566">x2nmodp()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l01103">crc32_combine_gen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc3ca3177338da054f6d35d9b0f38354"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a> crc32_combine_op </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a>&#160;</td>
           <td class="paramname"><em>crc1</em>, </td>
@@ -314,8 +344,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a>&#160;</td>
-          <td class="paramname"><em>len2</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a>&#160;</td>
+          <td class="paramname"><em>op</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -325,11 +355,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">372</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l01110">1110</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00341">GF2_DIM</a>, <a class="el" href="../../d7/d44/crc32_8c_source.html#l00361">gf2_matrix_square()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00344">gf2_matrix_times()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00428">crc32_combine()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00436">crc32_combine64()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00542">multmodp()</a>.</p>
 
 </div>
 </div>
@@ -363,11 +391,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00202">202</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00739">739</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00198">DO1</a>, <a class="el" href="../../d7/d44/crc32_8c_source.html#l00199">DO8</a>, and <a class="el" href="../../d4/dae/zlib_8h_source.html#l00212">Z_NULL</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00057">N</a>, <a class="el" href="../../d7/d44/crc32_8c_source.html#l00085">W</a>, and <a class="el" href="../../d4/dae/zlib_8h_source.html#l00212">Z_NULL</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00237">crc32()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l01063">crc32()</a>.</p>
 
 </div>
 </div>
@@ -384,7 +412,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00188">188</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00586">586</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
 <p>References <a class="el" href="../../dc/d24/crc32_8h_source.html#l00005">crc_table</a>, and <a class="el" href="../../de/d95/zconf_8h_source.html#l00387">FAR</a>.</p>
 
@@ -392,21 +420,21 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a797362ba54180ad549b381abfcde80c3"></a>
+<a class="anchor" id="a535ca8a610da84adbc0a3c27e9f6af85"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> void gf2_matrix_square </td>
+          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> multmodp </td>
           <td>(</td>
-          <td class="paramtype">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *&#160;</td>
-          <td class="paramname"><em>square</em>, </td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *&#160;</td>
-          <td class="paramname"><em>mat</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -416,29 +444,61 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00361">361</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00542">542</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00341">GF2_DIM</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00344">gf2_matrix_times()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00141">POLY</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">crc32_combine_()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l01072">crc32_combine64()</a>, <a class="el" href="../../d7/d44/crc32_8c_source.html#l01110">crc32_combine_op()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00566">x2nmodp()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a388bdea9cd672b42ff9d424c3357a71c"></a>
+<a class="anchor" id="a0310c996e8701d832ab9b4ec1e39ba35"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> gf2_matrix_times </td>
+          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> <a class="el" href="../../d7/d44/crc32_8c.html#a535ca8a610da84adbc0a3c27e9f6af85">multmodp</a> OF </td>
           <td>(</td>
-          <td class="paramtype">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *&#160;</td>
-          <td class="paramname"><em>mat</em>, </td>
+          <td class="paramtype">(<a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> a, <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> b)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a62894ff969188d263cb003ee21e690f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> <a class="el" href="../../d7/d44/crc32_8c.html#a433bbde4589c02ab19ef3b69465c3959">x2nmodp</a> OF </td>
+          <td>(</td>
+          <td class="paramtype">(<a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> n, unsigned k)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a433bbde4589c02ab19ef3b69465c3959"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a4501f2a67e5f6cfd0e273aad0211a347">z_crc_t</a> x2nmodp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a>&#160;</td>
-          <td class="paramname"><em>vec</em>&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -448,64 +508,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00344">344</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d44/crc32_8c_source.html#l00566">566</a> of file <a class="el" href="../../d7/d44/crc32_8c_source.html">crc32.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l00372">crc32_combine_()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l00361">gf2_matrix_square()</a>.</p>
+<p>References <a class="el" href="../../d7/d44/crc32_8c_source.html#l00542">multmodp()</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="ab5e9ce61df5c0090a4c91ed4df20bd15"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> <a class="el" href="../../d7/d44/crc32_8c.html#a388bdea9cd672b42ff9d424c3357a71c">gf2_matrix_times</a> OF </td>
-          <td>(</td>
-          <td class="paramtype">(unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> vec)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a97302400540a4804a933ce8f829f1517"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> void <a class="el" href="../../d7/d44/crc32_8c.html#a797362ba54180ad549b381abfcde80c3">gf2_matrix_square</a> OF </td>
-          <td>(</td>
-          <td class="paramtype">(unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *square, unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a3c7b35ad9dab18b8310343c201f7b27e">long</a> *mat)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aafbb122e835f0f7f8e60a29d785fc0a9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a> <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> <a class="el" href="../../d7/d44/crc32_8c.html#a36a8eb95bf402949b5a68f7157df7ca2">crc32_combine_</a> OF </td>
-          <td>(</td>
-          <td class="paramtype">(<a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc1, <a class="el" href="../../de/d95/zconf_8h.html#a154b3b80120c903a368fec5f11f3007a">uLong</a> crc2, <a class="el" href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a> len2)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Referenced by <a class="el" href="../../d7/d44/crc32_8c_source.html#l01072">crc32_combine64()</a>, and <a class="el" href="../../d7/d44/crc32_8c_source.html#l01093">crc32_combine_gen64()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:28:03 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

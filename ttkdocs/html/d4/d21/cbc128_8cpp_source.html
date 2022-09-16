@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d3/d19/cbc128_8h.html#a5cbe79f5b3a935a6e49ac72e3f3e4fb2">    8</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d21/cbc128_8cpp.html#a5cbe79f5b3a935a6e49ac72e3f3e4fb2">CRYPTO_cbc128_encrypt</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *in, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *out,</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                           <span class="keywordtype">size_t</span> len, <span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                           <span class="keywordtype">size_t</span> len, <span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>,</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                           <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ivec[16], <a class="code" href="../../d3/d19/cbc128_8h.html#a3be4f2f2fbba3b92b026d8072dd6c3ad">block128_f</a> block) </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">while</span> (len &gt;= 16) {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">for</span> (n = 0; n &lt; 16; ++n)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                out[n] = in[n] ^ iv[n];</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            iv = out;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            len -= 16;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            in += 16;</div>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">for</span> (n = 0; n &lt; 16; n += <span class="keyword">sizeof</span>(size_t))</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                *(<span class="keywordtype">size_t</span> *) (out + n) =</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        *(<span class="keywordtype">size_t</span> *) (in + n) ^ *(<span class="keywordtype">size_t</span> *) (iv + n);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            iv = out;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            len -= 16;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            in += 16;</div>
@@ -124,7 +124,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            out[n] = in[n] ^ iv[n];</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> (; n &lt; 16; ++n)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            out[n] = iv[n];</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        (*block)(out, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        iv = out;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (len &lt;= 16)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">break</span>;</div>
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d3/d19/cbc128_8h.html#a009400dbb93db1cb23550cdb66eac5ad">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d21/cbc128_8cpp.html#a009400dbb93db1cb23550cdb66eac5ad">CRYPTO_cbc128_decrypt</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *in, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *out,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                           <span class="keywordtype">size_t</span> len, <span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                           <span class="keywordtype">size_t</span> len, <span class="keyword">const</span> <span class="keywordtype">void</span> *<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                           <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ivec[16], <a class="code" href="../../d3/d19/cbc128_8h.html#a3be4f2f2fbba3b92b026d8072dd6c3ad">block128_f</a> block) </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d4/d21/cbc128_8cpp.html#a4a08897c30cd03e8f3b9d908d69778a7">STRICT_ALIGNMENT</a> &amp;&amp;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            ((<span class="keywordtype">size_t</span>) in | (<span class="keywordtype">size_t</span>) out | (<span class="keywordtype">size_t</span>) ivec) % <span class="keyword">sizeof</span>(size_t) != 0) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">while</span> (len &gt;= 16) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                (*block)(in, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                (*block)(in, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">for</span> (n = 0; n &lt; 16; ++n)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    out[n] ^= iv[n];</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                iv = in;</div>
@@ -167,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">while</span> (len &gt;= 16) {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordtype">size_t</span> *out_t = (<span class="keywordtype">size_t</span> *) out, *iv_t = (<span class="keywordtype">size_t</span> *) iv;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                (*block)(in, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                (*block)(in, out, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">for</span> (n = 0; n &lt; 16 / <span class="keyword">sizeof</span>(size_t); n++)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    out_t[n] ^= iv_t[n];</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                iv = in;</div>
@@ -182,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            ((<span class="keywordtype">size_t</span>) in | (<span class="keywordtype">size_t</span>) out | (<span class="keywordtype">size_t</span>) ivec) % <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>) != 0) {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">while</span> (len &gt;= 16) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">for</span> (n = 0; n &lt; 16; ++n) {</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    c = in[n];</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    out[n] = tmp.c[n] ^ ivec[n];</div>
@@ -197,7 +197,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordtype">size_t</span> c, *out_t = (<span class="keywordtype">size_t</span> *) out, *ivec_t = (<span class="keywordtype">size_t</span> *) ivec;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">size_t</span> *in_t = (<span class="keyword">const</span> <span class="keywordtype">size_t</span> *) in;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">for</span> (n = 0; n &lt; 16 / <span class="keyword">sizeof</span>(size_t); n++) {</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    c = in_t[n];</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    out_t[n] = tmp.t[n] ^ ivec_t[n];</div>
@@ -212,7 +212,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">while</span> (len) {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a>);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        (*block)(in, tmp.c, <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">for</span> (n = 0; n &lt; 16 &amp;&amp; n &lt; len; ++n) {</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            c = in[n];</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            out[n] = tmp.c[n] ^ ivec[n];</div>
@@ -228,16 +228,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        out += 16;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="cbc128_8h_html_a3be4f2f2fbba3b92b026d8072dd6c3ad"><div class="ttname"><a href="../../d3/d19/cbc128_8h.html#a3be4f2f2fbba3b92b026d8072dd6c3ad">block128_f</a></div><div class="ttdeci">void(* block128_f)(const unsigned char in[16], unsigned char out[16], const void *key)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d19/cbc128_8h_source.html#l00015">cbc128.h:15</a></div></div>
 <div class="ttc" id="cbc128_8cpp_html_a009400dbb93db1cb23550cdb66eac5ad"><div class="ttname"><a href="../../d4/d21/cbc128_8cpp.html#a009400dbb93db1cb23550cdb66eac5ad">CRYPTO_cbc128_decrypt</a></div><div class="ttdeci">void CRYPTO_cbc128_decrypt(const unsigned char *in, unsigned char *out, size_t len, const void *key, unsigned char ivec[16], block128_f block)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d21/cbc128_8cpp_source.html#l00059">cbc128.cpp:59</a></div></div>
-<div class="ttc" id="musiclrcfromkrc_8cpp_html_ad706e4249347c1cd1381934a5691137d"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#ad706e4249347c1cd1381934a5691137d">key</a></div><div class="ttdeci">static const wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="cbc128_8cpp_html_a4a08897c30cd03e8f3b9d908d69778a7"><div class="ttname"><a href="../../d4/d21/cbc128_8cpp.html#a4a08897c30cd03e8f3b9d908d69778a7">STRICT_ALIGNMENT</a></div><div class="ttdeci">#define STRICT_ALIGNMENT</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d21/cbc128_8cpp_source.html#l00005">cbc128.cpp:5</a></div></div>
 <div class="ttc" id="cbc128_8h_html"><div class="ttname"><a href="../../d3/d19/cbc128_8h.html">cbc128.h</a></div></div>
 <div class="ttc" id="cbc128_8cpp_html_a5cbe79f5b3a935a6e49ac72e3f3e4fb2"><div class="ttname"><a href="../../d4/d21/cbc128_8cpp.html#a5cbe79f5b3a935a6e49ac72e3f3e4fb2">CRYPTO_cbc128_encrypt</a></div><div class="ttdeci">void CRYPTO_cbc128_encrypt(const unsigned char *in, unsigned char *out, size_t len, const void *key, unsigned char ivec[16], block128_f block)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d21/cbc128_8cpp_source.html#l00008">cbc128.cpp:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:47 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

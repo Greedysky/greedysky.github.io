@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -85,35 +85,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QPropertyAnimation&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../df/d02/class_music_songs_list_function_widget.html#a143a76e1c6d369a9943604a08827bab8">    8</a></span>&#160;<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a143a76e1c6d369a9943604a08827bab8">MusicSongsListFunctionWidget::MusicSongsListFunctionWidget</a>(QWidget *parent)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QLabel(parent)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    setWindowFlags(Qt::FramelessWindowHint);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QHBoxLayout *layout = <span class="keyword">new</span> QHBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a> = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>-&gt;setObjectName(<span class="stringliteral">&quot;mainWidget&quot;</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>-&gt;setStyleSheet(<span class="stringliteral">&quot;#mainWidget{border-image: url(:/tiny/lb_function_normal); }&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    layout-&gt;addWidget(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    resize(55, 26);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QToolButton *locationButton = <span class="keyword">new</span> QToolButton(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QToolButton *searchButton = <span class="keyword">new</span> QToolButton(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    locationButton-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a49a07c4a9e3725832c87c47a15229c7c">MusicUIObject::MQSSTinyBtnLocation</a>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    locationButton-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    locationButton-&gt;setGeometry(1, 1, 24, 24);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    searchButton-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a69a9a35b11197e667ea5daf123602cf6">MusicUIObject::MQSSTinyBtnLocalSearch</a>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    searchButton-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    searchButton-&gt;setGeometry(29, 1, 24, 24);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    connect(locationButton, SIGNAL(clicked()), <a class="code" href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a>(), SLOT(musicCurrentPlayLocation()));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    connect(searchButton, SIGNAL(clicked()), parent, SLOT(showSearchWidget()));</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a714cbf727b4d5e036596f725c2c2fbd4">m_currentAnimationValue</a> = 1;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QLabel(parent),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      m_currentAnimationValue(1)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    setWindowFlags(Qt::FramelessWindowHint);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setAttribute(Qt::WA_TranslucentBackground);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QHBoxLayout *layout = <span class="keyword">new</span> QHBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a> = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>-&gt;setObjectName(<span class="stringliteral">&quot;mainWidget&quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>-&gt;setStyleSheet(<span class="stringliteral">&quot;#mainWidget{border-image: url(:/tiny/lb_function_normal); }&quot;</span>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    layout-&gt;addWidget(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    resize(55, 26);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QToolButton *locationButton = <span class="keyword">new</span> QToolButton(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QToolButton *searchButton = <span class="keyword">new</span> QToolButton(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    locationButton-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a49a07c4a9e3725832c87c47a15229c7c">MusicUIObject::MQSSTinyBtnLocation</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    locationButton-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    locationButton-&gt;setGeometry(1, 1, 24, 24);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    searchButton-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a69a9a35b11197e667ea5daf123602cf6">MusicUIObject::MQSSTinyBtnLocalSearch</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    searchButton-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    searchButton-&gt;setGeometry(29, 1, 24, 24);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    connect(locationButton, SIGNAL(clicked()), <a class="code" href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a>(), SLOT(musicCurrentPlayLocation()));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    connect(searchButton, SIGNAL(clicked()), parent, SLOT(showSearchWidget()));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#aa651bcb8a70a74264eaaa1d6f2db60be">m_timer</a>.setInterval(3 * <a class="code" href="../../dd/d01/musicnumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    connect(&amp;<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#aa651bcb8a70a74264eaaa1d6f2db60be">m_timer</a>, SIGNAL(timeout()), SLOT(<a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a35e46ea0c45d1984e61a909c92f6a459">leaveTimeout</a>()));</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
@@ -182,14 +182,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="../../df/d02/class_music_songs_list_function_widget.html#a9f1a912fc82e2cdcf3d5c4b6bc7fa4a0">m_mainWidget</a>-&gt;setStyleSheet(<span class="stringliteral">&quot;#mainWidget{border-image: url(:/tiny/lb_function_normal); }&quot;</span>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 <div class="ttc" id="namespace_music_u_i_object_html_a49a07c4a9e3725832c87c47a15229c7c"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a49a07c4a9e3725832c87c47a15229c7c">MusicUIObject::MQSSTinyBtnLocation</a></div><div class="ttdeci">const QString MQSSTinyBtnLocation</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d37/musictinyuiobject_8h_source.html#l00132">musictinyuiobject.h:132</a></div></div>
-<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00111">musicapplication.cpp:111</a></div></div>
+<div class="ttc" id="class_music_application_html_ae136c193d051f02d052da8ac7951c69a"><div class="ttname"><a href="../../db/def/class_music_application.html#ae136c193d051f02d052da8ac7951c69a">MusicApplication::instance</a></div><div class="ttdeci">static MusicApplication * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00109">musicapplication.cpp:109</a></div></div>
 <div class="ttc" id="musicnumberdefine_8h_html_a43541d3fbed9208fda44164de1db7845"><div class="ttname"><a href="../../dd/d01/musicnumberdefine_8h.html#a43541d3fbed9208fda44164de1db7845">MT_MS</a></div><div class="ttdeci">#define MT_MS</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d01/musicnumberdefine_8h_source.html#l00024">musicnumberdefine.h:24</a></div></div>
 <div class="ttc" id="class_music_songs_list_function_widget_html_adb55fbc1d1995fb19eb9ae8196e87880"><div class="ttname"><a href="../../df/d02/class_music_songs_list_function_widget.html#adb55fbc1d1995fb19eb9ae8196e87880">MusicSongsListFunctionWidget::enterEvent</a></div><div class="ttdeci">virtual void enterEvent(QtEnterEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dcb/musicsongslistfunctionwidget_8cpp_source.html#l00089">musicsongslistfunctionwidget.cpp:89</a></div></div>
 <div class="ttc" id="musicsongslistfunctionwidget_8h_html"><div class="ttname"><a href="../../d8/da4/musicsongslistfunctionwidget_8h.html">musicsongslistfunctionwidget.h</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a69a9a35b11197e667ea5daf123602cf6"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a69a9a35b11197e667ea5daf123602cf6">MusicUIObject::MQSSTinyBtnLocalSearch</a></div><div class="ttdeci">const QString MQSSTinyBtnLocalSearch</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d37/musictinyuiobject_8h_source.html#l00122">musictinyuiobject.h:122</a></div></div>
 <div class="ttc" id="musicapplication_8h_html"><div class="ttname"><a href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a></div></div>
 <div class="ttc" id="class_music_songs_list_function_widget_html_a89bb0261e72369c8c95af8628bbd0bbc"><div class="ttname"><a href="../../df/d02/class_music_songs_list_function_widget.html#a89bb0261e72369c8c95af8628bbd0bbc">MusicSongsListFunctionWidget::m_animation</a></div><div class="ttdeci">QPropertyAnimation * m_animation</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/da4/musicsongslistfunctionwidget_8h_source.html#l00076">musicsongslistfunctionwidget.h:76</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_a4114c390bfece4ce512bab28832337c8"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a></div><div class="ttdeci">#define QtEnterEvent</div><div class="ttdoc">Event enter. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00205">ttkqtwrapper.h:205</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_a4114c390bfece4ce512bab28832337c8"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a></div><div class="ttdeci">#define QtEnterEvent</div><div class="ttdoc">Event enter. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00210">ttkqtwrapper.h:210</a></div></div>
 <div class="ttc" id="class_music_songs_list_function_widget_html_a2ef35f1ebc8bc64603c1d6e3546f5a08"><div class="ttname"><a href="../../df/d02/class_music_songs_list_function_widget.html#a2ef35f1ebc8bc64603c1d6e3546f5a08">MusicSongsListFunctionWidget::active</a></div><div class="ttdeci">void active()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dcb/musicsongslistfunctionwidget_8cpp_source.html#l00054">musicsongslistfunctionwidget.cpp:54</a></div></div>
 <div class="ttc" id="class_music_songs_list_function_widget_html_ab405fe0d25367e05fd8a8a9aa6b97d6c"><div class="ttname"><a href="../../df/d02/class_music_songs_list_function_widget.html#ab405fe0d25367e05fd8a8a9aa6b97d6c">MusicSongsListFunctionWidget::leaveEvent</a></div><div class="ttdeci">virtual void leaveEvent(QEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dcb/musicsongslistfunctionwidget_8cpp_source.html#l00099">musicsongslistfunctionwidget.cpp:99</a></div></div>
 <div class="ttc" id="musictinyuiobject_8h_html"><div class="ttname"><a href="../../df/d37/musictinyuiobject_8h.html">musictinyuiobject.h</a></div></div>
@@ -207,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:11 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:45 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -114,482 +114,483 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d0/ddb/class_q_kugou_window_private.html#a4c4ebfb79ad4b62ab7b6650484dc2ef6">   40</a></span>&#160;<a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a4c4ebfb79ad4b62ab7b6650484dc2ef6">QKugouWindowPrivate::QKugouWindowPrivate</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a179160910389d1bf89568319cc5d37a9">m_buttonGroup</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#ac573d275404c83a83f1cfdc3ea64143b">m_topWidget</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#af62818dbee1ac33aab9e0c15f8d57933">m_webView</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">   47</a></span>&#160;<a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">QKugouWindowPrivate::~QKugouWindowPrivate</a>()</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a179160910389d1bf89568319cc5d37a9">m_buttonGroup</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#ac573d275404c83a83f1cfdc3ea64143b">m_topWidget</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#af62818dbee1ac33aab9e0c15f8d57933">m_webView</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    : m_webView(nullptr),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      m_topWidget(nullptr),</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      m_buttonGroup(nullptr)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">   48</a></span>&#160;<a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">QKugouWindowPrivate::~QKugouWindowPrivate</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#a179160910389d1bf89568319cc5d37a9">m_buttonGroup</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#ac573d275404c83a83f1cfdc3ea64143b">m_topWidget</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/ddb/class_q_kugou_window_private.html#af62818dbee1ac33aab9e0c15f8d57933">m_webView</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#abe5517e7a49a07d8698d5a5d940e21ed">   56</a></span>&#160;<a class="code" href="../../d9/de8/class_q_kugou_window.html#abe5517e7a49a07d8698d5a5d940e21ed">QKugouWindow::QKugouWindow</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5">KuGouType</a> type, QWidget *parent)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    : QWidget(parent)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QWebSettings *settings = QWebSettings::globalSettings();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    settings-&gt;setAttribute(QWebSettings::PluginsEnabled, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    settings-&gt;setAttribute(QWebSettings::JavascriptEnabled, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    settings-&gt;setAttribute(QWebSettings::DeveloperExtrasEnabled, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    settings-&gt;setAttribute(QWebSettings::JavascriptCanOpenWindows, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    QWebEngineSettings *settings = QWebEngineSettings::defaultSettings();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::PluginsEnabled, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::JavascriptEnabled, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">switch</span>(type)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5aa7a62fa3418ac9ce05dd048df91c8c84">KuGouSong</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">createKugouSongWidget</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a1836295740f91ac80e5b8e9ca77f48eb">KuGouRadio</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">createKugouRadioWidget</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a89af3f2c724ba4697b0979b1915fe05d">KuGouList</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">createKugouListWidget</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a565a89421629dfa316f23c0088eee3f1">KugouMovie</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">createKugouMovieWidget</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5ab54382c36fdace2583e04cb3f29533f5">KuGouSingle</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">createKugouSingleWidget</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">   87</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">QKugouWindow::setUrl</a>(<span class="keyword">const</span> QString &amp;url)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QAxWidget *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        w-&gt;dynamicCall(<span class="stringliteral">&quot;Navigate(const QString&amp;)&quot;</span>, url);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        w-&gt;setUrl(url);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        w-&gt;setUrl(url);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    Q_UNUSED(url);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">  116</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">QKugouWindow::goBack</a>()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    QTimer::singleShot(1, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView), SLOT(GoBack()));</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        w-&gt;back();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        w-&gt;back();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">  140</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">QKugouWindow::refresh</a>()</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    QTimer::singleShot(1, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView), SLOT(Refresh()));</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        w-&gt;reload();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">if</span>(w)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        w-&gt;reload();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">  164</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">QKugouWindow::kugouSongIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;{</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#ace9310d7e83f5d02a01620c62a7e9153">QKugouUrl::makeSongRecommendUrl</a>();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#ace9310d7e83f5d02a01620c62a7e9153">QKugouUrl::makeSongRecommendUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a76dbacd8dfd052ad2f7a5932ee0f1954">QKugouUrl::makeSongRankUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a2fda502a5d1353d800e8fc806df7bdd8">QKugouUrl::makeSongSingerUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">case</span> 3: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a7413df634b34f6c103d93f2a5fc09846">QKugouUrl::makeSongCategoryUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">  180</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">QKugouWindow::kugouRadioIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a5c8ea71c65a738aee184513d0712a3a5">QKugouUrl::makeRadioPublicUrl</a>();</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a5c8ea71c65a738aee184513d0712a3a5">QKugouUrl::makeRadioPublicUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a45ee4b3c7e9bc786f6ea001ccc29a69d">QKugouUrl::makeRadioHighFmUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a603b721c2d398cba0da2916b687f43b0">QKugouUrl::makeRadioFxUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">  195</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">QKugouWindow::kugouMVIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;{</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#afaa46c589219859d09930e84ae1f8750">QKugouUrl::makeMVRadioUrl</a>();</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#afaa46c589219859d09930e84ae1f8750">QKugouUrl::makeMVRadioUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a9668ce0ef232ed26c839985635cdfdbe">QKugouUrl::makeMVRecommendUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a678e068d261747e3152a0e8799f8d7d5">QKugouUrl::makeMVFanxingUrl</a>(); <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">  210</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">QKugouWindow::createWebViewer</a>()</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;{</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span>(d-&gt;m_webView)</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keyword">delete</span> d-&gt;m_webView;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    QAxWidget *view = <span class="keyword">new</span> QAxWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    view-&gt;setWindowFlags(Qt::FramelessWindowHint);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    view-&gt;setMouseTracking(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    view-&gt;setControl(<span class="stringliteral">&quot;{8856F961-340A-11D0-A96B-00C04FD705A2}&quot;</span>); <span class="comment">//ie web view</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    view-&gt;setObjectName(<span class="stringliteral">&quot;WebWidget&quot;</span>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    view-&gt;setFocusPolicy(Qt::StrongFocus);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;DisplayAlerts&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;DisplayScrollBars&quot;</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;Silent&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    d-&gt;m_webView = view;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    QWebView *view = <span class="keyword">new</span> QWebView(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    view-&gt;page()-&gt;mainFrame()-&gt;setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    view-&gt;page()-&gt;setLinkDelegationPolicy(QWebPage::DelegateAllLinks);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    d-&gt;m_webView = view;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    QWebEngineView *view = <span class="keyword">new</span> QWebEngineView(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    d-&gt;m_webView = view;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">  241</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">QKugouWindow::createKugouSongWidget</a>()</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;{</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    topLayout-&gt;setSpacing(25);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongRecommend &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongRank &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongSinger &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongCategory &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 3);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">kugouSongIndexChanged</a>);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(3));</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    d-&gt;m_buttonGroup-&gt;button(3)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">kugouSongIndexChanged</a>(0);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    layout-&gt;addWidget(pix);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">  299</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">QKugouWindow::createKugouRadioWidget</a>()</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;{</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    topLayout-&gt;setSpacing(50);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioPublic &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioHigh &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioFx &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">kugouRadioIndexChanged</a>);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">kugouRadioIndexChanged</a>(0);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    layout-&gt;addWidget(pix);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">  352</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">QKugouWindow::createKugouListWidget</a>()</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;{</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="preprocessor">#  ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView)-&gt;dynamicCall(<span class="stringliteral">&quot;Navigate(const QString&amp;)&quot;</span>, <a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="preprocessor">#    ifdef TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView)-&gt;setUrl(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="preprocessor">#    else</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView)-&gt;setUrl(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="preprocessor">#    endif</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    layout-&gt;addWidget(pix);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">  381</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">QKugouWindow::createKugouMovieWidget</a>()</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;{</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    topLayout-&gt;setSpacing(50);</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVRadio &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVRecommend &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVFanxing &quot;</span>), d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">kugouMVIndexChanged</a>);</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    topLayout-&gt;addStretch(1);</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">kugouMVIndexChanged</a>(0);</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    layout-&gt;addWidget(pix);</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;}</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
-<div class="line"><a name="l00434"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">  434</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">QKugouWindow::createKugouSingleWidget</a>()</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;{</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    layout-&gt;setSpacing(0);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a25d4df961125d75a5075e7afa2dc7493">QKugouUrl::makeKuiSheUrl</a>());</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    Q_UNUSED(d);</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    layout-&gt;addWidget(pix);</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    setLayout(layout);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;}</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
-<div class="line"><a name="l00455"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">  455</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">QKugouWindow::changeClickedButtonStyle</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;{</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; d-&gt;m_buttonGroup-&gt;buttons().count(); ++i)</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    {</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        d-&gt;m_buttonGroup-&gt;button(i)-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    d-&gt;m_buttonGroup-&gt;button(index)-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#aed82c0a2108b4f152caa23ccd91c9999">MusicUIObject::MQSSPushButtonStyle02</a>);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#ad387650de81aab390b724d8312903cb6">   57</a></span>&#160;<a class="code" href="../../d9/de8/class_q_kugou_window.html#ad387650de81aab390b724d8312903cb6">QKugouWindow::QKugouWindow</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">Module</a> type, QWidget *parent)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    : QWidget(parent)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QWebSettings *settings = QWebSettings::globalSettings();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    settings-&gt;setAttribute(QWebSettings::PluginsEnabled, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    settings-&gt;setAttribute(QWebSettings::JavascriptEnabled, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    settings-&gt;setAttribute(QWebSettings::DeveloperExtrasEnabled, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    settings-&gt;setAttribute(QWebSettings::JavascriptCanOpenWindows, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    QWebEngineSettings *settings = QWebEngineSettings::defaultSettings();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::PluginsEnabled, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::JavascriptEnabled, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    settings-&gt;setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">switch</span>(type)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84">KuGouSong</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">createKugouSongWidget</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa1836295740f91ac80e5b8e9ca77f48eb">KuGouRadio</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">createKugouRadioWidget</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa89af3f2c724ba4697b0979b1915fe05d">KuGouList</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">createKugouListWidget</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa565a89421629dfa316f23c0088eee3f1">KugouMovie</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">createKugouMovieWidget</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaab54382c36fdace2583e04cb3f29533f5">KuGouSingle</a>: <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">createKugouSingleWidget</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">QKugouWindow::setUrl</a>(<span class="keyword">const</span> QString &amp;url)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    QAxWidget *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        w-&gt;dynamicCall(<span class="stringliteral">&quot;Navigate(const QString&amp;)&quot;</span>, url);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        w-&gt;setUrl(url);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        w-&gt;setUrl(url);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#  else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Q_UNUSED(url);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">QKugouWindow::goBack</a>()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    QTimer::singleShot(1, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView), SLOT(GoBack()));</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        w-&gt;back();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        w-&gt;back();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#  else</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">  141</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">QKugouWindow::refresh</a>()</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    QTimer::singleShot(1, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView), SLOT(Refresh()));</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    QWebView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        w-&gt;reload();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    QWebEngineView *w = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span>(w)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        w-&gt;reload();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#  else</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">  165</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">QKugouWindow::kugouSongIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#ace9310d7e83f5d02a01620c62a7e9153">QKugouUrl::makeSongRecommendUrl</a>();</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#ace9310d7e83f5d02a01620c62a7e9153">QKugouUrl::makeSongRecommendUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a76dbacd8dfd052ad2f7a5932ee0f1954">QKugouUrl::makeSongRankUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a2fda502a5d1353d800e8fc806df7bdd8">QKugouUrl::makeSongSingerUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">case</span> 3: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a7413df634b34f6c103d93f2a5fc09846">QKugouUrl::makeSongCategoryUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">  181</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">QKugouWindow::kugouRadioIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a5c8ea71c65a738aee184513d0712a3a5">QKugouUrl::makeRadioPublicUrl</a>();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a5c8ea71c65a738aee184513d0712a3a5">QKugouUrl::makeRadioPublicUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a45ee4b3c7e9bc786f6ea001ccc29a69d">QKugouUrl::makeRadioHighFmUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a603b721c2d398cba0da2916b687f43b0">QKugouUrl::makeRadioFxUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">  196</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">QKugouWindow::kugouMVIndexChanged</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a>(index);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    QString url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#afaa46c589219859d09930e84ae1f8750">QKugouUrl::makeMVRadioUrl</a>();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">switch</span>(index)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">case</span> 0: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#afaa46c589219859d09930e84ae1f8750">QKugouUrl::makeMVRadioUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">case</span> 1: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a9668ce0ef232ed26c839985635cdfdbe">QKugouUrl::makeMVRecommendUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">case</span> 2: url = <a class="code" href="../../db/d9b/class_q_kugou_url.html#a678e068d261747e3152a0e8799f8d7d5">QKugouUrl::makeMVFanxingUrl</a>(); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(url);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">  211</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">QKugouWindow::createWebViewer</a>()</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span>(d-&gt;m_webView)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keyword">delete</span> d-&gt;m_webView;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    QAxWidget *view = <span class="keyword">new</span> QAxWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    view-&gt;setWindowFlags(Qt::FramelessWindowHint);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    view-&gt;setMouseTracking(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    view-&gt;setControl(<span class="stringliteral">&quot;{8856F961-340A-11D0-A96B-00C04FD705A2}&quot;</span>); <span class="comment">//ie web view</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    view-&gt;setObjectName(<span class="stringliteral">&quot;WebWidget&quot;</span>);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    view-&gt;setFocusPolicy(Qt::StrongFocus);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;DisplayAlerts&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;DisplayScrollBars&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    view-&gt;setProperty(<span class="stringliteral">&quot;Silent&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    d-&gt;m_webView = view;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#  ifdef TTK_WEBKIT</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    QWebView *view = <span class="keyword">new</span> QWebView(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    view-&gt;page()-&gt;mainFrame()-&gt;setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    view-&gt;page()-&gt;setLinkDelegationPolicy(QWebPage::DelegateAllLinks);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    d-&gt;m_webView = view;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">#  elif defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    QWebEngineView *view = <span class="keyword">new</span> QWebEngineView(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    d-&gt;m_webView = view;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">  242</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">QKugouWindow::createKugouSongWidget</a>()</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    topLayout-&gt;setSpacing(25);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongRecommend &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongRank &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongSinger &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; SongCategory &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 3);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">kugouSongIndexChanged</a>);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(3));</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    d-&gt;m_buttonGroup-&gt;button(3)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">kugouSongIndexChanged</a>(0);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    layout-&gt;addWidget(pix);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;}</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">  300</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">QKugouWindow::createKugouRadioWidget</a>()</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    topLayout-&gt;setSpacing(50);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioPublic &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioHigh &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; RadioFx &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">kugouRadioIndexChanged</a>);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">kugouRadioIndexChanged</a>(0);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    layout-&gt;addWidget(pix);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">  353</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">QKugouWindow::createKugouListWidget</a>()</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;{</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor">#  ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QAxWidget*, d-&gt;m_webView)-&gt;dynamicCall(<span class="stringliteral">&quot;Navigate(const QString&amp;)&quot;</span>, <a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="preprocessor">#  else</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="preprocessor">#    ifdef TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebEngineView*, d-&gt;m_webView)-&gt;setUrl(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="preprocessor">#    else</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QWebView*, d-&gt;m_webView)-&gt;setUrl(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a>());</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="preprocessor">#    endif</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    layout-&gt;addWidget(pix);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;}</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
+<div class="line"><a name="l00382"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">  382</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">QKugouWindow::createKugouMovieWidget</a>()</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;{</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    d-&gt;m_topWidget = <span class="keyword">new</span> QWidget(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    d-&gt;m_topWidget-&gt;setFixedHeight(25);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    d-&gt;m_topWidget-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a> + <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a>);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    QHBoxLayout *topLayout = <span class="keyword">new</span> QHBoxLayout(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    topLayout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    topLayout-&gt;setSpacing(50);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    d-&gt;m_buttonGroup = <span class="keyword">new</span> QButtonGroup(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    QPushButton *bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVRadio &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 0);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVRecommend &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 1);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    bt = <span class="keyword">new</span> QPushButton(tr(<span class="stringliteral">&quot; MVFanxing &quot;</span>), d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    bt-&gt;setCursor(QCursor(Qt::PointingHandCursor));</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    d-&gt;m_buttonGroup-&gt;addButton(bt, 2);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a>(d-&gt;m_buttonGroup, <span class="keyword">this</span>, <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">kugouMVIndexChanged</a>);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(0));</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(1));</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    topLayout-&gt;addWidget(d-&gt;m_buttonGroup-&gt;button(2));</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    topLayout-&gt;addStretch(1);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    d-&gt;m_buttonGroup-&gt;button(0)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    d-&gt;m_buttonGroup-&gt;button(1)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    d-&gt;m_buttonGroup-&gt;button(2)-&gt;setFocusPolicy(Qt::NoFocus);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    layout-&gt;addWidget(d-&gt;m_topWidget);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">kugouMVIndexChanged</a>(0);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    layout-&gt;addWidget(pix);</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;}</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;</div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">  435</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">QKugouWindow::createKugouSingleWidget</a>()</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;{</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    QVBoxLayout *layout = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    layout-&gt;setSpacing(0);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    layout-&gt;setContentsMargins(0, 0, 0, 0);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="preprocessor">#if defined TTK_WEBKIT || defined TTK_WEBENGINE</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a>();</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    layout-&gt;addWidget(d-&gt;m_webView);</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <a class="code" href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">setUrl</a>(<a class="code" href="../../db/d9b/class_q_kugou_url.html#a25d4df961125d75a5075e7afa2dc7493">QKugouUrl::makeKuiSheUrl</a>());</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    Q_UNUSED(d);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    QLabel *pix = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    pix-&gt;setAlignment(Qt::AlignCenter);</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    pix-&gt;setStyleSheet(<span class="stringliteral">&quot;background:white;&quot;</span>);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    pix-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/image/lb_no_module&quot;</span>));</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    layout-&gt;addWidget(pix);</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    setLayout(layout);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;}</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
+<div class="line"><a name="l00456"></a><span class="lineno"><a class="line" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">  456</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">QKugouWindow::changeClickedButtonStyle</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;{</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a>);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; d-&gt;m_buttonGroup-&gt;buttons().count(); ++i)</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    {</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        d-&gt;m_buttonGroup-&gt;button(i)-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a>);</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    }</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    d-&gt;m_buttonGroup-&gt;button(index)-&gt;setStyleSheet(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#aed82c0a2108b4f152caa23ccd91c9999">MusicUIObject::MQSSPushButtonStyle02</a>);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;}</div>
 <div class="ttc" id="class_q_kugou_url_html_a76dbacd8dfd052ad2f7a5932ee0f1954"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a76dbacd8dfd052ad2f7a5932ee0f1954">QKugouUrl::makeSongRankUrl</a></div><div class="ttdeci">static QString makeSongRankUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00018">qkugouurl.cpp:18</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_a33623bf413c0222d050e7b824b9705af"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a></div><div class="ttdeci">const QString MQSSWidgetStyle01</div><div class="ttdoc">Widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00469">musicuiobject.h:469</a></div></div>
+<div class="ttc" id="namespace_music_u_i_object_html_a33623bf413c0222d050e7b824b9705af"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a33623bf413c0222d050e7b824b9705af">MusicUIObject::MQSSWidgetStyle01</a></div><div class="ttdeci">const QString MQSSWidgetStyle01</div><div class="ttdoc">Widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00481">musicuiobject.h:481</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a678e068d261747e3152a0e8799f8d7d5"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a678e068d261747e3152a0e8799f8d7d5">QKugouUrl::makeMVFanxingUrl</a></div><div class="ttdeci">static QString makeMVFanxingUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00063">qkugouurl.cpp:63</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a45ee4b3c7e9bc786f6ea001ccc29a69d"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a45ee4b3c7e9bc786f6ea001ccc29a69d">QKugouUrl::makeRadioHighFmUrl</a></div><div class="ttdeci">static QString makeRadioHighFmUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00038">qkugouurl.cpp:38</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5ab54382c36fdace2583e04cb3f29533f5"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5ab54382c36fdace2583e04cb3f29533f5">QKugouWindow::KuGouSingle</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00040">qkugouwindow.h:40</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a7a4ddbe96201423b02f17d4cdddf100a"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">QKugouWindow::kugouRadioIndexChanged</a></div><div class="ttdeci">void kugouRadioIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00180">qkugouwindow.cpp:180</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a7157c7f73a19754efab0b44a2facefe6"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">QKugouWindow::createKugouSingleWidget</a></div><div class="ttdeci">void createKugouSingleWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00434">qkugouwindow.cpp:434</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a8d3b978474980068743bb23880e1f115"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">QKugouWindow::createWebViewer</a></div><div class="ttdeci">void createWebViewer()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00210">qkugouwindow.cpp:210</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a7a4ddbe96201423b02f17d4cdddf100a"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">QKugouWindow::kugouRadioIndexChanged</a></div><div class="ttdeci">void kugouRadioIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00181">qkugouwindow.cpp:181</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a7157c7f73a19754efab0b44a2facefe6"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">QKugouWindow::createKugouSingleWidget</a></div><div class="ttdeci">void createKugouSingleWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00435">qkugouwindow.cpp:435</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a8d3b978474980068743bb23880e1f115"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">QKugouWindow::createWebViewer</a></div><div class="ttdeci">void createWebViewer()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00211">qkugouwindow.cpp:211</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_afaa46c589219859d09930e84ae1f8750"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#afaa46c589219859d09930e84ae1f8750">QKugouUrl::makeMVRadioUrl</a></div><div class="ttdeci">static QString makeMVRadioUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00053">qkugouurl.cpp:53</a></div></div>
 <div class="ttc" id="class_q_kugou_window_private_html_ac573d275404c83a83f1cfdc3ea64143b"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#ac573d275404c83a83f1cfdc3ea64143b">QKugouWindowPrivate::m_topWidget</a></div><div class="ttdeci">QWidget * m_topWidget</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00036">qkugouwindow.cpp:36</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_ab0d2c59100e899cb00b8b5b31a62656c"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">QKugouWindow::createKugouListWidget</a></div><div class="ttdeci">void createKugouListWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00352">qkugouwindow.cpp:352</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_ae3dfef0bfc107d842c1996e1b3699159"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">QKugouWindow::createKugouRadioWidget</a></div><div class="ttdeci">void createKugouRadioWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00299">qkugouwindow.cpp:299</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_ab0d2c59100e899cb00b8b5b31a62656c"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">QKugouWindow::createKugouListWidget</a></div><div class="ttdeci">void createKugouListWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00353">qkugouwindow.cpp:353</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bcaab54382c36fdace2583e04cb3f29533f5"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaab54382c36fdace2583e04cb3f29533f5">QKugouWindow::KuGouSingle</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00040">qkugouwindow.h:40</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_ae3dfef0bfc107d842c1996e1b3699159"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">QKugouWindow::createKugouRadioWidget</a></div><div class="ttdeci">void createKugouRadioWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00300">qkugouwindow.cpp:300</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a603b721c2d398cba0da2916b687f43b0"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a603b721c2d398cba0da2916b687f43b0">QKugouUrl::makeRadioFxUrl</a></div><div class="ttdeci">static QString makeRadioFxUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00043">qkugouurl.cpp:43</a></div></div>
-<div class="ttc" id="class_q_kugou_window_private_html_a3fd65274770281de64ebdf93f4ed6c19"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">QKugouWindowPrivate::~QKugouWindowPrivate</a></div><div class="ttdeci">~QKugouWindowPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00047">qkugouwindow.cpp:47</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5a1836295740f91ac80e5b8e9ca77f48eb"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a1836295740f91ac80e5b8e9ca77f48eb">QKugouWindow::KuGouRadio</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00037">qkugouwindow.h:37</a></div></div>
+<div class="ttc" id="class_q_kugou_window_private_html_a3fd65274770281de64ebdf93f4ed6c19"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#a3fd65274770281de64ebdf93f4ed6c19">QKugouWindowPrivate::~QKugouWindowPrivate</a></div><div class="ttdeci">~QKugouWindowPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00048">qkugouwindow.cpp:48</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_aed82c0a2108b4f152caa23ccd91c9999"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#aed82c0a2108b4f152caa23ccd91c9999">MusicUIObject::MQSSPushButtonStyle02</a></div><div class="ttdeci">const QString MQSSPushButtonStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00190">musicuiobject.h:190</a></div></div>
 <div class="ttc" id="class_q_kugou_window_private_html_a179160910389d1bf89568319cc5d37a9"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#a179160910389d1bf89568319cc5d37a9">QKugouWindowPrivate::m_buttonGroup</a></div><div class="ttdeci">QButtonGroup * m_buttonGroup</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00037">qkugouwindow.cpp:37</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5a565a89421629dfa316f23c0088eee3f1"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a565a89421629dfa316f23c0088eee3f1">QKugouWindow::KugouMovie</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00039">qkugouwindow.h:39</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_a8e99c2deac9e531f7ff20d23d05767cd"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a></div><div class="ttdeci">#define QtButtonGroupConnect(p, q, f)</div><div class="ttdoc">Button group connect. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00153">ttkqtwrapper.h:153</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_aae57bbb374997c85532e7b03c9848e93"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">QKugouWindow::goBack</a></div><div class="ttdeci">void goBack()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00116">qkugouwindow.cpp:116</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_a8e99c2deac9e531f7ff20d23d05767cd"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">QtButtonGroupConnect</a></div><div class="ttdeci">#define QtButtonGroupConnect(p, q, f)</div><div class="ttdoc">Button group connect. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00158">ttkqtwrapper.h:158</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_aae57bbb374997c85532e7b03c9848e93"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#aae57bbb374997c85532e7b03c9848e93">QKugouWindow::goBack</a></div><div class="ttdeci">void goBack()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00117">qkugouwindow.cpp:117</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a7413df634b34f6c103d93f2a5fc09846"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a7413df634b34f6c103d93f2a5fc09846">QKugouUrl::makeSongCategoryUrl</a></div><div class="ttdeci">static QString makeSongCategoryUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00028">qkugouurl.cpp:28</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_ad387650de81aab390b724d8312903cb6"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#ad387650de81aab390b724d8312903cb6">QKugouWindow::QKugouWindow</a></div><div class="ttdeci">QKugouWindow(Module type, QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">qkugouwindow.cpp:57</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a2fda502a5d1353d800e8fc806df7bdd8"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a2fda502a5d1353d800e8fc806df7bdd8">QKugouUrl::makeSongSingerUrl</a></div><div class="ttdeci">static QString makeSongSingerUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00023">qkugouurl.cpp:23</a></div></div>
 <div class="ttc" id="class_q_kugou_window_html"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html">QKugouWindow</a></div><div class="ttdoc">The class of the kugou window widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00030">qkugouwindow.h:30</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a44af96c510e6dbc1a5741b9eb4fd3868"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">QKugouWindow::kugouSongIndexChanged</a></div><div class="ttdeci">void kugouSongIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00164">qkugouwindow.cpp:164</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a44af96c510e6dbc1a5741b9eb4fd3868"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">QKugouWindow::kugouSongIndexChanged</a></div><div class="ttdeci">void kugouSongIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00165">qkugouwindow.cpp:165</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bcaa565a89421629dfa316f23c0088eee3f1"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa565a89421629dfa316f23c0088eee3f1">QKugouWindow::KugouMovie</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00039">qkugouwindow.h:39</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a6aade0915dd32c350595046de7e097ab"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a6aade0915dd32c350595046de7e097ab">QKugouUrl::makeListUrl</a></div><div class="ttdeci">static QString makeListUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00048">qkugouurl.cpp:48</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_ab9edc8b4504e99685f12f382ddbbcba1"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#ab9edc8b4504e99685f12f382ddbbcba1">MusicUIObject::MQSSPushButtonStyle01</a></div><div class="ttdeci">const QString MQSSPushButtonStyle01</div><div class="ttdoc">PushButton. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00183">musicuiobject.h:183</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a5c8ea71c65a738aee184513d0712a3a5"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a5c8ea71c65a738aee184513d0712a3a5">QKugouUrl::makeRadioPublicUrl</a></div><div class="ttdeci">static QString makeRadioPublicUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00033">qkugouurl.cpp:33</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bca"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">QKugouWindow::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00034">qkugouwindow.h:34</a></div></div>
 <div class="ttc" id="qkugouwindow_8h_html"><div class="ttname"><a href="../../d6/d60/qkugouwindow_8h.html">qkugouwindow.h</a></div></div>
 <div class="ttc" id="class_q_kugou_window_private_html_a4c4ebfb79ad4b62ab7b6650484dc2ef6"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#a4c4ebfb79ad4b62ab7b6650484dc2ef6">QKugouWindowPrivate::QKugouWindowPrivate</a></div><div class="ttdeci">QKugouWindowPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00040">qkugouwindow.cpp:40</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5">QKugouWindow::KuGouType</a></div><div class="ttdeci">KuGouType</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00034">qkugouwindow.h:34</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a55bce3f44304e073b5da6d036c34b33a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a></div><div class="ttdeci">#define TTKObject_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00097">ttkglobal.h:97</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bcaa89af3f2c724ba4697b0979b1915fe05d"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa89af3f2c724ba4697b0979b1915fe05d">QKugouWindow::KuGouList</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00038">qkugouwindow.h:38</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a55bce3f44304e073b5da6d036c34b33a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a></div><div class="ttdeci">#define TTKObject_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00095">ttkglobal.h:95</a></div></div>
 <div class="ttc" id="qkugouuiobject_8h_html"><div class="ttname"><a href="../../d7/d33/qkugouuiobject_8h.html">qkugouuiobject.h</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a25d4df961125d75a5075e7afa2dc7493"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a25d4df961125d75a5075e7afa2dc7493">QKugouUrl::makeKuiSheUrl</a></div><div class="ttdeci">static QString makeKuiSheUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00073">qkugouurl.cpp:73</a></div></div>
 <div class="ttc" id="class_q_kugou_window_private_html"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html">QKugouWindowPrivate</a></div><div class="ttdoc">The class of the kugou window widget private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00030">qkugouwindow.cpp:30</a></div></div>
 <div class="ttc" id="class_q_kugou_window_private_html_af62818dbee1ac33aab9e0c15f8d57933"><div class="ttname"><a href="../../d0/ddb/class_q_kugou_window_private.html#af62818dbee1ac33aab9e0c15f8d57933">QKugouWindowPrivate::m_webView</a></div><div class="ttdeci">QWidget * m_webView</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00036">qkugouwindow.cpp:36</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a692b5ade7312cde0cc71928abdb2d8d2"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">QKugouWindow::createKugouMovieWidget</a></div><div class="ttdeci">void createKugouMovieWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00381">qkugouwindow.cpp:381</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a692b5ade7312cde0cc71928abdb2d8d2"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">QKugouWindow::createKugouMovieWidget</a></div><div class="ttdeci">void createKugouMovieWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00382">qkugouwindow.cpp:382</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_ace9310d7e83f5d02a01620c62a7e9153"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#ace9310d7e83f5d02a01620c62a7e9153">QKugouUrl::makeSongRecommendUrl</a></div><div class="ttdeci">static QString makeSongRecommendUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00013">qkugouurl.cpp:13</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5a89af3f2c724ba4697b0979b1915fe05d"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5a89af3f2c724ba4697b0979b1915fe05d">QKugouWindow::KuGouList</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00038">qkugouwindow.h:38</a></div></div>
 <div class="ttc" id="class_q_kugou_url_html_a9668ce0ef232ed26c839985635cdfdbe"><div class="ttname"><a href="../../db/d9b/class_q_kugou_url.html#a9668ce0ef232ed26c839985635cdfdbe">QKugouUrl::makeMVRecommendUrl</a></div><div class="ttdeci">static QString makeMVRecommendUrl()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/dca/qkugouurl_8cpp_source.html#l00058">qkugouurl.cpp:58</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a3c5bcff242d9123c7ef5670495cbcff2"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">QKugouWindow::changeClickedButtonStyle</a></div><div class="ttdeci">void changeClickedButtonStyle(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00455">qkugouwindow.cpp:455</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a3facf1bd28f0322211ff1dddcc3e7dcb"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">QKugouWindow::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00140">qkugouwindow.cpp:140</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a3c5bcff242d9123c7ef5670495cbcff2"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">QKugouWindow::changeClickedButtonStyle</a></div><div class="ttdeci">void changeClickedButtonStyle(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00456">qkugouwindow.cpp:456</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a3facf1bd28f0322211ff1dddcc3e7dcb"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">QKugouWindow::refresh</a></div><div class="ttdeci">void refresh()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00141">qkugouwindow.cpp:141</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a541eb3b79fff7e3c30065820e6c77bc5aa7a62fa3418ac9ce05dd048df91c8c84"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a541eb3b79fff7e3c30065820e6c77bc5aa7a62fa3418ac9ce05dd048df91c8c84">QKugouWindow::KuGouSong</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00036">qkugouwindow.h:36</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84">QKugouWindow::KuGouSong</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00036">qkugouwindow.h:36</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a></div><div class="ttdoc">The class of the ttk private base. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00048">ttkprivate.h:48</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a6e48443804bc5a7160d4aa679dfbdb93"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">QKugouWindow::setUrl</a></div><div class="ttdeci">void setUrl(const QString &amp;url)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00087">qkugouwindow.cpp:87</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_abe5517e7a49a07d8698d5a5d940e21ed"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#abe5517e7a49a07d8698d5a5d940e21ed">QKugouWindow::QKugouWindow</a></div><div class="ttdeci">QKugouWindow(KuGouType type, QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00056">qkugouwindow.cpp:56</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_a810664c5f32f834239e543bf4a7dc013"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">QKugouWindow::createKugouSongWidget</a></div><div class="ttdeci">void createKugouSongWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00241">qkugouwindow.cpp:241</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_af590903deee92a9dcd3a6944b6bb7bcaa1836295740f91ac80e5b8e9ca77f48eb"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa1836295740f91ac80e5b8e9ca77f48eb">QKugouWindow::KuGouRadio</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d60/qkugouwindow_8h_source.html#l00037">qkugouwindow.h:37</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a6e48443804bc5a7160d4aa679dfbdb93"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a6e48443804bc5a7160d4aa679dfbdb93">QKugouWindow::setUrl</a></div><div class="ttdeci">void setUrl(const QString &amp;url)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">qkugouwindow.cpp:88</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_a810664c5f32f834239e543bf4a7dc013"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">QKugouWindow::createKugouSongWidget</a></div><div class="ttdeci">void createKugouSongWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00242">qkugouwindow.cpp:242</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a8eedd09c47b53d5e42ca132295c5e1ef"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a></div><div class="ttdeci">#define TTK_D(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00041">ttkprivate.h:41</a></div></div>
-<div class="ttc" id="class_q_kugou_window_html_acae8602d9783986754dfd71b2d45700a"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">QKugouWindow::kugouMVIndexChanged</a></div><div class="ttdeci">void kugouMVIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00195">qkugouwindow.cpp:195</a></div></div>
+<div class="ttc" id="class_q_kugou_window_html_acae8602d9783986754dfd71b2d45700a"><div class="ttname"><a href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">QKugouWindow::kugouMVIndexChanged</a></div><div class="ttdeci">void kugouMVIndexChanged(int index)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df8/qkugouwindow_8cpp_source.html#l00196">qkugouwindow.cpp:196</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:12 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:48 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

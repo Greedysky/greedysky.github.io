@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -92,14 +92,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    uploadFileIcon-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/tiny/btn_open_file&quot;</span>));</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a> *uploadFile = <span class="keyword">new</span> <a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    uploadFile-&gt;setText(tr(<span class="stringliteral">&quot;Open File&quot;</span>));</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a2a08bed6f9a1ac04c5df20e4f48ee605">MusicUtils::Widget::setLabelFontStyle</a>(uploadFile, <a class="code" href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a245ea9d6b208cbcf7c9944feb5e94f7b">MusicObject::Underline</a>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a2a08bed6f9a1ac04c5df20e4f48ee605">MusicUtils::Widget::setLabelFontStyle</a>(uploadFile, <a class="code" href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a852721aa5fc738dfedff2945d71da439">MusicObject::FontStyleMode::Underline</a>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    connect(uploadFile, SIGNAL(clicked()), SIGNAL(<a class="code" href="../../d0/df9/class_music_open_file_widget.html#a0017b215f804903ec59ca35059dda6ee">uploadFileClicked</a>()));</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QLabel *uploadDirIcon = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    uploadDirIcon-&gt;setPixmap(QPixmap(<span class="stringliteral">&quot;:/tiny/btn_open_files&quot;</span>));</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a> *uploadDir = <span class="keyword">new</span> <a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uploadDir-&gt;setText(tr(<span class="stringliteral">&quot;Open Dir&quot;</span>));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a2a08bed6f9a1ac04c5df20e4f48ee605">MusicUtils::Widget::setLabelFontStyle</a>(uploadDir, <a class="code" href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a245ea9d6b208cbcf7c9944feb5e94f7b">MusicObject::Underline</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a2a08bed6f9a1ac04c5df20e4f48ee605">MusicUtils::Widget::setLabelFontStyle</a>(uploadDir, <a class="code" href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a852721aa5fc738dfedff2945d71da439">MusicObject::FontStyleMode::Underline</a>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    connect(uploadDir, SIGNAL(clicked()), SIGNAL(<a class="code" href="../../d0/df9/class_music_open_file_widget.html#af208774216d73782819108e5abcd2971">uploadDirClicked</a>()));</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    layout-&gt;addWidget(uploadFileIcon, 0, 0, Qt::AlignRight);</div>
@@ -117,8 +117,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> y = (h - height()) / 2;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    move(x, y);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="ttc" id="namespace_music_object_html_a0d8f8dd6eee2cdaf8348979c6dbf2753a852721aa5fc738dfedff2945d71da439"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a852721aa5fc738dfedff2945d71da439">MusicObject::FontStyleMode::Underline</a></div></div>
 <div class="ttc" id="class_music_open_file_widget_html_a8eb8ca1ba904cdd044e7b0bc009f4955"><div class="ttname"><a href="../../d0/df9/class_music_open_file_widget.html#a8eb8ca1ba904cdd044e7b0bc009f4955">MusicOpenFileWidget::MusicOpenFileWidget</a></div><div class="ttdeci">MusicOpenFileWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db1/musicopenfilewidget_8cpp_source.html#l00006">musicopenfilewidget.cpp:6</a></div></div>
-<div class="ttc" id="namespace_music_object_html_a0d8f8dd6eee2cdaf8348979c6dbf2753a245ea9d6b208cbcf7c9944feb5e94f7b"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a0d8f8dd6eee2cdaf8348979c6dbf2753a245ea9d6b208cbcf7c9944feb5e94f7b">MusicObject::Underline</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00207">musicobject.h:207</a></div></div>
 <div class="ttc" id="class_music_open_file_widget_html_a06a17d1bb82599b1dff25b9030caae60"><div class="ttname"><a href="../../d0/df9/class_music_open_file_widget.html#a06a17d1bb82599b1dff25b9030caae60">MusicOpenFileWidget::adjustWidgetRect</a></div><div class="ttdeci">void adjustWidgetRect(int w, int h)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db1/musicopenfilewidget_8cpp_source.html#l00035">musicopenfilewidget.cpp:35</a></div></div>
 <div class="ttc" id="musicopenfilewidget_8h_html"><div class="ttname"><a href="../../dc/d0b/musicopenfilewidget_8h.html">musicopenfilewidget.h</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:07 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

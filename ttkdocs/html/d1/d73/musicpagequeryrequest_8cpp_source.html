@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -80,29 +80,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a href="../../d1/d73/musicpagequeryrequest_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/de8/musicpagequeryrequest_8h.html">musicpagequeryrequest.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="../../da/d84/class_music_page_query_request.html#a5e608f0d1a1631c35d353715f9424233">    3</a></span>&#160;<a class="code" href="../../da/d84/class_music_page_query_request.html#a5e608f0d1a1631c35d353715f9424233">MusicPageQueryRequest::MusicPageQueryRequest</a>(QObject *parent)</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : <a class="code" href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a>(parent)</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="../../da/d84/class_music_page_query_request.html#ab6834a1b9e93631e570dd18c5db1ec18">m_pageSize</a> = 0;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="../../da/d84/class_music_page_query_request.html#a1ef556363e73fb42b577370485233863">m_totalSize</a> = 0;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../da/d84/class_music_page_query_request.html#a7f1103056bfdd8f03e2006bcdc2f8e6d">m_pageIndex</a> = 0;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">MusicPageQueryRequest::startToPage</a>(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a>)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_UNUSED(offset);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="ttc" id="class_music_page_query_request_html_a1ef556363e73fb42b577370485233863"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a1ef556363e73fb42b577370485233863">MusicPageQueryRequest::m_totalSize</a></div><div class="ttdeci">int m_totalSize</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de8/musicpagequeryrequest_8h_source.html#l00056">musicpagequeryrequest.h:56</a></div></div>
-<div class="ttc" id="class_music_page_query_request_html_a7f1103056bfdd8f03e2006bcdc2f8e6d"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a7f1103056bfdd8f03e2006bcdc2f8e6d">MusicPageQueryRequest::m_pageIndex</a></div><div class="ttdeci">int m_pageIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de8/musicpagequeryrequest_8h_source.html#l00056">musicpagequeryrequest.h:56</a></div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : <a class="code" href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a>(parent),</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;      m_pageSize(0),</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;      m_totalSize(0),</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;      m_pageIndex(0)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">MusicPageQueryRequest::startToPage</a>(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a>)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Q_UNUSED(offset);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="ttc" id="musicpagequeryrequest_8h_html"><div class="ttname"><a href="../../db/de8/musicpagequeryrequest_8h.html">musicpagequeryrequest.h</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a601c4660e8a1a14a1b87fe387e934d19"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a></div><div class="ttdeci">voidpf uLong offset</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00142">ioapi.h:142</a></div></div>
-<div class="ttc" id="class_music_page_query_request_html_a1f9b8c38c8ed7b9e68ccf9b80c33afe6"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">MusicPageQueryRequest::startToPage</a></div><div class="ttdeci">virtual void startToPage(int offset)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d73/musicpagequeryrequest_8cpp_source.html#l00011">musicpagequeryrequest.cpp:11</a></div></div>
+<div class="ttc" id="class_music_page_query_request_html_a1f9b8c38c8ed7b9e68ccf9b80c33afe6"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a1f9b8c38c8ed7b9e68ccf9b80c33afe6">MusicPageQueryRequest::startToPage</a></div><div class="ttdeci">virtual void startToPage(int offset)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d73/musicpagequeryrequest_8cpp_source.html#l00012">musicpagequeryrequest.cpp:12</a></div></div>
 <div class="ttc" id="class_music_page_query_request_html_a5e608f0d1a1631c35d353715f9424233"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a5e608f0d1a1631c35d353715f9424233">MusicPageQueryRequest::MusicPageQueryRequest</a></div><div class="ttdeci">MusicPageQueryRequest(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d73/musicpagequeryrequest_8cpp_source.html#l00003">musicpagequeryrequest.cpp:3</a></div></div>
-<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00037">musicabstractnetwork.h:37</a></div></div>
-<div class="ttc" id="class_music_page_query_request_html_ab6834a1b9e93631e570dd18c5db1ec18"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#ab6834a1b9e93631e570dd18c5db1ec18">MusicPageQueryRequest::m_pageSize</a></div><div class="ttdeci">int m_pageSize</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de8/musicpagequeryrequest_8h_source.html#l00056">musicpagequeryrequest.h:56</a></div></div>
+<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:05 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:34 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

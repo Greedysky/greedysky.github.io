@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,19 +84,19 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">    5</a></span>&#160;QString <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">MusicUtils::Codec::toUnicode</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> codec-&gt;toUnicode(chars);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;toUnicode(chars) : QString();</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#af44f7a1752684ad9f4a572fd92a09c2b">   11</a></span>&#160;QString <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">MusicUtils::Codec::toUnicode</a>(<span class="keyword">const</span> QByteArray &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> codec-&gt;toUnicode(chars);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;toUnicode(chars) : QString();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#ae716171331569696874cb1f75dc2e3bb">   17</a></span>&#160;QByteArray <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#ae716171331569696874cb1f75dc2e3bb">MusicUtils::Codec::fromUnicode</a>(<span class="keyword">const</span> QString &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> codec-&gt;fromUnicode(chars);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;fromUnicode(chars) : QByteArray();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a248861c2f39b7b57ae4cdb83e6661adb">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a248861c2f39b7b57ae4cdb83e6661adb">MusicUtils::Codec::setLocalCodec</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:06 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

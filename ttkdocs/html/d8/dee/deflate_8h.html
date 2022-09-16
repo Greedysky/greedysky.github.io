@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -228,22 +228,23 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">{ <a class="code" href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a> len = (<a class="code" href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a>)(length); <a class="code" href="../../d6/dba/zutil_8h.html#a3754180d606d4ed15468d15d9665aa2e">\</a></div>
 <div class="line"><a class="code" href="../../d6/dba/zutil_8h.html#a3754180d606d4ed15468d15d9665aa2e">    ush</a> dist = (<a class="code" href="../../d6/dba/zutil_8h.html#a3754180d606d4ed15468d15d9665aa2e">ush</a>)(distance); \</div>
-<div class="line">    s-&gt;d_buf[s-&gt;last_lit] = dist; \</div>
-<div class="line">    s-&gt;l_buf[s-&gt;last_lit++] = len; \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = (<a class="code" href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a>)dist; \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = (<a class="code" href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a>)(dist &gt;&gt; 8); \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = len; \</div>
 <div class="line">    dist--; \</div>
 <div class="line">    s-&gt;dyn_ltree[<a class="code" href="../../d8/dee/deflate_8h.html#ac88cdfc823257dd30e51939e7f2e18d5">_length_code</a>[len]+<a class="code" href="../../d8/dee/deflate_8h.html#a3f59145500c9de746e7dc49fb98c29ef">LITERALS</a>+1].Freq++; \</div>
 <div class="line">    s-&gt;dyn_dtree[<a class="code" href="../../d8/dee/deflate_8h.html#a578b4336ef92d19278e0a0d95699def5">d_code</a>(dist)].Freq++; \</div>
-<div class="line">    flush = (s-&gt;last_lit == s-&gt;lit_bufsize-1); \</div>
+<div class="line">    flush = (s-&gt;sym_next == s-&gt;sym_end); \</div>
 <div class="line">  }</div>
 <div class="ttc" id="deflate_8h_html_a3f59145500c9de746e7dc49fb98c29ef"><div class="ttname"><a href="../../d8/dee/deflate_8h.html#a3f59145500c9de746e7dc49fb98c29ef">LITERALS</a></div><div class="ttdeci">#define LITERALS</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dee/deflate_8h_source.html#l00033">deflate.h:33</a></div></div>
-<div class="ttc" id="zutil_8h_html_a3754180d606d4ed15468d15d9665aa2e"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#a3754180d606d4ed15468d15d9665aa2e">ush</a></div><div class="ttdeci">unsigned short ush</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00045">zutil.h:45</a></div></div>
-<div class="ttc" id="deflate_8h_html_a578b4336ef92d19278e0a0d95699def5"><div class="ttname"><a href="../../d8/dee/deflate_8h.html#a578b4336ef92d19278e0a0d95699def5">d_code</a></div><div class="ttdeci">#define d_code(dist)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dee/deflate_8h_source.html#l00308">deflate.h:308</a></div></div>
-<div class="ttc" id="zutil_8h_html_af3307af5922c72924a837559c801a8a4"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a></div><div class="ttdeci">unsigned char uch</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00043">zutil.h:43</a></div></div>
+<div class="ttc" id="zutil_8h_html_a3754180d606d4ed15468d15d9665aa2e"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#a3754180d606d4ed15468d15d9665aa2e">ush</a></div><div class="ttdeci">unsigned short ush</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00041">zutil.h:41</a></div></div>
+<div class="ttc" id="deflate_8h_html_a578b4336ef92d19278e0a0d95699def5"><div class="ttname"><a href="../../d8/dee/deflate_8h.html#a578b4336ef92d19278e0a0d95699def5">d_code</a></div><div class="ttdeci">#define d_code(dist)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dee/deflate_8h_source.html#l00303">deflate.h:303</a></div></div>
+<div class="ttc" id="zutil_8h_html_af3307af5922c72924a837559c801a8a4"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a></div><div class="ttdeci">unsigned char uch</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00039">zutil.h:39</a></div></div>
 <div class="ttc" id="deflate_8h_html_ac88cdfc823257dd30e51939e7f2e18d5"><div class="ttname"><a href="../../d8/dee/deflate_8h.html#ac88cdfc823257dd30e51939e7f2e18d5">_length_code</a></div><div class="ttdeci">uch ZLIB_INTERNAL _length_code[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d90/trees_8c_source.html#l00104">trees.c:104</a></div></div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00333">333</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00329">329</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01824">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02057">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01926">deflate_slow()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01872">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02105">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01974">deflate_slow()</a>.</p>
 
 </div>
 </div>
@@ -277,16 +278,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">{ <a class="code" href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a> cc = (c); \</div>
-<div class="line">    s-&gt;d_buf[s-&gt;last_lit] = 0; \</div>
-<div class="line">    s-&gt;l_buf[s-&gt;last_lit++] = cc; \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = 0; \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = 0; \</div>
+<div class="line">    s-&gt;sym_buf[s-&gt;sym_next++] = cc; \</div>
 <div class="line">    s-&gt;dyn_ltree[cc].Freq++; \</div>
-<div class="line">    flush = (s-&gt;last_lit == s-&gt;lit_bufsize-1); \</div>
+<div class="line">    flush = (s-&gt;sym_next == s-&gt;sym_end); \</div>
 <div class="line">   }</div>
-<div class="ttc" id="zutil_8h_html_af3307af5922c72924a837559c801a8a4"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a></div><div class="ttdeci">unsigned char uch</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00043">zutil.h:43</a></div></div>
+<div class="ttc" id="zutil_8h_html_af3307af5922c72924a837559c801a8a4"><div class="ttname"><a href="../../d6/dba/zutil_8h.html#af3307af5922c72924a837559c801a8a4">uch</a></div><div class="ttdeci">unsigned char uch</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dba/zutil_8h_source.html#l00039">zutil.h:39</a></div></div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00326">326</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00321">321</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01824">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02130">deflate_huff()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02057">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01926">deflate_slow()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01872">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02178">deflate_huff()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02105">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01974">deflate_slow()</a>.</p>
 
 </div>
 </div>
@@ -318,7 +320,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00051">51</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00542">deflatePrime()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00582">deflatePrime()</a>.</p>
 
 </div>
 </div>
@@ -334,7 +336,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00062">62</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01076">deflateEnd()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00467">deflateResetKeep()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01119">deflateEnd()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -366,7 +368,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00060">60</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -384,9 +386,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00308">308</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00303">303</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01014">_tr_tally()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l01064">compress_block()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01015">_tr_tally()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l01043">compress_block()</a>.</p>
 
 </div>
 </div>
@@ -402,7 +404,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00039">39</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01014">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00407">init_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00232">tr_static_init()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00407">init_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00232">tr_static_init()</a>.</p>
 
 </div>
 </div>
@@ -432,7 +434,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00058">58</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -448,7 +450,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00063">63</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00240">deflateInit2_()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00243">deflateInit2_()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -480,7 +482,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00023">23</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>, <a class="el" href="../../d0/df1/gzread_8c_source.html#l00229">gz_fetch()</a>, and <a class="el" href="../../d0/df1/gzread_8c_source.html#l00091">gz_look()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>, <a class="el" href="../../d0/df1/gzread_8c_source.html#l00229">gz_fetch()</a>, and <a class="el" href="../../d0/df1/gzread_8c_source.html#l00091">gz_look()</a>.</p>
 
 </div>
 </div>
@@ -496,7 +498,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00056">56</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00467">deflateResetKeep()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00507">deflateResetKeep()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -512,7 +514,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00061">61</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -544,7 +546,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00054">54</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00240">deflateInit2_()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00467">deflateResetKeep()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00376">deflateSetDictionary()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00243">deflateInit2_()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00507">deflateResetKeep()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00416">deflateSetDictionary()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -608,7 +610,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00033">33</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01014">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01064">compress_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l01124">detect_data_type()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01015">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01043">compress_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l01103">detect_data_type()</a>.</p>
 
 </div>
 </div>
@@ -642,9 +644,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00289">289</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00284">284</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01014">_tr_tally()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01824">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01926">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01482">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01236">longest_match()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01015">_tr_tally()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01872">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01974">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01522">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01276">longest_match()</a>.</p>
 
 </div>
 </div>
@@ -672,9 +674,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00284">284</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00279">279</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01824">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01926">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01482">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01236">longest_match()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01872">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01974">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01522">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01276">longest_match()</a>.</p>
 
 </div>
 </div>
@@ -690,7 +692,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00059">59</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00353">deflateStateCheck()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00393">deflateStateCheck()</a>.</p>
 
 </div>
 </div>
@@ -718,9 +720,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00281">281</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00276">276</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01173">bi_flush()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01190">bi_windup()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00763">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00716">putShortMSB()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01152">bi_flush()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01169">bi_windup()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00804">deflate()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00757">putShortMSB()</a>.</p>
 
 </div>
 </div>
@@ -734,9 +736,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00294">294</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/dee/deflate_8h_source.html#l00289">289</a> of file <a class="el" href="../../d8/dee/deflate_8h_source.html">deflate.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01482">fill_window()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01522">fill_window()</a>.</p>
 
 </div>
 </div>
@@ -911,14 +913,14 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d0/d90/trees_8c_source.html#l00104">104</a> of file <a class="el" href="../../d0/d90/trees_8c_source.html">trees.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01014">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01064">compress_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00232">tr_static_init()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01015">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01043">compress_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00232">tr_static_init()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:22 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:28:03 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

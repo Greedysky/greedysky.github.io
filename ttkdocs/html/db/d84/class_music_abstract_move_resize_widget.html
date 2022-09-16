@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -101,17 +101,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a3aef32980da7bf53f07123e96d6d801f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801f">Direction</a> { <br />
-&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa9f107b4b540f16ed945cb293c399c999">DirectionNo</a> = 0, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa9c4e13712db95a93fdd18972705f3dfa">DirectionLeft</a> = 1, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa75714db633ece986734f51fc39d62821">DirectionTop</a> = 2, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa8cceac50c70b9484fa3ff92bc1865f57">DirectionRight</a> = 4, 
+&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fabafd7322c6e97d25b6299b5d6fe8920b">Direction::No</a> = 0, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa945d5e233cf7d6240f6b783b36a374ff">Direction::Left</a> = 1, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801faa4ffdcf0dc1f31b9acaf295d75b51d00">Direction::Top</a> = 2, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa92b09c7c48c520c3c55e497875da437c">Direction::Right</a> = 4, 
 <br />
-&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801faf77959156937cffb09c10ab2406485cf">DirectionBottom</a> = 8, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa9ff70643ed20c4e8d97abf8782305e8c">DirectionLeftTop</a> = DirectionLeft + DirectionTop, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801faf184b398bf75a0c608da4e12ac81d170">DirectionLeftBottom</a> = DirectionLeft + DirectionBottom, 
-<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fad0673b442c01bc20297c69a0a4c6bdec">DirectionRightTop</a> = DirectionRight + DirectionTop, 
+&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa2ad9d63b69c4a10a5cc9cad923133bc4">Direction::Bottom</a> = 8, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fafdd5ada0562fbda7863d73fc8403f786">Direction::LeftTop</a> = Direction::Left | Direction::Top, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa54bfdf6fd73d218f5a173337c99f1910">Direction::LeftBottom</a> = Direction::Left | Direction::Bottom, 
+<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa6ece94d6604e312b0072f00b3c9955a8">Direction::RightTop</a> = Direction::Right | Direction::Top, 
 <br />
-&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fafb3e457331c73c39954042305478953a">DirectionRightBottom</a> = DirectionRight + DirectionBottom
+&#160;&#160;<a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fab36555b207c9de10ba434697559659ba">Direction::RightBottom</a> = Direction::Right | Direction::Bottom
 <br />
  }</td></tr>
 <tr class="separator:a3aef32980da7bf53f07123e96d6d801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,38 +156,46 @@ Protected Attributes</h2></td></tr>
 <a class="anchor" id="a3aef32980da7bf53f07123e96d6d801f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">enum <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801f">MusicAbstractMoveResizeWidget::Direction</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa9f107b4b540f16ed945cb293c399c999"></a>DirectionNo&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fabafd7322c6e97d25b6299b5d6fe8920b"></a>No&#160;</td><td class="fielddoc">
 <p>no direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa9c4e13712db95a93fdd18972705f3dfa"></a>DirectionLeft&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa945d5e233cf7d6240f6b783b36a374ff"></a>Left&#160;</td><td class="fielddoc">
 <p>left direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa75714db633ece986734f51fc39d62821"></a>DirectionTop&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801faa4ffdcf0dc1f31b9acaf295d75b51d00"></a>Top&#160;</td><td class="fielddoc">
 <p>top direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa8cceac50c70b9484fa3ff92bc1865f57"></a>DirectionRight&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa92b09c7c48c520c3c55e497875da437c"></a>Right&#160;</td><td class="fielddoc">
 <p>right direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801faf77959156937cffb09c10ab2406485cf"></a>DirectionBottom&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa2ad9d63b69c4a10a5cc9cad923133bc4"></a>Bottom&#160;</td><td class="fielddoc">
 <p>bottom direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa9ff70643ed20c4e8d97abf8782305e8c"></a>DirectionLeftTop&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fafdd5ada0562fbda7863d73fc8403f786"></a>LeftTop&#160;</td><td class="fielddoc">
 <p>left top direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801faf184b398bf75a0c608da4e12ac81d170"></a>DirectionLeftBottom&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa54bfdf6fd73d218f5a173337c99f1910"></a>LeftBottom&#160;</td><td class="fielddoc">
 <p>left bottom direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fad0673b442c01bc20297c69a0a4c6bdec"></a>DirectionRightTop&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fa6ece94d6604e312b0072f00b3c9955a8"></a>RightTop&#160;</td><td class="fielddoc">
 <p>right top direction </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fafb3e457331c73c39954042305478953a"></a>DirectionRightBottom&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3aef32980da7bf53f07123e96d6d801fab36555b207c9de10ba434697559659ba"></a>RightBottom&#160;</td><td class="fielddoc">
 <p>right bottom direction </p>
 </td></tr>
 </table>
@@ -222,7 +230,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00048">DirectionNo</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>.</p>
+<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>.</p>
 
 </div>
 </div>
@@ -264,9 +272,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00091">TTKStatic_cast</a>.</p>
+<p>References <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00089">TTKStatic_cast</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01054">MusicApplication::eventFilter()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01047">MusicApplication::eventFilter()</a>.</p>
 
 </div>
 </div>
@@ -296,7 +304,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00048">48</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01042">MusicApplication::mouseDoubleClickEvent()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01035">MusicApplication::mouseDoubleClickEvent()</a>.</p>
 
 </div>
 </div>
@@ -324,7 +332,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00081">81</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00032">MoveResizeData::m_mousePos</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00153">moveDirection()</a>, <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00193">QtMouseEventGlobalPos</a>, and <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00103">sizeDirection()</a>.</p>
+<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00032">MoveResizeData::m_mousePos</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00153">moveDirection()</a>, <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00198">QtMouseEventGlobalPos</a>, and <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00103">sizeDirection()</a>.</p>
 
 </div>
 </div>
@@ -354,9 +362,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00032">MoveResizeData::m_mousePos</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00034">MoveResizeData::m_pressedSize</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>, and <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00193">QtMouseEventGlobalPos</a>.</p>
+<p>References <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00032">MoveResizeData::m_mousePos</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00034">MoveResizeData::m_pressedSize</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>, and <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00198">QtMouseEventGlobalPos</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01030">MusicApplication::mousePressEvent()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01023">MusicApplication::mousePressEvent()</a>.</p>
 
 </div>
 </div>
@@ -386,9 +394,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00094">94</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00048">DirectionNo</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>.</p>
+<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00030">MoveResizeData::m_mouseLeftPress</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, and <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fabafd7322c6e97d25b6299b5d6fe8920b">No</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01036">MusicApplication::mouseReleaseEvent()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l01029">MusicApplication::mouseReleaseEvent()</a>.</p>
 
 </div>
 </div>
@@ -416,7 +424,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00153">153</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00052">DirectionBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00049">DirectionLeft</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00054">DirectionLeftBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00053">DirectionLeftTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00051">DirectionRight</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00056">DirectionRightBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00055">DirectionRightTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00050">DirectionTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00034">MoveResizeData::m_pressedSize</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>.</p>
+<p>References <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa2ad9d63b69c4a10a5cc9cad923133bc4">Bottom</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa945d5e233cf7d6240f6b783b36a374ff">Left</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa54bfdf6fd73d218f5a173337c99f1910">LeftBottom</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fafdd5ada0562fbda7863d73fc8403f786">LeftTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00034">MoveResizeData::m_pressedSize</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00033">MoveResizeData::m_windowPos</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa92b09c7c48c520c3c55e497875da437c">Right</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fab36555b207c9de10ba434697559659ba">RightBottom</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa6ece94d6604e312b0072f00b3c9955a8">RightTop</a>, and <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801faa4ffdcf0dc1f31b9acaf295d75b51d00">Top</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00081">mouseMoveEvent()</a>.</p>
 
@@ -446,7 +454,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00048">DirectionNo</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>.</p>
+<p>References <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00031">MoveResizeData::m_isPressBorder</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00083">m_struct</a>, and <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fabafd7322c6e97d25b6299b5d6fe8920b">No</a>.</p>
 
 </div>
 </div>
@@ -474,7 +482,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00103">103</a> of file <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html">musicabstractmoveresizewidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00052">DirectionBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00049">DirectionLeft</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00054">DirectionLeftBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00053">DirectionLeftTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00048">DirectionNo</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00051">DirectionRight</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00056">DirectionRightBottom</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00055">DirectionRightTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00050">DirectionTop</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, and <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>.</p>
+<p>References <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa2ad9d63b69c4a10a5cc9cad923133bc4">Bottom</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00006">DISTANCE</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa945d5e233cf7d6240f6b783b36a374ff">Left</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa54bfdf6fd73d218f5a173337c99f1910">LeftBottom</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fafdd5ada0562fbda7863d73fc8403f786">LeftTop</a>, <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">m_direction</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fabafd7322c6e97d25b6299b5d6fe8920b">No</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa92b09c7c48c520c3c55e497875da437c">Right</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fab36555b207c9de10ba434697559659ba">RightBottom</a>, <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801fa6ece94d6604e312b0072f00b3c9955a8">RightTop</a>, and <a class="el" href="../../db/d84/class_music_abstract_move_resize_widget.html#a3aef32980da7bf53f07123e96d6d801faa4ffdcf0dc1f31b9acaf295d75b51d00">Top</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00081">mouseMoveEvent()</a>.</p>
 
@@ -501,7 +509,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html#l00084">84</a> of file <a class="el" href="../../dc/d30/musicabstractmoveresizewidget_8h_source.html">musicabstractmoveresizewidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00094">mouseReleaseEvent()</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00153">moveDirection()</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00008">MusicAbstractMoveResizeWidget()</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00032">paintEvent()</a>, and <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00103">sizeDirection()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00094">mouseReleaseEvent()</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00153">moveDirection()</a>, <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00032">paintEvent()</a>, and <a class="el" href="../../d6/d55/musicabstractmoveresizewidget_8cpp_source.html#l00103">sizeDirection()</a>.</p>
 
 </div>
 </div>
@@ -536,7 +544,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:23 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:28:05 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.11.0</span>
+   &#160;<span id="projectnumber">2.15.12.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -266,8 +266,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    sprintf(stamp, <span class="stringliteral">&quot;%ld&quot;</span>, time(<span class="keyword">nullptr</span>));</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a>&amp; file_name = (<a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">m_name</a> + <span class="charliteral">&#39;_&#39;</span> + <a class="code" href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">m_version</a>).toStdString() + <span class="stringliteral">&quot;.&quot;</span> + stamp + <span class="stringliteral">&quot;.dmp&quot;</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 512;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span>*     array[<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>];</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    constexpr <span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 512;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span>* array[<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>];</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> fd = open(file_name.c_str(), O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    backtrace_symbols_fd(array, backtrace(array, size), fd);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    close(fd);</div>
@@ -320,17 +320,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkversion_8h_html"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a></div></div>
 <div class="ttc" id="iowin32_8c_html_a5fdc7facea201bfce4ad308105f88d0c"><div class="ttname"><a href="../../dc/d6f/iowin32_8c.html#a5fdc7facea201bfce4ad308105f88d0c">INVALID_HANDLE_VALUE</a></div><div class="ttdeci">#define INVALID_HANDLE_VALUE</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d6f/iowin32_8c_source.html#l00021">iowin32.c:21</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html">TTKDumperPrivate</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00033">ttkdumper.cpp:33</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_adc87ef97b3c46a194cf8edfc719821ca"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00214">ttkglobal.h:214</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_adc87ef97b3c46a194cf8edfc719821ca"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adc87ef97b3c46a194cf8edfc719821ca">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00261">ttkglobal.h:261</a></div></div>
 <div class="ttc" id="musicobject_8h_html_a6fc0ad4578495656ea0f3daee663367a"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a6fc0ad4578495656ea0f3daee663367a">MAKE_GAIN_PREFIX</a></div><div class="ttdeci">#define MAKE_GAIN_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00116">musicobject.h:116</a></div></div>
 <div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 <div class="ttc" id="ttklogger_8h_html_ae2a8797595daafbcb53f440f5aca9c8d"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#ae2a8797595daafbcb53f440f5aca9c8d">TTK_LOGGER_INFO</a></div><div class="ttdeci">#define TTK_LOGGER_INFO(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00034">ttklogger.h:34</a></div></div>
-<div class="ttc" id="ttkversion_8h_html_ab424ee3feaf0726c9c0188435a1139aa"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a></div><div class="ttdeci">#define TTK_VERSION_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00159">ttkversion.h:159</a></div></div>
+<div class="ttc" id="ttkversion_8h_html_ab424ee3feaf0726c9c0188435a1139aa"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a></div><div class="ttdeci">#define TTK_VERSION_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00163">ttkversion.h:163</a></div></div>
 <div class="ttc" id="musicotherdefine_8h_html"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html">musicotherdefine.h</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_html_a618ccffe1d7df291750fa983bf749b41"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#a618ccffe1d7df291750fa983bf749b41">TTKDumper::TTKDumper</a></div><div class="ttdeci">TTKDumper()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00217">ttkdumper.cpp:217</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a965b9d77a0f4469e59f9691f9eb331c8"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a965b9d77a0f4469e59f9691f9eb331c8">TTKDumperPrivate::m_name</a></div><div class="ttdeci">static QString m_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00055">ttkdumper.cpp:55</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a8080cc3559d4e5a8799098bc04976017"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a8080cc3559d4e5a8799098bc04976017">TTKDumperPrivate::m_version</a></div><div class="ttdeci">static QString m_version</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00056">ttkdumper.cpp:56</a></div></div>
 <div class="ttc" id="class_t_t_k_dumper_private_html_a7c953ad905a2271c07d61fc7820e74ad"><div class="ttname"><a href="../../d4/d9a/class_t_t_k_dumper_private.html#a7c953ad905a2271c07d61fc7820e74ad">TTKDumperPrivate::initialize</a></div><div class="ttdeci">void initialize()</div></div>
-<div class="ttc" id="ttkglobal_8h_html_a2265a9c9ebaa4e1c86eda2d2902bce71"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a2265a9c9ebaa4e1c86eda2d2902bce71">TTKVoid_cast</a></div><div class="ttdeci">#define TTKVoid_cast(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00103">ttkglobal.h:103</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a2265a9c9ebaa4e1c86eda2d2902bce71"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a2265a9c9ebaa4e1c86eda2d2902bce71">TTKVoid_cast</a></div><div class="ttdeci">#define TTKVoid_cast(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00101">ttkglobal.h:101</a></div></div>
 <div class="ttc" id="musicobject_8h_html_abca368213de1c1ab546b6c23bd9bdb96"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#abca368213de1c1ab546b6c23bd9bdb96">MAKE_KRC2LRC_PREFIX</a></div><div class="ttdeci">#define MAKE_KRC2LRC_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00114">musicobject.h:114</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
 <div class="ttc" id="ttkdumper_8h_html"><div class="ttname"><a href="../../d5/d84/ttkdumper_8h.html">ttkdumper.h</a></div></div>
@@ -341,7 +341,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 2 2022 00:22:11 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 16 2022 22:27:46 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
