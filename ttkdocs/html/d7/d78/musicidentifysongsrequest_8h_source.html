@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/common/musicidentifysongsrequest.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/tools/musicidentifysongsrequest.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_7af9da208042dfa673a7bc6c26bdf270.html">common</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_5bb7984aa2533880ab414065bd6c0dc4.html">tools</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d0/d98/class_music_identify_songs_request.html">MusicIdentifySongsRequest</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> queryIdentifyKey();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> startToDownload(<span class="keyword">const</span> QString &amp;path);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> startRequest(<span class="keyword">const</span> QString &amp;path);</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d0/d98/class_music_identify_songs_request.html#a71dac9e5db96fb672367cee528603cae">   58</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> MusicSongIdentifyDataList&amp; <a class="code" href="../../d0/d98/class_music_identify_songs_request.html#a71dac9e5db96fb672367cee528603cae">identifySongs</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_songIdentifys; }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;Q_SIGNALS:</div>
@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">downLoadFinished</a>() override final;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> downLoadFinished(<a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QByteArray &amp;bytes);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;protected:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;private:</div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d0/d98/class_music_identify_songs_request.html#a3115eb8f2252d6fd1f0b41b248c8111a">   77</a></span>&#160;    MusicSongIdentifyDataList m_songIdentifys;</div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d0/d98/class_music_identify_songs_request.html#af881a2bffcdf39218308fa551ea5943b">   78</a></span>&#160;    QString m_accessKey, m_accessSecret;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
@@ -140,14 +140,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_song_identify_data_html"><div class="ttname"><a href="../../dc/dd1/struct_music_song_identify_data.html">MusicSongIdentifyData</a></div><div class="ttdoc">The class of the song identify data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d78/musicidentifysongsrequest_8h_source.html#l00027">musicidentifysongsrequest.h:27</a></div></div>
 <div class="ttc" id="musicidentifysongsrequest_8h_html_a24cbb6d29b70efa392520f7fecb2e673"><div class="ttname"><a href="../../d7/d78/musicidentifysongsrequest_8h.html#a24cbb6d29b70efa392520f7fecb2e673">TTK_DECLARE_LIST</a></div><div class="ttdeci">TTK_DECLARE_LIST(MusicSongIdentifyData)</div></div>
 <div class="ttc" id="class_music_identify_songs_request_html_a71dac9e5db96fb672367cee528603cae"><div class="ttname"><a href="../../d0/d98/class_music_identify_songs_request.html#a71dac9e5db96fb672367cee528603cae">MusicIdentifySongsRequest::identifySongs</a></div><div class="ttdeci">const MusicSongIdentifyDataList &amp; identifySongs() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d78/musicidentifysongsrequest_8h_source.html#l00058">musicidentifysongsrequest.h:58</a></div></div>
-<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
-<div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00230">zconf.h:230</a></div></div>
+<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of the abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
+<div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 <div class="ttc" id="musicabstractnetwork_8h_html"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html">musicabstractnetwork.h</a></div></div>
 <div class="ttc" id="struct_music_song_identify_data_html_ae34efd637d51ab08a338aa12c112b9b7"><div class="ttname"><a href="../../dc/dd1/struct_music_song_identify_data.html#ae34efd637d51ab08a338aa12c112b9b7">MusicSongIdentifyData::m_songName</a></div><div class="ttdeci">QString m_songName</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d78/musicidentifysongsrequest_8h_source.html#l00030">musicidentifysongsrequest.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:29 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

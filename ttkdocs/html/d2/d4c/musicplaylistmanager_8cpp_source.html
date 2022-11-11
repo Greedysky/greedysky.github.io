@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicCoreKits/musicplaylistmanager.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicplaylistmanager.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_69b280439566f54517cbd63501c777ed.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -229,7 +229,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d1/d71/class_music_playlist_manager.html#a8a40d645c425d99d4a999940fced0d0c">  150</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d71/class_music_playlist_manager.html#a8a40d645c425d99d4a999940fced0d0c">MusicPlaylistManager::readWPLConfig</a>(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items)</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="../../d0/d12/class_music_w_p_l_config_manager.html">MusicWPLConfigManager</a> manager;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d7/d53/class_music_abstract_xml.html#ac569b8937fcc166b6c52d11ec51ad9c4">fromFile</a>(path))</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d9/d1d/class_t_t_k_abstract_xml.html#a70089f2cedc552864996a04ee9469ee3">fromFile</a>(path))</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    {</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> manager.<a class="code" href="../../d0/d12/class_music_w_p_l_config_manager.html#a140406c394cc81c7f16e8c973061a0d4">readBuffer</a>(items);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
@@ -245,7 +245,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="../../d1/d71/class_music_playlist_manager.html#a057c32649138a73e5e2e79ef23d085b0">  166</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d71/class_music_playlist_manager.html#a057c32649138a73e5e2e79ef23d085b0">MusicPlaylistManager::readXSPFConfig</a>(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html">MusicXSPFConfigManager</a> manager;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d7/d53/class_music_abstract_xml.html#ac569b8937fcc166b6c52d11ec51ad9c4">fromFile</a>(path))</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d9/d1d/class_t_t_k_abstract_xml.html#a70089f2cedc552864996a04ee9469ee3">fromFile</a>(path))</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    {</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> manager.<a class="code" href="../../da/daf/class_music_x_s_p_f_config_manager.html#a47601b8ebd20339fbed1e5c5467f0658">readBuffer</a>(items);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
@@ -261,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="../../d1/d71/class_music_playlist_manager.html#aa4b29dad729051024f72aa039bec8141">  182</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/d71/class_music_playlist_manager.html#aa4b29dad729051024f72aa039bec8141">MusicPlaylistManager::readASXConfig</a>(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items)</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="../../d4/db1/class_music_a_s_x_config_manager.html">MusicASXConfigManager</a> manager;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d7/d53/class_music_abstract_xml.html#ac569b8937fcc166b6c52d11ec51ad9c4">fromFile</a>(path))</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">if</span>(manager.<a class="code" href="../../d9/d1d/class_t_t_k_abstract_xml.html#a70089f2cedc552864996a04ee9469ee3">fromFile</a>(path))</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    {</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">return</span> manager.<a class="code" href="../../d4/db1/class_music_a_s_x_config_manager.html#a0632514a4410d40b0dff7d5698565e0e">readBuffer</a>(items);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
@@ -339,6 +339,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_m3_u_config_manager_html_a28874487b69d3f56f6c57fc28f8f8299"><div class="ttname"><a href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">MusicM3UConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items, const QString &amp;path) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00055">musicm3uconfigmanager.cpp:55</a></div></div>
 <div class="ttc" id="musicwplconfigmanager_8h_html"><div class="ttname"><a href="../../d0/d89/musicwplconfigmanager_8h.html">musicwplconfigmanager.h</a></div></div>
 <div class="ttc" id="class_music_x_s_p_f_config_manager_html_a74f04bff994bf6a01e355f3c8eb550b7"><div class="ttname"><a href="../../da/daf/class_music_x_s_p_f_config_manager.html#a74f04bff994bf6a01e355f3c8eb550b7">MusicXSPFConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items, const QString &amp;path) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d30/musicxspfconfigmanager_8cpp_source.html#l00034">musicxspfconfigmanager.cpp:34</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_xml_html_a70089f2cedc552864996a04ee9469ee3"><div class="ttname"><a href="../../d9/d1d/class_t_t_k_abstract_xml.html#a70089f2cedc552864996a04ee9469ee3">TTKAbstractXml::fromFile</a></div><div class="ttdeci">bool fromFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00093">ttkabstractxml.cpp:93</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_afe9ba02804607de53f7ef2e6dff36aac"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#afe9ba02804607de53f7ef2e6dff36aac">MusicPlaylistReader::fromFile</a></div><div class="ttdeci">bool fromFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">musicplaylistinterface.h:41</a></div></div>
 <div class="ttc" id="class_music_playlist_manager_html_a8d1170493969771ba1037f7cbbb3ceb9"><div class="ttname"><a href="../../d1/d71/class_music_playlist_manager.html#a8d1170493969771ba1037f7cbbb3ceb9">MusicPlaylistManager::readTKPLConfig</a></div><div class="ttdeci">bool readTKPLConfig(const QString &amp;path, MusicSongItemList &amp;items)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00102">musicplaylistmanager.cpp:102</a></div></div>
 <div class="ttc" id="class_music_playlist_manager_html_a9a9aa444212f58ed861e486bfe823c72"><div class="ttname"><a href="../../d1/d71/class_music_playlist_manager.html#a9a9aa444212f58ed861e486bfe823c72">MusicPlaylistManager::writeXSPFConfig</a></div><div class="ttdeci">bool writeXSPFConfig(const QString &amp;path, const MusicSongItem &amp;item)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00176">musicplaylistmanager.cpp:176</a></div></div>
@@ -358,7 +359,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicfplconfigmanager_8h_html"><div class="ttname"><a href="../../d4/db4/musicfplconfigmanager_8h.html">musicfplconfigmanager.h</a></div></div>
 <div class="ttc" id="class_music_t_x_t_config_manager_html_a1b583133d46dbcbc44b42a0f948bdf8c"><div class="ttname"><a href="../../de/d20/class_music_t_x_t_config_manager.html#a1b583133d46dbcbc44b42a0f948bdf8c">MusicTXTConfigManager::readBuffer</a></div><div class="ttdeci">virtual bool readBuffer(MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d06/musictxtconfigmanager_8cpp_source.html#l00010">musictxtconfigmanager.cpp:10</a></div></div>
 <div class="ttc" id="class_music_playlist_manager_html_a057c32649138a73e5e2e79ef23d085b0"><div class="ttname"><a href="../../d1/d71/class_music_playlist_manager.html#a057c32649138a73e5e2e79ef23d085b0">MusicPlaylistManager::readXSPFConfig</a></div><div class="ttdeci">bool readXSPFConfig(const QString &amp;path, MusicSongItemList &amp;items)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00166">musicplaylistmanager.cpp:166</a></div></div>
-<div class="ttc" id="class_music_abstract_xml_html_ac569b8937fcc166b6c52d11ec51ad9c4"><div class="ttname"><a href="../../d7/d53/class_music_abstract_xml.html#ac569b8937fcc166b6c52d11ec51ad9c4">MusicAbstractXml::fromFile</a></div><div class="ttdeci">bool fromFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d4d/musicabstractxml_8cpp_source.html#l00093">musicabstractxml.cpp:93</a></div></div>
 <div class="ttc" id="musicobject_8h_html_a3c400ea1bf2906d3461a58f7f16574cc"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a3c400ea1bf2906d3461a58f7f16574cc">TPL_FILE_PREFIX</a></div><div class="ttdeci">#define TPL_FILE_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00042">musicobject.h:42</a></div></div>
 <div class="ttc" id="musicobject_8h_html_a55882e93e5dfa63bd9bfa97fd39ef82e"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a55882e93e5dfa63bd9bfa97fd39ef82e">TXT_FILE_PREFIX</a></div><div class="ttdeci">#define TXT_FILE_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00050">musicobject.h:50</a></div></div>
 <div class="ttc" id="class_music_playlist_manager_html_a585a142749af9a69ec1640b8ebc4f750"><div class="ttname"><a href="../../d1/d71/class_music_playlist_manager.html#a585a142749af9a69ec1640b8ebc4f750">MusicPlaylistManager::readM3UConfig</a></div><div class="ttdeci">bool readM3UConfig(const QString &amp;path, MusicSongItemList &amp;items)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00118">musicplaylistmanager.cpp:118</a></div></div>
@@ -403,7 +403,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:28 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

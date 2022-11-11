@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/musicabstractnetwork.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/core/musicabstractnetwork.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_b8cab4f37254f98a2a157f141bb4d444.html">core</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -101,8 +101,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QNetworkReply&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;QSslConfiguration&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dcc/musictime_8h.html">musictime.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dfd/musicsemaphoreloop_8h.html">musicsemaphoreloop.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d0a/ttktime_8h.html">ttktime.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d3c/ttksemaphoreloop_8h.html">ttksemaphoreloop.h</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d0e/musicnetworkthread_8h.html">musicnetworkthread.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/de0/musicnetworkdefines_8h.html">musicnetworkdefines.h</a>&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d8f/musicnumberutils_8h.html">musicnumberutils.h</a>&quot;</span></div>
@@ -125,8 +125,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../da/d9c/class_music_abstract_network.html#a80f809a9ce0c3cb9239802dbcdce9a6a">   61</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> QVariant <a class="code" href="../../da/d9c/class_music_abstract_network.html#a80f809a9ce0c3cb9239802dbcdce9a6a">header</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_rawData[<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>]; }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> downLoadRawDataChanged(<span class="keyword">const</span> QByteArray &amp;bytes);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> downLoadDataChanged(<span class="keyword">const</span> QString &amp;bytes);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> downLoadDataChanged(<span class="keyword">const</span> QString &amp;bytes);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> downLoadRawDataChanged(<span class="keyword">const</span> QByteArray &amp;bytes);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> downLoadFinished();</div>
@@ -148,16 +148,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">  103</a></span>&#160;<span class="preprocessor">#define TTK_NETWORK_QUERY_CHECK(VALUE)   if(m_interrupt || m_stateCode != MusicObject::NetworkCode::Query) return VALUE</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../df/dbc/namespace_music_object.html">MusicObject</a></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../df/dbc/namespace_music_object.html#a087e7495600c3fafd3573b30f8d3454e">setSslConfiguration</a>(QNetworkRequest *request, QSslSocket::PeerVerifyMode <a class="code" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a> = QSslSocket::VerifyNone);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> qint64 <a class="code" href="../../df/dbc/namespace_music_object.html#ab58da95a7b1cedf7cba19f56ed4fa157">queryFileSizeByUrl</a>(<span class="keyword">const</span> QString &amp;url);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> QByteArray <a class="code" href="../../df/dbc/namespace_music_object.html#a40882d904a438b81d932d53bfb7f3e1d">syncNetworkQueryForGet</a>(QNetworkRequest *request);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> QByteArray <a class="code" href="../../df/dbc/namespace_music_object.html#ac97df6cab226815cadb7947ac9597bee">syncNetworkQueryForPost</a>(QNetworkRequest *request, <span class="keyword">const</span> QByteArray &amp;data);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif // MUSICABSTRACTNETWORK_H</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../df/dbc/namespace_music_object.html">MusicObject</a></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../df/dbc/namespace_music_object.html#a087e7495600c3fafd3573b30f8d3454e">setSslConfiguration</a>(QNetworkRequest *request, QSslSocket::PeerVerifyMode <a class="code" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a> = QSslSocket::VerifyNone);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> qint64 <a class="code" href="../../df/dbc/namespace_music_object.html#ab58da95a7b1cedf7cba19f56ed4fa157">queryFileSizeByUrl</a>(<span class="keyword">const</span> QString &amp;url);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> QByteArray <a class="code" href="../../df/dbc/namespace_music_object.html#a40882d904a438b81d932d53bfb7f3e1d">syncNetworkQueryForGet</a>(QNetworkRequest *request);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> QByteArray <a class="code" href="../../df/dbc/namespace_music_object.html#ac97df6cab226815cadb7947ac9597bee">syncNetworkQueryForPost</a>(QNetworkRequest *request, <span class="keyword">const</span> QByteArray &amp;data);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif // MUSICABSTRACTNETWORK_H</span></div>
 <div class="ttc" id="namespace_music_object_html_a739090443491193d34585a1956fa3dac"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a739090443491193d34585a1956fa3dac">MusicObject::NetworkCode</a></div><div class="ttdeci">NetworkCode</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de0/musicnetworkdefines_8h_source.html#l00027">musicnetworkdefines.h:27</a></div></div>
 <div class="ttc" id="musicnetworkdefines_8h_html"><div class="ttname"><a href="../../de/de0/musicnetworkdefines_8h.html">musicnetworkdefines.h</a></div></div>
 <div class="ttc" id="musicstringutils_8h_html"><div class="ttname"><a href="../../d4/d50/musicstringutils_8h.html">musicstringutils.h</a></div></div>
@@ -167,15 +167,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_abstract_network_html_af86d0f4d864edc458d179b5aa1bb3953"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#af86d0f4d864edc458d179b5aa1bb3953">MusicAbstractNetwork::m_interrupt</a></div><div class="ttdeci">volatile bool m_interrupt</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00096">musicabstractnetwork.h:96</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
-<div class="ttc" id="musictime_8h_html"><div class="ttname"><a href="../../d9/dcc/musictime_8h.html">musictime.h</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_a80f809a9ce0c3cb9239802dbcdce9a6a"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a80f809a9ce0c3cb9239802dbcdce9a6a">MusicAbstractNetwork::header</a></div><div class="ttdeci">const QVariant header(const QString &amp;key) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00061">musicabstractnetwork.h:61</a></div></div>
 <div class="ttc" id="parser_8h_html"><div class="ttname"><a href="../../d5/d36/parser_8h.html">parser.h</a></div></div>
-<div class="ttc" id="musicsemaphoreloop_8h_html"><div class="ttname"><a href="../../d9/dfd/musicsemaphoreloop_8h.html">musicsemaphoreloop.h</a></div></div>
+<div class="ttc" id="ttksemaphoreloop_8h_html"><div class="ttname"><a href="../../db/d3c/ttksemaphoreloop_8h.html">ttksemaphoreloop.h</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_ae4871f30d024bde42e964f96203c420b"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#ae4871f30d024bde42e964f96203c420b">MusicAbstractNetwork::m_rawData</a></div><div class="ttdeci">QVariantMap m_rawData</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00095">musicabstractnetwork.h:95</a></div></div>
 <div class="ttc" id="musicnumberutils_8h_html"><div class="ttname"><a href="../../dc/d8f/musicnumberutils_8h.html">musicnumberutils.h</a></div></div>
 <div class="ttc" id="musicnetworkthread_8h_html"><div class="ttname"><a href="../../df/d0e/musicnetworkthread_8h.html">musicnetworkthread.h</a></div></div>
 <div class="ttc" id="namespace_music_object_html_ab58da95a7b1cedf7cba19f56ed4fa157"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#ab58da95a7b1cedf7cba19f56ed4fa157">MusicObject::queryFileSizeByUrl</a></div><div class="ttdeci">qint64 queryFileSizeByUrl(const QString &amp;url)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00084">musicabstractnetwork.cpp:84</a></div></div>
-<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
+<div class="ttc" id="ttktime_8h_html"><div class="ttname"><a href="../../dc/d0a/ttktime_8h.html">ttktime.h</a></div></div>
+<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of the abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
 <div class="ttc" id="namespace_music_object_html_a087e7495600c3fafd3573b30f8d3454e"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a087e7495600c3fafd3573b30f8d3454e">MusicObject::setSslConfiguration</a></div><div class="ttdeci">void setSslConfiguration(QNetworkRequest *request, QSslSocket::PeerVerifyMode mode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00071">musicabstractnetwork.cpp:71</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_ae611a18835d0e867b327223cc4bb6bd6"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#ae611a18835d0e867b327223cc4bb6bd6">MusicAbstractNetwork::m_manager</a></div><div class="ttdeci">QNetworkAccessManager m_manager</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00099">musicabstractnetwork.h:99</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a7e43d41c2fe013a373b540cba02505cf"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a></div><div class="ttdeci">const char int mode</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00135">ioapi.h:135</a></div></div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:34 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

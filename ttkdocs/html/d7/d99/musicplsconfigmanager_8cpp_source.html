@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicPlaylistKits/musicplsconfigmanager.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicPlaylistKits/musicplsconfigmanager.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_abe35ea1e39bc07da49bf6cb01e9e6df.html">musicPlaylistKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_5dea234e53e02abb9cf20e28161b42e7.html">musicPlaylistKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -102,30 +102,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QRegExp fileRegExp(<span class="stringliteral">&quot;^File(\\d+)=(.+)&quot;</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QRegExp lengthRegExp(<span class="stringliteral">&quot;^Length(\\d+)=(-{0,1}\\d+)&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QRegExp regx1(<span class="stringliteral">&quot;^File(\\d+)=(.+)&quot;</span>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QRegExp regx2(<span class="stringliteral">&quot;^Length(\\d+)=(-{0,1}\\d+)&quot;</span>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> number = 0;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> error = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;line : qAsConst(data))</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span>(fileRegExp.indexIn(line) &gt; -1)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">if</span>(regx1.indexIn(line) &gt; -1)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">if</span>((number = fileRegExp.cap(1).toInt()) &gt; 0)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">if</span>((number = regx1.cap(1).toInt()) &gt; 0)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(fileRegExp.cap(2));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(regx1.cap(2));</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(lengthRegExp.indexIn(line) &gt; -1)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(regx2.indexIn(line) &gt; -1)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span>((number = lengthRegExp.cap(1).toInt()) &gt; 0)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span>((number = regx2.cap(1).toInt()) &gt; 0)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.back().setPlayTime(<a class="code" href="../../dc/d95/class_music_time.html#a36b0b6797beb00f42e3f989ef6bcfd6f">MusicTime::msecTime2LabelJustified</a>(lengthRegExp.cap(2).toInt() * 1000));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.back().setPlayTime(<a class="code" href="../../d4/dc5/class_t_t_k_time.html#a984916f676e6b48d13b19d10a5a64278">TTKTime::msecTime2LabelJustified</a>(regx2.cap(2).toInt() * 1000));</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            {</div>
@@ -135,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(error)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;read pls format playlist error&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a>(<span class="stringliteral">&quot;read pls format playlist error&quot;</span>);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
@@ -164,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        data &lt;&lt; QString(<span class="stringliteral">&quot;File%1=%2&quot;</span>).arg(count).arg(song.path());</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        data &lt;&lt; QString(<span class="stringliteral">&quot;Title%1=%2&quot;</span>).arg(count).arg(song.name());</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        data &lt;&lt; QString(<span class="stringliteral">&quot;Length%1=%2&quot;</span>).arg(count).arg(MusicTime::MusicTime::labelJustified2MsecTime(song.playTime()) / 1000);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        data &lt;&lt; QString(<span class="stringliteral">&quot;Length%1=%2&quot;</span>).arg(count).arg(TTKTime::TTKTime::labelJustified2MsecTime(song.playTime()) / 1000);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ++count;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    data &lt;&lt; <span class="stringliteral">&quot;NumberOfEntries=&quot;</span> + QString::number(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.count());</div>
@@ -179,7 +179,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="ttc" id="class_music_p_l_s_config_manager_html_a2b2392735c2ebea6054d293dec0c620b"><div class="ttname"><a href="../../d5/d3a/class_music_p_l_s_config_manager.html#a2b2392735c2ebea6054d293dec0c620b">MusicPLSConfigManager::readBuffer</a></div><div class="ttdeci">virtual bool readBuffer(MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d99/musicplsconfigmanager_8cpp_source.html#l00010">musicplsconfigmanager.cpp:10</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a743bf672cf731b656a4eb9f33b7f7582"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a></div><div class="ttdeci">#define TTK_LOGGER_ERROR(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00038">ttklogger.h:38</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html">MusicPlaylistReader</a></div><div class="ttdoc">The class of the playlist reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
 <div class="ttc" id="class_music_playlist_reader_html_a1c7424de06cac096976371e11c2c9878"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">MusicPlaylistReader::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00048">musicplaylistinterface.h:48</a></div></div>
 <div class="ttc" id="musicplsconfigmanager_8h_html"><div class="ttname"><a href="../../d6/d81/musicplsconfigmanager_8h.html">musicplsconfigmanager.h</a></div></div>
@@ -188,13 +187,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00176">musicsong.h:176</a></div></div>
 <div class="ttc" id="class_music_p_l_s_config_manager_html_ab138021beba3e5a919ce62c7fa679287"><div class="ttname"><a href="../../d5/d3a/class_music_p_l_s_config_manager.html#ab138021beba3e5a919ce62c7fa679287">MusicPLSConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items, const QString &amp;path) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d99/musicplsconfigmanager_8cpp_source.html#l00072">musicplsconfigmanager.cpp:72</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a1a5dd7c4ac17ddf9535651527cd3e501"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">MusicSongItem::m_songs</a></div><div class="ttdeci">MusicSongList m_songs</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00181">musicsong.h:181</a></div></div>
-<div class="ttc" id="class_music_time_html_a36b0b6797beb00f42e3f989ef6bcfd6f"><div class="ttname"><a href="../../dc/d95/class_music_time.html#a36b0b6797beb00f42e3f989ef6bcfd6f">MusicTime::msecTime2LabelJustified</a></div><div class="ttdeci">QString msecTime2LabelJustified()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dac/musictime_8cpp_source.html#l00112">musictime.cpp:112</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00179">musicsong.h:179</a></div></div>
 <div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00028">musicsong.h:28</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00058">ttklogger.h:58</a></div></div>
+<div class="ttc" id="class_t_t_k_time_html_a984916f676e6b48d13b19d10a5a64278"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a984916f676e6b48d13b19d10a5a64278">TTKTime::msecTime2LabelJustified</a></div><div class="ttdeci">QString msecTime2LabelJustified()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00121">ttktime.cpp:121</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

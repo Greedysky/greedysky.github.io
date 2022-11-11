@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: MusicConnectTransferWidget Class Reference</title>
+<title>TTKMusicPlayer: MusicConnectTransferWidget Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -75,8 +75,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d5/d53/class_music_connect_transfer_widget-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MusicConnectTransferWidget Class Reference</div>  </div>
@@ -95,8 +95,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
  <div class="center">
   <img src="../../d0/ddf/class_music_connect_transfer_widget.png" usemap="#MusicConnectTransferWidget_map" alt=""/>
   <map id="MusicConnectTransferWidget_map" name="MusicConnectTransferWidget_map">
-<area href="../../da/db2/class_music_abstract_move_dialog.html" title="The class of the moving dialog base. " alt="MusicAbstractMoveDialog" shape="rect" coords="94,56,273,80"/>
-<area href="../../da/df5/class_music_widget_renderer.html" title="The class of the widget background renderer. " alt="MusicWidgetRenderer" shape="rect" coords="189,0,368,24"/>
+<area href="../../da/db2/class_music_abstract_move_dialog.html" title="The class of the moving dialog base. " alt="MusicAbstractMoveDialog" shape="rect" coords="137,112,402,136"/>
+<area href="../../d7/db8/class_music_item_search_interface.html" alt="MusicItemSearchInterface&lt; MusicSongList &gt;" shape="rect" coords="412,112,677,136"/>
+<area href="../../d3/d41/class_t_t_k_abstract_move_dialog.html" title="The class of the moving dialog base. " alt="TTKAbstractMoveDialog" shape="rect" coords="0,56,265,80"/>
+<area href="../../da/df5/class_music_widget_renderer.html" title="The class of the widget background renderer. " alt="MusicWidgetRenderer" shape="rect" coords="275,56,540,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -110,15 +112,17 @@ Public Slots</h2></td></tr>
 <tr class="separator:a6b34dfda54ff7edd2206d3bbf0926124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cbf1ff0f48b06136db27b897b43d241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a1cbf1ff0f48b06136db27b897b43d241">startToTransferFiles</a> ()</td></tr>
 <tr class="separator:a1cbf1ff0f48b06136db27b897b43d241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f475eadbe670b963437b25edab419c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a6f475eadbe670b963437b25edab419c3">musicSearchResultChanged</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> row, <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> col)</td></tr>
-<tr class="separator:a6f475eadbe670b963437b25edab419c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d3a9e6cfacdc342d98c18537ada9f13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a0d3a9e6cfacdc342d98c18537ada9f13">searchResultChanged</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> row, <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> column)</td></tr>
+<tr class="separator:a0d3a9e6cfacdc342d98c18537ada9f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cf026f5cb0ae7a8c130c57db4399248"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a7cf026f5cb0ae7a8c130c57db4399248">initialize</a> ()</td></tr>
 <tr class="separator:a7cf026f5cb0ae7a8c130c57db4399248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a837168c71446989e6669f20c1552055b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a837168c71446989e6669f20c1552055b">exec</a> ()</td></tr>
-<tr class="separator:a837168c71446989e6669f20c1552055b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_slots_class_music_abstract_move_dialog"><td colspan="2" onclick="javascript:toggleInherit('pub_slots_class_music_abstract_move_dialog')"><img src="../../closed.png" alt="-"/>&#160;Public Slots inherited from <a class="el" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></td></tr>
 <tr class="memitem:aa1863b5d5e9a40edc3ee37e7e5c7126e inherit pub_slots_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#aa1863b5d5e9a40edc3ee37e7e5c7126e">backgroundChanged</a> ()</td></tr>
 <tr class="separator:aa1863b5d5e9a40edc3ee37e7e5c7126e inherit pub_slots_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5851b44b26ae2efc43f199e3670a38 inherit pub_slots_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a0a5851b44b26ae2efc43f199e3670a38">exec</a> ()</td></tr>
+<tr class="separator:a0a5851b44b26ae2efc43f199e3670a38 inherit pub_slots_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bbb252eb91971776ca2c50a4958678 inherit pub_slots_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#af6bbb252eb91971776ca2c50a4958678">show</a> ()</td></tr>
+<tr class="separator:af6bbb252eb91971776ca2c50a4958678 inherit pub_slots_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
@@ -140,46 +144,38 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec2316ef9b47f69728da32404a4f2150 inherit pub_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addc69b73a1cfd6b225a061df9737ccba inherit pub_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#addc69b73a1cfd6b225a061df9737ccba">~MusicAbstractMoveDialog</a> ()</td></tr>
 <tr class="separator:addc69b73a1cfd6b225a061df9737ccba inherit pub_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75434450ca0281f2daaa44efdd92452b inherit pub_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a75434450ca0281f2daaa44efdd92452b">drawWindowShadow</a> (bool show)</td></tr>
-<tr class="separator:a75434450ca0281f2daaa44efdd92452b inherit pub_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c651b7cd7063715ff631ca26bf7e924 inherit pub_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a0c651b7cd7063715ff631ca26bf7e924">blockMoveOption</a> (bool block)</td></tr>
-<tr class="separator:a0c651b7cd7063715ff631ca26bf7e924 inherit pub_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_t_t_k_abstract_move_dialog"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_t_t_k_abstract_move_dialog')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d3/d41/class_t_t_k_abstract_move_dialog.html">TTKAbstractMoveDialog</a></td></tr>
+<tr class="memitem:a1a2564ca45d8d13b2d98fae1c7ba61cb inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d41/class_t_t_k_abstract_move_dialog.html#a1a2564ca45d8d13b2d98fae1c7ba61cb">TTKAbstractMoveDialog</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="separator:a1a2564ca45d8d13b2d98fae1c7ba61cb inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89c9cdd02d65fa2421420acb3560eef3 inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d41/class_t_t_k_abstract_move_dialog.html#a89c9cdd02d65fa2421420acb3560eef3">TTKAbstractMoveDialog</a> (bool transparent, QWidget *parent=nullptr)</td></tr>
+<tr class="separator:a89c9cdd02d65fa2421420acb3560eef3 inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea8b9e7a0df80145f2d852c4ca69556 inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d41/class_t_t_k_abstract_move_dialog.html#a6ea8b9e7a0df80145f2d852c4ca69556">drawWindowShadow</a> (bool show)</td></tr>
+<tr class="separator:a6ea8b9e7a0df80145f2d852c4ca69556 inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6925f4fd1a54297cd97e48e0d43bc1a inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d41/class_t_t_k_abstract_move_dialog.html#ad6925f4fd1a54297cd97e48e0d43bc1a">blockMoveOption</a> (bool block)</td></tr>
+<tr class="separator:ad6925f4fd1a54297cd97e48e0d43bc1a inherit pub_methods_class_t_t_k_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa9d78b7f0532582927cc0080a4993e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#aa9d78b7f0532582927cc0080a4993e84">createAllItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> MusicSongList &amp;songs)</td></tr>
-<tr class="separator:aa9d78b7f0532582927cc0080a4993e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af83f60dc99365bb769f10b85c8f6b2f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#af83f60dc99365bb769f10b85c8f6b2f6">addCellItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> MusicSongList &amp;songs)</td></tr>
+<tr class="separator:af83f60dc99365bb769f10b85c8f6b2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa30f2f0d2ab64f5131658923c0b3e535"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#aa30f2f0d2ab64f5131658923c0b3e535">selectedFiles</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> </td></tr>
 <tr class="separator:aa30f2f0d2ab64f5131658923c0b3e535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_music_abstract_move_dialog"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_music_abstract_move_dialog')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></td></tr>
-<tr class="memitem:a9359a058b4af2790f39b5f199fd37c9e inherit pro_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a9359a058b4af2790f39b5f199fd37c9e">paintEvent</a> (QPaintEvent *event) overridefinal</td></tr>
-<tr class="separator:a9359a058b4af2790f39b5f199fd37c9e inherit pro_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9550ff83ff00641cba9822dc08ad4d22 inherit pro_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a9550ff83ff00641cba9822dc08ad4d22">mousePressEvent</a> (QMouseEvent *event) overridefinal</td></tr>
-<tr class="separator:a9550ff83ff00641cba9822dc08ad4d22 inherit pro_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47f0a27400171e52ea1eba0d51ea67c6 inherit pro_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a47f0a27400171e52ea1eba0d51ea67c6">mouseMoveEvent</a> (QMouseEvent *event) overridefinal</td></tr>
-<tr class="separator:a47f0a27400171e52ea1eba0d51ea67c6 inherit pro_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37753c04d8fd3307ce38636276a8e0c5 inherit pro_methods_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a37753c04d8fd3307ce38636276a8e0c5">mouseReleaseEvent</a> (QMouseEvent *event) overridefinal</td></tr>
-<tr class="separator:a37753c04d8fd3307ce38636276a8e0c5 inherit pro_methods_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_music_widget_renderer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_music_widget_renderer')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../da/df5/class_music_widget_renderer.html">MusicWidgetRenderer</a></td></tr>
-<tr class="memitem:a56be118c8756e278cdc16191cc8373a5 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a56be118c8756e278cdc16191cc8373a5">setBackgroundPixmap</a> (QLabel *label, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QSize &amp;<a class="el" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>)</td></tr>
-<tr class="separator:a56be118c8756e278cdc16191cc8373a5 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a916720b17a61923dcca695957af8d5e3 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a916720b17a61923dcca695957af8d5e3">setBackgroundPixmap</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QSize &amp;<a class="el" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>)</td></tr>
-<tr class="separator:a916720b17a61923dcca695957af8d5e3 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2adb12423975dee012fc3427208e2218 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a2adb12423975dee012fc3427208e2218">MusicWidgetRenderer</a> ()</td></tr>
-<tr class="separator:a2adb12423975dee012fc3427208e2218 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_music_item_search_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_music_item_search_interface')"><img src="../../closed.png" alt="-"/>&#160;Private Member Functions inherited from <a class="el" href="../../d7/db8/class_music_item_search_interface.html">MusicItemSearchInterface&lt; MusicSongList &gt;</a></td></tr>
+<tr class="memitem:ac715ebd984de827e48c690ddbc91c703 inherit pub_methods_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#ac715ebd984de827e48c690ddbc91c703">MusicItemSearchInterface</a> ()</td></tr>
+<tr class="separator:ac715ebd984de827e48c690ddbc91c703 inherit pub_methods_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6c1fcd8b4312dd5fc5675c26fc84736 inherit pub_methods_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#ae6c1fcd8b4312dd5fc5675c26fc84736">hasSearchResult</a> () <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></td></tr>
+<tr class="separator:ae6c1fcd8b4312dd5fc5675c26fc84736 inherit pub_methods_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa033907fc017537ebe2c184938278bf0 inherit pub_methods_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#aa033907fc017537ebe2c184938278bf0">clearSearchResult</a> ()</td></tr>
+<tr class="separator:aa033907fc017537ebe2c184938278bf0 inherit pub_methods_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5677b685d65e3ff5694413d574a9beff inherit pub_methods_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#a5677b685d65e3ff5694413d574a9beff">mappedSearchRow</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> pos, <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> &amp;row) <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></td></tr>
+<tr class="separator:a5677b685d65e3ff5694413d574a9beff inherit pub_methods_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:a01b7e41af679ea3298f8ec09291f3728"><td class="memItemLeft" align="right" valign="top">Ui::MusicConnectTransferWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a01b7e41af679ea3298f8ec09291f3728">m_ui</a></td></tr>
 <tr class="separator:a01b7e41af679ea3298f8ec09291f3728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a704755ae69de0b40510f28f2d5da20ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a704755ae69de0b40510f28f2d5da20ce">m_currentIndex</a></td></tr>
 <tr class="separator:a704755ae69de0b40510f28f2d5da20ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e208ccf9a62fc583ff86e1b426a0072"><td class="memItemLeft" align="right" valign="top">MusicSongList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a7e208ccf9a62fc583ff86e1b426a0072">m_currentSongs</a></td></tr>
-<tr class="separator:a7e208ccf9a62fc583ff86e1b426a0072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ef92d52a83fbeb474888fced1b27b4"><td class="memItemLeft" align="right" valign="top">QButtonGroup *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#ac7ef92d52a83fbeb474888fced1b27b4">m_buttonGroup</a></td></tr>
-<tr class="separator:ac7ef92d52a83fbeb474888fced1b27b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71d012670628e14a69ace6191fb4b2a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d7f/ttkglobal_8h.html#af034fc7958840423f321821e677d99e8">TTKIntListMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a71d012670628e14a69ace6191fb4b2a9">m_searchResultCache</a></td></tr>
-<tr class="separator:a71d012670628e14a69ace6191fb4b2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9834d41a0d558925c1e9d14bd063377d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d92/struct_music_device_info_item.html">MusicDeviceInfoItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a9834d41a0d558925c1e9d14bd063377d">m_currentDeviceItem</a></td></tr>
 <tr class="separator:a9834d41a0d558925c1e9d14bd063377d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2006c302d7640ab380d6e78ff76df415"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a2006c302d7640ab380d6e78ff76df415">m_songCountLabel</a></td></tr>
@@ -188,18 +184,26 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a0b8359fffda7cfaea9b0555aaea767bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85af36e915a2b21fd4668cee2fec0521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dfc/class_music_connect_transfer_thread.html">MusicConnectTransferThread</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a85af36e915a2b21fd4668cee2fec0521">m_thread</a></td></tr>
 <tr class="separator:a85af36e915a2b21fd4668cee2fec0521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_music_abstract_move_dialog"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_music_abstract_move_dialog')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></td></tr>
-<tr class="memitem:a11c7ee444f5e1cdb428c67e97fbbf287 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">QPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a11c7ee444f5e1cdb428c67e97fbbf287">m_pressAt</a></td></tr>
-<tr class="separator:a11c7ee444f5e1cdb428c67e97fbbf287 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac963fb3a18c6f04f2574af0b7d6af952 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#ac963fb3a18c6f04f2574af0b7d6af952">m_moveOption</a></td></tr>
-<tr class="separator:ac963fb3a18c6f04f2574af0b7d6af952 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14306afc39251b381ae91debc0143d71 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a14306afc39251b381ae91debc0143d71">m_showShadow</a></td></tr>
-<tr class="separator:a14306afc39251b381ae91debc0143d71 inherit pro_attribs_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f619de316adbd94e8b33d8677d857ee inherit pro_attribs_class_music_abstract_move_dialog"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db2/class_music_abstract_move_dialog.html#a1f619de316adbd94e8b33d8677d857ee">m_leftButtonPress</a></td></tr>
-<tr class="separator:a1f619de316adbd94e8b33d8677d857ee inherit pro_attribs_class_music_abstract_move_dialog"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_music_widget_renderer"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_music_widget_renderer')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../da/df5/class_music_widget_renderer.html">MusicWidgetRenderer</a></td></tr>
-<tr class="memitem:a714849c436d0cba9b064a1f49cd65266 inherit pro_attribs_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">QLabel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a714849c436d0cba9b064a1f49cd65266">m_background</a></td></tr>
-<tr class="separator:a714849c436d0cba9b064a1f49cd65266 inherit pro_attribs_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_music_item_search_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_music_item_search_interface')"><img src="../../closed.png" alt="-"/>&#160;Private Attributes inherited from <a class="el" href="../../d7/db8/class_music_item_search_interface.html">MusicItemSearchInterface&lt; MusicSongList &gt;</a></td></tr>
+<tr class="memitem:af09668c740192d5de92e9b065e80999c inherit pub_attribs_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">MusicSongList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#af09668c740192d5de92e9b065e80999c">m_containerItems</a></td></tr>
+<tr class="separator:af09668c740192d5de92e9b065e80999c inherit pub_attribs_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac096689d5bc81e24964a2e12f13c7e22 inherit pub_attribs_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#ac096689d5bc81e24964a2e12f13c7e22">m_searchResultLevel</a></td></tr>
+<tr class="separator:ac096689d5bc81e24964a2e12f13c7e22 inherit pub_attribs_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa647f608aadbe59a11bb215e89c82ad1 inherit pub_attribs_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d7f/ttkglobal_8h.html#a4171bb2f595f27599c5292a9e617edf5">TTKIntListMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#aa647f608aadbe59a11bb215e89c82ad1">m_searchResultCache</a></td></tr>
+<tr class="separator:aa647f608aadbe59a11bb215e89c82ad1 inherit pub_attribs_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_music_widget_renderer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_music_widget_renderer')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../da/df5/class_music_widget_renderer.html">MusicWidgetRenderer</a></td></tr>
+<tr class="memitem:a916720b17a61923dcca695957af8d5e3 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a916720b17a61923dcca695957af8d5e3">setBackgroundPixmap</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QSize &amp;<a class="el" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>)</td></tr>
+<tr class="separator:a916720b17a61923dcca695957af8d5e3 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2adb12423975dee012fc3427208e2218 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a2adb12423975dee012fc3427208e2218">MusicWidgetRenderer</a> ()</td></tr>
+<tr class="separator:a2adb12423975dee012fc3427208e2218 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8949ad8715740b25abbb56fda6f8a629 inherit pro_methods_class_music_widget_renderer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/df5/class_music_widget_renderer.html#a8949ad8715740b25abbb56fda6f8a629">setBackgroundLabel</a> (QLabel *label)</td></tr>
+<tr class="separator:a8949ad8715740b25abbb56fda6f8a629 inherit pro_methods_class_music_widget_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_class_music_item_search_interface"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_music_item_search_interface')"><img src="../../closed.png" alt="-"/>&#160;Private Types inherited from <a class="el" href="../../d7/db8/class_music_item_search_interface.html">MusicItemSearchInterface&lt; MusicSongList &gt;</a></td></tr>
+<tr class="memitem:a758aefb4c5fdad3807eda959abad970b inherit pub_types_class_music_item_search_interface"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/class_music_item_search_interface.html#a758aefb4c5fdad3807eda959abad970b">MusicItemSearchInterfaceClass</a> = <a class="el" href="../../d7/db8/class_music_item_search_interface.html">MusicItemSearchInterface</a>&lt; MusicSongList &gt;</td></tr>
+<tr class="separator:a758aefb4c5fdad3807eda959abad970b inherit pub_types_class_music_item_search_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The class of the transfer file to mobile widget. </p>
@@ -232,7 +236,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d8/dcd/musicconnectionpool_8h_source.html#l00090">G_CONNECTION_PTR</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_songCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00104">m_thread</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00257">MusicUIObject::MQSSCheckBoxStyle03</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00311">MusicUIObject::MQSSLineEditStyle03</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00197">MusicUIObject::MQSSPushButtonStyle04</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00276">MusicUIObject::MQSSScrollBarStyle01</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00171">MusicUIObject::MQSSToolButtonStyle04</a>, <a class="el" href="../../dd/d01/musicnumberdefine_8h_source.html#l00024">MT_MS</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">musicSearchResultChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">selectedAllItems()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00183">startToTransferFiles()</a>.</p>
+<p>References <a class="el" href="../../d8/dcd/musicconnectionpool_8h_source.html#l00069">G_CONNECTION_PTR</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">initialize()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_songCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">m_thread</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00257">MusicUIObject::MQSSCheckBoxStyle03</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00311">MusicUIObject::MQSSLineEditStyle03</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00197">MusicUIObject::MQSSPushButtonStyle04</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00276">MusicUIObject::MQSSScrollBarStyle01</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00171">MusicUIObject::MQSSToolButtonStyle04</a>, <a class="el" href="../../d4/d67/ttknumberdefine_8h_source.html#l00024">MT_MS</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00189">searchResultChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00171">selectedAllItems()</a>, <a class="el" href="../../d8/dcb/musicwidgetrenderer_8h_source.html#l00041">MusicWidgetRenderer::setBackgroundLabel()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">startToTransferFiles()</a>.</p>
 
 </div>
 </div>
@@ -251,12 +255,12 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">60</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d8/dcd/musicconnectionpool_8h_source.html#l00090">G_CONNECTION_PTR</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00100">m_buttonGroup</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00104">m_thread</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>.</p>
+<p>References <a class="el" href="../../d8/dcd/musicconnectionpool_8h_source.html#l00069">G_CONNECTION_PTR</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">m_thread</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa9d78b7f0532582927cc0080a4993e84"></a>
+<a class="anchor" id="af83f60dc99365bb769f10b85c8f6b2f6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -264,7 +268,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MusicConnectTransferWidget::createAllItems </td>
+          <td class="memname">void MusicConnectTransferWidget::addCellItems </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> MusicSongList &amp;&#160;</td>
           <td class="paramname"><em>songs</em></td><td>)</td>
@@ -273,17 +277,17 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create all items. </p>
+<p>Create cell items by input data. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00108">108</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>.</p>
+<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">musicSearchResultChanged()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00189">searchResultChanged()</a>.</p>
 
 </div>
 </div>
@@ -310,41 +314,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Current playList selected. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">155</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00108">createAllItems()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">m_currentIndex</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00099">m_currentSongs</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00101">m_searchResultCache</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, and <a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a461caf73d0ad3cf78c7ab07482c2bbe6">queryMusicItemList()</a>.</p>
+<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00107">addCellItems()</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00056">MusicItemSearchInterface&lt; MusicSongList &gt;::clearSearchResult()</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00075">MusicItemSearchInterface&lt; MusicSongList &gt;::m_containerItems</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00095">m_currentIndex</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>, and <a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a461caf73d0ad3cf78c7ab07482c2bbe6">queryMusicItemList()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a837168c71446989e6669f20c1552055b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> MusicConnectTransferWidget::exec </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Override exec function. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00215">215</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, and <a class="el" href="../../dc/d7d/musicwidgetrenderer_8cpp_source.html#l00012">MusicWidgetRenderer::setBackgroundPixmap()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d42/musicconnectmobilewidget_8cpp_source.html#l00217">MusicConnectMobileWidget::openTransferFiles2Mobile()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">initialize()</a>.</p>
 
 </div>
 </div>
@@ -370,9 +344,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Create the left button column </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">78</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">77</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00100">m_buttonGroup</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_songCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00069">MusicUIObject::MQSSBackgroundStyle01</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00197">MusicUIObject::MQSSPushButtonStyle04</a>, <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00158">QtButtonGroupConnect</a>, and <a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a461caf73d0ad3cf78c7ab07482c2bbe6">queryMusicItemList()</a>.</p>
+<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">currentPlaylistSelected()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_songCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00069">MusicUIObject::MQSSBackgroundStyle01</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00197">MusicUIObject::MQSSPushButtonStyle04</a>, <a class="el" href="../../de/d4a/ttkqtwrapper_8h_source.html#l00158">QtButtonGroupConnect</a>, and <a class="el" href="../../d0/ddf/class_music_connect_transfer_widget.html#a461caf73d0ad3cf78c7ab07482c2bbe6">queryMusicItemList()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>.</p>
 
@@ -400,52 +374,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Button state changed. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00147">147</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00141">141</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00099">m_currentSongs</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, and <a class="el" href="../../dd/d01/musicnumberdefine_8h_source.html#l00058">MH_MB2B</a>.</p>
+<p>References <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00075">MusicItemSearchInterface&lt; MusicSongList &gt;::m_containerItems</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>, and <a class="el" href="../../d4/d67/ttknumberdefine_8h_source.html#l00059">MH_MB2B</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">selectedAllItems()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6f475eadbe670b963437b25edab419c3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MusicConnectTransferWidget::musicSearchResultChanged </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Search result from list. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">195</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00108">createAllItems()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00099">m_currentSongs</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00101">m_searchResultCache</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, and <a class="el" href="../../d1/d70/http__parser_8c_source.html#l00458">name</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00171">selectedAllItems()</a>.</p>
 
 </div>
 </div>
@@ -472,7 +405,48 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Query music datas from container. </p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">initialize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d3a9e6cfacdc342d98c18537ada9f13"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MusicConnectTransferWidget::searchResultChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
+          <td class="paramname"><em>column</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Search result from list. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00189">189</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00107">addCellItems()</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00075">MusicItemSearchInterface&lt; MusicSongList &gt;::m_containerItems</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00077">MusicItemSearchInterface&lt; MusicSongList &gt;::m_searchResultCache</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00076">MusicItemSearchInterface&lt; MusicSongList &gt;::m_searchResultLevel</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>.</p>
 
 </div>
 </div>
@@ -499,9 +473,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Select all items. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00171">171</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00147">itemSelectedChanged()</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>.</p>
+<p>References <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00141">itemSelectedChanged()</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>.</p>
 
@@ -523,17 +497,17 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Get selected files. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">119</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00117">117</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">m_currentIndex</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00099">m_currentSongs</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00101">m_searchResultCache</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>, and <a class="el" href="../../d6/d11/musictoastlabel_8cpp_source.html#l00052">MusicToastLabel::popup()</a>.</p>
+<p>References <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00075">MusicItemSearchInterface&lt; MusicSongList &gt;::m_containerItems</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00095">m_currentIndex</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>, <a class="el" href="../../d0/d91/musicsearchinterface_8h_source.html#l00065">MusicItemSearchInterface&lt; MusicSongList &gt;::mappedSearchRow()</a>, and <a class="el" href="../../d6/d11/musictoastlabel_8cpp_source.html#l00016">MusicToastLabel::popup()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00183">startToTransferFiles()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">startToTransferFiles()</a>.</p>
 
 </div>
 </div>
@@ -552,11 +526,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Set current device info item. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00068">68</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/d90/musicwidgetutils_8cpp_source.html#l00051">MusicUtils::Widget::elidedText()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00102">m_currentDeviceItem</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00030">MusicDeviceInfoItem::m_name</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00031">MusicDeviceInfoItem::m_path</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">m_songCountLabel</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_ui</a>.</p>
+<p>References <a class="el" href="../../da/d90/musicwidgetutils_8cpp_source.html#l00034">MusicUtils::Widget::elidedText()</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00096">m_currentDeviceItem</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00030">MusicDeviceInfoItem::m_name</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00031">MusicDeviceInfoItem::m_path</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_selectCountLabel</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">m_songCountLabel</a>, and <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">m_ui</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d42/musicconnectmobilewidget_8cpp_source.html#l00217">MusicConnectMobileWidget::openTransferFiles2Mobile()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d15/musicconnectlocalwidget_8cpp_source.html#l00194">MusicConnectLocalWidget::openTransferFilesToMobile()</a>.</p>
 
 </div>
 </div>
@@ -582,39 +556,15 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Start to transfer files. </p>
 
-<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00183">183</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html">musicconnecttransferwidget.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00102">m_currentDeviceItem</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00031">MusicDeviceInfoItem::m_path</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00104">m_thread</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">selectedFiles()</a>, <a class="el" href="../../d0/d32/musicconnecttransferthread_8cpp_source.html#l00011">MusicConnectTransferThread::setCopyFilePath()</a>, and <a class="el" href="../../d8/d96/musicabstractthread_8cpp_source.html#l00025">MusicAbstractThread::start()</a>.</p>
+<p>References <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00096">m_currentDeviceItem</a>, <a class="el" href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00031">MusicDeviceInfoItem::m_path</a>, <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">m_thread</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00117">selectedFiles()</a>, <a class="el" href="../../d0/d32/musicconnecttransferthread_8cpp_source.html#l00011">MusicConnectTransferThread::setCopyFilePath()</a>, <a class="el" href="../../d6/dce/ttkabstractthread_8cpp_source.html#l00025">TTKAbstractThread::start()</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00220">TTK_SEPARATOR</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ac7ef92d52a83fbeb474888fced1b27b4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QButtonGroup* MusicConnectTransferWidget::m_buttonGroup</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00100">100</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">~MusicConnectTransferWidget()</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a9834d41a0d558925c1e9d14bd063377d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -628,14 +578,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00102">102</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00096">96</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00068">setDeviceInfoItem()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00183">startToTransferFiles()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00067">setDeviceInfoItem()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">startToTransferFiles()</a>.</p>
 
 </div>
 </div>
@@ -652,62 +602,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">98</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00095">95</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">selectedFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7e208ccf9a62fc583ff86e1b426a0072"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">MusicSongList MusicConnectTransferWidget::m_currentSongs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00099">99</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00147">itemSelectedChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">musicSearchResultChanged()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">selectedFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a71d012670628e14a69ace6191fb4b2a9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7f/ttkglobal_8h.html#af034fc7958840423f321821e677d99e8">TTKIntListMap</a> MusicConnectTransferWidget::m_searchResultCache</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00101">101</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">musicSearchResultChanged()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">selectedFiles()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">currentPlaylistSelected()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00117">selectedFiles()</a>.</p>
 
 </div>
 </div>
@@ -724,14 +626,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">103</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">97</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00147">itemSelectedChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00068">setDeviceInfoItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00141">itemSelectedChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00067">setDeviceInfoItem()</a>.</p>
 
 </div>
 </div>
@@ -748,14 +650,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00103">103</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">97</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00068">setDeviceInfoItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">initialize()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00067">setDeviceInfoItem()</a>.</p>
 
 </div>
 </div>
@@ -772,14 +674,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00104">104</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00098">98</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00183">startToTransferFiles()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">~MusicConnectTransferWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">startToTransferFiles()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">~MusicConnectTransferWidget()</a>.</p>
 
 </div>
 </div>
@@ -796,14 +698,14 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00097">97</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html#l00093">93</a> of file <a class="el" href="../../da/dcc/musicconnecttransferwidget_8h_source.html">musicconnecttransferwidget.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00108">createAllItems()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00161">currentPlaylistSelected()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00215">exec()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00078">initialize()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00147">itemSelectedChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00195">musicSearchResultChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00177">selectedAllItems()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00119">selectedFiles()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00068">setDeviceInfoItem()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">~MusicConnectTransferWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00107">addCellItems()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00155">currentPlaylistSelected()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00077">initialize()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00141">itemSelectedChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00012">MusicConnectTransferWidget()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00189">searchResultChanged()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00171">selectedAllItems()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00117">selectedFiles()</a>, <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00067">setDeviceInfoItem()</a>, and <a class="el" href="../../d8/d4a/musicconnecttransferwidget_8cpp_source.html#l00060">~MusicConnectTransferWidget()</a>.</p>
 
 </div>
 </div>
@@ -814,7 +716,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:28:07 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:41 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

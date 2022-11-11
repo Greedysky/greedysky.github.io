@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicCoreKits/musicconnectionpool.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicconnectionpool.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_69b280439566f54517cbd63501c777ed.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d60/musicplayer_8h.html">musicplayer.h</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d0c/musiclrcmakerwidget_8h.html">musiclrcmakerwidget.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/db6/musicsongssummariziedwidget_8h.html">musicsongssummariziedwidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d74/musiclocalsongsmanagerwidget_8h.html">musiclocalsongsmanagerwidget.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d50/musicmobilesongsmanagerwidget_8h.html">musicmobilesongsmanagerwidget.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/de1/musicequalizerdialog_8h.html">musicequalizerdialog.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/df9/musiclrclocallinkwidget_8h.html">musiclrclocallinkwidget.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/dca/musicsongslistplaywidget_8h.html">musicsongslistplaywidget.h</a>&quot;</span></div>
@@ -96,134 +96,123 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d30/musicabstractdownloadtablewidget_8h.html">musicabstractdownloadtablewidget.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dbf/musiccloudtablewidget_8h.html">musiccloudtablewidget.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d28/musiccloudmanagerwidget_8h.html">musiccloudmanagerwidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/de1/musicsongdlnatransferwidget_8h.html">musicsongdlnatransferwidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d54/musicsongitemselectedareawidget_8h.html">musicsongitemselectedareawidget.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">   23</a></span>&#160;<a class="code" href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">MusicConnectionPool::MusicConnectionPool</a>()</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#adac5d271bfc666e4e963c2c1e4b946d6">   28</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#a087990465954f5c824214f2cadae2d78">MusicConnectionPool::poolConnect</a>(<span class="keyword">const</span> QString &amp;from, <span class="keyword">const</span> QString &amp;to)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> QObject *first = <a class="code" href="../../d5/d19/class_music_connection_pool.html#afee76a5f312cee3e660b3511e222a096">m_parameter</a>.value(from);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> QObject *second = <a class="code" href="../../d5/d19/class_music_connection_pool.html#afee76a5f312cee3e660b3511e222a096">m_parameter</a>.value(to);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span>(first == <span class="keyword">nullptr</span> || second == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span>(from == MusicNetworkThread::className() &amp;&amp; to == MusicDownloadStatusModule::className())</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        QObject::connect(first, SIGNAL(networkConnectionStateChanged(<span class="keywordtype">bool</span>)), second, SLOT(networkConnectionStateChanged(<span class="keywordtype">bool</span>)));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicPlayer::className() &amp;&amp; to == MusicLrcMakerWidget::className())</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        QObject::connect(first, SIGNAL(positionChanged(qint64)), second, SLOT(positionChanged(qint64)));</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        QObject::connect(first, SIGNAL(durationChanged(qint64)), second, SLOT(durationChanged(qint64)));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicLocalSongsManagerWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            (from == MusicSongCheckToolsDuplicateTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            (from == MusicSongCheckToolsQualityTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            (from == MusicAbstractDownloadTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        QObject::connect(first, SIGNAL(addSongToPlaylist(QStringList)), second, SLOT(addSongToPlaylist(QStringList)));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicPlayer::className())</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)), second, SLOT(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a>)));</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QObject::connect(first, SIGNAL(setEnabledEffect(<span class="keywordtype">bool</span>)), second, SLOT(setEnabledEffect(<span class="keywordtype">bool</span>)));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicSoundEffectsWidget::className())</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        QObject::connect(first, SIGNAL(setEnabledEffect(<span class="keywordtype">bool</span>)), second, SLOT(equalizerButtonChanged(<span class="keywordtype">bool</span>)));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicSoundEffectsWidget::className() &amp;&amp; to == MusicPlayer::className())</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerConfig()), second, SLOT(setEqualizerConfig()));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicSongSearchTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            (from == MusicItemQueryTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d61/musiclocalmanagerwidget_8h.html">musiclocalmanagerwidget.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/de1/musicsongdlnatransferwidget_8h.html">musicsongdlnatransferwidget.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d54/musicsongitemselectedareawidget_8h.html">musicsongitemselectedareawidget.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">   24</a></span>&#160;<a class="code" href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">MusicConnectionPool::MusicConnectionPool</a>()</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">MusicConnectionPool::removeValue</a>(<span class="keyword">const</span> QObject *<span class="keywordtype">object</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>.constBegin(); it != <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>.constEnd(); ++it)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span>(it.value() == object)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>.take(it.key());</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#ae6d3f5660595fd7dc4ef08588ee7db7c">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#ae6d3f5660595fd7dc4ef08588ee7db7c">MusicConnectionPool::connect</a>(<span class="keyword">const</span> QString &amp;from, <span class="keyword">const</span> QString &amp;to)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> QObject *first = <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>.value(from);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> QObject *second = <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>.value(to);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(first == <span class="keyword">nullptr</span> || second == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(from == MusicNetworkThread::className() &amp;&amp; to == MusicDownloadStatusModule::className())</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        QObject::connect(first, SIGNAL(networkConnectionStateChanged(<span class="keywordtype">bool</span>)), second, SLOT(networkConnectionStateChanged(<span class="keywordtype">bool</span>)));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicPlayer::className() &amp;&amp; to == MusicLrcMakerWidget::className())</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QObject::connect(first, SIGNAL(positionChanged(qint64)), second, SLOT(positionChanged(qint64)));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        QObject::connect(first, SIGNAL(durationChanged(qint64)), second, SLOT(durationChanged(qint64)));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicLocalManagerWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            (from == MusicMobileSongsManagerWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            (from == MusicSongCheckToolsDuplicateTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            (from == MusicSongCheckToolsQualityTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            (from == MusicAbstractDownloadTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        QObject::connect(first, SIGNAL(addSongToPlaylist(QStringList)), second, SLOT(addSongToPlaylist(QStringList)));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicPlayer::className())</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        QObject::connect(first, SIGNAL(songBufferToPlaylist(<a class="code" href="../../d8/d62/struct_music_results_item.html">MusicResultsItem</a>)), second, SLOT(addSongBufferToPlaylist(<a class="code" href="../../d8/d62/struct_music_results_item.html">MusicResultsItem</a>)));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicLrcLocalLinkWidget::className() &amp;&amp; to == MusicDownloadStatusModule::className())</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        QObject::connect(first, SIGNAL(currentLrcChanged(QString)), second, SLOT(showDownLoadInfoFinished(QString)));</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicVideoQualityPopWidget::className() &amp;&amp; to == MusicVideoSearchTableWidget::className())</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        QObject::connect(first, SIGNAL(queryMusicMediaInfo(MusicObject::MusicSongPropertyList&amp;)), second, SLOT(musicMediaInfo(MusicObject::MusicSongPropertyList&amp;)));</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicConnectTransferWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            (from == MusicSongItemSelectedAreaWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            (from == MusicSongDlnaTransferWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        QObject::connect(first, SIGNAL(queryMusicItemList(MusicSongItemList&amp;)), second, SLOT(musicItemList(MusicSongItemList&amp;)));</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicCloudManagerTableWidget::className() &amp;&amp; to == MusicCloudUploadTableWidget::className()))</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        QObject::connect(first, SIGNAL(uploadFileError(<a class="code" href="../../d8/d2e/struct_music_cloud_data_item.html">MusicCloudDataItem</a>)), second, SLOT(uploadFileError(<a class="code" href="../../d8/d2e/struct_music_cloud_data_item.html">MusicCloudDataItem</a>)));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        QObject::connect(second, SIGNAL(reuploadFilesToServer(QStringList)), first, SLOT(reuploadFilesToServer(QStringList)));</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#a087990465954f5c824214f2cadae2d78">   92</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#a087990465954f5c824214f2cadae2d78">MusicConnectionPool::poolConnect</a>(<span class="keyword">const</span> QObject *from, <span class="keyword">const</span> QObject *to)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QObject::connect(from, SIGNAL(sender()), to, SLOT(receiver()));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#aa37b08796b023e75e51049d65519d109">   97</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">MusicConnectionPool::removeValue</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="../../d5/d19/class_music_connection_pool.html#afee76a5f312cee3e660b3511e222a096">m_parameter</a>.take(name);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">  102</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">MusicConnectionPool::removeValue</a>(<span class="keyword">const</span> QObject *<span class="keywordtype">object</span>)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    QMapIterator&lt;QString, QObject*&gt; i(<a class="code" href="../../d5/d19/class_music_connection_pool.html#afee76a5f312cee3e660b3511e222a096">m_parameter</a>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">while</span>(i.hasNext())</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        i.next();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span>(i.value() == object)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">removeValue</a>(i.key());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a>)), second, SLOT(setEqualizerEffect(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a>)));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        QObject::connect(first, SIGNAL(setEnabledEffect(<span class="keywordtype">bool</span>)), second, SLOT(setEnabledEffect(<span class="keywordtype">bool</span>)));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicEqualizerDialog::className() &amp;&amp; to == MusicSoundEffectsWidget::className())</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        QObject::connect(first, SIGNAL(setEnabledEffect(<span class="keywordtype">bool</span>)), second, SLOT(equalizerButtonChanged(<span class="keywordtype">bool</span>)));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicSoundEffectsWidget::className() &amp;&amp; to == MusicPlayer::className())</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        QObject::connect(first, SIGNAL(setEqualizerConfig()), second, SLOT(setEqualizerConfig()));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicQueryTableWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className())</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        QObject::connect(first, SIGNAL(songBufferToPlaylist(<a class="code" href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a>)), second, SLOT(addSongBufferToPlaylist(<a class="code" href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a>)));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicLrcLocalLinkWidget::className() &amp;&amp; to == MusicDownloadStatusModule::className())</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        QObject::connect(first, SIGNAL(currentLrcChanged(QString)), second, SLOT(showDownLoadInfoFinished(QString)));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(from == MusicVideoQualityPopWidget::className() &amp;&amp; to == MusicVideoSearchTableWidget::className())</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        QObject::connect(first, SIGNAL(queryMusicMediaInfo(MusicObject::MusicSongPropertyList&amp;)), second, SLOT(musicMediaInfo(MusicObject::MusicSongPropertyList&amp;)));</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicConnectTransferWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            (from == MusicSongItemSelectedAreaWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()) ||</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            (from == MusicSongDlnaTransferWidget::className() &amp;&amp; to == MusicSongsSummariziedWidget::className()))</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        QObject::connect(first, SIGNAL(queryMusicItemList(MusicSongItemList&amp;)), second, SLOT(musicItemList(MusicSongItemList&amp;)));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>((from == MusicCloudManagerTableWidget::className() &amp;&amp; to == MusicCloudUploadTableWidget::className()))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        QObject::connect(first, SIGNAL(uploadFileError(<a class="code" href="../../d8/d2e/struct_music_cloud_data_item.html">MusicCloudDataItem</a>)), second, SLOT(uploadFileError(<a class="code" href="../../d8/d2e/struct_music_cloud_data_item.html">MusicCloudDataItem</a>)));</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        QObject::connect(second, SIGNAL(reuploadFilesToServer(QStringList)), first, SLOT(reuploadFilesToServer(QStringList)));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
 <div class="ttc" id="musicabstractdownloadtablewidget_8h_html"><div class="ttname"><a href="../../d4/d30/musicabstractdownloadtablewidget_8h.html">musicabstractdownloadtablewidget.h</a></div></div>
+<div class="ttc" id="struct_music_result_data_item_html"><div class="ttname"><a href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a></div><div class="ttdoc">The class of the search result data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00049">musicabstractqueryrequest.h:49</a></div></div>
 <div class="ttc" id="musicequalizerdialog_8h_html"><div class="ttname"><a href="../../d4/de1/musicequalizerdialog_8h.html">musicequalizerdialog.h</a></div></div>
-<div class="ttc" id="musiclocalsongsmanagerwidget_8h_html"><div class="ttname"><a href="../../d4/d74/musiclocalsongsmanagerwidget_8h.html">musiclocalsongsmanagerwidget.h</a></div></div>
-<div class="ttc" id="class_music_connection_pool_html_a81a195374f3283af7627945393646a07"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">MusicConnectionPool::MusicConnectionPool</a></div><div class="ttdeci">MusicConnectionPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00023">musicconnectionpool.cpp:23</a></div></div>
+<div class="ttc" id="class_music_connection_pool_html_a81a195374f3283af7627945393646a07"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a81a195374f3283af7627945393646a07">MusicConnectionPool::MusicConnectionPool</a></div><div class="ttdeci">MusicConnectionPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00024">musicconnectionpool.cpp:24</a></div></div>
 <div class="ttc" id="musiclrcmakerwidget_8h_html"><div class="ttname"><a href="../../d7/d0c/musiclrcmakerwidget_8h.html">musiclrcmakerwidget.h</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00265">ttkglobal.h:265</a></div></div>
 <div class="ttc" id="musicdownloadmgmtwidget_8h_html"><div class="ttname"><a href="../../d8/d0a/musicdownloadmgmtwidget_8h.html">musicdownloadmgmtwidget.h</a></div></div>
 <div class="ttc" id="musiccloudmanagerwidget_8h_html"><div class="ttname"><a href="../../da/d28/musiccloudmanagerwidget_8h.html">musiccloudmanagerwidget.h</a></div></div>
 <div class="ttc" id="musicsongchecktoolstablewidget_8h_html"><div class="ttname"><a href="../../da/d9b/musicsongchecktoolstablewidget_8h.html">musicsongchecktoolstablewidget.h</a></div></div>
-<div class="ttc" id="class_music_connection_pool_html_afee76a5f312cee3e660b3511e222a096"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#afee76a5f312cee3e660b3511e222a096">MusicConnectionPool::m_parameter</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameter</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00079">musicconnectionpool.h:79</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a11b2bea1d30833b7f3afd3ef5abb5237"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00247">ttkglobal.h:247</a></div></div>
 <div class="ttc" id="struct_music_cloud_data_item_html"><div class="ttname"><a href="../../d8/d2e/struct_music_cloud_data_item.html">MusicCloudDataItem</a></div><div class="ttdoc">The class of the cloud data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd1/musicclouddataitem_8h_source.html#l00029">musicclouddataitem.h:29</a></div></div>
 <div class="ttc" id="musicvideosearchtablewidget_8h_html"><div class="ttname"><a href="../../d6/d9a/musicvideosearchtablewidget_8h.html">musicvideosearchtablewidget.h</a></div></div>
 <div class="ttc" id="musiclrclocallinkwidget_8h_html"><div class="ttname"><a href="../../d5/df9/musiclrclocallinkwidget_8h.html">musiclrclocallinkwidget.h</a></div></div>
-<div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
 <div class="ttc" id="musicsongssummariziedwidget_8h_html"><div class="ttname"><a href="../../d7/db6/musicsongssummariziedwidget_8h.html">musicsongssummariziedwidget.h</a></div></div>
+<div class="ttc" id="class_music_connection_pool_html_a7a747af9dd4c7ac24fb844b3a04ceeeb"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">MusicConnectionPool::m_parameters</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameters</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00058">musicconnectionpool.h:58</a></div></div>
 <div class="ttc" id="musicvideoqualitypopwidget_8h_html"><div class="ttname"><a href="../../dd/ddc/musicvideoqualitypopwidget_8h.html">musicvideoqualitypopwidget.h</a></div></div>
-<div class="ttc" id="class_music_connection_pool_html_a087990465954f5c824214f2cadae2d78"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a087990465954f5c824214f2cadae2d78">MusicConnectionPool::poolConnect</a></div><div class="ttdeci">void poolConnect(const QObject *from, const QObject *to)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00092">musicconnectionpool.cpp:92</a></div></div>
 <div class="ttc" id="musicsongitemselectedareawidget_8h_html"><div class="ttname"><a href="../../da/d54/musicsongitemselectedareawidget_8h.html">musicsongitemselectedareawidget.h</a></div></div>
+<div class="ttc" id="class_music_connection_pool_html_ae6d3f5660595fd7dc4ef08588ee7db7c"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#ae6d3f5660595fd7dc4ef08588ee7db7c">MusicConnectionPool::connect</a></div><div class="ttdeci">void connect(const QString &amp;from, const QString &amp;to)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00041">musicconnectionpool.cpp:41</a></div></div>
 <div class="ttc" id="musicsongdlnatransferwidget_8h_html"><div class="ttname"><a href="../../d4/de1/musicsongdlnatransferwidget_8h.html">musicsongdlnatransferwidget.h</a></div></div>
 <div class="ttc" id="musicconnecttransferwidget_8h_html"><div class="ttname"><a href="../../da/dcc/musicconnecttransferwidget_8h.html">musicconnecttransferwidget.h</a></div></div>
 <div class="ttc" id="musicsongslistplaywidget_8h_html"><div class="ttname"><a href="../../d3/dca/musicsongslistplaywidget_8h.html">musicsongslistplaywidget.h</a></div></div>
 <div class="ttc" id="musicconnectionpool_8h_html"><div class="ttname"><a href="../../d8/dcd/musicconnectionpool_8h.html">musicconnectionpool.h</a></div></div>
+<div class="ttc" id="musicmobilesongsmanagerwidget_8h_html"><div class="ttname"><a href="../../d7/d50/musicmobilesongsmanagerwidget_8h.html">musicmobilesongsmanagerwidget.h</a></div></div>
 <div class="ttc" id="musiccloudtablewidget_8h_html"><div class="ttname"><a href="../../dd/dbf/musiccloudtablewidget_8h.html">musiccloudtablewidget.h</a></div></div>
+<div class="ttc" id="musiclocalmanagerwidget_8h_html"><div class="ttname"><a href="../../d8/d61/musiclocalmanagerwidget_8h.html">musiclocalmanagerwidget.h</a></div></div>
 <div class="ttc" id="musicdownloadstatusmodule_8h_html"><div class="ttname"><a href="../../df/dd4/musicdownloadstatusmodule_8h.html">musicdownloadstatusmodule.h</a></div></div>
 <div class="ttc" id="musicitemquerytablewidget_8h_html"><div class="ttname"><a href="../../d0/d03/musicitemquerytablewidget_8h.html">musicitemquerytablewidget.h</a></div></div>
 <div class="ttc" id="musicplayer_8h_html"><div class="ttname"><a href="../../dd/d60/musicplayer_8h.html">musicplayer.h</a></div></div>
-<div class="ttc" id="struct_music_results_item_html"><div class="ttname"><a href="../../d8/d62/struct_music_results_item.html">MusicResultsItem</a></div><div class="ttdoc">The class of the search song results data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00049">musicabstractqueryrequest.h:49</a></div></div>
 <div class="ttc" id="musicsoundeffectswidget_8h_html"><div class="ttname"><a href="../../d2/dc0/musicsoundeffectswidget_8h.html">musicsoundeffectswidget.h</a></div></div>
-<div class="ttc" id="class_music_connection_pool_html_aded54deab2a36e7d565a6161b21d5207"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">MusicConnectionPool::removeValue</a></div><div class="ttdeci">void removeValue(const QObject *object)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00102">musicconnectionpool.cpp:102</a></div></div>
+<div class="ttc" id="class_music_connection_pool_html_aded54deab2a36e7d565a6161b21d5207"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#aded54deab2a36e7d565a6161b21d5207">MusicConnectionPool::removeValue</a></div><div class="ttdeci">void removeValue(const QObject *object)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/musicconnectionpool_8cpp_source.html#l00029">musicconnectionpool.cpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:28 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

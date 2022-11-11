@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKWidget/musicCoreKits/musicitemrenameedit.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKWidget/musicCoreKits/musicitemrenameedit.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_65d7ee83374af28447a36a0a45a26393.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_c36a2cd76853ec286b00ea90fb1340dc.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_513babb2681fcdf7997954d1c9925cd3.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_0efe67f83b19119447cf13069a0485f9.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -109,57 +109,58 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">m_focusBlock</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a> *toast = <span class="keyword">new</span> <a class="code" href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        toast-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">setText</a>(tr(<span class="stringliteral">&quot;Illegal chars %1&quot;</span>).arg(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#ac4f5c7e34076111e961ec85d262764b4">MusicUtils::String::illegalCharacters</a>().join(<span class="stringliteral">&quot;&quot;</span>)));</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        toast-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">popup</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        connect(toast, SIGNAL(<a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">animationCloseChanged</a>()), SLOT(<a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">animationCloseChanged</a>()));</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">MusicItemRenameEidt::renameFinished</a>()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Q_EMIT <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">renameFinished</a>(text());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">MusicItemRenameEidt::animationCloseChanged</a>()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">m_focusBlock</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    setFocus(Qt::MouseFocusReason);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">MusicItemRenameEidt::focusOutEvent</a>(QFocusEvent *event)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">m_focusBlock</a>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        QLineEdit::focusOutEvent(event);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        Q_EMIT <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">renameFinished</a>(text());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        close();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        Q_UNUSED(event);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        connect(toast, SIGNAL(finished()), SLOT(<a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">animationCloseChanged</a>()));</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        toast-&gt;<a class="code" href="../../d0/d1b/class_t_t_k_toast_label.html#a1862c67e362d167af237853899c6472c">setText</a>(tr(<span class="stringliteral">&quot;Illegal chars %1&quot;</span>).arg(<a class="code" href="../../d2/de2/namespace_music_utils_1_1_string.html#ac4f5c7e34076111e961ec85d262764b4">MusicUtils::String::illegalCharacters</a>().join(<span class="stringliteral">&quot;&quot;</span>)));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        toast-&gt;<a class="code" href="../../d2/d6f/class_music_toast_label.html#a043a2e94fd936ecf1d68f38b597aab75">popup</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">MusicItemRenameEidt::renameFinished</a>()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_EMIT <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">renameFinished</a>(text());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">MusicItemRenameEidt::animationCloseChanged</a>()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">m_focusBlock</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    setFocus(Qt::MouseFocusReason);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">MusicItemRenameEidt::focusOutEvent</a>(QFocusEvent *event)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">m_focusBlock</a>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QLineEdit::focusOutEvent(event);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        Q_EMIT <a class="code" href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">renameFinished</a>(text());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        close();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        Q_UNUSED(event);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="ttc" id="class_music_item_rename_eidt_html_a33564c5e0b49cc378e952749be683e63"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#a33564c5e0b49cc378e952749be683e63">MusicItemRenameEidt::m_focusBlock</a></div><div class="ttdeci">bool m_focusBlock</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d98/musicitemrenameedit_8h_source.html#l00065">musicitemrenameedit.h:65</a></div></div>
 <div class="ttc" id="musicstringutils_8h_html"><div class="ttname"><a href="../../d4/d50/musicstringutils_8h.html">musicstringutils.h</a></div></div>
 <div class="ttc" id="musicuiobject_8h_html"><div class="ttname"><a href="../../d0/deb/musicuiobject_8h.html">musicuiobject.h</a></div></div>
-<div class="ttc" id="class_music_item_rename_eidt_html_ac3df83d70a786dc14e6c605cba89ee53"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">MusicItemRenameEidt::animationCloseChanged</a></div><div class="ttdeci">void animationCloseChanged()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00044">musicitemrenameedit.cpp:44</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_string_html_a696b311cb3d111a4918d013b4727afb7"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#a696b311cb3d111a4918d013b4727afb7">MusicUtils::String::isCharacterValid</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool isCharacterValid(const QString &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00155">musicstringutils.cpp:155</a></div></div>
-<div class="ttc" id="class_music_toast_label_html"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a></div><div class="ttdoc">The class of the toast widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00029">musictoastlabel.h:29</a></div></div>
+<div class="ttc" id="class_t_t_k_toast_label_html_a1862c67e362d167af237853899c6472c"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a1862c67e362d167af237853899c6472c">TTKToastLabel::setText</a></div><div class="ttdeci">void setText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00067">ttktoastlabel.cpp:67</a></div></div>
+<div class="ttc" id="class_music_item_rename_eidt_html_ac3df83d70a786dc14e6c605cba89ee53"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#ac3df83d70a786dc14e6c605cba89ee53">MusicItemRenameEidt::animationCloseChanged</a></div><div class="ttdeci">void animationCloseChanged()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00045">musicitemrenameedit.cpp:45</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_string_html_a696b311cb3d111a4918d013b4727afb7"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#a696b311cb3d111a4918d013b4727afb7">MusicUtils::String::isCharacterValid</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool isCharacterValid(const QString &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00146">musicstringutils.cpp:146</a></div></div>
+<div class="ttc" id="class_music_toast_label_html"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html">MusicToastLabel</a></div><div class="ttdoc">The class of the toast widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de1/musictoastlabel_8h_source.html#l00027">musictoastlabel.h:27</a></div></div>
 <div class="ttc" id="class_music_item_rename_eidt_html"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html">MusicItemRenameEidt</a></div><div class="ttdoc">The class of the item rename edit. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d98/musicitemrenameedit_8h_source.html#l00028">musicitemrenameedit.h:28</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_afbfb38f93452c63f3371a568c83b61fe"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#afbfb38f93452c63f3371a568c83b61fe">MusicToastLabel::popup</a></div><div class="ttdeci">void popup(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00052">musictoastlabel.cpp:52</a></div></div>
+<div class="ttc" id="class_music_toast_label_html_a043a2e94fd936ecf1d68f38b597aab75"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a043a2e94fd936ecf1d68f38b597aab75">MusicToastLabel::popup</a></div><div class="ttdeci">static void popup(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00016">musictoastlabel.cpp:16</a></div></div>
 <div class="ttc" id="namespace_music_u_i_object_html_a0fe80321802c2e6b6d1b3a51c8f805eb"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a0fe80321802c2e6b6d1b3a51c8f805eb">MusicUIObject::MQSSLineEditStyle01</a></div><div class="ttdeci">const QString MQSSLineEditStyle01</div><div class="ttdoc">LineEdit. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00303">musicuiobject.h:303</a></div></div>
-<div class="ttc" id="class_music_item_rename_eidt_html_a2c0d17a71d0b36d42c1ed089db52f108"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">MusicItemRenameEidt::focusOutEvent</a></div><div class="ttdeci">virtual void focusOutEvent(QFocusEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00050">musicitemrenameedit.cpp:50</a></div></div>
-<div class="ttc" id="class_music_item_rename_eidt_html_ae3be384a21b5186d4b82220d4a16de2a"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">MusicItemRenameEidt::renameFinished</a></div><div class="ttdeci">void renameFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00039">musicitemrenameedit.cpp:39</a></div></div>
+<div class="ttc" id="class_music_item_rename_eidt_html_a2c0d17a71d0b36d42c1ed089db52f108"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#a2c0d17a71d0b36d42c1ed089db52f108">MusicItemRenameEidt::focusOutEvent</a></div><div class="ttdeci">virtual void focusOutEvent(QFocusEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00051">musicitemrenameedit.cpp:51</a></div></div>
+<div class="ttc" id="class_music_item_rename_eidt_html_ae3be384a21b5186d4b82220d4a16de2a"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#ae3be384a21b5186d4b82220d4a16de2a">MusicItemRenameEidt::renameFinished</a></div><div class="ttdeci">void renameFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00040">musicitemrenameedit.cpp:40</a></div></div>
 <div class="ttc" id="class_music_item_rename_eidt_html_ab1c668f6a77a35abf74b213df0414f15"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#ab1c668f6a77a35abf74b213df0414f15">MusicItemRenameEidt::MusicItemRenameEidt</a></div><div class="ttdeci">MusicItemRenameEidt(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00006">musicitemrenameedit.cpp:6</a></div></div>
 <div class="ttc" id="musictoastlabel_8h_html"><div class="ttname"><a href="../../d0/de1/musictoastlabel_8h.html">musictoastlabel.h</a></div></div>
 <div class="ttc" id="musicitemrenameedit_8h_html"><div class="ttname"><a href="../../d5/d98/musicitemrenameedit_8h.html">musicitemrenameedit.h</a></div></div>
 <div class="ttc" id="class_music_item_rename_eidt_html_a1df630881fa3a2218afa8bdb92ad6063"><div class="ttname"><a href="../../d1/d9e/class_music_item_rename_eidt.html#a1df630881fa3a2218afa8bdb92ad6063">MusicItemRenameEidt::textChanged</a></div><div class="ttdeci">void textChanged(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de4/musicitemrenameedit_8cpp_source.html#l00025">musicitemrenameedit.cpp:25</a></div></div>
-<div class="ttc" id="class_music_toast_label_html_a1771dd8b41e2365ffdc4ecd19d3a4e57"><div class="ttname"><a href="../../d2/d6f/class_music_toast_label.html#a1771dd8b41e2365ffdc4ecd19d3a4e57">MusicToastLabel::setText</a></div><div class="ttdeci">void setText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d11/musictoastlabel_8cpp_source.html#l00074">musictoastlabel.cpp:74</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_string_html_ac4f5c7e34076111e961ec85d262764b4"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#ac4f5c7e34076111e961ec85d262764b4">MusicUtils::String::illegalCharacters</a></div><div class="ttdeci">TTK_MODULE_EXPORT QStringList illegalCharacters()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00148">musicstringutils.cpp:148</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_string_html_ac4f5c7e34076111e961ec85d262764b4"><div class="ttname"><a href="../../d2/de2/namespace_music_utils_1_1_string.html#ac4f5c7e34076111e961ec85d262764b4">MusicUtils::String::illegalCharacters</a></div><div class="ttdeci">TTK_MODULE_EXPORT QStringList illegalCharacters()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00139">musicstringutils.cpp:139</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

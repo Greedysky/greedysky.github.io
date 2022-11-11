@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicUtilsKits/musicalgorithmutils.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicUtilsKits/musicalgorithmutils.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_aaca651be01fe8b35ad8213a676fdb4f.html">musicUtilsKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_8c2a6fb832464c9d41e9b99b63705ede.html">musicUtilsKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/dfd/musicalgorithmutils_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d63/musicalgorithmutils_8h.html">musicalgorithmutils.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/dbd/musiccryptographichash_8h.html">musiccryptographichash.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d3f/ttkcryptographichash_8h.html">ttkcryptographichash.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QCryptographicHash&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
@@ -119,30 +119,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">   41</a></span>&#160;QString <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<span class="keyword">const</span> QString &amp;data, <span class="keywordtype">bool</span> encode)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html">MusicCryptographicHash</a> hash;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> encode ? hash.<a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html#ae916fd9fed5d222f8f8d1abc7ed52cf6">encrypt</a>(data, <a class="code" href="../../d8/d63/musicalgorithmutils_8h.html#ac4361a9cbf49fd9c250519b81a294dce">ALG_URL_KEY</a>) : hash.<a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html#a79a5849e3015184a301b5154a94ef27a">decrypt</a>(data, <a class="code" href="../../d8/d63/musicalgorithmutils_8h.html#ac4361a9cbf49fd9c250519b81a294dce">ALG_URL_KEY</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html">TTKCryptographicHash</a> hash;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> encode ? hash.<a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a3a3a27ffa46261315d61c0ff18247c64">encrypt</a>(data, <a class="code" href="../../d8/d63/musicalgorithmutils_8h.html#ac4361a9cbf49fd9c250519b81a294dce">ALG_URL_KEY</a>) : hash.<a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a8e3bf3daf7b533ef6215edaa275d2e84">decrypt</a>(data, <a class="code" href="../../d8/d63/musicalgorithmutils_8h.html#ac4361a9cbf49fd9c250519b81a294dce">ALG_URL_KEY</a>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#acc776ced9ee6c0477c533a89e431ecec">   47</a></span>&#160;QString <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<span class="keyword">const</span> QString &amp;data, <span class="keyword">const</span> QString &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, <span class="keywordtype">bool</span> encode)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html">MusicCryptographicHash</a> hash;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> encode ? hash.<a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html#ae916fd9fed5d222f8f8d1abc7ed52cf6">encrypt</a>(data, key) : hash.<a class="code" href="../../d1/d7e/class_music_cryptographic_hash.html#a79a5849e3015184a301b5154a94ef27a">decrypt</a>(data, key);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html">TTKCryptographicHash</a> hash;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> encode ? hash.<a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a3a3a27ffa46261315d61c0ff18247c64">encrypt</a>(data, key) : hash.<a class="code" href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a8e3bf3daf7b533ef6215edaa275d2e84">decrypt</a>(data, key);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_a4628273992d288b057bbc4a13e8d1032"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a4628273992d288b057bbc4a13e8d1032">MusicUtils::Algorithm::hmacSha1</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray hmacSha1(const QByteArray &amp;data, const QByteArray &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00016">musicalgorithmutils.cpp:16</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_a5e5f071a5bb196d53c48fb2be855da67"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString mdII(const QString &amp;data, bool encode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00041">musicalgorithmutils.cpp:41</a></div></div>
-<div class="ttc" id="class_music_cryptographic_hash_html_a79a5849e3015184a301b5154a94ef27a"><div class="ttname"><a href="../../d1/d7e/class_music_cryptographic_hash.html#a79a5849e3015184a301b5154a94ef27a">MusicCryptographicHash::decrypt</a></div><div class="ttdeci">QString decrypt(const QString &amp;data, const QString &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0c/musiccryptographichash_8cpp_source.html#l00018">musiccryptographichash.cpp:18</a></div></div>
+<div class="ttc" id="class_t_t_k_cryptographic_hash_html_a3a3a27ffa46261315d61c0ff18247c64"><div class="ttname"><a href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a3a3a27ffa46261315d61c0ff18247c64">TTKCryptographicHash::encrypt</a></div><div class="ttdeci">QString encrypt(const QString &amp;data, const QString &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/ttkcryptographichash_8cpp_source.html#l00128">ttkcryptographichash.cpp:128</a></div></div>
+<div class="ttc" id="ttkcryptographichash_8h_html"><div class="ttname"><a href="../../dc/d3f/ttkcryptographichash_8h.html">ttkcryptographichash.h</a></div></div>
+<div class="ttc" id="class_t_t_k_cryptographic_hash_html"><div class="ttname"><a href="../../d9/d6e/class_t_t_k_cryptographic_hash.html">TTKCryptographicHash</a></div><div class="ttdoc">The class of the string cryptographic hash. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d3f/ttkcryptographichash_8h_source.html#l00039">ttkcryptographichash.h:39</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_ab282be1c91dde9f8f37029c376f4020f"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#ab282be1c91dde9f8f37029c376f4020f">MusicUtils::Algorithm::md5</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray md5(const QByteArray &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00006">musicalgorithmutils.cpp:6</a></div></div>
+<div class="ttc" id="class_t_t_k_cryptographic_hash_html_a8e3bf3daf7b533ef6215edaa275d2e84"><div class="ttname"><a href="../../d9/d6e/class_t_t_k_cryptographic_hash.html#a8e3bf3daf7b533ef6215edaa275d2e84">TTKCryptographicHash::decrypt</a></div><div class="ttdeci">QString decrypt(const QString &amp;data, const QString &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/daf/ttkcryptographichash_8cpp_source.html#l00133">ttkcryptographichash.cpp:133</a></div></div>
 <div class="ttc" id="musicalgorithmutils_8h_html_ac4361a9cbf49fd9c250519b81a294dce"><div class="ttname"><a href="../../d8/d63/musicalgorithmutils_8h.html#ac4361a9cbf49fd9c250519b81a294dce">ALG_URL_KEY</a></div><div class="ttdeci">#define ALG_URL_KEY</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d63/musicalgorithmutils_8h_source.html#l00025">musicalgorithmutils.h:25</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_acd79e2391bdba72f44631ecc7d48e999"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#acd79e2391bdba72f44631ecc7d48e999">MusicUtils::Algorithm::sha1</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray sha1(const QByteArray &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00011">musicalgorithmutils.cpp:11</a></div></div>
-<div class="ttc" id="class_music_cryptographic_hash_html_ae916fd9fed5d222f8f8d1abc7ed52cf6"><div class="ttname"><a href="../../d1/d7e/class_music_cryptographic_hash.html#ae916fd9fed5d222f8f8d1abc7ed52cf6">MusicCryptographicHash::encrypt</a></div><div class="ttdeci">QString encrypt(const QString &amp;data, const QString &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d0c/musiccryptographichash_8cpp_source.html#l00013">musiccryptographichash.cpp:13</a></div></div>
 <div class="ttc" id="musicalgorithmutils_8h_html"><div class="ttname"><a href="../../d8/d63/musicalgorithmutils_8h.html">musicalgorithmutils.h</a></div></div>
-<div class="ttc" id="musiccryptographichash_8h_html"><div class="ttname"><a href="../../d6/dbd/musiccryptographichash_8h.html">musiccryptographichash.h</a></div></div>
-<div class="ttc" id="class_music_cryptographic_hash_html"><div class="ttname"><a href="../../d1/d7e/class_music_cryptographic_hash.html">MusicCryptographicHash</a></div><div class="ttdoc">The class of the string cryptographic hash. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dbd/musiccryptographichash_8h_source.html#l00039">musiccryptographichash.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

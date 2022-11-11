@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKRun/TTKApp/ttklocalpeer.cpp Source File</title>
+<title>TTKMusicPlayer: TTKCommon/TTKApplication/ttklocalpeer.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_40dea76e74e43f609d63fd522b820079.html">TTKRun</a></li><li class="navelem"><a class="el" href="../../dir_d7d488c0fe980a5ab0d3d7af05e021e9.html">TTKApp</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li><li class="navelem"><a class="el" href="../../dir_c6f2d1225b3a8a1ad7c9d0c0570781df.html">TTKApplication</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if defined(Q_OS_WIN)</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#  include &lt;QLibrary&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">typedef</span> BOOL(WINAPI*PProcessIdToSessionId)(DWORD,DWORD*);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">typedef</span> BOOL (WINAPI *PProcessIdToSessionId)(DWORD, DWORD*);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">static</span> PProcessIdToSessionId pProcessIdToSessionId = 0;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#if defined(Q_OS_UNIX)</span></div>
@@ -139,13 +139,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../db/d19/class_t_t_k_local_peer.html#acd9b9964aaceb9aca7c0a3449fd612f7">   66</a></span>&#160;<a class="code" href="../../db/d19/class_t_t_k_local_peer.html#acd9b9964aaceb9aca7c0a3449fd612f7">TTKLocalPeer::TTKLocalPeer</a>(QObject *parent, <span class="keyword">const</span> QString &amp;appId)</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../db/d19/class_t_t_k_local_peer.html#a98735f6fc613e0b3ad9177452e2c3b1c">   66</a></span>&#160;<a class="code" href="../../db/d19/class_t_t_k_local_peer.html#a98735f6fc613e0b3ad9177452e2c3b1c">TTKLocalPeer::TTKLocalPeer</a>(QObject *parent, <span class="keyword">const</span> QString &amp;<span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    : QObject(parent)</div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#ad71adac9cbb4648a07b374f795c53810">   68</a></span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a>(<a class="code" href="../../db/d19/class_t_t_k_local_peer.html">TTKLocalPeer</a>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../db/d19/class_t_t_k_local_peer.html">TTKLocalPeer</a>);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QString prefix = d-&gt;m_id = appId;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QString prefix = d-&gt;m_id = id;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(prefix.isEmpty())</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        d-&gt;m_id = QCoreApplication::applicationFilePath();</div>
@@ -215,7 +215,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">if</span>(!res)</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#abbfc7903ce2789f1139564fa0dfa7516">TTK_LOGGER_WARN</a>(<span class="stringliteral">&quot;Application: listen on local socket failed, &quot;</span> &lt;&lt; <a class="code" href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a>(d-&gt;m_server-&gt;errorString()));</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">TTK_WARN_STREAM</a>(<span class="stringliteral">&quot;Application: listen on local socket failed, &quot;</span> &lt;&lt; <a class="code" href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a>(d-&gt;m_server-&gt;errorString()));</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    connect(d-&gt;m_server, SIGNAL(newConnection()), SLOT(<a class="code" href="../../db/d19/class_t_t_k_local_peer.html#af1d2cdfb082a0d29e61af07958c63eb8">receiveConnection</a>()));</div>
@@ -290,7 +290,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">if</span>(socket-&gt;state() == QLocalSocket::UnconnectedState)</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <a class="code" href="../../d5/d2b/ttklogger_8h.html#abbfc7903ce2789f1139564fa0dfa7516">TTK_LOGGER_WARN</a>(<span class="stringliteral">&quot;QtLocalPeer: Peer disconnected&quot;</span>);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <a class="code" href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">TTK_WARN_STREAM</a>(<span class="stringliteral">&quot;QtLocalPeer: Peer disconnected&quot;</span>);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keyword">delete</span> socket;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
@@ -319,7 +319,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">if</span>(got &lt; 0)</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#abbfc7903ce2789f1139564fa0dfa7516">TTK_LOGGER_WARN</a>(<span class="stringliteral">&quot;TTKLocalPeer: Message reception failed &quot;</span> &lt;&lt; socket-&gt;errorString().toLatin1().constData());</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">TTK_WARN_STREAM</a>(<span class="stringliteral">&quot;TTKLocalPeer: Message reception failed &quot;</span> &lt;&lt; socket-&gt;errorString().toLatin1().constData());</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keyword">delete</span> socket;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
@@ -334,28 +334,28 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_ad570d74f0290358527d104b51f5fc4ad"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#ad570d74f0290358527d104b51f5fc4ad">TTKLocalPeerPrivate::m_socketName</a></div><div class="ttdeci">QString m_socketName</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00046">ttklocalpeer.cpp:46</a></div></div>
 <div class="ttc" id="namespace_t_t_k_locked_private_html"><div class="ttname"><a href="../../dc/d69/namespace_t_t_k_locked_private.html">TTKLockedPrivate</a></div><div class="ttdoc">The namespace of locked private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00027">ttklocalpeer.cpp:27</a></div></div>
-<div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedPrivate::TTKLockedFile</a></div><div class="ttdoc">The class of the ttk local file. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00017">ttklockedfile.h:17</a></div></div>
+<div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedPrivate::TTKLockedFile</a></div><div class="ttdoc">The class of the ttk local file. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00035">ttklockedfile.h:35</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a0dfbc877d5d936767641c34cc6f524ee"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a></div><div class="ttdeci">#define qPrintable(s)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00037">ttkglobal.h:37</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_afeaf340d38b812ac04efecaa343b9c55"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#afeaf340d38b812ac04efecaa343b9c55">TTKLocalPeerPrivate::~TTKLocalPeerPrivate</a></div><div class="ttdeci">~TTKLocalPeerPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00059">ttklocalpeer.cpp:59</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html_af1d2cdfb082a0d29e61af07958c63eb8"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#af1d2cdfb082a0d29e61af07958c63eb8">TTKLocalPeer::receiveConnection</a></div><div class="ttdeci">void receiveConnection()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00204">ttklocalpeer.cpp:204</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html">TTKLocalPeer</a></div><div class="ttdoc">The class of the ttk local peer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d0b/ttklocalpeer_8h_source.html#l00029">ttklocalpeer.h:29</a></div></div>
-<div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html_a2c1431992f51c8bafa2e86b889e267dbaa0706f099e93bbe8bf8f08698c2c2721"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a2c1431992f51c8bafa2e86b889e267dbaa0706f099e93bbe8bf8f08698c2c2721">TTKLockedPrivate::TTKLockedFile::WriteLock</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00024">ttklockedfile.h:24</a></div></div>
+<div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html_a2c1431992f51c8bafa2e86b889e267dbaa0706f099e93bbe8bf8f08698c2c2721"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a2c1431992f51c8bafa2e86b889e267dbaa0706f099e93bbe8bf8f08698c2c2721">TTKLockedPrivate::TTKLockedFile::WriteLock</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00042">ttklockedfile.h:42</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html">TTKLocalPeerPrivate</a></div><div class="ttdoc">The class of the ttk local peer private. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00039">ttklocalpeer.cpp:39</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_a8f12c22b506fbefd053756e09e458e60"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#a8f12c22b506fbefd053756e09e458e60">TTKLocalPeerPrivate::m_id</a></div><div class="ttdeci">QString m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00045">ttklocalpeer.cpp:45</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_a630aa08e9376f892e831662599be9213"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#a630aa08e9376f892e831662599be9213">TTKLocalPeerPrivate::m_ack</a></div><div class="ttdeci">static const char * m_ack</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00049">ttklocalpeer.cpp:49</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a11b29d3d13ee219d60d2646d53cd3425"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">TTK_WARN_STREAM</a></div><div class="ttdeci">#define TTK_WARN_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00057">ttklogger.h:57</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_a4c6950f5ee5878efd13fdc7b24128805"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#a4c6950f5ee5878efd13fdc7b24128805">TTKLocalPeerPrivate::m_lockFile</a></div><div class="ttdeci">TTKLockedPrivate::TTKLockedFile m_lockFile</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00048">ttklocalpeer.cpp:48</a></div></div>
 <div class="ttc" id="ttklockedfile_8h_html"><div class="ttname"><a href="../../da/d17/ttklockedfile_8h.html">ttklockedfile.h</a></div></div>
 <div class="ttc" id="ttklockedfile_8cpp_html"><div class="ttname"><a href="../../df/d8d/ttklockedfile_8cpp.html">ttklockedfile.cpp</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_a758471957f34bc8cf09028a92ae7b551"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#a758471957f34bc8cf09028a92ae7b551">TTKLocalPeerPrivate::m_server</a></div><div class="ttdeci">QLocalServer * m_server</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00047">ttklocalpeer.cpp:47</a></div></div>
-<div class="ttc" id="class_t_t_k_local_peer_html_acd9b9964aaceb9aca7c0a3449fd612f7"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#acd9b9964aaceb9aca7c0a3449fd612f7">TTKLocalPeer::TTKLocalPeer</a></div><div class="ttdeci">TTKLocalPeer(QObject *parent=nullptr, const QString &amp;appId=QString())</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00066">ttklocalpeer.cpp:66</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html_aacb340ed44ecf6791addc25b0fc7fc66"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#aacb340ed44ecf6791addc25b0fc7fc66">TTKLocalPeer::messageReceived</a></div><div class="ttdeci">void messageReceived(const QString &amp;message)</div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html_aeeea075784cd07534fea2570223653e1"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#aeeea075784cd07534fea2570223653e1">TTKLocalPeer::isClient</a></div><div class="ttdeci">bool isClient() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00118">ttklocalpeer.cpp:118</a></div></div>
 <div class="ttc" id="ttklocalpeer_8h_html"><div class="ttname"><a href="../../d6/d0b/ttklocalpeer_8h.html">ttklocalpeer.h</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html_a26c86063f299c0ab840d272cf056ec69"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#a26c86063f299c0ab840d272cf056ec69">TTKLocalPeer::applicationId</a></div><div class="ttdeci">QString applicationId() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00198">ttklocalpeer.cpp:198</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_abbfc7903ce2789f1139564fa0dfa7516"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#abbfc7903ce2789f1139564fa0dfa7516">TTK_LOGGER_WARN</a></div><div class="ttdeci">#define TTK_LOGGER_WARN(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00036">ttklogger.h:36</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_private_html_acf052448f42d04bff38a60c6a03212bd"><div class="ttname"><a href="../../dc/de9/class_t_t_k_local_peer_private.html#acf052448f42d04bff38a60c6a03212bd">TTKLocalPeerPrivate::TTKLocalPeerPrivate</a></div><div class="ttdeci">TTKLocalPeerPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00053">ttklocalpeer.cpp:53</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
 <div class="ttc" id="ttklockedfile__unix_8cpp_html"><div class="ttname"><a href="../../d5/db3/ttklockedfile__unix_8cpp.html">ttklockedfile_unix.cpp</a></div></div>
+<div class="ttc" id="class_t_t_k_local_peer_html_a98735f6fc613e0b3ad9177452e2c3b1c"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#a98735f6fc613e0b3ad9177452e2c3b1c">TTKLocalPeer::TTKLocalPeer</a></div><div class="ttdeci">TTKLocalPeer(QObject *parent=nullptr, const QString &amp;id=QString())</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00066">ttklocalpeer.cpp:66</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a></div><div class="ttdoc">The class of the ttk private base. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00048">ttkprivate.h:48</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html_a09cd0b77588c70a663c215eae8cbd8b3"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html#a09cd0b77588c70a663c215eae8cbd8b3">TTKLocalPeer::sendMessage</a></div><div class="ttdeci">bool sendMessage(const QString &amp;message, int timeout) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00149">ttklocalpeer.cpp:149</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a8eedd09c47b53d5e42ca132295c5e1ef"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a></div><div class="ttdeci">#define TTK_D(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00041">ttkprivate.h:41</a></div></div>
@@ -363,7 +363,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:46 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

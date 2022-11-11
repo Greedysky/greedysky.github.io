@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/common/musicdownloadtagdatarequest.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/tools/musicdownloadtagdatarequest.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_7af9da208042dfa673a7bc6c26bdf270.html">common</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_5bb7984aa2533880ab414065bd6c0dc4.html">tools</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -109,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d9/dc0/class_music_download_tag_data_request.html">MusicDownloadTagDataRequest</a>(<span class="keyword">const</span> QString &amp;url, <span class="keyword">const</span> QString &amp;path, <a class="code" href="../../df/dbc/namespace_music_object.html#a74abdbb098a4fb7a3840c0bc64feba4e">MusicObject::Download</a> type, QObject *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> setSongMeta(<a class="code" href="../../d9/d9a/class_music_song_meta.html">MusicSongMeta</a> &amp;meta);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d09/class_music_download_data_request.html#a360f83e09ac74f502e7e0c69dda0d63e">startToDownload</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d09/class_music_download_data_request.html#a2eaf6c40c47a9b98d6fc6699cdee9a34">startRequest</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;Q_SIGNALS:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> finished();</div>
@@ -118,19 +118,19 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d09/class_music_download_data_request.html#a4e567128c35c6ac5ab6a994c46db0c37">downLoadFinished</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../df/d09/class_music_download_data_request.html#a4e567128c35c6ac5ab6a994c46db0c37">downLoadFinished</a>(<span class="keyword">const</span> QByteArray &amp;bytes);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d9/dc0/class_music_download_tag_data_request.html#a6362e8a29412c1b5051df30098a96a59">   64</a></span>&#160;    <a class="code" href="../../d9/d9a/class_music_song_meta.html">MusicSongMeta</a> <a class="code" href="../../d9/dc0/class_music_download_tag_data_request.html#a6362e8a29412c1b5051df30098a96a59">m_songMeta</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // MUSICDOWNLOADTAGDATAREQUEST_H</span></div>
 <div class="ttc" id="musicdownloaddatarequest_8h_html"><div class="ttname"><a href="../../d1/de5/musicdownloaddatarequest_8h.html">musicdownloaddatarequest.h</a></div></div>
-<div class="ttc" id="class_music_download_data_request_html"><div class="ttname"><a href="../../df/d09/class_music_download_data_request.html">MusicDownloadDataRequest</a></div><div class="ttdoc">The class of download the type of data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/de5/musicdownloaddatarequest_8h_source.html#l00027">musicdownloaddatarequest.h:27</a></div></div>
+<div class="ttc" id="class_music_download_data_request_html_a2eaf6c40c47a9b98d6fc6699cdee9a34"><div class="ttname"><a href="../../df/d09/class_music_download_data_request.html#a2eaf6c40c47a9b98d6fc6699cdee9a34">MusicDownloadDataRequest::startRequest</a></div><div class="ttdeci">virtual void startRequest() override</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d66/musicdownloaddatarequest_8cpp_source.html#l00014">musicdownloaddatarequest.cpp:14</a></div></div>
+<div class="ttc" id="class_music_download_data_request_html"><div class="ttname"><a href="../../df/d09/class_music_download_data_request.html">MusicDownloadDataRequest</a></div><div class="ttdoc">The class of the download the type of data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/de5/musicdownloaddatarequest_8h_source.html#l00027">musicdownloaddatarequest.h:27</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
 <div class="ttc" id="class_music_download_tag_data_request_html_a6362e8a29412c1b5051df30098a96a59"><div class="ttname"><a href="../../d9/dc0/class_music_download_tag_data_request.html#a6362e8a29412c1b5051df30098a96a59">MusicDownloadTagDataRequest::m_songMeta</a></div><div class="ttdeci">MusicSongMeta m_songMeta</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5e/musicdownloadtagdatarequest_8h_source.html#l00064">musicdownloadtagdatarequest.h:64</a></div></div>
-<div class="ttc" id="class_music_download_data_request_html_a360f83e09ac74f502e7e0c69dda0d63e"><div class="ttname"><a href="../../df/d09/class_music_download_data_request.html#a360f83e09ac74f502e7e0c69dda0d63e">MusicDownloadDataRequest::startToDownload</a></div><div class="ttdeci">virtual void startToDownload() override</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d66/musicdownloaddatarequest_8cpp_source.html#l00014">musicdownloaddatarequest.cpp:14</a></div></div>
-<div class="ttc" id="class_music_download_tag_data_request_html"><div class="ttname"><a href="../../d9/dc0/class_music_download_tag_data_request.html">MusicDownloadTagDataRequest</a></div><div class="ttdoc">The class of download the type of data by custom tags. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5e/musicdownloadtagdatarequest_8h_source.html#l00028">musicdownloadtagdatarequest.h:28</a></div></div>
+<div class="ttc" id="class_music_download_tag_data_request_html"><div class="ttname"><a href="../../d9/dc0/class_music_download_tag_data_request.html">MusicDownloadTagDataRequest</a></div><div class="ttdoc">The class of the download the type of data by custom tags. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5e/musicdownloadtagdatarequest_8h_source.html#l00028">musicdownloadtagdatarequest.h:28</a></div></div>
 <div class="ttc" id="class_music_download_data_request_html_a4e567128c35c6ac5ab6a994c46db0c37"><div class="ttname"><a href="../../df/d09/class_music_download_data_request.html#a4e567128c35c6ac5ab6a994c46db0c37">MusicDownloadDataRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() override</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d66/musicdownloaddatarequest_8cpp_source.html#l00059">musicdownloaddatarequest.cpp:59</a></div></div>
 <div class="ttc" id="musicsongmeta_8h_html"><div class="ttname"><a href="../../db/d5c/musicsongmeta_8h.html">musicsongmeta.h</a></div></div>
 <div class="ttc" id="namespace_music_object_html_a74abdbb098a4fb7a3840c0bc64feba4e"><div class="ttname"><a href="../../df/dbc/namespace_music_object.html#a74abdbb098a4fb7a3840c0bc64feba4e">MusicObject::Download</a></div><div class="ttdeci">Download</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de0/musicnetworkdefines_8h_source.html#l00035">musicnetworkdefines.h:35</a></div></div>
@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:29 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

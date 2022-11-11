@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKWidget/musicCoreKits/musicfunctiontoolboxwidget.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKWidget/musicCoreKits/musicfunctiontoolboxwidget.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_65d7ee83374af28447a36a0a45a26393.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_c36a2cd76853ec286b00ea90fb1340dc.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_513babb2681fcdf7997954d1c9925cd3.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_0efe67f83b19119447cf13069a0485f9.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -156,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    ~<a class="code" href="../../d7/deb/class_music_function_tool_box_widget_item.html">MusicFunctionToolBoxWidgetItem</a>();</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    QWidget *item() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> addItem(QWidget *item);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> addCellItem(QWidget *item);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> setTitle(<span class="keyword">const</span> QString &amp;text);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
@@ -212,7 +212,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d2/d05/class_music_function_tool_box_widget.html">MusicFunctionToolBoxWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    ~<a class="code" href="../../d2/d05/class_music_function_tool_box_widget.html">MusicFunctionToolBoxWidget</a>();</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">void</span> addItem(QWidget *item, <span class="keyword">const</span> QString &amp;text);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">void</span> addCellItem(QWidget *item, <span class="keyword">const</span> QString &amp;text);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">void</span> removeItem(QWidget *item);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> swapItem(<span class="keywordtype">int</span> before, <span class="keywordtype">int</span> after);</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
@@ -228,9 +228,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">setTransparent</a>(<span class="keywordtype">int</span> alpha);</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d7/deb/class_music_function_tool_box_widget_item.html">MusicFunctionToolBoxWidgetItem</a>* createItem(QWidget *item, <span class="keyword">const</span> QString &amp;text);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d7/deb/class_music_function_tool_box_widget_item.html">MusicFunctionToolBoxWidgetItem</a>* initialItem(QWidget *item, <span class="keyword">const</span> QString &amp;text);</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> mousePressEvent(QMouseEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">int</span> foundMappingIndex(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">int</span> foundMappedIndex(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
 <div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="../../d2/d05/class_music_function_tool_box_widget.html#a7023fa20a3a12b05194a829b6eaf95ba">  276</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d2/d05/class_music_function_tool_box_widget.html#a7023fa20a3a12b05194a829b6eaf95ba">m_currentIndex</a>;</div>
 <div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="../../d2/d05/class_music_function_tool_box_widget.html#a435374e4e0bf6a9f80847dd82e69b715">  277</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d2/d05/class_music_function_tool_box_widget.html#a435374e4e0bf6a9f80847dd82e69b715">m_itemIndexRaise</a>;</div>
@@ -267,7 +267,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_tool_box_widget_item_html_a0ff9d86aaa02a1e5aaa4c6111de08dab"><div class="ttname"><a href="../../d6/de2/struct_music_tool_box_widget_item.html#a0ff9d86aaa02a1e5aaa4c6111de08dab">MusicToolBoxWidgetItem::m_widgetItem</a></div><div class="ttdeci">MusicFunctionToolBoxWidgetItem * m_widgetItem</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00191">musicfunctiontoolboxwidget.h:191</a></div></div>
 <div class="ttc" id="struct_music_tool_box_widget_item_html_abc4b1a4ccdb4e7eb70f46b60891433e8"><div class="ttname"><a href="../../d6/de2/struct_music_tool_box_widget_item.html#abc4b1a4ccdb4e7eb70f46b60891433e8">MusicToolBoxWidgetItem::m_itemIndex</a></div><div class="ttdeci">int m_itemIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00190">musicfunctiontoolboxwidget.h:190</a></div></div>
 <div class="ttc" id="class_music_function_tool_box_top_widget_html_a7001126d87851c2679ab2371bad7835f"><div class="ttname"><a href="../../d8/d24/class_music_function_tool_box_top_widget.html#a7001126d87851c2679ab2371bad7835f">MusicFunctionToolBoxTopWidget::m_index</a></div><div class="ttdeci">int m_index</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00094">musicfunctiontoolboxwidget.h:94</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_widget_html_add4b3dee560f16862b2f8e63cb190a9f"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setTransparent(QWidget *widget, int alpha)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00092">musicwidgetutils.cpp:92</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_widget_html_add4b3dee560f16862b2f8e63cb190a9f"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setTransparent(QWidget *widget, int alpha)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00075">musicwidgetutils.cpp:75</a></div></div>
 <div class="ttc" id="class_music_function_tool_box_widget_item_html_a1072f342225575287d2a33a41242fab9"><div class="ttname"><a href="../../d7/deb/class_music_function_tool_box_widget_item.html#a1072f342225575287d2a33a41242fab9">MusicFunctionToolBoxWidgetItem::m_item</a></div><div class="ttdeci">QWidget * m_item</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00161">musicfunctiontoolboxwidget.h:161</a></div></div>
 <div class="ttc" id="class_music_function_tool_box_widget_html_a7023fa20a3a12b05194a829b6eaf95ba"><div class="ttname"><a href="../../d2/d05/class_music_function_tool_box_widget.html#a7023fa20a3a12b05194a829b6eaf95ba">MusicFunctionToolBoxWidget::m_currentIndex</a></div><div class="ttdeci">int m_currentIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00276">musicfunctiontoolboxwidget.h:276</a></div></div>
 <div class="ttc" id="class_music_function_tool_box_widget_item_html_ad04ecd96f6a85d1cddfc1dae64a972ca"><div class="ttname"><a href="../../d7/deb/class_music_function_tool_box_widget_item.html#ad04ecd96f6a85d1cddfc1dae64a972ca">MusicFunctionToolBoxWidgetItem::m_topWidget</a></div><div class="ttdeci">MusicFunctionToolBoxTopWidget * m_topWidget</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d0d/musicfunctiontoolboxwidget_8h_source.html#l00162">musicfunctiontoolboxwidget.h:162</a></div></div>
@@ -276,7 +276,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

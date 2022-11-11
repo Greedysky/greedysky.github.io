@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKWidget/musicCoreKits/musicsongitemselectedareawidget.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKWidget/musicCoreKits/musicsongitemselectedareawidget.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_65d7ee83374af28447a36a0a45a26393.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_c36a2cd76853ec286b00ea90fb1340dc.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_513babb2681fcdf7997954d1c9925cd3.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_0efe67f83b19119447cf13069a0485f9.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -108,93 +108,89 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dc/d2c/class_music_song_item_selected_table_widget.html">MusicSongItemSelectedTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> createAllItems(MusicSongItemList *items);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a297448f6a65cf528187a972811a9ad15">selectedItems</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> addCellItems(MusicSongItemList *items);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> checkedDataList() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> selectedAllItems(<span class="keywordtype">bool</span> check);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/df0/namespace_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d5/d0a/class_music_song_item_selected_dialog.html">   63</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a> : <span class="keyword">public</span> <a class="code" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    ~<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> createAllItems(MusicSongItemList *items);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/df0/namespace_ui.html">Ui</a> {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d5/d0a/class_music_song_item_selected_dialog.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a> : <span class="keyword">public</span> <a class="code" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> addCellItems(MusicSongItemList *items);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> itemListChanged(<span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> &amp;items);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> itemListChanged(<span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> &amp;items);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> confirmButtonClicked();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> confirmButtonClicked();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> exec();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">   96</a></span>&#160;    Ui::MusicSongItemSelectedDialog *<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">m_ui</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html">  106</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a> : <span class="keyword">public</span> QWidget</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    ~<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    MusicSongList selectedSongItems();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">   86</a></span>&#160;    Ui::MusicSongItemSelectedDialog *<a class="code" href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">m_ui</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html">   96</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    ~<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    MusicSongList selectedSongItems();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> queryMusicItemList(MusicSongItemList &amp;songs);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> confirmChanged();</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> queryMusicItemList(MusicSongItemList &amp;songs);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> confirmChanged();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> modifiedItemButtonClicked();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> itemListChanged(<span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> &amp;items);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> modifiedItemButtonClicked();</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> itemListChanged(<span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> &amp;items);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">  143</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">m_selected</a>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#abf8cde5f9603bde5b16e020ad6ec122c">  144</a></span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#abf8cde5f9603bde5b16e020ad6ec122c">m_selectedItems</a>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">  146</a></span>&#160;    QLabel *<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">m_label</a>, *m_itemLabel;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#aed0da64daf0b9a5df55e6d09a6b8e8ab">  147</a></span>&#160;    <a class="code" href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a> *<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#aed0da64daf0b9a5df55e6d09a6b8e8ab">m_modifiedItemButton</a>;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;};</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif // MUSICSONGITEMSELECTEDAREAWIDGET_H</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">  133</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">m_selected</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#abdfe78a040502be4d165a0951ee22ba7">  134</a></span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> <a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#abdfe78a040502be4d165a0951ee22ba7">m_items</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">  136</a></span>&#160;    QLabel *<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">m_label</a>, *m_itemLabel;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="../../df/d63/class_music_song_item_selected_area_widget.html#a4d9f9729782b89795b390fc64ada4b92">  137</a></span>&#160;    <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a> *<a class="code" href="../../df/d63/class_music_song_item_selected_area_widget.html#a4d9f9729782b89795b390fc64ada4b92">m_modifiedItemButton</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;};</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#endif // MUSICSONGITEMSELECTEDAREAWIDGET_H</span></div>
 <div class="ttc" id="musicabstractmovedialog_8h_html"><div class="ttname"><a href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_dialog_html"><div class="ttname"><a href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a></div><div class="ttdoc">The class of the song item selected dialog widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00063">musicsongitemselectedareawidget.h:63</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_area_widget_html_ad3898ec8d1ddb7e2b839ffd7b3fe6b76"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">MusicSongItemSelectedAreaWidget::m_label</a></div><div class="ttdeci">QLabel * m_label</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00146">musicsongitemselectedareawidget.h:146</a></div></div>
-<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00035">musicapplication.h:35</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a080d05a852e11fb0bf1c830a449bba25"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a080d05a852e11fb0bf1c830a449bba25">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00265">ttkglobal.h:265</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_dialog_html"><div class="ttname"><a href="../../d5/d0a/class_music_song_item_selected_dialog.html">MusicSongItemSelectedDialog</a></div><div class="ttdoc">The class of the song item selected dialog widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00057">musicsongitemselectedareawidget.h:57</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_area_widget_html_ad3898ec8d1ddb7e2b839ffd7b3fe6b76"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#ad3898ec8d1ddb7e2b839ffd7b3fe6b76">MusicSongItemSelectedAreaWidget::m_label</a></div><div class="ttdeci">QLabel * m_label</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00136">musicsongitemselectedareawidget.h:136</a></div></div>
+<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00036">musicapplication.h:36</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
+<div class="ttc" id="class_t_t_k_clicked_label_html"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a></div><div class="ttdoc">The class of the label widget that can click. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2d/ttkclickedlabel_8h_source.html#l00028">ttkclickedlabel.h:28</a></div></div>
 <div class="ttc" id="class_music_fill_item_table_widget_html"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html">MusicFillItemTableWidget</a></div><div class="ttdoc">The class of the fill item table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d42/musicfillitemtablewidget_8h_source.html#l00030">musicfillitemtablewidget.h:30</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_area_widget_html_aed0da64daf0b9a5df55e6d09a6b8e8ab"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#aed0da64daf0b9a5df55e6d09a6b8e8ab">MusicSongItemSelectedAreaWidget::m_modifiedItemButton</a></div><div class="ttdeci">MusicClickedLabel * m_modifiedItemButton</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00147">musicsongitemselectedareawidget.h:147</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_a297448f6a65cf528187a972811a9ad15"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a297448f6a65cf528187a972811a9ad15">MusicFillItemTableWidget::selectedItems</a></div><div class="ttdeci">TTKIntList selectedItems() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00023">musicfillitemtablewidget.cpp:23</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a11b2bea1d30833b7f3afd3ef5abb5237"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00247">ttkglobal.h:247</a></div></div>
 <div class="ttc" id="class_music_song_item_selected_table_widget_html"><div class="ttname"><a href="../../dc/d2c/class_music_song_item_selected_table_widget.html">MusicSongItemSelectedTableWidget</a></div><div class="ttdoc">The class of the song item selected table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00028">musicsongitemselectedareawidget.h:28</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_area_widget_html_abf8cde5f9603bde5b16e020ad6ec122c"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#abf8cde5f9603bde5b16e020ad6ec122c">MusicSongItemSelectedAreaWidget::m_selectedItems</a></div><div class="ttdeci">TTKIntList m_selectedItems</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00144">musicsongitemselectedareawidget.h:144</a></div></div>
 <div class="ttc" id="musicfillitemtablewidget_8h_html"><div class="ttname"><a href="../../d9/d42/musicfillitemtablewidget_8h.html">musicfillitemtablewidget.h</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00028">musicabstractmovedialog.h:28</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_area_widget_html_a26b881de47b2f9a0f472a11be8a9f0fa"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">MusicSongItemSelectedAreaWidget::m_selected</a></div><div class="ttdeci">bool m_selected</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00143">musicsongitemselectedareawidget.h:143</a></div></div>
-<div class="ttc" id="class_music_clicked_label_html"><div class="ttname"><a href="../../d1/db0/class_music_clicked_label.html">MusicClickedLabel</a></div><div class="ttdoc">The class of the label widget that can click. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d22/musicclickedlabel_8h_source.html#l00028">musicclickedlabel.h:28</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_dialog_html_aead937dfa7405e99557dd4ff07cb1ea7"><div class="ttname"><a href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">MusicSongItemSelectedDialog::m_ui</a></div><div class="ttdeci">Ui::MusicSongItemSelectedDialog * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00096">musicsongitemselectedareawidget.h:96</a></div></div>
-<div class="ttc" id="class_music_song_item_selected_area_widget_html"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a></div><div class="ttdoc">The class of the song item selected area widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00106">musicsongitemselectedareawidget.h:106</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_area_widget_html_a4d9f9729782b89795b390fc64ada4b92"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#a4d9f9729782b89795b390fc64ada4b92">MusicSongItemSelectedAreaWidget::m_modifiedItemButton</a></div><div class="ttdeci">TTKClickedLabel * m_modifiedItemButton</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00137">musicsongitemselectedareawidget.h:137</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_area_widget_html_a26b881de47b2f9a0f472a11be8a9f0fa"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#a26b881de47b2f9a0f472a11be8a9f0fa">MusicSongItemSelectedAreaWidget::m_selected</a></div><div class="ttdeci">bool m_selected</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00133">musicsongitemselectedareawidget.h:133</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_area_widget_html_abdfe78a040502be4d165a0951ee22ba7"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html#abdfe78a040502be4d165a0951ee22ba7">MusicSongItemSelectedAreaWidget::m_items</a></div><div class="ttdeci">TTKIntList m_items</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00134">musicsongitemselectedareawidget.h:134</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_dialog_html_aead937dfa7405e99557dd4ff07cb1ea7"><div class="ttname"><a href="../../d5/d0a/class_music_song_item_selected_dialog.html#aead937dfa7405e99557dd4ff07cb1ea7">MusicSongItemSelectedDialog::m_ui</a></div><div class="ttdeci">Ui::MusicSongItemSelectedDialog * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00086">musicsongitemselectedareawidget.h:86</a></div></div>
+<div class="ttc" id="class_music_song_item_selected_area_widget_html"><div class="ttname"><a href="../../df/d63/class_music_song_item_selected_area_widget.html">MusicSongItemSelectedAreaWidget</a></div><div class="ttdoc">The class of the song item selected area widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d54/musicsongitemselectedareawidget_8h_source.html#l00096">musicsongitemselectedareawidget.h:96</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:36 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

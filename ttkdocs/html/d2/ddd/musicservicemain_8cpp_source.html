@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKService/musicservicemain.cpp Source File</title>
+<title>TTKMusicPlayer: TTKService/musicservicemain.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_28a0003f3329bc3cd6cd7c2bd8d3b0e0.html">TTKService</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_4b6f17e7f03614bc948cd91b5d0a9912.html">TTKService</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -92,119 +92,149 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#ad3f26b96c9759d0690b7c7dc2900adb0">   14</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#af1dfb0fa358d45ea669836884a0a69e9">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#af1dfb0fa358d45ea669836884a0a69e9">loadAppScaledFactor</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">   16</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">cleanAppicationCache</a>()</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,4,0)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#  if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;     <span class="comment">// do nothing</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#  elif TTK_QT_VERSION_CHECK(5,12,0)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#  elif TTK_QT_VERSION_CHECK(5,6,0)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;     <a class="code" href="../../d7/d0f/class_music_platform_manager.html">MusicPlatformManager</a> platform;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;     <span class="keyword">const</span> <span class="keywordtype">float</span> dpi = platform.<a class="code" href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">logicalDotsPerInch</a>() / 96.0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;     qputenv(<span class="stringliteral">&quot;QT_SCALE_FACTOR&quot;</span>, QByteArray::number(dpi &lt; 1.0 ? 1.0 : dpi));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//     qputenv(&quot;QT_DEVICE_PIXEL_RATIO&quot;, &quot;auto&quot;);</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_UNUSED(argc);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Q_UNUSED(argv);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   35</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#af1dfb0fa358d45ea669836884a0a69e9">loadAppScaledFactor</a>(argc, argv);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QApplication app(argc, argv);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#if !defined TTK_DEBUG &amp;&amp; !defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(argc &lt;= 1 || QString(argv[1]) != <a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QCoreApplication::setOrganizationName(<a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QCoreApplication::setOrganizationDomain(<a class="code" href="../../d8/d07/musicobject_8h.html#a7c0033960bc7c5ef71d6859f1ee308ce">APP_COME_NAME</a>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QCoreApplication::setApplicationName(<a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QFile::remove(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#a61c34894038965bfd1df2b2d37cd7ebf">MUSIC_COLOR_FILE</a>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QFile::remove(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#a1cdee3fcaf366a7852ce8dcbb2f6084b">MUSIC_IMAGE_FILE</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QFile::remove(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#a70174ff88f17aaf62e64ea9a520aa2bc">MUSIC_RECORD_FILE</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QFile::remove(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#a0a289941a11a634860439e08a2302eeb">MUSIC_RECORD_DATA_FILE</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QStringList process;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    process &lt;&lt; <a class="code" href="../../d8/d07/musicobject_8h.html#a38e7a56ca0fe3930441d7bd68fa9e916">MAKE_TRANSFORM_PREFIX</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            &lt;&lt; <a class="code" href="../../d8/d07/musicobject_8h.html#abca368213de1c1ab546b6c23bd9bdb96">MAKE_KRC2LRC_PREFIX</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            &lt;&lt; <a class="code" href="../../d8/d07/musicobject_8h.html#af69b58733a73209edecdaadf7024a007">MAKE_PLAYER_PREFIX</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            &lt;&lt; <a class="code" href="../../d8/d07/musicobject_8h.html#a6fc0ad4578495656ea0f3daee663367a">MAKE_GAIN_PREFIX</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="../../d7/d65/namespace_t_t_k_object.html#af5dcd51d5788074b185947b78e4a76c4">TTKObject::killProcessByName</a>(process);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#a34b8fcf3a1e8bec0cd0f71daedc35b12">   32</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#a34b8fcf3a1e8bec0cd0f71daedc35b12">loadAppScaledFactor</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,4,0)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#  if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     <span class="comment">// do nothing</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#  elif TTK_QT_VERSION_CHECK(5,12,0)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#  elif TTK_QT_VERSION_CHECK(5,6,0)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;     <a class="code" href="../../d7/d0f/class_music_platform_manager.html">MusicPlatformManager</a> platform;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     <span class="keyword">const</span> <span class="keywordtype">float</span> dpi = platform.<a class="code" href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">logicalDotsPerInch</a>() / 96.0;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;     qputenv(<span class="stringliteral">&quot;QT_SCALE_FACTOR&quot;</span>, QByteArray::number(dpi &lt; 1.0 ? 1.0 : dpi));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#  else</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//     qputenv(&quot;QT_DEVICE_PIXEL_RATIO&quot;, &quot;auto&quot;);</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#  endif</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Q_UNUSED(argc);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Q_UNUSED(argv);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a> <a class="code" href="../../d2/d0e/deflate_8c.html#a4473b5227787415097004fd39f55185e">config</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    config.<a class="code" href="../../de/d7e/class_music_config_object.html#a95af104d76cccb11e9a106c484b6e6af">valid</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a> dumper;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    dumper.<a class="code" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">run</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="../../d9/d5a/class_music_run_time_manager.html">MusicRunTimeManager</a> manager;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a76b798930f558601056ebfecf761a8dc">run</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span>(!manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a40504ad1c729f4922a675d9feb564883">configVersionCheck</a>())</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        config.<a class="code" href="../../de/d7e/class_music_config_object.html#a54f58d94ddab8bcf9d841cb711fc005a">reset</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QTranslator translator;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(!translator.load(manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a59df49b1d44906a9e8c49eed92081f59">translator</a>()))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a>(<span class="stringliteral">&quot;Load translation error&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    app.installTranslator(&amp;translator);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="../../db/def/class_music_application.html">MusicApplication</a> w;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    w.show();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(argc == 4)</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">   51</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#a34b8fcf3a1e8bec0cd0f71daedc35b12">loadAppScaledFactor</a>(argc, argv);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QApplication app(argc, argv);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#if !defined TTK_DEBUG &amp;&amp; !defined Q_OS_UNIX</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(argc &lt;= 1 || QString(argv[1]) != <a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QCoreApplication::setOrganizationName(<a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QCoreApplication::setOrganizationDomain(<a class="code" href="../../d8/d07/musicobject_8h.html#a7c0033960bc7c5ef71d6859f1ee308ce">APP_COME_NAME</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QCoreApplication::setApplicationName(<a class="code" href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a> <a class="code" href="../../d2/d0e/deflate_8c.html#a4473b5227787415097004fd39f55185e">config</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    config.<a class="code" href="../../de/d7e/class_music_config_object.html#a95af104d76cccb11e9a106c484b6e6af">valid</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a> dumper(std::bind(<a class="code" href="../../d2/ddd/musicservicemain_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">cleanAppicationCache</a>));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    dumper.<a class="code" href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">run</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="../../d9/d5a/class_music_run_time_manager.html">MusicRunTimeManager</a> manager;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a76b798930f558601056ebfecf761a8dc">run</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(!manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a40504ad1c729f4922a675d9feb564883">configVersionCheck</a>())</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">const</span> QString &amp;data = QString::fromLocal8Bit(argv[3]);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span>(data == MUSIC_OUTSIDE_OPEN)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            w.<a class="code" href="../../db/def/class_music_application.html#a0d60fbfa2723c0d6c98799b0f1265d3c">musicImportSongsPathOutside</a>({QString::fromLocal8Bit(argv[4])}, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(data == MUSIC_OUTSIDE_LIST)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            w.<a class="code" href="../../db/def/class_music_application.html#a0d60fbfa2723c0d6c98799b0f1265d3c">musicImportSongsPathOutside</a>({QString::fromLocal8Bit(argv[4])}, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// unix mpris module</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="../../dd/ddf/class_music_m_p_r_i_s_player.html">MusicMPRISPlayer</a> mpris;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    mpris.<a class="code" href="../../dd/ddf/class_music_m_p_r_i_s_player.html#a2655293cd4685c93966cebc0ba406e90">run</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    mallopt(M_MMAP_THRESHOLD, 1024 * 1024);   <span class="comment">// 1MB mmap</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    mallopt(M_TRIM_THRESHOLD, 2 * 1024 * 1024); <span class="comment">// 2MB brk</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> app.exec();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="ttc" id="musicservicemain_8cpp_html_af1dfb0fa358d45ea669836884a0a69e9"><div class="ttname"><a href="../../d2/ddd/musicservicemain_8cpp.html#af1dfb0fa358d45ea669836884a0a69e9">loadAppScaledFactor</a></div><div class="ttdeci">void loadAppScaledFactor(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/ddd/musicservicemain_8cpp_source.html#l00016">musicservicemain.cpp:16</a></div></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        config.<a class="code" href="../../de/d7e/class_music_config_object.html#a54f58d94ddab8bcf9d841cb711fc005a">reset</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;v : manager.<a class="code" href="../../d9/d5a/class_music_run_time_manager.html#a0587a0f1ec3cd85558996ce97d6814fa">translator</a>())</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        QTranslator *translator = <span class="keyword">new</span> QTranslator(&amp;app);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span>(!translator-&gt;load(v))</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a>(<span class="stringliteral">&quot;Load translation error: &quot;</span> &lt;&lt; v);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">delete</span> translator;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        app.installTranslator(translator);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../db/def/class_music_application.html">MusicApplication</a> w;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    w.show();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span>(argc == 4)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> QString &amp;data = QString::fromLocal8Bit(argv[3]);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span>(data == MUSIC_OUTSIDE_OPEN)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            w.<a class="code" href="../../db/def/class_music_application.html#a0d60fbfa2723c0d6c98799b0f1265d3c">musicImportSongsPathOutside</a>({QString::fromLocal8Bit(argv[4])}, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(data == MUSIC_OUTSIDE_LIST)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            w.<a class="code" href="../../db/def/class_music_application.html#a0d60fbfa2723c0d6c98799b0f1265d3c">musicImportSongsPathOutside</a>({QString::fromLocal8Bit(argv[4])}, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">// unix mpris module</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="../../dd/ddf/class_music_m_p_r_i_s_player.html">MusicMPRISPlayer</a> mpris;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    mpris.<a class="code" href="../../dd/ddf/class_music_m_p_r_i_s_player.html#a2655293cd4685c93966cebc0ba406e90">run</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    mallopt(M_MMAP_THRESHOLD, 1024 * 1024);   <span class="comment">// 1MB mmap</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    mallopt(M_TRIM_THRESHOLD, 2 * 1024 * 1024); <span class="comment">// 2MB brk</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> app.exec();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="ttc" id="musicservicemain_8cpp_html_acde5dfe7e524bc0d15e891e1114ff5be"><div class="ttname"><a href="../../d2/ddd/musicservicemain_8cpp.html#acde5dfe7e524bc0d15e891e1114ff5be">cleanAppicationCache</a></div><div class="ttdeci">static void cleanAppicationCache()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/ddd/musicservicemain_8cpp_source.html#l00016">musicservicemain.cpp:16</a></div></div>
 <div class="ttc" id="deflate_8c_html_a4473b5227787415097004fd39f55185e"><div class="ttname"><a href="../../d2/d0e/deflate_8c.html#a4473b5227787415097004fd39f55185e">config</a></div><div class="ttdeci">struct config_s config</div></div>
+<div class="ttc" id="musicotherdefine_8h_html_a61c34894038965bfd1df2b2d37cd7ebf"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a61c34894038965bfd1df2b2d37cd7ebf">MUSIC_COLOR_FILE</a></div><div class="ttdeci">#define MUSIC_COLOR_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00046">musicotherdefine.h:46</a></div></div>
 <div class="ttc" id="class_music_platform_manager_html"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html">MusicPlatformManager</a></div><div class="ttdoc">The class of the platform system manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d27/musicplatformmanager_8h_source.html#l00027">musicplatformmanager.h:27</a></div></div>
+<div class="ttc" id="namespace_t_t_k_object_html_af5dcd51d5788074b185947b78e4a76c4"><div class="ttname"><a href="../../d7/d65/namespace_t_t_k_object.html#af5dcd51d5788074b185947b78e4a76c4">TTKObject::killProcessByName</a></div><div class="ttdeci">TTK_MODULE_EXPORT void killProcessByName(const QString &amp;process)</div></div>
 <div class="ttc" id="class_music_platform_manager_html_a472f354fcebf8dbbcd4b68379dc43ae9"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">MusicPlatformManager::logicalDotsPerInch</a></div><div class="ttdeci">int logicalDotsPerInch() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00129">musicplatformmanager.cpp:129</a></div></div>
-<div class="ttc" id="class_t_t_k_dumper_html"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a></div><div class="ttdoc">The class of the ttk dumper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d84/ttkdumper_8h_source.html#l00029">ttkdumper.h:29</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a743bf672cf731b656a4eb9f33b7f7582"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a743bf672cf731b656a4eb9f33b7f7582">TTK_LOGGER_ERROR</a></div><div class="ttdeci">#define TTK_LOGGER_ERROR(str)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00038">ttklogger.h:38</a></div></div>
+<div class="ttc" id="class_t_t_k_dumper_html"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html">TTKDumper</a></div><div class="ttdoc">The class of the ttk dumper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d84/ttkdumper_8h_source.html#l00034">ttkdumper.h:34</a></div></div>
+<div class="ttc" id="musicotherdefine_8h_html_a1cdee3fcaf366a7852ce8dcbb2f6084b"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a1cdee3fcaf366a7852ce8dcbb2f6084b">MUSIC_IMAGE_FILE</a></div><div class="ttdeci">#define MUSIC_IMAGE_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00047">musicotherdefine.h:47</a></div></div>
 <div class="ttc" id="musicplatformmanager_8h_html"><div class="ttname"><a href="../../db/d27/musicplatformmanager_8h.html">musicplatformmanager.h</a></div></div>
+<div class="ttc" id="musicobject_8h_html_af69b58733a73209edecdaadf7024a007"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af69b58733a73209edecdaadf7024a007">MAKE_PLAYER_PREFIX</a></div><div class="ttdeci">#define MAKE_PLAYER_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00115">musicobject.h:115</a></div></div>
 <div class="ttc" id="class_music_m_p_r_i_s_player_html_a2655293cd4685c93966cebc0ba406e90"><div class="ttname"><a href="../../dd/ddf/class_music_m_p_r_i_s_player.html#a2655293cd4685c93966cebc0ba406e90">MusicMPRISPlayer::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00031">musicmprisplayer.cpp:31</a></div></div>
-<div class="ttc" id="class_music_application_html"><div class="ttname"><a href="../../db/def/class_music_application.html">MusicApplication</a></div><div class="ttdoc">The class of the app main widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00042">musicapplication.h:42</a></div></div>
+<div class="ttc" id="musicobject_8h_html_a38e7a56ca0fe3930441d7bd68fa9e916"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a38e7a56ca0fe3930441d7bd68fa9e916">MAKE_TRANSFORM_PREFIX</a></div><div class="ttdeci">#define MAKE_TRANSFORM_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00113">musicobject.h:113</a></div></div>
+<div class="ttc" id="class_music_application_html"><div class="ttname"><a href="../../db/def/class_music_application.html">MusicApplication</a></div><div class="ttdoc">The class of the app main widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00043">musicapplication.h:43</a></div></div>
 <div class="ttc" id="musicapplication_8h_html"><div class="ttname"><a href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a></div></div>
+<div class="ttc" id="musicotherdefine_8h_html_a70174ff88f17aaf62e64ea9a520aa2bc"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a70174ff88f17aaf62e64ea9a520aa2bc">MUSIC_RECORD_FILE</a></div><div class="ttdeci">#define MUSIC_RECORD_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00049">musicotherdefine.h:49</a></div></div>
+<div class="ttc" id="musicotherdefine_8h_html_a0a289941a11a634860439e08a2302eeb"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#a0a289941a11a634860439e08a2302eeb">MUSIC_RECORD_DATA_FILE</a></div><div class="ttdeci">#define MUSIC_RECORD_DATA_FILE</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00050">musicotherdefine.h:50</a></div></div>
 <div class="ttc" id="musicobject_8h_html_af0b5cfa4242ae7f98ba80fd23ef8afa9"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#af0b5cfa4242ae7f98ba80fd23ef8afa9">APP_NAME</a></div><div class="ttdeci">#define APP_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00086">musicobject.h:86</a></div></div>
 <div class="ttc" id="musicmprisplayer_8h_html"><div class="ttname"><a href="../../d9/d9f/musicmprisplayer_8h.html">musicmprisplayer.h</a></div></div>
-<div class="ttc" id="musicservicemain_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/ddd/musicservicemain_8cpp_source.html#l00035">musicservicemain.cpp:35</a></div></div>
-<div class="ttc" id="class_music_run_time_manager_html_a59df49b1d44906a9e8c49eed92081f59"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a59df49b1d44906a9e8c49eed92081f59">MusicRunTimeManager::translator</a></div><div class="ttdeci">QString translator() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00103">musicruntimemanager.cpp:103</a></div></div>
+<div class="ttc" id="musicservicemain_8cpp_html_a34b8fcf3a1e8bec0cd0f71daedc35b12"><div class="ttname"><a href="../../d2/ddd/musicservicemain_8cpp.html#a34b8fcf3a1e8bec0cd0f71daedc35b12">loadAppScaledFactor</a></div><div class="ttdeci">static void loadAppScaledFactor(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/ddd/musicservicemain_8cpp_source.html#l00032">musicservicemain.cpp:32</a></div></div>
+<div class="ttc" id="musicservicemain_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/ddd/musicservicemain_8cpp_source.html#l00051">musicservicemain.cpp:51</a></div></div>
+<div class="ttc" id="musicobject_8h_html_a6fc0ad4578495656ea0f3daee663367a"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a6fc0ad4578495656ea0f3daee663367a">MAKE_GAIN_PREFIX</a></div><div class="ttdeci">#define MAKE_GAIN_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00116">musicobject.h:116</a></div></div>
 <div class="ttc" id="class_music_config_object_html_a95af104d76cccb11e9a106c484b6e6af"><div class="ttname"><a href="../../de/d7e/class_music_config_object.html#a95af104d76cccb11e9a106c484b6e6af">MusicConfigObject::valid</a></div><div class="ttdeci">void valid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicconfigobject_8cpp_source.html#l00011">musicconfigobject.cpp:11</a></div></div>
 <div class="ttc" id="class_music_run_time_manager_html"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html">MusicRunTimeManager</a></div><div class="ttdoc">The class of the app run time needed. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d3d/musicruntimemanager_8h_source.html#l00027">musicruntimemanager.h:27</a></div></div>
 <div class="ttc" id="class_music_config_object_html"><div class="ttname"><a href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a></div><div class="ttdoc">The class of the music initialize object. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d74/musicconfigobject_8h_source.html#l00027">musicconfigobject.h:27</a></div></div>
-<div class="ttc" id="class_music_run_time_manager_html_a76b798930f558601056ebfecf761a8dc"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a76b798930f558601056ebfecf761a8dc">MusicRunTimeManager::run</a></div><div class="ttdeci">void run() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00078">musicruntimemanager.cpp:78</a></div></div>
+<div class="ttc" id="class_music_run_time_manager_html_a76b798930f558601056ebfecf761a8dc"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a76b798930f558601056ebfecf761a8dc">MusicRunTimeManager::run</a></div><div class="ttdeci">void run() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00090">musicruntimemanager.cpp:90</a></div></div>
 <div class="ttc" id="class_music_config_object_html_a54f58d94ddab8bcf9d841cb711fc005a"><div class="ttname"><a href="../../de/d7e/class_music_config_object.html#a54f58d94ddab8bcf9d841cb711fc005a">MusicConfigObject::reset</a></div><div class="ttdeci">void reset() const </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicconfigobject_8cpp_source.html#l00034">musicconfigobject.cpp:34</a></div></div>
-<div class="ttc" id="class_music_run_time_manager_html_a40504ad1c729f4922a675d9feb564883"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a40504ad1c729f4922a675d9feb564883">MusicRunTimeManager::configVersionCheck</a></div><div class="ttdeci">bool configVersionCheck() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00109">musicruntimemanager.cpp:109</a></div></div>
+<div class="ttc" id="class_music_run_time_manager_html_a40504ad1c729f4922a675d9feb564883"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a40504ad1c729f4922a675d9feb564883">MusicRunTimeManager::configVersionCheck</a></div><div class="ttdeci">bool configVersionCheck() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00121">musicruntimemanager.cpp:121</a></div></div>
 <div class="ttc" id="musicconfigobject_8h_html"><div class="ttname"><a href="../../de/d74/musicconfigobject_8h.html">musicconfigobject.h</a></div></div>
 <div class="ttc" id="musicruntimemanager_8h_html"><div class="ttname"><a href="../../de/d3d/musicruntimemanager_8h.html">musicruntimemanager.h</a></div></div>
+<div class="ttc" id="musicobject_8h_html_abca368213de1c1ab546b6c23bd9bdb96"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#abca368213de1c1ab546b6c23bd9bdb96">MAKE_KRC2LRC_PREFIX</a></div><div class="ttdeci">#define MAKE_KRC2LRC_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00114">musicobject.h:114</a></div></div>
 <div class="ttc" id="musicobject_8h_html_a7c0033960bc7c5ef71d6859f1ee308ce"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a7c0033960bc7c5ef71d6859f1ee308ce">APP_COME_NAME</a></div><div class="ttdeci">#define APP_COME_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00088">musicobject.h:88</a></div></div>
+<div class="ttc" id="class_music_run_time_manager_html_a0587a0f1ec3cd85558996ce97d6814fa"><div class="ttname"><a href="../../d9/d5a/class_music_run_time_manager.html#a0587a0f1ec3cd85558996ce97d6814fa">MusicRunTimeManager::translator</a></div><div class="ttdeci">QStringList translator() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00115">musicruntimemanager.cpp:115</a></div></div>
 <div class="ttc" id="ttkdumper_8h_html"><div class="ttname"><a href="../../d5/d84/ttkdumper_8h.html">ttkdumper.h</a></div></div>
-<div class="ttc" id="class_t_t_k_dumper_html_acd9238a8e12a64c30cfbad7384fbcd51"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00225">ttkdumper.cpp:225</a></div></div>
+<div class="ttc" id="class_t_t_k_dumper_html_acd9238a8e12a64c30cfbad7384fbcd51"><div class="ttname"><a href="../../d6/d54/class_t_t_k_dumper.html#acd9238a8e12a64c30cfbad7384fbcd51">TTKDumper::run</a></div><div class="ttdeci">void run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d77/ttkdumper_8cpp_source.html#l00220">ttkdumper.cpp:220</a></div></div>
 <div class="ttc" id="class_music_application_html_a0d60fbfa2723c0d6c98799b0f1265d3c"><div class="ttname"><a href="../../db/def/class_music_application.html#a0d60fbfa2723c0d6c98799b0f1265d3c">MusicApplication::musicImportSongsPathOutside</a></div><div class="ttdeci">void musicImportSongsPathOutside(const QStringList &amp;files, bool play)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/musicapplication_8cpp_source.html#l00172">musicapplication.cpp:172</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00058">ttklogger.h:58</a></div></div>
 <div class="ttc" id="class_music_m_p_r_i_s_player_html"><div class="ttname"><a href="../../dd/ddf/class_music_m_p_r_i_s_player.html">MusicMPRISPlayer</a></div><div class="ttdoc">The class of the app mpris main widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d9f/musicmprisplayer_8h_source.html#l00036">musicmprisplayer.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:46 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:11 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

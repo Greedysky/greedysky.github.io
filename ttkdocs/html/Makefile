@@ -1,4 +1,4 @@
-DOCSET_NAME=org.TTKMusicplayer.TTKMusicplayer.docset
+DOCSET_NAME=org.TTKMusicPlayer.TTKMusicPlayer.docset
 DOCSET_CONTENTS=$(DOCSET_NAME)/Contents
 DOCSET_RESOURCES=$(DOCSET_CONTENTS)/Resources
 DOCSET_DOCUMENTS=$(DOCSET_RESOURCES)/Documents

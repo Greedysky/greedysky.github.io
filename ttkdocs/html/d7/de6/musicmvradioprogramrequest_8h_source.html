@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/radio/mv/musicmvradioprogramrequest.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/radio/mv/musicmvradioprogramrequest.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_ceb47adb2b2fb37a789bfa611cc940f8.html">radio</a></li><li class="navelem"><a class="el" href="../../dir_ce38de40b64f17ea6e2631539ac45283.html">mv</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_6ebbb29ffcf716e7beed75872a567c18.html">radio</a></li><li class="navelem"><a class="el" href="../../dir_4128630ff87764a9b3609e36897b3af7.html">mv</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -110,16 +110,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../de/dcf/class_music_abstract_query_request.html#ad42ba86f5dfccb7325ca8a6812395918">downLoadFinished</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> readFromMusicMVProperty(<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html">MusicObject::MusicSongInformation</a> *info);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> readFromMusicMVProperty(<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html">MusicObject::MusicSongInformation</a> *info, <span class="keyword">const</span> QVariantMap &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> parseFromMovieProperty(<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html">MusicObject::MusicSongInformation</a> *info);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> parseFromMovieProperty(<a class="code" href="../../d9/d32/struct_music_object_1_1_music_song_information.html">MusicObject::MusicSongInformation</a> *info, <span class="keyword">const</span> QVariantMap &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // MUSICMVRADIOPROGRAMREQUEST_H</span></div>
-<div class="ttc" id="class_music_abstract_m_v_radio_request_html"><div class="ttname"><a href="../../d7/d3e/class_music_abstract_m_v_radio_request.html">MusicAbstractMVRadioRequest</a></div><div class="ttdoc">The class of music mv radio request abstract. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1f/musicabstractmvradiorequest_8h_source.html#l00030">musicabstractmvradiorequest.h:30</a></div></div>
+<div class="ttc" id="class_music_abstract_m_v_radio_request_html"><div class="ttname"><a href="../../d7/d3e/class_music_abstract_m_v_radio_request.html">MusicAbstractMVRadioRequest</a></div><div class="ttdoc">The class of the music mv radio request abstract. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1f/musicabstractmvradiorequest_8h_source.html#l00030">musicabstractmvradiorequest.h:30</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
-<div class="ttc" id="class_music_m_v_radio_program_request_html"><div class="ttname"><a href="../../d4/d74/class_music_m_v_radio_program_request.html">MusicMVRadioProgramRequest</a></div><div class="ttdoc">The class of mv radio program request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de6/musicmvradioprogramrequest_8h_source.html#l00027">musicmvradioprogramrequest.h:27</a></div></div>
+<div class="ttc" id="class_music_m_v_radio_program_request_html"><div class="ttname"><a href="../../d4/d74/class_music_m_v_radio_program_request.html">MusicMVRadioProgramRequest</a></div><div class="ttdoc">The class of the mv radio program request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de6/musicmvradioprogramrequest_8h_source.html#l00027">musicmvradioprogramrequest.h:27</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
 <div class="ttc" id="class_music_abstract_query_request_html_ad42ba86f5dfccb7325ca8a6812395918"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html#ad42ba86f5dfccb7325ca8a6812395918">MusicAbstractQueryRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d59/musicabstractqueryrequest_8cpp_source.html#l00035">musicabstractqueryrequest.cpp:35</a></div></div>
@@ -128,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

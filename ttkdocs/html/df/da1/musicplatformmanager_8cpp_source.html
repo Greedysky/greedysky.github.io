@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicCoreKits/musicplatformmanager.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicplatformmanager.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_69b280439566f54517cbd63501c777ed.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -214,7 +214,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#a15cb1d8033da73b2f09694f8102352c8">  135</a></span>&#160;<a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318">MusicPlatformManager::System</a> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a15cb1d8033da73b2f09694f8102352c8">MusicPlatformManager::systemName</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">typedef</span> void(__stdcall*NTPROC)(DWORD*, DWORD*, DWORD*);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">typedef</span> void (__stdcall *NTPROC)(DWORD*, DWORD*, DWORD*);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    HINSTANCE instance = LoadLibraryW(L<span class="stringliteral">&quot;ntdll.dll&quot;</span>);</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    DWORD major, minor, buildNumber;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    NTPROC proc = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a2265a9c9ebaa4e1c86eda2d2902bce71">TTKVoid_cast</a>(NTPROC)GetProcAddress(instance, <span class="stringliteral">&quot;MiniDumpWriteDump&quot;</span>);</div>
@@ -463,7 +463,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a07d98a978840ae02e32312eedf2003eb"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a07d98a978840ae02e32312eedf2003eb">MusicPlatformManager::System::WinServer2008R2</a></div></div>
 <div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a6cfdbc405f01e66540d283b9e48fc2d9"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6cfdbc405f01e66540d283b9e48fc2d9">MusicPlatformManager::System::Win10</a></div></div>
 <div class="ttc" id="class_music_formats_html_a176c334c34e86f15183c3912cc335ac2"><div class="ttname"><a href="../../db/da7/class_music_formats.html#a176c334c34e86f15183c3912cc335ac2">MusicFormats::supportMusicFormats</a></div><div class="ttdeci">static QStringList supportMusicFormats()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9c/musicformats_8cpp_source.html#l00010">musicformats.cpp:10</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00238">ttkglobal.h:238</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00220">ttkglobal.h:220</a></div></div>
 <div class="ttc" id="class_music_platform_manager_html_a8ad5483d1f564727b2f58f44978ed084"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a8ad5483d1f564727b2f58f44978ed084">MusicPlatformManager::logicalDotsPerInchX</a></div><div class="ttdeci">int logicalDotsPerInchX() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00117">musicplatformmanager.cpp:117</a></div></div>
 <div class="ttc" id="musicobject_8h_html_aec46efc539c47f1267b2b5f94d07122b"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#aec46efc539c47f1267b2b5f94d07122b">MP3_FILE_PREFIX</a></div><div class="ttdeci">#define MP3_FILE_PREFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00056">musicobject.h:56</a></div></div>
 <div class="ttc" id="class_music_platform_manager_html_a7016ad91d40391e63c35ee477784acbe"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a7016ad91d40391e63c35ee477784acbe">MusicPlatformManager::logicalDotsPerInchY</a></div><div class="ttdeci">int logicalDotsPerInchY() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00123">musicplatformmanager.cpp:123</a></div></div>
@@ -485,7 +485,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:28 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

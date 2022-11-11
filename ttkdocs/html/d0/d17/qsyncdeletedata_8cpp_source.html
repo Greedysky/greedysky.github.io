@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKThirdParty/TTKExtras/qsync/qsyncdeletedata.cpp Source File</title>
+<title>TTKMusicPlayer: TTKThirdParty/TTKExtras/qsync/qsyncdeletedata.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_067ce75988948691583e31aaba2a9681.html">TTKThirdParty</a></li><li class="navelem"><a class="el" href="../../dir_000deb7bf21add7a83f03519491f6b69.html">TTKExtras</a></li><li class="navelem"><a class="el" href="../../dir_0af154ea2815135a63babe0ed033df62.html">qsync</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_118ac2db9e4b13bb4f55f13088c56ec8.html">TTKThirdParty</a></li><li class="navelem"><a class="el" href="../../dir_79ccf60d95c938a0a36a45bd93853022.html">TTKExtras</a></li><li class="navelem"><a class="el" href="../../dir_6e2c4201c9dae686bd56a1a9abe1a1bd.html">qsync</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">const</span> QString &amp;resource = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a> + bucket + url;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> QString &amp;host = bucket + <a class="code" href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a> + <a class="code" href="../../d3/d19/struct_q_sync_config.html#af5a871ae988411a60f5a3b2df43294bd">QSyncConfig::HOST</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#add42b7a5444fcc70f683aac7080267e8">TTKStringMap</a> headers;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#aa3f978cc7e6435715fb3439b8bac517e">TTKStringMap</a> headers;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    headers.insert(<span class="stringliteral">&quot;Date&quot;</span>, <a class="code" href="../../d9/d86/class_q_sync_utils.html#a7d4c0a15458b01236ad357424190917f">QSyncUtils::GMT</a>());</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    headers.insert(<span class="stringliteral">&quot;Host&quot;</span>, host);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    headers.insert(<span class="stringliteral">&quot;Content-Type&quot;</span>, <span class="stringliteral">&quot;charset=utf-8&quot;</span>);</div>
@@ -104,52 +104,49 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QNetworkRequest request;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    request.setUrl(<span class="stringliteral">&quot;http://&quot;</span> + host + url);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a15b1a11f15f6a9629e02c87fac9a8814">TTKStringMapIter</a> it(headers);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">while</span>(it.hasNext())</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        it.next();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        request.setRawHeader(it.key().toUtf8(), it.value().toUtf8());</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QNetworkReply *reply = d-&gt;m_manager-&gt;deleteResource(request);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    connect(reply, SIGNAL(finished()), SLOT(<a class="code" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">receiveDataFromServer</a>()));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a3c8831609b634feb6c29c92c5373bb86">QtNetworkErrorConnect</a>(reply, <span class="keyword">this</span>, <a class="code" href="../../dc/d2e/class_q_sync_data_interface.html#ad571dcc1d7a5441d82f2da2ca9b419aa">replyError</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">QSyncDeleteData::receiveDataFromServer</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QNetworkReply *reply = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QNetworkReply*, QObject::sender());</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(reply)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Q_EMIT <a class="code" href="../../de/de8/class_q_sync_delete_data.html#ad663728866c9591f3e4e301d9a2e66c7">deleteFileFinished</a>(reply-&gt;attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 204);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        reply-&gt;deleteLater();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Q_EMIT <a class="code" href="../../de/de8/class_q_sync_delete_data.html#ad663728866c9591f3e4e301d9a2e66c7">deleteFileFinished</a>(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="ttc" id="class_q_sync_utils_html_a7d4c0a15458b01236ad357424190917f"><div class="ttname"><a href="../../d9/d86/class_q_sync_utils.html#a7d4c0a15458b01236ad357424190917f">QSyncUtils::GMT</a></div><div class="ttdeci">static QString GMT()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00091">qsyncutils.cpp:91</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = headers.constBegin(); it != headers.constEnd(); ++it)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        request.setRawHeader(it.key().toUtf8(), it.value().toUtf8());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QNetworkReply *reply = d-&gt;m_manager-&gt;deleteResource(request);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    connect(reply, SIGNAL(finished()), SLOT(<a class="code" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">receiveDataFromServer</a>()));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a3c8831609b634feb6c29c92c5373bb86">QtNetworkErrorConnect</a>(reply, <span class="keyword">this</span>, <a class="code" href="../../dc/d2e/class_q_sync_data_interface.html#ad571dcc1d7a5441d82f2da2ca9b419aa">replyError</a>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">   38</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">QSyncDeleteData::receiveDataFromServer</a>()</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QNetworkReply *reply = <a class="code" href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a>(QNetworkReply*, sender());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(reply)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        Q_EMIT <a class="code" href="../../de/de8/class_q_sync_delete_data.html#ad663728866c9591f3e4e301d9a2e66c7">deleteFileFinished</a>(reply-&gt;attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 204);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        reply-&gt;deleteLater();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        Q_EMIT <a class="code" href="../../de/de8/class_q_sync_delete_data.html#ad663728866c9591f3e4e301d9a2e66c7">deleteFileFinished</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="ttc" id="class_q_sync_utils_html_a7d4c0a15458b01236ad357424190917f"><div class="ttname"><a href="../../d9/d86/class_q_sync_utils.html#a7d4c0a15458b01236ad357424190917f">QSyncUtils::GMT</a></div><div class="ttdeci">static QString GMT()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00085">qsyncutils.cpp:85</a></div></div>
 <div class="ttc" id="qsyncdeletedata_8h_html"><div class="ttname"><a href="../../d2/d05/qsyncdeletedata_8h.html">qsyncdeletedata.h</a></div></div>
 <div class="ttc" id="class_q_sync_data_interface_html_ad571dcc1d7a5441d82f2da2ca9b419aa"><div class="ttname"><a href="../../dc/d2e/class_q_sync_data_interface.html#ad571dcc1d7a5441d82f2da2ca9b419aa">QSyncDataInterface::replyError</a></div><div class="ttdeci">void replyError(QNetworkReply::NetworkError error)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da9/qsyncdatainterface_8cpp_source.html#l00018">qsyncdatainterface.cpp:18</a></div></div>
 <div class="ttc" id="struct_q_sync_config_html_af5a871ae988411a60f5a3b2df43294bd"><div class="ttname"><a href="../../d3/d19/struct_q_sync_config.html#af5a871ae988411a60f5a3b2df43294bd">QSyncConfig::HOST</a></div><div class="ttdeci">static QString HOST</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dcf/qsyncconfig_8h_source.html#l00032">qsyncconfig.h:32</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_aa3f978cc7e6435715fb3439b8bac517e"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aa3f978cc7e6435715fb3439b8bac517e">TTKStringMap</a></div><div class="ttdeci">QMap&lt; QString, QString &gt; TTKStringMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00251">ttkglobal.h:251</a></div></div>
 <div class="ttc" id="class_q_sync_data_interface_html"><div class="ttname"><a href="../../dc/d2e/class_q_sync_data_interface.html">QSyncDataInterface</a></div><div class="ttdoc">The class of the sync cloud data interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dfe/qsyncdatainterface_8h_source.html#l00032">qsyncdatainterface.h:32</a></div></div>
 <div class="ttc" id="ttkqtwrapper_8h_html_a3c8831609b634feb6c29c92c5373bb86"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a3c8831609b634feb6c29c92c5373bb86">QtNetworkErrorConnect</a></div><div class="ttdeci">#define QtNetworkErrorConnect(p, q, f)</div><div class="ttdoc">Network error connect. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00116">ttkqtwrapper.h:116</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00236">ttkglobal.h:236</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00218">ttkglobal.h:218</a></div></div>
 <div class="ttc" id="class_q_sync_delete_data_html_a8ee3f3c0dcce133f81f75cd7f0b8a944"><div class="ttname"><a href="../../de/de8/class_q_sync_delete_data.html#a8ee3f3c0dcce133f81f75cd7f0b8a944">QSyncDeleteData::deleteDataOperator</a></div><div class="ttdeci">void deleteDataOperator(const QString &amp;bucket, const QString &amp;fileName)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00010">qsyncdeletedata.cpp:10</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_add42b7a5444fcc70f683aac7080267e8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#add42b7a5444fcc70f683aac7080267e8">TTKStringMap</a></div><div class="ttdeci">QMap&lt; QString, QString &gt; TTKStringMap</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00269">ttkglobal.h:269</a></div></div>
 <div class="ttc" id="class_q_sync_delete_data_html_a21eca507568e165289d1a7fb9ed0c574"><div class="ttname"><a href="../../de/de8/class_q_sync_delete_data.html#a21eca507568e165289d1a7fb9ed0c574">QSyncDeleteData::QSyncDeleteData</a></div><div class="ttdeci">QSyncDeleteData(QNetworkAccessManager *networkManager, QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00004">qsyncdeletedata.cpp:4</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00238">ttkglobal.h:238</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00220">ttkglobal.h:220</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a55bce3f44304e073b5da6d036c34b33a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a55bce3f44304e073b5da6d036c34b33a">TTKObject_cast</a></div><div class="ttdeci">#define TTKObject_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00095">ttkglobal.h:95</a></div></div>
 <div class="ttc" id="qsyncdatainterface__p_8h_html"><div class="ttname"><a href="../../d6/d90/qsyncdatainterface__p_8h.html">qsyncdatainterface_p.h</a></div></div>
-<div class="ttc" id="class_q_sync_delete_data_html_a8fb890766ede48aa620ff4302ffdf713"><div class="ttname"><a href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">QSyncDeleteData::receiveDataFromServer</a></div><div class="ttdeci">virtual void receiveDataFromServer() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00040">qsyncdeletedata.cpp:40</a></div></div>
+<div class="ttc" id="class_q_sync_delete_data_html_a8fb890766ede48aa620ff4302ffdf713"><div class="ttname"><a href="../../de/de8/class_q_sync_delete_data.html#a8fb890766ede48aa620ff4302ffdf713">QSyncDeleteData::receiveDataFromServer</a></div><div class="ttdeci">virtual void receiveDataFromServer() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d17/qsyncdeletedata_8cpp_source.html#l00038">qsyncdeletedata.cpp:38</a></div></div>
 <div class="ttc" id="class_q_sync_delete_data_html_ad663728866c9591f3e4e301d9a2e66c7"><div class="ttname"><a href="../../de/de8/class_q_sync_delete_data.html#ad663728866c9591f3e4e301d9a2e66c7">QSyncDeleteData::deleteFileFinished</a></div><div class="ttdeci">void deleteFileFinished(bool state)</div></div>
-<div class="ttc" id="ttkglobal_8h_html_a15b1a11f15f6a9629e02c87fac9a8814"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a15b1a11f15f6a9629e02c87fac9a8814">TTKStringMapIter</a></div><div class="ttdeci">QMapIterator&lt; QString, QString &gt; TTKStringMapIter</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00274">ttkglobal.h:274</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a8eedd09c47b53d5e42ca132295c5e1ef"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a></div><div class="ttdeci">#define TTK_D(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00041">ttkprivate.h:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:49 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:11 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicNetworkKits/image/musicdownloadbackgroundrequest.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/image/photo/musicdownloadbackgroundrequest.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_dc05e37370f37b7f980133d958ead9ee.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_0c63858d6a262a0c033112e753ad93dd.html">image</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_50e730b1df64239952dca80656e1ad3b.html">image</a></li><li class="navelem"><a class="el" href="../../dir_b3522695a5d09171b8cd30d604989b6a.html">photo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,54 +78,95 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d04/musicdownloadbackgroundrequest_8h.html">musicdownloadbackgroundrequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d3a/musickwdownloadimagerequest_8h.html">musickwdownloadimagerequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da0/musictxdownloadimagerequest_8h.html">musictxdownloadimagerequest.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">    5</a></span>&#160;<a class="code" href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">MusicDownloadBackgroundRequest::MusicDownloadBackgroundRequest</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QString &amp;path, QObject *parent)</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    : <a class="code" href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a>(name, path, parent)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a0a9e08ce3189a302b5f655c2dd105f85">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/dd8/class_music_download_background_request.html#a0a9e08ce3189a302b5f655c2dd105f85">MusicDownloadBackgroundRequest::startToDownload</a>()</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a> *d = <span class="keyword">new</span> <a class="code" href="../../d5/d50/class_music_k_w_download_background_request.html">MusicKWDownloadBackgroundRequest</a>(<a class="code" href="../../dd/dc2/class_music_download_image_request.html#a3136bf66b3e270081aab5135312c08be">m_artName</a>, <a class="code" href="../../dd/dc2/class_music_download_image_request.html#a46a52a17d0fc1f866738c9b84c23b7a4">m_savePath</a>, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    connect(d, SIGNAL(<a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(QString)), SLOT(<a class="code" href="../../dd/dc2/class_music_download_image_request.html#a9c0ac1f5dcb303338affc1cb57e142c5">downLoadFinished</a>(QString)));</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    d-&gt;<a class="code" href="../../dd/dc2/class_music_download_image_request.html#af10e070122b4aed9cd1ce295eab1327b">startToDownload</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#affa8594e7238e4b1526be7ae04cddd45">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/dc2/class_music_download_image_request.html#a9c0ac1f5dcb303338affc1cb57e142c5">MusicDownloadBackgroundRequest::downLoadFinished</a>(<span class="keyword">const</span> QString &amp;bytes)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(bytes == <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        deleteLater();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(bytes.toInt() == 0)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a> *d = <span class="keyword">new</span> <a class="code" href="../../df/d6b/class_music_t_x_download_background_request.html">MusicTXDownloadBackgroundRequest</a>(<a class="code" href="../../dd/dc2/class_music_download_image_request.html#a3136bf66b3e270081aab5135312c08be">m_artName</a>, <a class="code" href="../../dd/dc2/class_music_download_image_request.html#a46a52a17d0fc1f866738c9b84c23b7a4">m_savePath</a>, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        d-&gt;<a class="code" href="../../dd/dc2/class_music_download_image_request.html#af10e070122b4aed9cd1ce295eab1327b">startToDownload</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="ttc" id="class_music_download_background_request_html_a3e5a1c7b1ccc7f3a351951103429d890"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">MusicDownloadBackgroundRequest::MusicDownloadBackgroundRequest</a></div><div class="ttdeci">MusicDownloadBackgroundRequest(const QString &amp;name, const QString &amp;path, QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp_source.html#l00005">musicdownloadbackgroundrequest.cpp:5</a></div></div>
-<div class="ttc" id="class_music_download_image_request_html_a3136bf66b3e270081aab5135312c08be"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#a3136bf66b3e270081aab5135312c08be">MusicDownloadImageRequest::m_artName</a></div><div class="ttdeci">QString m_artName</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddd/musicdownloadimagerequest_8h_source.html#l00058">musicdownloadimagerequest.h:58</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_afde13c82a0f65dc314931a45db30d64a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a></div><div class="ttdeci">#define TTK_DEFAULT_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00242">ttkglobal.h:242</a></div></div>
-<div class="ttc" id="class_music_k_w_download_background_request_html"><div class="ttname"><a href="../../d5/d50/class_music_k_w_download_background_request.html">MusicKWDownloadBackgroundRequest</a></div><div class="ttdoc">The class of kuwo download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d3a/musickwdownloadimagerequest_8h_source.html#l00059">musickwdownloadimagerequest.h:59</a></div></div>
-<div class="ttc" id="class_music_download_image_request_html_a46a52a17d0fc1f866738c9b84c23b7a4"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#a46a52a17d0fc1f866738c9b84c23b7a4">MusicDownloadImageRequest::m_savePath</a></div><div class="ttdeci">QString m_savePath</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddd/musicdownloadimagerequest_8h_source.html#l00058">musicdownloadimagerequest.h:58</a></div></div>
-<div class="ttc" id="class_music_download_background_request_html_a0a9e08ce3189a302b5f655c2dd105f85"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a0a9e08ce3189a302b5f655c2dd105f85">MusicDownloadBackgroundRequest::startToDownload</a></div><div class="ttdeci">virtual void startToDownload() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp_source.html#l00011">musicdownloadbackgroundrequest.cpp:11</a></div></div>
-<div class="ttc" id="class_music_download_image_request_html_a9c0ac1f5dcb303338affc1cb57e142c5"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#a9c0ac1f5dcb303338affc1cb57e142c5">MusicDownloadImageRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d5a/musicdownloadimagerequest_8cpp_source.html#l00021">musicdownloadimagerequest.cpp:21</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d95/musicbpdownloadimagerequest_8h.html">musicbpdownloadimagerequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d3a/musickwdownloadimagerequest_8h.html">musickwdownloadimagerequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/da0/musictxdownloadimagerequest_8h.html">musictxdownloadimagerequest.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">    6</a></span>&#160;<a class="code" href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">MusicDownloadBackgroundRequest::MusicDownloadBackgroundRequest</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, <span class="keyword">const</span> QString &amp;path, QObject *parent)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : <a class="code" href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a>(parent),</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;      m_pluginIndex(-1),</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      m_name(name),</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;      m_path(path)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#a5ae3d5b7213a4f4d68320a63b62ef832">   15</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/dd8/class_music_download_background_request.html#a5ae3d5b7213a4f4d68320a63b62ef832">MusicDownloadBackgroundRequest::startRequest</a>()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d9/dd8/class_music_download_background_request.html#aeb4723f098b63f64ff3311e0e15ecd47">m_pluginIndex</a> = -1;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d9/dd8/class_music_download_background_request.html#acdc791db9f400eb66f929f61968cefd4">findAllPlugins</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#affa8594e7238e4b1526be7ae04cddd45">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicDownloadBackgroundRequest::downLoadFinished</a>(<span class="keyword">const</span> QString &amp;bytes)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(bytes == <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        deleteLater();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(bytes.toInt() == 0)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d9/dd8/class_music_download_background_request.html#acdc791db9f400eb66f929f61968cefd4">findAllPlugins</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d9/dd8/class_music_download_background_request.html#acdc791db9f400eb66f929f61968cefd4">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/dd8/class_music_download_background_request.html#acdc791db9f400eb66f929f61968cefd4">MusicDownloadBackgroundRequest::findAllPlugins</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../da/d56/class_music_abstract_download_image_request.html">MusicAbstractDownloadImageRequest</a> *d = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">switch</span>(++<a class="code" href="../../d9/dd8/class_music_download_background_request.html#aeb4723f098b63f64ff3311e0e15ecd47">m_pluginIndex</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            d = <span class="keyword">new</span> <a class="code" href="../../d5/d50/class_music_k_w_download_background_request.html">MusicKWDownloadBackgroundRequest</a>(<a class="code" href="../../d9/dd8/class_music_download_background_request.html#a7b6de3e338dabca43671b3d0ca221dd7">m_name</a>, <a class="code" href="../../d9/dd8/class_music_download_background_request.html#ab3dd479d2d32b23846dc779802765120">m_path</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            d = <span class="keyword">new</span> <a class="code" href="../../df/d6b/class_music_t_x_download_background_request.html">MusicTXDownloadBackgroundRequest</a>(<a class="code" href="../../d9/dd8/class_music_download_background_request.html#a7b6de3e338dabca43671b3d0ca221dd7">m_name</a>, <a class="code" href="../../d9/dd8/class_music_download_background_request.html#ab3dd479d2d32b23846dc779802765120">m_path</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            d = <span class="keyword">new</span> <a class="code" href="../../d7/d8f/class_music_b_p_download_background_request.html">MusicBPDownloadBackgroundRequest</a>(<a class="code" href="../../d9/dd8/class_music_download_background_request.html#a7b6de3e338dabca43671b3d0ca221dd7">m_name</a>, <a class="code" href="../../d9/dd8/class_music_download_background_request.html#ab3dd479d2d32b23846dc779802765120">m_path</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            deleteLater();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(d)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        connect(d, SIGNAL(<a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(QString)), SLOT(<a class="code" href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">downLoadFinished</a>(QString)));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        d-&gt;<a class="code" href="../../da/d56/class_music_abstract_download_image_request.html#aa4000fe13911912218471fa1a25f0cd0">startRequest</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="ttc" id="class_music_download_background_request_html_ab3dd479d2d32b23846dc779802765120"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#ab3dd479d2d32b23846dc779802765120">MusicDownloadBackgroundRequest::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00056">musicdownloadbackgroundrequest.h:56</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html_a3e5a1c7b1ccc7f3a351951103429d890"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a3e5a1c7b1ccc7f3a351951103429d890">MusicDownloadBackgroundRequest::MusicDownloadBackgroundRequest</a></div><div class="ttdeci">MusicDownloadBackgroundRequest(const QString &amp;name, const QString &amp;path, QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp_source.html#l00006">musicdownloadbackgroundrequest.cpp:6</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_afde13c82a0f65dc314931a45db30d64a"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a></div><div class="ttdeci">#define TTK_DEFAULT_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00224">ttkglobal.h:224</a></div></div>
+<div class="ttc" id="class_music_k_w_download_background_request_html"><div class="ttname"><a href="../../d5/d50/class_music_k_w_download_background_request.html">MusicKWDownloadBackgroundRequest</a></div><div class="ttdoc">The class of the kuwo download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d3a/musickwdownloadimagerequest_8h_source.html#l00059">musickwdownloadimagerequest.h:59</a></div></div>
+<div class="ttc" id="class_music_abstract_network_html_a37e4dedb459ced0de0768837f430415e"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00032">musicabstractnetwork.cpp:32</a></div></div>
 <div class="ttc" id="musictxdownloadimagerequest_8h_html"><div class="ttname"><a href="../../d9/da0/musictxdownloadimagerequest_8h.html">musictxdownloadimagerequest.h</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html_acdc791db9f400eb66f929f61968cefd4"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#acdc791db9f400eb66f929f61968cefd4">MusicDownloadBackgroundRequest::findAllPlugins</a></div><div class="ttdeci">void findAllPlugins()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp_source.html#l00034">musicdownloadbackgroundrequest.cpp:34</a></div></div>
 <div class="ttc" id="musicdownloadbackgroundrequest_8h_html"><div class="ttname"><a href="../../d5/d04/musicdownloadbackgroundrequest_8h.html">musicdownloadbackgroundrequest.h</a></div></div>
-<div class="ttc" id="class_music_download_image_request_html_af10e070122b4aed9cd1ce295eab1327b"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html#af10e070122b4aed9cd1ce295eab1327b">MusicDownloadImageRequest::startToDownload</a></div><div class="ttdeci">virtual void startToDownload()=0</div></div>
+<div class="ttc" id="class_music_abstract_network_html"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a></div><div class="ttdoc">The class of the abstract download data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00038">musicabstractnetwork.h:38</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_aa9d7fdb4930ec5af3bb49129162ba47c"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">MusicAbstractNetwork::downLoadDataChanged</a></div><div class="ttdeci">void downLoadDataChanged(const QString &amp;bytes)</div></div>
+<div class="ttc" id="class_music_abstract_download_image_request_html"><div class="ttname"><a href="../../da/d56/class_music_abstract_download_image_request.html">MusicAbstractDownloadImageRequest</a></div><div class="ttdoc">The class of the download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicabstractdownloadimagerequest_8h_source.html#l00029">musicabstractdownloadimagerequest.h:29</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html_a7b6de3e338dabca43671b3d0ca221dd7"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a7b6de3e338dabca43671b3d0ca221dd7">MusicDownloadBackgroundRequest::m_name</a></div><div class="ttdeci">QString m_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00056">musicdownloadbackgroundrequest.h:56</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html_aeb4723f098b63f64ff3311e0e15ecd47"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#aeb4723f098b63f64ff3311e0e15ecd47">MusicDownloadBackgroundRequest::m_pluginIndex</a></div><div class="ttdeci">int m_pluginIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d04/musicdownloadbackgroundrequest_8h_source.html#l00055">musicdownloadbackgroundrequest.h:55</a></div></div>
 <div class="ttc" id="musickwdownloadimagerequest_8h_html"><div class="ttname"><a href="../../d5/d3a/musickwdownloadimagerequest_8h.html">musickwdownloadimagerequest.h</a></div></div>
-<div class="ttc" id="class_music_download_image_request_html"><div class="ttname"><a href="../../dd/dc2/class_music_download_image_request.html">MusicDownloadImageRequest</a></div><div class="ttdoc">The class of download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddd/musicdownloadimagerequest_8h_source.html#l00029">musicdownloadimagerequest.h:29</a></div></div>
-<div class="ttc" id="class_music_t_x_download_background_request_html"><div class="ttname"><a href="../../df/d6b/class_music_t_x_download_background_request.html">MusicTXDownloadBackgroundRequest</a></div><div class="ttdoc">The class of tencent download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da0/musictxdownloadimagerequest_8h_source.html#l00049">musictxdownloadimagerequest.h:49</a></div></div>
+<div class="ttc" id="class_music_t_x_download_background_request_html"><div class="ttname"><a href="../../df/d6b/class_music_t_x_download_background_request.html">MusicTXDownloadBackgroundRequest</a></div><div class="ttdoc">The class of the tencent download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da0/musictxdownloadimagerequest_8h_source.html#l00049">musictxdownloadimagerequest.h:49</a></div></div>
+<div class="ttc" id="class_music_download_background_request_html_a5ae3d5b7213a4f4d68320a63b62ef832"><div class="ttname"><a href="../../d9/dd8/class_music_download_background_request.html#a5ae3d5b7213a4f4d68320a63b62ef832">MusicDownloadBackgroundRequest::startRequest</a></div><div class="ttdeci">virtual void startRequest()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d43/musicdownloadbackgroundrequest_8cpp_source.html#l00015">musicdownloadbackgroundrequest.cpp:15</a></div></div>
+<div class="ttc" id="class_music_b_p_download_background_request_html"><div class="ttname"><a href="../../d7/d8f/class_music_b_p_download_background_request.html">MusicBPDownloadBackgroundRequest</a></div><div class="ttdoc">The class of the birdpaper download art background image. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d95/musicbpdownloadimagerequest_8h_source.html#l00027">musicbpdownloadimagerequest.h:27</a></div></div>
+<div class="ttc" id="musicbpdownloadimagerequest_8h_html"><div class="ttname"><a href="../../d3/d95/musicbpdownloadimagerequest_8h.html">musicbpdownloadimagerequest.h</a></div></div>
+<div class="ttc" id="class_music_abstract_download_image_request_html_aa4000fe13911912218471fa1a25f0cd0"><div class="ttname"><a href="../../da/d56/class_music_abstract_download_image_request.html#aa4000fe13911912218471fa1a25f0cd0">MusicAbstractDownloadImageRequest::startRequest</a></div><div class="ttdeci">virtual void startRequest()=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:29 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

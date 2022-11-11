@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicUtilsKits/musiccoreutils.cpp Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicUtilsKits/musiccoreutils.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_aaca651be01fe8b35ad8213a676fdb4f.html">musicUtilsKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_8c2a6fb832464c9d41e9b99b63705ede.html">musicUtilsKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#  include &lt;unistd.h&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d3/d43/musiccoreutils_8cpp.html#aef6f5b9e241f154287ccdd182865a087">    7</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#aef6f5b9e241f154287ccdd182865a087">appVersionCheck</a>(<span class="keyword">const</span> QStringList &amp;ol, <span class="keyword">const</span> QStringList &amp;dl, <span class="keywordtype">int</span> depth)</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">    7</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(<span class="keyword">const</span> QStringList &amp;ol, <span class="keyword">const</span> QStringList &amp;dl, <span class="keywordtype">int</span> depth)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">if</span>(depth &gt;= ol.count())</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span>(dl[depth].toInt() == ol[depth].toInt())</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#aef6f5b9e241f154287ccdd182865a087">appVersionCheck</a>(ol, dl, depth + 1);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, depth + 1);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
@@ -122,17 +122,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#aef6f5b9e241f154287ccdd182865a087">appVersionCheck</a>(ol, dl, 0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, 0);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="ttc" id="musiccoreutils_8h_html"><div class="ttname"><a href="../../da/dde/musiccoreutils_8h.html">musiccoreutils.h</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_core_html_a4e46dc6c4080bb23e762e86edb1eb836"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">MusicUtils::Core::sleep</a></div><div class="ttdeci">TTK_MODULE_EXPORT void sleep(int ms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00031">musiccoreutils.cpp:31</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00236">ttkglobal.h:236</a></div></div>
-<div class="ttc" id="musiccoreutils_8cpp_html_aef6f5b9e241f154287ccdd182865a087"><div class="ttname"><a href="../../d3/d43/musiccoreutils_8cpp.html#aef6f5b9e241f154287ccdd182865a087">appVersionCheck</a></div><div class="ttdeci">static bool appVersionCheck(const QStringList &amp;ol, const QStringList &amp;dl, int depth)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00007">musiccoreutils.cpp:7</a></div></div>
+<div class="ttc" id="musiccoreutils_8cpp_html_a1580c335fd2c4ba575b84bc383e608fe"><div class="ttname"><a href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a></div><div class="ttdeci">static bool versionCheck(const QStringList &amp;ol, const QStringList &amp;dl, int depth)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00007">musiccoreutils.cpp:7</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00218">ttkglobal.h:218</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_core_html_a69f71fc4066d1f74c041b66364a62f5f"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">MusicUtils::Core::appVersionCheck</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool appVersionCheck(const QString &amp;o, const QString &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00036">musiccoreutils.cpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:35 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

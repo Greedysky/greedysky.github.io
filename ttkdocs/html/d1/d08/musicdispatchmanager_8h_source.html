@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicplayer: TTKModule/TTKCore/musicCoreKits/musicdispatchmanager.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicdispatchmanager.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -15,7 +15,7 @@
     if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
   });
 </script>
-<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicplayer"/>
+<link rel="search" href="../../search-opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="TTKMusicPlayer"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -26,8 +26,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">TTKMusicplayer
-   &#160;<span id="projectnumber">2.15.12.0</span>
+   <div id="projectname">TTKMusicPlayer
+   &#160;<span id="projectnumber">3.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_a3dc49d95d9832a3f058c36369f57e9d.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_18d57a76ce51370551ab9b136ef02b09.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_69b280439566f54517cbd63501c777ed.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -102,87 +102,95 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span>QTimer;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html">   30</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html">MusicDispatchItem</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a1d700f8281f5ebafdf8a12d29be36c8c">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a1d700f8281f5ebafdf8a12d29be36c8c">m_type</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">m_times</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">   34</a></span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#aefd3434bd12a9dddd0dec204690059f2">TTKVariantList</a> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">m_args</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">   36</a></span>&#160;    <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">MusicDispatchItem</a>()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        : m_type(-1),</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          m_times(0)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">   43</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">isEmpty</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> m_args.isEmpty();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">   48</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">isValid</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> m_times &lt;= 5;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keywordtype">void</span> *funcs);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#aefd3434bd12a9dddd0dec204690059f2">TTKVariantList</a> &amp;args);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keyword">const</span> QVariant &amp;arg1);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2, <span class="keyword">const</span> QVariant &amp;arg3);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> dispatch(<span class="keywordtype">int</span> type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2, <span class="keyword">const</span> QVariant &amp;arg3, <span class="keyword">const</span> QVariant &amp;arg4);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dde/struct_music_dispatch_item.html">MusicDispatchItem</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#ad1a19be4056584b21b816e9c7601cd28">   36</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../da/d80/class_music_dispatch_manager.html#ad1a19be4056584b21b816e9c7601cd28">Module</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        Null = -1,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        FileRemove</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keywordtype">void</span> *funcs);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#accd8779ff7ef68cdbf3c2794ad5452c2">TTKVariantList</a> &amp;args);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keyword">const</span> QVariant &amp;arg1);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2, <span class="keyword">const</span> QVariant &amp;arg3);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> dispatch(Module type, <span class="keyword">const</span> QVariant &amp;arg1, <span class="keyword">const</span> QVariant &amp;arg2, <span class="keyword">const</span> QVariant &amp;arg3, <span class="keyword">const</span> QVariant &amp;arg4);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> activeFunctions();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ~<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">   71</a></span>&#160;    QMutex <a class="code" href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">m_mutex</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">   72</a></span>&#160;    QTimer *<a class="code" href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">m_timer</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">   73</a></span>&#160;    QList&lt;MusicDispatchItem*&gt; <a class="code" href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">m_observer</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> activeFunctions();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    ~<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">   92</a></span>&#160;    QMutex <a class="code" href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">m_mutex</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">   93</a></span>&#160;    QTimer *<a class="code" href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">m_timer</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">   94</a></span>&#160;    QList&lt;MusicDispatchItem*&gt; <a class="code" href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">m_observer</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html">   83</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html">MusicDispatchItem</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">   85</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">m_times</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#ace06dd4c2e76a38e7a58485f1c03f82c">   86</a></span>&#160;    <a class="code" href="../../da/d80/class_music_dispatch_manager.html#ad1a19be4056584b21b816e9c7601cd28">MusicDispatchManager::Module</a> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#ace06dd4c2e76a38e7a58485f1c03f82c">m_type</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">   87</a></span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#accd8779ff7ef68cdbf3c2794ad5452c2">TTKVariantList</a> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">m_args</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">   89</a></span>&#160;    <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">MusicDispatchItem</a>()</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        : m_times(0),</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          m_type(<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>::Module::Null)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d1/d08/musicdispatchmanager_8h.html#a7d72c45b428c9675bcdee4df84d3d569">  100</a></span>&#160;<span class="preprocessor">#define G_DISPATCH_PTR makeMusicDispatchManager()</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>* <a class="code" href="../../d1/d08/musicdispatchmanager_8h.html#afdcd0f3a270f9e0285923601f292e76b">makeMusicDispatchManager</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // MUSICDISPATCHMANAGER_H</span></div>
-<div class="ttc" id="struct_music_dispatch_item_html_ab94a29fbc06c12d4b7a3fa22cdb928bc"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">MusicDispatchItem::m_args</a></div><div class="ttdeci">TTKVariantList m_args</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00034">musicdispatchmanager.h:34</a></div></div>
-<div class="ttc" id="class_music_dispatch_manager_html"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a></div><div class="ttdoc">The class of the functions dispatch manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00058">musicdispatchmanager.h:58</a></div></div>
-<div class="ttc" id="class_music_dispatch_manager_html_a18e88b7242efb4df453ef1b2b319f857"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">MusicDispatchManager::m_mutex</a></div><div class="ttdeci">QMutex m_mutex</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00092">musicdispatchmanager.h:92</a></div></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">   96</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">isEmpty</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> m_args.isEmpty();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">  101</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">isValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> m_times &lt;= 5;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d1/d08/musicdispatchmanager_8h.html#a7d72c45b428c9675bcdee4df84d3d569">  107</a></span>&#160;<span class="preprocessor">#define G_DISPATCH_PTR makeMusicDispatchManager()</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a>* <a class="code" href="../../d1/d08/musicdispatchmanager_8h.html#afdcd0f3a270f9e0285923601f292e76b">makeMusicDispatchManager</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif // MUSICDISPATCHMANAGER_H</span></div>
+<div class="ttc" id="struct_music_dispatch_item_html_ab94a29fbc06c12d4b7a3fa22cdb928bc"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#ab94a29fbc06c12d4b7a3fa22cdb928bc">MusicDispatchItem::m_args</a></div><div class="ttdeci">TTKVariantList m_args</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00087">musicdispatchmanager.h:87</a></div></div>
+<div class="ttc" id="class_music_dispatch_manager_html"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html">MusicDispatchManager</a></div><div class="ttdoc">The class of the functions dispatch manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00031">musicdispatchmanager.h:31</a></div></div>
+<div class="ttc" id="class_music_dispatch_manager_html_a18e88b7242efb4df453ef1b2b319f857"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#a18e88b7242efb4df453ef1b2b319f857">MusicDispatchManager::m_mutex</a></div><div class="ttdeci">QMutex m_mutex</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00071">musicdispatchmanager.h:71</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html_a1d700f8281f5ebafdf8a12d29be36c8c"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a1d700f8281f5ebafdf8a12d29be36c8c">MusicDispatchItem::m_type</a></div><div class="ttdeci">int m_type</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00032">musicdispatchmanager.h:32</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html_a8d62f3ef8a22e40d7a4ff45f03d0ce0e"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a8d62f3ef8a22e40d7a4ff45f03d0ce0e">DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00083">ttksingleton.h:83</a></div></div>
-<div class="ttc" id="class_music_dispatch_manager_html_af18353f00f983daab821f216a2aa1eff"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">MusicDispatchManager::m_observer</a></div><div class="ttdeci">QList&lt; MusicDispatchItem * &gt; m_observer</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00094">musicdispatchmanager.h:94</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html_a5450467b510ffffb0db34e5a74aef5f2"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">MusicDispatchItem::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00048">musicdispatchmanager.h:48</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html_adc58cea00c4bd2478c1a1e83c4d6cf95"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">MusicDispatchItem::isEmpty</a></div><div class="ttdeci">bool isEmpty() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00043">musicdispatchmanager.h:43</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html_a9202a9dcd52f1fd5ad0be9b3e3291dd8"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">MusicDispatchItem::MusicDispatchItem</a></div><div class="ttdeci">MusicDispatchItem()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00036">musicdispatchmanager.h:36</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_aefd3434bd12a9dddd0dec204690059f2"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#aefd3434bd12a9dddd0dec204690059f2">TTKVariantList</a></div><div class="ttdeci">QList&lt; QVariant &gt; TTKVariantList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00266">ttkglobal.h:266</a></div></div>
+<div class="ttc" id="class_music_dispatch_manager_html_af18353f00f983daab821f216a2aa1eff"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#af18353f00f983daab821f216a2aa1eff">MusicDispatchManager::m_observer</a></div><div class="ttdeci">QList&lt; MusicDispatchItem * &gt; m_observer</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00073">musicdispatchmanager.h:73</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html_a5450467b510ffffb0db34e5a74aef5f2"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a5450467b510ffffb0db34e5a74aef5f2">MusicDispatchItem::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00101">musicdispatchmanager.h:101</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html_adc58cea00c4bd2478c1a1e83c4d6cf95"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#adc58cea00c4bd2478c1a1e83c4d6cf95">MusicDispatchItem::isEmpty</a></div><div class="ttdeci">bool isEmpty() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00096">musicdispatchmanager.h:96</a></div></div>
+<div class="ttc" id="class_music_dispatch_manager_html_ad1a19be4056584b21b816e9c7601cd28"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#ad1a19be4056584b21b816e9c7601cd28">MusicDispatchManager::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00036">musicdispatchmanager.h:36</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_accd8779ff7ef68cdbf3c2794ad5452c2"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#accd8779ff7ef68cdbf3c2794ad5452c2">TTKVariantList</a></div><div class="ttdeci">QList&lt; QVariant &gt; TTKVariantList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00248">ttkglobal.h:248</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html_a9202a9dcd52f1fd5ad0be9b3e3291dd8"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a9202a9dcd52f1fd5ad0be9b3e3291dd8">MusicDispatchItem::MusicDispatchItem</a></div><div class="ttdeci">MusicDispatchItem()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00089">musicdispatchmanager.h:89</a></div></div>
 <div class="ttc" id="musicdispatchmanager_8h_html_afdcd0f3a270f9e0285923601f292e76b"><div class="ttname"><a href="../../d1/d08/musicdispatchmanager_8h.html#afdcd0f3a270f9e0285923601f292e76b">makeMusicDispatchManager</a></div><div class="ttdeci">TTK_MODULE_EXPORT MusicDispatchManager * makeMusicDispatchManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daf/musicsingleton_8cpp_source.html#l00020">musicsingleton.cpp:20</a></div></div>
-<div class="ttc" id="class_music_dispatch_manager_html_a97d7af61a05ae1c6ca7d0175bf5d7448"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">MusicDispatchManager::m_timer</a></div><div class="ttdeci">QTimer * m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00093">musicdispatchmanager.h:93</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html_a36e436b287896dd830c198380e4f9876"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">MusicDispatchItem::m_times</a></div><div class="ttdeci">int m_times</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00033">musicdispatchmanager.h:33</a></div></div>
-<div class="ttc" id="struct_music_dispatch_item_html"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html">MusicDispatchItem</a></div><div class="ttdoc">The class of the functions dispatch item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00030">musicdispatchmanager.h:30</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html_ace06dd4c2e76a38e7a58485f1c03f82c"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#ace06dd4c2e76a38e7a58485f1c03f82c">MusicDispatchItem::m_type</a></div><div class="ttdeci">MusicDispatchManager::Module m_type</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00086">musicdispatchmanager.h:86</a></div></div>
+<div class="ttc" id="class_music_dispatch_manager_html_a97d7af61a05ae1c6ca7d0175bf5d7448"><div class="ttname"><a href="../../da/d80/class_music_dispatch_manager.html#a97d7af61a05ae1c6ca7d0175bf5d7448">MusicDispatchManager::m_timer</a></div><div class="ttdeci">QTimer * m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00072">musicdispatchmanager.h:72</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html_a36e436b287896dd830c198380e4f9876"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html#a36e436b287896dd830c198380e4f9876">MusicDispatchItem::m_times</a></div><div class="ttdeci">int m_times</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00085">musicdispatchmanager.h:85</a></div></div>
+<div class="ttc" id="struct_music_dispatch_item_html"><div class="ttname"><a href="../../dc/dde/struct_music_dispatch_item.html">MusicDispatchItem</a></div><div class="ttdoc">The class of the functions dispatch item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d08/musicdispatchmanager_8h_source.html#l00083">musicdispatchmanager.h:83</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 16 2022 22:27:28 for TTKMusicplayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
