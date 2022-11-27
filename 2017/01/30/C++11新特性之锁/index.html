@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++11 新特性之锁 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是C++11新特性介绍的第十四部分，涉及到锁相关的新特性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 新特性之锁">
+<meta property="og:url" content="http://greedysky.github.io/2017/01/30/C++11新特性之锁/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="这是C++11新特性介绍的第十四部分，涉及到锁相关的新特性。">
+<meta property="og:image" content="http://greedysky.github.io/image/538027bc911256f1ebcfae4a925f51f028/1.png">
+<meta property="og:updated_time" content="2022-11-27T13:48:57.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11 新特性之锁">
+<meta name="twitter:description" content="这是C++11新特性介绍的第十四部分，涉及到锁相关的新特性。">
+<meta name="twitter:image" content="http://greedysky.github.io/image/538027bc911256f1ebcfae4a925f51f028/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 16.67px;">C++11</a> <a href="/tags/C-17/" style="font-size: 13.33px;">C++17</a> <a href="/tags/C-20/" style="font-size: 13.33px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++11新特性之锁" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/30/C++11新特性之锁/" class="article-date">
+      <time datetime="2017-01-30T02:30:06.000Z" itemprop="datePublished">2017-01-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++11 新特性之锁
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第十四部分，涉及到锁相关的新特性。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><strong>介绍</strong></h2><p>&#160; &#160; &#160; &#160;Mutex 又称互斥量，C++ 11中与 Mutex 相关的类（包括锁类型）和函数都声明在 <mutex> 头文件中，所以如果你需要使用 std::mutex，就必须包含 <mutex> 头文件。<br><img src="/image/538027bc911256f1ebcfae4a925f51f028/1.png" alt="demo"><br>&#160; &#160; &#160; &#160;下面是mutex头文件中内容：</mutex></mutex></p>
+<h3 id="mutex类4种"><a href="#mutex类4种" class="headerlink" title="mutex类4种"></a><strong>mutex类4种</strong></h3><p>&#160; &#160; &#160; &#160;•std::mutex，最基本的 Mutex 类。<br>&#160; &#160; &#160; &#160;•std::recursive_mutex，递归 Mutex 类。<br>&#160; &#160; &#160; &#160;•std::time_mutex，定时 Mutex 类。<br>&#160; &#160; &#160; &#160;•std::recursive_timed_mutex，定时递归 Mutex 类。</p>
+<h3 id="lock类2种"><a href="#lock类2种" class="headerlink" title="lock类2种"></a><strong>lock类2种</strong></h3><p>&#160; &#160; &#160; &#160;•std::lock_guard，与 Mutex RAII 相关，方便线程对互斥量上锁。<br>&#160; &#160; &#160; &#160;•std::unique_lock，与 Mutex RAII 相关，方便线程对互斥量上锁，但提供了更好的上锁和解锁控制。</p>
+<h3 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a><strong>其他类型</strong></h3><p>&#160; &#160; &#160; &#160;•std::once_flag<br>&#160; &#160; &#160; &#160;•std::adopt_lock_t<br>&#160; &#160; &#160; &#160;•std::defer_lock_t<br>&#160; &#160; &#160; &#160;•std::try_to_lock_t</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h3><p>&#160; &#160; &#160; &#160;•std::try_lock，尝试同时对多个互斥量上锁。<br>&#160; &#160; &#160; &#160;•std::lock，可以同时对多个互斥量上锁。<br>&#160; &#160; &#160; &#160;std::call_once，如果多个线程需要同时调用某个函数，call_once 可以保证多个线程对该函数只调用一次。</p>
+<h2 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a><strong>mutex</strong></h2><h3 id="std-mutex"><a href="#std-mutex" class="headerlink" title="std::mutex"></a><strong>std::mutex</strong></h3><p>&#160; &#160; &#160; &#160;下面以 std::mutex 为例介绍 C++11 中的互斥量用法。<br>&#160; &#160; &#160; &#160;std::mutex 是C++11 中最基本的互斥量，std::mutex 对象提供了独占所有权的特性——即不支持递归地对 std::mutex 对象上锁，而 std::recursive_lock 则可以递归地对互斥量对象上锁。<br>&#160; &#160; &#160; &#160;std::mutex 的成员函数<br>&#160; &#160; &#160; &#160;1.构造函数，std::mutex不允许拷贝构造，也不允许 move 拷贝，最初产生的 mutex 对象是处于 unlocked 状态的。<br>&#160; &#160; &#160; &#160;2.lock()，调用线程将锁住该互斥量。线程调用该函数会发生下面 3 种情况：如果该互斥量当前没有被锁住，则调用线程将该互斥量锁住，直到调用 unlock之前，该线程一直拥有该锁；如果当前互斥量被其他线程锁住，则当前的调用线程被阻塞住；如果当前互斥量被当前调用线程锁住，则会产生死锁（deadlock）。<br>&#160; &#160; &#160; &#160;3.unlock()， 解锁，释放对互斥量的所有权。<br>&#160; &#160; &#160; &#160;4.try_lock()，尝试锁住互斥量，如果互斥量被其他线程占有，则当前线程也不会被阻塞。线程调用该函数也会出现下面 3 种情况：如果当前互斥量没有被其他线程占有，则该线程锁住互斥量，直到该线程调用 unlock 释放互斥量；如果当前互斥量被其他线程锁住，则当前调用线程返回 false，而并不会被阻塞掉；如果当前互斥量被当前调用线程锁住，则会产生死锁（deadlock）。<br>&#160; &#160; &#160; &#160;来看一个mutex的用法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// mutex example</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::mutex</span></span></div><div class="line"> </div><div class="line"><span class="built_in">std</span>::mutex mtx;           <span class="comment">// mutex for critical section</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_block</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> c)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// critical section (exclusive access to std::cout signaled by locking mtx):</span></div><div class="line">    mtx.lock();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; c;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    mtx.unlock();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">th1</span><span class="params">(print_block, <span class="number">50</span>, <span class="string">'*'</span>)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">th2</span><span class="params">(print_block, <span class="number">50</span>, <span class="string">'$'</span>)</span></span>;</div><div class="line"></div><div class="line">    th1.join();</div><div class="line">    th2.join();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;输出结果：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">************************************************************</div><div class="line">$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;如果不使用mutex那么输出可能是这样的：线程之间存在乱码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">******$$$$$$******$$$$$$******$$$******$*********$$$**********$$$$************</div><div class="line">$$$$$$$$$$$$$$$$$$$$*****$$$$$$$$$$$$$$$$$$$$$$</div></pre></td></tr></table></figure></p>
+<h3 id="std-recursive-mutex"><a href="#std-recursive-mutex" class="headerlink" title="std::recursive_mutex"></a><strong>std::recursive_mutex</strong></h3><p>&#160; &#160; &#160; &#160;std::recursive_mutex 与 std::mutex 一样，也是一种可以被上锁的对象，但是和 std::mutex 不同的是，std::recursive_mutex 允许同一个线程对互斥量多次上锁（即递归上锁），来获得对互斥量对象的多层所有权，std::recursive_mutex 释放互斥量时需要调用与该锁层次深度相同次数的 unlock()，可理解为 lock() 次数和 unlock() 次数相同，除此之外，std::recursive_mutex 的特性和 std::mutex 大致相同。</p>
+<h3 id="std-time-mutex"><a href="#std-time-mutex" class="headerlink" title="std::time_mutex"></a><strong>std::time_mutex</strong></h3><p>&#160; &#160; &#160; &#160;std::time_mutex 比 std::mutex 多了两个成员函数，try_lock_for()，try_lock_until()。<br>&#160; &#160; &#160; &#160;try_lock_for 函数接受一个时间范围，表示在这一段时间范围之内线程如果没有获得锁则被阻塞住（与 std::mutex 的 try_lock() 不同，try_lock 如果被调用时没有获得锁则直接返回 false），如果在此期间其他线程释放了锁，则该线程可以获得对互斥量的锁，如果超时（即在指定时间内还是没有获得锁），则返回 false。<br>&#160; &#160; &#160; &#160;try_lock_until 函数则接受一个时间点作为参数，在指定时间点未到来之前线程如果没有获得锁则被阻塞住，如果在此期间其他线程释放了锁，则该线程可以获得对互斥量的锁，如果超时（即在指定时间内还是没有获得锁），则返回 false。<br>&#160; &#160; &#160; &#160;下面的小例子说明了 std::time_mutex 的用法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span>         <span class="comment">// std::chrono::milliseconds</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::timed_mutex</span></span></div><div class="line"> </div><div class="line"><span class="built_in">std</span>::timed_mutex mtx;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fireworks</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// waiting to get a lock: each thread prints "-" every 200ms:</span></div><div class="line">    <span class="keyword">while</span>(!mtx.try_lock_for(<span class="built_in">std</span>::chrono::milliseconds(<span class="number">200</span>)))</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"-"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// got a lock! - wait for 1s, then this thread prints "*"</span></div><div class="line">    <span class="built_in">std</span>::this_thread::sleep_for(<span class="built_in">std</span>::chrono::milliseconds(<span class="number">1000</span>));</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"*\n"</span>;</div><div class="line">    mtx.unlock();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::thread threads[<span class="number">10</span>];</div><div class="line">    <span class="comment">// spawn 10 threads:</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">    &#123;</div><div class="line">        threads[i] = <span class="built_in">std</span>::thread(fireworks);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; th : threads)</div><div class="line">    &#123;</div><div class="line">        th.join();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="std-recursive-timed-mutex"><a href="#std-recursive-timed-mutex" class="headerlink" title="std::recursive_timed_mutex"></a><strong>std::recursive_timed_mutex</strong></h3><p>&#160; &#160; &#160; &#160;和 std:recursive_mutex 与 std::mutex 的关系一样，std::recursive_timed_mutex 的特性也可以从 std::timed_mutex 推导出来，感兴趣的同鞋可以自行查阅。</p>
+<h2 id="lock"><a href="#lock" class="headerlink" title="lock"></a><strong>lock</strong></h2><h3 id="std-lock-guard"><a href="#std-lock-guard" class="headerlink" title="std::lock_guard"></a><strong>std::lock_guard</strong></h3><p>&#160; &#160; &#160; &#160;std::lock_gurad 是 C++11 中定义的模板类。定义如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Mutex&gt; <span class="keyword">class</span> lock_guard;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;lock_guard 对象通常用于管理某个锁（Lock）对象，因此与 Mutex RAII 相关，方便线程对互斥量上锁，即在某个 lock_guard 对象的声明周期内，它所管理的锁对象会一直保持上锁状态；而 lock_guard 的生命周期结束之后，它所管理的锁对象会被解锁（注：类似 shared_ptr 等智能指针管理动态分配的内存资源）。<br>&#160; &#160; &#160; &#160;在 lock_guard 对象构造时，传入的 Mutex 对象（即它所管理的 Mutex 对象）会被当前线程锁住。在lock_guard 对象被析构时，它所管理的 Mutex 对象会自动解锁，由于不需要程序员手动调用 lock 和 unlock 对 Mutex 进行上锁和解锁操作，因此这也是最简单安全的上锁和解锁方式，尤其是在程序抛出异常后先前已被上锁的 Mutex 对象可以正确进行解锁操作，极大地简化了程序员编写与 Mutex 相关的异常处理代码。<br>&#160; &#160; &#160; &#160;值得注意的是，lock_guard 对象并不负责管理 Mutex 对象的生命周期，lock_guard 对象只是简化了 Mutex 对象的上锁和解锁操作，方便线程对互斥量上锁，即在某个 lock_guard 对象的声明周期内，它所管理的锁对象会一直保持上锁状态；而 lock_guard 的生命周期结束之后，它所管理的锁对象会被解锁。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// lock_guard example</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::mutex, std::lock_guard</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span>      <span class="comment">// std::logic_error</span></span></div><div class="line"> </div><div class="line"><span class="built_in">std</span>::mutex mtx;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_even</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(x%<span class="number">2</span>==<span class="number">0</span>) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" is even\n"</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">throw</span> (<span class="built_in">std</span>::logic_error(<span class="string">"not even"</span>));</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_thread_id</span><span class="params">(<span class="keyword">int</span> id)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// using a local lock_guard to lock mtx guarantees unlocking on destruction / exception:</span></div><div class="line">        <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; lck (mtx);</div><div class="line">        print_even(id);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span>(<span class="built_in">std</span>::logic_error&amp;)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"[exception caught]\n"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::thread threads[<span class="number">10</span>];</div><div class="line">    <span class="comment">// spawn 10 threads:</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">    &#123;</div><div class="line">        threads[i] = <span class="built_in">std</span>::thread(print_thread_id,i+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; th : threads)</div><div class="line">    &#123;</div><div class="line">        th.join();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;std::lock_guard 构造函数：<br>|  |  |<br>| :—: | :—: |<br>| locking (1) | explicit lock_guard (mutex_type&amp; m); |<br>| adopting (2) | lock_guard (mutex_type&amp; m, adopt_lock_t tag); |<br>| copy[deleted] (3) | lock_guard (const lock_guard&amp;) = delete; |<br>&#160; &#160; &#160; &#160;1.locking 初始化<br>&#160; &#160; &#160; &#160;lock_guard 对象管理 Mutex 对象 m，并在构造时对 m 进行上锁调用 m.lock()。<br>&#160; &#160; &#160; &#160;2.adopting初始化<br>&#160; &#160; &#160; &#160;lock_guard 对象管理 Mutex 对象 m，与 locking 初始化(1) 不同的是， Mutex 对象 m 已被当前线程锁住。<br>&#160; &#160; &#160; &#160;3.拷贝构造<br>&#160; &#160; &#160; &#160;lock_guard 对象的拷贝构造和移动构造（move construction）均被禁用，因此 lock_guard 对象不可被拷贝构造或移动构造。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::mutex, std::lock_guard, std::adopt_lock</span></span></div><div class="line"> </div><div class="line"><span class="built_in">std</span>::mutex mtx;           <span class="comment">// mutex for critical section</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_thread_id</span><span class="params">(<span class="keyword">int</span> id)</span></span></div><div class="line">&#123;</div><div class="line">    mtx.lock();</div><div class="line">    <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; lck(mtx, <span class="built_in">std</span>::adopt_lock);</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"thread #"</span> &lt;&lt; id &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::thread threads[<span class="number">10</span>];</div><div class="line">    <span class="comment">// spawn 10 threads:</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">    &#123;</div><div class="line">        threads[i] = <span class="built_in">std</span>::thread(print_thread_id, i + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; th : threads)</div><div class="line">    &#123;</div><div class="line">        th.join();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在 print_thread_id 中，我们首先对 mtx 进行上锁操作<code>mtx.lock();</code>，然后用 mtx 对象构造一个 lock_guard 对象<code>std::lock_guardstd::mutex lck(mtx, std::adopt_lock);</code>，注意此时 Tag 参数为 std::adopt_lock，表明当前线程已经获得了锁，此后 mtx 对象的解锁操作交由 lock_guard 对象 lck 来管理，在 lck 的生命周期结束之后，mtx 对象会自动解锁。<br>&#160; &#160; &#160; &#160;lock_guard 最大的特点就是安全易于使用，请看下面例子（参考），在异常抛出的时候通过 lock_guard 对象管理的 Mutex 可以得到正确地解锁。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::mutex, std::lock_guard</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span>      <span class="comment">// std::logic_error</span></span></div><div class="line"> </div><div class="line"><span class="built_in">std</span>::mutex mtx;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_even</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(x % <span class="number">2</span> == <span class="number">0</span>) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" is even\n"</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">throw</span> (<span class="built_in">std</span>::logic_error(<span class="string">"not even"</span>));</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_thread_id</span><span class="params">(<span class="keyword">int</span> id)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// using a local lock_guard to lock mtx guarantees unlocking on destruction / exception:</span></div><div class="line">        <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; lck(mtx);</div><div class="line">        print_even(id);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span>(<span class="built_in">std</span>::logic_error&amp;)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"[exception caught]\n"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::thread threads[<span class="number">10</span>];</div><div class="line">    <span class="comment">// spawn 10 threads:</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">    &#123;</div><div class="line">        threads[i] = <span class="built_in">std</span>::thread(print_thread_id, i + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; th : threads)</div><div class="line">    &#123;</div><div class="line">        th.join();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="std-unique-lock"><a href="#std-unique-lock" class="headerlink" title="std::unique_lock"></a><strong>std::unique_lock</strong></h3><p>&#160; &#160; &#160; &#160;但是 lock_guard 最大的缺点也是简单，没有给程序员提供足够的灵活度，因此，C++11 标准中定义了另外一个与 Mutex RAII 相关类 unique_lock，该类与 lock_guard 类相似，也很方便线程对互斥量上锁，但它提供了更好的上锁和解锁控制。<br>&#160; &#160; &#160; &#160;顾名思义，unique_lock 对象以独占所有权的方式（ unique owership）管理 mutex 对象的上锁和解锁操作，所谓独占所有权，就是没有其他的 unique_lock 对象同时拥有某个 mutex 对象的所有权。<br>&#160; &#160; &#160; &#160;在构造（或移动<code>move</code>赋值）时，unique_lock 对象需要传递一个 Mutex 对象作为它的参数，新创建的 unique_lock 对象负责传入的 Mutex 对象的上锁和解锁操作。<br>&#160; &#160; &#160; &#160;std::unique_lock 对象也能保证在其自身析构时它所管理的 Mutex 对象能够被正确地解锁（即使没有显式地调用 unlock 函数）。因此，和 lock_guard 一样，这也是一种简单而又安全的上锁和解锁方式，尤其是在程序抛出异常后先前已被上锁的 Mutex 对象可以正确进行解锁操作，极大地简化了程序员编写与 Mutex 相关的异常处理代码。<br>&#160; &#160; &#160; &#160;值得注意的是，unique_lock 对象同样也不负责管理 Mutex 对象的生命周期，unique_lock 对象只是简化了 Mutex 对象的上锁和解锁操作，方便线程对互斥量上锁，即在某个 unique_lock 对象的声明周期内，它所管理的锁对象会一直保持上锁状态；而 unique_lock 的生命周期结束之后，它所管理的锁对象会被解锁，这一点和 lock_guard 类似，但 unique_lock 给程序员提供了更多的自由，我会在下面的内容中给大家介绍 unique_lock 的用法。<br>&#160; &#160; &#160; &#160;std::unique_lock 构造函数：<br>|  |  |<br>| :—: | :—: |<br>| default (1) | unique_lock() noexcept; |<br>| locking (2) | explicit unique_lock(mutex_type&amp; m); |<br>| try-locking (3) | unique_lock(mutex_type&amp; m, try_to_lock_t tag); |<br>| deferred (4) | unique_lock(mutex_type&amp; m, defer_lock_t tag) noexcept; |<br>| adopting (5) | unique_lock(mutex_type&amp; m, adopt_lock_t tag); |<br>| locking for (6) | template <class rep,="" class="" period=""> unique_lock(mutex_type&amp; m, const chrono::duration<rep,period>&amp; rel_time); |<br>| locking until (7) | template <class clock,="" class="" duration=""> unique_lock(mutex_type&amp; m, const chrono::time_point<clock,duration>&amp; abs_time); |<br>| copy[deleted] (8) | unique_lock(const unique_lock&amp;) = delete; |<br>| move (9) | unique_lock(unique_lock&amp;&amp; x); |<br>&#160; &#160; &#160; &#160;下面我们来分别介绍以上各个构造函数：<br>&#160; &#160; &#160; &#160;1.默认构造函数<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象不管理任何 Mutex 对象。<br>&#160; &#160; &#160; &#160;2.locking 初始化<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象 m，并尝试调用 m.lock() 对 Mutex 对象进行上锁，如果此时另外某个 unique_lock 对象已经管理了该 Mutex 对象 m，则当前线程将会被阻塞。<br>&#160; &#160; &#160; &#160;3.try-locking 初始化<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象 m，并尝试调用 m.try_lock() 对 Mutex 对象进行上锁，但如果上锁不成功，并不会阻塞当前线程。<br>&#160; &#160; &#160; &#160;4.deferred 初始化<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象 m，但是在初始化的时候并不锁住 Mutex 对象。m 应该是一个没有当前线程锁住的 Mutex 对象。<br>&#160; &#160; &#160; &#160;5.adopting 初始化<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象 m，  m 应该是一个已经被当前线程锁住的 Mutex 对象。（并且当前新创建的 unique_lock 对象拥有对锁（Lock）的所有权）。<br>&#160; &#160; &#160; &#160;6.locking 一段时间（duration）<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象 m，并试图通过调用 m.try_lock_for(rel_time) 来锁住 Mutex 对象一段时间（rel_time）。<br>&#160; &#160; &#160; &#160;7.locking 直到某个时间点（time point）<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象管理 Mutex 对象m，并试图通过调用 m.try_lock_until(abs_time) 来在某个时间点（abs_time）之前锁住 Mutex 对象。<br>&#160; &#160; &#160; &#160;8.拷贝构造<br>&#160; &#160; &#160; &#160;unique_lock 对象不能被拷贝构造。<br>&#160; &#160; &#160; &#160;9.移动构造<br>&#160; &#160; &#160; &#160;新创建的 unique_lock 对象获得了由 x 所管理的 Mutex 对象的所有权（包括当前 Mutex 的状态）。调用 move 构造之后， x 对象如同通过默认构造函数所创建的，就不再管理任何 Mutex 对象了。<br>&#160; &#160; &#160; &#160;综上所述，由 (2) 和 (5) 创建的 unique_lock 对象通常拥有 Mutex 对象的锁。而通过 (1) 和 (4) 创建的则不会拥有锁。通过 (3)，(6) 和 (7) 创建的 unique_lock 对象，则在 lock 成功时获得锁。<br>&#160; &#160; &#160; &#160;关于unique_lock 的构造函数，请看下面例子参考：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>       <span class="comment">// std::cout</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span>         <span class="comment">// std::thread</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mutex&gt;</span>          <span class="comment">// std::mutex, std::lock, std::unique_lock</span></span></div><div class="line"><span class="comment">// std::adopt_lock, std::defer_lock</span></div><div class="line"><span class="built_in">std</span>::mutex foo, bar;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">task_a</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::lock(foo, bar);         <span class="comment">// simultaneous lock (prevents deadlock)</span></div><div class="line">    <span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; lck1(foo, <span class="built_in">std</span>::adopt_lock);</div><div class="line">    <span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; lck2(bar, <span class="built_in">std</span>::adopt_lock);</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"task a\n"</span>;</div><div class="line">    <span class="comment">// (unlocked automatically on destruction of lck1 and lck2)</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">task_b</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// foo.lock(); bar.lock(); // replaced by:</span></div><div class="line">    <span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt; lck1, lck2;</div><div class="line">    lck1 = <span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt;(bar, <span class="built_in">std</span>::defer_lock);</div><div class="line">    lck2 = <span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt;(foo, <span class="built_in">std</span>::defer_lock);</div><div class="line">    <span class="built_in">std</span>::lock(lck1, lck2);       <span class="comment">// simultaneous lock (prevents deadlock)</span></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"task b\n"</span>;</div><div class="line">    <span class="comment">// (unlocked automatically on destruction of lck1 and lck2)</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">th1</span><span class="params">(task_a)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">th2</span><span class="params">(task_b)</span></span>;</div><div class="line"> </div><div class="line">    th1.join();</div><div class="line">    th2.join();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></clock,duration></class></rep,period></class></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2017年01月30日 - 10时30分</p>
+        <p><span>最后更新:</span>2022年11月27日 - 21时48分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/30/C++11新特性之锁/" title="C++11 新特性之锁">http://greedysky.github.io/2017/01/30/C++11新特性之锁/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2017/01/30/C++11新特性之锁/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/02/05/C++11新特性之条件变量/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++11 新特性之条件变量
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/20/C++11新特性之强制类型转换/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++11 新特性之强制类型转换</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mutex类4种"><span class="toc-number">1.1.</span> <span class="toc-text">mutex类4种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock类2种"><span class="toc-number">1.2.</span> <span class="toc-text">lock类2种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他类型"><span class="toc-number">1.3.</span> <span class="toc-text">其他类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">1.4.</span> <span class="toc-text">函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mutex"><span class="toc-number">2.</span> <span class="toc-text">mutex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-mutex"><span class="toc-number">2.1.</span> <span class="toc-text">std::mutex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-recursive-mutex"><span class="toc-number">2.2.</span> <span class="toc-text">std::recursive_mutex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-time-mutex"><span class="toc-number">2.3.</span> <span class="toc-text">std::time_mutex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-recursive-timed-mutex"><span class="toc-number">2.4.</span> <span class="toc-text">std::recursive_timed_mutex</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lock"><span class="toc-number">3.</span> <span class="toc-text">lock</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-lock-guard"><span class="toc-number">3.1.</span> <span class="toc-text">std::lock_guard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-unique-lock"><span class="toc-number">3.2.</span> <span class="toc-text">std::unique_lock</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/02/05/C++11新特性之条件变量/" title="上一篇: C++11 新特性之条件变量">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/01/20/C++11新特性之强制类型转换/" title="下一篇: C++11 新特性之强制类型转换">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

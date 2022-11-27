@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++11 新特性之正则表达式 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是C++11新特性介绍的第十部分，涉及到正则表达式相关的新特性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 新特性之正则表达式">
+<meta property="og:url" content="http://greedysky.github.io/2016/12/20/C++11新特性之正则表达式/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="这是C++11新特性介绍的第十部分，涉及到正则表达式相关的新特性。">
+<meta property="og:updated_time" content="2022-11-25T15:58:24.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11 新特性之正则表达式">
+<meta name="twitter:description" content="这是C++11新特性介绍的第十部分，涉及到正则表达式相关的新特性。">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 16.67px;">C++11</a> <a href="/tags/C-17/" style="font-size: 13.33px;">C++17</a> <a href="/tags/C-20/" style="font-size: 13.33px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++11新特性之正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/20/C++11新特性之正则表达式/" class="article-date">
+      <time datetime="2016-12-20T13:25:13.000Z" itemprop="datePublished">2016-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++11 新特性之正则表达式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第十部分，涉及到正则表达式相关的新特性。</p>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a><strong>题外话</strong></h2><p>&#160; &#160; &#160; &#160;对regex的完整支持，直到g++4.9才算完善。我使用的系统是Ubuntu14.04，默认g++版本号是4.8.x，所以有一些regex功能无法编译通过。可以通过以下方法安装g++4.9：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/<span class="built_in">test</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt=get install gcc-4.9 g++-4.9 c++-4.9</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;安装完成之后，需要在Makefile中强制指定所使用的g++版本。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CXX=g++<span class="number">-4.9</span></div></pre></td></tr></table></figure></p>
+<h2 id="正则文法"><a href="#正则文法" class="headerlink" title="正则文法"></a><strong>正则文法</strong></h2><p>&#160; &#160; &#160; &#160;std::regex默认使用是ECMAScript文法，这种文法比较好用，且威力强大，常用符号的意义如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">符号</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">匹配行的开头</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">匹配行的结尾</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配任意单个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">[…]</td>
+<td style="text-align:left">匹配[]中的任意一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left">(…)</td>
+<td style="text-align:left">设定分组</td>
+</tr>
+<tr>
+<td style="text-align:left">\</td>
+<td style="text-align:left">转义字符</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配数字[0-9]</td>
+</tr>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">\d 取反</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配字母[a-z]，数字，下划线</td>
+</tr>
+<tr>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">\w 取反</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配空格</td>
+</tr>
+<tr>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">\s 取反</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">前面的元素重复1次或多次</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">前面的元素重复任意次</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">前面的元素重复0次或1次</td>
+</tr>
+<tr>
+<td style="text-align:left">{n}</td>
+<td style="text-align:left">前面的元素重复n次</td>
+</tr>
+<tr>
+<td style="text-align:left">{n,}</td>
+<td style="text-align:left">前面的元素重复至少n次</td>
+</tr>
+<tr>
+<td style="text-align:left">{n,m}</td>
+<td style="text-align:left">前面的元素重复至少n次，至多m次</td>
+</tr>
+</tbody>
+</table>
+<p>&#160; &#160; &#160; &#160;上面列出的这些都是非常常用的符号，靠这些便足以解决绝大多数问题了。</p>
+<h2 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a><strong>简单用法</strong></h2><p>&#160; &#160; &#160; &#160;一切就绪，先看看如何用C++11中的regex匹配一个电子邮箱地址。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex simple usage:\n"</span>;</div><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">email_pattern</span><span class="params">(<span class="string">"(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)"</span>)</span></span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">regex <span class="title">email_regex</span><span class="params">(email_pattern)</span></span>;</div><div class="line">    <span class="built_in">std</span>::smatch results;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> test_email_str = <span class="string">"My email is yubo1911@163.com"</span>;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">std</span>::regex_search(test_email_str, results, email_regex))</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;results.str()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span>(<span class="built_in">std</span>::regex_error e)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e.what()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;e.code()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex simple usage done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;C++中的regex默认使用ECMA-262正则表达式规范，这也是众多浏览器所使用的标准。注意到email_pattern中有好多双斜线，这是因为除了regex模块要做一次转义解析外，C++ string也会对字符串做一次转义解析。</p>
+<h2 id="regex-选项"><a href="#regex-选项" class="headerlink" title="regex 选项"></a><strong>regex 选项</strong></h2><p>&#160; &#160; &#160; &#160;在构造regex对象时，可以指定多种标识已实现特定的效果。这里以使用regex::icase达到不区分大小写的匹配为例。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex icase:\n"</span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">regex <span class="title">cpp_regex</span><span class="params">(<span class="string">"(\\w)+\\.(cpp|hpp)$"</span>, <span class="built_in">std</span>::regex::icase)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; test_filenames = &#123;<span class="string">"regex.cpp"</span>, <span class="string">"iostream.h"</span>, <span class="string">"template.CPP"</span>, <span class="string">"class.hPP"</span>, <span class="string">"Ah, regex.cpp"</span>, <span class="string">"regex.cpp Ah"</span>&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> fn : test_filenames)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">std</span>::regex_match(fn, cpp_regex))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"cpp file: "</span>&lt;&lt;fn&lt;&lt;<span class="string">'\n'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> (<span class="built_in">std</span>::regex_error e)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e.what()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;e.code()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex icase done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="regex-iterator"><a href="#regex-iterator" class="headerlink" title="regex iterator"></a><strong>regex iterator</strong></h2><p>&#160; &#160; &#160; &#160;regex提供了一个迭代器，这个迭代器生成时需要一个所搜寻字符串的范围以及一个regex对象。之后，迭代器在迭代时，会遍历搜寻字符串中的所有匹配位置。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex iterator usage:\n"</span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">regex <span class="title">email_regex</span><span class="params">(email_pattern)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> test_email_str = <span class="string">"I have three emails, yubo1911@163.com, yubo@gmail.com and guoyubo@gmail.com."</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="built_in">std</span>::sregex_iterator it(<span class="built_in">std</span>::begin(test_email_str), <span class="built_in">std</span>::end(test_email_str), email_regex), end_it; it != end_it; it++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;it-&gt;str()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span>(<span class="built_in">std</span>::regex_error e)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e.what()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;e.code()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex iterator usage done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="子表达式"><a href="#子表达式" class="headerlink" title="子表达式"></a><strong>子表达式</strong></h2><p>&#160; &#160; &#160; &#160;regex也支持子表达式，和其他正则表达式一样，使用括号括起来的构成一个子表达式。在匹配结果中，序号0表示整个匹配结果，序号1表示子表达式1的匹配结果……<br>&#160; &#160; &#160; &#160;下面以一个座机电话号码的匹配验证为例，说明子表达式的运用：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex sub_match usage:\n"</span>;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> phone_pattern = <span class="string">"(\\()?(\\d&#123;3,4&#125;)(\$$)?([- ])?(\\d&#123;7,8&#125;)"</span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="function">regex <span class="title">phone_regex</span><span class="params">(phone_pattern)</span></span>;</div><div class="line">    <span class="built_in">std</span>::smatch results;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; test_phones = &#123;<span class="string">"010-82224567"</span>, <span class="string">"(010-83332345"</span>, <span class="string">"(020)62334567"</span>, <span class="string">"(021) 22346543"</span>, <span class="string">"0357-4223456"</span>, <span class="string">"0358-465788"</span>&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> fn : test_phones)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">std</span>::regex_match(fn, results, phone_regex))</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(results[<span class="number">1</span>].matched)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(!results[<span class="number">3</span>].matched) <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">if</span>(results[<span class="number">4</span>].matched &amp;&amp; results[<span class="number">4</span>].str() == <span class="string">"-"</span>) <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(results[<span class="number">3</span>].matched) <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">if</span>(!(results[<span class="number">4</span>].matched &amp;&amp; results[<span class="number">4</span>].str() == <span class="string">"-"</span>)) <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;results.str()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span>(<span class="built_in">std</span>::regex_error e)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e.what()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;e.code()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex sub_match usage done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="replace"><a href="#replace" class="headerlink" title="replace"></a><strong>replace</strong></h2><p>&#160; &#160; &#160; &#160;regex同样提供了替换功能。将替换功能和子表达式结合起来，可以实现字符串的格式化功能：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex replace usage:\n"</span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> format = <span class="string">"$2-$5"</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="function">regex <span class="title">phone_regex</span><span class="params">(phone_pattern)</span></span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> ori_phone = <span class="string">"yubo: (020)85776452"</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"formated phone: "</span>&lt;&lt;<span class="built_in">std</span>::regex_replace(ori_phone, phone_regex, format) &lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span>(<span class="built_in">std</span>::regex_error e)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e.what()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;e.code()&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test regex replace usage done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;其中format字符串中$2和$5就分别表示第二个子表达式和第5个子表达式。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a><strong>输出</strong></h2><p>&#160; &#160; &#160; &#160;整个测试程序的输出结果如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">test regex simple usage:</div><div class="line">yubo1911@<span class="number">163.</span>com</div><div class="line">test regex simple usage done.</div><div class="line"> </div><div class="line">test regex icase:</div><div class="line">cpp file: regex.cpp</div><div class="line">cpp file: <span class="keyword">template</span>.CPP</div><div class="line">cpp file: <span class="keyword">class</span>.hPP</div><div class="line">test regex icase done.</div><div class="line"> </div><div class="line">test regex iterator usage:</div><div class="line">yubo1911@<span class="number">163.</span>com</div><div class="line">yubo@gmail.com</div><div class="line">guoyubo@gmail.com</div><div class="line">test regex iterator usage done.</div><div class="line"> </div><div class="line">test regex sub_match usage:</div><div class="line"><span class="number">010</span><span class="number">-82224567</span></div><div class="line">(<span class="number">020</span>)<span class="number">62334567</span></div><div class="line">(<span class="number">021</span>) <span class="number">22346543</span></div><div class="line"><span class="number">0357</span><span class="number">-4223456</span></div><div class="line">test regex sub_match usage done.</div><div class="line"> </div><div class="line">test regex replace usage:</div><div class="line">formated phone: yubo: <span class="number">020</span><span class="number">-85776452</span></div><div class="line">test regex replace usage done.</div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;1.C++11种提供了regex模块，需要g++-4.9以上才能完整支持。<br>&#160; &#160; &#160; &#160;2.regex默认采用ECMA-262标准，和浏览器中使用的一样。<br>&#160; &#160; &#160; &#160;3.regex提供了查找、匹配、迭代器、子表达式、替换等常用用法。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2016年12月20日 - 21时25分</p>
+        <p><span>最后更新:</span>2022年11月25日 - 23时58分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/12/20/C++11新特性之正则表达式/" title="C++11 新特性之正则表达式">http://greedysky.github.io/2016/12/20/C++11新特性之正则表达式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/12/20/C++11新特性之正则表达式/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/12/31/C++11新特性之auto关键字/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++11 新特性之auto关键字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/13/C++11新特性之template/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++11 新特性之template</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题外话"><span class="toc-number">1.</span> <span class="toc-text">题外话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则文法"><span class="toc-number">2.</span> <span class="toc-text">正则文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单用法"><span class="toc-number">3.</span> <span class="toc-text">简单用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#regex-选项"><span class="toc-number">4.</span> <span class="toc-text">regex 选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#regex-iterator"><span class="toc-number">5.</span> <span class="toc-text">regex iterator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子表达式"><span class="toc-number">6.</span> <span class="toc-text">子表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#replace"><span class="toc-number">7.</span> <span class="toc-text">replace</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出"><span class="toc-number">8.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/31/C++11新特性之auto关键字/" title="上一篇: C++11 新特性之auto关键字">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/12/13/C++11新特性之template/" title="下一篇: C++11 新特性之template">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

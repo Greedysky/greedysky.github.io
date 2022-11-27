@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++11 右值引用与完美转发 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="C++中存在两个比较难理解的操作std::move和std::forward。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11 右值引用与完美转发">
+<meta property="og:url" content="http://greedysky.github.io/2020/11/13/C++11右值引用与完美转发/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="C++中存在两个比较难理解的操作std::move和std::forward。">
+<meta property="og:updated_time" content="2022-11-25T16:15:59.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11 右值引用与完美转发">
+<meta name="twitter:description" content="C++中存在两个比较难理解的操作std::move和std::forward。">
+  
+    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 16.67px;">C++11</a> <a href="/tags/C-17/" style="font-size: 13.33px;">C++17</a> <a href="/tags/C-20/" style="font-size: 13.33px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++11右值引用与完美转发" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/13/C++11右值引用与完美转发/" class="article-date">
+      <time datetime="2020-11-13T06:45:23.000Z" itemprop="datePublished">2020-11-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++11 右值引用与完美转发
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;C++中存在两个比较难理解的操作：std::move : 移除左值属性、std::forward : 完美转发。下面来讲一讲std::forward的用途和转换原理。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a><strong>背景</strong></h2><p>&#160; &#160; &#160; &#160;假如我们封装了一个操作，主要是用来创建对象使用（类似设计模式中的工厂模式），这个操作如下：<br>&#160; &#160; &#160; &#160;（1）可以接受不同类型的参数，然后构造一个对象的指针。<br>&#160; &#160; &#160; &#160;（2）性能尽可能高。<br>&#160; &#160; &#160; &#160;现在假设这个类的定义如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> CData</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">  CData() = <span class="keyword">delete</span>;</div><div class="line">  CData(<span class="keyword">const</span> <span class="keyword">char</span>* ch) : data(ch)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"CData(const char* ch)"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">  CData(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str) : data(str) </div><div class="line">  &#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"CData(const std::string&amp; str)"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">  CData(<span class="built_in">std</span>::<span class="built_in">string</span>&amp;&amp; str) : data(str)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"CData(std::string&amp;&amp; str)"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line">  ~CData()</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"~CData()"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">  &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> data;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这里如果需要高效率，对于右值的调用应该使用CData(std::string&amp;&amp; str) : data(str)移动函数操作。</p>
+<h3 id="普通模板定义"><a href="#普通模板定义" class="headerlink" title="普通模板定义"></a><strong>普通模板定义</strong></h3><p>&#160; &#160; &#160; &#160;如果只要一个函数入口来创建对象，那么使用模板是不错的选择，例如可以如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function">CData* <span class="title">Creator</span><span class="params">(T t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(t);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Forward</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span>* value = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str1 = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str2 = <span class="string">" world"</span>;</div><div class="line">  <span class="comment">//CData* p = Creator(value);</span></div><div class="line">  CData* p = Creator(str1);</div><div class="line">  <span class="comment">//CData* p = Creator(str1 + str2);</span></div><div class="line">  <span class="keyword">delete</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这种办法虽然行得通，但是比较挫，因为每次调用Creator(T t)的时候，都需要拷贝内存，明显不满足高效的情况。</p>
+<h3 id="引用模板定义"><a href="#引用模板定义" class="headerlink" title="引用模板定义"></a><strong>引用模板定义</strong></h3><p>&#160; &#160; &#160; &#160;上面说的值拷贝不能满足内容，那么我们使用引用就可以解决问题了吧？<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function">CData* <span class="title">Creator</span><span class="params">(T&amp; t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(t);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Forward</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span>* value = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str1 = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str2 = <span class="string">" world"</span>;</div><div class="line">  CData* p = Creator(value);</div><div class="line">  <span class="comment">//CData* p = Creator(str1);</span></div><div class="line"></div><div class="line">  <span class="keyword">delete</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;但是这种情况对于CData* p = Creator(str1 + str2)无法解决问题，因为右值无法赋值到左值的引用。</p>
+<h3 id="右值引用模板"><a href="#右值引用模板" class="headerlink" title="右值引用模板"></a><strong>右值引用模板</strong></h3><p>&#160; &#160; &#160; &#160;从上面我们比较容易想到，使用&amp;&amp;来解决拷贝的问题。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function">CData* <span class="title">Creator</span><span class="params">(T&amp;&amp; t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(t);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Forward</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span>* value = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str1 = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str2 = <span class="string">" world"</span>;</div><div class="line">  CData* p = Creator(str1 + str2);</div><div class="line">  <span class="keyword">delete</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;由于模板中引用折叠的规则：<br>&#160; &#160; &#160; &#160;T&amp; &amp; –&gt; T&amp;。<br>&#160; &#160; &#160; &#160;T&amp;&amp; &amp; –&gt; T&amp;。<br>&#160; &#160; &#160; &#160;T&amp; &amp;&amp; –&gt;T&amp;。<br>&#160; &#160; &#160; &#160;T&amp;&amp; &amp;&amp; –&gt; T&amp;&amp;。<br>&#160; &#160; &#160; &#160;这种使用基本能够满足使用了。但是真的吗？别急我们来分析一下效率问题。<br>&#160; &#160; &#160; &#160;对于CData<em> p = Creator(str1 + str2);的调用：<br>&#160; &#160; &#160; &#160;（1）产生一个右值str1 + str2.<br>&#160; &#160; &#160; &#160;（2）CData</em> Creator(T&amp;&amp; t)右值引用，此时为：std::string&amp;&amp; t。<br>&#160; &#160; &#160; &#160;（3）那么return new CData(t);为右值引用，调用构造函数的CData(std::string&amp;&amp; str) : data(str)移动构造函数。<br>&#160; &#160; &#160; &#160;但是是否是这样的呢？如果是这样效率确实是最佳的，因为我们只需要右值直接移动就是最高效率了，运行结果如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CData(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; str)</div><div class="line">~CData()</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;显然并没有调用移动函数，原因是因为在函数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function">CData* <span class="title">Creator</span><span class="params">(T&amp;&amp; t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(t);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;t 是一个变量，为左值，无论左值引用类型的变量还是右值引用类型的变量，都是左值，因为它们有名字。，例如可以写如下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">100</span>;</div><div class="line"><span class="keyword">int</span>&amp;&amp; b = <span class="number">100</span>;</div><div class="line"><span class="keyword">int</span>&amp; c = b; <span class="comment">//正确，b为左值</span></div><div class="line"><span class="keyword">int</span>&amp;d = <span class="number">100</span>; <span class="comment">//错误</span></div></pre></td></tr></table></figure></p>
+<h2 id="forward完美转发"><a href="#forward完美转发" class="headerlink" title="forward完美转发"></a><strong>forward完美转发</strong></h2><h3 id="完美转发模板"><a href="#完美转发模板" class="headerlink" title="完美转发模板"></a><strong>完美转发模板</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="function">CData* <span class="title">Creator</span><span class="params">(T&amp;&amp; t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(<span class="built_in">std</span>::forward&lt;T&gt;(t));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Forward</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span>* value = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str1 = <span class="string">"hello"</span>;</div><div class="line">  <span class="built_in">std</span>::<span class="built_in">string</span> str2 = <span class="string">" world"</span>;</div><div class="line">  CData* p = Creator(str1 + str2);</div><div class="line">  <span class="keyword">delete</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160;此时运行结果为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CData(<span class="built_in">std</span>::<span class="built_in">string</span>&amp;&amp; str)</div><div class="line">~CData()</div></pre></td></tr></table></figure></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h3><p>&#160; &#160; &#160; &#160;所谓的完美转发，是指std::forward会将输入的参数原封不动地传递到下一个函数中，这个“原封不动”指的是，如果输入的参数是左值，那么传递给下一个函数的参数的也是左值；如果输入的参数是右值，那么传递给下一个函数的参数的也是右值。<br>&#160; &#160; &#160; &#160;这个对于上面一个例子带来的好处就是函数转发仍旧为右值引用，可以使用移动函数。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h3><p>&#160; &#160; &#160; &#160;std::forward定义如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="number">_</span>Ty&gt;</div><div class="line"><span class="number">_</span>NODISCARD <span class="keyword">constexpr</span> <span class="number">_</span><span class="function">Ty&amp;&amp; <span class="title">forward</span><span class="params">(<span class="keyword">remove_reference_t</span>&lt;<span class="number">_</span>Ty&gt;&amp; <span class="number">_</span>Arg)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;  <span class="comment">// forward an lvalue as either an lvalue or an rvalue</span></div><div class="line">  <span class="keyword">return</span> (<span class="keyword">static_cast</span>&lt;<span class="number">_</span>Ty&amp;&amp;&gt;(<span class="number">_</span>Arg));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function">CData* <span class="title">Creator</span><span class="params">(T&amp;&amp; t)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> CData(<span class="built_in">std</span>::forward&lt;T&gt;(t));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&#160; &#160; &#160; &#160;如果T为std::string&amp;,那么std::forward<t>(t) 返回值为std::string&amp;&amp;&amp;, 折叠为std::string&amp;，左值引用特性不变。<br>&#160; &#160; &#160; &#160;如果T为std::string&amp;&amp;,那么std::forward<t>(t) 返回值为std::string&amp;&amp;&amp;&amp;, 折叠为std::string&amp;&amp;，右值引用特性不变。<br>&#160; &#160; &#160; &#160;如果调用者为std::string,调用将会转换成为std::string&amp;，为类型1.</t></t></p>
+<h2 id="完美转发的实际使用"><a href="#完美转发的实际使用" class="headerlink" title="完美转发的实际使用"></a><strong>完美转发的实际使用</strong></h2><h3 id="make-shared"><a href="#make-shared" class="headerlink" title="make_shared"></a><strong>make_shared</strong></h3><p>&#160; &#160; &#160; &#160;这个用来创建一个对象的智能指针，并且可以通过使用不同的参数来构造所创建对象的指针，这个函数实现如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="number">_</span>Ty,</div><div class="line">  <span class="keyword">class</span>... <span class="number">_</span>Types&gt;</div><div class="line"><span class="number">_</span>NODISCARD <span class="keyword">inline</span> <span class="built_in">shared_ptr</span>&lt;<span class="number">_</span>Ty&gt; make_shared(<span class="number">_</span>Types&amp;&amp;... <span class="number">_</span>Args)</div><div class="line">&#123;  <span class="comment">// make a shared_ptr</span></div><div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> <span class="number">_</span>Rx = <span class="keyword">new</span> <span class="number">_</span>Ref_count_obj&lt;<span class="number">_</span>Ty&gt;(<span class="number">_</span>STD forward&lt;<span class="number">_</span>Types&gt;(<span class="number">_</span>Args)...);  <span class="comment">//参数完美转发</span></div><div class="line"></div><div class="line">  <span class="built_in">shared_ptr</span>&lt;<span class="number">_</span>Ty&gt; <span class="number">_</span>Ret;</div><div class="line">  <span class="number">_</span>Ret<span class="number">._</span>Set_ptr_rep_and_enable_shared(<span class="number">_</span>Rx-&gt;<span class="number">_</span>Getptr(), <span class="number">_</span>Rx);</div><div class="line">  <span class="keyword">return</span> (<span class="number">_</span>Ret);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;我们将模板参数全部完美转发给构造函数，类似的还有个tuple这些标准库。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;完美转发使用两步来完成任务：<br>&#160; &#160; &#160; &#160;（1）在模板中使用&amp;&amp;接收参数。<br>&#160; &#160; &#160; &#160;（2）使用std::forward()转发给被调函数.<br>&#160; &#160; &#160; &#160;这样左值作为仍旧作为左值传递，右值仍旧作为右值传递！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2020年11月13日 - 14时45分</p>
+        <p><span>最后更新:</span>2022年11月26日 - 00时15分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/13/C++11右值引用与完美转发/" title="C++11 右值引用与完美转发">http://greedysky.github.io/2020/11/13/C++11右值引用与完美转发/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2020/11/13/C++11右值引用与完美转发/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/03/C++11中的Lambda函数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++11 中的 Lambda 函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/08/C++虚函数表及多态内部原理详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 虚函数表及多态内部原理详解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通模板定义"><span class="toc-number">2.1.</span> <span class="toc-text">普通模板定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用模板定义"><span class="toc-number">2.2.</span> <span class="toc-text">引用模板定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右值引用模板"><span class="toc-number">2.3.</span> <span class="toc-text">右值引用模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forward完美转发"><span class="toc-number">3.</span> <span class="toc-text">forward完美转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#完美转发模板"><span class="toc-number">3.1.</span> <span class="toc-text">完美转发模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">3.2.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.3.</span> <span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完美转发的实际使用"><span class="toc-number">4.</span> <span class="toc-text">完美转发的实际使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#make-shared"><span class="toc-number">4.1.</span> <span class="toc-text">make_shared</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/12/03/C++11中的Lambda函数/" title="上一篇: C++11 中的 Lambda 函数">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/09/08/C++虚函数表及多态内部原理详解/" title="下一篇: C++ 虚函数表及多态内部原理详解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
