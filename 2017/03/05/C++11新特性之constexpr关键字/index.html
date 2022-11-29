@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。">
-<meta property="og:updated_time" content="2022-11-25T15:59:45.914Z">
+<meta property="og:updated_time" content="2022-11-28T04:18:41.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之constexpr关键字">
 <meta name="twitter:description" content="这是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -283,10 +275,10 @@
 <h2 id="语义上的差别"><a href="#语义上的差别" class="headerlink" title="语义上的差别"></a><strong>语义上的差别</strong></h2><p>&#160; &#160; &#160; &#160;首先，我们来看看《C++Primer》怎么说的：<br>&#160; &#160; &#160; &#160;const：有时我们希望定义这样一种变量，它的值不能被改变。例如，用一个变量来表示缓冲区的大小。使用变量的好处是当我们觉得缓冲区大小不再合适时，很容易对其进行调整。另一方面，也应随时警惕防止程序一不小心改变了这个值。为了满足这一要求，可以用关键字const对变量类型加以限定。<br>&#160; &#160; &#160; &#160;constexpr（常量表达式）：是指值不会改变并且在编译过程就能得到计算结果的表达式。<br>&#160; &#160; &#160; &#160;从以上两段话，我们可以总结出const和constexpr的关系，即如果变量用constexpr修饰，那么变量也具有const的特性；如果变量用const修饰，不能说明变量具有constexpr的特性。<br>&#160; &#160; &#160; &#160;从语义上讲，const更像是“read only”，而constexpr更像是“const”。<br>&#160; &#160; &#160; &#160;接下来，我们来聊一聊为什么要引入constexpr？</p>
 <h2 id="常量表达式的优势"><a href="#常量表达式的优势" class="headerlink" title="常量表达式的优势"></a><strong>常量表达式的优势</strong></h2><p>&#160; &#160; &#160; &#160;常量表达式的优点是将计算过程转移到编译时期，那么运行期就不再需要计算了，程序性能也就提升了。</p>
 <h2 id="const时期的常量表达式"><a href="#const时期的常量表达式" class="headerlink" title="const时期的常量表达式"></a><strong>const时期的常量表达式</strong></h2><p>&#160; &#160; &#160; &#160;一个对象（或表达式）是不是常量表达式由它的数据类型和初始化值共同决定的，例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">20</span>;            <span class="comment">// a是常量表达式</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> b = a + <span class="number">1</span>;         <span class="comment">// b是常量表达式</span></div><div class="line"><span class="keyword">int</span> c = <span class="number">7</span>;                  <span class="comment">//c不是常量表达式</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> d = getlength();    <span class="comment">//d不是常量表达式</span></div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;其中d不是常量表达式的原因是，尽管d本身是一个常量，但它具体的值需要在运行期才能获得，所以不是常量表达式。<br>&#160; &#160; &#160; &#160;第四句代码就是我们常常说的“伪优化“，误以为这段热点语句已经改成了常量表达式，性能将会有所提升，但其实，并没有啊……</p>
+<p>&#160; &#160; &#160; &#160;其中d不是常量表达式的原因是，尽管d本身是一个常量，但它具体的值需要在运行期才能获得，所以不是常量表达式。<br>&#160; &#160; &#160; &#160;第四句代码就是我们常常说的“伪优化”，误以为这段热点语句已经改成了常量表达式，性能将会有所提升，但其实，并没有啊……</p>
 <h2 id="constexpr时期的常量表达式"><a href="#constexpr时期的常量表达式" class="headerlink" title="constexpr时期的常量表达式"></a><strong>constexpr时期的常量表达式</strong></h2><p>&#160; &#160; &#160; &#160;为了能明确的表示这段代码一定是常量表达式，在C++11中，引入了constexpr，有了它，我们来看看abcd四个变量的变化：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> a = <span class="number">20</span>;            <span class="comment">// a是常量表达式</span></div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> b = a + <span class="number">1</span>;         <span class="comment">// b是常量表达式</span></div><div class="line"><span class="keyword">int</span> c = <span class="number">7</span>;                     <span class="comment">//c不是常量表达式</span></div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> d = getlength();</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;其中变量d有两种情况：<br>&#160; &#160; &#160; &#160;（1）当getlength()函数也是constexpr时，那么d就是常量表达式<br>&#160; &#160; &#160; &#160;（2）当getlength()函数不是constexpr时，此时编译会报错。<br>&#160; &#160; &#160; &#160;即编译器帮助我们检查了常量表达式。<br>&#160; &#160; &#160; &#160;所以，一般来说，当你认为变量一定是常量表达式，那就把它声明成constexpr类型吧。</p>
-<h2 id="实测下的性能差别"><a href="#实测下的性能差别" class="headerlink" title="实测下的性能差别"></a><strong>实测下的性能差别</strong></h2><p>&#160; &#160; &#160; &#160;为了让大家更加直观的感受常量表达式和普通表达式的性能差别，请看以下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="title">Calculate1</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> x * y * <span class="number">32</span> / <span class="number">14</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Calculate2</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> x * y * <span class="number">32</span> / <span class="number">14</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">uint64_t</span> start, end;</div><div class="line">    start = GetMicroSeconds();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000</span>; i++)</div><div class="line">&#123;</div><div class="line"><span class="comment">//也可以换成const修饰，也是常量表达式</span></div><div class="line">        <span class="keyword">constexpr</span> <span class="keyword">int</span> ret = Calculate1 (<span class="number">11</span>, <span class="number">12</span>); </div><div class="line">    &#125;</div><div class="line">    end = GetMicroSeconds();</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"spend time: "</span>&lt;&lt;end-start&lt;&lt;<span class="string">" us"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">       </div><div class="line">    start = GetMicroSeconds();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000</span>; i++)</div><div class="line">    &#123;</div><div class="line"><span class="comment">//不能用constexpr修饰，不是常量表达式，会编译报错</span></div><div class="line">        <span class="keyword">int</span> ret = Calculate2 (<span class="number">11</span>, <span class="number">12</span>);</div><div class="line">    &#125;</div><div class="line">    end = GetMicroSeconds();</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"spend time: "</span>&lt;&lt;end-start&lt;&lt;<span class="string">" us"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="实测下的性能差别"><a href="#实测下的性能差别" class="headerlink" title="实测下的性能差别"></a><strong>实测下的性能差别</strong></h2><p>&#160; &#160; &#160; &#160;为了让大家更加直观的感受常量表达式和普通表达式的性能差别，请看以下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">int</span> <span class="title">Calculate1</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> x * y * <span class="number">32</span> / <span class="number">14</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Calculate2</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> x * y * <span class="number">32</span> / <span class="number">14</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">uint64_t</span> start, end;</div><div class="line">    start = GetMicroSeconds();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//也可以换成const修饰，也是常量表达式</span></div><div class="line">        <span class="keyword">constexpr</span> <span class="keyword">int</span> ret = Calculate1 (<span class="number">11</span>, <span class="number">12</span>); </div><div class="line">    &#125;</div><div class="line">    end = GetMicroSeconds();</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"spend time: "</span>&lt;&lt;end-start&lt;&lt;<span class="string">" us"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">       </div><div class="line">    start = GetMicroSeconds();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100000</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//不能用constexpr修饰，不是常量表达式，会编译报错</span></div><div class="line">        <span class="keyword">int</span> ret = Calculate2 (<span class="number">11</span>, <span class="number">12</span>);</div><div class="line">    &#125;</div><div class="line">    end = GetMicroSeconds();</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"spend time: "</span>&lt;&lt;end-start&lt;&lt;<span class="string">" us"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;这段代码比较简单，一个常量表达式和一个非常量表达式，都进行相同的计算，都循环10w次，然后记录各自的总耗时，单位是微秒。<br>&#160; &#160; &#160; &#160;打印结果如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">spend time: <span class="number">182</span> us</div><div class="line">spend time: <span class="number">929</span> us</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;大家可以看到，接近5倍的性能差别，这要是发生在高性能开发中，将是一次不错的性能提升。<br>&#160; &#160; &#160; &#160;关于const和constexpr的差别，欢迎在评论中和我探讨。觉得文章不错，请点赞和在看支持我继续分享好文。谢谢！</p>
 
@@ -300,7 +292,7 @@
         <p><span>本文标题:</span><a href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2017年03月05日 - 12时02分</p>
-        <p><span>最后更新:</span>2022年11月25日 - 23时59分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 12时18分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/05/C++11新特性之constexpr关键字/" title="C++11 新特性之constexpr关键字">http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

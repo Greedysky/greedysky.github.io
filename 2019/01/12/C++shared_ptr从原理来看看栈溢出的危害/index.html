@@ -12,19 +12,15 @@
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：">
 <meta property="og:image" content="http://greedysky.github.io/image/7ae161ac2b62c60bab3cf5847d439dea21/1.webp">
-<meta property="og:updated_time" content="2022-11-27T13:34:02.503Z">
+<meta property="og:updated_time" content="2022-11-28T06:03:00.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ shared_ptr 从原理来看看栈溢出的危害">
 <meta name="twitter:description" content="上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：">
 <meta name="twitter:image" content="http://greedysky.github.io/image/7ae161ac2b62c60bab3cf5847d439dea21/1.webp">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -39,7 +35,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -57,7 +53,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -140,8 +136,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -196,7 +190,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -231,8 +225,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -281,7 +273,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="C-std-shared-ptr-实现原理"><a href="#C-std-shared-ptr-实现原理" class="headerlink" title="C++ std::shared_ptr 实现原理"></a><strong>C++ std::shared_ptr 实现原理</strong></h2><p>&#160; &#160; &#160; &#160;上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：<br>&#160; &#160; &#160; &#160;shared_ptr共享被管理对象，同一时刻可以有多个shared_ptr拥有对象的所有权，当最后一个shared_ptr对象销毁时，被管理对象自动销毁。<br>&#160; &#160; &#160; &#160;shared_ptr 实现<br><img src="/image/7ae161ac2b62c60bab3cf5847d439dea21/1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;简单来说，shared_ptr实现包含了两部分<br>&#160; &#160; &#160; &#160;● 一个指向堆上创建的对象的裸指针，raw_ptr<br>&#160; &#160; &#160; &#160;● 一个指向内部隐藏的、共享的管理对象。share_count_object<br>&#160; &#160; &#160; &#160;第一部分没什么好说的，第二部分是需要关注的重点：<br>&#160; &#160; &#160; &#160;● use_count，当前这个堆上对象被多少对象引用了，简单来说就是引用计数。<br>&#160; &#160; &#160; &#160;● weak_count，这个管理对象被多少个智能指针共享了，简单来说就是管理对象的引用计数。<br>&#160; &#160; &#160; &#160;<strong>不同指针创建的对同一个堆上对象的智能管理，并不共享管理对象，因此存在double free的可能性</strong><br>&#160; &#160; &#160; &#160;_shared_ptr直接包含的裸指针，即raw prt，是为了实现一般指针的-&gt;,✱等操作，通过<strong>shared_count object间接包含的指针是为了管理对象的生命周期，回收相关资源。换句话说，</strong>shared_count object内部的use_count主要用来标记被管理对象的生命周期，weak_count主要用来标记管理对象的生命周期。<br>&#160; &#160; &#160; &#160;<strong>注意区分管理和被管理。</strong></p>
+        <h2 id="C-std-shared-ptr-实现原理"><a href="#C-std-shared-ptr-实现原理" class="headerlink" title="C++ std::shared_ptr 实现原理"></a><strong>C++ std::shared_ptr 实现原理</strong></h2><p>&#160; &#160; &#160; &#160;上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：<br>&#160; &#160; &#160; &#160;shared_ptr共享被管理对象，同一时刻可以有多个shared_ptr拥有对象的所有权，当最后一个shared_ptr对象销毁时，被管理对象自动销毁。<br>&#160; &#160; &#160; &#160;shared_ptr 实现<br><img src="/image/7ae161ac2b62c60bab3cf5847d439dea21/1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;简单来说，shared_ptr实现包含了两部分<br>&#160; &#160; &#160; &#160;● 一个指向堆上创建的对象的裸指针，raw_ptr<br>&#160; &#160; &#160; &#160;● 一个指向内部隐藏的、共享的管理对象。share_count_object<br>&#160; &#160; &#160; &#160;第一部分没什么好说的，第二部分是需要关注的重点：<br>&#160; &#160; &#160; &#160;● use_count，当前这个堆上对象被多少对象引用了，简单来说就是引用计数。<br>&#160; &#160; &#160; &#160;● weak_count，这个管理对象被多少个智能指针共享了，简单来说就是管理对象的引用计数。<br>&#160; &#160; &#160; &#160;<strong>不同指针创建的对同一个堆上对象的智能管理，并不共享管理对象，因此存在double free的可能性</strong><br>&#160; &#160; &#160; &#160;_shared_ptr直接包含的裸指针，即raw prt，是为了实现一般指针的-&gt;和✱等操作，通过<strong>shared_count object间接包含的指针是为了管理对象的生命周期，回收相关资源。换句话说，</strong>shared_count object内部的use_count主要用来标记被管理对象的生命周期，weak_count主要用来标记管理对象的生命周期。<br>&#160; &#160; &#160; &#160;<strong>注意区分管理和被管理。</strong></p>
 <p>##<strong>问题原因</strong><br>&#160; &#160; &#160; &#160;了解了原理，可以看出std::share_ptr本身的raw ptr指向了堆上通过new创建的对象。但是其自身这个raw ptr却会如果在不当操作上，被修改，比如栈越界操作，就会被破坏，导致产生对非法对象的访问：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">5</span>;</div><div class="line">XXX::XX df = XXX::XX::buildDataFrame();</div><div class="line"><span class="keyword">int</span> a[<span class="number">1</span>] = &#123;<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</div><div class="line">&#123;</div><div class="line">    a[i] = i;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;上述这段代码就会引发问题，这里XXX::XX的具体内部设计使用了经典的RAII。</p>
 
@@ -295,7 +287,7 @@
         <p><span>本文标题:</span><a href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2019年01月12日 - 20时11分</p>
-        <p><span>最后更新:</span>2022年11月27日 - 21时34分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 14时03分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/" title="C++ shared_ptr 从原理来看看栈溢出的危害">http://greedysky.github.io/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

@@ -12,19 +12,15 @@
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="C++11中将表达式的值类型划分成了lvalue（左值）、rvalue（右值）、prvalue（纯右值）、xvalue（将亡值）、gvalue（泛左值） 5种。">
 <meta property="og:image" content="http://greedysky.github.io/image/994e85ea0ae3c608a9e5a577434b11e0d5/1.webp">
-<meta property="og:updated_time" content="2022-11-27T13:30:03.613Z">
+<meta property="og:updated_time" content="2022-11-28T03:43:24.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 中的左值、右值和将亡值">
 <meta name="twitter:description" content="C++11中将表达式的值类型划分成了lvalue（左值）、rvalue（右值）、prvalue（纯右值）、xvalue（将亡值）、gvalue（泛左值） 5种。">
 <meta name="twitter:image" content="http://greedysky.github.io/image/994e85ea0ae3c608a9e5a577434b11e0d5/1.webp">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -39,7 +35,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -57,7 +53,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -140,8 +136,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -196,7 +190,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -231,8 +225,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -282,8 +274,8 @@
       
           
         <p>&#160; &#160; &#160; &#160;C++98 中表达式值的类型只有左值和右值两种类型，可以取到地址的表达式就是左值，不是左值的值就是右值，而C++11中将表达式的值类型划分成了lvalue（左值）、rvalue（右值）、prvalue（纯右值）、xvalue（将亡值）、gvalue（泛左值） 5种。下文从基本概念并结合实际的例子区分C++11中的表达式值类型。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><strong>基本概念</strong></h2><h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a><strong>表达式</strong></h3><p>&#160; &#160; &#160; &#160;表达式的定义<br>&#160; &#160; &#160; &#160;<strong>定义</strong>： 由运算符(operator)和运算对象(operand)构成的计算式（类似于数学上的算术表达式）。<br>&#160; &#160; &#160; &#160;<strong>举例：</strong> 字面值(literal)和变量(variable)是最简单的表达式，函数的返回值也被认为是表达式。</p>
-<h3 id="值类别"><a href="#值类别" class="headerlink" title="值类别"></a><strong>值类别</strong></h3><p>&#160; &#160; &#160; &#160;● 表达式是可求值的，对表达式求值将得到一个结果(result)。这个结果有两个属性：类型和值类别（value categories）。<br>&#160; &#160; &#160; &#160;● 在c++11以后，表达式按值类别分，必然属于以下三者之一：左值(left value,lvalue)，将亡值(expiring value,xvalue)，纯右值(pure rvalue,pralue)。其中，左值和将亡值合称泛左值(generalized lvalue,glvalue)，纯右值和将亡值合称右值(right value,rvalue)。见下图<br><img src="/image/994e85ea0ae3c608a9e5a577434b11e0d5/1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;● C++11中右值rvalue的概念包括两个部分：<br>&#160; &#160; &#160; &#160;1、将亡值(xvalue. expiring value)，xvalue是C++11新增的概念，与右值引用相关的表达式，如: 将要被移动的对象、T&amp;&amp;函数返回值、std::move返回值和转换为 T&amp;&amp;的类型的转换函数的返回值等；<br>&#160; &#160; &#160; &#160;2、纯右值(pvalue, pure right value)，如： 非引用返回的临时变量、运算表达式产生的临时变量、原始字面量和lambda表达式等属于pvalue；<br>&#160; &#160; &#160; &#160;注意：“左值”是表达式的结果的一种属性，但更为普遍地，通常用“左值”来指代左值表达式。所谓左值表达式，就是指求值结果的值类别为左值的表达式。在后文中，我们依然用左值指代左值表达式。对于纯右值和将亡值，亦然。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><strong>基本概念</strong></h2><h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a><strong>表达式</strong></h3><p>&#160; &#160; &#160; &#160;表达式的定义<br>&#160; &#160; &#160; &#160;<strong>定义</strong>： 由运算符（operator）和运算对象（operand）构成的计算式（类似于数学上的算术表达式）。<br>&#160; &#160; &#160; &#160;<strong>举例：</strong> 字面值（literal）和变量（variable）是最简单的表达式，函数的返回值也被认为是表达式。</p>
+<h3 id="值类别"><a href="#值类别" class="headerlink" title="值类别"></a><strong>值类别</strong></h3><p>&#160; &#160; &#160; &#160;● 表达式是可求值的，对表达式求值将得到一个结果（result）。这个结果有两个属性：类型和值类别（value categories）。<br>&#160; &#160; &#160; &#160;● 在c++11以后，表达式按值类别分，必然属于以下三者之一：左值（left value，lvalue）)，将亡值（expiring value，xvalue），纯右值（pure rvalue，pralue）。其中，左值和将亡值合称泛左值（generalized lvalue，glvalue），纯右值和将亡值合称右值（right value，rvalue）。见下图<br><img src="/image/994e85ea0ae3c608a9e5a577434b11e0d5/1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;● C++11中右值rvalue的概念包括两个部分：<br>&#160; &#160; &#160; &#160;1、将亡值（xvalue，expiring value），xvalue是C++11新增的概念，与右值引用相关的表达式，如：将要被移动的对象、T&amp;&amp;函数返回值、std::move返回值和转换为 T&amp;&amp;的类型的转换函数的返回值等；<br>&#160; &#160; &#160; &#160;2、纯右值（pvalue，pure right value），如： 非引用返回的临时变量、运算表达式产生的临时变量、原始字面量和lambda表达式等属于pvalue；<br>&#160; &#160; &#160; &#160;注意：“左值”是表达式的结果的一种属性，但更为普遍地，通常用“左值”来指代左值表达式。所谓左值表达式，就是指求值结果的值类别为左值的表达式。在后文中，我们依然用左值指代左值表达式。对于纯右值和将亡值，亦然。</p>
 <h2 id="左值、纯右值和将亡值的描述"><a href="#左值、纯右值和将亡值的描述" class="headerlink" title="左值、纯右值和将亡值的描述"></a><strong>左值、纯右值和将亡值的描述</strong></h2><h3 id="左值"><a href="#左值" class="headerlink" title="左值"></a><strong>左值</strong></h3><p>&#160; &#160; &#160; &#160;描述： 能够用&amp;取地址的表达式是左值表达式。<br>&#160; &#160; &#160; &#160;一个区分左值和右值的便捷方法：看能不能对表达式取地址，若能，则为左值，若不能则为右值。所有的具名变量都是左值，而右值是不具名的。<br>&#160; &#160; &#160; &#160;<strong>举例：</strong><br>&#160; &#160; &#160; &#160;● 函数名和变量名<br>&#160; &#160; &#160; &#160;● 返回左值引用的函数调用<br>&#160; &#160; &#160; &#160;● 前置自增/自减运算符连接的表达式++i/–i<br>&#160; &#160; &#160; &#160;● 由赋值运算符或复合赋值运算符连接的表达式(a=b、a+=b、a%=b）<br>&#160; &#160; &#160; &#160;● 解引用表达式*p<br>&#160; &#160; &#160; &#160;● 字符串字面值”abc”</p>
 <h3 id="纯右值"><a href="#纯右值" class="headerlink" title="纯右值"></a><strong>纯右值</strong></h3><p>&#160; &#160; &#160; &#160;<strong>描述： 满足下列条件之一的：</strong><br>&#160; &#160; &#160; &#160;1）本身就是赤裸裸的、纯粹的字面值，如3、false；<br>&#160; &#160; &#160; &#160;2）求值结果相当于字面值或是一个不具名的临时对象。<br>&#160; &#160; &#160; &#160;<strong>举例：</strong><br>&#160; &#160; &#160; &#160;● 除字符串字面值以外的字面值<br>&#160; &#160; &#160; &#160;● 返回非引用类型的函数调用<br>&#160; &#160; &#160; &#160;● 后置自增/自减运算符连接的表达式i++/i–<br>&#160; &#160; &#160; &#160;● 算术表达式（a+b、a&amp;b、a&lt;<b） &#160;="" &#160;●="" 逻辑表达式（a&&b、a||b、~a）="" 比较表达式（a="=b、a">=b、a&lt;b）<br>&#160; &#160; &#160; &#160;● 取地址表达式（&amp;a）</b）></p>
 <h3 id="将亡值"><a href="#将亡值" class="headerlink" title="将亡值"></a><strong>将亡值</strong></h3><p>&#160; &#160; &#160; &#160;<strong>描述：</strong> 在C++11之前的右值和C++11中的纯右值是等价的。C++11中的将亡值是随着右值引用的引入而新引入的。换言之，“将亡值”概念的产生，是由右值引用的产生而引起的，将亡值与右值引用息息相关。所谓的将亡值表达式，就是下列表达式：<br>&#160; &#160; &#160; &#160;1）返回右值引用的函数的调用表达式<br>&#160; &#160; &#160; &#160;2）转换为右值引用的转换函数的调用表达<br>&#160; &#160; &#160; &#160;在C++11中，用左值去初始化一个对象或为一个已有对象赋值时，会调用拷贝构造函数或拷贝赋值运算符来拷贝资源，而当用一个右值（包括纯右值和将亡值）来初始化或赋值时，会调用移动构造函数或移动赋值运算符来移动资源，从而避免拷贝，提高效率。当该右值完成初始化或赋值的任务时，它的资源已经移动给了被初始化者或被赋值者，同时该右值也将会马上被销毁（析构）。也就是说，当一个右值准备完成初始化或赋值任务时，它已经“将亡”了。这种右值常用来完成移动构造或移动赋值的特殊任务，扮演着“将亡”的角色，所以C++11给这类右值起了一个新的名字——将亡值。<br>&#160; &#160; &#160; &#160;<strong>举例：</strong>std::move()、tsatic_cast<x&&>(x)（X是自定义的类，x是类对象，这两个函数常用来将左值强制转换成右值，从而使拷贝变成移动，提高效率。</x&&></p>
@@ -292,7 +284,7 @@
 <h3 id="情况2：-解引用表达式-p是左值，取地址表达式-amp-a是纯右值"><a href="#情况2：-解引用表达式-p是左值，取地址表达式-amp-a是纯右值" class="headerlink" title="情况2： 解引用表达式*p是左值，取地址表达式&amp;a是纯右值"></a><strong>情况2： 解引用表达式*p是左值，取地址表达式&amp;a是纯右值</strong></h3><p>&#160; &#160; &#160; &#160;● &amp;(p)一定是正确的，因为p得到的是p指向的实体，&amp;(p)得到的就是这一实体的地址，正是p的值。由于&amp;(p)的正确，所以*p是左值。<br>&#160; &#160; &#160; &#160;● 而对&amp;a而言，得到的是a的地址，相当于unsigned int型的字面值，所以是纯右值。</p>
 <h3 id="情况3：-a-b、a-amp-amp-b、a-b都是纯右值"><a href="#情况3：-a-b、a-amp-amp-b、a-b都是纯右值" class="headerlink" title="情况3： a+b、a&amp;&amp;b、a==b都是纯右值"></a><strong>情况3： a+b、a&amp;&amp;b、a==b都是纯右值</strong></h3><p>&#160; &#160; &#160; &#160;● a+b得到的是不具名的临时对象，而a&amp;&amp;b和a==b的结果非true即false，相当于字面值。</p>
 <h3 id="情况4：-字符串字面值是左值，而非字符串的字面量是纯右值"><a href="#情况4：-字符串字面值是左值，而非字符串的字面量是纯右值" class="headerlink" title="情况4： 字符串字面值是左值，而非字符串的字面量是纯右值"></a><strong>情况4： 字符串字面值是左值，而非字符串的字面量是纯右值</strong></h3><p>&#160; &#160; &#160; &#160;● 不是所有的字面值都是纯右值，字符串字面值是唯一例外。<br>&#160; &#160; &#160; &#160;● 早期C++将字符串字面值实现为char型数组，实实在在地为每个字符都分配了空间并且允许程序员对其进行操作，所以类似<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cout</span>&lt;&lt;&amp;(<span class="string">"abc"</span>)&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"><span class="keyword">char</span> *p_char=<span class="string">"abc"</span>;<span class="comment">//注意不是char *p_char=&amp;("abc");</span></div></pre></td></tr></table></figure></p>
-<h3 id="情况5：-具名的右值引用是左值，不具名的右值引用是右值。"><a href="#情况5：-具名的右值引用是左值，不具名的右值引用是右值。" class="headerlink" title="情况5： 具名的右值引用是左值，不具名的右值引用是右值。"></a><strong>情况5： 具名的右值引用是左值，不具名的右值引用是右值。</strong></h3><p>``` c++<br>void foo(int&amp;&amp; t) {<br>    // t 被一个右值表达式初始化<br>    // 但是，t 本身是一个左值<br>}</p>
+<h3 id="情况5：-具名的右值引用是左值，不具名的右值引用是右值。"><a href="#情况5：-具名的右值引用是左值，不具名的右值引用是右值。" class="headerlink" title="情况5： 具名的右值引用是左值，不具名的右值引用是右值。"></a><strong>情况5： 具名的右值引用是左值，不具名的右值引用是右值。</strong></h3><p>``` c++<br>void foo(int&amp;&amp; t)<br>{<br>    // t 被一个右值表达式初始化<br>    // 但是，t 本身是一个左值<br>}</p>
 <h2 id="继续深入学习"><a href="#继续深入学习" class="headerlink" title="继续深入学习"></a><strong>继续深入学习</strong></h2><p>&#160; &#160; &#160; &#160;C++11中的右值引用和移动语义<a href="https://www.jianshu.com/p/61ea80fcf943" target="_blank" rel="external">https://www.jianshu.com/p/61ea80fcf943</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><strong>参考</strong></h2><p>&#160; &#160; &#160; &#160;● Value categories<a href="https://en.cppreference.com/w/cpp/language/value_category" target="_blank" rel="external">https://en.cppreference.com/w/cpp/language/value_category</a><br>&#160; &#160; &#160; &#160;● 话说C++中的左值、纯右值、将亡值<a href="http://www.cnblogs.com/zpcdbky/p/5275959.html" target="_blank" rel="external">http://www.cnblogs.com/zpcdbky/p/5275959.html</a><br>&#160; &#160; &#160; &#160;● What are rvalues, lvalues, xvalues, glvalues, and prvalues?<a href="https://stackoverflow.com/questions/3601602/what-are-rvalues-lvalues-xvalues-glvalues-and-prvalues" target="_blank" rel="external">https://stackoverflow.com/questions/3601602/what-are-rvalues-lvalues-xvalues-glvalues-and-prvalues</a><br>&#160; &#160; &#160; &#160;● Value categories<a href="https://en.cppreference.com/w/cpp/language/value_category" target="_blank" rel="external">https://en.cppreference.com/w/cpp/language/value_category</a></p>
 
@@ -306,7 +298,7 @@
         <p><span>本文标题:</span><a href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2018年12月15日 - 19时57分</p>
-        <p><span>最后更新:</span>2022年11月27日 - 21时30分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 11时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/15/C++11中的左值右值和将亡值/" title="C++11 中的左值、右值和将亡值">http://greedysky.github.io/2018/12/15/C++11中的左值右值和将亡值/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2018/12/15/C++11中的左值右值和将亡值/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

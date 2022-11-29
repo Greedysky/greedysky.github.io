@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2021/11/04/C++assert函数用法总结与注意事项/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="assert宏的原型定义在中，其作用是如果它的条件返回错误，则终止程序执行。">
-<meta property="og:updated_time" content="2022-11-27T13:49:40.754Z">
+<meta property="og:updated_time" content="2022-11-28T05:54:37.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ assert 函数用法总结与注意事项">
 <meta name="twitter:description" content="assert宏的原型定义在中，其作用是如果它的条件返回错误，则终止程序执行。">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -280,15 +272,15 @@
       
           
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;assert宏的原型定义在<assert.h>中，其作用是如果它的条件返回错误，则终止程序执行。</assert.h></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a><strong>简介</strong></h2><p>&#160; &#160; &#160; &#160;原型定义：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">assert</span><span class="params">( <span class="keyword">int</span> expression )</span></span>;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;assert的作用是先计算表达式 expression ，如果其值为假（即为0），那么它先向stderr打印一条出错信息，然后<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  FILE *fp;</div><div class="line">  <span class="comment">//以可写的方式打开一个文件，如果不存在就创建一个同名文件</span></div><div class="line">  fp = fopen( <span class="string">"test.txt"</span>, <span class="string">"w"</span> );</div><div class="line">  </div><div class="line">   <span class="comment">//所以这里不会出错</span></div><div class="line">  assert( fp );                          </div><div class="line">  fclose( fp );</div><div class="line">  </div><div class="line">  <span class="comment">//以只读的方式打开一个文件，如果不存在就打开文件失败</span></div><div class="line">  fp = fopen( <span class="string">"noexitfile.txt"</span>, <span class="string">"r"</span> );</div><div class="line">  <span class="comment">//所以这里出错</span></div><div class="line">  assert( fp );                           </div><div class="line">  <span class="comment">//程序永远都执行不到这里来</span></div><div class="line">  fclose( fp );                           </div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">[root@localhost error_process]<span class="meta"># gcc badptr.c </span></div><div class="line">[root@localhost error_process]# ./a.out </div><div class="line"> a.out: badptr.c:<span class="number">14</span>: main: Assertion `fp' failed.</div></pre></td></tr></table></figure></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a><strong>简介</strong></h2><p>&#160; &#160; &#160; &#160;原型定义：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">assert</span><span class="params">(<span class="keyword">int</span> expression)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;assert的作用是先计算表达式 expression ，如果其值为假（即为0），那么它先向stderr打印一条出错信息，然后<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    FILE *fp;</div><div class="line">    <span class="comment">//以可写的方式打开一个文件，如果不存在就创建一个同名文件</span></div><div class="line">    fp = fopen(<span class="string">"test.txt"</span>, <span class="string">"w"</span>);</div><div class="line">    <span class="comment">//所以这里不会出错</span></div><div class="line">    assert(fp);                          </div><div class="line">    fclose(fp);</div><div class="line">    <span class="comment">//以只读的方式打开一个文件，如果不存在就打开文件失败</span></div><div class="line">    fp = fopen(<span class="string">"noexitfile.txt"</span>, <span class="string">"r"</span>);</div><div class="line">    <span class="comment">//所以这里出错</span></div><div class="line">    assert(fp);                           </div><div class="line">    <span class="comment">//程序永远都执行不到这里来</span></div><div class="line">    fclose(fp);                           </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">[root@localhost error_process]<span class="meta"># gcc badptr.c </span></div><div class="line">[root@localhost error_process]# ./a.out </div><div class="line"> a.out: badptr.c:<span class="number">14</span>: main: Assertion `fp' failed.</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;已放弃使用assert()的原因是，频繁的调用会极大的影响程序的性能，增加额外的开销。在调试结束后，可以通过在包含#include <assert.h>的语句之前插入 #define NDEBUG 来禁用assert调用，示例代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NDEBUG</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></div></pre></td></tr></table></figure></assert.h></p>
 <h2 id="用法总结与注意事项"><a href="#用法总结与注意事项" class="headerlink" title="用法总结与注意事项"></a><strong>用法总结与注意事项</strong></h2><p>&#160; &#160; &#160; &#160;1）在函数开始处检验传入参数的合法性如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">resetBufferSize</span><span class="params">(<span class="keyword">int</span> nNewSize)</span></span></div><div class="line">&#123;</div><div class="line">　　<span class="comment">//功能:改变缓冲区大小,</span></div><div class="line">　　<span class="comment">//参数:nNewSize 缓冲区新长度</span></div><div class="line">　　<span class="comment">//返回值:缓冲区当前长度</span></div><div class="line">　　<span class="comment">//说明:保持原信息内容不变     nNewSize&lt;=0表示清除缓冲区</span></div><div class="line">　　assert(nNewSize &gt;= <span class="number">0</span>);</div><div class="line">　　assert(nNewSize &lt;= MAX_BUFFER_SIZE);</div><div class="line">　　...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;2）每个assert只检验一个条件，因为同时检验多个条件时，如果断言失败，无法直观的判断是哪个条件失败，如：<br>&#160; &#160; &#160; &#160;不好：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">assert(nOffset&gt;=<span class="number">0</span> &amp;&amp; nOffset+nSize&lt;=m_nInfomationSize);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;好：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">assert(nOffset &gt;= <span class="number">0</span>);</div><div class="line">assert(nOffset+nSize &lt;= m_nInfomationSize);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;3）不能使用改变环境的语句，因为assert只在DEBUG个生效，如果这么做，会使用程序在真正运行时遇到问题，如：<br>&#160; &#160; &#160; &#160;错误：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">assert(i++ &lt; <span class="number">100</span>);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;这是因为如果出错，比如在执行之前i=100，那么这条语句就不会执行，那么i++这条命令就没有执行。<br>&#160; &#160; &#160; &#160;正确：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">assert(i &lt; <span class="number">100</span>);</div><div class="line">i++;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;4）assert和后面的语句应空一行，以形成逻辑和视觉上的一致感。<br>&#160; &#160; &#160; &#160;5）有的地方，assert不能代替条件过滤。<br>&#160; &#160; &#160; &#160;assert是用来避免显而易见的错误的，而不是处理异常的。错误和异常是不一样的，错误是不应该出现的，异常是不可避免的。c语言异常可以通过条件判断来处理，其它语言有各自的异常处理机制。<br>&#160; &#160; &#160; &#160; 一个非常简单的使用assert的规律就是，在方法或者函数的最开始使用，如果在方法的中间使用则需要慎重考虑是否是应该的。方法的最开始还没开始一个功能过程，在一个功能过程执行中出现的问题几乎都是异常。</p>
+<p>&#160; &#160; &#160; &#160;4）assert和后面的语句应空一行，以形成逻辑和视觉上的一致感。<br>&#160; &#160; &#160; &#160;5）有的地方，assert不能代替条件过滤。<br>&#160; &#160; &#160; &#160;assert是用来避免显而易见的错误的，而不是处理异常的。错误和异常是不一样的，错误是不应该出现的，异常是不可避免的。c语言异常可以通过条件判断来处理，其它语言有各自的异常处理机制。<br>&#160; &#160; &#160; &#160;一个非常简单的使用assert的规律就是，在方法或者函数的最开始使用，如果在方法的中间使用则需要慎重考虑是否是应该的。方法的最开始还没开始一个功能过程，在一个功能过程执行中出现的问题几乎都是异常。</p>
 
       
     </div>
@@ -300,7 +292,7 @@
         <p><span>本文标题:</span><a href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2021年11月04日 - 14时38分</p>
-        <p><span>最后更新:</span>2022年11月27日 - 21时49分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 13时54分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/11/04/C++assert函数用法总结与注意事项/" title="C++ assert 函数用法总结与注意事项">http://greedysky.github.io/2021/11/04/C++assert函数用法总结与注意事项/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2021/11/04/C++assert函数用法总结与注意事项/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

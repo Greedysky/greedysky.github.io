@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2019/11/08/C++建议用nullptr而不是NULL/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="在C语言中，我们常常用NULL作为指针变量的初始值，而在C++中，却不建议你这么做。">
-<meta property="og:updated_time" content="2022-11-27T13:53:22.986Z">
+<meta property="og:updated_time" content="2022-11-28T06:43:33.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 建议用 nullptr 而不是 NULL">
 <meta name="twitter:description" content="在C语言中，我们常常用NULL作为指针变量的初始值，而在C++中，却不建议你这么做。">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -284,14 +276,14 @@
 <p>&#160; &#160; &#160; &#160;但是在C++中，它是这样定义的：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0</span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;或者你可以在stddef.h看到完整的这段：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> NULL</span></div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(__cplusplus)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL 0</span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL ((void *)0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;也就是说，在C++中，NULL不过也是0罢了，把它当成空指针只是一个无可奈何的选择罢了。<br>&#160; &#160; &#160; &#160;那么为什么在C++和C中不一样呢？因为C++中不能将void ✱类型的指针<strong>隐式转换</strong>成其他指针类型，从下面的例子可以看出来：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> p[] = <span class="string">"12345"</span>;</div><div class="line">    <span class="keyword">int</span> *a = (<span class="keyword">void</span>*)p;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;编译运行：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ g+ -o null null.cpp</div><div class="line">null.cpp: In function 'int main()':</div><div class="line">null.cpp:5:17: error: invalid conversion from 'void*' to 'int*' [-fpermissive]</div><div class="line">  int *a =(void*)p;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;编译运行：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ g+ -o null null.cpp</div><div class="line">null.cpp: In function 'int main()':</div><div class="line">null.cpp:5:17: error: invalid conversion from 'void*' to 'int*' [-fpermissive]</div><div class="line">int *a =(void*)p;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;所以不能将NULL定义为(void*)0。</p>
 <h2 id="nullptr"><a href="#nullptr" class="headerlink" title="nullptr"></a><strong>nullptr</strong></h2><p>&#160; &#160; &#160; &#160;nullptr并非整型类别，甚至也不是指针类型，但是能转换成任意指针类型。nullptr的实际类型是std:nullptr_t。</p>
-<h2 id="为什么该使用nullptr"><a href="#为什么该使用nullptr" class="headerlink" title="为什么该使用nullptr"></a><strong>为什么该使用nullptr</strong></h2><p>&#160; &#160; &#160; &#160;回到最开始的问题，为什么作为指针的语义，我们应该使用nullptr，而不是NULL。请看下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">void</span> *p)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"p is pointer "</span>&lt;&lt;p&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> num)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"num is int "</span>&lt;&lt;num&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    test(<span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="为什么该使用nullptr"><a href="#为什么该使用nullptr" class="headerlink" title="为什么该使用nullptr"></a><strong>为什么该使用nullptr</strong></h2><p>&#160; &#160; &#160; &#160;回到最开始的问题，为什么作为指针的语义，我们应该使用nullptr，而不是NULL。请看下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">void</span> *p)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"p is pointer "</span>&lt;&lt;p&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> num)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"num is int "</span>&lt;&lt;num&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    test(<span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;编译运行：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ g++ -o test test.cpp</div><div class="line">main.cpp: In function ‘int main()’:</div><div class="line">main.cpp:16:14: error: call of overloaded ‘test(NULL)’ is ambiguous</div><div class="line">     test(NULL);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;很不幸，编译报错了，提示我们有二义性，按照《重载函数匹配规则》，两个都可以匹配，因此最终报错。<br>&#160; &#160; &#160; &#160;但是如果我们使用nullptr却不会：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test(<span class="literal">nullptr</span>);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;除了这点之外，在C++模板中它还有更好的表现。看下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Type1,<span class="keyword">typename</span> ptrType&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(Type1 fun,ptrType ptr)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/*do something*/</span></div><div class="line">    fun(ptr);</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> *val)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"fun"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    test(fun,<span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;编译报错了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">main.cpp:<span class="number">8</span>:<span class="number">8</span>: error: invalid conversion from ‘<span class="keyword">long</span> <span class="keyword">int</span>’ to ‘<span class="keyword">int</span>*’ [-fpermissive]</div><div class="line">     fun(ptr);</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;编译报错了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">main.cpp:<span class="number">8</span>:<span class="number">8</span>: error: invalid conversion from ‘<span class="keyword">long</span> <span class="keyword">int</span>’ to ‘<span class="keyword">int</span>*’ [-fpermissive]</div><div class="line">fun(ptr);</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;很显然NULL被推导为long int，而不是空指针，因而导致函数类型不匹配而报错。但是如果我们用nullptr就不会有上面的问题。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;如果你想表示空指针，那么使用nullptr，而不是NULL。<br>&#160; &#160; &#160; &#160;注：nullptr在C++ 11中才出现。</p>
 
@@ -305,7 +297,7 @@
         <p><span>本文标题:</span><a href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2019年11月08日 - 20时05分</p>
-        <p><span>最后更新:</span>2022年11月27日 - 21时53分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 14时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/11/08/C++建议用nullptr而不是NULL/" title="C++ 建议用 nullptr 而不是 NULL">http://greedysky.github.io/2019/11/08/C++建议用nullptr而不是NULL/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2019/11/08/C++建议用nullptr而不是NULL/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

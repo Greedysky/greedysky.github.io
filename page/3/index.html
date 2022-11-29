@@ -12,13 +12,9 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Greedysky's Blog">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -36,7 +32,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: true,
           isPost: false,
           isArchive: false,
@@ -54,7 +50,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -137,8 +133,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -193,7 +187,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
                     
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
-                    
                 </div>
             </nav>
         </header>                
@@ -238,11 +230,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-C++20最新进展" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++11新特性之基于范围的for循环" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/02/20/C++20最新进展/" class="article-date">
-      <time datetime="2020-02-20T12:39:01.000Z" itemprop="datePublished">2020-02-20</time>
+      <a href="/2017/02/13/C++11新特性之基于范围的for循环/" class="article-date">
+      <time datetime="2017-02-13T07:59:12.000Z" itemprop="datePublished">2017-02-13</time>
 </a>
     </div>
   
@@ -255,7 +247,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a>
+      <a class="article-title" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a>
     </h1>
   
 
@@ -265,337 +257,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              C++20 最新进展：加入模块化和协程，进入特性冻结阶段。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-20/">C++20</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2020/02/20/C++20最新进展/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++建议用nullptr而不是NULL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/11/08/C++建议用nullptr而不是NULL/" class="article-date">
-      <time datetime="2019-11-08T12:05:11.000Z" itemprop="datePublished">2019-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              在C语言中，我们常常用NULL作为指针变量的初始值，而在C++中，却不建议你这么做。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2019/11/08/C++建议用nullptr而不是NULL/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++一句话帮你理解typedef的用法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/08/C++一句话帮你理解typedef的用法/" class="article-date">
-      <time datetime="2019-05-08T11:20:43.000Z" itemprop="datePublished">2019-05-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              在C语言中typedef用来给复杂声明定义别名非常的方便，不过有时候typedef在复杂声明中不好理解。本文关键的一句话帮你理解typedef的用法。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2019/05/08/C++一句话帮你理解typedef的用法/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++中是如何调用C接口" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/12/C++中是如何调用C接口/" class="article-date">
-      <time datetime="2019-03-12T12:51:19.000Z" itemprop="datePublished">2019-03-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              如何在C++代码中调用写好的C接口？你可能会奇怪，C++不是兼容C吗？直接调用不就可以了？这里我们先按下不表，先看看C++如何调用C代码接口。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2019/03/12/C++中是如何调用C接口/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++shared_ptr从原理来看看栈溢出的危害" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/" class="article-date">
-      <time datetime="2019-01-12T12:11:20.000Z" itemprop="datePublished">2019-01-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              上周五排查了一个由于XXX模块操作疏忽导致栈越界引发的我的模块的智能指针Crash问题，因此稍微研究了一下，以作参考：
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++11中的左值右值和将亡值" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/15/C++11中的左值右值和将亡值/" class="article-date">
-      <time datetime="2018-12-15T11:57:30.000Z" itemprop="datePublished">2018-12-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              C++11中将表达式的值类型划分成了lvalue（左值）、rvalue（右值）、prvalue（纯右值）、xvalue（将亡值）、gvalue（泛左值） 5种。
+              这是C++11新特性介绍的第十六部分，涉及到基于范围的for循环相关的新特性。
           
       
     </div>
@@ -615,7 +277,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/12/15/C++11中的左值右值和将亡值/#more">更多 >></a>
+          <a  href="/2017/02/13/C++11新特性之基于范围的for循环/#more">更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -634,11 +296,11 @@
 
 
   
-    <article id="post-C++函数指针与指针函数" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++11新特性之条件变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/11/08/C++函数指针与指针函数/" class="article-date">
-      <time datetime="2018-11-08T05:11:26.000Z" itemprop="datePublished">2018-11-08</time>
+      <a href="/2017/02/05/C++11新特性之条件变量/" class="article-date">
+      <time datetime="2017-02-05T12:42:09.000Z" itemprop="datePublished">2017-02-05</time>
 </a>
     </div>
   
@@ -651,7 +313,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a>
+      <a class="article-title" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a>
     </h1>
   
 
@@ -661,7 +323,997 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              关于指针，这里主要讨论函数指针和指针函数。
+              这是C++11新特性介绍的第十五部分，涉及到条件变量（condition_variable）相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/02/05/C++11新特性之条件变量/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之锁" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/30/C++11新特性之锁/" class="article-date">
+      <time datetime="2017-01-30T02:30:06.000Z" itemprop="datePublished">2017-01-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第十四部分，涉及到锁相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/30/C++11新特性之锁/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之强制类型转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/20/C++11新特性之强制类型转换/" class="article-date">
+      <time datetime="2017-01-20T06:34:33.000Z" itemprop="datePublished">2017-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第十三部分，涉及到四种强制类型转换相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/20/C++11新特性之强制类型转换/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之枚举" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/11/C++11新特性之枚举/" class="article-date">
+      <time datetime="2017-01-11T06:34:33.000Z" itemprop="datePublished">2017-01-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第十二部分，涉及到枚举相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/11/C++11新特性之枚举/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之auto关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/31/C++11新特性之auto关键字/" class="article-date">
+      <time datetime="2016-12-31T10:38:05.000Z" itemprop="datePublished">2016-12-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第十一部分，涉及到auto的相关内容。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/31/C++11新特性之auto关键字/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/20/C++11新特性之正则表达式/" class="article-date">
+      <time datetime="2016-12-20T13:25:13.000Z" itemprop="datePublished">2016-12-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第十部分，涉及到正则表达式相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/20/C++11新特性之正则表达式/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之template" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/C++11新特性之template/" class="article-date">
+      <time datetime="2016-12-13T06:22:06.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第九部分，涉及到template相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/13/C++11新特性之template/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之右值引用与移动" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/30/C++11新特性之右值引用与移动/" class="article-date">
+      <time datetime="2016-11-30T10:00:57.000Z" itemprop="datePublished">2016-11-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第八部分，涉及到左右值引用、移动构造、移动赋值、完美转发等。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/30/C++11新特性之右值引用与移动/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之随机数库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/24/C++11新特性之随机数库/" class="article-date">
+      <time datetime="2016-11-24T12:47:04.000Z" itemprop="datePublished">2016-11-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第七部分，涉及到随机数库相关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/24/C++11新特性之随机数库/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之Class" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/15/C++11新特性之Class/" class="article-date">
+      <time datetime="2016-11-15T11:06:24.000Z" itemprop="datePublished">2016-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第六部分，涉及到Class的相关内容。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/11/15/C++11新特性之Class/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之智能指针" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/29/C++11新特性之智能指针/" class="article-date">
+      <time datetime="2016-10-29T13:31:45.000Z" itemprop="datePublished">2016-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第五部分，涉及到智能指针的相关内容（shared_ptr, unique_ptr, weak_ptr）。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/29/C++11新特性之智能指针/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之容器相关特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/21/C++11新特性之容器相关特性/" class="article-date">
+      <time datetime="2016-10-21T10:55:06.000Z" itemprop="datePublished">2016-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第四部分，涉及到C++11这次更新中与容器有关的新特性。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/21/C++11新特性之容器相关特性/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之lambda" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/06/C++11新特性之lambda/" class="article-date">
+      <time datetime="2016-10-06T13:22:36.000Z" itemprop="datePublished">2016-10-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第三部分，涉及到C++11这次更新中较为重要的lambda表达式。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/06/C++11新特性之lambda/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之类型推断与类型获取" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/30/C++11新特性之类型推断与类型获取/" class="article-date">
+      <time datetime="2016-09-30T06:34:33.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              本文是是C++11新特性介绍的第二部分，涉及到C++11这次更新中较为重要的特性类型推断（auto）与类型获取（decltype）。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/30/C++11新特性之类型推断与类型获取/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性之新类型与初始化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/02/C++11新特性之新类型与初始化/" class="article-date">
+      <time datetime="2016-08-02T12:55:14.000Z" itemprop="datePublished">2016-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              这是C++11新特性介绍的第一部分，比较简单易懂，但是也有一些有趣的地方。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/02/C++11新特性之新类型与初始化/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++虚函数占用大小" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/C++虚函数占用大小/" class="article-date">
+      <time datetime="2016-05-12T00:59:32.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              根据原始定义，知道：一旦存在虚函数，类中将存在虚函数表，变量中会多一个虚函数表的指针，从而在sizeof时，空间会增大4字节（32位编译情况，64位编译时指针占8字节），另外还会有一些其他的因素影响，从最下面的代码例子中我们可以看出（32位编译）
           
       
     </div>
@@ -681,7 +1333,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/11/08/C++函数指针与指针函数/#more">更多 >></a>
+          <a  href="/2016/05/12/C++虚函数占用大小/#more">更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -700,11 +1352,11 @@
 
 
   
-    <article id="post-C++string类详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Markdown" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/10/28/C++string类详解/" class="article-date">
-      <time datetime="2018-10-28T08:46:20.000Z" itemprop="datePublished">2018-10-28</time>
+      <a href="/2016/05/05/Markdown/" class="article-date">
+      <time datetime="2016-05-05T10:29:00.000Z" itemprop="datePublished">2016-05-05</time>
 </a>
     </div>
   
@@ -717,7 +1369,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/28/C++string类详解/">C++ string 类详解</a>
+      <a class="article-title" href="/2016/05/05/Markdown/">Markdown使用指南</a>
     </h1>
   
 
@@ -727,7 +1379,73 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              记得我还在C语言里摸爬滚打的时候，对字符串的处理一直有种莫名的恐惧，这里指针偏移错了，那里字符串拷贝越界等等。学习了C++string类以后，发现原来字符串处理可以这么简单。那么本文会带领大家回顾一下string类的相关操作，查缺补漏。
+              <p>&#160; &#160; &#160; &#160;<strong>自用笔记：</strong>本文属于自用笔记，不做详解，仅供参考。在此记录自己已理解并开始遵循的前端代码规范。What How Why<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/05/Markdown/#more">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++explicit关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/C++explicit关键字/" class="article-date">
+      <time datetime="2016-04-08T04:31:56.000Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              在C++程序中很少有人去使用explicit关键字，不可否认，在平时的实践中确实很少能用的上。再说C++的功能强大，往往一个问题可以利用好几种C++特性去解决。
           
       
     </div>
@@ -747,139 +1465,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/10/28/C++string类详解/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++17中那些值得关注的特性" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/09/30/C++17中那些值得关注的特性/" class="article-date">
-      <time datetime="2018-09-30T11:11:22.000Z" itemprop="datePublished">2018-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              本文将介绍最新标准中值得开发者关注的新特新和基本用法。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-17/">C++17</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/09/30/C++17中那些值得关注的特性/#more">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C++17新特性Top19" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/06/C++17新特性Top19/" class="article-date">
-      <time datetime="2018-08-06T06:58:22.000Z" itemprop="datePublished">2018-08-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              C++17（或 C++1z）是继 C++14 之后 C++ 编程语言 ISO/IEC 标准的下一次修订的非正式名称。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-17/">C++17</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/08/06/C++17新特性Top19/#more">更多 >></a>
+          <a  href="/2016/04/08/C++explicit关键字/#more">更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -900,7 +1486,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 </div>

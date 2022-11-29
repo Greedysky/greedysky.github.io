@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2016/09/30/C++11新特性之类型推断与类型获取/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="本文是是C++11新特性介绍的第二部分，涉及到C++11这次更新中较为重要的特性类型推断（auto）与类型获取（decltype）。">
-<meta property="og:updated_time" content="2022-11-26T13:41:53.440Z">
+<meta property="og:updated_time" content="2022-11-28T03:02:25.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之类型推断与类型获取">
 <meta name="twitter:description" content="本文是是C++11新特性介绍的第二部分，涉及到C++11这次更新中较为重要的特性类型推断（auto）与类型获取（decltype）。">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -281,9 +273,9 @@
           
         <p>&#160; &#160; &#160; &#160;本文是是C++11新特性介绍的第二部分，涉及到C++11这次更新中较为重要的特性类型推断（auto）与类型获取（decltype）。</p>
 <h2 id="简单的类型推断"><a href="#简单的类型推断" class="headerlink" title="简单的类型推断"></a><strong>简单的类型推断</strong></h2><p>&#160; &#160; &#160; &#160;C++11新标准中增加了auto类型说明符，可以让编译器帮我们分析表达式的类型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> val1 = <span class="number">1.1</span>, val2 = <span class="number">2.2</span>;</div><div class="line"><span class="keyword">auto</span> sum = val1 + val2;</div><div class="line"><span class="keyword">auto</span> val3 = <span class="number">0.3</span>, *p = &amp;val3;</div><div class="line"><span class="comment">//auto val4 = 0, val5 = 0.0; // wrong. different types.</span></div><div class="line"><span class="comment">//auto sum2; // wrong, auto type must be initialized.</span></div><div class="line"><span class="keyword">double</span> val6 = <span class="number">1.6</span>, &amp;rval6 = val6;</div><div class="line"><span class="keyword">auto</span> aval6 = rval6;</div><div class="line">aval6 = <span class="number">6.0</span>; <span class="comment">// aval6 is not a reference.</span></div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test simple auto:\n"</span>&lt;&lt;val1&lt;&lt;<span class="string">'\t'</span>&lt;&lt;val2&lt;&lt;<span class="string">'\t'</span>&lt;&lt;sum&lt;&lt;<span class="string">'\t'</span>&lt;&lt;val3&lt;&lt;<span class="string">'\t'</span>&lt;&lt;p&lt;&lt;<span class="string">'\t'</span>&lt;&lt;val6&lt;&lt;<span class="string">'\t'</span>&lt;&lt;rval6&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval6&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;需要注意的是:<br>&#160; &#160; &#160; &#160;1.使用auto定义的变量必须有初始值，不然无法进行类型推断<br>&#160; &#160; &#160; &#160;2.在同一条语句中使用auto定义的变量，其基础类型必须一致</p>
+<p>&#160; &#160; &#160; &#160;需要注意的是：<br>&#160; &#160; &#160; &#160;1.使用auto定义的变量必须有初始值，不然无法进行类型推断<br>&#160; &#160; &#160; &#160;2.在同一条语句中使用auto定义的变量，其基础类型必须一致</p>
 <h2 id="const-和-auto"><a href="#const-和-auto" class="headerlink" title="const 和 auto"></a><strong>const 和 auto</strong></h2><p>&#160; &#160; &#160; &#160;auto在进行类型推断时，一般会忽略顶层const（top-level const），而保留底层const（low-level const）。如果想要保留顶层const，则必须显式的在auto前添加const指示符。<br>&#160; &#160; &#160; &#160;所谓顶层const，指的是当前的数据类型本身是常量，如double，int或者相关的指针本身是常量；<br>&#160; &#160; &#160; &#160;而底层const，指的是如指针、引用等复合类型，其所指向的数据类型是常量。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> val7 = <span class="number">1</span>, &amp;rval7 = val7;</div><div class="line"><span class="keyword">auto</span> aval7 = val7; <span class="comment">// remove top-level const</span></div><div class="line">aval7 = <span class="number">7</span>;</div><div class="line"><span class="keyword">auto</span> aval8 = rval7; <span class="comment">// remove top-level const</span></div><div class="line">aval8 = <span class="number">8</span>;</div><div class="line"><span class="keyword">auto</span> aval9 = &amp;val6; <span class="comment">// not const</span></div><div class="line">*aval9 = <span class="number">9</span>;</div><div class="line"><span class="keyword">auto</span> aval10 = &amp;val7; <span class="comment">// keep low-level const</span></div><div class="line"><span class="comment">//*aval10 = 10; // wrong. const int can't be changed.</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">auto</span> aval11 = val7; <span class="comment">// top-level const auto</span></div><div class="line"><span class="comment">//aval11 = 11; // wrong. const int can't be changed.</span></div><div class="line"><span class="keyword">auto</span> &amp;aval12 = val7; <span class="comment">// keep top-level const</span></div><div class="line"><span class="comment">//aval12 = 12; // wrong. const reference</span></div><div class="line"><span class="keyword">auto</span> &amp;aval13 = val6;</div><div class="line">aval13 = <span class="number">13.0</span>;</div><div class="line"><span class="comment">//auto &amp;aval14 = 42; // wrong. must be const auto</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">auto</span> &amp;aval15 = <span class="number">15</span>;</div><div class="line"><span class="comment">//aval15 = 16; // wrong. const reference.</span></div><div class="line"><span class="comment">//auto &amp;aval16 = aval7, *aval17 = &amp;val7; // wrong. type not consistent</span></div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test auto and const:\n"</span>&lt;&lt;val7&lt;&lt;<span class="string">'\t'</span>&lt;&lt;rval7&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval7&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval8&lt;&lt;<span class="string">'\t'</span>&lt;&lt;*aval9&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval10&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval11&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval12&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval13&lt;&lt;<span class="string">'\t'</span>&lt;&lt;aval15&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;当定义一个auto的引用时，顶层const被保留，如上述测试代码中的aval12所示。另外，输出的结果中，有些数值可能和预想的不太一样，可以思考一下是为什么^_^（Tips: 和引用有关）。</p>
+<p>&#160; &#160; &#160; &#160;当定义一个auto的引用时，顶层const被保留，如上述测试代码中的aval12所示。另外，输出的结果中，有些数值可能和预想的不太一样，可以思考一下是为什么^_^（Tips：和引用有关）。</p>
 <h2 id="类型获取-decltype"><a href="#类型获取-decltype" class="headerlink" title="类型获取 decltype"></a><strong>类型获取 decltype</strong></h2><p>&#160; &#160; &#160; &#160;decltype(expr)可以获得expr表达式对应的类型，并且不会对expr具体求值。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">d</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"This function shouldn't be called."</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">17</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">decltype</span>(d()) dval17 = <span class="number">15.2</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test decltype:\n"</span>&lt;&lt;dval17&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <h2 id="decltype-与-const"><a href="#decltype-与-const" class="headerlink" title="decltype 与 const"></a><strong>decltype 与 const</strong></h2><p>&#160; &#160; &#160; &#160;decltype处理const的方式与auto不同。<br>&#160; &#160; &#160; &#160;1.如果decltype中的表达式是一个变量，那么返回该变量的类型（包括顶层const）<br>&#160; &#160; &#160; &#160;2.如果decltype中的表达式不是变量，则返回该表达式结果对应的类型。<br>&#160; &#160; &#160; &#160;看上去没啥区别？其实这里的规则导致了decltype(r+0) decltype((i))这种诡异的写法。还是具体看代码吧。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">decltype</span>(val7) val18 = <span class="number">0</span>;</div><div class="line"><span class="keyword">decltype</span>(rval7) val19 = val18;</div><div class="line"><span class="comment">//val19 = 10; // wrong. val19 is a reference to const int.</span></div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test decltype and const:\n"</span>&lt;&lt;val18&lt;&lt;<span class="string">'\t'</span>&lt;&lt;val19&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"><span class="comment">//double *pval20 = &amp;val6;</span></div><div class="line"><span class="comment">//decltype(*pval20) val21; // wrong. decltype(*pval20) = double&amp;, must be initialized.</span></div><div class="line"><span class="keyword">decltype</span>(rval6 + <span class="number">0</span>) val22;</div><div class="line"><span class="comment">//decltype((val6)) val23; //wrong. decltype((val6)) == double&amp;, must be initialized.</span></div><div class="line"><span class="keyword">decltype</span>(val6) val24;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test decltype and reference:\n"</span>&lt;&lt;val22&lt;&lt;<span class="string">'\t'</span>&lt;&lt;val24&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;上面代码中需要注意的地方有：<br>&#160; &#160; &#160; &#160;1.val21处，如果decltype中的表达式是一个解引用操作，那么将得到一个引用类型，所以必须初始化。<br>&#160; &#160; &#160; &#160;2.val22处，rval6是一个引用类型（double&amp;），如果我们需要获得这个引用的基础类型（即double），那么使用rval6 + 0这样一个表达式，显然这个表达式的结果将不是引用了。<br>&#160; &#160; &#160; &#160;3.val23和val24处，如果decltype中的变量加上了括号，那么就会被当作表达式处理；而变量是一种可以作为左值被赋值的特殊表达式，因此decltype对于这种带括号的变量（val23处），就会得到一个引用类型。</p>
@@ -306,7 +298,7 @@
         <p><span>本文标题:</span><a href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2016年09月30日 - 14时34分</p>
-        <p><span>最后更新:</span>2022年11月26日 - 21时41分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 11时02分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/30/C++11新特性之类型推断与类型获取/" title="C++11 新特性之类型推断与类型获取">http://greedysky.github.io/2016/09/30/C++11新特性之类型推断与类型获取/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/09/30/C++11新特性之类型推断与类型获取/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

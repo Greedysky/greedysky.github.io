@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2016/12/31/C++11新特性之auto关键字/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第十一部分，涉及到auto的相关内容。">
-<meta property="og:updated_time" content="2022-11-26T13:47:46.913Z">
+<meta property="og:updated_time" content="2022-11-28T01:45:50.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之auto关键字">
 <meta name="twitter:description" content="这是C++11新特性介绍的第十一部分，涉及到auto的相关内容。">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -291,14 +283,14 @@
 <p>&#160; &#160; &#160; &#160;for循环中的i将在编译时自动推导其类型，而不用我们显式去定义那长长的一串。在定义模板函数时，用于声明依赖模板参数的变量类型。<br>for循环中的i将在编译时自动推导其类型，而不用我们显式去定义那长长的一串。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <span class="number">_</span>Tx,<span class="keyword">typename</span> <span class="number">_</span>Ty&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Multiply</span><span class="params">(<span class="number">_</span>Tx x, <span class="number">_</span>Ty y)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">auto</span> v = x*y;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; v;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;若不使用auto变量来声明v，那这个函数就难定义啦，不到编译的时候，谁知道x✱y的真正类型是什么呢？模板函数依赖于模板参数的返回值<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">template &lt;typename _Tx, typename _Ty&gt;</div><div class="line">auto multiply(_Tx x, _Ty y)-&gt;decltype(_Tx*_Ty)</div><div class="line">&#123;</div><div class="line">    return x*y;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;当模板函数的返回值依赖于模板的参数时，我们依旧无法在编译代码前确定模板参数的类型，故也无从知道返回值的类型，这时我们可以使用auto。格式如上所示。<br>&#160; &#160; &#160; &#160;decltype操作符用于查询表达式的数据类型，也是C++11标准引入的新的运算符，其目的也是解决泛型编程中有些类型由模板参数决定，而难以表示它的问题。<br>&#160; &#160; &#160; &#160;auto在这里的作用也称为返回值占位，它只是为函数返回值占了一个位置，真正的返回值是后面的decltype(_Tx✱_Ty)。为何要将返回值后置呢？如果没有后置，则函数声明时为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">decltype</span>(<span class="number">_</span>Tx*<span class="number">_</span>Ty)multiply(<span class="number">_</span>Tx x, <span class="number">_</span>Ty y)</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;而此时_Tx,_Ty还没声明呢，编译无法通过。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h2><p>&#160; &#160; &#160; &#160;● auto 变量必须在定义时初始化，这类似于const关键字。<br>&#160; &#160; &#160; &#160;● 定义在一个auto序列的变量必须始终推导成同一类型。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> a4 = <span class="number">10</span>, a5 = <span class="number">20</span>, a6 = <span class="number">30</span>;<span class="comment">//正确</span></div><div class="line"><span class="keyword">auto</span> b4 = <span class="number">10</span>, b5 = <span class="number">20.0</span>, b6 = <span class="string">'a'</span>;<span class="comment">//错误,没有推导为同一类型</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;而此时_Tx，_Ty还没声明呢，编译无法通过。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong>注意事项</strong></h2><p>&#160; &#160; &#160; &#160;● auto 变量必须在定义时初始化，这类似于const关键字。<br>&#160; &#160; &#160; &#160;● 定义在一个auto序列的变量必须始终推导成同一类型。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> a4 = <span class="number">10</span>, a5 = <span class="number">20</span>, a6 = <span class="number">30</span>;<span class="comment">//正确</span></div><div class="line"><span class="keyword">auto</span> b4 = <span class="number">10</span>, b5 = <span class="number">20.0</span>, b6 = <span class="string">'a'</span>;<span class="comment">//错误，没有推导为同一类型</span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;使用auto关键字做类型自动推导时，依次施加一下规则：<br>&#160; &#160; &#160; &#160;● 如果初始化表达式是引用，则去除引用语义。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</div><div class="line"><span class="keyword">int</span> &amp;b = a;</div><div class="line"></div><div class="line"><span class="keyword">auto</span> c = b;<span class="comment">//c的类型为int而非int&amp;（去除引用）</span></div><div class="line"><span class="keyword">auto</span> &amp;d = b;<span class="comment">//此时c的类型才为int&amp;</span></div><div class="line"></div><div class="line">c = <span class="number">100</span>;<span class="comment">//a =10;</span></div><div class="line">d = <span class="number">100</span>;<span class="comment">//a =100;</span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;● 如果初始化表达式为const或volatile（或者两者兼有），则除去const/volatile语义。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a1 = <span class="number">10</span>;</div><div class="line"><span class="keyword">auto</span>  b1= a1; <span class="comment">//b1的类型为int而非const int（去除const）</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">auto</span> c1 = a1;<span class="comment">//此时c1的类型为const int</span></div><div class="line">b1 = <span class="number">100</span>;<span class="comment">//合法</span></div><div class="line">c1 = <span class="number">100</span>;<span class="comment">//非法</span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;● 如果auto关键字带上&amp;号，则不去除const语意。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a2 = <span class="number">10</span>;</div><div class="line"><span class="keyword">auto</span> &amp;b2 = a2;<span class="comment">//因为auto带上&amp;，故不去除const，b2类型为const int</span></div><div class="line">b2 = <span class="number">10</span>; <span class="comment">//非法</span></div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;这是因为如何去掉了const，则b2为a2的非const引用，通过b2可以改变a2的值，则显然是不合理的。<br>&#160; &#160; &#160; &#160;● 初始化表达式为数组时，auto关键字推导类型为指针。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a3[<span class="number">3</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</div><div class="line"><span class="keyword">auto</span> b3 = a3;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(b3).name() &lt;&lt; <span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这是因为如何去掉了const，则b2为a2的非const引用，通过b2可以改变a2的值，则显然是不合理的。<br>&#160; &#160; &#160; &#160;● 初始化表达式为数组时，auto关键字推导类型为指针。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a3[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</div><div class="line"><span class="keyword">auto</span> b3 = a3;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(b3).name() &lt;&lt; <span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;程序将输出<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;● 若表达式为数组且auto带上&amp;，则推导类型为数组类型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a7[<span class="number">3</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</div><div class="line"><span class="keyword">auto</span> &amp; b7 = a7;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(b7).name() &lt;&lt; <span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;● 若表达式为数组且auto带上&amp;，则推导类型为数组类型。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a7[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</div><div class="line"><span class="keyword">auto</span> &amp; b7 = a7;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(b7).name() &lt;&lt; <span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;程序将输出<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> [<span class="number">3</span>]</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;● 函数或者模板参数不能被声明为auto<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">auto</span> a)</span>  <span class="comment">//错误</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//... </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;● 时刻要注意auto并不是一个真正的类型。<br>&#160; &#160; &#160; &#160;auto仅仅是一个占位符，它并不是一个真正的类型，不能使用一些以类型为操作数的操作符，如sizeof或者typeid。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">auto</span>) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//错误</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">auto</span>).name() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//错误</span></div></pre></td></tr></table></figure></p>
@@ -313,7 +305,7 @@
         <p><span>本文标题:</span><a href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2016年12月31日 - 18时38分</p>
-        <p><span>最后更新:</span>2022年11月26日 - 21时47分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 09时45分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/12/31/C++11新特性之auto关键字/" title="C++11 新特性之auto关键字">http://greedysky.github.io/2016/12/31/C++11新特性之auto关键字/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/12/31/C++11新特性之auto关键字/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

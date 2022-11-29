@@ -11,18 +11,14 @@
 <meta property="og:url" content="http://greedysky.github.io/2022/09/17/C++模板特化与偏特化/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="C++ 模板特化与偏特化">
-<meta property="og:updated_time" content="2022-11-25T16:20:47.038Z">
+<meta property="og:updated_time" content="2022-11-28T07:49:39.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 模板特化与偏特化">
 <meta name="twitter:description" content="C++ 模板特化与偏特化">
   
-    <link rel="alternative" href="/atom.xml" title="Greedysky&#39;s Blog" type="application/atom+xml">
-  
   
     <link rel="icon" href="/img/favicon.png">
   
-  
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -37,7 +33,7 @@
   <script>
       var yiliaConfig = {
           fancybox: true,
-          animate: true,
+          animate: false,
           isHome: false,
           isPost: true,
           isArchive: false,
@@ -55,7 +51,7 @@
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
             
         </a>
 
@@ -138,8 +134,6 @@
                             
                                 <a class="fl google" target="_blank" href="#" title="google">google</a>
                             
-                                <a class="fl rss" target="_blank" href="#" title="rss">rss</a>
-                            
                         </ul>
                     </nav>
                 </section>
@@ -194,7 +188,7 @@
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
                 
             </a>
             <hgroup>
@@ -229,8 +223,6 @@
                         <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
                     
                         <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="rss" target="_blank" href="#" title="rss">rss</a>
                     
                 </div>
             </nav>
@@ -279,13 +271,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="函数的特化"><a href="#函数的特化" class="headerlink" title="函数的特化"></a><strong>函数的特化</strong></h2><p>&#160; &#160; &#160; &#160;使用模板时会遇到一些特殊的类型需要特殊处理，不能直接使用当前的模板函数，所以此时我们就需要对该类型特化出一个模板函数（就是写出一个模板函数专门给该类型使用）<br>&#160; &#160; &#160; &#160;当使用一个判断相等的模板函数时<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Isequal</span><span class="params">(T&amp; p1, T&amp; p2)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> p1 == p2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;但是该模板函数在对于字符串进行比较时就不能使用了，对于字符串我们不能直接比较，因此直接特化出一个专门供字符串使用的模板参数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;&gt; <span class="comment">// 此处不添加类型模板，直接使用空即可</span></div><div class="line"><span class="keyword">bool</span> Isequal&lt;<span class="keyword">char</span>*&gt;(<span class="keyword">char</span>*&amp; p1, <span class="keyword">char</span>*&amp; p2)&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;注意：使用模板特化时，必须要先有基础的模板函数（就是上面第一个模板函数）<br>&#160; &#160; &#160; &#160;使用特换模板函数时格式有要求：<br>&#160; &#160; &#160; &#160;1.template 后直接跟&lt;&gt; 里面不用写类型<br>&#160; &#160; &#160; &#160;2.函数名&lt;特化类型&gt;（特化类型 参数1， 特化类型 参数2 , …） 在函数名后跟&lt;&gt;其中写要特化的类型<br>&#160; &#160; &#160; &#160;特化的函数的函数名，参数列表要和原基础的模板函数相相同，避免不必要的错误<br>&#160; &#160; &#160; &#160;在实际使用中，为了实现简单，对于一些模板函数处理有问题的特殊类型，我们将其直接写出<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Isequal</span><span class="params">(<span class="keyword">char</span>*&amp; p1, <span class="keyword">char</span>*&amp; p2)</span></span>&#123;</div><div class="line">  <span class="built_in">cout</span> &lt;&lt; <span class="string">"char2"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="函数的特化"><a href="#函数的特化" class="headerlink" title="函数的特化"></a><strong>函数的特化</strong></h2><p>&#160; &#160; &#160; &#160;使用模板时会遇到一些特殊的类型需要特殊处理，不能直接使用当前的模板函数，所以此时我们就需要对该类型特化出一个模板函数（就是写出一个模板函数专门给该类型使用）<br>&#160; &#160; &#160; &#160;当使用一个判断相等的模板函数时<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Isequal</span><span class="params">(T&amp; p1, T&amp; p2)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> p1 == p2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;但是该模板函数在对于字符串进行比较时就不能使用了，对于字符串我们不能直接比较，因此直接特化出一个专门供字符串使用的模板参数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;&gt; <span class="comment">// 此处不添加类型模板，直接使用空即可</span></div><div class="line"><span class="keyword">bool</span> Isequal&lt;<span class="keyword">char</span>*&gt;(<span class="keyword">char</span>*&amp; p1, <span class="keyword">char</span>*&amp; p2)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意：使用模板特化时，必须要先有基础的模板函数（就是上面第一个模板函数）<br>&#160; &#160; &#160; &#160;使用特换模板函数时格式有要求：<br>&#160; &#160; &#160; &#160;1.template 后直接跟&lt;&gt; 里面不用写类型<br>&#160; &#160; &#160; &#160;2.函数名&lt;特化类型&gt;（特化类型 参数1， 特化类型 参数2 , …） 在函数名后跟&lt;&gt;其中写要特化的类型<br>&#160; &#160; &#160; &#160;特化的函数的函数名，参数列表要和原基础的模板函数相相同，避免不必要的错误<br>&#160; &#160; &#160; &#160;在实际使用中，为了实现简单，对于一些模板函数处理有问题的特殊类型，我们将其直接写出<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Isequal</span><span class="params">(<span class="keyword">char</span>*&amp; p1, <span class="keyword">char</span>*&amp; p2)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"char2"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">strcmp</span>(p1, p2) == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;当有可以直接匹配的函数时，即使有特化出的函数，都优先使用直接匹配的函数</p>
-<h2 id="类的模板特化"><a href="#类的模板特化" class="headerlink" title="类的模板特化"></a><strong>类的模板特化</strong></h2><p>&#160; &#160; &#160; &#160;类的模板特化分为两种，一种是全特化，一种为偏特化<br>&#160; &#160; &#160; &#160;全特化：即将所有的模板类型都进行特化<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//全特化</span></div><div class="line"><span class="keyword">template</span> &lt;&gt;  <span class="comment">//此处同函数模板的特化一样不用写内容</span></div><div class="line"><span class="keyword">class</span> Test&lt;<span class="keyword">int</span> , <span class="keyword">char</span>&gt;&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;偏特化：对于模板的类型做一些限制<br>&#160; &#160; &#160; &#160;偏特化分为两种 一种是部分特化，一种是对于模板类型的进一步限制<br>&#160; &#160; &#160; &#160;部分特化：就是只对函数模板的一部分模板类型进行特化<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test2&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//部分特化</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1&gt;  <span class="comment">//此处只需写未进行特化的模板类型，特化过的就不用写</span></div><div class="line"><span class="keyword">class</span> Test2&lt;T1 , <span class="keyword">char</span>&gt;&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;对类型的范围的限制，主要的类型基础不变<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test2&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对模板类型的范围做出一定的限制</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1 , <span class="keyword">class</span> T2 &gt;  <span class="comment">//此处只需写未进行特化的模板类型</span></div><div class="line"><span class="keyword">class</span> Test2&lt;T1* , T2*&gt;&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="类的模板特化"><a href="#类的模板特化" class="headerlink" title="类的模板特化"></a><strong>类的模板特化</strong></h2><p>&#160; &#160; &#160; &#160;类的模板特化分为两种，一种是全特化，一种为偏特化<br>&#160; &#160; &#160; &#160;全特化：即将所有的模板类型都进行特化<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//全特化</span></div><div class="line"><span class="keyword">template</span> &lt;&gt;  <span class="comment">//此处同函数模板的特化一样不用写内容</span></div><div class="line"><span class="keyword">class</span> Test&lt;<span class="keyword">int</span> , <span class="keyword">char</span>&gt;</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;偏特化：对于模板的类型做一些限制<br>&#160; &#160; &#160; &#160;偏特化分为两种 一种是部分特化，一种是对于模板类型的进一步限制<br>&#160; &#160; &#160; &#160;部分特化：就是只对函数模板的一部分模板类型进行特化<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test2</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//部分特化</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1&gt;  <span class="comment">//此处只需写未进行特化的模板类型，特化过的就不用写</span></div><div class="line"><span class="keyword">class</span> Test2&lt;T1 , <span class="keyword">char</span>&gt;</div><div class="line">&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;对类型的范围的限制，主要的类型基础不变<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1, <span class="keyword">class</span> T2&gt;</div><div class="line"><span class="keyword">class</span> Test2</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对模板类型的范围做出一定的限制</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T1 , <span class="keyword">class</span> T2 &gt;  <span class="comment">//此处只需写未进行特化的模板类型</span></div><div class="line"><span class="keyword">class</span> Test2&lt;T1* , T2*&gt;</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;在调用时都将调用与自己的类型最相匹配的。</p>
 
       
@@ -298,7 +290,7 @@
         <p><span>本文标题:</span><a href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2022年09月17日 - 14时25分</p>
-        <p><span>最后更新:</span>2022年11月26日 - 00时20分</p>
+        <p><span>最后更新:</span>2022年11月28日 - 15时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2022/09/17/C++模板特化与偏特化/" title="C++ 模板特化与偏特化">http://greedysky.github.io/2022/09/17/C++模板特化与偏特化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2022/09/17/C++模板特化与偏特化/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
