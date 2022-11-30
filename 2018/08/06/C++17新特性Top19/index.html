@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2018/08/06/C++17新特性Top19/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="C++17（或 C++1z）是继 C++14 之后 C++ 编程语言 ISO/IEC 标准的下一次修订的非正式名称。">
-<meta property="og:updated_time" content="2022-11-28T05:20:04.379Z">
+<meta property="og:updated_time" content="2022-11-30T03:24:35.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你需要了解的 C++ 17 Top 19 新特性">
 <meta name="twitter:description" content="C++17（或 C++1z）是继 C++14 之后 C++ 编程语言 ISO/IEC 标准的下一次修订的非正式名称。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="什么是-C-17？"><a href="#什么是-C-17？" class="headerlink" title="什么是 C++17？"></a><strong>什么是 C++17？</strong></h2><p>C++17（或 C++1z）是继 C++14 之后 C++ 编程语言 ISO/IEC 标准的下一次修订的非正式名称。C++17 现在功能已齐全，正在成为国际标准的路上。它的规范已于 2017 年 3 月达到国际标准草案的阶段。</p>
+        <h2 id="什么是-C-17？"><a href="#什么是-C-17？" class="headerlink" title="什么是 C++17？"></a><strong>什么是 C++17？</strong></h2><p>&#160; &#160; &#160; &#160;C++17（或 C++1z）是继 C++14 之后 C++ 编程语言 ISO/IEC 标准的下一次修订的非正式名称。C++17 现在功能已齐全，正在成为国际标准的路上。它的规范已于 2017 年 3 月达到国际标准草案的阶段。</p>
 <h2 id="C-17-标准化图表"><a href="#C-17-标准化图表" class="headerlink" title="C++17 标准化图表"></a><strong>C++17 标准化图表</strong></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">年份	C++ 标准	正式名称</div><div class="line"><span class="number">1998</span>	ISO/IEC <span class="number">14882</span>:<span class="number">1998</span>	C++<span class="number">98</span></div><div class="line"><span class="number">2003</span>	ISO/IEC <span class="number">14882</span>:<span class="number">2003</span>	C++<span class="number">03</span></div><div class="line"><span class="number">2011</span>	ISO/IEC <span class="number">14882</span>:<span class="number">2011</span>	C++<span class="number">11</span></div><div class="line"><span class="number">2014</span>	ISO/IEC <span class="number">14882</span>:<span class="number">2014</span>	C++<span class="number">14</span></div><div class="line"><span class="number">2017</span>	Yet to be determined	C++<span class="number">17</span></div><div class="line"><span class="number">2020</span>	Yet to be determined	C++<span class="number">20</span></div></pre></td></tr></table></figure>
 <h2 id="C-17-的-19-个新特性"><a href="#C-17-的-19-个新特性" class="headerlink" title="C++17 的 19 个新特性"></a><strong>C++17 的 19 个新特性</strong></h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">使 static_assert 的文本信息可选</div><div class="line">删除 trigraphs</div><div class="line">在模板参数中允许使用 typename（作为替代类）</div><div class="line">来自 braced-init-list 的新规则用于自动推导</div><div class="line">嵌套命名空间的定义，例如：使用 namespace X::Y &#123; … &#125; 代替 namespace X &#123; namespace Y &#123; … &#125;&#125;</div><div class="line">允许命名空间和枚举器的属性</div><div class="line">新的标准属性：[[fallthrough]], [[maybe_unused]] 和 [[nodiscard]]</div><div class="line">UTF-8 字符文字</div><div class="line">对所有非类型模板参数进行常量评估</div><div class="line">Fold 表达式，用于可变的模板</div><div class="line">A compile-time static if with the form if constexpr(expression)</div><div class="line">结构化的绑定声明，现在允许 auto [a, b] = getTwoReturnValues();</div><div class="line">if 和 switch 语句中的初始化器</div><div class="line">在某些情况下，确保通过编译器进行 copy elision（Guaranteed copy elision by compilers in some cases）</div><div class="line">一些用于对齐内存分配的扩展</div><div class="line">构造函数的模板推导，允许使用 std::pair(5.0, false) 代替 std::pair&lt;double,bool&gt;(5.0, false)</div><div class="line">内联变量，允许在头文件中定义变量</div><div class="line">__has_include，允许由预处理程序指令检查头文件的可用性</div><div class="line">__cplusplus 的值更改为 201703L</div></pre></td></tr></table></figure>
       
@@ -284,7 +284,7 @@
         <p><span>本文标题:</span><a href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2018年08月06日 - 14时58分</p>
-        <p><span>最后更新:</span>2022年11月28日 - 13时20分</p>
+        <p><span>最后更新:</span>2022年11月30日 - 11时24分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/06/C++17新特性Top19/" title="你需要了解的 C++ 17 Top 19 新特性">http://greedysky.github.io/2018/08/06/C++17新特性Top19/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2018/08/06/C++17新特性Top19/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
