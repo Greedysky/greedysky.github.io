@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -204,16 +204,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../dd/ddb/class_music_theme_line_label.html#a7bc0d3908cd09b9b638e5f05e5bb29c6">  126</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/ddb/class_music_theme_line_label.html#a7bc0d3908cd09b9b638e5f05e5bb29c6">MusicThemeLineLabel::paintEvent</a>(QPaintEvent *)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> w = <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a>(font(), text()) + 15;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> w = <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a>(font(), text()) + 15;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    painter.setFont(font());</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    painter.drawText(rect(), Qt::AlignLeft | Qt::AlignVCenter, text());</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    painter.setPen(QPen(QColor(0, 0, 0, 25), 1));</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    painter.drawLine(w, height() / 2, width(), height() / 2);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    painter.setFont(font());</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    painter.drawText(rect(), Qt::AlignLeft | Qt::AlignVCenter, text());</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    painter.setPen(QPen(QColor(0, 0, 0, 25), 1));</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    painter.drawLine(w, height() / 2, width(), height() / 2);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 <div class="ttc" id="struct_music_preview_label_item_html_afe57de42d59587874cf8ad646a4b5d3b"><div class="ttname"><a href="../../d9/ded/struct_music_preview_label_item.html#afe57de42d59587874cf8ad646a4b5d3b">MusicPreviewLabelItem::m_background</a></div><div class="ttdeci">QList&lt; QColor &gt; m_background</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00070">musicpreviewlabel.h:70</a></div></div>
 <div class="ttc" id="struct_music_preview_label_item_html"><div class="ttname"><a href="../../d9/ded/struct_music_preview_label_item.html">MusicPreviewLabelItem</a></div><div class="ttdoc">The class of the label previewed. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd6/musicpreviewlabel_8h_source.html#l00064">musicpreviewlabel.h:64</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_widget_html_a01c384aa6781270e7fed39404f6b44dc"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#a01c384aa6781270e7fed39404f6b44dc">MusicUtils::Widget::fontTextWidth</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextWidth(const QFont &amp;font, const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00040">musicwidgetutils.cpp:40</a></div></div>
@@ -244,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:08 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

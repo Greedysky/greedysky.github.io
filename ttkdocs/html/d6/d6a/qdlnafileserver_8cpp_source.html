@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -148,14 +148,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d0/d2d/class_q_dlna_file_server.html#ac018ef6e740231d23b24ed57706629d1">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d2d/class_q_dlna_file_server.html#ac018ef6e740231d23b24ed57706629d1">QDlnaFileServer::handleRequest</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a> *request, <a class="code" href="../../da/d07/class_q_http_response.html">QHttpResponse</a> *response)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d0/d2d/class_q_dlna_file_server.html">QDlnaFileServer</a>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    QRegExp regx(<span class="stringliteral">&quot;^/music/(.*)$&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> QRegExp regx(<span class="stringliteral">&quot;^/music/(.*)$&quot;</span>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span>(regx.indexIn(request-&gt;<a class="code" href="../../d1/de7/class_q_http_request.html#ad4568e882705ac19748d0e2929fe8f6d">path</a>()) != -1)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        response-&gt;<a class="code" href="../../da/d07/class_q_http_response.html#ab99f2f48cf3bb1759549dcd9fffab1e9">setHeader</a>(<span class="stringliteral">&quot;Content-Type&quot;</span>, <span class="stringliteral">&quot;audio/mp3&quot;</span>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a> = regx.cap(1);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        QFile file(d-&gt;m_prefix + <a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a> + name);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(file.open(QFile::ReadOnly))</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(file.open(QIODevice::ReadOnly))</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            response-&gt;<a class="code" href="../../da/d07/class_q_http_response.html#a2287e1af98a32e2c9dc4cddeed06dc14">writeHead</a>(200);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            response-&gt;<a class="code" href="../../da/d07/class_q_http_response.html#a82f1d41322cdfbabc7da638546a8150e">end</a>(file.readAll());</div>
@@ -205,7 +205,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:11 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:11 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

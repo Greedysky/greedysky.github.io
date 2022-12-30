@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2022 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -113,21 +113,24 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;Q_SIGNALS:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> createToplistItem(<span class="keyword">const</span> <a class="code" href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a> &amp;item);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // MUSICQUERYTOPLISTREQUEST_H</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> queryToplistInfo(<span class="keyword">const</span> QVariantMap &amp;input) = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // MUSICQUERYTOPLISTREQUEST_H</span></div>
 <div class="ttc" id="class_music_query_toplist_request_html"><div class="ttname"><a href="../../d6/dec/class_music_query_toplist_request.html">MusicQueryToplistRequest</a></div><div class="ttdoc">The class of the query toplist download data from net. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db7/musicquerytoplistrequest_8h_source.html#l00027">musicquerytoplistrequest.h:27</a></div></div>
 <div class="ttc" id="struct_music_result_data_item_html"><div class="ttname"><a href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a></div><div class="ttdoc">The class of the search result data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00049">musicabstractqueryrequest.h:49</a></div></div>
-<div class="ttc" id="class_music_abstract_query_request_html_a5120bb39a40c544b744aaaa6e093cf79"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html#a5120bb39a40c544b744aaaa6e093cf79">MusicAbstractQueryRequest::QueryType</a></div><div class="ttdeci">QueryType</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00101">musicabstractqueryrequest.h:101</a></div></div>
+<div class="ttc" id="class_music_abstract_query_request_html_a5120bb39a40c544b744aaaa6e093cf79"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html#a5120bb39a40c544b744aaaa6e093cf79">MusicAbstractQueryRequest::QueryType</a></div><div class="ttdeci">QueryType</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00099">musicabstractqueryrequest.h:99</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
 <div class="ttc" id="class_music_abstract_query_request_html_aecc3223a40baac6ac21e634acdd392de"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html#aecc3223a40baac6ac21e634acdd392de">MusicAbstractQueryRequest::startToSearch</a></div><div class="ttdeci">virtual void startToSearch(QueryType type, const QString &amp;value)=0</div></div>
-<div class="ttc" id="class_music_abstract_query_request_html"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html">MusicAbstractQueryRequest</a></div><div class="ttdoc">The class of the abstract query download data from net. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00089">musicabstractqueryrequest.h:89</a></div></div>
+<div class="ttc" id="class_music_abstract_query_request_html"><div class="ttname"><a href="../../de/dcf/class_music_abstract_query_request.html">MusicAbstractQueryRequest</a></div><div class="ttdoc">The class of the abstract query download data from net. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00087">musicabstractqueryrequest.h:87</a></div></div>
 <div class="ttc" id="musicabstractqueryrequest_8h_html"><div class="ttname"><a href="../../db/dc4/musicabstractqueryrequest_8h.html">musicabstractqueryrequest.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

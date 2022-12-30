@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -155,9 +155,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        QByteArray data;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#if CONFIG_SOCKETNOTIFIER</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//socket_notifier-&gt;setEnabled(false); //for win</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    data.resize(UEVENT_BUFFER_SIZE * 2);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        data.resize(UEVENT_BUFFER_SIZE * 2);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        data.fill(0);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">size_t</span> len = read(socket_notifier-&gt;socket(), data.data(), UEVENT_BUFFER_SIZE * 2);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">size_t</span> len = read(socket_notifier-&gt;socket(), data.data(), UEVENT_BUFFER_SIZE * 2);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        qDebug(<span class="stringliteral">&quot;read fro socket %d bytes&quot;</span>, len);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        data.resize(len);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment">//socket_notifier-&gt;setEnabled(true); //for win</span></div>
@@ -266,8 +266,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        qDebug(<span class="stringliteral">&quot;%s&quot;</span>, line.constData());</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#define USE_REGEXP 0</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#if USE_REGEXP</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        QRegExp rx(<span class="stringliteral">&quot;(\\w+)(?:@/.*/block/.*/)(\\w+)\\W*&quot;</span>);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">//QRegExp rx(&quot;(add|remove|change)@/.*/block/.*/(\\w+)\\W*&quot;);</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">const</span> QRegExp rx(<span class="stringliteral">&quot;(\\w+)(?:@/.*/block/.*/)(\\w+)\\W*&quot;</span>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">//const QRegExp rx(&quot;(add|remove|change)@/.*/block/.*/(\\w+)\\W*&quot;);</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">if</span> (rx.indexIn(line) == -1)</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        QString action_str = rx.cap(1).toLower();</div>
@@ -294,7 +294,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        qDebug(<span class="stringliteral">&quot;%s %s&quot;</span>, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a>(action_str), <a class="code" href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a>(dev));</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">if</span> (event != 0 &amp;&amp; !<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a0eac2f318455cef5e35840e06cfbf35e">event_receivers</a>.isEmpty()) {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">for</span>(QObject* obj : qAsConst(<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a0eac2f318455cef5e35840e06cfbf35e">event_receivers</a>)) {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">for</span>(QObject *obj : qAsConst(<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a0eac2f318455cef5e35840e06cfbf35e">event_receivers</a>)) {</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                        QCoreApplication::postEvent(obj, event, Qt::HighEventPriority);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                }</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
@@ -320,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

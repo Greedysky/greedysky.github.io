@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QNetworkRequest request;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> QByteArray &amp;parameter = <a class="code" href="../../da/df3/class_music_w_y_query_interface.html#a8b1ff6a1d62d17d25201fa6a4583dff7">makeTokenQueryUrl</a>(&amp;request,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> QByteArray &amp;parameter = <a class="code" href="../../da/df3/class_music_w_y_query_interface.html#aa85bc278f9ab58fb4a3e0807c62fba9a">makeTokenRequest</a>(&amp;request,</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                      <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<a class="code" href="../../d1/dd5/musicwyqueryinterface_8h.html#a65b5ff15ccc0c769779a9213ad677c5f">WY_TOPLIST_URL</a>, <span class="keyword">false</span>),</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                      <a class="code" href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a>(<a class="code" href="../../d1/dd5/musicwyqueryinterface_8h.html#a1b38130cf6f91483d4b7c8a505019ef2">WY_TOPLIST_DATA_URL</a>, <span class="keyword">false</span>).arg(19723756));</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
@@ -118,55 +118,56 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span>(value[<span class="stringliteral">&quot;code&quot;</span>].toInt() == 200 &amp;&amp; value.contains(<span class="stringliteral">&quot;playlist&quot;</span>))</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                value = value[<span class="stringliteral">&quot;playlist&quot;</span>].toMap();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">const</span> QVariantList &amp;datas = value[<span class="stringliteral">&quot;tracks&quot;</span>].toList();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordtype">int</span> where = datas.count();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                where = (where &gt; 0) ? <a class="code" href="../../d7/d65/namespace_t_t_k_object.html#a4303ad71f59c021ae1d878d2a898bcfe">TTKObject::random</a>(where) : 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordtype">int</span> counter = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;var : qAsConst(datas))</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="keywordflow">if</span>((where != counter++) || var.isNull())</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    value = var.toMap();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    <a class="code" href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keyword">const</span> QVariantList &amp;artistsArray = value[<span class="stringliteral">&quot;ar&quot;</span>].toList();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;artistValue : qAsConst(artistsArray))</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keywordflow">if</span>(artistValue.isNull())</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keyword">const</span> QVariantMap &amp;artistObject = artistValue.toMap();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> = artistObject[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> += <span class="stringliteral">&quot; - &quot;</span> + value[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Q_EMIT <a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(<a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keyword">const</span> QVariantList &amp;datas = value[<span class="stringliteral">&quot;tracks&quot;</span>].toList();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordtype">int</span> where = datas.count();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                where = (where &gt; 0) ? <a class="code" href="../../d7/d65/namespace_t_t_k_object.html#a4303ad71f59c021ae1d878d2a898bcfe">TTKObject::random</a>(where) : 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordtype">int</span> counter = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;var : qAsConst(datas))</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordflow">if</span>((where != counter++) || var.isNull())</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    value = var.toMap();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <a class="code" href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keyword">const</span> QVariantList &amp;artistsArray = value[<span class="stringliteral">&quot;ar&quot;</span>].toList();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;artistValue : qAsConst(artistsArray))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="keywordflow">if</span>(artistValue.isNull())</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keyword">const</span> QVariantMap &amp;artistObject = artistValue.toMap();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> = artistObject[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a> += <span class="stringliteral">&quot; - &quot;</span> + value[<span class="stringliteral">&quot;name&quot;</span>].toString();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Q_EMIT <a class="code" href="../../da/d9c/class_music_abstract_network.html#aa9d7fdb4930ec5af3bb49129162ba47c">downLoadDataChanged</a>(<a class="code" href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">m_toplistInfo</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../da/d9c/class_music_abstract_network.html#a0dbae5c8f42bef334431d6311fb01dea">deleteAll</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="ttc" id="class_music_w_y_query_interface_html_aa85bc278f9ab58fb4a3e0807c62fba9a"><div class="ttname"><a href="../../da/df3/class_music_w_y_query_interface.html#aa85bc278f9ab58fb4a3e0807c62fba9a">MusicWYQueryInterface::makeTokenRequest</a></div><div class="ttdeci">QByteArray makeTokenRequest(QNetworkRequest *request, const QString &amp;query, const QString &amp;type) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/musicwyqueryinterface_8cpp_source.html#l00019">musicwyqueryinterface.cpp:19</a></div></div>
 <div class="ttc" id="namespace_t_t_k_object_html_a4303ad71f59c021ae1d878d2a898bcfe"><div class="ttname"><a href="../../d7/d65/namespace_t_t_k_object.html#a4303ad71f59c021ae1d878d2a898bcfe">TTKObject::random</a></div><div class="ttdeci">TTK_MODULE_EXPORT int random(int value=RAND_MAX)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00014">ttktime.cpp:14</a></div></div>
-<div class="ttc" id="class_music_w_y_query_interface_html_a8b1ff6a1d62d17d25201fa6a4583dff7"><div class="ttname"><a href="../../da/df3/class_music_w_y_query_interface.html#a8b1ff6a1d62d17d25201fa6a4583dff7">MusicWYQueryInterface::makeTokenQueryUrl</a></div><div class="ttdeci">QByteArray makeTokenQueryUrl(QNetworkRequest *request, const QString &amp;query, const QString &amp;type) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da6/musicwyqueryinterface_8cpp_source.html#l00019">musicwyqueryinterface.cpp:19</a></div></div>
 <div class="ttc" id="class_music_w_y_discover_list_request_html_a5b38097f916ac3a58168276b61067e50"><div class="ttname"><a href="../../d3/d1f/class_music_w_y_discover_list_request.html#a5b38097f916ac3a58168276b61067e50">MusicWYDiscoverListRequest::startToSearch</a></div><div class="ttdeci">virtual void startToSearch() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d08/musicwydiscoverlistrequest_8cpp_source.html#l00010">musicwydiscoverlistrequest.cpp:10</a></div></div>
 <div class="ttc" id="musicabstractnetwork_8h_html_a0d8d733f4e75f0830dfa147cda02943f"><div class="ttname"><a href="../../d1/daa/musicabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a></div><div class="ttdeci">#define TTK_NETWORK_QUERY_CHECK(VALUE)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/daa/musicabstractnetwork_8h_source.html#l00103">musicabstractnetwork.h:103</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_algorithm_html_a5e5f071a5bb196d53c48fb2be855da67"><div class="ttname"><a href="../../d6/d11/namespace_music_utils_1_1_algorithm.html#a5e5f071a5bb196d53c48fb2be855da67">MusicUtils::Algorithm::mdII</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString mdII(const QString &amp;data, bool encode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00041">musicalgorithmutils.cpp:41</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_a3c8831609b634feb6c29c92c5373bb86"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a3c8831609b634feb6c29c92c5373bb86">QtNetworkErrorConnect</a></div><div class="ttdeci">#define QtNetworkErrorConnect(p, q, f)</div><div class="ttdoc">Network error connect. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00116">ttkqtwrapper.h:116</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_a3c8831609b634feb6c29c92c5373bb86"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a3c8831609b634feb6c29c92c5373bb86">QtNetworkErrorConnect</a></div><div class="ttdeci">#define QtNetworkErrorConnect(p, q, f)</div><div class="ttdoc">Network error connect. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00083">ttkqtwrapper.h:83</a></div></div>
 <div class="ttc" id="musicwyqueryinterface_8h_html_a65b5ff15ccc0c769779a9213ad677c5f"><div class="ttname"><a href="../../d1/dd5/musicwyqueryinterface_8h.html#a65b5ff15ccc0c769779a9213ad677c5f">WY_TOPLIST_URL</a></div><div class="ttdeci">const QString WY_TOPLIST_URL</div><div class="ttdoc">toplist url </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd5/musicwyqueryinterface_8h_source.html#l00060">musicwyqueryinterface.h:60</a></div></div>
 <div class="ttc" id="class_music_abstract_network_html_a37e4dedb459ced0de0768837f430415e"><div class="ttname"><a href="../../da/d9c/class_music_abstract_network.html#a37e4dedb459ced0de0768837f430415e">MusicAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d23/musicabstractnetwork_8cpp_source.html#l00032">musicabstractnetwork.cpp:32</a></div></div>
 <div class="ttc" id="musicwydiscoverlistrequest_8h_html"><div class="ttname"><a href="../../d9/d6f/musicwydiscoverlistrequest_8h.html">musicwydiscoverlistrequest.h</a></div></div>
 <div class="ttc" id="musicwyqueryinterface_8h_html_a1b38130cf6f91483d4b7c8a505019ef2"><div class="ttname"><a href="../../d1/dd5/musicwyqueryinterface_8h.html#a1b38130cf6f91483d4b7c8a505019ef2">WY_TOPLIST_DATA_URL</a></div><div class="ttdeci">const QString WY_TOPLIST_DATA_URL</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dd5/musicwyqueryinterface_8h_source.html#l00061">musicwyqueryinterface.h:61</a></div></div>
 <div class="ttc" id="class_music_discover_list_request_html"><div class="ttname"><a href="../../db/d7f/class_music_discover_list_request.html">MusicDiscoverListRequest</a></div><div class="ttdoc">The class of the download discover toplist request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d83/musicdiscoverlistrequest_8h_source.html#l00027">musicdiscoverlistrequest.h:27</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a9fa285d0a923aa0f4f5a9e5052ed5e0e"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a></div><div class="ttdeci">#define TTK_INFO_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00056">ttklogger.h:56</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a9fa285d0a923aa0f4f5a9e5052ed5e0e"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a></div><div class="ttdeci">#define TTK_INFO_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00058">ttklogger.h:58</a></div></div>
 <div class="ttc" id="musicwyqueryinterface_8h_html"><div class="ttname"><a href="../../d1/dd5/musicwyqueryinterface_8h.html">musicwyqueryinterface.h</a></div></div>
 <div class="ttc" id="class_music_discover_list_request_html_a76d67b0239ebc1fbd734a9b944c6b68a"><div class="ttname"><a href="../../db/d7f/class_music_discover_list_request.html#a76d67b0239ebc1fbd734a9b944c6b68a">MusicDiscoverListRequest::m_toplistInfo</a></div><div class="ttdeci">QString m_toplistInfo</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d83/musicdiscoverlistrequest_8h_source.html#l00049">musicdiscoverlistrequest.h:49</a></div></div>
 <div class="ttc" id="class_q_json_1_1_parser_html_a9d57257adc3638a8b992cf4dc39a30bf"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">QJson::Parser::parse</a></div><div class="ttdeci">QVariant parse(QIODevice *io, bool *ok=0)</div><div class="ttdoc">Read JSON string from the I/O Device and converts it to a QVariant object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddd/parser_8cpp_source.html#l00069">parser.cpp:69</a></div></div>
@@ -181,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

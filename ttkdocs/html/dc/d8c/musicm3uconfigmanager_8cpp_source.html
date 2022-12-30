@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a href="../../dc/d8c/musicm3uconfigmanager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/de1/musicm3uconfigmanager_8h.html">musicm3uconfigmanager.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="../../d4/d06/class_music_m3_u_config_manager.html#a87ddd396ae74b89034048f58c4d940e5">    3</a></span>&#160;<a class="code" href="../../d4/d06/class_music_m3_u_config_manager.html#a87ddd396ae74b89034048f58c4d940e5">MusicM3UConfigManager::MusicM3UConfigManager</a>()</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : <a class="code" href="../../d5/d6d/class_music_playlist_reader.html">MusicPlaylistReader</a>()</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    : <a class="code" href="../../d8/db5/class_music_playlist_renderer.html">MusicPlaylistRenderer</a>()</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    , <a class="code" href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a>()</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
@@ -89,91 +89,96 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d4/d06/class_music_m3_u_config_manager.html#a2d5fe1ede710e33de676cd8c51e73880">   10</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d06/class_music_m3_u_config_manager.html#a2d5fe1ede710e33de676cd8c51e73880">MusicM3UConfigManager::readBuffer</a>(MusicSongItemList &amp;items)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> item;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">m_itemName</a> = QFileInfo(<a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.fileName()).baseName();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">m_itemName</a> = QFileInfo(<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.fileName()).baseName();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">const</span> QStringList data(QString(<a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.readAll()).split(<span class="stringliteral">&quot;\n&quot;</span>));</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QRegExp regx(<span class="stringliteral">&quot;#EXTINF:(-{0,1}\\d+),(.*)&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> length = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">const</span> QStringList data(QString(<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.readAll()).split(<span class="stringliteral">&quot;\n&quot;</span>));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span>(data.isEmpty())</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span>(QString str : qAsConst(data))</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        str = str.trimmed();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">if</span>(str.startsWith(<span class="stringliteral">&quot;#EXTM3U&quot;</span>) || str.isEmpty())</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span>(regx.indexIn(str) &gt; -1)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            length = regx.cap(1).toInt();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            valid = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span>(str.startsWith(<span class="stringliteral">&quot;#&quot;</span>))</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span>(valid)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(str, <a class="code" href="../../d4/dc5/class_t_t_k_time.html#a984916f676e6b48d13b19d10a5a64278">TTKTime::msecTime2LabelJustified</a>(length * <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>));</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.isEmpty())</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        items &lt;&lt; item;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">   55</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">MusicM3UConfigManager::writeBuffer</a>(<span class="keyword">const</span> MusicSongItemList &amp;items, <span class="keyword">const</span> QString &amp;path)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty())</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items.front();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    QStringList data;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    data &lt;&lt; QString(<span class="stringliteral">&quot;#EXTM3U&quot;</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : qAsConst(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        data.append(QString(<span class="stringliteral">&quot;#EXTINF:%1,%2 - %3&quot;</span>).arg(<a class="code" href="../../d4/dc5/class_t_t_k_time.html#a8686bdfb4645ffceb4f5b5d6d74553a2">TTKTime::labelJustified2MsecTime</a>(song.playTime()) / <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                                 .arg(song.artistFront(), song.artistBack()));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        data.append(song.path());</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.setFileName(path);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.open(QFile::WriteOnly))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.write(data.join(<span class="stringliteral">&quot;\n&quot;</span>).toUtf8());</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">m_file</a>.close();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="ttc" id="class_music_m3_u_config_manager_html_a28874487b69d3f56f6c57fc28f8f8299"><div class="ttname"><a href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">MusicM3UConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items, const QString &amp;path) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00055">musicm3uconfigmanager.cpp:55</a></div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> length = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> QRegExp regx(<span class="stringliteral">&quot;#EXTINF:(-{0,1}\\d+),(.*)&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span>(QString str : qAsConst(data))</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        str = str.trimmed();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span>(str.startsWith(<span class="stringliteral">&quot;#EXTM3U&quot;</span>) || str.isEmpty())</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span>(regx.indexIn(str) &gt; -1)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            length = regx.cap(1).toInt();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            valid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span>(str.startsWith(<span class="stringliteral">&quot;#&quot;</span>))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span>(valid)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(str, <a class="code" href="../../d4/dc5/class_t_t_k_time.html#a984916f676e6b48d13b19d10a5a64278">TTKTime::msecTime2LabelJustified</a>(length * <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.close();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.isEmpty())</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        items &lt;&lt; item;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">   59</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">MusicM3UConfigManager::writeBuffer</a>(<span class="keyword">const</span> MusicSongItemList &amp;items, <span class="keyword">const</span> QString &amp;path)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty() || !<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a43add92ee5dd57fb6155a252e4c78feb">toFile</a>(path))</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    QStringList data;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    data &lt;&lt; QString(<span class="stringliteral">&quot;#EXTM3U&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; items.count(); ++i)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items[i];</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : qAsConst(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>))</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            data.append(QString(<span class="stringliteral">&quot;#EXTINF:%1,%2 - %3&quot;</span>).arg(<a class="code" href="../../d4/dc5/class_t_t_k_time.html#a8686bdfb4645ffceb4f5b5d6d74553a2">TTKTime::labelJustified2MsecTime</a>(song.playTime()) / <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                                     .arg(song.artistFront(), song.artistBack()));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            data.append(song.path());</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.write(data.join(<span class="stringliteral">&quot;\n&quot;</span>).toUtf8());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.close();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="ttc" id="class_music_m3_u_config_manager_html_a28874487b69d3f56f6c57fc28f8f8299"><div class="ttname"><a href="../../d4/d06/class_music_m3_u_config_manager.html#a28874487b69d3f56f6c57fc28f8f8299">MusicM3UConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items, const QString &amp;path) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00059">musicm3uconfigmanager.cpp:59</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a8686bdfb4645ffceb4f5b5d6d74553a2"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a8686bdfb4645ffceb4f5b5d6d74553a2">TTKTime::labelJustified2MsecTime</a></div><div class="ttdeci">static qint64 labelJustified2MsecTime(const QString &amp;time)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00115">ttktime.cpp:115</a></div></div>
-<div class="ttc" id="class_music_playlist_reader_html"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html">MusicPlaylistReader</a></div><div class="ttdoc">The class of the playlist reader. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
-<div class="ttc" id="class_music_playlist_reader_html_a1c7424de06cac096976371e11c2c9878"><div class="ttname"><a href="../../d5/d6d/class_music_playlist_reader.html#a1c7424de06cac096976371e11c2c9878">MusicPlaylistReader::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00048">musicplaylistinterface.h:48</a></div></div>
 <div class="ttc" id="musicm3uconfigmanager_8h_html"><div class="ttname"><a href="../../d3/de1/musicm3uconfigmanager_8h.html">musicm3uconfigmanager.h</a></div></div>
 <div class="ttc" id="ttknumberdefine_8h_html_a26a0d68f658e1cfc3a2ae7b9d8c6cf76"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a></div><div class="ttdeci">#define MT_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00028">ttknumberdefine.h:28</a></div></div>
-<div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00055">musicplaylistinterface.h:55</a></div></div>
+<div class="ttc" id="class_music_playlist_renderer_html"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html">MusicPlaylistRenderer</a></div><div class="ttdoc">The class of the playlist renderer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
+<div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00064">musicplaylistinterface.h:64</a></div></div>
 <div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00176">musicsong.h:176</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a1a5dd7c4ac17ddf9535651527cd3e501"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">MusicSongItem::m_songs</a></div><div class="ttdeci">MusicSongList m_songs</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00181">musicsong.h:181</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00179">musicsong.h:179</a></div></div>
+<div class="ttc" id="class_music_playlist_renderer_html_a25845eff6fc6d1a43a5e748ff9c61326"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">MusicPlaylistRenderer::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00057">musicplaylistinterface.h:57</a></div></div>
 <div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00028">musicsong.h:28</a></div></div>
 <div class="ttc" id="class_music_m3_u_config_manager_html_a87ddd396ae74b89034048f58c4d940e5"><div class="ttname"><a href="../../d4/d06/class_music_m3_u_config_manager.html#a87ddd396ae74b89034048f58c4d940e5">MusicM3UConfigManager::MusicM3UConfigManager</a></div><div class="ttdeci">MusicM3UConfigManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00003">musicm3uconfigmanager.cpp:3</a></div></div>
 <div class="ttc" id="class_music_m3_u_config_manager_html_a2d5fe1ede710e33de676cd8c51e73880"><div class="ttname"><a href="../../d4/d06/class_music_m3_u_config_manager.html#a2d5fe1ede710e33de676cd8c51e73880">MusicM3UConfigManager::readBuffer</a></div><div class="ttdeci">virtual bool readBuffer(MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00010">musicm3uconfigmanager.cpp:10</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a984916f676e6b48d13b19d10a5a64278"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a984916f676e6b48d13b19d10a5a64278">TTKTime::msecTime2LabelJustified</a></div><div class="ttdeci">QString msecTime2LabelJustified()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00121">ttktime.cpp:121</a></div></div>
+<div class="ttc" id="class_music_playlist_renderer_html_a43add92ee5dd57fb6155a252e4c78feb"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html#a43add92ee5dd57fb6155a252e4c78feb">MusicPlaylistRenderer::toFile</a></div><div class="ttdeci">bool toFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00050">musicplaylistinterface.h:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

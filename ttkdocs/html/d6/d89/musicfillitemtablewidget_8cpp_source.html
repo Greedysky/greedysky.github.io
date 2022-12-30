@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -89,100 +89,103 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined Q_OS_UNIX &amp;&amp; !TTK_QT_VERSION_CHECK(5,7,0) //Fix linux selection-background-color stylesheet bug</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a>(<span class="keyword">this</span>, QColor(220, 220, 220));</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a2cb6710ab02f4115575fbc56be1e27aa">m_checkBoxDelegate</a> = <span class="keyword">new</span> <a class="code" href="../../dd/d51/class_music_check_box_delegate.html">MusicCheckBoxDelegate</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    setItemDelegateForColumn(0, <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a2cb6710ab02f4115575fbc56be1e27aa">m_checkBoxDelegate</a>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">   17</a></span>&#160;<a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">MusicFillItemTableWidget::~MusicFillItemTableWidget</a>()</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a7685d68dc9e88dfb74c2f43346b79337">removeItems</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a2cb6710ab02f4115575fbc56be1e27aa">m_checkBoxDelegate</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">   23</a></span>&#160;<a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">MusicFillItemTableWidget::checkedIndexList</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> list;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">const</span> QTableWidgetItem *it = item(i, 0);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">if</span>(it &amp;&amp; it-&gt;data(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>) == Qt::Checked)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            list &lt;&lt; i;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> list;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">MusicFillItemTableWidget::itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QTableWidgetItem *it = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(column == 0)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        it = item(row, 0);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">const</span> Qt::CheckState status = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a>(Qt::CheckState, it-&gt;data(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>).toInt());</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        it-&gt;setData(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>, status == Qt::Checked ? Qt::Unchecked : Qt::Checked);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a> != -1 &amp;&amp; (it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a>, 0)))</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            it-&gt;setData(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>, Qt::Unchecked);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a> = row;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        item(row, 0)-&gt;setData(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>, Qt::Checked);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">MusicFillItemTableWidget::checkedItemsState</a>(<span class="keywordtype">bool</span> check)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        item(i, 0)-&gt;setData(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>, check ? Qt::Checked : Qt::Unchecked);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    clearSelection();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">MusicFillItemTableWidget::checkedItemsStatus</a>(<span class="keywordtype">bool</span> check)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        item(i, 0)-&gt;setData(<a class="code" href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a>, check ? Qt::Checked : Qt::Unchecked);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(!check)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        clearSelection();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        setCurrentIndex(QModelIndex());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        selectAll();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#add2e41c41520c6d468bce7f131dfc6b4">m_checkBoxDelegate</a> = <span class="keyword">new</span> <a class="code" href="../../dc/de9/class_t_t_k_check_box_item_delegate.html">TTKCheckBoxItemDelegate</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#add2e41c41520c6d468bce7f131dfc6b4">m_checkBoxDelegate</a>-&gt;<a class="code" href="../../dd/d31/class_t_t_k_abstract_item_delegate.html#a04c51ed22f6a2eca67d036892d69ef39">setStyleSheet</a>(<a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a0c4098d8a519f705c31cb890b6a4b896">MusicUIObject::MQSSCheckBoxStyle01</a>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    setItemDelegateForColumn(0, <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#add2e41c41520c6d468bce7f131dfc6b4">m_checkBoxDelegate</a>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">   18</a></span>&#160;<a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">MusicFillItemTableWidget::~MusicFillItemTableWidget</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a7685d68dc9e88dfb74c2f43346b79337">removeItems</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#add2e41c41520c6d468bce7f131dfc6b4">m_checkBoxDelegate</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">   24</a></span>&#160;<a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">MusicFillItemTableWidget::checkedIndexList</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> list;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> QTableWidgetItem *it = item(i, 0);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(it &amp;&amp; it-&gt;data(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>) == Qt::Checked)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            list &lt;&lt; i;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> list;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">   38</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">MusicFillItemTableWidget::itemCellClicked</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QTableWidgetItem *it = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(column == 0)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        it = item(row, 0);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">const</span> Qt::CheckState status = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a>(Qt::CheckState, it-&gt;data(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>).toInt());</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        it-&gt;setData(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>, status == Qt::Checked ? Qt::Unchecked : Qt::Checked);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a> != -1 &amp;&amp; (it = item(<a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a>, 0)))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            it-&gt;setData(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>, Qt::Unchecked);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">m_previousClickRow</a> = row;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        item(row, 0)-&gt;setData(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>, Qt::Checked);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">MusicFillItemTableWidget::checkedItemsState</a>(<span class="keywordtype">bool</span> check)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        item(i, 0)-&gt;setData(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>, check ? Qt::Checked : Qt::Unchecked);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    clearSelection();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">   69</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">MusicFillItemTableWidget::checkedItemsStatus</a>(<span class="keywordtype">bool</span> check)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; rowCount(); ++i)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        item(i, 0)-&gt;setData(<a class="code" href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a>, check ? Qt::Checked : Qt::Unchecked);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span>(!check)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        clearSelection();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        setCurrentIndex(QModelIndex());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        selectAll();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
 <div class="ttc" id="musicitemdelegate_8h_html"><div class="ttname"><a href="../../df/d13/musicitemdelegate_8h.html">musicitemdelegate.h</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_ac38a42b0b0e0ec949db3c20d31c63657"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">MusicFillItemTableWidget::checkedIndexList</a></div><div class="ttdeci">TTKIntList checkedIndexList() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00023">musicfillitemtablewidget.cpp:23</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_ac38a42b0b0e0ec949db3c20d31c63657"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#ac38a42b0b0e0ec949db3c20d31c63657">MusicFillItemTableWidget::checkedIndexList</a></div><div class="ttdeci">TTKIntList checkedIndexList() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00024">musicfillitemtablewidget.cpp:24</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a01dd275a318624adc535a0136939bc21"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a01dd275a318624adc535a0136939bc21">MusicAbstractTableWidget::m_previousClickRow</a></div><div class="ttdeci">int m_previousClickRow</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db4/musicabstracttablewidget_8h_source.html#l00068">musicabstracttablewidget.h:68</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_af4ebfda66da73efedd2b5642844cc768"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">MusicFillItemTableWidget::~MusicFillItemTableWidget</a></div><div class="ttdeci">~MusicFillItemTableWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00017">musicfillitemtablewidget.cpp:17</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_ae1c86f030ecd40600e744fb0d3b9c181"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">MusicFillItemTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00037">musicfillitemtablewidget.cpp:37</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_af4ebfda66da73efedd2b5642844cc768"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#af4ebfda66da73efedd2b5642844cc768">MusicFillItemTableWidget::~MusicFillItemTableWidget</a></div><div class="ttdeci">~MusicFillItemTableWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00018">musicfillitemtablewidget.cpp:18</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_ae1c86f030ecd40600e744fb0d3b9c181"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#ae1c86f030ecd40600e744fb0d3b9c181">MusicFillItemTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00038">musicfillitemtablewidget.cpp:38</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html">MusicAbstractTableWidget</a></div><div class="ttdoc">The class of the table widget base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db4/musicabstracttablewidget_8h_source.html#l00031">musicabstracttablewidget.h:31</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_item_delegate_html_a04c51ed22f6a2eca67d036892d69ef39"><div class="ttname"><a href="../../dd/d31/class_t_t_k_abstract_item_delegate.html#a04c51ed22f6a2eca67d036892d69ef39">TTKAbstractItemDelegate::setStyleSheet</a></div><div class="ttdeci">void setStyleSheet(const QString &amp;style) const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dcb/ttkitemdelegate_8cpp_source.html#l00022">ttkitemdelegate.cpp:22</a></div></div>
 <div class="ttc" id="class_music_fill_item_table_widget_html_a9c482004f18da37dd4d7990acdb6d2c5"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a9c482004f18da37dd4d7990acdb6d2c5">MusicFillItemTableWidget::MusicFillItemTableWidget</a></div><div class="ttdeci">MusicFillItemTableWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00004">musicfillitemtablewidget.cpp:4</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_add2e41c41520c6d468bce7f131dfc6b4"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#add2e41c41520c6d468bce7f131dfc6b4">MusicFillItemTableWidget::m_checkBoxDelegate</a></div><div class="ttdeci">TTKCheckBoxItemDelegate * m_checkBoxDelegate</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d42/musicfillitemtablewidget_8h_source.html#l00061">musicfillitemtablewidget.h:61</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a11b2bea1d30833b7f3afd3ef5abb5237"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00247">ttkglobal.h:247</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_afad224d36cc24240d9d006a42145c953"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a></div><div class="ttdeci">#define TTKStatic_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00089">ttkglobal.h:89</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_a617d89c88c13540061b29f862faeee22"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">MusicFillItemTableWidget::checkedItemsStatus</a></div><div class="ttdeci">void checkedItemsStatus(bool check)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00068">musicfillitemtablewidget.cpp:68</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_a6fb72752f7d1e88a3e4f09074af2b839"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">MusicFillItemTableWidget::checkedItemsState</a></div><div class="ttdeci">void checkedItemsState(bool check)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00058">musicfillitemtablewidget.cpp:58</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_a6de6324b16ceaf9c79db3b0a1f161f4b"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a6de6324b16ceaf9c79db3b0a1f161f4b">MusicUIObject::MQSSTableWidgetStyle02</a></div><div class="ttdeci">const QString MQSSTableWidgetStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00446">musicuiobject.h:446</a></div></div>
-<div class="ttc" id="class_music_check_box_delegate_html"><div class="ttname"><a href="../../dd/d51/class_music_check_box_delegate.html">MusicCheckBoxDelegate</a></div><div class="ttdoc">The class of the checkbox item delegate. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/musicitemdelegate_8h_source.html#l00080">musicitemdelegate.h:80</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_a617d89c88c13540061b29f862faeee22"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a617d89c88c13540061b29f862faeee22">MusicFillItemTableWidget::checkedItemsStatus</a></div><div class="ttdeci">void checkedItemsStatus(bool check)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00069">musicfillitemtablewidget.cpp:69</a></div></div>
+<div class="ttc" id="class_music_fill_item_table_widget_html_a6fb72752f7d1e88a3e4f09074af2b839"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a6fb72752f7d1e88a3e4f09074af2b839">MusicFillItemTableWidget::checkedItemsState</a></div><div class="ttdeci">void checkedItemsState(bool check)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d89/musicfillitemtablewidget_8cpp_source.html#l00059">musicfillitemtablewidget.cpp:59</a></div></div>
+<div class="ttc" id="namespace_music_u_i_object_html_a6de6324b16ceaf9c79db3b0a1f161f4b"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a6de6324b16ceaf9c79db3b0a1f161f4b">MusicUIObject::MQSSTableWidgetStyle02</a></div><div class="ttdeci">const QString MQSSTableWidgetStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00449">musicuiobject.h:449</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a7685d68dc9e88dfb74c2f43346b79337"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a7685d68dc9e88dfb74c2f43346b79337">MusicAbstractTableWidget::removeItems</a></div><div class="ttdeci">virtual void removeItems()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00084">musicabstracttablewidget.cpp:84</a></div></div>
-<div class="ttc" id="musicitemdelegate_8h_html_ac76bc2e6297db3f57a3bb8b4da3a287c"><div class="ttname"><a href="../../df/d13/musicitemdelegate_8h.html#ac76bc2e6297db3f57a3bb8b4da3a287c">MUSIC_CHECK_ROLE</a></div><div class="ttdeci">#define MUSIC_CHECK_ROLE</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/musicitemdelegate_8h_source.html#l00025">musicitemdelegate.h:25</a></div></div>
+<div class="ttc" id="namespace_music_u_i_object_html_a0c4098d8a519f705c31cb890b6a4b896"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a0c4098d8a519f705c31cb890b6a4b896">MusicUIObject::MQSSCheckBoxStyle01</a></div><div class="ttdeci">const QString MQSSCheckBoxStyle01</div><div class="ttdoc">CheckBox. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00246">musicuiobject.h:246</a></div></div>
 <div class="ttc" id="musicfillitemtablewidget_8h_html"><div class="ttname"><a href="../../d9/d42/musicfillitemtablewidget_8h.html">musicfillitemtablewidget.h</a></div></div>
-<div class="ttc" id="class_music_fill_item_table_widget_html_a2cb6710ab02f4115575fbc56be1e27aa"><div class="ttname"><a href="../../dc/d4c/class_music_fill_item_table_widget.html#a2cb6710ab02f4115575fbc56be1e27aa">MusicFillItemTableWidget::m_checkBoxDelegate</a></div><div class="ttdeci">MusicCheckBoxDelegate * m_checkBoxDelegate</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d42/musicfillitemtablewidget_8h_source.html#l00061">musicfillitemtablewidget.h:61</a></div></div>
 <div class="ttc" id="namespace_music_utils_1_1_widget_html_add4b3dee560f16862b2f8e63cb190a9f"><div class="ttname"><a href="../../d2/d69/namespace_music_utils_1_1_widget.html#add4b3dee560f16862b2f8e63cb190a9f">MusicUtils::Widget::setTransparent</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setTransparent(QWidget *widget, int alpha)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00075">musicwidgetutils.cpp:75</a></div></div>
+<div class="ttc" id="class_t_t_k_check_box_item_delegate_html"><div class="ttname"><a href="../../dc/de9/class_t_t_k_check_box_item_delegate.html">TTKCheckBoxItemDelegate</a></div><div class="ttdoc">The class of the checkbox item delegate. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d41/ttkitemdelegate_8h_source.html#l00084">ttkitemdelegate.h:84</a></div></div>
+<div class="ttc" id="ttkitemdelegate_8h_html_a61475915f9e7b3701142096cf93defac"><div class="ttname"><a href="../../d6/d41/ttkitemdelegate_8h.html#a61475915f9e7b3701142096cf93defac">TTK_CHECKED_ROLE</a></div><div class="ttdeci">#define TTK_CHECKED_ROLE</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d41/ttkitemdelegate_8h_source.html#l00027">ttkitemdelegate.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:08 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

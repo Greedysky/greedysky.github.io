@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -156,9 +156,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span>(file.open(QIODevice::WriteOnly))</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            QTextStream outstream(&amp;file);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            outstream.setCodec(<span class="stringliteral">&quot;utf-8&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            outstream.setCodec(<span class="stringliteral">&quot;UTF-8&quot;</span>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            outstream &lt;&lt; <a class="code" href="../../d8/d37/class_music_lrc_from_krc.html#aa7c3166fb6f187c081f2f7ee73e86296">m_data</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#a53a3a7afb7ab9f1d407773f80adf2bef">QtStreamEndl</a>(outstream);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#aacc10eb6b4ad9dc775b1bde5c482e6c7">QtStreamEndLine</a>(outstream);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            file.close();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
@@ -302,6 +302,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
 <div class="ttc" id="ttknumberdefine_8h_html_a388a4c4b3b52e6bcb91f634b11193d85"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#a388a4c4b3b52e6bcb91f634b11193d85">MH_B2BS</a></div><div class="ttdeci">#define MH_B2BS</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00051">ttknumberdefine.h:51</a></div></div>
+<div class="ttc" id="ttkqtwrapper_8h_html_aacc10eb6b4ad9dc775b1bde5c482e6c7"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#aacc10eb6b4ad9dc775b1bde5c482e6c7">QtStreamEndLine</a></div><div class="ttdeci">#define QtStreamEndLine(p)</div><div class="ttdoc">Stream endl. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00132">ttkqtwrapper.h:132</a></div></div>
 <div class="ttc" id="uncompr_8c_html_a8f3c7b8209b3ef38a1d2b9d03f0eb978"><div class="ttname"><a href="../../d6/dbd/uncompr_8c.html#a8f3c7b8209b3ef38a1d2b9d03f0eb978">uncompress</a></div><div class="ttdeci">int ZEXPORT uncompress(Bytef *dest, uLongf *destLen, const Bytef *source, uLong sourceLen)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dbd/uncompr_8c_source.html#l00086">uncompr.c:86</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a0dfbc877d5d936767641c34cc6f524ee"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a0dfbc877d5d936767641c34cc6f524ee">qPrintable</a></div><div class="ttdeci">#define qPrintable(s)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00037">ttkglobal.h:37</a></div></div>
 <div class="ttc" id="class_music_lrc_from_krc_html_ac6e5991b836bf1f8d1157b6a952ff04a"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#ac6e5991b836bf1f8d1157b6a952ff04a">MusicLrcFromKrc::MusicLrcFromKrc</a></div><div class="ttdeci">MusicLrcFromKrc()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00016">musiclrcfromkrc.cpp:16</a></div></div>
@@ -311,7 +312,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_lrc_from_krc_html_aecc716974a215d87c106bb288035dc07"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#aecc716974a215d87c106bb288035dc07">MusicLrcFromKrc::decodeString</a></div><div class="ttdeci">QByteArray decodeString() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00089">musiclrcfromkrc.cpp:89</a></div></div>
 <div class="ttc" id="ttknumberdefine_8h_html_a3af14a83a94905bf1607fa74d49bb899"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#a3af14a83a94905bf1607fa74d49bb899">MT_H2MS</a></div><div class="ttdeci">#define MT_H2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00039">ttknumberdefine.h:39</a></div></div>
 <div class="ttc" id="zconf_8h_html"><div class="ttname"><a href="../../de/d95/zconf_8h.html">zconf.h</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_a53a3a7afb7ab9f1d407773f80adf2bef"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#a53a3a7afb7ab9f1d407773f80adf2bef">QtStreamEndl</a></div><div class="ttdeci">#define QtStreamEndl(p)</div><div class="ttdoc">Stream endl. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00165">ttkqtwrapper.h:165</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_afad224d36cc24240d9d006a42145c953"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a></div><div class="ttdeci">#define TTKStatic_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00089">ttkglobal.h:89</a></div></div>
 <div class="ttc" id="class_music_lrc_from_krc_html_ae8bd67b3e59df576b14c5e84997d9b72"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#ae8bd67b3e59df576b14c5e84997d9b72">MusicLrcFromKrc::sncasecmp</a></div><div class="ttdeci">int sncasecmp(char *s1, char *s2, size_t n)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00094">musiclrcfromkrc.cpp:94</a></div></div>
 <div class="ttc" id="zlib_8h_html"><div class="ttname"><a href="../../d4/dae/zlib_8h.html">zlib.h</a></div></div>
@@ -328,11 +328,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_lrc_from_krc_html_a80ffbdfc14d4bc4bc984bc0c226d6ccc"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#a80ffbdfc14d4bc4bc984bc0c226d6ccc">MusicLrcFromKrc::m_resultBytes</a></div><div class="ttdeci">uchar * m_resultBytes</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d6d/musiclrcfromkrc_8h_source.html#l00064">musiclrcfromkrc.h:64</a></div></div>
 <div class="ttc" id="class_music_lrc_from_krc_html_aa7c3166fb6f187c081f2f7ee73e86296"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#aa7c3166fb6f187c081f2f7ee73e86296">MusicLrcFromKrc::m_data</a></div><div class="ttdeci">QByteArray m_data</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d6d/musiclrcfromkrc_8h_source.html#l00065">musiclrcfromkrc.h:65</a></div></div>
 <div class="ttc" id="zlib_8h_html_a8cb802b6a11e926478dc6547c514c65c"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#a8cb802b6a11e926478dc6547c514c65c">Z_OK</a></div><div class="ttdeci">#define Z_OK</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00177">zlib.h:177</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00058">ttklogger.h:58</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00060">ttklogger.h:60</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

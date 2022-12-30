@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.0.0.0</span>
+   &#160;<span id="projectnumber">3.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -98,24 +98,31 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> QEventLoop::quit();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">   22</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">TTKSemaphoreLoop::exec</a>(ProcessEventsFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../dd/d41/class_t_t_k_semaphore_loop.html#abd8f3908ff4a768e319a9c5409e3714a">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#abd8f3908ff4a768e319a9c5409e3714a">TTKSemaphoreLoop::exit</a>()</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">m_timer</a>.start();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> QEventLoop::exec(flags);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">m_timer</a>.stop();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> QEventLoop::exit();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="ttc" id="class_t_t_k_semaphore_loop_html_afc392fa02116e34bb2bd03fda03df990"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">TTKSemaphoreLoop::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d3c/ttksemaphoreloop_8h_source.html#l00052">ttksemaphoreloop.h:52</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">   28</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">TTKSemaphoreLoop::exec</a>(ProcessEventsFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">m_timer</a>.start();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> QEventLoop::exec(flags);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="ttc" id="class_t_t_k_semaphore_loop_html_afc392fa02116e34bb2bd03fda03df990"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">TTKSemaphoreLoop::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d3c/ttksemaphoreloop_8h_source.html#l00056">ttksemaphoreloop.h:56</a></div></div>
 <div class="ttc" id="http__parser_8h_html_ab6b306ef981f5e21bb41ea2c2dbe8cd9"><div class="ttname"><a href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a></div><div class="ttdeci">flags</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd7/http__parser_8h_source.html#l00135">http_parser.h:135</a></div></div>
-<div class="ttc" id="class_t_t_k_semaphore_loop_html_a184fbf498da3a03182fd572878f68f58"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">TTKSemaphoreLoop::exec</a></div><div class="ttdeci">int exec(ProcessEventsFlags flags=AllEvents)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00022">ttksemaphoreloop.cpp:22</a></div></div>
+<div class="ttc" id="class_t_t_k_semaphore_loop_html_a184fbf498da3a03182fd572878f68f58"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#a184fbf498da3a03182fd572878f68f58">TTKSemaphoreLoop::exec</a></div><div class="ttdeci">int exec(ProcessEventsFlags flags=AllEvents)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00028">ttksemaphoreloop.cpp:28</a></div></div>
 <div class="ttc" id="ttknumberdefine_8h_html"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html">ttknumberdefine.h</a></div></div>
 <div class="ttc" id="class_t_t_k_semaphore_loop_html_a89814e75dab4845b708f262bd07ab5f1"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#a89814e75dab4845b708f262bd07ab5f1">TTKSemaphoreLoop::~TTKSemaphoreLoop</a></div><div class="ttdeci">~TTKSemaphoreLoop()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00011">ttksemaphoreloop.cpp:11</a></div></div>
 <div class="ttc" id="ttknumberdefine_8h_html_a26a0d68f658e1cfc3a2ae7b9d8c6cf76"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#a26a0d68f658e1cfc3a2ae7b9d8c6cf76">MT_S2MS</a></div><div class="ttdeci">#define MT_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00028">ttknumberdefine.h:28</a></div></div>
 <div class="ttc" id="class_t_t_k_semaphore_loop_html_a9703a372a28c997df114cfb10de9af25"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#a9703a372a28c997df114cfb10de9af25">TTKSemaphoreLoop::TTKSemaphoreLoop</a></div><div class="ttdeci">TTKSemaphoreLoop(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00004">ttksemaphoreloop.cpp:4</a></div></div>
 <div class="ttc" id="ttksemaphoreloop_8h_html"><div class="ttname"><a href="../../db/d3c/ttksemaphoreloop_8h.html">ttksemaphoreloop.h</a></div></div>
 <div class="ttc" id="class_t_t_k_semaphore_loop_html_a9f26fb1de292cda4ac36daeb4dff0a5d"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#a9f26fb1de292cda4ac36daeb4dff0a5d">TTKSemaphoreLoop::quit</a></div><div class="ttdeci">void quit()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00016">ttksemaphoreloop.cpp:16</a></div></div>
+<div class="ttc" id="class_t_t_k_semaphore_loop_html_abd8f3908ff4a768e319a9c5409e3714a"><div class="ttname"><a href="../../dd/d41/class_t_t_k_semaphore_loop.html#abd8f3908ff4a768e319a9c5409e3714a">TTKSemaphoreLoop::exit</a></div><div class="ttdeci">void exit()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d84/ttksemaphoreloop_8cpp_source.html#l00022">ttksemaphoreloop.cpp:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2022 00:57:03 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 30 2022 23:21:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
