@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.1.0.0</span>
+   &#160;<span id="projectnumber">3.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -79,60 +79,67 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <a href="../../d3/d43/musiccoreutils_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dde/musiccoreutils_8h.html">musiccoreutils.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#if defined Q_OS_UNIX || defined Q_CC_MINGW</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#  include &lt;unistd.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">    7</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(<span class="keyword">const</span> QStringList &amp;ol, <span class="keyword">const</span> QStringList &amp;dl, <span class="keywordtype">int</span> depth)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordflow">if</span>(depth &gt;= ol.count())</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(dl[depth].toInt() &gt;= ol[depth].toInt())</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">if</span>(dl[depth].toInt() == ol[depth].toInt())</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, depth + 1);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">   31</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">MusicUtils::Core::sleep</a>(<span class="keywordtype">int</span> ms)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    usleep(ms * 1000);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">   36</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">MusicUtils::Core::appVersionCheck</a>(<span class="keyword">const</span> QString &amp;o, <span class="keyword">const</span> QString &amp;d)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">const</span> QStringList &amp;ol = o.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> QStringList &amp;dl = d.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(ol.isEmpty() || dl.isEmpty() || ol.count() != dl.count())</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, 0);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifdef Q_CC_MSVC</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX || defined Q_CC_MINGW</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#  include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">    9</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(<span class="keyword">const</span> QStringList &amp;ol, <span class="keyword">const</span> QStringList &amp;dl, <span class="keywordtype">int</span> depth)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span>(depth &gt;= ol.count())</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span>(dl[depth].toInt() &gt;= ol[depth].toInt())</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span>(dl[depth].toInt() == ol[depth].toInt())</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, depth + 1);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">MusicUtils::Core::sleep</a>(<span class="keywordtype">int</span> ms)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#ifdef Q_CC_MSVC</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ::Sleep(ms);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX || defined Q_CC_MINGW</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    usleep(ms * <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#aa18cee99b724c0e232bcaf435773be11">MT_MS2US</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">   42</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">MusicUtils::Core::appVersionCheck</a>(<span class="keyword">const</span> QString &amp;o, <span class="keyword">const</span> QString &amp;d)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> QStringList &amp;ol = o.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> QStringList &amp;dl = d.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>(ol.isEmpty() || dl.isEmpty() || ol.count() != dl.count())</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a>(ol, dl, 0);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="ttc" id="musiccoreutils_8h_html"><div class="ttname"><a href="../../da/dde/musiccoreutils_8h.html">musiccoreutils.h</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_core_html_a4e46dc6c4080bb23e762e86edb1eb836"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">MusicUtils::Core::sleep</a></div><div class="ttdeci">TTK_MODULE_EXPORT void sleep(int ms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00031">musiccoreutils.cpp:31</a></div></div>
-<div class="ttc" id="musiccoreutils_8cpp_html_a1580c335fd2c4ba575b84bc383e608fe"><div class="ttname"><a href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a></div><div class="ttdeci">static bool versionCheck(const QStringList &amp;ol, const QStringList &amp;dl, int depth)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00007">musiccoreutils.cpp:7</a></div></div>
+<div class="ttc" id="ttknumberdefine_8h_html_aa18cee99b724c0e232bcaf435773be11"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#aa18cee99b724c0e232bcaf435773be11">MT_MS2US</a></div><div class="ttdeci">#define MT_MS2US</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00029">ttknumberdefine.h:29</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_core_html_a4e46dc6c4080bb23e762e86edb1eb836"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a4e46dc6c4080bb23e762e86edb1eb836">MusicUtils::Core::sleep</a></div><div class="ttdeci">TTK_MODULE_EXPORT void sleep(int ms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00033">musiccoreutils.cpp:33</a></div></div>
+<div class="ttc" id="musiccoreutils_8cpp_html_a1580c335fd2c4ba575b84bc383e608fe"><div class="ttname"><a href="../../d3/d43/musiccoreutils_8cpp.html#a1580c335fd2c4ba575b84bc383e608fe">versionCheck</a></div><div class="ttdeci">static bool versionCheck(const QStringList &amp;ol, const QStringList &amp;dl, int depth)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00009">musiccoreutils.cpp:9</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00218">ttkglobal.h:218</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_core_html_a69f71fc4066d1f74c041b66364a62f5f"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">MusicUtils::Core::appVersionCheck</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool appVersionCheck(const QString &amp;o, const QString &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00036">musiccoreutils.cpp:36</a></div></div>
+<div class="ttc" id="namespace_music_utils_1_1_core_html_a69f71fc4066d1f74c041b66364a62f5f"><div class="ttname"><a href="../../d5/d84/namespace_music_utils_1_1_core.html#a69f71fc4066d1f74c041b66364a62f5f">MusicUtils::Core::appVersionCheck</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool appVersionCheck(const QString &amp;o, const QString &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00042">musiccoreutils.cpp:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 30 2022 23:21:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 31 2023 20:58:21 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

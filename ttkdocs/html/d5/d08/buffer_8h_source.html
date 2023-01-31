@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.1.0.0</span>
+   &#160;<span id="projectnumber">3.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -100,50 +100,48 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifndef BUFFER_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define BUFFER_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;QSharedPointer&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;QSharedPointer&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d64/trackinfo_8h.html">trackinfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d30/qmmp_8h.html">qmmp.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d08/buffer_8h.html#ac081e07b09673b4fdc3039118800220e">   29</a></span>&#160;<span class="preprocessor">#define QMMP_BLOCK_FRAMES 512</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">   41</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">Buffer</a>(<span class="keywordtype">size_t</span> sz)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        : <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>(sz)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        data = <span class="keyword">new</span> <span class="keywordtype">float</span>[sz];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">   49</a></span>&#160;    <a class="code" href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">~Buffer</a>()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        data = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        samples = 0;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        rate = 0;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 0;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#ae2165af09f4d806d91a466bf36f80541">   58</a></span>&#160;    <span class="keywordtype">float</span> *data = <span class="keyword">nullptr</span>;               </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#aa2a6f42754ccca1ae67a0f33f4d024ed">   59</a></span>&#160;    <span class="keywordtype">size_t</span> samples = 0;                  </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a24e94f119f4b386771c78cf37aaff41b">   60</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 0;                     </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a79ae28db16eda1b53d492099eca6ffc6">   61</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rate = 0;               </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">   62</a></span>&#160;    QSharedPointer&lt;TrackInfo&gt; <a class="code" href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">trackInfo</a>; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
-<div class="ttc" id="class_buffer_html_a5b2007ab206ac8555881e8852d04cb79"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">Buffer::Buffer</a></div><div class="ttdeci">Buffer(size_t sz)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00041">buffer.h:41</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/d08/buffer_8h.html#ac081e07b09673b4fdc3039118800220e">   28</a></span>&#160;<span class="preprocessor">#define QMMP_BLOCK_FRAMES 512</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">   40</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">Buffer</a>(<span class="keywordtype">size_t</span> sz)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        : <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>(sz)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        data = <span class="keyword">new</span> <span class="keywordtype">float</span>[sz];</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">   48</a></span>&#160;    <a class="code" href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">~Buffer</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        data = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        samples = 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        rate = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#ae2165af09f4d806d91a466bf36f80541">   57</a></span>&#160;    <span class="keywordtype">float</span> *data = <span class="keyword">nullptr</span>;               </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#aa2a6f42754ccca1ae67a0f33f4d024ed">   58</a></span>&#160;    <span class="keywordtype">size_t</span> samples = 0;                  </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a24e94f119f4b386771c78cf37aaff41b">   59</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a> = 0;                     </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a79ae28db16eda1b53d492099eca6ffc6">   60</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rate = 0;               </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">   61</a></span>&#160;    QSharedPointer&lt;TrackInfo&gt; <a class="code" href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">trackInfo</a>; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_buffer_html_a5b2007ab206ac8555881e8852d04cb79"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a5b2007ab206ac8555881e8852d04cb79">Buffer::Buffer</a></div><div class="ttdeci">Buffer(size_t sz)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00040">buffer.h:40</a></div></div>
 <div class="ttc" id="trackinfo_8h_html"><div class="ttname"><a href="../../de/d64/trackinfo_8h.html">trackinfo.h</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
-<div class="ttc" id="class_buffer_html"><div class="ttname"><a href="../../d5/d2a/class_buffer.html">Buffer</a></div><div class="ttdoc">Audio buffer class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00034">buffer.h:34</a></div></div>
-<div class="ttc" id="class_buffer_html_a4f1cfb3e982d97b423b51a27899a0148"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">Buffer::trackInfo</a></div><div class="ttdeci">QSharedPointer&lt; TrackInfo &gt; trackInfo</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00062">buffer.h:62</a></div></div>
-<div class="ttc" id="class_buffer_html_a59b8743e4a5f731bdd0c4185c9ef263b"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">Buffer::~Buffer</a></div><div class="ttdeci">~Buffer()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00049">buffer.h:49</a></div></div>
+<div class="ttc" id="class_buffer_html"><div class="ttname"><a href="../../d5/d2a/class_buffer.html">Buffer</a></div><div class="ttdoc">Audio buffer class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00033">buffer.h:33</a></div></div>
+<div class="ttc" id="class_buffer_html_a4f1cfb3e982d97b423b51a27899a0148"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a4f1cfb3e982d97b423b51a27899a0148">Buffer::trackInfo</a></div><div class="ttdeci">QSharedPointer&lt; TrackInfo &gt; trackInfo</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00061">buffer.h:61</a></div></div>
+<div class="ttc" id="class_buffer_html_a59b8743e4a5f731bdd0c4185c9ef263b"><div class="ttname"><a href="../../d5/d2a/class_buffer.html#a59b8743e4a5f731bdd0c4185c9ef263b">Buffer::~Buffer</a></div><div class="ttdeci">~Buffer()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00048">buffer.h:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 30 2022 23:21:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 31 2023 20:58:30 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

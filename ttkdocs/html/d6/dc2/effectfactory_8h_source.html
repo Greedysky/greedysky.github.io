@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.1.0.0</span>
+   &#160;<span id="projectnumber">3.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -103,50 +103,49 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>QObject;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>QWidget;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d58/class_effect.html">Effect</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">   39</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">Priority</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82beacfb13c922b7e44de14b7219b8af87d37">   41</a></span>&#160;        EFFECT_PRIORITY_LOW = 0,    </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">   42</a></span>&#160;        <a class="code" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">EFFECT_PRIORITY_DEFAULT</a>,    </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82beab6ac0e1df1b7047ad83034bc98951c63">   43</a></span>&#160;        EFFECT_PRIORITY_HIGH        </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">   46</a></span>&#160;    QString <a class="code" href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">name</a>;               </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">   47</a></span>&#160;    QString <a class="code" href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">shortName</a>;          </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a3cb2c24007ebaa636082299a2c2f0eaf">   48</a></span>&#160;    <span class="keywordtype">bool</span> hasSettings = <span class="keyword">false</span>;   </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#aa303ce437f075a78f90b1d29917c53ea">   49</a></span>&#160;    <span class="keywordtype">int</span> priority = EFFECT_PRIORITY_DEFAULT;  </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../de/d8b/class_effect_factory.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a> properties() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d6/d58/class_effect.html">Effect</a> *create() = 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> showSettings(QWidget *parent) = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>, <span class="stringliteral">&quot;EffectFactory/1.0&quot;</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="struct_effect_properties_html"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div><div class="ttdoc">Structure to store effect plugin properties. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00034">effectfactory.h:34</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>QWidget;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d58/class_effect.html">Effect</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html">   33</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">   38</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">Priority</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82beacfb13c922b7e44de14b7219b8af87d37">   40</a></span>&#160;        EFFECT_PRIORITY_LOW = 0,    </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">   41</a></span>&#160;        <a class="code" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">EFFECT_PRIORITY_DEFAULT</a>,    </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82beab6ac0e1df1b7047ad83034bc98951c63">   42</a></span>&#160;        EFFECT_PRIORITY_HIGH        </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">   45</a></span>&#160;    QString <a class="code" href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">name</a>;               </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">   46</a></span>&#160;    QString <a class="code" href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">shortName</a>;          </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#a3cb2c24007ebaa636082299a2c2f0eaf">   47</a></span>&#160;    <span class="keywordtype">bool</span> hasSettings = <span class="keyword">false</span>;   </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html#aa303ce437f075a78f90b1d29917c53ea">   48</a></span>&#160;    <span class="keywordtype">int</span> priority = EFFECT_PRIORITY_DEFAULT;  </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../de/d8b/class_effect_factory.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a> properties() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d6/d58/class_effect.html">Effect</a> *create() = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> showSettings(QWidget *parent) = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>, <span class="stringliteral">&quot;EffectFactory/1.0&quot;</span>)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_effect_properties_html"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div><div class="ttdoc">Structure to store effect plugin properties. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00033">effectfactory.h:33</a></div></div>
 <div class="ttc" id="class_effect_html"><div class="ttname"><a href="../../d6/d58/class_effect.html">Effect</a></div><div class="ttdoc">The Effect class provides the base interface class of audio effects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00036">effect.h:36</a></div></div>
-<div class="ttc" id="class_effect_factory_html"><div class="ttname"><a href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div><div class="ttdoc">Effect plugin interface (effect factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00055">effectfactory.h:55</a></div></div>
-<div class="ttc" id="struct_effect_properties_html_adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">EffectProperties::EFFECT_PRIORITY_DEFAULT</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00042">effectfactory.h:42</a></div></div>
-<div class="ttc" id="struct_effect_properties_html_a9e45d208e403a9bde7ff399c222b8626"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">EffectProperties::name</a></div><div class="ttdeci">QString name</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00046">effectfactory.h:46</a></div></div>
-<div class="ttc" id="struct_effect_properties_html_a557870866a6bf4fdf95a6b6a2420eb0e"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">EffectProperties::shortName</a></div><div class="ttdeci">QString shortName</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00047">effectfactory.h:47</a></div></div>
+<div class="ttc" id="class_effect_factory_html"><div class="ttname"><a href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div><div class="ttdoc">Effect plugin interface (effect factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00054">effectfactory.h:54</a></div></div>
+<div class="ttc" id="struct_effect_properties_html_adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82bea462a900fdc2ec1048d8d68238a7c9b4a">EffectProperties::EFFECT_PRIORITY_DEFAULT</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00041">effectfactory.h:41</a></div></div>
+<div class="ttc" id="struct_effect_properties_html_a9e45d208e403a9bde7ff399c222b8626"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#a9e45d208e403a9bde7ff399c222b8626">EffectProperties::name</a></div><div class="ttdeci">QString name</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00045">effectfactory.h:45</a></div></div>
+<div class="ttc" id="struct_effect_properties_html_a557870866a6bf4fdf95a6b6a2420eb0e"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#a557870866a6bf4fdf95a6b6a2420eb0e">EffectProperties::shortName</a></div><div class="ttdeci">QString shortName</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00046">effectfactory.h:46</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
-<div class="ttc" id="struct_effect_properties_html_adc13105e6f56db3517641b5c8e4e82be"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">EffectProperties::Priority</a></div><div class="ttdeci">Priority</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00039">effectfactory.h:39</a></div></div>
+<div class="ttc" id="struct_effect_properties_html_adc13105e6f56db3517641b5c8e4e82be"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html#adc13105e6f56db3517641b5c8e4e82be">EffectProperties::Priority</a></div><div class="ttdeci">Priority</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00038">effectfactory.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 30 2022 23:21:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 31 2023 20:58:30 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

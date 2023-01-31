@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.1.0.0</span>
+   &#160;<span id="projectnumber">3.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QWidget::paintEvent(event);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QPixmap pix(<span class="stringliteral">&quot;:/lrc/lb_transparent&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">const</span> QPixmap pix(<span class="stringliteral">&quot;:/lrc/lb_transparent&quot;</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; ceil(width() / <a class="code" href="../../d7/dfc/musicphotomodlabel_8h.html#a0f78f92367d8496b133bfc4621b23a16">PIX_WIDTH</a>); ++i)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QWidget::wheelEvent(event);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../d4/d0a/class_music_photo_mod_label.html#a4b12b9c29abe308bec983851340ad279">m_deltaPos</a> = QPoint();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> delta = <a class="code" href="../../de/d4a/ttkqtwrapper_8h.html#ae4c0aa3570f34f7c7a07063acb6ce214">QtWheelEventDelta</a>(event) / 100.0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> delta = <a class="code" href="../../d9/d0e/ttkqtcompat_8h.html#ae4c0aa3570f34f7c7a07063acb6ce214">QtWheelEventDelta</a>(event) / 100.0;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">float</span> dv = <a class="code" href="../../d4/d0a/class_music_photo_mod_label.html#acfc491dbd94c8acc9fe3312a44d5aca4">m_width</a> * 1.0 / <a class="code" href="../../d4/d0a/class_music_photo_mod_label.html#a58465e64759f394b8cdfbb40f728446d">m_originWidth</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span>(dv &gt;= 5 &amp;&amp; delta &gt;= 0)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
@@ -199,9 +199,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_photo_mod_label_html_a627a1d8cd01e143b945524af18fa232b"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#a627a1d8cd01e143b945524af18fa232b">MusicPhotoModLabel::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicphotomodlabel_8cpp_source.html#l00036">musicphotomodlabel.cpp:36</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_a59dbaf29a0e7d513507964be1ef27cc5"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#a59dbaf29a0e7d513507964be1ef27cc5">MusicPhotoModLabel::mouseMoveEvent</a></div><div class="ttdeci">virtual void mouseMoveEvent(QMouseEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicphotomodlabel_8cpp_source.html#l00100">musicphotomodlabel.cpp:100</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_a45f67167482c1b0cc452dba0464e20ed"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#a45f67167482c1b0cc452dba0464e20ed">MusicPhotoModLabel::mouseReleaseEvent</a></div><div class="ttdeci">virtual void mouseReleaseEvent(QMouseEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicphotomodlabel_8cpp_source.html#l00111">musicphotomodlabel.cpp:111</a></div></div>
-<div class="ttc" id="ttkqtwrapper_8h_html_ae4c0aa3570f34f7c7a07063acb6ce214"><div class="ttname"><a href="../../de/d4a/ttkqtwrapper_8h.html#ae4c0aa3570f34f7c7a07063acb6ce214">QtWheelEventDelta</a></div><div class="ttdeci">#define QtWheelEventDelta(p)</div><div class="ttdoc">Event wheel. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/ttkqtwrapper_8h_source.html#l00153">ttkqtwrapper.h:153</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_a9656bda0910aaa06e32057c0b3cc64e0"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#a9656bda0910aaa06e32057c0b3cc64e0">MusicPhotoModLabel::m_imagePos</a></div><div class="ttdeci">QPoint m_imagePos</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dfc/musicphotomodlabel_8h_source.html#l00071">musicphotomodlabel.h:71</a></div></div>
 <div class="ttc" id="musicphotomodlabel_8h_html_a0f78f92367d8496b133bfc4621b23a16"><div class="ttname"><a href="../../d7/dfc/musicphotomodlabel_8h.html#a0f78f92367d8496b133bfc4621b23a16">PIX_WIDTH</a></div><div class="ttdeci">#define PIX_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dfc/musicphotomodlabel_8h_source.html#l00026">musicphotomodlabel.h:26</a></div></div>
+<div class="ttc" id="ttkqtcompat_8h_html_ae4c0aa3570f34f7c7a07063acb6ce214"><div class="ttname"><a href="../../d9/d0e/ttkqtcompat_8h.html#ae4c0aa3570f34f7c7a07063acb6ce214">QtWheelEventDelta</a></div><div class="ttdeci">#define QtWheelEventDelta(p)</div><div class="ttdoc">Event wheel. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00153">ttkqtcompat.h:153</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_aee43733c758c74d6eb3a9bbfbc7714e2"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#aee43733c758c74d6eb3a9bbfbc7714e2">MusicPhotoModLabel::MusicPhotoModLabel</a></div><div class="ttdeci">MusicPhotoModLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicphotomodlabel_8cpp_source.html#l00007">musicphotomodlabel.cpp:7</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_ab29d5bcbca2de8f7436a2865aabec510"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#ab29d5bcbca2de8f7436a2865aabec510">MusicPhotoModLabel::wheelEvent</a></div><div class="ttdeci">virtual void wheelEvent(QWheelEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7c/musicphotomodlabel_8cpp_source.html#l00057">musicphotomodlabel.cpp:57</a></div></div>
 <div class="ttc" id="class_music_photo_mod_label_html_a58465e64759f394b8cdfbb40f728446d"><div class="ttname"><a href="../../d4/d0a/class_music_photo_mod_label.html#a58465e64759f394b8cdfbb40f728446d">MusicPhotoModLabel::m_originWidth</a></div><div class="ttdeci">int m_originWidth</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dfc/musicphotomodlabel_8h_source.html#l00070">musicphotomodlabel.h:70</a></div></div>
@@ -219,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 30 2022 23:21:08 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 31 2023 20:58:21 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
