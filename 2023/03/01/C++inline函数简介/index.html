@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ inline函数简介 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="inline 函数由 inline 关键字定义，引入 inline 函数的主要原因是用它替代 C 中复杂易错不易维护的宏函数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ inline函数简介">
+<meta property="og:url" content="http://greedysky.github.io/2023/03/01/C++inline函数简介/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="inline 函数由 inline 关键字定义，引入 inline 函数的主要原因是用它替代 C 中复杂易错不易维护的宏函数。">
+<meta property="og:updated_time" content="2023-06-15T13:39:20.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ inline函数简介">
+<meta name="twitter:description" content="inline 函数由 inline 关键字定义，引入 inline 函数的主要原因是用它替代 C 中复杂易错不易维护的宏函数。">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 16.67px;">C++11</a> <a href="/tags/C-17/" style="font-size: 13.33px;">C++17</a> <a href="/tags/C-20/" style="font-size: 13.33px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++inline函数简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/03/01/C++inline函数简介/" class="article-date">
+      <time datetime="2023-03-01T13:39:40.000Z" itemprop="datePublished">2023-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ inline函数简介
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="inline-简介"><a href="#inline-简介" class="headerlink" title="inline 简介"></a><strong>inline 简介</strong></h2><p>&#160; &#160; &#160; &#160;inline 函数由 inline 关键字定义，引入 inline 函数的主要原因是用它替代 C 中复杂易错不易维护的宏函数。</p>
+<h2 id="编译器对-inline-函数的处理办法"><a href="#编译器对-inline-函数的处理办法" class="headerlink" title="编译器对 inline 函数的处理办法"></a><strong>编译器对 inline 函数的处理办法</strong></h2><p>&#160; &#160; &#160; &#160;编译器在编译阶段完成对 inline 函数的处理，即对 inline 函数的调用替换为函数的本体。但 inline 关键字对编译器只是一种建议，编译器可以这样去做，也可以不去做。从逻辑上来说，编译器对 inline 函数的处理步骤一般如下：<br>&#160; &#160; &#160; &#160;（1）将 inline 函数体复制到inline函数调用处；<br>&#160; &#160; &#160; &#160;（2）为所用 inline 函数中的局部变量分配内存空间；<br>&#160; &#160; &#160; &#160;（3）将 inline 函数的的输入参数和返回值映射到调用方法的局部变量空间中；<br>&#160; &#160; &#160; &#160;（4）如果 inline 函数有多个返回点，将其转变为 inline 函数代码块末尾的分支（使用GOTO）。<br>&#160; &#160; &#160; &#160;比如如下代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//求0-9的平方</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">inlineFunc</span><span class="params">(<span class="keyword">int</span> num)</span></span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">if</span>(num &gt; <span class="number">9</span> || num &lt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;  </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> num*num;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a=<span class="number">8</span>;</div><div class="line">    <span class="keyword">int</span> res=inlineFunc(a);</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"res:"</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;inline 之后的 main 函数代码类似于如下形式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a = <span class="number">8</span>;</div><div class="line">    &#123;  </div><div class="line">        <span class="keyword">int</span> <span class="number">_</span>temp_b = <span class="number">8</span>;  </div><div class="line">        <span class="keyword">int</span> <span class="number">_</span>temp;  </div><div class="line">        <span class="keyword">if</span>(<span class="number">_</span>temp_b &gt; <span class="number">9</span> || <span class="number">_</span>temp_b &lt; <span class="number">0</span>) <span class="number">_</span>temp = <span class="number">-1</span>;  </div><div class="line">        <span class="keyword">else</span> <span class="number">_</span>temp =<span class="number">_</span>temp*<span class="number">_</span>temp;  </div><div class="line">        b = <span class="number">_</span>temp;  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;经过以上处理，可消除所有与调用相关的痕迹以及性能的损失。inline 通过消除调用开销来提升性能。</p>
+<h2 id="inline-函数使用的一般方法"><a href="#inline-函数使用的一般方法" class="headerlink" title="inline 函数使用的一般方法"></a><strong>inline 函数使用的一般方法</strong></h2><p>&#160; &#160; &#160; &#160;函数定义时，在返回类型前加上关键字 inline 即把函数指定为内联，函数申明时可加也可不加。但是建议函数申明的时候，也加上 inline，这样能够达到“代码即注释”的作用。<br>&#160; &#160; &#160; &#160;使用格式如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">functionName</span><span class="params">(<span class="keyword">int</span> first, <span class="keyword">int</span> secend,...)</span> </span>&#123;<span class="comment">/****/</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;inline 如果只修饰函数的申明的部分，如下风格的函数foo不能成为内联函数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>; <span class="comment">//inline仅与函数声明放在一起</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;而如下风格的函数foo 则成为内联函数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;&#125; <span class="comment">//inline与函数定义体放在一起</span></div></pre></td></tr></table></figure></p>
+<h2 id="inline-函数的优点与缺点"><a href="#inline-函数的优点与缺点" class="headerlink" title="inline 函数的优点与缺点"></a><strong>inline 函数的优点与缺点</strong></h2><p>&#160; &#160; &#160; &#160;从上面可以知道，inline 函数相对宏函数有如下优点：<br>&#160; &#160; &#160; &#160;（1）内联函数同宏函数一样将在被调用处进行代码展开，省去了参数压栈、栈帧开辟与回收，结果返回等，从而提高程序运行速度。<br>&#160; &#160; &#160; &#160;（2）内联函数相比宏函数来说，在代码展开时，会做安全检查或自动类型转换（同普通函数），而宏定义则不会。<br>&#160; &#160; &#160; &#160;例如宏函数和内联函数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//宏函数</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a，b) ((a)&gt;(b)?(a):(b))</span></div><div class="line"></div><div class="line"><span class="comment">//内联函数</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">MAX</span><span class="params">(<span class="keyword">int</span> a，<span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b?a:b；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;使用宏函数时，其书写语法也较为苛刻，如果对宏函数出现如下错误的调用，<code>MAX(a,&quot;Hello&quot;)</code> 宏函数会错误地比较int和字符串，没有参数类型检查，但是使用内联函数的时候，会出现类型不匹配的编译错误。<br>&#160; &#160; &#160; &#160;（3）在类中声明同时定义的成员函数，自动转化为内联函数，因此内联函数可以访问类的成员变量，宏定义则不能。<br>&#160; &#160; &#160; &#160;（4）内联函数在运行时可调试，而宏定义不可以。<br>&#160; &#160; &#160; &#160;万事万物都有阴阳两面，内联函数也不外乎如此，使用 inline 函数，也要三思慎重。inline 函数的缺点总结如下：<br>&#160; &#160; &#160; &#160;（1）代码膨胀。inline 函数带来的运行效率是典型的以空间换时间的做法。内联是以代码膨胀（复制）为代价，消除函数调用带来的开销。如果执行函数体内代码的时间，相比于函数调用的开销较大，那么效率的收获会很少。另一方面，每一处内联函数的调用都要复制代码，将使程序的总代码量增大，消耗更多的内存空间。<br>&#160; &#160; &#160; &#160;（2）inline 函数无法随着函数库升级而升级。如果f是函数库中的一个 inline 函数，使用它的用户会将f函数实体编译到他们的程序中。一旦函数库实现者改变f，所有用到f的程序都必须重新编译。如果f是 non-inline 的，用户程序只需重新连接即可。如果函数库采用的是动态连接，那这一升级的f函数可以不知不觉的被程序使用。<br>&#160; &#160; &#160; &#160;（3）是否内联，程序员不可控。inline 函数只是对编译器的建议，是否对函数内联，决定权在于编译器。编译器认为调用某函数的开销相对该函数本身的开销而言微不足道或者不足以为之承担代码膨胀的后果则没必要内联该函数，若函数出现递归，有些编译器则不支持将其内联。</p>
+<h2 id="inline-函数的注意事项"><a href="#inline-函数的注意事项" class="headerlink" title="inline 函数的注意事项"></a><strong>inline 函数的注意事项</strong></h2><p>&#160; &#160; &#160; &#160;了解了内联函数的优缺点，在使用内联函数时，我们也要注意以下几个事项和建议。<br>&#160; &#160; &#160; &#160;（1）使用函数指针调用内联函数将会导致内联失败。也就是说，如果使用函数指针来调用内联函数，那么就需要获取 inline 函数的地址。如果要取得一个 inline 函数的地址，编译器就必须为此函数产生一个函数实体，那么就内联失败。<br>&#160; &#160; &#160; &#160;（2）如果函数体代码过长或者有多重循环语句，if或witch分支语句或递归时，不宜用内联。<br>&#160; &#160; &#160; &#160;（3）类的 constructors、destructors 和虚函数往往不是 inline 函数的最佳选择。类的构造函数（constructors）可能需要调用父类的构造函数，析构函数同样可能需要调用父类的析构函数，二者背后隐藏着大量的代码，不适合作为 inline 函数。虚函数（destructors）往往是运行时确定的，而 inline 是在编译时进行的，所以内联虚函数往往无效。如果直接用类的对象来使用虚函数，那么对有的编译器而言，也可起到优化作用。<br>&#160; &#160; &#160; &#160;（4）至于内联函数是定义在头文件还是源文件的建议。内联展开是在编译时进行的，只有链接的时候源文件之间才有关系。所以内联要想跨源文件必须把实现写在头文件里。如果一个 inline 函数会在多个源文件中被用到，那么必须把它定义在头文件中。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// base.h</span></div><div class="line"><span class="keyword">class</span> Base &#123; <span class="keyword">protected</span>: <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>; &#125;;</div><div class="line"></div><div class="line"><span class="comment">// base.cpp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> base.h</span></div><div class="line"><span class="keyword">inline</span> <span class="keyword">void</span> Base::fun() &#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">//derived.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> base.h</span></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base &#123; <span class="keyword">public</span>:<span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">()</span></span>; &#125;;</div><div class="line"></div><div class="line"><span class="comment">// derived.cpp</span></div><div class="line"><span class="keyword">void</span> Derived::g() &#123; fun(); &#125; <span class="comment">//VC2010: error LNK2019: unresolved external symbol</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;上面这种错误，就是因为内联函数 fun() 定义在编译单元 base.cpp 中，那么其他编译单元中调用fun()的地方将无法解析该符号，因为在编译单元 base.cpp 生成目标文件 base.obj 后，内联函数fun()已经被替换掉，编译器不会为 fun() 生成函数实体，链接器自然无法解析。所以如果一个 inline 函数会在多个源文件中被用到，那么必须把它定义在头文件中。<br>&#160; &#160; &#160; &#160;这里有个问题，当在头文件中定义内联函数，那么被多个源文件包含时，如果编译器因为 inline 函数不适合被内联时，拒绝将 inline 函数进行内联处理，那么多个源文件在编译生成目标文件后都将各自保留一份 inline 函数的实体，这个时候程序在链接阶段会出现重定义错误吗？答案是不会，原因是，链接器在链接的过程中，会删除多余的 inline 函数实体，只保留一份，所以不会报重定义错误，因此我们不需要使用 static 关键字去多余地修饰 inline 函数，即不必像下面这样。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//test.h</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;（5）能否强制编译器进行内联操作？也有人可能会觉得能否强制编译器进行函数内联，而不是建议编译器进行内联呢？很不幸的是目前还不能强制编译器进行函数内联，如果使用的是 MS VC++，注意 <code>__forceinline</code> 如同 inine 一样，也是一个用词不当的表现，它只是对编译器的建议比 inline 更加强烈，并不能强制编译器进行 inline 操作。<br>&#160; &#160; &#160; &#160;（6）如何查看函数是否被内联处理了？在 VS2017 中查看预处理后的.i文件，发现 inline 函数的内联处理不是在预处理阶段，而是在编译阶段。将源文件编译为汇编代码，或者将可执行文件反汇编生成汇编代码，在汇编代码中查看 inline 函数被调用处是否出现汇编的call指令，如果没有则说明 inline 函数在被调用处进行了函数体的替换操作，即内联处理。具体可以参考内联函数到底有没有被嵌入到调用处呢？<br>&#160; &#160; &#160; &#160;（7）C++类成员函数定义在类体内为什么不会报重定义错误？<br>&#160; &#160; &#160; &#160;类成员函数定义在类体内，并随着类的定义放在头文件中，当被不同的源文件包含，那么每个源文件都应该包含了类成员函数的实体，为何在链接的过程中不会报函数的重定义错误呢？<br>&#160; &#160; &#160; &#160;原因是在类里定义时，这种函数会被编译器编译成内联函数，在类外定义的函数则不会。内联函数的好处是加快程序的运行速度，缺点是会增加程序的尺寸。比较推荐的写法是把一个经常要用的而且实现起来比较简单的小型函数放到类里去定义，大型函数最好还是放到类外定义。<br>&#160; &#160; &#160; &#160;可能存在疑问，类体内的成员函数被编译器内联处理，但并不是所有的成员函数都会被内联处理，比如包含递归的成员函数。但是实际测试，将包含递归的成员函数定义在类体内，被不同的源文件包含并不会报重定义错误，为什么会这样呢？请保持着疑问与好奇心，请继续往下看。<br>&#160; &#160; &#160; &#160;如果编译器发现被定义在类体内的成员函数无法被内联处理，那么在程序的链接过程中也不会出现函数重定义的错误。其原因是什么呢？其实很简单，类体内定义的成员函数即使不被内联处理，在链接时，链接器会对重复的成员函数实体进行冗余优化，只保留一份函数实体，也就不会出现函数重定义的错误了。<br>&#160; &#160; &#160; &#160;除了 inline 函数，C++编译器在很多时候都会产生重复的代码，比如模板（Templates）、虚函数表（Virtual Function Table）、类的默认成员函数（构造函数、析构函数和赋值运算符）等。以函数模板为例，在多个源文件中生成相同的实例，链接时不会出现函数重定义的错误，实际上是一个道理，因为链接器会对重复代码进行删除，只保留一份函数实体。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h2><p>&#160; &#160; &#160; &#160;可以将内联理解为 C++ 中对于函数专有的宏，对于 C 的函数宏的一种改进。对于常量宏，C++ 提供 const 替代；而对于函数宏，C++ 提供的方案则是 inline。C++ 的内联机制，既具备宏代码的效率，又增加了安全性，还可以自由操作类的数据成员，算是一个比较完美的解决方案。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2023年03月01日 - 21时39分</p>
+        <p><span>最后更新:</span>2023年06月15日 - 21时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2023/03/01/C++inline函数简介/" title="C++ inline函数简介">http://greedysky.github.io/2023/03/01/C++inline函数简介/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2023/03/01/C++inline函数简介/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2023/03/25/C++map容器erase的正确姿势/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++ map容器erase的正确姿势
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/02/07/C++迭代器iterator的实现原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 迭代器iterator的实现原理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-简介"><span class="toc-number">1.</span> <span class="toc-text">inline 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器对-inline-函数的处理办法"><span class="toc-number">2.</span> <span class="toc-text">编译器对 inline 函数的处理办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-函数使用的一般方法"><span class="toc-number">3.</span> <span class="toc-text">inline 函数使用的一般方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-函数的优点与缺点"><span class="toc-number">4.</span> <span class="toc-text">inline 函数的优点与缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-函数的注意事项"><span class="toc-number">5.</span> <span class="toc-text">inline 函数的注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">6.</span> <span class="toc-text">小结</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2023/03/25/C++map容器erase的正确姿势/" title="上一篇: C++ map容器erase的正确姿势">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2023/02/07/C++迭代器iterator的实现原理/" title="下一篇: C++ 迭代器iterator的实现原理">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2023 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
