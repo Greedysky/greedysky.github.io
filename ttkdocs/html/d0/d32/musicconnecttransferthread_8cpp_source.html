@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -95,19 +95,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d7/dfc/class_music_connect_transfer_thread.html#acbc6076362d00b16ab454cc7021a1e6f">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#acbc6076362d00b16ab454cc7021a1e6f">MusicConnectTransferThread::run</a>()</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">TTKAbstractThread::run</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;path : qAsConst(<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a10c9a7509b535a578384cae934400963">m_path</a>))</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html#abac6b5d054c0c658480968dfbe608d3f">m_running</a> &amp;&amp; !<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2aa6545045b97dfda44aa441a292f705">m_target</a>.isEmpty())</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keyword">const</span> QString &amp;targetPath = QString(<span class="stringliteral">&quot;%1%2&quot;</span>).arg(<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2aa6545045b97dfda44aa441a292f705">m_target</a>, QFileInfo(path).fileName());</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a10c9a7509b535a578384cae934400963">m_path</a>.takeFirst();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            QFile::copy(path, targetPath);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            Q_EMIT <a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2445fac6e0852062b5265913f69cdba6">transferFileFinished</a>(targetPath);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;path : qAsConst(<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a10c9a7509b535a578384cae934400963">m_path</a>))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html#abac6b5d054c0c658480968dfbe608d3f">m_running</a> &amp;&amp; !<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2aa6545045b97dfda44aa441a292f705">m_target</a>.isEmpty())</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keyword">const</span> QString &amp;targetPath = QString(<span class="stringliteral">&quot;%1%2&quot;</span>).arg(<a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2aa6545045b97dfda44aa441a292f705">m_target</a>, QFileInfo(path).fileName());</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a10c9a7509b535a578384cae934400963">m_path</a>.takeFirst();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            QFile::copy(path, targetPath);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            Q_EMIT <a class="code" href="../../d7/dfc/class_music_connect_transfer_thread.html#a2445fac6e0852062b5265913f69cdba6">transferFileFinished</a>(targetPath);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 <div class="ttc" id="class_music_connect_transfer_thread_html_a10c9a7509b535a578384cae934400963"><div class="ttname"><a href="../../d7/dfc/class_music_connect_transfer_thread.html#a10c9a7509b535a578384cae934400963">MusicConnectTransferThread::m_path</a></div><div class="ttdeci">QStringList m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d83/musicconnecttransferthread_8h_source.html#l00055">musicconnecttransferthread.h:55</a></div></div>
 <div class="ttc" id="class_music_connect_transfer_thread_html_acbc6076362d00b16ab454cc7021a1e6f"><div class="ttname"><a href="../../d7/dfc/class_music_connect_transfer_thread.html#acbc6076362d00b16ab454cc7021a1e6f">MusicConnectTransferThread::run</a></div><div class="ttdeci">virtual void run() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d32/musicconnecttransferthread_8cpp_source.html#l00017">musicconnecttransferthread.cpp:17</a></div></div>
 <div class="ttc" id="class_music_connect_transfer_thread_html_a6b2e45fe2af2dee6bd9b98469f6f578f"><div class="ttname"><a href="../../d7/dfc/class_music_connect_transfer_thread.html#a6b2e45fe2af2dee6bd9b98469f6f578f">MusicConnectTransferThread::setCopyFilePath</a></div><div class="ttdeci">void setCopyFilePath(const QString &amp;target, const QStringList &amp;path)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d32/musicconnecttransferthread_8cpp_source.html#l00011">musicconnecttransferthread.cpp:11</a></div></div>
@@ -115,13 +113,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_connect_transfer_thread_html_ace289946ec93939b969c67a11b57c146"><div class="ttname"><a href="../../d7/dfc/class_music_connect_transfer_thread.html#ace289946ec93939b969c67a11b57c146">MusicConnectTransferThread::MusicConnectTransferThread</a></div><div class="ttdeci">MusicConnectTransferThread(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d32/musicconnecttransferthread_8cpp_source.html#l00005">musicconnecttransferthread.cpp:5</a></div></div>
 <div class="ttc" id="musicconnecttransferthread_8h_html"><div class="ttname"><a href="../../d2/d83/musicconnecttransferthread_8h.html">musicconnecttransferthread.h</a></div></div>
 <div class="ttc" id="class_music_connect_transfer_thread_html_a2aa6545045b97dfda44aa441a292f705"><div class="ttname"><a href="../../d7/dfc/class_music_connect_transfer_thread.html#a2aa6545045b97dfda44aa441a292f705">MusicConnectTransferThread::m_target</a></div><div class="ttdeci">QString m_target</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d83/musicconnecttransferthread_8h_source.html#l00054">musicconnecttransferthread.h:54</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_thread_html_a5bfb5e7164a6b5e09a1ca27ffb11e6a2"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">TTKAbstractThread::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dce/ttkabstractthread_8cpp_source.html#l00031">ttkabstractthread.cpp:31</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_thread_html"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html">TTKAbstractThread</a></div><div class="ttdoc">The class of the ttk abstract thread. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2b/ttkabstractthread_8h_source.html#l00029">ttkabstractthread.h:29</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_thread_html_abac6b5d054c0c658480968dfbe608d3f"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html#abac6b5d054c0c658480968dfbe608d3f">TTKAbstractThread::m_running</a></div><div class="ttdeci">bool m_running</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2b/ttkabstractthread_8h_source.html#l00058">ttkabstractthread.h:58</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:20 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../de/d4a/tagwrapper_8h.html">qmmp/tagwrapper.h</a>&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../df/dd6/tagmeta_8h.html">qmmp/tagmeta.h</a>&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d2/dc2/struct_music_meta.html">MusicMeta</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
@@ -138,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> setRating(<span class="keyword">const</span> QString &amp;rating);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> setCover(<span class="keyword">const</span> QPixmap &amp;pix);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> setCover(<span class="keyword">const</span> QPixmap &amp;cover);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">void</span> setCover(<span class="keyword">const</span> QByteArray &amp;data);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    QPixmap cover();</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    QString lyrics();</div>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">void</span> clearSongMeta();</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <a class="code" href="../../d2/dc2/struct_music_meta.html">MusicMeta</a> *songMeta();</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    QString findLegalDataString(<a class="code" href="../../d4/da6/class_tag_wrapper.html#a1e4d1590d6bba761c50cb22510b4666f">TagWrapper::Type</a> type);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    QString findLegalDataString(<a class="code" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186">TagMeta::Type</a> type);</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordtype">bool</span> readInformation();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordtype">bool</span> saveInformation();</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
@@ -171,20 +171,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif // MUSICSONGMETA_H</span></div>
+<div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186">TagMeta::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00031">tagmeta.h:31</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a5d414d9bc39b4d84f3a25926c4f3465c"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a5d414d9bc39b4d84f3a25926c4f3465c">MusicSongMeta::m_offset</a></div><div class="ttdeci">int m_offset</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d5c/musicsongmeta_8h_source.html#l00205">musicsongmeta.h:205</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a3b1cd7b9811680bc473c9ba564b4d1e2"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">MusicSongMeta::m_songMetas</a></div><div class="ttdeci">QList&lt; MusicMeta * &gt; m_songMetas</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d5c/musicsongmeta_8h_source.html#l00207">musicsongmeta.h:207</a></div></div>
 <div class="ttc" id="struct_music_meta_html"><div class="ttname"><a href="../../d2/dc2/struct_music_meta.html">MusicMeta</a></div><div class="ttdoc">The class of the music meta. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00014">musicsongmeta.cpp:14</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
-<div class="ttc" id="class_tag_wrapper_html_a1e4d1590d6bba761c50cb22510b4666f"><div class="ttname"><a href="../../d4/da6/class_tag_wrapper.html#a1e4d1590d6bba761c50cb22510b4666f">TagWrapper::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d4a/tagwrapper_8h_source.html#l00031">tagwrapper.h:31</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00206">ttkglobal.h:206</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
+<div class="ttc" id="tagmeta_8h_html"><div class="ttname"><a href="../../df/dd6/tagmeta_8h.html">tagmeta.h</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_abc3240168cc54c522efba2ba032595d5"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">MusicSongMeta::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d5c/musicsongmeta_8h_source.html#l00206">musicsongmeta.h:206</a></div></div>
 <div class="ttc" id="class_music_song_meta_html"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html">MusicSongMeta</a></div><div class="ttdoc">The class of the music song meta. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d5c/musicsongmeta_8h_source.html#l00030">musicsongmeta.h:30</a></div></div>
-<div class="ttc" id="tagwrapper_8h_html"><div class="ttname"><a href="../../de/d4a/tagwrapper_8h.html">tagwrapper.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:19 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

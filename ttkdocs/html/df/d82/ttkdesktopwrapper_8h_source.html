@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -101,23 +101,42 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html">TTKDesktopWrapper</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> QRect screenGeometry(<span class="keywordtype">int</span> index = 0);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> QRect geometry();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> QPixmap grabWindow(<span class="keywordtype">int</span> x = 0, <span class="keywordtype">int</span> y = 0, <span class="keywordtype">int</span> w = -1, <span class="keywordtype">int</span> h = -1);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/d63/namespace_t_t_k.html">TTK</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902">Direction</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html">TTKDesktopWrapper</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">   35</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TaskbarInfo</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">   37</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">   38</a></span>&#160;        <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902">TTK::Direction</a> <a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TaskbarInfo</a> screenTaskbar(<span class="keywordtype">int</span> index = 0);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // TTKDESKTOPWRAPPER_H</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> QRect screenGeometry(<span class="keywordtype">int</span> index = 0);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> QRect geometry();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> QPixmap grabWidget(QWidget *widget, <span class="keyword">const</span> QRect &amp;rect);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> QPixmap grabWindow(<span class="keywordtype">int</span> x = 0, <span class="keywordtype">int</span> y = 0, <span class="keywordtype">int</span> w = -1, <span class="keywordtype">int</span> h = -1);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // TTKDESKTOPWRAPPER_H</span></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html_aa60c0fc5d1e8d38bdca5724bda838ee2"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">TTKDesktopWrapper::TaskbarInfo::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00037">ttkdesktopwrapper.h:37</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a></div></div>
-<div class="ttc" id="class_t_t_k_desktop_wrapper_html"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html">TTKDesktopWrapper</a></div><div class="ttdoc">The class of the desktop screen wrapper. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00028">ttkdesktopwrapper.h:28</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902">TTK::Direction</a></div><div class="ttdeci">Direction</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dac/ttklibrary_8h_source.html#l00024">ttklibrary.h:24</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html_a3f449c31fa9812a88d38b6fe3f37a3e9"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">TTKDesktopWrapper::TaskbarInfo::m_direction</a></div><div class="ttdeci">TTK::Direction m_direction</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00038">ttkdesktopwrapper.h:38</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html">TTK</a></div><div class="ttdoc">The namespace of the application object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da4/miniprocess_8h_source.html#l00024">miniprocess.h:24</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html">TTKDesktopWrapper</a></div><div class="ttdoc">The class of the desktop screen wrapper. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00032">ttkdesktopwrapper.h:32</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TTKDesktopWrapper::TaskbarInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00035">ttkdesktopwrapper.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:18 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

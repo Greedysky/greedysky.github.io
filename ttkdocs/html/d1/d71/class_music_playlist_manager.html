@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -87,10 +87,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa792cc95ace3d010b9b418ab8610ad39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d71/class_music_playlist_manager.html#aa792cc95ace3d010b9b418ab8610ad39">setMusicSongItem</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;path, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item)</td></tr>
-<tr class="separator:aa792cc95ace3d010b9b418ab8610ad39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13bf8856e541d1816dd1e877f8a8682c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d71/class_music_playlist_manager.html#a13bf8856e541d1816dd1e877f8a8682c">musicSongItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList &amp;paths, MusicSongItemList &amp;items)</td></tr>
-<tr class="separator:a13bf8856e541d1816dd1e877f8a8682c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6064429e42203416daf61f96c66ea5ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d71/class_music_playlist_manager.html#a6064429e42203416daf61f96c66ea5ea">writeSongItem</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;path, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item)</td></tr>
+<tr class="separator:a6064429e42203416daf61f96c66ea5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a8ca1749f22723ffc41e09e1bde34ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d71/class_music_playlist_manager.html#a7a8ca1749f22723ffc41e09e1bde34ef">readSongItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList &amp;paths, MusicSongItemList &amp;items)</td></tr>
+<tr class="separator:a7a8ca1749f22723ffc41e09e1bde34ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -141,39 +141,6 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d3/d18/musicplaylistmanager_8h_source.html#l00027">27</a> of file <a class="el" href="../../d3/d18/musicplaylistmanager_8h_source.html">musicplaylistmanager.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a13bf8856e541d1816dd1e877f8a8682c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MusicPlaylistManager::musicSongItems </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList &amp;&#160;</td>
-          <td class="paramname"><em>paths</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">MusicSongItemList &amp;&#160;</td>
-          <td class="paramname"><em>items</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read music playlist data from file. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00047">ASX_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00048">CSV_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00051">DBPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00168">FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00050">FPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00046">JSPF_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00042">M3U8_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00041">M3U_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00043">PLS_FILE_SUFFIX</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00207">readASXConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00243">readCSVConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00233">readDBPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00223">readFPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00191">readJSPFConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00127">readM3UConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00143">readPLSConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00111">readTKPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00259">readTXTConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00159">readWPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00175">readXSPFConfig()</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00040">TPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00049">TXT_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00044">WPL_FILE_SUFFIX</a>, and <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00045">XSPF_FILE_SUFFIX</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l00528">MusicApplication::musicImportSongsItemList()</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="aa4b29dad729051024f72aa039bec8141"></a>
 <div class="memitem">
 <div class="memproto">
@@ -209,9 +176,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00207">207</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00093">TTKAbstractXml::fromFile()</a>, and <a class="el" href="../../d4/da5/musicasxconfigmanager_8cpp_source.html#l00010">MusicASXConfigManager::readBuffer()</a>.</p>
+<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00095">TTKXmlDocument::fromFile()</a>, and <a class="el" href="../../d4/da5/musicasxconfigmanager_8cpp_source.html#l00010">MusicASXConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -252,7 +219,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00010">MusicCSVConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -293,7 +260,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../d7/d62/musicdbplconfigmanager_8cpp_source.html#l00013">MusicDBPLConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -334,7 +301,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../da/d0d/musicfplconfigmanager_8cpp_source.html#l00031">MusicFPLConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -375,7 +342,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00013">MusicJSPFConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -416,7 +383,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00010">MusicM3UConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -457,7 +424,40 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../d7/d99/musicplsconfigmanager_8cpp_source.html#l00010">MusicPLSConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a8ca1749f22723ffc41e09e1bde34ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MusicPlaylistManager::readSongItems </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList &amp;&#160;</td>
+          <td class="paramname"><em>paths</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MusicSongItemList &amp;&#160;</td>
+          <td class="paramname"><em>items</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Read music playlist data from file. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00047">ASX_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00048">CSV_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00051">DBPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00175">FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00050">FPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00046">JSPF_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00042">M3U8_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00041">M3U_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00043">PLS_FILE_SUFFIX</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00207">readASXConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00243">readCSVConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00233">readDBPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00223">readFPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00191">readJSPFConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00127">readM3UConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00143">readPLSConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00111">readTKPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00259">readTXTConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00159">readWPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00175">readXSPFConfig()</a>, <a class="el" href="../../da/dca/musicstringutils_8cpp_source.html#l00046">TTK::String::suffix()</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00040">TPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00049">TXT_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00044">WPL_FILE_SUFFIX</a>, and <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00045">XSPF_FILE_SUFFIX</a>.</p>
+
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l00531">MusicApplication::importSongsItemList()</a>.</p>
 
 </div>
 </div>
@@ -498,7 +498,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d9/d8d/musictkplconfigmanager_8h_source.html#l00041">MusicTKPLConfigManager::fromFile()</a>, and <a class="el" href="../../de/d77/musictkplconfigmanager_8cpp_source.html#l00010">MusicTKPLConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -539,7 +539,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00041">MusicPlaylistRenderer::fromFile()</a>, and <a class="el" href="../../da/d06/musictxtconfigmanager_8cpp_source.html#l00010">MusicTXTConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -578,9 +578,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00159">159</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00093">TTKAbstractXml::fromFile()</a>, and <a class="el" href="../../d1/db1/musicwplconfigmanager_8cpp_source.html#l00011">MusicWPLConfigManager::readBuffer()</a>.</p>
+<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00095">TTKXmlDocument::fromFile()</a>, and <a class="el" href="../../d1/db1/musicwplconfigmanager_8cpp_source.html#l00011">MusicWPLConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -619,42 +619,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00175">175</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00093">TTKAbstractXml::fromFile()</a>, and <a class="el" href="../../db/d30/musicxspfconfigmanager_8cpp_source.html#l00010">MusicXSPFConfigManager::readBuffer()</a>.</p>
+<p>References <a class="el" href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00095">TTKXmlDocument::fromFile()</a>, and <a class="el" href="../../db/d30/musicxspfconfigmanager_8cpp_source.html#l00010">MusicXSPFConfigManager::readBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">musicSongItems()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa792cc95ace3d010b9b418ab8610ad39"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MusicPlaylistManager::setMusicSongItem </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;&#160;</td>
-          <td class="paramname"><em>item</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Write music playlist data to file. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00047">ASX_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00048">CSV_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00168">FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00046">JSPF_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00042">M3U8_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00041">M3U_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00043">PLS_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00040">TPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00049">TXT_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00044">WPL_FILE_SUFFIX</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00217">writeASXConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00253">writeCSVConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00201">writeJSPFConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00137">writeM3UConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00153">writePLSConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00121">writeTKPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00269">writeTXTConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00169">writeWPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00185">writeXSPFConfig()</a>, and <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00045">XSPF_FILE_SUFFIX</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l00542">MusicApplication::musicExportSongsItemList()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00057">readSongItems()</a>.</p>
 
 </div>
 </div>
@@ -695,7 +662,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d4/da5/musicasxconfigmanager_8cpp_source.html#l00054">MusicASXConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -736,7 +703,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../da/d30/musiccsvconfigmanager_8cpp_source.html#l00039">MusicCSVConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -777,7 +744,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00054">MusicJSPFConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -818,7 +785,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../dc/d8c/musicm3uconfigmanager_8cpp_source.html#l00059">MusicM3UConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -859,7 +826,40 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d7/d99/musicplsconfigmanager_8cpp_source.html#l00073">MusicPLSConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6064429e42203416daf61f96c66ea5ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MusicPlaylistManager::writeSongItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;&#160;</td>
+          <td class="paramname"><em>item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Write music playlist data to file. </p>
+
+<p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">14</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00047">ASX_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00048">CSV_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00175">FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00046">JSPF_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00042">M3U8_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00041">M3U_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00043">PLS_FILE_SUFFIX</a>, <a class="el" href="../../da/dca/musicstringutils_8cpp_source.html#l00046">TTK::String::suffix()</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00040">TPL_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00049">TXT_FILE_SUFFIX</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00044">WPL_FILE_SUFFIX</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00217">writeASXConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00253">writeCSVConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00201">writeJSPFConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00137">writeM3UConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00153">writePLSConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00121">writeTKPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00269">writeTXTConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00169">writeWPLConfig()</a>, <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00185">writeXSPFConfig()</a>, and <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00045">XSPF_FILE_SUFFIX</a>.</p>
+
+<p>Referenced by <a class="el" href="../../db/d25/musicapplication_8cpp_source.html#l00545">MusicApplication::exportSongsItemList()</a>.</p>
 
 </div>
 </div>
@@ -900,7 +900,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../de/d77/musictkplconfigmanager_8cpp_source.html#l00031">MusicTKPLConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -941,7 +941,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../da/d06/musictxtconfigmanager_8cpp_source.html#l00044">MusicTXTConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -982,7 +982,7 @@ Private Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="../../d1/db1/musicwplconfigmanager_8cpp_source.html#l00033">MusicWPLConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -1021,9 +1021,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html">musicplaylistmanager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../db/d30/musicxspfconfigmanager_8cpp_source.html#l00060">MusicXSPFConfigManager::writeBuffer()</a>.</p>
+<p>References <a class="el" href="../../db/d30/musicxspfconfigmanager_8cpp_source.html#l00057">MusicXSPFConfigManager::writeBuffer()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">setMusicSongItem()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d4c/musicplaylistmanager_8cpp_source.html#l00014">writeSongItem()</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1034,7 @@ Private Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:59:14 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:39:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

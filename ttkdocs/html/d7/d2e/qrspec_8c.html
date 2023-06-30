@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -86,7 +86,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
-<code>#include &lt;pthread.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/d23/qrspec_8h_source.html">qrspec.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../da/d19/qrinput_8h_source.html">qrinput.h</a>&quot;</code><br />
 </div>
@@ -115,7 +114,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a1f03ef681978616cdc0fefb6fb4fab04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the numer of remainder bits.  <a href="#a1f03ef681978616cdc0fefb6fb4fab04">More...</a><br /></td></tr>
 <tr class="separator:a1f03ef681978616cdc0fefb6fb4fab04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9611cbe6556be98a4c0674af4712656"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#aa9611cbe6556be98a4c0674af4712656">QRspec_lengthIndicator</a> (<a class="el" href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55db">QRencodeMode</a> <a class="el" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a>, <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> version)</td></tr>
-<tr class="memdesc:aa9611cbe6556be98a4c0674af4712656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of lenght indicator for the mode and version.  <a href="#aa9611cbe6556be98a4c0674af4712656">More...</a><br /></td></tr>
+<tr class="memdesc:aa9611cbe6556be98a4c0674af4712656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of length indicator for the mode and version.  <a href="#aa9611cbe6556be98a4c0674af4712656">More...</a><br /></td></tr>
 <tr class="separator:aa9611cbe6556be98a4c0674af4712656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f31bf16e8dd70a4bd2396171e3c14de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#a9f31bf16e8dd70a4bd2396171e3c14de">QRspec_maximumWords</a> (<a class="el" href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55db">QRencodeMode</a> <a class="el" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a>, <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> version)</td></tr>
 <tr class="memdesc:a9f31bf16e8dd70a4bd2396171e3c14de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum length for the mode and version.  <a href="#a9f31bf16e8dd70a4bd2396171e3c14de">More...</a><br /></td></tr>
@@ -142,9 +141,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a826fd999c8628c9a91ad2101887eab63"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#a826fd999c8628c9a91ad2101887eab63">QRspec_newFrame</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> version)</td></tr>
 <tr class="memdesc:a826fd999c8628c9a91ad2101887eab63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a copy of initialized frame.  <a href="#a826fd999c8628c9a91ad2101887eab63">More...</a><br /></td></tr>
 <tr class="separator:a826fd999c8628c9a91ad2101887eab63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7263ad69c5703a939b8af99ded16d6ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#a7263ad69c5703a939b8af99ded16d6ae">QRspec_clearCache</a> (void)</td></tr>
-<tr class="memdesc:a7263ad69c5703a939b8af99ded16d6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the frame cache.  <a href="#a7263ad69c5703a939b8af99ded16d6ae">More...</a><br /></td></tr>
-<tr class="separator:a7263ad69c5703a939b8af99ded16d6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -164,11 +160,6 @@ Variables</h2></td></tr>
 <tr class="separator:a541f15b357fb5e4932d43f02c90bc5d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa33835fc3104751dad98af984b8b4580"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> unsigned <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#aa33835fc3104751dad98af984b8b4580">formatInfo</a> [4][8]</td></tr>
 <tr class="separator:aa33835fc3104751dad98af984b8b4580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5832f09b8f6c167cb7e8c354cd7c1f6"><td class="memItemLeft" align="right" valign="top">static unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#ac5832f09b8f6c167cb7e8c354cd7c1f6">frames</a> [<a class="el" href="../../d3/dbf/qrencode_8h.html#ad9e0fe046aaa6dc0ef84e7982dc3693d">QRSPEC_VERSION_MAX</a>+1]</td></tr>
-<tr class="memdesc:ac5832f09b8f6c167cb7e8c354cd7c1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache of initial frames.  <a href="#ac5832f09b8f6c167cb7e8c354cd7c1f6">More...</a><br /></td></tr>
-<tr class="separator:ac5832f09b8f6c167cb7e8c354cd7c1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b2f258f3f5a371320e3dceb7a55347f"><td class="memItemLeft" align="right" valign="top">static pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2e/qrspec_8c.html#a4b2f258f3f5a371320e3dceb7a55347f">frames_mutex</a> = PTHREAD_MUTEX_INITIALIZER</td></tr>
-<tr class="separator:a4b2f258f3f5a371320e3dceb7a55347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a98c4f0fec1195e10909d8ce2bf714608"></a>
@@ -225,34 +216,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00411">411</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00398">398</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00437">QRspec_createFrame()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7263ad69c5703a939b8af99ded16d6ae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QRspec_clearCache </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Clear the frame cache. </p>
-<p>Typically for debug. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00546">546</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00400">frames</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00402">frames_mutex</a>, and <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00056">QRSPEC_VERSION_MAX</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00909">QRcode_clearCache()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00424">QRspec_createFrame()</a>.</p>
 
 </div>
 </div>
@@ -278,11 +244,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00437">437</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00424">424</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00411">putFinderPattern()</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00365">QRspec_getVersionPattern()</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00311">QRspec_putAlignmentPattern()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::width</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00398">putFinderPattern()</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00362">QRspec_getVersionPattern()</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00308">QRspec_putAlignmentPattern()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00042">QRspec_Capacity::width</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00520">QRspec_newFrame()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00507">QRspec_newFrame()</a>.</p>
 
 </div>
 </div>
@@ -313,18 +279,18 @@ Variables</h2></td></tr>
 <p>Return maximum data code length (bytes) for the version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>version of the symbol </td></tr>
+    <tr><td class="paramname">level</td><td>error correction level </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>maximum size (bytes) </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00099">99</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00096">96</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00048">QRspec_Capacity::ec</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00046">QRspec_Capacity::words</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::ec</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00043">QRspec_Capacity::words</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01192">QRinput_appendPaddingBit()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01579">QRinput_splitQRinputToStruct()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00235">QRspec_getEccSpec()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01145">QRinput_appendPaddingBit()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01483">QRinput_splitQRinputToStruct()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00232">QRspec_getEccSpec()</a>.</p>
 
 </div>
 </div>
@@ -355,18 +321,18 @@ Variables</h2></td></tr>
 <p>Return maximum error correction code length (bytes) for the version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>version of the symbol </td></tr>
+    <tr><td class="paramname">level</td><td>error correction level </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ECC size (bytes) </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00104">104</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00101">101</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00048">QRspec_Capacity::ec</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::ec</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00235">QRspec_getEccSpec()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00232">QRspec_getEccSpec()</a>.</p>
 
 </div>
 </div>
@@ -403,19 +369,19 @@ Variables</h2></td></tr>
 <p>Return an array of ECC specification. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>version of the symbol </td></tr>
+    <tr><td class="paramname">level</td><td>error correction level </td></tr>
     <tr><td class="paramname">spec</td><td>an array of ECC specification contains as following: {# of type1 blocks, # of data code, # of ecc code, <h1>of type2 blocks, # of data code}</h1>
 </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00235">235</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00232">232</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00191">eccTable</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00099">QRspec_getDataLength()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00104">QRspec_getECCLength()</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00188">eccTable</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00096">QRspec_getDataLength()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00101">QRspec_getECCLength()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00111">QRraw_new()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00105">QRraw_new()</a>.</p>
 
 </div>
 </div>
@@ -446,18 +412,18 @@ Variables</h2></td></tr>
 <p>Return BCH encoded format information pattern. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mask</td><td></td></tr>
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">mask</td><td>mask number </td></tr>
+    <tr><td class="paramname">level</td><td>error correction level </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>BCH encoded format information pattern </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00384">384</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00381">381</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00377">formatInfo</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00374">formatInfo</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d67/mask_8c_source.html#l00033">Mask_writeFormatInformation()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d67/mask_8c_source.html#l00032">Mask_writeFormatInformation()</a>.</p>
 
 </div>
 </div>
@@ -489,17 +455,17 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>input code length (byte) </td></tr>
-    <tr><td class="paramname">level</td><td></td></tr>
+    <tr><td class="paramname">level</td><td>error correction level </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>version number </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00109">109</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00106">106</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00048">QRspec_Capacity::ec</a>, <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00056">QRSPEC_VERSION_MAX</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00046">QRspec_Capacity::words</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::ec</a>, <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00136">QRSPEC_VERSION_MAX</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00043">QRspec_Capacity::words</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01155">QRinput_convertData()</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00978">QRinput_estimateVersion()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01110">QRinput_convertData()</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00934">QRinput_estimateVersion()</a>.</p>
 
 </div>
 </div>
@@ -520,17 +486,17 @@ Variables</h2></td></tr>
 <p>Return the numer of remainder bits. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>vesion of the symbol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of remainder bits </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00127">127</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00124">124</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00047">QRspec_Capacity::remainder</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00044">QRspec_Capacity::remainder</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00462">QRcode_encodeMask()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00429">QRcode_encodeMask()</a>.</p>
 
 </div>
 </div>
@@ -551,17 +517,17 @@ Variables</h2></td></tr>
 <p>Return BCH encoded version information pattern that is used for the symbol of version 7 or greater. </p>
 <p>Use lower 18 bits. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>version of the symbol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>BCH encoded version information pattern </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00365">365</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00362">362</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00056">QRSPEC_VERSION_MAX</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00357">versionPattern</a>.</p>
+<p>References <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00136">QRSPEC_VERSION_MAX</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00354">versionPattern</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00437">QRspec_createFrame()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00424">QRspec_createFrame()</a>.</p>
 
 </div>
 </div>
@@ -582,17 +548,17 @@ Variables</h2></td></tr>
 <p>Return the width of the symbol for the version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>vesion of the symbol </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>width </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>width of the symbol </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00122">122</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00119">119</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::width</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00042">QRspec_Capacity::width</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00462">QRcode_encodeMask()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00429">QRcode_encodeMask()</a>.</p>
 
 </div>
 </div>
@@ -620,21 +586,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the size of lenght indicator for the mode and version. </p>
+<p>Return the size of length indicator for the mode and version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mode</td><td></td></tr>
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">mode</td><td>encode mode </td></tr>
+    <tr><td class="paramname">version</td><td>vesion of the symbol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the size of the appropriate length indicator (bits). </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00143">143</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00140">140</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00136">lengthTableBits</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00037">QRinput_isSplittableMode()</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00133">lengthTableBits</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00037">QRinput_isSplittableMode()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00591">QRinput_encodeMode8()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00521">QRinput_encodeModeAn()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00673">QRinput_encodeModeKanji()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00408">QRinput_encodeModeNum()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00904">QRinput_estimateBitStreamSizeOfEntry()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01003">QRinput_lengthOfCode()</a>, <a class="el" href="../../d7/de7/split_8c_source.html#l00187">Split_eat8()</a>, <a class="el" href="../../d7/de7/split_8c_source.html#l00121">Split_eatAn()</a>, and <a class="el" href="../../d7/de7/split_8c_source.html#l00081">Split_eatNum()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00578">QRinput_encodeMode8()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00515">QRinput_encodeModeAn()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00653">QRinput_encodeModeKanji()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00409">QRinput_encodeModeNum()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00856">QRinput_estimateBitStreamSizeOfEntry()</a>, <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00959">QRinput_lengthOfCode()</a>, <a class="el" href="../../d7/de7/split_8c_source.html#l00184">Split_eat8()</a>, <a class="el" href="../../d7/de7/split_8c_source.html#l00119">Split_eatAn()</a>, and <a class="el" href="../../d7/de7/split_8c_source.html#l00079">Split_eatNum()</a>.</p>
 
 </div>
 </div>
@@ -665,18 +631,18 @@ Variables</h2></td></tr>
 <p>Return the maximum length for the mode and version. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mode</td><td></td></tr>
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">mode</td><td>encode mode </td></tr>
+    <tr><td class="paramname">version</td><td>vesion of the symbol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the maximum length (bytes) </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00159">159</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00156">156</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00136">lengthTableBits</a>, <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00036">QR_MODE_KANJI</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00037">QRinput_isSplittableMode()</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00133">lengthTableBits</a>, <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00116">QR_MODE_KANJI</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00037">QRinput_isSplittableMode()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01054">QRinput_encodeBitStream()</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01003">QRinput_lengthOfCode()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l01011">QRinput_encodeBitStream()</a>, and <a class="el" href="../../d5/d4f/qrinput_8c_source.html#l00959">QRinput_lengthOfCode()</a>.</p>
 
 </div>
 </div>
@@ -695,19 +661,19 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return a copy of initialized frame. </p>
-<p>When the same version is requested twice or more, a copy of cached frame is returned. </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">version</td><td></td></tr>
+    <tr><td class="paramname">version</td><td>version of the symbol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Array of unsigned char. You can free it by free(). </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00520">520</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00507">507</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00400">frames</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00402">frames_mutex</a>, <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00437">QRspec_createFrame()</a>, <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00056">QRSPEC_VERSION_MAX</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00045">QRspec_Capacity::width</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00424">QRspec_createFrame()</a>, and <a class="el" href="../../d3/dbf/qrencode_8h_source.html#l00136">QRSPEC_VERSION_MAX</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00462">QRcode_encodeMask()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d95/qrencode_8c_source.html#l00429">QRcode_encodeMask()</a>.</p>
 
 </div>
 </div>
@@ -765,9 +731,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00288">288</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00285">285</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00311">QRspec_putAlignmentPattern()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00308">QRspec_putAlignmentPattern()</a>.</p>
 
 </div>
 </div>
@@ -809,11 +775,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00311">311</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00308">308</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00270">alignmentPattern</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00288">QRspec_putAlignmentMarker()</a>.</p>
+<p>References <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00267">alignmentPattern</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00285">QRspec_putAlignmentMarker()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00437">QRspec_createFrame()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00424">QRspec_createFrame()</a>.</p>
 
 </div>
 </div>
@@ -836,24 +802,24 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        { 0,  0},</div>
-<div class="line">        { 0,  0}, {18,  0}, {22,  0}, {26,  0}, {30,  0}, </div>
-<div class="line">        {34,  0}, {22, 38}, {24, 42}, {26, 46}, {28, 50}, </div>
-<div class="line">        {30, 54}, {32, 58}, {34, 62}, {26, 46}, {26, 48}, </div>
-<div class="line">        {26, 50}, {30, 54}, {30, 56}, {30, 58}, {34, 62}, </div>
-<div class="line">        {28, 50}, {26, 50}, {30, 54}, {28, 54}, {32, 58}, </div>
-<div class="line">        {30, 58}, {34, 62}, {26, 50}, {30, 54}, {26, 52}, </div>
-<div class="line">        {30, 56}, {34, 60}, {30, 58}, {34, 62}, {30, 54}, </div>
-<div class="line">        {24, 50}, {28, 54}, {32, 58}, {26, 54}, {30, 58}, </div>
+<div class="line">    { 0,  0},</div>
+<div class="line">    { 0,  0}, {18,  0}, {22,  0}, {26,  0}, {30,  0}, </div>
+<div class="line">    {34,  0}, {22, 38}, {24, 42}, {26, 46}, {28, 50}, </div>
+<div class="line">    {30, 54}, {32, 58}, {34, 62}, {26, 46}, {26, 48}, </div>
+<div class="line">    {26, 50}, {30, 54}, {30, 56}, {30, 58}, {34, 62}, </div>
+<div class="line">    {28, 50}, {26, 50}, {30, 54}, {28, 54}, {32, 58}, </div>
+<div class="line">    {30, 58}, {34, 62}, {26, 50}, {30, 54}, {26, 52}, </div>
+<div class="line">    {30, 56}, {34, 60}, {30, 58}, {34, 62}, {30, 54}, </div>
+<div class="line">    {24, 50}, {28, 54}, {32, 58}, {26, 54}, {30, 58}, </div>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p>Positions of alignment patterns. </p>
 <p>This array includes only the second and the third position of the alignment patterns. Rest of them can be calculated from the distance between them.</p>
 <p>See Table 1 in Appendix E (pp.71) of JIS X0510:2004. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00270">270</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00267">267</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00311">QRspec_putAlignmentPattern()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00308">QRspec_putAlignmentPattern()</a>.</p>
 
 </div>
 </div>
@@ -877,9 +843,9 @@ Variables</h2></td></tr>
 
 <p>Table of the error correction code (Reed-Solomon block) See Table 12-16 (pp.30-36), JIS X0510:2004. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00191">191</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00188">188</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00235">QRspec_getEccSpec()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00232">QRspec_getEccSpec()</a>.</p>
 
 </div>
 </div>
@@ -901,65 +867,15 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        {0x77c4, 0x72f3, 0x7daa, 0x789d, 0x662f, 0x6318, 0x6c41, 0x6976},</div>
-<div class="line">        {0x5412, 0x5125, 0x5e7c, 0x5b4b, 0x45f9, 0x40ce, 0x4f97, 0x4aa0},</div>
-<div class="line">        {0x355f, 0x3068, 0x3f31, 0x3a06, 0x24b4, 0x2183, 0x2eda, 0x2bed},</div>
-<div class="line">        {0x1689, 0x13be, 0x1ce7, 0x19d0, 0x0762, 0x0255, 0x0d0c, 0x083b}</div>
+<div class="line">    {0x77c4, 0x72f3, 0x7daa, 0x789d, 0x662f, 0x6318, 0x6c41, 0x6976},</div>
+<div class="line">    {0x5412, 0x5125, 0x5e7c, 0x5b4b, 0x45f9, 0x40ce, 0x4f97, 0x4aa0},</div>
+<div class="line">    {0x355f, 0x3068, 0x3f31, 0x3a06, 0x24b4, 0x2183, 0x2eda, 0x2bed},</div>
+<div class="line">    {0x1689, 0x13be, 0x1ce7, 0x19d0, 0x0762, 0x0255, 0x0d0c, 0x083b}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00377">377</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00374">374</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00384">QRspec_getFormatInfo()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac5832f09b8f6c167cb7e8c354cd7c1f6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char* frames[<a class="el" href="../../d3/dbf/qrencode_8h.html#ad9e0fe046aaa6dc0ef84e7982dc3693d">QRSPEC_VERSION_MAX</a>+1]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cache of initial frames. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00400">400</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00546">QRspec_clearCache()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00520">QRspec_newFrame()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4b2f258f3f5a371320e3dceb7a55347f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pthread_mutex_t frames_mutex = PTHREAD_MUTEX_INITIALIZER</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00402">402</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00546">QRspec_clearCache()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00520">QRspec_newFrame()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00381">QRspec_getFormatInfo()</a>.</p>
 
 </div>
 </div>
@@ -981,15 +897,15 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        {10, 12, 14},</div>
-<div class="line">        { 9, 11, 13},</div>
-<div class="line">        { 8, 16, 16},</div>
-<div class="line">        { 8, 10, 12}</div>
+<div class="line">    {10, 12, 14},</div>
+<div class="line">    { 9, 11, 13},</div>
+<div class="line">    { 8, 16, 16},</div>
+<div class="line">    { 8, 10, 12}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00136">136</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00133">133</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00143">QRspec_lengthIndicator()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00159">QRspec_maximumWords()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00140">QRspec_lengthIndicator()</a>, and <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00156">QRspec_maximumWords()</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +929,7 @@ Variables</h2></td></tr>
 
 <p>Table of the capacity of symbols See Table 1 (pp.13) and Table 12-16 (pp.30-36), JIS X0510:2004. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00055">55</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00052">52</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
 </div>
 </div>
@@ -1035,26 +951,26 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        0x07c94, 0x085bc, 0x09a99, 0x0a4d3, 0x0bbf6, 0x0c762, 0x0d847, 0x0e60d,</div>
-<div class="line">        0x0f928, 0x10b78, 0x1145d, 0x12a17, 0x13532, 0x149a6, 0x15683, 0x168c9,</div>
-<div class="line">        0x177ec, 0x18ec4, 0x191e1, 0x1afab, 0x1b08e, 0x1cc1a, 0x1d33f, 0x1ed75,</div>
-<div class="line">        0x1f250, 0x209d5, 0x216f0, 0x228ba, 0x2379f, 0x24b0b, 0x2542e, 0x26a64,</div>
-<div class="line">        0x27541, 0x28c69</div>
+<div class="line">    0x07c94, 0x085bc, 0x09a99, 0x0a4d3, 0x0bbf6, 0x0c762, 0x0d847, 0x0e60d,</div>
+<div class="line">    0x0f928, 0x10b78, 0x1145d, 0x12a17, 0x13532, 0x149a6, 0x15683, 0x168c9,</div>
+<div class="line">    0x177ec, 0x18ec4, 0x191e1, 0x1afab, 0x1b08e, 0x1cc1a, 0x1d33f, 0x1ed75,</div>
+<div class="line">    0x1f250, 0x209d5, 0x216f0, 0x228ba, 0x2379f, 0x24b0b, 0x2542e, 0x26a64,</div>
+<div class="line">    0x27541, 0x28c69</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p>Version information pattern (BCH coded). </p>
 <p>See Table 1 in Appendix D (pp.68) of JIS X0510:2004. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00357">357</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00354">354</a> of file <a class="el" href="../../d7/d2e/qrspec_8c_source.html">qrspec.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00365">QRspec_getVersionPattern()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d2e/qrspec_8c_source.html#l00362">QRspec_getVersionPattern()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:39:19 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

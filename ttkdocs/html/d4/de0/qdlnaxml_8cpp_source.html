@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -151,55 +151,62 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d0/d1c/class_q_dlna_xml.html#affab984c38d699d394d5fd4609a5244c">   75</a></span>&#160;QString <a class="code" href="../../d0/d1c/class_q_dlna_xml.html#affab984c38d699d394d5fd4609a5244c">QDlnaXml::readTagNameValue</a>(<span class="keyword">const</span> QString &amp;tagName)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d0/d1c/class_q_dlna_xml.html">QDlnaXml</a>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> QDomNodeList &amp;nodeList = d-&gt;m_document-&gt;elementsByTagName(tagName);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>(nodeList.isEmpty())</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> QString();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> nodeList.at(0).toElement().text();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">   86</a></span>&#160;<a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a> <a class="code" href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">QDlnaXml::readServiceTag</a>(<span class="keyword">const</span> QString &amp;type, <span class="keyword">const</span> QString &amp;tagName)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d0/d1c/class_q_dlna_xml.html">QDlnaXml</a>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">const</span> QDomNodeList &amp;nodeList = d-&gt;m_document-&gt;elementsByTagName(tagName);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span>(nodeList.isEmpty())</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a> service;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; nodeList.count(); ++i)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> QDomNode &amp;node = nodeList.at(i);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">const</span> QDomNodeList &amp;paramNodes = node.childNodes();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> QDomNodeList &amp;nodes = d-&gt;m_document-&gt;elementsByTagName(tagName);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> nodes.isEmpty() ? QString() : nodes.item(0).toElement().text();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">   82</a></span>&#160;<a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a> <a class="code" href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">QDlnaXml::readServiceTag</a>(<span class="keyword">const</span> QString &amp;type, <span class="keyword">const</span> QString &amp;tagName)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d0/d1c/class_q_dlna_xml.html">QDlnaXml</a>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">const</span> QDomNodeList &amp;nodes = d-&gt;m_document-&gt;elementsByTagName(tagName);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span>(nodes.isEmpty())</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a> service;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; nodes.count(); ++i)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">const</span> QDomNodeList &amp;paramNodes = nodes.item(i).childNodes();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; paramNodes.count(); ++j)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">const</span> QDomNode &amp;paramNode = paramNodes.item(j);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            QString text = paramNode.toElement().text();</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; paramNodes.count(); ++j)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keyword">const</span> QDomNode &amp;paramNode = paramNodes.at(j);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            QString text = paramNode.toElement().text();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span>(text.contains(type, Qt::CaseInsensitive))</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keyword">const</span> QString &amp;nodeName = paramNode.nodeName();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span>(text.startsWith(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>))</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    text.remove(0, 1);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;servicetype&quot;</span>, Qt::CaseInsensitive))</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#afa090b73560829a9398f95c94f60f914">m_serviceType</a> = text;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;serviceid&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span>(text.contains(type, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keyword">const</span> QString &amp;nodeName = paramNode.nodeName();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordflow">if</span>(text.startsWith(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>))</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    text.remove(0, 1);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;servicetype&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#afa090b73560829a9398f95c94f60f914">m_serviceType</a> = text;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;serviceid&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                {</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a48ecdec7944cdb691fed87d5bd150a44">m_serviceID</a> = text;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;scpdurl&quot;</span>, Qt::CaseInsensitive))</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a9f9e63d9f2c87d2fe4f6770ea9460871">m_scpdURL</a> = text;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;controlurl&quot;</span>, Qt::CaseInsensitive))</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a7f79f6f93683f622050f5a060553f56f">m_controlURL</a> = text;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;eventsuburl&quot;</span>, Qt::CaseInsensitive))</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a96ed4d49c9f1d77d5970b96255ac3eae">m_eventSubURL</a> = text;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> service;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;scpdurl&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a9f9e63d9f2c87d2fe4f6770ea9460871">m_scpdURL</a> = text;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;controlurl&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a7f79f6f93683f622050f5a060553f56f">m_controlURL</a> = text;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nodeName.contains(<span class="stringliteral">&quot;eventsuburl&quot;</span>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                    service.<a class="code" href="../../d0/d16/struct_q_dlna_service.html#a96ed4d49c9f1d77d5970b96255ac3eae">m_eventSubURL</a> = text;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> service;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 <div class="ttc" id="struct_q_dlna_service_html_a9f9e63d9f2c87d2fe4f6770ea9460871"><div class="ttname"><a href="../../d0/d16/struct_q_dlna_service.html#a9f9e63d9f2c87d2fe4f6770ea9460871">QDlnaService::m_scpdURL</a></div><div class="ttdeci">QString m_scpdURL</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/qdlnaservice_8h_source.html#l00030">qdlnaservice.h:30</a></div></div>
 <div class="ttc" id="class_q_dlna_xml_html_a685f4ae9c7f1c32ea3d9bc6da281ee54"><div class="ttname"><a href="../../d0/d1c/class_q_dlna_xml.html#a685f4ae9c7f1c32ea3d9bc6da281ee54">QDlnaXml::toString</a></div><div class="ttdeci">QString toString() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00046">qdlnaxml.cpp:46</a></div></div>
 <div class="ttc" id="class_q_dlna_xml_private_html_ac29868f83c8042a462fd1a0039c37ad3"><div class="ttname"><a href="../../d1/d1d/class_q_dlna_xml_private.html#ac29868f83c8042a462fd1a0039c37ad3">QDlnaXmlPrivate::QDlnaXmlPrivate</a></div><div class="ttdeci">QDlnaXmlPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00018">qdlnaxml.cpp:18</a></div></div>
@@ -210,11 +217,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_dlna_xml_private_html_a785b12f0e93db162c88ef65b8e898f0a"><div class="ttname"><a href="../../d1/d1d/class_q_dlna_xml_private.html#a785b12f0e93db162c88ef65b8e898f0a">QDlnaXmlPrivate::m_document</a></div><div class="ttdeci">QDomDocument * m_document</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00014">qdlnaxml.cpp:14</a></div></div>
 <div class="ttc" id="struct_q_dlna_service_html_a48ecdec7944cdb691fed87d5bd150a44"><div class="ttname"><a href="../../d0/d16/struct_q_dlna_service.html#a48ecdec7944cdb691fed87d5bd150a44">QDlnaService::m_serviceID</a></div><div class="ttdeci">QString m_serviceID</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/qdlnaservice_8h_source.html#l00033">qdlnaservice.h:33</a></div></div>
 <div class="ttc" id="struct_q_dlna_service_html_a7f79f6f93683f622050f5a060553f56f"><div class="ttname"><a href="../../d0/d16/struct_q_dlna_service.html#a7f79f6f93683f622050f5a060553f56f">QDlnaService::m_controlURL</a></div><div class="ttdeci">QString m_controlURL</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/qdlnaservice_8h_source.html#l00029">qdlnaservice.h:29</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00220">ttkglobal.h:220</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00244">ttkglobal.h:244</a></div></div>
 <div class="ttc" id="qdlnaxml_8h_html"><div class="ttname"><a href="../../d2/dc4/qdlnaxml_8h.html">qdlnaxml.h</a></div></div>
 <div class="ttc" id="struct_q_dlna_service_html"><div class="ttname"><a href="../../d0/d16/struct_q_dlna_service.html">QDlnaService</a></div><div class="ttdoc">The class of the dlna service. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/qdlnaservice_8h_source.html#l00027">qdlnaservice.h:27</a></div></div>
 <div class="ttc" id="class_q_dlna_xml_private_html_a4e6a4b2e5d4597e1f649c2a4d1225203"><div class="ttname"><a href="../../d1/d1d/class_q_dlna_xml_private.html#a4e6a4b2e5d4597e1f649c2a4d1225203">QDlnaXmlPrivate::~QDlnaXmlPrivate</a></div><div class="ttdeci">~QDlnaXmlPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00024">qdlnaxml.cpp:24</a></div></div>
-<div class="ttc" id="class_q_dlna_xml_html_a53e3194a48e1c8eebce94fcb91d1e1b3"><div class="ttname"><a href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">QDlnaXml::readServiceTag</a></div><div class="ttdeci">QDlnaService readServiceTag(const QString &amp;type, const QString &amp;tagName) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00086">qdlnaxml.cpp:86</a></div></div>
+<div class="ttc" id="class_q_dlna_xml_html_a53e3194a48e1c8eebce94fcb91d1e1b3"><div class="ttname"><a href="../../d0/d1c/class_q_dlna_xml.html#a53e3194a48e1c8eebce94fcb91d1e1b3">QDlnaXml::readServiceTag</a></div><div class="ttdeci">QDlnaService readServiceTag(const QString &amp;type, const QString &amp;tagName) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de0/qdlnaxml_8cpp_source.html#l00082">qdlnaxml.cpp:82</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a></div><div class="ttdoc">The class of the ttk private base. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00048">ttkprivate.h:48</a></div></div>
 <div class="ttc" id="struct_q_dlna_service_html_a96ed4d49c9f1d77d5970b96255ac3eae"><div class="ttname"><a href="../../d0/d16/struct_q_dlna_service.html#a96ed4d49c9f1d77d5970b96255ac3eae">QDlnaService::m_eventSubURL</a></div><div class="ttdeci">QString m_eventSubURL</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/df5/qdlnaservice_8h_source.html#l00031">qdlnaservice.h:31</a></div></div>
@@ -225,7 +232,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:28 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

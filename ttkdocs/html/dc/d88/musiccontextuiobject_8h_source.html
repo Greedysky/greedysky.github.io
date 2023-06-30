@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -100,40 +100,44 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d2/dc5/namespace_music_u_i_object.html">   27</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d2/dc5/namespace_music_u_i_object.html">MusicUIObject</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/d63/namespace_t_t_k.html">TTK</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d2/dc5/namespace_music_u_i_object.html#af8af8f6711a2556ec53ca4dc998d9cdf">   29</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#af8af8f6711a2556ec53ca4dc998d9cdf">ContextPlay</a> = <span class="stringliteral">&quot; \</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_play_hover); } \</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_play_normal); }&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d2/dc5/namespace_music_u_i_object.html#a306e1314bb260a6118f2bca33faf8c04">   34</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a306e1314bb260a6118f2bca33faf8c04">ContextPause</a> = <span class="stringliteral">&quot; \</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_pause_hover); } \</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_pause_normal); }&quot;</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d2/dc5/namespace_music_u_i_object.html#a137e6b23d8477aeb3049eda91b6c05bf">   39</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#a137e6b23d8477aeb3049eda91b6c05bf">ContextNext</a> = <span class="stringliteral">&quot; \</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_next_hover); } \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_next_normal); }&quot;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d2/dc5/namespace_music_u_i_object.html#ae34d6c8edf178aa6b30f87c3bc231e73">   44</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="../../d2/dc5/namespace_music_u_i_object.html#ae34d6c8edf178aa6b30f87c3bc231e73">ContextPrevious</a> = <span class="stringliteral">&quot; \</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_previous_hover); } \</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_previous_normal); }&quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html">   29</a></span>&#160;    <span class="keyword">namespace </span><a class="code" href="../../d9/d54/namespace_u_i.html">UI</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a53a59362f7d80b400a30a1d75ec90079">   31</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a53a59362f7d80b400a30a1d75ec90079">ContextPlay</a> = <span class="stringliteral">&quot; \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_play_hover); } \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_play_normal); }&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a103b567732e7af61738b73ec4c8a4b88">   36</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a103b567732e7af61738b73ec4c8a4b88">ContextPause</a> = <span class="stringliteral">&quot; \</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_pause_hover); } \</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_pause_normal); }&quot;</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a2e0ef3982cee0cdee80903884a6f66d8">   41</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a2e0ef3982cee0cdee80903884a6f66d8">ContextNext</a> = <span class="stringliteral">&quot; \</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_next_hover); } \</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_next_normal); }&quot;</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a84d6e6b05f805c9c87989f557b6ce5ff">   46</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> QString <a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a84d6e6b05f805c9c87989f557b6ce5ff">ContextPrevious</a> = <span class="stringliteral">&quot; \</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">            QToolButton{ border:none; \</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">            background-image: url(:/contextMenu/btn_previous_hover); } \</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">            QToolButton:hover{ background-image: url(:/contextMenu/btn_previous_normal); }&quot;</span>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif // MUSICCONTEXTUIOBJECT_H</span></div>
-<div class="ttc" id="namespace_music_u_i_object_html"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html">MusicUIObject</a></div><div class="ttdoc">The namespace of the application ui object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00027">musiccontextuiobject.h:27</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_ae34d6c8edf178aa6b30f87c3bc231e73"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#ae34d6c8edf178aa6b30f87c3bc231e73">MusicUIObject::ContextPrevious</a></div><div class="ttdeci">const QString ContextPrevious</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00044">musiccontextuiobject.h:44</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_a137e6b23d8477aeb3049eda91b6c05bf"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a137e6b23d8477aeb3049eda91b6c05bf">MusicUIObject::ContextNext</a></div><div class="ttdeci">const QString ContextNext</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00039">musiccontextuiobject.h:39</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_af8af8f6711a2556ec53ca4dc998d9cdf"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#af8af8f6711a2556ec53ca4dc998d9cdf">MusicUIObject::ContextPlay</a></div><div class="ttdeci">const QString ContextPlay</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00029">musiccontextuiobject.h:29</a></div></div>
-<div class="ttc" id="namespace_music_u_i_object_html_a306e1314bb260a6118f2bca33faf8c04"><div class="ttname"><a href="../../d2/dc5/namespace_music_u_i_object.html#a306e1314bb260a6118f2bca33faf8c04">MusicUIObject::ContextPause</a></div><div class="ttdeci">const QString ContextPause</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00034">musiccontextuiobject.h:34</a></div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // MUSICCONTEXTUIOBJECT_H</span></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a103b567732e7af61738b73ec4c8a4b88"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a103b567732e7af61738b73ec4c8a4b88">TTK::UI::ContextPause</a></div><div class="ttdeci">static const QString ContextPause</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00036">musiccontextuiobject.h:36</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a53a59362f7d80b400a30a1d75ec90079"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a53a59362f7d80b400a30a1d75ec90079">TTK::UI::ContextPlay</a></div><div class="ttdeci">static const QString ContextPlay</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00031">musiccontextuiobject.h:31</a></div></div>
+<div class="ttc" id="namespace_u_i_html"><div class="ttname"><a href="../../d9/d54/namespace_u_i.html">UI</a></div><div class="ttdoc">The namespace of the application ui object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d33/qkugouuiobject_8h_source.html#l00027">qkugouuiobject.h:27</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html">TTK</a></div><div class="ttdoc">The namespace of the application object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da4/miniprocess_8h_source.html#l00024">miniprocess.h:24</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a84d6e6b05f805c9c87989f557b6ce5ff"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a84d6e6b05f805c9c87989f557b6ce5ff">TTK::UI::ContextPrevious</a></div><div class="ttdeci">static const QString ContextPrevious</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00046">musiccontextuiobject.h:46</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a2e0ef3982cee0cdee80903884a6f66d8"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a2e0ef3982cee0cdee80903884a6f66d8">TTK::UI::ContextNext</a></div><div class="ttdeci">static const QString ContextNext</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d88/musiccontextuiobject_8h_source.html#l00041">musiccontextuiobject.h:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:23 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:52 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

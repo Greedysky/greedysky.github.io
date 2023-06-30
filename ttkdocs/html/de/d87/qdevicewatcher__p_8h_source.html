@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -126,62 +126,62 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d9/db1/class_q_device_watcher_private.html">QDeviceWatcherPrivate</a></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;#if <a class="code" href="../../de/d87/qdevicewatcher__p_8h.html#a4e13e4c79d9b04e4914c95c37c3694bc">CONFIG_THREAD</a></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        : <span class="keyword">public</span> QThread</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    : <span class="keyword">public</span> QThread</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    : <span class="keyword">public</span> QObject</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif //CONFIG_THREAD</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        Q_OBJECT</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#a2b32368276599bdea24e182b8018bb96">   60</a></span>&#160;        <a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a2b32368276599bdea24e182b8018bb96">QDeviceWatcherPrivate</a>(QObject *parent = <span class="keyword">nullptr</span>) :</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#a2b32368276599bdea24e182b8018bb96">   60</a></span>&#160;    <a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a2b32368276599bdea24e182b8018bb96">QDeviceWatcherPrivate</a>(QObject *parent = <span class="keyword">nullptr</span>) :</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;#if <a class="code" href="../../de/d87/qdevicewatcher__p_8h.html#a4e13e4c79d9b04e4914c95c37c3694bc">CONFIG_THREAD</a></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        QThread(parent)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    QThread(parent)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;#else</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QObject(parent)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    QObject(parent)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;#endif <span class="comment">//CONFIG_THREAD</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">//initialize();</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        ~<a class="code" href="../../d9/db1/class_q_device_watcher_private.html">QDeviceWatcherPrivate</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ~<a class="code" href="../../d9/db1/class_q_device_watcher_private.html">QDeviceWatcherPrivate</a>();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#a9026e716f3e5996a06dc36d3864f9509">   71</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a9026e716f3e5996a06dc36d3864f9509">setWatcher</a>(<a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a> *w) {watcher=w;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#a9026e716f3e5996a06dc36d3864f9509">   71</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a9026e716f3e5996a06dc36d3864f9509">setWatcher</a>(<a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a> *w) {watcher=w;}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> start(); <span class="comment">//conflict with QThread::start()</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> stop();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> stop();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">//Do not use Qt::DirectConnection. this thread is not watcher&#39;s thread!</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> emitDeviceAdded(<span class="keyword">const</span> QString&amp; dev);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> emitDeviceChanged(<span class="keyword">const</span> QString&amp; dev); <span class="comment">//Linux: when umounting the device</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> emitDeviceRemoved(<span class="keyword">const</span> QString&amp; dev);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> emitDeviceAction(<span class="keyword">const</span> QString&amp; dev, <span class="keyword">const</span> QString&amp; action);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">//Do not use Qt::DirectConnection. this thread is not watcher&#39;s thread!</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> emitDeviceAdded(<span class="keyword">const</span> QString&amp; dev);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> emitDeviceChanged(<span class="keyword">const</span> QString&amp; dev); <span class="comment">//Linux: when umounting the device</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> emitDeviceRemoved(<span class="keyword">const</span> QString&amp; dev);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> emitDeviceAction(<span class="keyword">const</span> QString&amp; dev, <span class="keyword">const</span> QString&amp; action);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#a0eac2f318455cef5e35840e06cfbf35e">   81</a></span>&#160;    QObjectList <a class="code" href="../../d9/db1/class_q_device_watcher_private.html#a0eac2f318455cef5e35840e06cfbf35e">event_receivers</a>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> parseDeviceInfo();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> parseDeviceInfo();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">   87</a></span>&#160;        <a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a> *<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">watcher</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">   87</a></span>&#160;    <a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a> *<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">watcher</a>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> initialize();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#if CONFIG_THREAD</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> run();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run();</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif //CONFIG_THREAD</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#if defined(Q_OS_LINUX)</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        QBuffer buffer;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span> parseLine(<span class="keyword">const</span> QByteArray &amp;line);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QBuffer buffer;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> parseLine(<span class="keyword">const</span> QByteArray &amp;line);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#  if CONFIG_TCPSOCKET</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">class </span>QTcpSocket *tcp_socket;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">class </span>QTcpSocket *tcp_socket;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#  elif CONFIG_SOCKETNOTIFIER</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">class </span>QSocketNotifier *socket_notifier;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">class </span>QSocketNotifier *socket_notifier;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#  endif</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        QString bus_name;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">int</span> netlink_socket;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    QString bus_name;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">int</span> netlink_socket;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#elif defined(Q_OS_WIN32)</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        HWND hwnd;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    HWND hwnd;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#elif defined(Q_OS_WINCE)</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        HANDLE mQueueHandle;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        HANDLE mNotificationHandle;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    HANDLE mQueueHandle;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    HANDLE mNotificationHandle;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#ifdef Q_OS_MAC</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">bool</span> mStop;</div>
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:31 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:57 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -108,21 +108,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#  define QtFontWidth(p, t) p.width(t)</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,2,0)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a7cb3b018205c6aa65819ec7c9f6b2368">   38</a></span>&#160;<span class="preprocessor">#  define QtFontInit_1(f) QFont(QStringList() &lt;&lt; f)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a11242ebe2176ad63b6cb2013dab2729f">   39</a></span>&#160;<span class="preprocessor">#  define QtFontInit_2(f, p) QFont(QStringList() &lt;&lt; f, p)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a2c0640769a8f4e3e5b1dd03b5d55c209">   40</a></span>&#160;<span class="preprocessor">#  define QtFontInit_3(f, p, w) QFont(QStringList() &lt;&lt; f, p, w)</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#  define QtFontInit_1(f) QFont(f)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#  define QtFontInit_2(f, p) QFont(f, p)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#  define QtFontInit_3(f, p, w) QFont(f, p, w)</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//#if TTK_QT_VERSION_CHECK(6,2,0)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//#  define QtFontInit_1(f) QFont(QStringList() &lt;&lt; f)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//#  define QtFontInit_2(f, p) QFont(QStringList() &lt;&lt; f, p)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//#  define QtFontInit_3(f, p, w) QFont(QStringList() &lt;&lt; f, p, w)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">//#else</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//#  define QtFontInit_1(f) QFont(f)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//#  define QtFontInit_2(f, p) QFont(f, p)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//#  define QtFontInit_3(f, p, w) QFont(f, p, w)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//#endif</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifndef Q_CC_MSVC</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a09a074f1511114ab85f53284ca953e73">   48</a></span>&#160;<span class="preprocessor">#  define QtFontInit(...) TTK_PP_OVERLOAD(QtFontInit_, __VA_ARGS__)(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#  define QtFontInit(...) TTK_PP_CAT(TTK_PP_OVERLOAD(QtFontInit_, __VA_ARGS__)(__VA_ARGS__), TTK_PP_EMPTY())</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//#ifndef Q_CC_MSVC</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//#  define QtFontInit(...) TTK_PP_OVERLOAD(QtFontInit_, __VA_ARGS__)(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//#else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//#  define QtFontInit(...) TTK_PP_CAT(TTK_PP_OVERLOAD(QtFontInit_, __VA_ARGS__)(__VA_ARGS__), TTK_PP_EMPTY())</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//#endif</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a35dcd471ba5f65fc3076c6372145edeb">   55</a></span>&#160;<span class="preprocessor">#  define QtImageBytes(p) p.sizeInBytes()</span></div>
@@ -143,51 +143,51 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a615bfda2481fc5bc5e6d05bf11d27386">   76</a></span>&#160;<span class="preprocessor">#  define QtNetworkErrorNoneConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a3c8831609b634feb6c29c92c5373bb86">   76</a></span>&#160;<span class="preprocessor">#  define QtNetworkErrorConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), q, SLOT(f(QNetworkReply::NetworkError)))</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#  define QtNetworkErrorNoneConnect(p, q, f) QObject::connect(p, SIGNAL(error(QNetworkReply::NetworkError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#  define QtNetworkErrorConnect(p, q, f) QObject::connect(p, SIGNAL(error(QNetworkReply::NetworkError)), q, SLOT(f(QNetworkReply::NetworkError)))</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a3c8831609b634feb6c29c92c5373bb86">   83</a></span>&#160;<span class="preprocessor">#  define QtNetworkErrorConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), q, SLOT(f(QNetworkReply::NetworkError)))</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a47ae1b327d7638dd82d6f657f20f5015">   83</a></span>&#160;<span class="preprocessor">#  define QtNetworkErrorVoidConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QNetworkReply::NetworkError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#  define QtNetworkErrorConnect(p, q, f) QObject::connect(p, SIGNAL(error(QNetworkReply::NetworkError)), q, SLOT(f(QNetworkReply::NetworkError)))</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#  define QtNetworkErrorVoidConnect(p, q, f) QObject::connect(p, SIGNAL(error(QNetworkReply::NetworkError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a4ba396682ed5c757a0d32e06b95ffc85">   90</a></span>&#160;<span class="preprocessor">#  define QtSocketErrorNoneConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a9c42a09cd527a88adf9aebd4b9cafb98">   90</a></span>&#160;<span class="preprocessor">#  define QtSocketErrorConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), q, SLOT(f(QAbstractSocket::SocketError)))</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#  define QtSocketErrorNoneConnect(p, q, f) QObject::connect(p, SIGNAL(error(QAbstractSocket::SocketError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#  define QtSocketErrorConnect(p, q, f) QObject::connect(p, SIGNAL(error(QAbstractSocket::SocketError)), q, SLOT(f(QAbstractSocket::SocketError)))</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a9c42a09cd527a88adf9aebd4b9cafb98">   97</a></span>&#160;<span class="preprocessor">#  define QtSocketErrorConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), q, SLOT(f(QAbstractSocket::SocketError)))</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#ae0f2c17faf2b97bc5a8758b33e0114c3">   97</a></span>&#160;<span class="preprocessor">#  define QtSocketErrorVoidConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QAbstractSocket::SocketError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#  define QtSocketErrorConnect(p, q, f) QObject::connect(p, SIGNAL(error(QAbstractSocket::SocketError)), q, SLOT(f(QAbstractSocket::SocketError)))</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#  define QtSocketErrorVoidConnect(p, q, f) QObject::connect(p, SIGNAL(error(QAbstractSocket::SocketError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a4f4b202826427cd739d4386ecd5ad942">  104</a></span>&#160;<span class="preprocessor">#  define QtProcessNoneConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QProcess::ProcessError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a8f739a4a7fc95b0134a44b975d28dbd3">  104</a></span>&#160;<span class="preprocessor">#  define QtProcessConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QProcess::ProcessError)), q, SLOT(f(QProcess::ProcessError)))</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#  define QtProcessNoneConnect(p, q, f) QObject::connect(p, SIGNAL(error(QProcess::ProcessError)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#  define QtProcessConnect(p, q, f) QObject::connect(p, SIGNAL(error(QProcess::ProcessError)), q, SLOT(f(QProcess::ProcessError)))</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a8f739a4a7fc95b0134a44b975d28dbd3">  111</a></span>&#160;<span class="preprocessor">#  define QtProcessConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QProcess::ProcessError)), q, SLOT(f(QProcess::ProcessError)))</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a33bb35e4a51b9fb15cbfb84542f359d5">  111</a></span>&#160;<span class="preprocessor">#  define QtProcessVoidConnect(p, q, f) QObject::connect(p, SIGNAL(errorOccurred(QProcess::ProcessError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#  define QtProcessConnect(p, q, f) QObject::connect(p, SIGNAL(error(QProcess::ProcessError)), q, SLOT(f(QProcess::ProcessError)))</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#  define QtProcessVoidConnect(p, q, f) QObject::connect(p, SIGNAL(error(QProcess::ProcessError)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a0fe05f129fcc939905a35d2fdf19a502">  118</a></span>&#160;<span class="preprocessor">#  define QtButtonGroupNoneConnect(p, q, f) QObject::connect(p, SIGNAL(idClicked(int)), SLOT(f()))</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">  118</a></span>&#160;<span class="preprocessor">#  define QtButtonGroupConnect(p, q, f) QObject::connect(p, SIGNAL(idClicked(int)), SLOT(f(int)))</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#  define QtButtonGroupNoneConnect(p, q, f) QObject::connect(p, SIGNAL(buttonClicked(int)), q, SLOT(f()))</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#  define QtButtonGroupConnect(p, q, f) QObject::connect(p, SIGNAL(buttonClicked(int)), q, SLOT(f(int)))</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a8e99c2deac9e531f7ff20d23d05767cd">  125</a></span>&#160;<span class="preprocessor">#  define QtButtonGroupConnect(p, q, f) QObject::connect(p, SIGNAL(idClicked(int)), SLOT(f(int)))</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a33bad2a058e5509ffcd74f8fe00370b0">  125</a></span>&#160;<span class="preprocessor">#  define QtButtonGroupVoidConnect(p, q, f) QObject::connect(p, SIGNAL(idClicked(int)), SLOT(f()))</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#  define QtButtonGroupConnect(p, q, f) QObject::connect(p, SIGNAL(buttonClicked(int)), q, SLOT(f(int)))</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#  define QtButtonGroupVoidConnect(p, q, f) QObject::connect(p, SIGNAL(buttonClicked(int)), q, SLOT(f()))</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
@@ -209,25 +209,25 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,15,0)</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#ae4c0aa3570f34f7c7a07063acb6ce214">  153</a></span>&#160;<span class="preprocessor">#  define QtWheelEventDelta(p) p-&gt;angleDelta().y()</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a0536347ffa996135eb0317246b94984e">  153</a></span>&#160;<span class="preprocessor">#  define QtWheelDelta(p) p-&gt;angleDelta().y()</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#  define QtWheelEventDelta(p) p-&gt;delta()</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#  define QtWheelDelta(p) p-&gt;delta()</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a7d0097af84491152e45e580d697f11ab">  160</a></span>&#160;<span class="preprocessor">#  define QtMouseEventX(p) p-&gt;position().x()</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a1f132bdfb81546bd79c781b278d32282">  161</a></span>&#160;<span class="preprocessor">#  define QtMouseEventY(p) p-&gt;position().y()</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#ad5f41979175c8682153b000c4bfec4da">  162</a></span>&#160;<span class="preprocessor">#  define QtMouseEventPos(p) p-&gt;position()</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a59873bb8596a3b2aa22e90a55a8324e3">  163</a></span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalX(p) p-&gt;globalPosition().x()</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a0ecdcafbad6d473f87805aaa10a8d40f">  164</a></span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalY(p) p-&gt;globalPosition().y()</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a8db058a93b49086b5f8922d6c3967895">  165</a></span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalPos(p) p-&gt;globalPosition().toPoint()</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a117f57e5edf062523f733d676f217df9">  160</a></span>&#160;<span class="preprocessor">#  define QtMouseX(p) p-&gt;position().x()</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#ad33e3a7d978de877acc6eceaa5260920">  161</a></span>&#160;<span class="preprocessor">#  define QtMouseY(p) p-&gt;position().y()</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#af5c5a19af0c5f6799b3ef02a04243bbb">  162</a></span>&#160;<span class="preprocessor">#  define QtMousePos(p) p-&gt;position()</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#aed60a64f7f9c2710a35543c8a6763e83">  163</a></span>&#160;<span class="preprocessor">#  define QtMouseGlobalX(p) p-&gt;globalPosition().x()</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a5b510c9b78431109f1be5ed003998d7e">  164</a></span>&#160;<span class="preprocessor">#  define QtMouseGlobalY(p) p-&gt;globalPosition().y()</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#af3dde7158c8b8c2d537762ddecf42755">  165</a></span>&#160;<span class="preprocessor">#  define QtMouseGlobalPos(p) p-&gt;globalPosition().toPoint()</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#  define QtMouseEventX(p) p-&gt;x()</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#  define QtMouseEventY(p) p-&gt;y()</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#  define QtMouseEventPos(p) p-&gt;pos()</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalX(p) p-&gt;globalX()</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalY(p) p-&gt;globalY()</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#  define QtMouseEventGlobalPos(p) p-&gt;globalPos()</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#  define QtMouseX(p) p-&gt;x()</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#  define QtMouseY(p) p-&gt;y()</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#  define QtMousePos(p) p-&gt;pos()</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#  define QtMouseGlobalX(p) p-&gt;globalX()</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#  define QtMouseGlobalY(p) p-&gt;globalY()</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#  define QtMouseGlobalPos(p) p-&gt;globalPos()</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
@@ -241,15 +241,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#  define QtVariantType(p) p.type()</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;}</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#endif // TTKQTCOMPAT_H</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a31204304df6a27c69b3a7707b9e46aed">  191</a></span>&#160;<span class="preprocessor">#  define QtKeySequence(k, m) QKeySequence(QKeyCombination(m, k))</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#  define QtKeySequence(k, m) QKeySequence(k + m)</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(6,0,0)</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="../../d9/d0e/ttkqtcompat_8h.html#a185009d3244ad1a2d83072d6b937968a">  198</a></span>&#160;<span class="preprocessor">#  define QtKeyCombine(p) p.toCombined()</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#  define QtKeyCombine(p) p</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#endif // TTKQTCOMPAT_H</span></div>
 <div class="ttc" id="ttkglobal_8h_html"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html">ttkglobal.h</a></div></div>
 <div class="ttc" id="namespace_qt_compat_html"><div class="ttname"><a href="../../d3/dc7/namespace_qt_compat.html">QtCompat</a></div><div class="ttdoc">The class of the qt compat function wrapper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00027">ttkqtcompat.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:18 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

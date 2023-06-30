@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -117,8 +117,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    ttk_d.setPrivate(&amp;PVT); \</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    ttk_d.setPublic(this);</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">   41</a></span>&#160;<span class="preprocessor">#define TTK_D(Class) Class##Private *const d = TTKStatic_cast(Class##Private*, ttk_d())</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d24/ttkprivate_8h.html#a9351e183c807bfeb527cb03567e7ef41">   42</a></span>&#160;<span class="preprocessor">#define TTK_Q(Class) Class *const q = TTKStatic_cast(Class*, ttk_q())</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">   41</a></span>&#160;<span class="preprocessor">#define TTK_D(Class) Class##Private *const d = TTKStaticCast(Class##Private*, ttk_d())</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d24/ttkprivate_8h.html#a9351e183c807bfeb527cb03567e7ef41">   42</a></span>&#160;<span class="preprocessor">#define TTK_Q(Class) Class *const q = TTKStaticCast(Class*, ttk_q())</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> PUB&gt;</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d29/class_t_t_k_private.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a></div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
 <div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../dd/d8d/class_t_t_k_private_interface.html#a821c426707a7346459a487892fa11593">  115</a></span>&#160;    <span class="keyword">inline</span> PVT *<a class="code" href="../../dd/d8d/class_t_t_k_private_interface.html#a821c426707a7346459a487892fa11593">operator()</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a>(PVT*, m_dptr);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#a32e25a5408ff341ddf9026019e94ab45">TTKStaticCast</a>(PVT*, m_dptr);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">private</span>:</div>
@@ -197,15 +197,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif // TTKPRIVATE_H</span></div>
+<div class="ttc" id="ttkglobal_8h_html_a32e25a5408ff341ddf9026019e94ab45"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a32e25a5408ff341ddf9026019e94ab45">TTKStaticCast</a></div><div class="ttdeci">#define TTKStaticCast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00112">ttkglobal.h:112</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html_a554e4829d3f279d939a08c6ef8fb5b7e"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html#a554e4829d3f279d939a08c6ef8fb5b7e">TTKPrivate::ttk_q</a></div><div class="ttdeci">PUB * ttk_q() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00068">ttkprivate.h:68</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a38cad424af54e468422e977593b752de"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a></div><div class="ttdeci">#define TTK_DISABLE_COPY(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00172">ttkglobal.h:172</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a38cad424af54e468422e977593b752de"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a></div><div class="ttdeci">#define TTK_DISABLE_COPY(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00195">ttkglobal.h:195</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html_a62fe17af79844d59047d01135cacc8e5"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html#a62fe17af79844d59047d01135cacc8e5">TTKPrivate::~TTKPrivate</a></div><div class="ttdeci">virtual ~TTKPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00057">ttkprivate.h:57</a></div></div>
 <div class="ttc" id="class_t_t_k_private_interface_html_a7a80c0903333798571d3647ea3e62eee"><div class="ttname"><a href="../../dd/d8d/class_t_t_k_private_interface.html#a7a80c0903333798571d3647ea3e62eee">TTKPrivateInterface::~TTKPrivateInterface</a></div><div class="ttdeci">~TTKPrivateInterface()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00099">ttkprivate.h:99</a></div></div>
 <div class="ttc" id="class_t_t_k_private_interface_html_a96ab1725b9123d9b37660bf80d6dd64a"><div class="ttname"><a href="../../dd/d8d/class_t_t_k_private_interface.html#a96ab1725b9123d9b37660bf80d6dd64a">TTKPrivateInterface::setPrivate</a></div><div class="ttdeci">void setPrivate(PVT *pvt)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00104">ttkprivate.h:104</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="class_t_t_k_private_interface_html_af3c14aedb059e7040114b7dffdbe92e1"><div class="ttname"><a href="../../dd/d8d/class_t_t_k_private_interface.html#af3c14aedb059e7040114b7dffdbe92e1">TTKPrivateInterface::m_dptr</a></div><div class="ttdeci">TTKPrivate&lt; PUB &gt; * m_dptr</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00121">ttkprivate.h:121</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_afad224d36cc24240d9d006a42145c953"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#afad224d36cc24240d9d006a42145c953">TTKStatic_cast</a></div><div class="ttdeci">#define TTKStatic_cast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00089">ttkglobal.h:89</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html_ac183d2c2077a98e7c92c570e55e6eb3c"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html#ac183d2c2077a98e7c92c570e55e6eb3c">TTKPrivate::setPublic</a></div><div class="ttdeci">void setPublic(PUB *pub)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00062">ttkprivate.h:62</a></div></div>
 <div class="ttc" id="class_t_t_k_private_interface_html_a8c61de11dc21b5a2a453e62cdd99c536"><div class="ttname"><a href="../../dd/d8d/class_t_t_k_private_interface.html#a8c61de11dc21b5a2a453e62cdd99c536">TTKPrivateInterface::TTKPrivateInterface</a></div><div class="ttdeci">TTKPrivateInterface()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00087">ttkprivate.h:87</a></div></div>
 <div class="ttc" id="class_t_t_k_private_html_a6744df2c1be81f4107d0175ecc8f932d"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html#a6744df2c1be81f4107d0175ecc8f932d">TTKPrivate::m_qptr</a></div><div class="ttdeci">PUB * m_qptr</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00074">ttkprivate.h:74</a></div></div>
@@ -218,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:18 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

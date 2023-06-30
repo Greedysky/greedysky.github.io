@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -130,41 +130,44 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html">MusicSongSearchPopWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    ~<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html">MusicSongSearchPopWidget</a>();</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> initialize();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> createSuggestItems(<span class="keyword">const</span> QStringList &amp;names);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> clearButtonClicked();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    QString utcTimeToLocal(<span class="keyword">const</span> QString &amp;time) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">  110</a></span>&#160;    QPushButton *<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">m_clearButton</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">  111</a></span>&#160;    <a class="code" href="../../d9/db1/class_music_song_search_pop_table_widget.html">MusicSongSearchPopTableWidget</a> *<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">m_popTableWidget</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif // MUSICSONGSEARCHPOPTABLEWIDGET_H</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> initialize(QWidget *parent);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> setControlEnabled(<span class="keywordtype">bool</span> enabled);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> createSuggestItems(<span class="keyword">const</span> QStringList &amp;names);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> setText(<span class="keyword">const</span> QString &amp;text);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> clearButtonClicked();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    QString utcTimeToLocal(<span class="keyword">const</span> QString &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#a0e798203a34ae9ddb21f823b20595fc5">  114</a></span>&#160;    QFrame *<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#a0e798203a34ae9ddb21f823b20595fc5">m_frame</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">  115</a></span>&#160;    QPushButton *<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">m_clearButton</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">  116</a></span>&#160;    <a class="code" href="../../d9/db1/class_music_song_search_pop_table_widget.html">MusicSongSearchPopTableWidget</a> *<a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">m_popTableWidget</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif // MUSICSONGSEARCHPOPTABLEWIDGET_H</span></div>
+<div class="ttc" id="class_music_song_search_pop_widget_html_a0e798203a34ae9ddb21f823b20595fc5"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a0e798203a34ae9ddb21f823b20595fc5">MusicSongSearchPopWidget::m_frame</a></div><div class="ttdeci">QFrame * m_frame</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00114">musicsongsearchpopwidget.h:114</a></div></div>
 <div class="ttc" id="musicabstracttablewidget_8h_html"><div class="ttname"><a href="../../da/db4/musicabstracttablewidget_8h.html">musicabstracttablewidget.h</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html">MusicAbstractTableWidget</a></div><div class="ttdoc">The class of the table widget base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db4/musicabstracttablewidget_8h_source.html#l00031">musicabstracttablewidget.h:31</a></div></div>
 <div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00183">ttkglobal.h:183</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00206">ttkglobal.h:206</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a7685d68dc9e88dfb74c2f43346b79337"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a7685d68dc9e88dfb74c2f43346b79337">MusicAbstractTableWidget::removeItems</a></div><div class="ttdeci">virtual void removeItems()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00084">musicabstracttablewidget.cpp:84</a></div></div>
-<div class="ttc" id="class_music_song_search_pop_widget_html_a14518ff508a916102ed370a4c7b0fe82"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">MusicSongSearchPopWidget::m_clearButton</a></div><div class="ttdeci">QPushButton * m_clearButton</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00110">musicsongsearchpopwidget.h:110</a></div></div>
+<div class="ttc" id="class_music_song_search_pop_widget_html_a14518ff508a916102ed370a4c7b0fe82"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a14518ff508a916102ed370a4c7b0fe82">MusicSongSearchPopWidget::m_clearButton</a></div><div class="ttdeci">QPushButton * m_clearButton</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00115">musicsongsearchpopwidget.h:115</a></div></div>
 <div class="ttc" id="class_music_song_search_pop_widget_html"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html">MusicSongSearchPopWidget</a></div><div class="ttdoc">The class of the search history Config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00067">musicsongsearchpopwidget.h:67</a></div></div>
 <div class="ttc" id="class_music_abstract_table_widget_html_a9265069e77b64721d57f5f0f37af5ca7"><div class="ttname"><a href="../../d1/dab/class_music_abstract_table_widget.html#a9265069e77b64721d57f5f0f37af5ca7">MusicAbstractTableWidget::itemCellClicked</a></div><div class="ttdeci">virtual void itemCellClicked(int row, int column)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d08/musicabstracttablewidget_8cpp_source.html#l00078">musicabstracttablewidget.cpp:78</a></div></div>
-<div class="ttc" id="class_music_song_search_pop_widget_html_a056d74d6e24a8e466864e775fb5bb999"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">MusicSongSearchPopWidget::m_popTableWidget</a></div><div class="ttdeci">MusicSongSearchPopTableWidget * m_popTableWidget</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00111">musicsongsearchpopwidget.h:111</a></div></div>
+<div class="ttc" id="class_music_song_search_pop_widget_html_a056d74d6e24a8e466864e775fb5bb999"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a056d74d6e24a8e466864e775fb5bb999">MusicSongSearchPopWidget::m_popTableWidget</a></div><div class="ttdeci">MusicSongSearchPopTableWidget * m_popTableWidget</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00116">musicsongsearchpopwidget.h:116</a></div></div>
 <div class="ttc" id="class_music_song_search_pop_table_widget_html"><div class="ttname"><a href="../../d9/db1/class_music_song_search_pop_table_widget.html">MusicSongSearchPopTableWidget</a></div><div class="ttdoc">The class of the search popup table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/musicsongsearchpopwidget_8h_source.html#l00029">musicsongsearchpopwidget.h:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:22 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:50 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -81,25 +81,25 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QTextCodec&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">    5</a></span>&#160;QString <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">MusicUtils::Codec::toUnicode</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a8f462a1884728951ea782c674e58dbbb">    5</a></span>&#160;QString <a class="code" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a8f462a1884728951ea782c674e58dbbb">TTK::Codec::toUnicode</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;toUnicode(chars) : QString();</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#af44f7a1752684ad9f4a572fd92a09c2b">   11</a></span>&#160;QString <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">MusicUtils::Codec::toUnicode</a>(<span class="keyword">const</span> QByteArray &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a0590e367d6739ab926e5591d759aff2b">   11</a></span>&#160;QString <a class="code" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a8f462a1884728951ea782c674e58dbbb">TTK::Codec::toUnicode</a>(<span class="keyword">const</span> QByteArray &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;toUnicode(chars) : QString();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#ae716171331569696874cb1f75dc2e3bb">   17</a></span>&#160;QByteArray <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#ae716171331569696874cb1f75dc2e3bb">MusicUtils::Codec::fromUnicode</a>(<span class="keyword">const</span> QString &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a558af0be4f7e42daa52b9f239970c1ac">   17</a></span>&#160;QByteArray <a class="code" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a558af0be4f7e42daa52b9f239970c1ac">TTK::Codec::fromUnicode</a>(<span class="keyword">const</span> QString &amp;chars, <span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> codec ? codec-&gt;fromUnicode(chars) : QByteArray();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a5455c2dc4ea08481239d04d2ffeaa135">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d67/namespace_music_utils_1_1_codec.html#a5455c2dc4ea08481239d04d2ffeaa135">MusicUtils::Codec::setLocalCodec</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a0618252632bae05fb220324f221b24ef">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a0618252632bae05fb220324f221b24ef">TTK::Codec::setLocalCodec</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QTextCodec *codec = QTextCodec::codecForName(format);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QTextCodec::setCodecForLocale(codec);</div>
@@ -108,14 +108,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QTextCodec::setCodecForTr(codec);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="ttc" id="namespace_music_utils_1_1_codec_html_ae716171331569696874cb1f75dc2e3bb"><div class="ttname"><a href="../../d5/d67/namespace_music_utils_1_1_codec.html#ae716171331569696874cb1f75dc2e3bb">MusicUtils::Codec::fromUnicode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray fromUnicode(const QString &amp;chars, const char *format=&quot;GBK&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00017">musiccodecutils.cpp:17</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_codec_html_a5455c2dc4ea08481239d04d2ffeaa135"><div class="ttname"><a href="../../d5/d67/namespace_music_utils_1_1_codec.html#a5455c2dc4ea08481239d04d2ffeaa135">MusicUtils::Codec::setLocalCodec</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setLocalCodec(const char *format=&quot;UTF-8&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00023">musiccodecutils.cpp:23</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_codec_html_a558af0be4f7e42daa52b9f239970c1ac"><div class="ttname"><a href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a558af0be4f7e42daa52b9f239970c1ac">TTK::Codec::fromUnicode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray fromUnicode(const QString &amp;chars, const char *format=&quot;GBK&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00017">musiccodecutils.cpp:17</a></div></div>
 <div class="ttc" id="musiccodecutils_8h_html"><div class="ttname"><a href="../../df/d26/musiccodecutils_8h.html">musiccodecutils.h</a></div></div>
-<div class="ttc" id="namespace_music_utils_1_1_codec_html_a4d027b5a32bcec9edbd243e701efde4b"><div class="ttname"><a href="../../d5/d67/namespace_music_utils_1_1_codec.html#a4d027b5a32bcec9edbd243e701efde4b">MusicUtils::Codec::toUnicode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString toUnicode(const char *chars, const char *format=&quot;GBK&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00005">musiccodecutils.cpp:5</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_codec_html_a0618252632bae05fb220324f221b24ef"><div class="ttname"><a href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a0618252632bae05fb220324f221b24ef">TTK::Codec::setLocalCodec</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setLocalCodec(const char *format=&quot;UTF-8&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00023">musiccodecutils.cpp:23</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_codec_html_a8f462a1884728951ea782c674e58dbbb"><div class="ttname"><a href="../../d2/d9d/namespace_t_t_k_1_1_codec.html#a8f462a1884728951ea782c674e58dbbb">TTK::Codec::toUnicode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString toUnicode(const char *chars, const char *format=&quot;GBK&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d48/musiccodecutils_8cpp_source.html#l00005">musiccodecutils.cpp:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:21 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

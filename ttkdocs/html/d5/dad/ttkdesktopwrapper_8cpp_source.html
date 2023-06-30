@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,60 +78,121 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d5/dad/ttkdesktopwrapper_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d82/ttkdesktopwrapper_8h.html">ttkdesktopwrapper.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QScreen&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#  include &lt;QDesktopWidget&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">    9</a></span>&#160;QRect <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">TTKDesktopWrapper::screenGeometry</a>(<span class="keywordtype">int</span> index)</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">const</span> QList&lt;QScreen*&gt; &amp;screens = QApplication::screens();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> (index &lt; 0 || index &gt;= screens.count()) ? QRect() : screens[index]-&gt;geometry();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QDesktopWidget *widget = QApplication::desktop();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> widget-&gt;screenGeometry(index);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">   20</a></span>&#160;QRect <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">TTKDesktopWrapper::geometry</a>()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> QList&lt;QScreen*&gt; &amp;screens = QApplication::screens();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QRegion virtualGeometry;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; screens.count(); ++i)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        QScreen *screen = screens[i];</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        virtualGeometry += screen-&gt;geometry();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> virtualGeometry.boundingRect();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QDesktopWidget *widget = QApplication::desktop();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> widget-&gt;geometry();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">   37</a></span>&#160;QPixmap <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">TTKDesktopWrapper::grabWindow</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QWidget widget(<span class="keyword">nullptr</span>, Qt::Desktop);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    widget.setVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    widget.setGeometry(<a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">geometry</a>());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> QApplication::primaryScreen()-&gt;grabWindow(widget.winId(), x, y, w, h);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> QPixmap::grabWindow(widget.winId(), x, y, w, h);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a983b33c44350fa1a28582c7714db23ce"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">TTKDesktopWrapper::geometry</a></div><div class="ttdeci">static QRect geometry()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00020">ttkdesktopwrapper.cpp:20</a></div></div>
-<div class="ttc" id="class_t_t_k_desktop_wrapper_html_ad223fef639def53efd007758ef7fc386"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">TTKDesktopWrapper::grabWindow</a></div><div class="ttdeci">static QPixmap grabWindow(int x=0, int y=0, int w=-1, int h=-1)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00037">ttkdesktopwrapper.cpp:37</a></div></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dac/ttklibrary_8h.html">ttklibrary.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QScreen&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#  include &lt;QDesktopWidget&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a63875b2c364a560c6d062a6fcc25fcdb">   10</a></span>&#160;<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TTKDesktopWrapper::TaskbarInfo</a> <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a63875b2c364a560c6d062a6fcc25fcdb">TTKDesktopWrapper::screenTaskbar</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    QScreen *screen = QApplication::primaryScreen();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> QRect &amp;dr = screen-&gt;availableGeometry();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QDesktopWidget *widget = QApplication::desktop();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> QRect &amp;dr = widget-&gt;availableGeometry();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TaskbarInfo</a> info;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> QRect &amp;sr = <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">screenGeometry</a>(index);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(sr.left() != dr.left())</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a> = std::abs(sr.left() - dr.left());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a> = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a945d5e233cf7d6240f6b783b36a374ff">TTK::Direction::Left</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sr.right() != dr.right())</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a> = std::abs(sr.right() - dr.right());</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a> = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a92b09c7c48c520c3c55e497875da437c">TTK::Direction::Right</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sr.top() != dr.top())</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a> = std::abs(sr.top() - dr.top());</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a> = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902aa4ffdcf0dc1f31b9acaf295d75b51d00">TTK::Direction::Top</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sr.bottom() != dr.bottom())</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a> = std::abs(sr.bottom() - dr.bottom());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a> = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a2ad9d63b69c4a10a5cc9cad923133bc4">TTK::Direction::Bottom</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">m_size</a> = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        info.<a class="code" href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">m_direction</a> = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902abafd7322c6e97d25b6299b5d6fe8920b">TTK::Direction::No</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">   50</a></span>&#160;QRect <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">TTKDesktopWrapper::screenGeometry</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> QList&lt;QScreen*&gt; &amp;screens = QApplication::screens();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> (index &lt; 0 || index &gt;= screens.count()) ? QRect() : screens[index]-&gt;geometry();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QDesktopWidget *widget = QApplication::desktop();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> widget-&gt;screenGeometry(index);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">   61</a></span>&#160;QRect <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">TTKDesktopWrapper::geometry</a>()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">const</span> QList&lt;QScreen*&gt; &amp;screens = QApplication::screens();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QRegion virtualGeometry;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; screens.count(); ++i)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        QScreen *screen = screens[i];</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        virtualGeometry += screen-&gt;geometry();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> virtualGeometry.boundingRect();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    QDesktopWidget *widget = QApplication::desktop();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> widget-&gt;geometry();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a9e9272c8c23f6f459bb5647ff7baf21d">   78</a></span>&#160;QPixmap <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a9e9272c8c23f6f459bb5647ff7baf21d">TTKDesktopWrapper::grabWidget</a>(QWidget *widget, <span class="keyword">const</span> QRect &amp;rect)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> widget-&gt;grab(rect);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> QPixmap::grabWidget(widget, rect);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">   87</a></span>&#160;QPixmap <a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">TTKDesktopWrapper::grabWindow</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    QWidget widget(<span class="keyword">nullptr</span>, Qt::Desktop);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    widget.setVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    widget.setGeometry(<a class="code" href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">geometry</a>());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> QApplication::primaryScreen()-&gt;grabWindow(widget.winId(), x, y, w, h);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> QPixmap::grabWindow(widget.winId(), x, y, w, h);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902abafd7322c6e97d25b6299b5d6fe8920b"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902abafd7322c6e97d25b6299b5d6fe8920b">TTK::Direction::No</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a9e9272c8c23f6f459bb5647ff7baf21d"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a9e9272c8c23f6f459bb5647ff7baf21d">TTKDesktopWrapper::grabWidget</a></div><div class="ttdeci">static QPixmap grabWidget(QWidget *widget, const QRect &amp;rect)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00078">ttkdesktopwrapper.cpp:78</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902a2ad9d63b69c4a10a5cc9cad923133bc4"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a2ad9d63b69c4a10a5cc9cad923133bc4">TTK::Direction::Bottom</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a983b33c44350fa1a28582c7714db23ce"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a983b33c44350fa1a28582c7714db23ce">TTKDesktopWrapper::geometry</a></div><div class="ttdeci">static QRect geometry()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00061">ttkdesktopwrapper.cpp:61</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html_aa60c0fc5d1e8d38bdca5724bda838ee2"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#aa60c0fc5d1e8d38bdca5724bda838ee2">TTKDesktopWrapper::TaskbarInfo::m_size</a></div><div class="ttdeci">int m_size</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00037">ttkdesktopwrapper.h:37</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html_ad223fef639def53efd007758ef7fc386"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#ad223fef639def53efd007758ef7fc386">TTKDesktopWrapper::grabWindow</a></div><div class="ttdeci">static QPixmap grabWindow(int x=0, int y=0, int w=-1, int h=-1)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00087">ttkdesktopwrapper.cpp:87</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html_a3f449c31fa9812a88d38b6fe3f37a3e9"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html#a3f449c31fa9812a88d38b6fe3f37a3e9">TTKDesktopWrapper::TaskbarInfo::m_direction</a></div><div class="ttdeci">TTK::Direction m_direction</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00038">ttkdesktopwrapper.h:38</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902a945d5e233cf7d6240f6b783b36a374ff"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a945d5e233cf7d6240f6b783b36a374ff">TTK::Direction::Left</a></div></div>
 <div class="ttc" id="ttkdesktopwrapper_8h_html"><div class="ttname"><a href="../../df/d82/ttkdesktopwrapper_8h.html">ttkdesktopwrapper.h</a></div></div>
-<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a72a29afc594d40c4e5de220234449b53"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">TTKDesktopWrapper::screenGeometry</a></div><div class="ttdeci">static QRect screenGeometry(int index=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00009">ttkdesktopwrapper.cpp:9</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a72a29afc594d40c4e5de220234449b53"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a72a29afc594d40c4e5de220234449b53">TTKDesktopWrapper::screenGeometry</a></div><div class="ttdeci">static QRect screenGeometry(int index=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00050">ttkdesktopwrapper.cpp:50</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902aa4ffdcf0dc1f31b9acaf295d75b51d00"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902aa4ffdcf0dc1f31b9acaf295d75b51d00">TTK::Direction::Top</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_wrapper_html_a63875b2c364a560c6d062a6fcc25fcdb"><div class="ttname"><a href="../../de/dc3/class_t_t_k_desktop_wrapper.html#a63875b2c364a560c6d062a6fcc25fcdb">TTKDesktopWrapper::screenTaskbar</a></div><div class="ttdeci">static TaskbarInfo screenTaskbar(int index=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dad/ttkdesktopwrapper_8cpp_source.html#l00010">ttkdesktopwrapper.cpp:10</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_ae6c17945c41767dab2eb2c5f09740902a92b09c7c48c520c3c55e497875da437c"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ae6c17945c41767dab2eb2c5f09740902a92b09c7c48c520c3c55e497875da437c">TTK::Direction::Right</a></div></div>
+<div class="ttc" id="ttklibrary_8h_html"><div class="ttname"><a href="../../d0/dac/ttklibrary_8h.html">ttklibrary.h</a></div></div>
+<div class="ttc" id="struct_t_t_k_desktop_wrapper_1_1_taskbar_info_html"><div class="ttname"><a href="../../d8/d53/struct_t_t_k_desktop_wrapper_1_1_taskbar_info.html">TTKDesktopWrapper::TaskbarInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d82/ttkdesktopwrapper_8h_source.html#l00035">ttkdesktopwrapper.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:18 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> item;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">m_itemName</a> = QFileInfo(<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.fileName()).baseName();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QStringList data(QString(<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.readAll()).split(<span class="stringliteral">&quot;\n&quot;</span>));</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QStringList data(QString(<a class="code" href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">m_file</a>.readAll()).<a class="code" href="../../d7/de7/namespace_t_t_k_1_1_string.html#a5c8b37645ed9697c3124966d1efe8179">split</a>(<span class="stringliteral">&quot;\n&quot;</span>));</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">if</span>(data.isEmpty())</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -184,6 +184,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_time_html_a9b1dea8593dcc6ea506316cb33101136"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a9b1dea8593dcc6ea506316cb33101136">TTKTime::formatDuration</a></div><div class="ttdeci">static qint64 formatDuration(const QString &amp;time)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00114">ttktime.cpp:114</a></div></div>
 <div class="ttc" id="class_music_playlist_renderer_html"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html">MusicPlaylistRenderer</a></div><div class="ttdoc">The class of the playlist renderer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00027">musicplaylistinterface.h:27</a></div></div>
 <div class="ttc" id="musicplsconfigmanager_8h_html"><div class="ttname"><a href="../../d6/d81/musicplsconfigmanager_8h.html">musicplsconfigmanager.h</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_string_html_a5c8b37645ed9697c3124966d1efe8179"><div class="ttname"><a href="../../d7/de7/namespace_t_t_k_1_1_string.html#a5c8b37645ed9697c3124966d1efe8179">TTK::String::split</a></div><div class="ttdeci">TTK_MODULE_EXPORT QStringList split(const QString &amp;value, const QString &amp;key=TTK_DEFAULT_STR)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00075">musicstringutils.cpp:75</a></div></div>
 <div class="ttc" id="class_music_playlist_interface_html"><div class="ttname"><a href="../../dd/d56/class_music_playlist_interface.html">MusicPlaylistInterface</a></div><div class="ttdoc">The class of the playlist interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00064">musicplaylistinterface.h:64</a></div></div>
 <div class="ttc" id="class_music_p_l_s_config_manager_html_a47cd47fd5bdb402e79d768f14028c7f9"><div class="ttname"><a href="../../d5/d3a/class_music_p_l_s_config_manager.html#a47cd47fd5bdb402e79d768f14028c7f9">MusicPLSConfigManager::MusicPLSConfigManager</a></div><div class="ttdeci">MusicPLSConfigManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d99/musicplsconfigmanager_8cpp_source.html#l00003">musicplsconfigmanager.cpp:3</a></div></div>
 <div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00176">musicsong.h:176</a></div></div>
@@ -192,12 +193,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00179">musicsong.h:179</a></div></div>
 <div class="ttc" id="class_music_playlist_renderer_html_a25845eff6fc6d1a43a5e748ff9c61326"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html#a25845eff6fc6d1a43a5e748ff9c61326">MusicPlaylistRenderer::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00057">musicplaylistinterface.h:57</a></div></div>
 <div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00028">musicsong.h:28</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00060">ttklogger.h:60</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00068">ttklogger.h:68</a></div></div>
 <div class="ttc" id="class_music_playlist_renderer_html_a43add92ee5dd57fb6155a252e4c78feb"><div class="ttname"><a href="../../d8/db5/class_music_playlist_renderer.html#a43add92ee5dd57fb6155a252e4c78feb">MusicPlaylistRenderer::toFile</a></div><div class="ttdeci">bool toFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dc0/musicplaylistinterface_8h_source.html#l00050">musicplaylistinterface.h:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 31 2023 20:58:20 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 30 2023 22:38:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
