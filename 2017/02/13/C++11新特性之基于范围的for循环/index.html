@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2017/02/13/C++11新特性之基于范围的for循环/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第十六部分，涉及到基于范围的for循环相关的新特性。">
-<meta property="og:updated_time" content="2022-11-28T02:59:09.978Z">
+<meta property="og:updated_time" content="2023-07-21T15:58:24.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之基于范围的for循环">
 <meta name="twitter:description" content="这是C++11新特性介绍的第十六部分，涉及到基于范围的for循环相关的新特性。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第十六部分，涉及到基于范围的for循环相关的新特性。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第十六部分，涉及到基于范围的for循环相关的新特性。</p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;C++11提供了一个特殊版本的 for 循环，在很多情况下，它都可以简化数组的处理，这就是基于范围的 for 循环。</p>
 <h2 id="Range-Based-For"><a href="#Range-Based-For" class="headerlink" title="Range-Based-For"></a><strong>Range-Based-For</strong></h2><p>&#160; &#160; &#160; &#160;熟悉C++98/03的对于for循环就再了解不过了，如果我们要遍历一个数组，那么在C++98/03中的实现方式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span> &#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; arr[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;而遍历容器类的For如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator itr = vec.begin(); itr != vec.end(); itr++)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *itr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -301,7 +301,7 @@
         <p><span>本文标题:</span><a href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2017年02月13日 - 15时59分</p>
-        <p><span>最后更新:</span>2022年11月28日 - 10时59分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时58分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/02/13/C++11新特性之基于范围的for循环/" title="C++11 新特性之基于范围的for循环">http://greedysky.github.io/2017/02/13/C++11新特性之基于范围的for循环/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2017/02/13/C++11新特性之基于范围的for循环/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

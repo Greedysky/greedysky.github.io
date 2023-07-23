@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第十五部分，涉及到条件变量（condition_variable）相关的新特性。">
 <meta property="og:image" content="http://greedysky.github.io/image/cadcf749d03eaca62215387f0b1e4d05a1/1.png">
-<meta property="og:updated_time" content="2022-11-28T03:21:05.357Z">
+<meta property="og:updated_time" content="2023-07-21T15:59:13.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之条件变量">
 <meta name="twitter:description" content="这是C++11新特性介绍的第十五部分，涉及到条件变量（condition_variable）相关的新特性。">
@@ -273,7 +273,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第十五部分，涉及到条件变量（condition_variable）相关的新特性。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第十五部分，涉及到条件变量（condition_variable）相关的新特性。</p>
 <h2 id="condition-variable"><a href="#condition-variable" class="headerlink" title="condition_variable"></a><strong>condition_variable</strong></h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><strong>介绍</strong></h3><p>&#160; &#160; &#160; &#160;在C++11中，我们可以使用条件变量（condition_variable）实现多个线程间的同步操作；当条件不满足时，相关线程被一直阻塞，直到某种条件出现，这些线程才会被唤醒。<br>&#160; &#160; &#160; &#160;其主要成员函数如下：<br><img src="/image/cadcf749d03eaca62215387f0b1e4d05a1/1.png" alt="demo"><br>&#160; &#160; &#160; &#160;条件变量是利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：<br>&#160; &#160; &#160; &#160;1.一个线程因等待“条件变量的条件成立”而挂起；<br>&#160; &#160; &#160; &#160;2.另外一个线程使“条件成立”，给出信号，从而唤醒被等待的线程。<br>&#160; &#160; &#160; &#160;为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起；通常情况下这个锁是std::mutex，并且管理这个锁只能是 std::unique_lockstd::mutex RAII模板类。<br>&#160; &#160; &#160; &#160;上面提到的两个步骤，分别是使用以下两个方法实现：<br>&#160; &#160; &#160; &#160;1.等待条件成立使用的是condition_variable类成员wait 、wait_for 或 wait_until。<br>&#160; &#160; &#160; &#160;2.给出信号使用的是condition_variable类成员notify_one或者notify_all函数。</p>
 <h3 id="细节说明"><a href="#细节说明" class="headerlink" title="细节说明"></a><strong>细节说明</strong></h3><p>&#160; &#160; &#160; &#160;在条件变量中只能使用std::unique_lock<std::mutex>。unique_lock和lock_guard都是管理锁的辅助类工具，都是RAII风格；它们是在定义时获得锁，在析构时释放锁。它们的主要区别在于unique_lock锁机制更加灵活，可以再需要的时候进行lock或者unlock调用，不非得是析构或者构造时，它们的区别可以通过成员函数就可以一目了然。<br>&#160; &#160; &#160; &#160;线程的阻塞是通过成员函数wait()/wait_for()/wait_until()函数实现的。这里主要说明前面两个函数：</std::mutex></p>
 <h3 id="wait成员函数"><a href="#wait成员函数" class="headerlink" title="wait成员函数"></a><strong>wait成员函数</strong></h3><p>&#160; &#160; &#160; &#160;函数声明如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt;&amp; lock)</span></span>;</div><div class="line"><span class="comment">//Predicate 谓词函数，可以普通函数或者lambda表达式</span></div><div class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> Predicate &gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="built_in">std</span>::unique_lock&lt;<span class="built_in">std</span>::mutex&gt;&amp; lock, Predicate pred)</span></span>;</div></pre></td></tr></table></figure></p>
@@ -299,7 +299,7 @@
         <p><span>本文标题:</span><a href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2017年02月05日 - 20时42分</p>
-        <p><span>最后更新:</span>2022年11月28日 - 11时21分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/02/05/C++11新特性之条件变量/" title="C++11 新特性之条件变量">http://greedysky.github.io/2017/02/05/C++11新特性之条件变量/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2017/02/05/C++11新特性之条件变量/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

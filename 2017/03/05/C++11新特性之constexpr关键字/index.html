@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。">
-<meta property="og:updated_time" content="2022-11-30T13:34:19.132Z">
+<meta property="og:updated_time" content="2023-07-21T15:58:01.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之constexpr关键字">
 <meta name="twitter:description" content="这是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第十八部分，涉及到constexpr相关的新特性。</p>
 <h2 id="语义上的差别"><a href="#语义上的差别" class="headerlink" title="语义上的差别"></a><strong>语义上的差别</strong></h2><p>&#160; &#160; &#160; &#160;首先，我们来看看《C++Primer》怎么说的：<br>&#160; &#160; &#160; &#160;const：有时我们希望定义这样一种变量，它的值不能被改变。例如，用一个变量来表示缓冲区的大小。使用变量的好处是当我们觉得缓冲区大小不再合适时，很容易对其进行调整。另一方面，也应随时警惕防止程序一不小心改变了这个值。为了满足这一要求，可以用关键字const对变量类型加以限定。<br>&#160; &#160; &#160; &#160;constexpr（常量表达式）：是指值不会改变并且在编译过程就能得到计算结果的表达式。<br>&#160; &#160; &#160; &#160;从以上两段话，我们可以总结出const和constexpr的关系，即如果变量用constexpr修饰，那么变量也具有const的特性；如果变量用const修饰，不能说明变量具有constexpr的特性。<br>&#160; &#160; &#160; &#160;从语义上讲，const更像是“read only”，而constexpr更像是“const”。<br>&#160; &#160; &#160; &#160;接下来，我们来聊一聊为什么要引入constexpr？</p>
 <h2 id="常量表达式的优势"><a href="#常量表达式的优势" class="headerlink" title="常量表达式的优势"></a><strong>常量表达式的优势</strong></h2><p>&#160; &#160; &#160; &#160;常量表达式的优点是将计算过程转移到编译时期，那么运行期就不再需要计算了，程序性能也就提升了。</p>
 <h2 id="const时期的常量表达式"><a href="#const时期的常量表达式" class="headerlink" title="const时期的常量表达式"></a><strong>const时期的常量表达式</strong></h2><p>&#160; &#160; &#160; &#160;一个对象（或表达式）是不是常量表达式由它的数据类型和初始化值共同决定的，例：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">20</span>;            <span class="comment">// a是常量表达式</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> b = a + <span class="number">1</span>;         <span class="comment">// b是常量表达式</span></div><div class="line"><span class="keyword">int</span> c = <span class="number">7</span>;                  <span class="comment">//c不是常量表达式</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> d = getlength();    <span class="comment">//d不是常量表达式</span></div></pre></td></tr></table></figure></p>
@@ -292,7 +292,7 @@
         <p><span>本文标题:</span><a href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2017年03月05日 - 12时02分</p>
-        <p><span>最后更新:</span>2022年11月30日 - 21时34分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时58分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/05/C++11新特性之constexpr关键字/" title="C++11 新特性之constexpr关键字">http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2017/03/05/C++11新特性之constexpr关键字/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

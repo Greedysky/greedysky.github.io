@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2016/08/02/C++11新特性之新类型与初始化/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第一部分，比较简单易懂，但是也有一些有趣的地方。">
-<meta property="og:updated_time" content="2022-11-28T03:21:30.388Z">
+<meta property="og:updated_time" content="2023-07-21T15:59:18.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之新类型与初始化">
 <meta name="twitter:description" content="这是C++11新特性介绍的第一部分，比较简单易懂，但是也有一些有趣的地方。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第一部分，比较简单易懂，但是也有一些有趣的地方。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第一部分，比较简单易懂，但是也有一些有趣的地方。</p>
 <h2 id="新类型"><a href="#新类型" class="headerlink" title="新类型"></a><strong>新类型</strong></h2><h3 id="long-long类型"><a href="#long-long类型" class="headerlink" title="long long类型"></a><strong>long long类型</strong></h3><p>&#160; &#160; &#160; &#160;C++11标准中新加入了long long类型属性，占用空间不小于long类型。测试代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">long</span> large = LONG_MAX;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> long_large = LLONG_MAX;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> long_long_large = <span class="number">1L</span>L &lt;&lt; <span class="number">63</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test long long："</span>&lt;&lt;large&lt;&lt;<span class="string">'\t'</span>&lt;&lt;long_large&lt;&lt;<span class="string">'\t'</span>&lt;&lt;long_long_large&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;在我的机器上实测，long long类型和long类型同样使用64bit空间。</p>
 <h3 id="nullptr字面量"><a href="#nullptr字面量" class="headerlink" title="nullptr字面量"></a><strong>nullptr字面量</strong></h3><p>&#160; &#160; &#160; &#160;C++11标准中专门为空指针增加了nullptr字面量，同时不推荐再使用NULL或者0表示空指针。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *p1 = <span class="literal">nullptr</span>;</div><div class="line"><span class="keyword">int</span> *p2 = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> *p3 = <span class="literal">NULL</span>;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">"test nullptr: "</span>&lt;&lt;(p1 == p2)&lt;&lt;<span class="string">'\t'</span>&lt;&lt;(p1 == p3)&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
@@ -299,7 +299,7 @@
         <p><span>本文标题:</span><a href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2016年08月02日 - 20时55分</p>
-        <p><span>最后更新:</span>2022年11月28日 - 11时21分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/08/02/C++11新特性之新类型与初始化/" title="C++11 新特性之新类型与初始化">http://greedysky.github.io/2016/08/02/C++11新特性之新类型与初始化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/08/02/C++11新特性之新类型与初始化/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

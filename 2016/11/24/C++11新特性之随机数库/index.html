@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2016/11/24/C++11新特性之随机数库/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第七部分，涉及到随机数库相关的新特性。">
-<meta property="og:updated_time" content="2022-11-25T15:58:03.840Z">
+<meta property="og:updated_time" content="2023-07-21T15:59:03.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之随机数库">
 <meta name="twitter:description" content="这是C++11新特性介绍的第七部分，涉及到随机数库相关的新特性。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第七部分，涉及到随机数库相关的新特性。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第七部分，涉及到随机数库相关的新特性。</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a><strong>简介</strong></h2><p>&#160; &#160; &#160; &#160;之前，C++中的随机数生成都依赖于一个简单的rand函数。这个函数产生一定范围内的一个均匀随机整数。如果需要其他随机分布或者其他范围的随机数，就需要根据rand函数产生的随机数进行再加工，不过这时，就容易引入非随机性了。<br>&#160; &#160; &#160; &#160;C++11新标准中引入了一个新的随机数库，相关功能定义在random头文件中，通过多个互相协作的类，可以生成任意范围内、服从多种随机分布的随机数。</p>
 <h2 id="随机引擎"><a href="#随机引擎" class="headerlink" title="随机引擎"></a><strong>随机引擎</strong></h2><p>&#160; &#160; &#160; &#160;新的随机数库中引入了随机引擎的概念。一个随机引擎将产生一组原始的随机数列，一般这些原始的随机数不能直接使用，要配合随机分布类产生符合某分布的随机数后才能进行使用。</p>
 <h3 id="默认随机"><a href="#默认随机" class="headerlink" title="默认随机"></a><strong>默认随机</strong></h3><p>&#160; &#160; &#160; &#160;一般，最常用的随机引擎是default_random_engine。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test default random engine:\n"</span>;</div><div class="line"><span class="built_in">std</span>::default_random_engine e;</div><div class="line">e.seed(time(<span class="number">0</span>));</div><div class="line"><span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;e()&lt;&lt;<span class="string">'\t'</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">'\n'</span>;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"test default random engine done.\n"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
@@ -292,7 +292,7 @@
         <p><span>本文标题:</span><a href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2016年11月24日 - 20时47分</p>
-        <p><span>最后更新:</span>2022年11月25日 - 23时58分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/11/24/C++11新特性之随机数库/" title="C++11 新特性之随机数库">http://greedysky.github.io/2016/11/24/C++11新特性之随机数库/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/11/24/C++11新特性之随机数库/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

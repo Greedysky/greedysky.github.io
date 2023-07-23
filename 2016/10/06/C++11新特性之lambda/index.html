@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://greedysky.github.io/2016/10/06/C++11新特性之lambda/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="这是C++11新特性介绍的第三部分，涉及到C++11这次更新中较为重要的lambda表达式。">
-<meta property="og:updated_time" content="2022-11-25T14:56:38.198Z">
+<meta property="og:updated_time" content="2023-07-21T15:58:07.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11 新特性之lambda">
 <meta name="twitter:description" content="这是C++11新特性介绍的第三部分，涉及到C++11这次更新中较为重要的lambda表达式。">
@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&#160; &#160; &#160; &#160;这是C++11新特性介绍的第三部分，涉及到C++11这次更新中较为重要的lambda表达式。</p>
+        <p>&#160; &#160; &#160; &#160;本文是C++11新特性介绍的第三部分，涉及到C++11这次更新中较为重要的lambda表达式。</p>
 <h2 id="lambda-简介"><a href="#lambda-简介" class="headerlink" title="lambda 简介"></a><strong>lambda 简介</strong></h2><p>&#160; &#160; &#160; &#160;熟悉Python的程序员应该对lambda不陌生。简单来说，lambda就是一个匿名的可调用代码块。在C++11新标准中，lambda具有如下格式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[capture <span class="built_in">list</span>] (parameter <span class="built_in">list</span>) -&gt; <span class="keyword">return</span> type &#123; function body &#125;</div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;可以看到，他有四个组成部分：<br>&#160; &#160; &#160; &#160;1.capture list：捕获列表<br>&#160; &#160; &#160; &#160;2.parameter list：参数列表<br>&#160; &#160; &#160; &#160;3.return type：返回类型<br>&#160; &#160; &#160; &#160;4.function body：执行代码<br>&#160; &#160; &#160; &#160;其中，参数列表和返回类型可以忽略。下面，具体看几个简单的例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> f1 = [] &#123; <span class="keyword">return</span> <span class="number">1</span>; &#125;;</div><div class="line"><span class="keyword">auto</span> f2 = [] () &#123; <span class="keyword">return</span> <span class="number">2</span>; &#125;;</div><div class="line"><span class="built_in">cout</span>&lt;&lt;f1()&lt;&lt;<span class="string">'\t'</span>&lt;&lt;f2()&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
 <h2 id="捕获列表"><a href="#捕获列表" class="headerlink" title="捕获列表"></a><strong>捕获列表</strong></h2><p>&#160; &#160; &#160; &#160;lambda中的捕获列表既可以捕获值，也可以捕获引用。<br>&#160; &#160; &#160; &#160;捕获值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> test_data[] = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">19</span>, <span class="number">13</span>, <span class="number">17</span>&#125;;</div><div class="line"><span class="keyword">int</span> border = <span class="number">8</span>;</div><div class="line"><span class="keyword">auto</span> f3 = [border](<span class="keyword">const</span> <span class="keyword">int</span> &amp;i)&#123; <span class="keyword">if</span>(i &gt; border) <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">'\t'</span>; &#125;;</div><div class="line">for_each(begin(test_data), end(test_data), f3);</div><div class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div></pre></td></tr></table></figure></p>
@@ -293,7 +293,7 @@
         <p><span>本文标题:</span><a href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2016年10月06日 - 21时22分</p>
-        <p><span>最后更新:</span>2022年11月25日 - 22时56分</p>
+        <p><span>最后更新:</span>2023年07月21日 - 23时58分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/10/06/C++11新特性之lambda/" title="C++11 新特性之lambda">http://greedysky.github.io/2016/10/06/C++11新特性之lambda/</a>
             <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2016/10/06/C++11新特性之lambda/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
