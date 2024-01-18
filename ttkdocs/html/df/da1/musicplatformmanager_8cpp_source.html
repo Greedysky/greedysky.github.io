@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -78,426 +78,95 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../df/da1/musicplatformmanager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d27/musicplatformmanager_8h.html">musicplatformmanager.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d12/musicformats_8h.html">musicformats.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QScreen&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QProcess&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QStringList&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#  include &lt;ole2.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#  include &lt;shobjidl.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#  include &lt;shlobj.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#  include &lt;X11/Xlib.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../df/da1/musicplatformmanager_8cpp.html#a794e0417bdd7ebdad81c59a929932761">   18</a></span>&#160;<span class="preprocessor">#define DEFAULT_DPI 96</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define WIN32_LEAN_AND_MEAN</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;qt_windows.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> MusicPlatformManager::windowsEnableLeftMode()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    INPUT input[4];</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    memset(input, 0, <span class="keyword">sizeof</span>(input));</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    input[0].type = input[1].type = input[2].type = input[3].type = INPUT_KEYBOARD;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    input[0].ki.wVk = input[2].ki.wVk = VK_LWIN;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    input[1].ki.wVk = input[3].ki.wVk = 0x44;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    input[2].ki.dwFlags = input[3].ki.dwFlags = KEYEVENTF_KEYUP;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    SendInput(4, input, <span class="keyword">sizeof</span>(INPUT));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">bool</span> MusicPlatformManager::isFileAssociate()</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> currentNodeExist(<a class="code" href="../../d8/d07/musicobject_8h.html#ab14f6bb33d60f186d3959955343f1196">MP3_FILE_SUFFIX</a>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> MusicPlatformManager::setMusicRegeditAssociateFileIcon()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">const</span> QStringList &amp;formats = <a class="code" href="../../db/da7/class_music_formats.html#a176c334c34e86f15183c3912cc335ac2">MusicFormats::supportMusicFormats</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; formats.count(); ++i)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">int</span> MusicPlatformManager::windowsIEVersion()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> DWORD versionInfoSize = GetFileVersionInfoSizeW(L<span class="stringliteral">&quot;mshtml.dll&quot;</span>, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(versionInfoSize == 0)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    BYTE *data = <span class="keyword">new</span> BYTE[versionInfoSize];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(!GetFileVersionInfoW(L<span class="stringliteral">&quot;mshtml.dll&quot;</span>, 0, versionInfoSize, data))</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">const</span> QString &amp;format = formats[i];</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span>(!currentNodeExist(format))</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            createMusicRegedit(format);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> MusicPlatformManager::enabledLeftWinMode()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    INPUT input[4];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    memset(input, 0, <span class="keyword">sizeof</span>(input));</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    input[0].type = input[1].type = input[2].type = input[3].type = INPUT_KEYBOARD;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    input[0].ki.wVk = input[2].ki.wVk = VK_LWIN;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    input[1].ki.wVk = input[3].ki.wVk = 0x44;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    input[2].ki.dwFlags = input[3].ki.dwFlags = KEYEVENTF_KEYUP;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    SendInput(4, input, <span class="keyword">sizeof</span>(INPUT));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">int</span> MusicPlatformManager::windowsIEVersion()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">const</span> DWORD versionInfoSize = GetFileVersionInfoSizeW(L<span class="stringliteral">&quot;mshtml.dll&quot;</span>, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(versionInfoSize == 0)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    BYTE *data = <span class="keyword">new</span> BYTE[versionInfoSize];</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span>(!GetFileVersionInfoW(L<span class="stringliteral">&quot;mshtml.dll&quot;</span>, 0, versionInfoSize, data))</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">const</span> VS_FIXEDFILEINFO *fixedFileInfo = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    UINT fixedFileInfoSize = 0;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span>(!VerQueryValueW(data, L<span class="stringliteral">&quot;\\&quot;</span>, (LPVOID*)&amp;fixedFileInfo, &amp;fixedFileInfoSize))</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> HIWORD(fixedFileInfo-&gt;dwProductVersionMS);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">   78</a></span>&#160;<span class="keyword">static</span> QSize <a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">generateDPIValue</a>()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> QSize defaultSize(<a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a794e0417bdd7ebdad81c59a929932761">DEFAULT_DPI</a>, <a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a794e0417bdd7ebdad81c59a929932761">DEFAULT_DPI</a>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">  #if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(!qApp)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">int</span> count = 0;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        QApplication(count, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    QScreen *screen = QApplication::primaryScreen();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span>(!screen)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> defaultSize;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> x = screen-&gt;logicalDotsPerInchX();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> y = screen-&gt;logicalDotsPerInchY();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> QSize(x, y);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#elif defined Q_OS_UNIX</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Display *dp = XOpenDisplay(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span>(!dp)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> defaultSize;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> screen = 0; <span class="comment">/* Screen number */</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> x = (DisplayWidth(dp, screen) * 25.4) / DisplayWidthMM(dp, screen);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> y = (DisplayHeight(dp, screen) * 25.4) / DisplayHeightMM(dp, screen);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    XCloseDisplay(dp);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> QSize(x + 0.5, y + 0.5);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> defaultSize;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#a8ad5483d1f564727b2f58f44978ed084">  117</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a8ad5483d1f564727b2f58f44978ed084">MusicPlatformManager::logicalDotsPerInchX</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">const</span> QSize dpi(<a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">generateDPIValue</a>());</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> dpi.width();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#a7016ad91d40391e63c35ee477784acbe">  123</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a7016ad91d40391e63c35ee477784acbe">MusicPlatformManager::logicalDotsPerInchY</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">const</span> QSize dpi(<a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">generateDPIValue</a>());</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> dpi.height();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">  129</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">MusicPlatformManager::logicalDotsPerInch</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">const</span> QSize dpi(<a class="code" href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">generateDPIValue</a>());</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> (dpi.width() + dpi.height()) / 2;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#a15cb1d8033da73b2f09694f8102352c8">  135</a></span>&#160;<a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318">MusicPlatformManager::System</a> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a15cb1d8033da73b2f09694f8102352c8">MusicPlatformManager::systemName</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">typedef</span> void (__stdcall *NTPROC)(DWORD*, DWORD*, DWORD*);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    HINSTANCE instance = LoadLibraryW(L<span class="stringliteral">&quot;ntdll.dll&quot;</span>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    DWORD major, minor, buildNumber;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    NTPROC proc = <a class="code" href="../../df/d7f/ttkglobal_8h.html#ab3bcb6244a7d240e0efc1b184da83228">TTKVoidCast</a>(NTPROC)GetProcAddress(instance, <span class="stringliteral">&quot;RtlGetNtVersionNumbers&quot;</span>);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    proc(&amp;major, &amp;minor, &amp;buildNumber);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">if</span>(major == 6 &amp;&amp; minor == 1)        <span class="comment">//win 7</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6dfef76047531cabb2f6441add99cc16">System::Win7</a>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(major == 6 &amp;&amp; minor == 2)   <span class="comment">//win 8</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a5d64ef9414269c0d0fdc8a9fc31d484a">System::Win8</a>;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(major == 6 &amp;&amp; minor == 3)   <span class="comment">//win 8.1</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a9b9cf4bf950d03a058a34edf58b95bf7">System::Win81</a>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(major == 10 &amp;&amp; minor == 0)  <span class="comment">//win 10 or win 11</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> buildNumber &lt; (0xF0000000 | 22000) ? <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6cfdbc405f01e66540d283b9e48fc2d9">System::Win10</a> : <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0e4f5c6abb795a7fc8fdbc72a8fa7e53">System::Win11</a>;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    FreeLibrary(instance);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    SYSTEM_INFO info;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    GetSystemInfo(&amp;info);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    OSVERSIONINFOEX os;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    os.dwOSVersionInfoSize = <span class="keyword">sizeof</span>(OSVERSIONINFOEX);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span>(GetVersionEx((OSVERSIONINFO *)&amp;os))</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">switch</span>(os.dwMajorVersion)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">switch</span>(os.dwMinorVersion)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                        <span class="keywordflow">if</span>(os.dwPlatformId == VER_PLATFORM_WIN32_NT)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a59b2067103b2248fde59e1843569fdac">System::WinNT40</a>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                        }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(os.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                        {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aae152848155b6ec437a4744df8c96e40">System::Win95</a>;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                        }</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    <span class="keywordflow">case</span> 10: <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a08a5d6486b5ab80c4aed527aa4cec172">System::Win98</a>;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    <span class="keywordflow">case</span> 90: <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aabccd03bd8a762761e4f8c4dac063540">System::WinMe</a>;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">case</span> 5:</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keywordflow">switch</span>(os.dwMinorVersion)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                    <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a2db3b39554a65e74dc71060aef77a2a5">System::Win2000</a>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a4fd90aab9752619ceaa899a9ba150cb8">System::WinXP</a>;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                        <span class="keywordflow">if</span>(os.wProductType == VER_NT_WORKSTATION &amp;&amp; info.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64)</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                        {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318abc28fabac9a9f6ad41a2c379f2f208c2">System::WinXPProfessionalEdition</a>;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                        }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(GetSystemMetrics(SM_SERVERR2) == 0)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                        {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a93f08d8354dc77b0e05bb1aa42e4ce4c">System::WinServer2003</a>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                        }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(GetSystemMetrics(SM_SERVERR2) != 0)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                        {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a820daf803dbb02697f8a0e1d72fd9949">System::WinServer2003R2</a>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                        }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordflow">case</span> 6:</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                <span class="keywordflow">switch</span>(os.dwMinorVersion)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                    <span class="keywordflow">case</span> 0: <span class="keywordflow">return</span> os.wProductType == VER_NT_WORKSTATION ? <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0b59ea526cf7f09cafbd44a830e2d426">System::WinVista</a> : <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318adbc5b4e0077cf1e6d1f13dd8077927dd">System::WinServer2008</a>;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                    <span class="keywordflow">case</span> 1: <span class="keywordflow">return</span> os.wProductType == VER_NT_WORKSTATION ? <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6dfef76047531cabb2f6441add99cc16">System::Win7</a> : <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a07d98a978840ae02e32312eedf2003eb">System::WinServer2008R2</a>;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                    <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> os.wProductType == VER_NT_WORKSTATION ? <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a5d64ef9414269c0d0fdc8a9fc31d484a">System::Win8</a> : <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a9560ac0b7b7f573782629530db97f02a">System::WinServer2012</a>;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">default</span>: <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a777358f6554241fd6bb9110bf267b3ac">System::Unkown</a>;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor">#elif defined Q_OS_LINUX</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    QFile file(<span class="stringliteral">&quot;/etc/lsb-release&quot;</span>);</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">if</span>(file.open(QIODevice::ReadOnly))</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keyword">const</span> QRegExp regx(<span class="stringliteral">&quot;DISTRIB_ID=(\\w+)&quot;</span>);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">if</span>(regx.indexIn(QString(file.readAll())) != -1)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keyword">const</span> QString &amp;system = regx.cap(1).toLower();</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordflow">if</span>(system == <span class="stringliteral">&quot;ubuntu&quot;</span>)</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a1cabf752fddda0d2b56494fef256644a">System::LinuxUbuntu</a>;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(system == <span class="stringliteral">&quot;debian&quot;</span>)</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0977cd7c1c62b17ea2a64a5ddff549a2">System::LinuxDebian</a>;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(system == <span class="stringliteral">&quot;arch&quot;</span>)</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0939149ecb8b3d6128f5794cf62bdfaf">System::LinuxArch</a>;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(system == <span class="stringliteral">&quot;centos&quot;</span>)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a19be07927f4e4998431d0fb9efa06866">System::LinuxCentOS</a>;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        file.close();</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aedc9f0a5a5d57797bf68e37364743831">System::Linux</a>;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a1748c0644a50090814d3e170723ccc5c">System::Mac</a>;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a777358f6554241fd6bb9110bf267b3ac">System::Unkown</a>;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="../../d7/d0f/class_music_platform_manager.html#af78a45b2e2bc76b2e84e1a148a07b4ec">  257</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d0f/class_music_platform_manager.html#af78a45b2e2bc76b2e84e1a148a07b4ec">MusicPlatformManager::setFileLink</a>(<span class="keyword">const</span> QString &amp;src, <span class="keyword">const</span> QString &amp;des, <span class="keyword">const</span> QString &amp;ico, <span class="keyword">const</span> QString &amp;args, <span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a68344fa88cf4e86b5079fd69a5c22d57">description</a>)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;{</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    HRESULT hres = CoInitialize(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span>(SUCCEEDED(hres))</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    {</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        IShellLinkW *psl = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        hres = CoCreateInstance(CLSID_ShellLink, <span class="keyword">nullptr</span>, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*)&amp;psl);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">if</span>(SUCCEEDED(hres))</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            IPersistFile *ppf = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">if</span>(!src.isEmpty())</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            {</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                psl-&gt;SetPath(src.toStdWString().c_str());</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <span class="keywordflow">if</span>(!ico.isEmpty())</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                psl-&gt;SetIconLocation(ico.toStdWString().c_str(), 0);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            }</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <span class="keywordflow">if</span>(!args.isEmpty())</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                psl-&gt;SetArguments(args.toStdWString().c_str());</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            }</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            <span class="keywordflow">if</span>(!description.isEmpty())</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            {</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                psl-&gt;SetDescription(description.toStdWString().c_str());</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            }</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            hres = psl-&gt;QueryInterface(IID_IPersistFile, (<span class="keywordtype">void</span>**)&amp;ppf);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            <span class="keywordflow">if</span>(SUCCEEDED(hres))</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                ppf-&gt;Save(des.toStdWString().c_str(), FALSE);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                ppf-&gt;Release();</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            psl-&gt;Release();</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        }</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    Q_UNUSED(src);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    Q_UNUSED(des);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    Q_UNUSED(ico);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    Q_UNUSED(args);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    Q_UNUSED(description);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keywordtype">bool</span> MusicPlatformManager::currentNodeExist(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;{</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">const</span> QString &amp;keyX = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\.&quot;</span> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    QSettings keyXSetting(keyX, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    state = (keyXSetting.value(<span class="stringliteral">&quot;Default&quot;</span>).toString() == <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">const</span> QString &amp;fileExtsString = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.&quot;</span> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    QSettings fileExtsSetting(fileExtsString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    state &amp;= (fileExtsSetting.value(<span class="stringliteral">&quot;Progid&quot;</span>).toString() == <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keyword">const</span> QString &amp;fileExtsUserString = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.&quot;</span> + key + <span class="stringliteral">&quot;\\UserChoice&quot;</span>;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    QSettings fileExtsUserSetting(fileExtsUserString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    state &amp;= (fileExtsUserSetting.value(<span class="stringliteral">&quot;Progid&quot;</span>).toString() == <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>);</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keywordtype">void</span> MusicPlatformManager::createMusicRegedit(<span class="keyword">const</span> QString &amp;key)</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;{</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    QString keyX = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\.&quot;</span> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    QSettings keyXSetting(keyX, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    keyX = keyXSetting.value(<span class="stringliteral">&quot;Default&quot;</span>).toString();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">if</span>(keyX.isEmpty() || keyX != <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        keyXSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keyword">const</span> QString &amp;keyString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    QSettings keySetting(keyString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    keySetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, key + QObject::tr(<span class="stringliteral">&quot;File&quot;</span>));</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keyword">const</span> QString &amp;iconString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key + <span class="stringliteral">&quot;\\DefaultIcon&quot;</span>;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    QSettings iconSetting(iconString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    iconSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, QString(<span class="stringliteral">&quot;%1,%2&quot;</span>).arg(QApplication::applicationFilePath().replace(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>, <span class="stringliteral">&quot;\\&quot;</span>)).arg(1));</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">const</span> QString &amp;openString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key + <span class="stringliteral">&quot;\\Shell\\Open&quot;</span>;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    QSettings openSetting(openString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    openSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, QObject::tr(<span class="stringliteral">&quot;Use TTKMusicPlayer play&quot;</span>));</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">const</span> QString &amp;openComString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key + <span class="stringliteral">&quot;\\Shell\\Open\\Command&quot;</span>;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    QSettings openComSetting(openComString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    openComSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>).arg(QApplication::applicationFilePath().replace(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>, <span class="stringliteral">&quot;\\&quot;</span>))</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                                     + QString(<span class="stringliteral">&quot; %1 &quot;</span>).arg(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#afed7580cf4d78619f35723c322db3112">MUSIC_OUTSIDE_OPEN</a>) + QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>));</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keyword">const</span> QString &amp;playListString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key + <span class="stringliteral">&quot;\\Shell\\PlayList&quot;</span>;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    QSettings playListSetting(playListString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    playListSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, QObject::tr(<span class="stringliteral">&quot;Add to TTKMusicPlayer Playlist&quot;</span>));</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">const</span> QString &amp;playListComString = QString(<span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Classes\\&quot;</span>) + <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key + <span class="stringliteral">&quot;\\Shell\\PlayList\\Command&quot;</span>;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    QSettings playListComSetting(playListComString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    playListComSetting.setValue(<span class="stringliteral">&quot;Default&quot;</span>, QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>).arg(QApplication::applicationFilePath().replace(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>, <span class="stringliteral">&quot;\\&quot;</span>))</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                                         + QString(<span class="stringliteral">&quot; %1 &quot;</span>).arg(<a class="code" href="../../d2/d77/musicotherdefine_8h.html#aef6608d70cc5dc0b76662eacab9a4b76">MUSIC_OUTSIDE_LIST</a>) + QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>));</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keyword">const</span> QString &amp;fileExtsString = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.&quot;</span> + <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    QSettings fileExtsSetting(fileExtsString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    fileExtsSetting.setValue(<span class="stringliteral">&quot;Progid&quot;</span>, <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key);</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keyword">const</span> QString &amp;fileExtsUserString = <span class="stringliteral">&quot;HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.&quot;</span> + key + <span class="stringliteral">&quot;\\UserChoice&quot;</span>;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    QSettings fileExtsUserSetting(fileExtsUserString, QSettings::NativeFormat);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    fileExtsUserSetting.setValue(<span class="stringliteral">&quot;Progid&quot;</span>, <a class="code" href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a> + key);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a08a5d6486b5ab80c4aed527aa4cec172"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a08a5d6486b5ab80c4aed527aa4cec172">MusicPlatformManager::System::Win98</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_ab3bcb6244a7d240e0efc1b184da83228"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ab3bcb6244a7d240e0efc1b184da83228">TTKVoidCast</a></div><div class="ttdeci">#define TTKVoidCast(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00124">ttkglobal.h:124</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318aabccd03bd8a762761e4f8c4dac063540"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aabccd03bd8a762761e4f8c4dac063540">MusicPlatformManager::System::WinMe</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a472f354fcebf8dbbcd4b68379dc43ae9"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a472f354fcebf8dbbcd4b68379dc43ae9">MusicPlatformManager::logicalDotsPerInch</a></div><div class="ttdeci">int logicalDotsPerInch() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00129">musicplatformmanager.cpp:129</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a9560ac0b7b7f573782629530db97f02a"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a9560ac0b7b7f573782629530db97f02a">MusicPlatformManager::System::WinServer2012</a></div></div>
-<div class="ttc" id="musicformats_8h_html"><div class="ttname"><a href="../../d3/d12/musicformats_8h.html">musicformats.h</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a19be07927f4e4998431d0fb9efa06866"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a19be07927f4e4998431d0fb9efa06866">MusicPlatformManager::System::LinuxCentOS</a></div></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> VS_FIXEDFILEINFO *fixedFileInfo = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    UINT fixedFileInfoSize = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span>(!VerQueryValueW(data, L<span class="stringliteral">&quot;\\&quot;</span>, (LPVOID*)&amp;fixedFileInfo, &amp;fixedFileInfoSize))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> HIWORD(fixedFileInfo-&gt;dwProductVersionMS);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> MusicPlatformManager::windowsStartUpMode(<span class="keywordtype">bool</span> v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> QString &amp;appName = <a class="code" href="../../d3/dcf/ttkobject_8h.html#a32d6eb438be4592a2c9186a1f5f8a4a1">TTK_APP_NAME</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QString appPath = <a class="code" href="../../d7/d21/ttkqtobject_8h.html#accd6b5b1f36bb2986fd6100652361126">TTK_SERVICE_FULL</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    appPath.replace(<span class="stringliteral">&quot;/&quot;</span>, <span class="stringliteral">&quot;\\&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QSettings reg(<span class="stringliteral">&quot;HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run&quot;</span>, QSettings::NativeFormat);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QSettings regWOW(<span class="stringliteral">&quot;HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&quot;</span>, QSettings::NativeFormat);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(v)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span>(reg.value(appName).toString() != appPath)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            reg.setValue(appName, QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>).arg(appPath));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(regWOW.value(appName).toString() != appPath)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            regWOW.setValue(appName, QString(<span class="stringliteral">&quot;\&quot;%1\&quot;&quot;</span>).arg(appPath));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(reg.contains(appName))</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            reg.remove(appName);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            reg.sync();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span>(regWOW.contains(appName))</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            regWOW.remove(appName);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            regWOW.sync();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="musicplatformmanager_8h_html"><div class="ttname"><a href="../../db/d27/musicplatformmanager_8h.html">musicplatformmanager.h</a></div></div>
-<div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a9b9cf4bf950d03a058a34edf58b95bf7"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a9b9cf4bf950d03a058a34edf58b95bf7">MusicPlatformManager::System::Win81</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318">MusicPlatformManager::System</a></div><div class="ttdeci">System</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d27/musicplatformmanager_8h_source.html#l00031">musicplatformmanager.h:31</a></div></div>
-<div class="ttc" id="musicobject_8h_html_ab14f6bb33d60f186d3959955343f1196"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#ab14f6bb33d60f186d3959955343f1196">MP3_FILE_SUFFIX</a></div><div class="ttdeci">#define MP3_FILE_SUFFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00053">musicobject.h:53</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a777358f6554241fd6bb9110bf267b3ac"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a777358f6554241fd6bb9110bf267b3ac">MusicPlatformManager::System::Unkown</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318aae152848155b6ec437a4744df8c96e40"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aae152848155b6ec437a4744df8c96e40">MusicPlatformManager::System::Win95</a></div></div>
-<div class="ttc" id="musicotherdefine_8h_html_aef6608d70cc5dc0b76662eacab9a4b76"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#aef6608d70cc5dc0b76662eacab9a4b76">MUSIC_OUTSIDE_LIST</a></div><div class="ttdeci">#define MUSIC_OUTSIDE_LIST</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00055">musicotherdefine.h:55</a></div></div>
-<div class="ttc" id="musicplatformmanager_8cpp_html_a2b46deb64f660cd9cfaf7a5e4921dd5b"><div class="ttname"><a href="../../df/da1/musicplatformmanager_8cpp.html#a2b46deb64f660cd9cfaf7a5e4921dd5b">generateDPIValue</a></div><div class="ttdeci">static QSize generateDPIValue()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00078">musicplatformmanager.cpp:78</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a0939149ecb8b3d6128f5794cf62bdfaf"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0939149ecb8b3d6128f5794cf62bdfaf">MusicPlatformManager::System::LinuxArch</a></div></div>
-<div class="ttc" id="musicobject_8h_html_a6054647337b0a8d98c0c968e76d62f04"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a6054647337b0a8d98c0c968e76d62f04">APP_DOT_NAME</a></div><div class="ttdeci">#define APP_DOT_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00079">musicobject.h:79</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a93f08d8354dc77b0e05bb1aa42e4ce4c"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a93f08d8354dc77b0e05bb1aa42e4ce4c">MusicPlatformManager::System::WinServer2003</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a1cabf752fddda0d2b56494fef256644a"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a1cabf752fddda0d2b56494fef256644a">MusicPlatformManager::System::LinuxUbuntu</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a59b2067103b2248fde59e1843569fdac"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a59b2067103b2248fde59e1843569fdac">MusicPlatformManager::System::WinNT40</a></div></div>
-<div class="ttc" id="musicplatformmanager_8cpp_html_a794e0417bdd7ebdad81c59a929932761"><div class="ttname"><a href="../../df/da1/musicplatformmanager_8cpp.html#a794e0417bdd7ebdad81c59a929932761">DEFAULT_DPI</a></div><div class="ttdeci">#define DEFAULT_DPI</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00018">musicplatformmanager.cpp:18</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318adbc5b4e0077cf1e6d1f13dd8077927dd"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318adbc5b4e0077cf1e6d1f13dd8077927dd">MusicPlatformManager::System::WinServer2008</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a07d98a978840ae02e32312eedf2003eb"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a07d98a978840ae02e32312eedf2003eb">MusicPlatformManager::System::WinServer2008R2</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a6cfdbc405f01e66540d283b9e48fc2d9"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6cfdbc405f01e66540d283b9e48fc2d9">MusicPlatformManager::System::Win10</a></div></div>
-<div class="ttc" id="class_music_formats_html_a176c334c34e86f15183c3912cc335ac2"><div class="ttname"><a href="../../db/da7/class_music_formats.html#a176c334c34e86f15183c3912cc335ac2">MusicFormats::supportMusicFormats</a></div><div class="ttdeci">static QStringList supportMusicFormats()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9c/musicformats_8cpp_source.html#l00010">musicformats.cpp:10</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00244">ttkglobal.h:244</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a8ad5483d1f564727b2f58f44978ed084"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a8ad5483d1f564727b2f58f44978ed084">MusicPlatformManager::logicalDotsPerInchX</a></div><div class="ttdeci">int logicalDotsPerInchX() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00117">musicplatformmanager.cpp:117</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a0e4f5c6abb795a7fc8fdbc72a8fa7e53"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0e4f5c6abb795a7fc8fdbc72a8fa7e53">MusicPlatformManager::System::Win11</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a7016ad91d40391e63c35ee477784acbe"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a7016ad91d40391e63c35ee477784acbe">MusicPlatformManager::logicalDotsPerInchY</a></div><div class="ttdeci">int logicalDotsPerInchY() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00123">musicplatformmanager.cpp:123</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a2db3b39554a65e74dc71060aef77a2a5"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a2db3b39554a65e74dc71060aef77a2a5">MusicPlatformManager::System::Win2000</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a1748c0644a50090814d3e170723ccc5c"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a1748c0644a50090814d3e170723ccc5c">MusicPlatformManager::System::Mac</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a4fd90aab9752619ceaa899a9ba150cb8"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a4fd90aab9752619ceaa899a9ba150cb8">MusicPlatformManager::System::WinXP</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_af78a45b2e2bc76b2e84e1a148a07b4ec"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#af78a45b2e2bc76b2e84e1a148a07b4ec">MusicPlatformManager::setFileLink</a></div><div class="ttdeci">void setFileLink(const QString &amp;src, const QString &amp;des, const QString &amp;ico, const QString &amp;args, const QString &amp;description)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00257">musicplatformmanager.cpp:257</a></div></div>
-<div class="ttc" id="musicotherdefine_8h_html_afed7580cf4d78619f35723c322db3112"><div class="ttname"><a href="../../d2/d77/musicotherdefine_8h.html#afed7580cf4d78619f35723c322db3112">MUSIC_OUTSIDE_OPEN</a></div><div class="ttdeci">#define MUSIC_OUTSIDE_OPEN</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d77/musicotherdefine_8h_source.html#l00054">musicotherdefine.h:54</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318abc28fabac9a9f6ad41a2c379f2f208c2"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318abc28fabac9a9f6ad41a2c379f2f208c2">MusicPlatformManager::System::WinXPProfessionalEdition</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a6dfef76047531cabb2f6441add99cc16"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a6dfef76047531cabb2f6441add99cc16">MusicPlatformManager::System::Win7</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a5d64ef9414269c0d0fdc8a9fc31d484a"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a5d64ef9414269c0d0fdc8a9fc31d484a">MusicPlatformManager::System::Win8</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a15cb1d8033da73b2f09694f8102352c8"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a15cb1d8033da73b2f09694f8102352c8">MusicPlatformManager::systemName</a></div><div class="ttdeci">System systemName() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/da1/musicplatformmanager_8cpp_source.html#l00135">musicplatformmanager.cpp:135</a></div></div>
-<div class="ttc" id="http__parser_8c_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00279">http_parser.c:279</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318aedc9f0a5a5d57797bf68e37364743831"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318aedc9f0a5a5d57797bf68e37364743831">MusicPlatformManager::System::Linux</a></div></div>
-<div class="ttc" id="http__parser_8c_html_a68344fa88cf4e86b5079fd69a5c22d57"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a68344fa88cf4e86b5079fd69a5c22d57">description</a></div><div class="ttdeci">const char * description</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00459">http_parser.c:459</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a0b59ea526cf7f09cafbd44a830e2d426"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0b59ea526cf7f09cafbd44a830e2d426">MusicPlatformManager::System::WinVista</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a820daf803dbb02697f8a0e1d72fd9949"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a820daf803dbb02697f8a0e1d72fd9949">MusicPlatformManager::System::WinServer2003R2</a></div></div>
-<div class="ttc" id="class_music_platform_manager_html_a9f11cbf94e26a3ca6a80be7f35850318a0977cd7c1c62b17ea2a64a5ddff549a2"><div class="ttname"><a href="../../d7/d0f/class_music_platform_manager.html#a9f11cbf94e26a3ca6a80be7f35850318a0977cd7c1c62b17ea2a64a5ddff549a2">MusicPlatformManager::System::LinuxDebian</a></div></div>
+<div class="ttc" id="ttkobject_8h_html_a32d6eb438be4592a2c9186a1f5f8a4a1"><div class="ttname"><a href="../../d3/dcf/ttkobject_8h.html#a32d6eb438be4592a2c9186a1f5f8a4a1">TTK_APP_NAME</a></div><div class="ttdeci">#define TTK_APP_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcf/ttkobject_8h_source.html#l00025">ttkobject.h:25</a></div></div>
+<div class="ttc" id="ttkqtobject_8h_html_accd6b5b1f36bb2986fd6100652361126"><div class="ttname"><a href="../../d7/d21/ttkqtobject_8h.html#accd6b5b1f36bb2986fd6100652361126">TTK_SERVICE_FULL</a></div><div class="ttdeci">#define TTK_SERVICE_FULL</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d21/ttkqtobject_8h_source.html#l00025">ttkqtobject.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:30 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

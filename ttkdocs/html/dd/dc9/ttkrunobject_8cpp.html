@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKRun/TTKApp/ttkrunobject.cpp File Reference</title>
+<title>TTKMusicPlayer: TTKCommon/TTKRun/ttkrunobject.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -69,33 +69,72 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_e1656822c591b0715c53956c66f8706b.html">TTKRun</a></li><li class="navelem"><a class="el" href="../../dir_b34b014ce0fca48dd3162b8d28c6d0a3.html">TTKApp</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li><li class="navelem"><a class="el" href="../../dir_20aac310420de2bb8cb42ae76de02b59.html">TTKRun</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ttkrunobject.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d8/db2/ttkrunobject_8h_source.html">ttkrunobject.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d74/musicconfigobject_8h_source.html">musicconfigobject.h</a>&quot;</code><br />
-<code>#include &lt;QProcess&gt;</code><br />
-<code>#include &lt;QCoreApplication&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/da6/ttkversion_8h_source.html">ttkversion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d67/ttknumberdefine_8h_source.html">ttknumberdefine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2d/compat_8h_source.html">compat/compat.h</a>&quot;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div>
 <p><a href="../../dd/dc9/ttkrunobject_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db5/class_t_t_k_run_object_private.html">TTKRunObjectPrivate</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of the ttk run object private.  <a href="../../d9/db5/class_t_t_k_run_object_private.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a05bad461cdcc89bf5c51caca227c5ce5"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc9/ttkrunobject_8cpp.html#a05bad461cdcc89bf5c51caca227c5ce5">strEndWidth</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;in, <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;out)</td></tr>
+<tr class="separator:a05bad461cdcc89bf5c51caca227c5ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a05bad461cdcc89bf5c51caca227c5ce5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool strEndWidth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="el" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../dd/dc9/ttkrunobject_8cpp_source.html">ttkrunobject.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00024">TTKRunObject::run()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:39:18 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

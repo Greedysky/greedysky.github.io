@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,90 +82,90 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Library Module project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * the Free Software Foundation; either version 3 of the License, or</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * (at your option) any later version.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * This program is distributed in the hope that it will be useful,</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * GNU Lesser General Public License for more details.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * You should have received a copy of the GNU General Public License along</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * You should have received a copy of the GNU Lesser General Public License along</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a1709434955dbc8545251aa0939c33b06">   28</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> Null = -1;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a>(<span class="keyword">const</span> QString &amp;value);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QString keyToString(<span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> stringToKey(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">   46</a></span>&#160;    std::unordered_map&lt;int, QString&gt; <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">m_enumValue</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a1709434955dbc8545251aa0939c33b06">   31</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> Null = -1;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a>(<span class="keyword">const</span> QString &amp;value);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QString keyToString(<span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> stringToKey(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#acba60a84eafdafabb5b518d5138c9291">   50</a></span>&#160;<span class="preprocessor">#define TTK_SUPER_ENUM(Type, ...) \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">  static const TTKSuperEnum Type ## EnumObject(#__VA_ARGS__); \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">  class TTK_MODULE_EXPORT Type { \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">  public: \</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">    enum { kNull = TTKSuperEnum::Null, __VA_ARGS__ }; \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">  public: \</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    Type() : m_data(Type::kNull) {} \</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">    Type(const Type &amp;v) : m_data(v.m_data) {} \</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    Type(int v) : m_data(v) {} \</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    Type(const QString &amp;name) : m_data(Type ## EnumObject.stringToKey(name)) {} \</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    QString toString() const { return Type ## EnumObject.keyToString(m_data); } \</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">    int toInt() const { return m_data; } \</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">    operator int () const { return m_data; } \</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">    operator QString () const { return toString(); } \</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">    Type &amp; operator =(int v) { m_data = v; return *this; } \</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    Type &amp; operator =(const QString &amp;v) { m_data = Type ## EnumObject.stringToKey(v); return *this; } \</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">  private: \</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">    int m_data; \</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">  }</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#a752f623d544211cb7cd6cad22c843c71">   70</a></span>&#160;<span class="preprocessor">#define TTK_ENUM_TYPE(Enum) std::underlying_type&lt;Enum&gt;::type</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#a73ad50ea2e441f7267323438ca940975">   71</a></span>&#160;<span class="preprocessor">#define TTK_DECLARE_OPERATORS_FOR_ENUM(Enum) \</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">inline constexpr Enum operator~(const Enum lhs) { return TTKStaticCast(Enum, ~TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs)); } \</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">inline constexpr Enum operator!(const Enum lhs) { return TTKStaticCast(Enum, !TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs)); } \</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">inline constexpr bool operator&gt;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &gt; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">inline constexpr bool operator&lt;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &lt; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">inline constexpr bool operator&gt;=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &gt;= TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">inline constexpr bool operator&lt;=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &lt;= TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">inline constexpr bool operator==(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) == TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">inline constexpr bool operator!=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) != TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">inline constexpr Enum operator&amp;(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &amp; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">inline constexpr Enum operator|(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) | TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">inline constexpr Enum operator^(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) ^ TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">inline constexpr bool operator||(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) || TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">inline constexpr bool operator&amp;&amp;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &amp;&amp; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">inline const Enum&amp; operator|=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs | rhs); } \</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">inline const Enum&amp; operator&amp;=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs &amp; rhs); } \</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">inline const Enum&amp; operator^=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs ^ rhs); }</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif // TTKSUPERENUM_H</span></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="class_t_t_k_super_enum_html"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00025">ttksuperenum.h:25</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a></div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">   49</a></span>&#160;    std::unordered_map&lt;int, QString&gt; <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">m_enumValue</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#acba60a84eafdafabb5b518d5138c9291">   53</a></span>&#160;<span class="preprocessor">#define TTK_SUPER_ENUM(Type, ...) \</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">  static const TTKSuperEnum Type ## EnumObject(#__VA_ARGS__); \</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">  class TTK_MODULE_EXPORT Type { \</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">  public: \</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">    enum { kNull = TTKSuperEnum::Null, __VA_ARGS__ }; \</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">  public: \</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    Type() : m_data(Type::kNull) {} \</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    Type(const Type &amp;v) : m_data(v.m_data) {} \</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">    Type(int v) : m_data(v) {} \</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">    Type(const QString &amp;name) : m_data(Type ## EnumObject.stringToKey(name)) {} \</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">    QString toString() const { return Type ## EnumObject.keyToString(m_data); } \</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">    int toInt() const { return m_data; } \</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    operator int () const { return m_data; } \</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    operator QString () const { return toString(); } \</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">    Type&amp; operator =(int v) { m_data = v; return *this; } \</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">    Type&amp; operator =(const QString &amp;v) { m_data = Type ## EnumObject.stringToKey(v); return *this; } \</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">  private: \</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    int m_data; \</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">  }</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#a752f623d544211cb7cd6cad22c843c71">   73</a></span>&#160;<span class="preprocessor">#define TTK_ENUM_TYPE(Enum) std::underlying_type&lt;Enum&gt;::type</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../dc/d62/ttksuperenum_8h.html#a73ad50ea2e441f7267323438ca940975">   74</a></span>&#160;<span class="preprocessor">#define TTK_DECLARE_OPERATORS_FOR_ENUM(Enum) \</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">inline constexpr Enum operator~(const Enum lhs) { return TTKStaticCast(Enum, ~TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs)); } \</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">inline constexpr Enum operator!(const Enum lhs) { return TTKStaticCast(Enum, !TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs)); } \</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">inline constexpr bool operator&gt;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &gt; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">inline constexpr bool operator&lt;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &lt; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">inline constexpr bool operator&gt;=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &gt;= TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">inline constexpr bool operator&lt;=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &lt;= TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">inline constexpr bool operator==(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) == TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">inline constexpr bool operator!=(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) != TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">inline constexpr Enum operator&amp;(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &amp; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">inline constexpr Enum operator|(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) | TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">inline constexpr Enum operator^(const Enum lhs, const Enum rhs) { return TTKStaticCast(Enum, TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) ^ TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs)); } \</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">inline constexpr bool operator||(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) || TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">inline constexpr bool operator&amp;&amp;(const Enum lhs, const Enum rhs) { return TTKStaticCast(TTK_ENUM_TYPE(Enum), lhs) &amp;&amp; TTKStaticCast(TTK_ENUM_TYPE(Enum), rhs); } \</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">inline const Enum&amp; operator|=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs | rhs); } \</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">inline const Enum&amp; operator&amp;=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs &amp; rhs); } \</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">inline const Enum&amp; operator^=(Enum&amp; lhs, const Enum rhs) { return lhs = (lhs ^ rhs); }</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // TTKSUPERENUM_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
+<div class="ttc" id="ttkmoduleexport_8h_html"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a></div></div>
+<div class="ttc" id="class_t_t_k_super_enum_html"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html">TTKSuperEnum</a></div><div class="ttdoc">The class of the super enum. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00028">ttksuperenum.h:28</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="class_t_t_k_super_enum_html_a2c2f4f171ead659cb4210c4fa3211764"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">TTKSuperEnum::m_enumValue</a></div><div class="ttdeci">std::unordered_map&lt; int, QString &gt; m_enumValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00046">ttksuperenum.h:46</a></div></div>
+<div class="ttc" id="class_t_t_k_super_enum_html_a2c2f4f171ead659cb4210c4fa3211764"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">TTKSuperEnum::m_enumValue</a></div><div class="ttdeci">std::unordered_map&lt; int, QString &gt; m_enumValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00049">ttksuperenum.h:49</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:28 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

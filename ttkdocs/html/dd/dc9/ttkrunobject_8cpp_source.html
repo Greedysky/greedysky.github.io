@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKRun/TTKApp/ttkrunobject.cpp Source File</title>
+<title>TTKMusicPlayer: TTKCommon/TTKRun/ttkrunobject.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_e1656822c591b0715c53956c66f8706b.html">TTKRun</a></li><li class="navelem"><a class="el" href="../../dir_b34b014ce0fca48dd3162b8d28c6d0a3.html">TTKApp</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li><li class="navelem"><a class="el" href="../../dir_20aac310420de2bb8cb42ae76de02b59.html">TTKRun</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -78,104 +78,77 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/dc9/ttkrunobject_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/db2/ttkrunobject_8h.html">ttkrunobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d74/musicconfigobject_8h.html">musicconfigobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QProcess&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d9/db5/class_t_t_k_run_object_private.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html">TTKRunObjectPrivate</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a>&lt;TTKRunObject&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#abe34f33b5eff50638711fa787755d7b9">TTKRunObjectPrivate</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#aacaa8b2fe6bfbf405485af2ead6329cb">~TTKRunObjectPrivate</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d9/db5/class_t_t_k_run_object_private.html#ae0b108c325731151efb15260c7e66e41">   16</a></span>&#160;    QProcess *<a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#ae0b108c325731151efb15260c7e66e41">m_process</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d67/ttknumberdefine_8h.html">ttknumberdefine.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d2d/compat_8h.html">compat/compat.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#  define WIN32_LEAN_AND_MEAN</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#  include &lt;shellapi.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#  include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../dd/dc9/ttkrunobject_8cpp.html#a05bad461cdcc89bf5c51caca227c5ce5">   13</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/dc9/ttkrunobject_8cpp.html#a05bad461cdcc89bf5c51caca227c5ce5">strEndWidth</a>(<span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;in, <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;out)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(in.empty() || out.empty() || in.size() &lt; out.size())</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d9/db5/class_t_t_k_run_object_private.html#abe34f33b5eff50638711fa787755d7b9">   20</a></span>&#160;<a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#abe34f33b5eff50638711fa787755d7b9">TTKRunObjectPrivate::TTKRunObjectPrivate</a>()</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    : m_process(nullptr)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="keywordflow">return</span> in.compare(in.length() - out.size(), out.size(), out) == 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d9/db5/class_t_t_k_run_object_private.html#aacaa8b2fe6bfbf405485af2ead6329cb">   26</a></span>&#160;<a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#aacaa8b2fe6bfbf405485af2ead6329cb">TTKRunObjectPrivate::~TTKRunObjectPrivate</a>()</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d9/db5/class_t_t_k_run_object_private.html#ae0b108c325731151efb15260c7e66e41">m_process</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d1/d67/class_t_t_k_run_object.html#a0f6ed7778f58bd87f06ede5d42e0bb08">   33</a></span>&#160;<a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a0f6ed7778f58bd87f06ede5d42e0bb08">TTKRunObject::TTKRunObject</a>(QObject *parent)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    : QObject(parent)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a>(<a class="code" href="../../d1/d67/class_t_t_k_run_object.html">TTKRunObject</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/d67/class_t_t_k_run_object.html">TTKRunObject</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    d-&gt;m_process = <span class="keyword">new</span> QProcess(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    connect(d-&gt;m_process, SIGNAL(<a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a78fd33871fd52415410a59ccce4151e8">finished</a>(<span class="keywordtype">int</span>)), SLOT(<a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a78fd33871fd52415410a59ccce4151e8">finished</a>(<span class="keywordtype">int</span>)));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">TTKRunObject::run</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> args;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; argc; ++i)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> arg(argv[i]);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="../../dd/dc9/ttkrunobject_8cpp.html#a05bad461cdcc89bf5c51caca227c5ce5">strEndWidth</a>(arg, <a class="code" href="../../d3/dcf/ttkobject_8h.html#a3ddea51d14fb46e56592e66555d7a526">TTK_APP_FILE_NAME</a>))</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> pos = arg.find(<span class="charliteral">&#39;\&quot;&#39;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span>(pos != TTKString::npos)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;               arg.insert(arg.begin() + pos, <span class="charliteral">&#39;\\&#39;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            args.append(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a24e026039942783be978697b23995389">TTK_STR_QUOTES</a>(arg));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            args.append(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d1/d67/class_t_t_k_run_object.html#a46bacafed6d0913289ff9dadba2079e6">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a46bacafed6d0913289ff9dadba2079e6">TTKRunObject::valid</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a> object;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">object</span>.<a class="code" href="../../de/d7e/class_music_config_object.html#a95af104d76cccb11e9a106c484b6e6af">valid</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">TTKRunObject::run</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/d67/class_t_t_k_run_object.html">TTKRunObject</a>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QStringList args;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; argc; ++i)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> QString &amp;&amp;arg = QString::fromLocal8Bit(argv[i]);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(!arg.endsWith(<a class="code" href="../../d8/d07/musicobject_8h.html#a10c2b00fc9102d3a0f308fdfa51ff11e">APP_EXE_NAME</a>))</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            args &lt;&lt; arg;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a> object;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    d-&gt;m_process-&gt;start(<span class="keywordtype">object</span>.appPath(), args);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d1/d67/class_t_t_k_run_object.html#a78fd33871fd52415410a59ccce4151e8">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d67/class_t_t_k_run_object.html#a78fd33871fd52415410a59ccce4151e8">TTKRunObject::finished</a>(<span class="keywordtype">int</span> <a class="code" href="../../da/da8/structcode.html">code</a>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span>(code == 0)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;Application exit success&quot;</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;Application run error, please run TTKService instead&quot;</span>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    qApp-&gt;quit();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="ttc" id="musicobject_8h_html_a10c2b00fc9102d3a0f308fdfa51ff11e"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a10c2b00fc9102d3a0f308fdfa51ff11e">APP_EXE_NAME</a></div><div class="ttdeci">#define APP_EXE_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00085">musicobject.h:85</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_private_html"><div class="ttname"><a href="../../d9/db5/class_t_t_k_run_object_private.html">TTKRunObjectPrivate</a></div><div class="ttdoc">The class of the ttk run object private. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00010">ttkrunobject.cpp:10</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_private_html_abe34f33b5eff50638711fa787755d7b9"><div class="ttname"><a href="../../d9/db5/class_t_t_k_run_object_private.html#abe34f33b5eff50638711fa787755d7b9">TTKRunObjectPrivate::TTKRunObjectPrivate</a></div><div class="ttdeci">TTKRunObjectPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00020">ttkrunobject.cpp:20</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_html_a04f848a84c28bbecfc61bdd2b9f31884"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">TTKRunObject::run</a></div><div class="ttdeci">void run(int argc, char **argv) const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00049">ttkrunobject.cpp:49</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_html_a46bacafed6d0913289ff9dadba2079e6"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html#a46bacafed6d0913289ff9dadba2079e6">TTKRunObject::valid</a></div><div class="ttdeci">void valid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00043">ttkrunobject.cpp:43</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_private_html_aacaa8b2fe6bfbf405485af2ead6329cb"><div class="ttname"><a href="../../d9/db5/class_t_t_k_run_object_private.html#aacaa8b2fe6bfbf405485af2ead6329cb">TTKRunObjectPrivate::~TTKRunObjectPrivate</a></div><div class="ttdeci">~TTKRunObjectPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00026">ttkrunobject.cpp:26</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_html_a0f6ed7778f58bd87f06ede5d42e0bb08"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html#a0f6ed7778f58bd87f06ede5d42e0bb08">TTKRunObject::TTKRunObject</a></div><div class="ttdeci">TTKRunObject(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00033">ttkrunobject.cpp:33</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_html"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html">TTKRunObject</a></div><div class="ttdoc">The class of the ttk run object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db2/ttkrunobject_8h_source.html#l00029">ttkrunobject.h:29</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_private_html_ae0b108c325731151efb15260c7e66e41"><div class="ttname"><a href="../../d9/db5/class_t_t_k_run_object_private.html#ae0b108c325731151efb15260c7e66e41">TTKRunObjectPrivate::m_process</a></div><div class="ttdeci">QProcess * m_process</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00016">ttkrunobject.cpp:16</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a9fa285d0a923aa0f4f5a9e5052ed5e0e"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a></div><div class="ttdeci">#define TTK_INFO_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00066">ttklogger.h:66</a></div></div>
-<div class="ttc" id="class_music_config_object_html_a95af104d76cccb11e9a106c484b6e6af"><div class="ttname"><a href="../../de/d7e/class_music_config_object.html#a95af104d76cccb11e9a106c484b6e6af">MusicConfigObject::valid</a></div><div class="ttdeci">void valid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicconfigobject_8cpp_source.html#l00011">musicconfigobject.cpp:11</a></div></div>
-<div class="ttc" id="class_music_config_object_html"><div class="ttname"><a href="../../de/d7e/class_music_config_object.html">MusicConfigObject</a></div><div class="ttdoc">The class of the music initialize object. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d74/musicconfigobject_8h_source.html#l00027">musicconfigobject.h:27</a></div></div>
-<div class="ttc" id="structcode_html"><div class="ttname"><a href="../../da/da8/structcode.html">code</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00024">inftrees.h:24</a></div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> * <span class="keyword">const</span> path = <a class="code" href="../../df/d7f/ttkglobal_8h.html#ab51eba2cd6298dc4970eadfcd94d9217">TTK_STR_CAT</a>(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>, <a class="code" href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a>, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a>, <a class="code" href="../../d3/dcf/ttkobject_8h.html#afef39db4ea671867484c5ad8b5d69186">TTK_SERVICE_RUN_NAME</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">char</span> dir[<a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a7428c35e23f36626fa0eaebe8292b584">TTK_LOW_BUFFER</a>] = {};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    GetCurrentDirectoryA(<a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a7428c35e23f36626fa0eaebe8292b584">TTK_LOW_BUFFER</a>, dir);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d3/d2d/compat_8h.html#abd1abbfe7148952922c7be154e186bcb">strlcat</a>(dir, path, <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#a7428c35e23f36626fa0eaebe8292b584">TTK_LOW_BUFFER</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ShellExecuteA(<span class="keyword">nullptr</span>, <span class="stringliteral">&quot;open&quot;</span>, dir, args.c_str(), <span class="keyword">nullptr</span>, SW_HIDE);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a> &amp;dir = get_current_dir_name();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    system((dir + path + args).c_str());</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="ttc" id="ttknumberdefine_8h_html_a7428c35e23f36626fa0eaebe8292b584"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html#a7428c35e23f36626fa0eaebe8292b584">TTK_LOW_BUFFER</a></div><div class="ttdeci">#define TTK_LOW_BUFFER</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d67/ttknumberdefine_8h_source.html#l00056">ttknumberdefine.h:56</a></div></div>
+<div class="ttc" id="class_t_t_k_run_object_html_a04f848a84c28bbecfc61bdd2b9f31884"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html#a04f848a84c28bbecfc61bdd2b9f31884">TTKRunObject::run</a></div><div class="ttdeci">void run(int argc, char **argv) const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00024">ttkrunobject.cpp:24</a></div></div>
+<div class="ttc" id="compat_8h_html_abd1abbfe7148952922c7be154e186bcb"><div class="ttname"><a href="../../d3/d2d/compat_8h.html#abd1abbfe7148952922c7be154e186bcb">strlcat</a></div><div class="ttdeci">size_t strlcat(char *dst, const char *src, size_t dsize)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de6/strlcat_8c_source.html#l00030">strlcat.c:30</a></div></div>
+<div class="ttc" id="ttknumberdefine_8h_html"><div class="ttname"><a href="../../d4/d67/ttknumberdefine_8h.html">ttknumberdefine.h</a></div></div>
+<div class="ttc" id="ttkversion_8h_html"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a></div></div>
+<div class="ttc" id="ttkrunobject_8cpp_html_a05bad461cdcc89bf5c51caca227c5ce5"><div class="ttname"><a href="../../dd/dc9/ttkrunobject_8cpp.html#a05bad461cdcc89bf5c51caca227c5ce5">strEndWidth</a></div><div class="ttdeci">static bool strEndWidth(const TTKString &amp;in, const TTKString &amp;out)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00013">ttkrunobject.cpp:13</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_adf1e990c9e5a75bc454cf4f78eaf8be4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#adf1e990c9e5a75bc454cf4f78eaf8be4">TTKString</a></div><div class="ttdeci">std::string TTKString</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00212">ttkglobal.h:212</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00175">ttkglobal.h:175</a></div></div>
+<div class="ttc" id="ttkobject_8h_html_a3ddea51d14fb46e56592e66555d7a526"><div class="ttname"><a href="../../d3/dcf/ttkobject_8h.html#a3ddea51d14fb46e56592e66555d7a526">TTK_APP_FILE_NAME</a></div><div class="ttdeci">#define TTK_APP_FILE_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcf/ttkobject_8h_source.html#l00033">ttkobject.h:33</a></div></div>
+<div class="ttc" id="ttkversion_8h_html_ab424ee3feaf0726c9c0188435a1139aa"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html#ab424ee3feaf0726c9c0188435a1139aa">TTK_VERSION_STR</a></div><div class="ttdeci">#define TTK_VERSION_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/da6/ttkversion_8h_source.html#l00171">ttkversion.h:171</a></div></div>
+<div class="ttc" id="compat_8h_html"><div class="ttname"><a href="../../d3/d2d/compat_8h.html">compat.h</a></div></div>
 <div class="ttc" id="ttkrunobject_8h_html"><div class="ttname"><a href="../../d8/db2/ttkrunobject_8h.html">ttkrunobject.h</a></div></div>
-<div class="ttc" id="musicconfigobject_8h_html"><div class="ttname"><a href="../../de/d74/musicconfigobject_8h.html">musicconfigobject.h</a></div></div>
-<div class="ttc" id="ttkprivate_8h_html_a64bda0cf6260b5682d918c6a7f82e74f"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a64bda0cf6260b5682d918c6a7f82e74f">TTK_INIT_PRIVATE</a></div><div class="ttdeci">#define TTK_INIT_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00033">ttkprivate.h:33</a></div></div>
-<div class="ttc" id="class_t_t_k_private_html"><div class="ttname"><a href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a></div><div class="ttdoc">The class of the ttk private base. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00048">ttkprivate.h:48</a></div></div>
-<div class="ttc" id="class_t_t_k_run_object_html_a78fd33871fd52415410a59ccce4151e8"><div class="ttname"><a href="../../d1/d67/class_t_t_k_run_object.html#a78fd33871fd52415410a59ccce4151e8">TTKRunObject::finished</a></div><div class="ttdeci">void finished(int code)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc9/ttkrunobject_8cpp_source.html#l00067">ttkrunobject.cpp:67</a></div></div>
-<div class="ttc" id="ttkprivate_8h_html_a8eedd09c47b53d5e42ca132295c5e1ef"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a></div><div class="ttdeci">#define TTK_D(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00041">ttkprivate.h:41</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_ab51eba2cd6298dc4970eadfcd94d9217"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ab51eba2cd6298dc4970eadfcd94d9217">TTK_STR_CAT</a></div><div class="ttdeci">#define TTK_STR_CAT(...)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00147">ttkglobal.h:147</a></div></div>
+<div class="ttc" id="ttkobject_8h_html_afef39db4ea671867484c5ad8b5d69186"><div class="ttname"><a href="../../d3/dcf/ttkobject_8h.html#afef39db4ea671867484c5ad8b5d69186">TTK_SERVICE_RUN_NAME</a></div><div class="ttdeci">#define TTK_SERVICE_RUN_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcf/ttkobject_8h_source.html#l00035">ttkobject.h:35</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_a24e026039942783be978697b23995389"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a24e026039942783be978697b23995389">TTK_STR_QUOTES</a></div><div class="ttdeci">#define TTK_STR_QUOTES(s)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00158">ttkglobal.h:158</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:29 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

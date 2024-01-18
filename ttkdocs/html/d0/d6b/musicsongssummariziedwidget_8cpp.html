@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">musicsongssummariziedwidget.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -93,71 +93,96 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;<a class="el" href="../../d0/de1/musictoastlabel_8h_source.html">musictoastlabel.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/de5/musicfileutils_8h_source.html">musicfileutils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d3/d12/musicformats_8h_source.html">musicformats.h</a>&quot;</code><br />
+<code>#include &lt;QMimeData&gt;</code><br />
 </div>
 <p><a href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a150407833f840d88b5e9f9f4e0777188"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#a150407833f840d88b5e9f9f4e0777188">ITEM_MIN_COUNT</a>&#160;&#160;&#160;<a class="el" href="../../d2/d77/musicotherdefine_8h.html#a20610168a1b5a8e2717273a2a1aed503">MIN_ITEM_COUNT</a></td></tr>
-<tr class="separator:a150407833f840d88b5e9f9f4e0777188"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091725015c2d169a9707c1e441c54c3e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#a091725015c2d169a9707c1e441c54c3e">ITEM_MAX_COUNT</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:a091725015c2d169a9707c1e441c54c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c4736b959c6f93ccf3a38f8b24dcda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#a93c4736b959c6f93ccf3a38f8b24dcda">RECENT_ITEM_MAX_COUNT</a>&#160;&#160;&#160;50</td></tr>
-<tr class="separator:a93c4736b959c6f93ccf3a38f8b24dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aca7224917b5ebfeb3b3b31d03107111e"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#aca7224917b5ebfeb3b3b31d03107111e">ITEM_MIN_COUNT</a> = <a class="el" href="../../d2/d77/musicotherdefine_8h.html#a20610168a1b5a8e2717273a2a1aed503">MIN_ITEM_COUNT</a></td></tr>
+<tr class="separator:aca7224917b5ebfeb3b3b31d03107111e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ae7adb6d4903e333389c0b2ed7ef1b"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#a69ae7adb6d4903e333389c0b2ed7ef1b">ITEM_MAX_COUNT</a> = 10</td></tr>
+<tr class="separator:a69ae7adb6d4903e333389c0b2ed7ef1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3f310a3e21387e6fbd5ba8b43a9754"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp.html#a4e3f310a3e21387e6fbd5ba8b43a9754">RECENT_ITEM_MAX_COUNT</a> = 50</td></tr>
+<tr class="separator:a4e3f310a3e21387e6fbd5ba8b43a9754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a091725015c2d169a9707c1e441c54c3e"></a>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a69ae7adb6d4903e333389c0b2ed7ef1b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define ITEM_MAX_COUNT&#160;&#160;&#160;10</td>
+          <td class="memname">constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> ITEM_MAX_COUNT = 10</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">musicsongssummariziedwidget.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00019">19</a> of file <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">musicsongssummariziedwidget.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00343">MusicSongsSummariziedWidget::addNewRowItem()</a>, and <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l01050">MusicSongsSummariziedWidget::checkCurrentNameExist()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00355">MusicSongsSummariziedWidget::addNewRowItem()</a>, and <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l01120">MusicSongsSummariziedWidget::checkCurrentNameExist()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a150407833f840d88b5e9f9f4e0777188"></a>
+<a class="anchor" id="aca7224917b5ebfeb3b3b31d03107111e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define ITEM_MIN_COUNT&#160;&#160;&#160;<a class="el" href="../../d2/d77/musicotherdefine_8h.html#a20610168a1b5a8e2717273a2a1aed503">MIN_ITEM_COUNT</a></td>
+          <td class="memname">constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> ITEM_MIN_COUNT = <a class="el" href="../../d2/d77/musicotherdefine_8h.html#a20610168a1b5a8e2717273a2a1aed503">MIN_ITEM_COUNT</a></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00016">16</a> of file <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">musicsongssummariziedwidget.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l01018">MusicSongsSummariziedWidget::contextMenuEvent()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a93c4736b959c6f93ccf3a38f8b24dcda"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RECENT_ITEM_MAX_COUNT&#160;&#160;&#160;50</td>
-        </tr>
-      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">musicsongssummariziedwidget.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00856">MusicSongsSummariziedWidget::setRecentMusicSongs()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l01088">MusicSongsSummariziedWidget::contextMenuEvent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e3f310a3e21387e6fbd5ba8b43a9754"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> RECENT_ITEM_MAX_COUNT = 50</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00020">20</a> of file <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html">musicsongssummariziedwidget.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d6b/musicsongssummariziedwidget_8cpp_source.html#l00868">MusicSongsSummariziedWidget::setRecentMusicSongs()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:39:14 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:12:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

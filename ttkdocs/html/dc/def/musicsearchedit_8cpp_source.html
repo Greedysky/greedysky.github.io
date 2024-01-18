@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -80,76 +80,68 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a href="../../dc/def/musicsearchedit_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d5d/musicsearchedit_8h.html">musicsearchedit.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">    6</a></span>&#160;<a class="code" href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">MusicSearchEdit::MusicSearchEdit</a>(QWidget *parent)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : QLineEdit(parent)</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a4c48cc0750b057901fd6509b89f474b2">TTK::UI::LineEditStyle02</a>);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    setPlaceholderText(tr(<span class="stringliteral">&quot;Please input search words&quot;</span>));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">   13</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">MusicSearchEdit::contextMenuEvent</a>(QContextMenuEvent *event)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Q_UNUSED(event);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QMenu menu(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    menu.setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a0a599b3e9eea90e333fa1e4a5d4d0a4e">TTK::UI::MenuStyle02</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QAction *shearAction = menu.addAction(tr(<span class="stringliteral">&quot;Shear&quot;</span>), <span class="keyword">this</span>, SLOT(cut()));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QAction *copyAction = menu.addAction(tr(<span class="stringliteral">&quot;Copy&quot;</span>), <span class="keyword">this</span>, SLOT(copy()));</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Paste&quot;</span>), <span class="keyword">this</span>, SLOT(paste()));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QAction *deleteAction = menu.addAction(tr(<span class="stringliteral">&quot;Delete&quot;</span>), <span class="keyword">this</span>, SLOT(clear()));</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    menu.addSeparator();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QAction *selectAction = menu.addAction(tr(<span class="stringliteral">&quot;Select All&quot;</span>), <span class="keyword">this</span>, SLOT(selectAll()));</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> = hasSelectedText();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    shearAction-&gt;setEnabled(state);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    copyAction-&gt;setEnabled(state);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    deleteAction-&gt;setEnabled(state);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    selectAction-&gt;setEnabled(!text().trimmed().isEmpty());</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#aae2579cd372d0a82638b59d0f3690930">TTK::Widget::adjustMenuPosition</a>(&amp;menu);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    menu.exec(QCursor::pos());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#a4f422b18cf1c44e069ed2cba880ab193">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dc0/class_music_search_edit.html#a4f422b18cf1c44e069ed2cba880ab193">MusicSearchEdit::keyPressEvent</a>(QKeyEvent *event)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QLineEdit::keyPressEvent(event);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#a42eec9c8d4c6ad3f8aa60b5107f108f6">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dc0/class_music_search_edit.html#a42eec9c8d4c6ad3f8aa60b5107f108f6">MusicSearchEdit::keyReleaseEvent</a>(QKeyEvent *event)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QLineEdit::keyReleaseEvent(event);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">switch</span>(event-&gt;key())</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">case</span> Qt::Key_Return:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">case</span> Qt::Key_Enter:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span>(!text().isEmpty())</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                Q_EMIT <a class="code" href="../../d7/dc0/class_music_search_edit.html#a41b3a7f436262f71de1a7495d8423e92">enterFinished</a>(text());</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="ttc" id="class_music_search_edit_html_aefc3badf37a8648d469baedf0da9ecac"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">MusicSearchEdit::contextMenuEvent</a></div><div class="ttdeci">virtual void contextMenuEvent(QContextMenuEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00013">musicsearchedit.cpp:13</a></div></div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">    4</a></span>&#160;<a class="code" href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">MusicSearchEdit::MusicSearchEdit</a>(QWidget *parent)</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    : QLineEdit(parent)</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a4c48cc0750b057901fd6509b89f474b2">TTK::UI::LineEditStyle02</a>);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    setPlaceholderText(tr(<span class="stringliteral">&quot;Please input search words&quot;</span>));</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">   11</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">MusicSearchEdit::contextMenuEvent</a>(QContextMenuEvent *event)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Q_UNUSED(event);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    QMenu menu(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    menu.setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a0a599b3e9eea90e333fa1e4a5d4d0a4e">TTK::UI::MenuStyle02</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    QAction *shearAction = menu.addAction(tr(<span class="stringliteral">&quot;Shear&quot;</span>), <span class="keyword">this</span>, SLOT(cut()));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    QAction *copyAction = menu.addAction(tr(<span class="stringliteral">&quot;Copy&quot;</span>), <span class="keyword">this</span>, SLOT(copy()));</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    menu.addAction(tr(<span class="stringliteral">&quot;Paste&quot;</span>), <span class="keyword">this</span>, SLOT(paste()));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    QAction *deleteAction = menu.addAction(tr(<span class="stringliteral">&quot;Delete&quot;</span>), <span class="keyword">this</span>, SLOT(clear()));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    menu.addSeparator();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QAction *selectAction = menu.addAction(tr(<span class="stringliteral">&quot;Select All&quot;</span>), <span class="keyword">this</span>, SLOT(selectAll()));</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a> = hasSelectedText();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    shearAction-&gt;setEnabled(state);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    copyAction-&gt;setEnabled(state);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    deleteAction-&gt;setEnabled(state);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    selectAction-&gt;setEnabled(!text().trimmed().isEmpty());</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#aae2579cd372d0a82638b59d0f3690930">TTK::Widget::adjustMenuPosition</a>(&amp;menu);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    menu.exec(QCursor::pos());</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/dc0/class_music_search_edit.html#a744c0362aac7c567ec3b55fb8ad74321">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dc0/class_music_search_edit.html#a744c0362aac7c567ec3b55fb8ad74321">MusicSearchEdit::keyReleaseEvent</a>(QKeyEvent *event)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QLineEdit::keyReleaseEvent(event);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">switch</span>(event-&gt;key())</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">case</span> Qt::Key_Return:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> Qt::Key_Enter:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span>(!text().isEmpty())</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Q_EMIT <a class="code" href="../../d7/dc0/class_music_search_edit.html#a41b3a7f436262f71de1a7495d8423e92">enterFinished</a>(text());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="ttc" id="class_music_search_edit_html_aefc3badf37a8648d469baedf0da9ecac"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#aefc3badf37a8648d469baedf0da9ecac">MusicSearchEdit::contextMenuEvent</a></div><div class="ttdeci">virtual void contextMenuEvent(QContextMenuEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00011">musicsearchedit.cpp:11</a></div></div>
 <div class="ttc" id="class_music_search_edit_html_a41b3a7f436262f71de1a7495d8423e92"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a41b3a7f436262f71de1a7495d8423e92">MusicSearchEdit::enterFinished</a></div><div class="ttdeci">void enterFinished(const QString &amp;text)</div></div>
-<div class="ttc" id="class_music_search_edit_html_a0a97f68065f81fe6a7d8da1ba28b7b97"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">MusicSearchEdit::MusicSearchEdit</a></div><div class="ttdeci">MusicSearchEdit(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00006">musicsearchedit.cpp:6</a></div></div>
+<div class="ttc" id="class_music_search_edit_html_a744c0362aac7c567ec3b55fb8ad74321"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a744c0362aac7c567ec3b55fb8ad74321">MusicSearchEdit::keyReleaseEvent</a></div><div class="ttdeci">virtual void keyReleaseEvent(QKeyEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00035">musicsearchedit.cpp:35</a></div></div>
+<div class="ttc" id="class_music_search_edit_html_a0a97f68065f81fe6a7d8da1ba28b7b97"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a0a97f68065f81fe6a7d8da1ba28b7b97">MusicSearchEdit::MusicSearchEdit</a></div><div class="ttdeci">MusicSearchEdit(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00004">musicsearchedit.cpp:4</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
-<div class="ttc" id="class_music_search_edit_html_a4f422b18cf1c44e069ed2cba880ab193"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a4f422b18cf1c44e069ed2cba880ab193">MusicSearchEdit::keyPressEvent</a></div><div class="ttdeci">virtual void keyPressEvent(QKeyEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00037">musicsearchedit.cpp:37</a></div></div>
-<div class="ttc" id="class_music_search_edit_html_a42eec9c8d4c6ad3f8aa60b5107f108f6"><div class="ttname"><a href="../../d7/dc0/class_music_search_edit.html#a42eec9c8d4c6ad3f8aa60b5107f108f6">MusicSearchEdit::keyReleaseEvent</a></div><div class="ttdeci">virtual void keyReleaseEvent(QKeyEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/def/musicsearchedit_8cpp_source.html#l00042">musicsearchedit.cpp:42</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a0a599b3e9eea90e333fa1e4a5d4d0a4e"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a0a599b3e9eea90e333fa1e4a5d4d0a4e">TTK::UI::MenuStyle02</a></div><div class="ttdeci">static const QString MenuStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00342">musicuiobject.h:342</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a4c48cc0750b057901fd6509b89f474b2"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a4c48cc0750b057901fd6509b89f474b2">TTK::UI::LineEditStyle02</a></div><div class="ttdeci">static const QString LineEditStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00317">musicuiobject.h:317</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a0a599b3e9eea90e333fa1e4a5d4d0a4e"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a0a599b3e9eea90e333fa1e4a5d4d0a4e">TTK::UI::MenuStyle02</a></div><div class="ttdeci">static const QString MenuStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00351">musicuiobject.h:351</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a4c48cc0750b057901fd6509b89f474b2"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a4c48cc0750b057901fd6509b89f474b2">TTK::UI::LineEditStyle02</a></div><div class="ttdeci">static const QString LineEditStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00322">musicuiobject.h:322</a></div></div>
 <div class="ttc" id="musicsearchedit_8h_html"><div class="ttname"><a href="../../d1/d5d/musicsearchedit_8h.html">musicsearchedit.h</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_widget_html_aae2579cd372d0a82638b59d0f3690930"><div class="ttname"><a href="../../d0/d27/namespace_t_t_k_1_1_widget.html#aae2579cd372d0a82638b59d0f3690930">TTK::Widget::adjustMenuPosition</a></div><div class="ttdeci">TTK_MODULE_EXPORT void adjustMenuPosition(QMenu *menu)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00052">musicwidgetutils.cpp:52</a></div></div>
 <div class="ttc" id="http__parser_8c_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00279">http_parser.c:279</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:50 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

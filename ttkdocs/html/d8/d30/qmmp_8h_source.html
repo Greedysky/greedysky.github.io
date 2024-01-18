@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d8/d30/qmmp_8h.html#a56430cc4e673c2ea60b351278911d291">   27</a></span>&#160;<span class="preprocessor">#define QMMP_VERSION_MAJOR 1</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d8/d30/qmmp_8h.html#af2798a6cbfd9d711c655f755ecea6261">   28</a></span>&#160;<span class="preprocessor">#define QMMP_VERSION_MINOR 6</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d30/qmmp_8h.html#a59a9c476513f690e39c879fef12b8e0b">   29</a></span>&#160;<span class="preprocessor">#define QMMP_VERSION_PATCH 4</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d30/qmmp_8h.html#a59a9c476513f690e39c879fef12b8e0b">   29</a></span>&#160;<span class="preprocessor">#define QMMP_VERSION_PATCH 5</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d30/qmmp_8h.html#a8369c29f2f6c3691b7c2a444c53d1a69">   31</a></span>&#160;<span class="preprocessor">#define QMMP_VERSION_INT (QMMP_VERSION_MAJOR&lt;&lt;16 | QMMP_VERSION_MINOR&lt;&lt;8 | QMMP_VERSION_PATCH)</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
@@ -133,10 +133,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#  if QT_VERSION &lt; QT_VERSION_CHECK(5,7,0)</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// this adds const to non-const objects (like std::as_const)</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;Q_DECL_CONSTEXPR <span class="keyword">typename</span> std::add_const&lt;T&gt;::type &amp;qAsConst(<a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a> &amp;t) noexcept { <span class="keywordflow">return</span> t; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;Q_DECL_CONSTEXPR <span class="keyword">typename</span> std::add_const&lt;T&gt;::type &amp;<a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(<a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a> &amp;t) noexcept { <span class="keywordflow">return</span> t; }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">// prevent rvalue arguments:</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> qAsConst(<span class="keyword">const</span> <a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a> &amp;&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#  endif</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
@@ -250,6 +250,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_qmmp_html_aae85042846160153e83c605bae56f1cba837afb1a413855bc64fd7cbcf4fd7b3e"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cba837afb1a413855bc64fd7cbcf4fd7b3e">Qmmp::PCM_S16LE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00134">qmmp.h:134</a></div></div>
 <div class="ttc" id="class_qmmp_html_a84fe34688f73d1518c69661fae2ac03fa23a1fef32aa14b99bf8eaa10d57b463c"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#a84fe34688f73d1518c69661fae2ac03fa23a1fef32aa14b99bf8eaa10d57b463c">Qmmp::REPLAYGAIN_TRACK_PEAK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00122">qmmp.h:122</a></div></div>
 <div class="ttc" id="class_qmmp_html_a84fe34688f73d1518c69661fae2ac03f"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#a84fe34688f73d1518c69661fae2ac03f">Qmmp::ReplayGainKey</a></div><div class="ttdeci">ReplayGainKey</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00119">qmmp.h:119</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00053">ttkqtglobal.h:53</a></div></div>
 <div class="ttc" id="class_qmmp_html_aae85042846160153e83c605bae56f1cbac0c52bd2c116a5717e185ce2760c4487"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aae85042846160153e83c605bae56f1cbac0c52bd2c116a5717e185ce2760c4487">Qmmp::PCM_S32LE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00142">qmmp.h:142</a></div></div>
 <div class="ttc" id="class_qmmp_html_a659e3c6ff40c318e09f95c51cb01c9ca"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#a659e3c6ff40c318e09f95c51cb01c9ca">Qmmp::ChannelPosition</a></div><div class="ttdeci">ChannelPosition</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00152">qmmp.h:152</a></div></div>
 <div class="ttc" id="class_qmmp_html_aa4a16a069a893d4bf425a793b03d8291"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291">Qmmp::MetaData</a></div><div class="ttdeci">MetaData</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00088">qmmp.h:88</a></div></div>
@@ -275,7 +276,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:57 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

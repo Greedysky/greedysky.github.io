@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -225,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *masked;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">if</span>(masked == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="../../d9/d67/mask_8c.html#ad1c35d8f045be97b466f254dc27c7ca1">maskMakers</a>[mask](width, frame, masked);</div>
@@ -243,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">if</span>(masked == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="../../d9/d67/mask_8c.html#ad1c35d8f045be97b466f254dc27c7ca1">maskMakers</a>[mask](width, frame, masked);</div>
@@ -402,11 +402,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordtype">int</span> demerit;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordtype">int</span> w2 = width * width;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)w2);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)w2);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">if</span>(mask == NULL) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    bestMask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)w2);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    bestMask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)w2);</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span>(bestMask == NULL) {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        free(mask);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(mask);</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
@@ -425,7 +425,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            memcpy(bestMask, mask, (<span class="keywordtype">size_t</span>)w2);</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        }</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    free(mask);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(mask);</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keywordflow">return</span> bestMask;</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
 <div class="ttc" id="mask_8c_html_a0526a1ffc6647ffa592e7f5f3e6b59e1"><div class="ttname"><a href="../../d9/d67/mask_8c.html#a0526a1ffc6647ffa592e7f5f3e6b59e1">Mask_mask3</a></div><div class="ttdeci">static int Mask_mask3(int width, const unsigned char *s, unsigned char *d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00116">mask.c:116</a></div></div>
@@ -456,14 +456,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="mask_8c_html_a07f7164c2198eec37efa9551fc939d18"><div class="ttname"><a href="../../d9/d67/mask_8c.html#a07f7164c2198eec37efa9551fc939d18">Mask_mask7</a></div><div class="ttdeci">static int Mask_mask7(int width, const unsigned char *s, unsigned char *d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00136">mask.c:136</a></div></div>
 <div class="ttc" id="mask_8c_html_acd864640121c7df2c19f61f7baa507e4"><div class="ttname"><a href="../../d9/d67/mask_8c.html#acd864640121c7df2c19f61f7baa507e4">N2</a></div><div class="ttdeci">#define N2</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00080">mask.c:80</a></div></div>
 <div class="ttc" id="qrspec_8h_html_a22b685022f752e359b59b801b70de9f8"><div class="ttname"><a href="../../d0/d23/qrspec_8h.html#a22b685022f752e359b59b801b70de9f8">QRSPEC_WIDTH_MAX</a></div><div class="ttdeci">#define QRSPEC_WIDTH_MAX</div><div class="ttdoc">Maximum width of a symbol. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d23/qrspec_8h_source.html#l00034">qrspec.h:34</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="mask_8c_html_a21be01b6259458f0ec1a79e8550cedf1"><div class="ttname"><a href="../../d9/d67/mask_8c.html#a21be01b6259458f0ec1a79e8550cedf1">Mask_calcN1N3</a></div><div class="ttdeci">STATIC_IN_RELEASE int Mask_calcN1N3(int length, int *runLength)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00186">mask.c:186</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="mask_8c_html_ac84b3ce48c5c70af30f9fb3ff9ba2318"><div class="ttname"><a href="../../d9/d67/mask_8c.html#ac84b3ce48c5c70af30f9fb3ff9ba2318">Mask_calcRunLengthH</a></div><div class="ttdeci">STATIC_IN_RELEASE int Mask_calcRunLengthH(int width, unsigned char *frame, int *runLength)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00242">mask.c:242</a></div></div>
 <div class="ttc" id="mask_8c_html_a0da20913af3e0393dcdcb3b75efbae30"><div class="ttname"><a href="../../d9/d67/mask_8c.html#a0da20913af3e0393dcdcb3b75efbae30">Mask_evaluateSymbol</a></div><div class="ttdeci">STATIC_IN_RELEASE int Mask_evaluateSymbol(int width, unsigned char *frame)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00298">mask.c:298</a></div></div>
 <div class="ttc" id="mask_8c_html_a8c414b4a20b00adb507ec4c1fdd2d05f"><div class="ttname"><a href="../../d9/d67/mask_8c.html#a8c414b4a20b00adb507ec4c1fdd2d05f">Mask_writeFormatInformation</a></div><div class="ttdeci">STATIC_IN_RELEASE int Mask_writeFormatInformation(int width, unsigned char *frame, int mask, QRecLevel level)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d67/mask_8c_source.html#l00032">mask.c:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

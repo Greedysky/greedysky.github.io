@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -101,9 +101,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QMap&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#ac65507a009572206720614f1df0c6d41">   35</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d19/class_music_connection_pool.html#ac65507a009572206720614f1df0c6d41">setValue</a>(<span class="keyword">const</span> QString &amp;type, QObject *<span class="keywordtype">object</span>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
@@ -119,31 +119,31 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> connect(<span class="keyword">const</span> QString &amp;from, <span class="keyword">const</span> QString &amp;to);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">   58</a></span>&#160;    QMap&lt;QString, QObject*&gt; <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">   63</a></span>&#160;    QMap&lt;QString, QObject*&gt; <a class="code" href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">m_parameters</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d8/dcd/musicconnectionpool_8h.html#a1d58a3fd1b35d37e6f1ef8e0edf3cd36">   69</a></span>&#160;<span class="preprocessor">#define G_CONNECTION_PTR makeMusicConnectionPool()</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>* <a class="code" href="../../d8/dcd/musicconnectionpool_8h.html#ad8198877f05880007c6fb309dde08c12">makeMusicConnectionPool</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a>* <a class="code" href="../../d8/dcd/musicconnectionpool_8h.html#ad8198877f05880007c6fb309dde08c12">makeMusicConnectionPool</a>();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // MUSICCONNECTIONPOOL_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a></div></div>
 <div class="ttc" id="class_music_connection_pool_html"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html">MusicConnectionPool</a></div><div class="ttdoc">The class of the qt signal and slot connection pool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00028">musicconnectionpool.h:28</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00206">ttkglobal.h:206</a></div></div>
-<div class="ttc" id="ttksingleton_8h_html_a1d403b1577b05fa6b7e68d2b4bf9450f"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define TTK_DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00083">ttksingleton.h:83</a></div></div>
-<div class="ttc" id="class_music_connection_pool_html_a7a747af9dd4c7ac24fb844b3a04ceeeb"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">MusicConnectionPool::m_parameters</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameters</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00058">musicconnectionpool.h:58</a></div></div>
+<div class="ttc" id="ttksingleton_8h_html_a1d403b1577b05fa6b7e68d2b4bf9450f"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define TTK_DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00086">ttksingleton.h:86</a></div></div>
+<div class="ttc" id="class_music_connection_pool_html_a7a747af9dd4c7ac24fb844b3a04ceeeb"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#a7a747af9dd4c7ac24fb844b3a04ceeeb">MusicConnectionPool::m_parameters</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameters</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00063">musicconnectionpool.h:63</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00152">ttkqtglobal.h:152</a></div></div>
 <div class="ttc" id="class_music_connection_pool_html_af9364e6a677da6360b1ebfcc94642d17"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#af9364e6a677da6360b1ebfcc94642d17">MusicConnectionPool::value</a></div><div class="ttdeci">QObject * value(const QString &amp;type) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00042">musicconnectionpool.h:42</a></div></div>
-<div class="ttc" id="musicconnectionpool_8h_html_ad8198877f05880007c6fb309dde08c12"><div class="ttname"><a href="../../d8/dcd/musicconnectionpool_8h.html#ad8198877f05880007c6fb309dde08c12">makeMusicConnectionPool</a></div><div class="ttdeci">TTK_MODULE_EXPORT MusicConnectionPool * makeMusicConnectionPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daf/musicsingleton_8cpp_source.html#l00009">musicsingleton.cpp:9</a></div></div>
+<div class="ttc" id="musicconnectionpool_8h_html_ad8198877f05880007c6fb309dde08c12"><div class="ttname"><a href="../../d8/dcd/musicconnectionpool_8h.html#ad8198877f05880007c6fb309dde08c12">makeMusicConnectionPool</a></div><div class="ttdeci">TTK_MODULE_EXPORT MusicConnectionPool * makeMusicConnectionPool()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daf/musicsingleton_8cpp_source.html#l00014">musicsingleton.cpp:14</a></div></div>
 <div class="ttc" id="class_music_connection_pool_html_ac65507a009572206720614f1df0c6d41"><div class="ttname"><a href="../../d5/d19/class_music_connection_pool.html#ac65507a009572206720614f1df0c6d41">MusicConnectionPool::setValue</a></div><div class="ttdeci">void setValue(const QString &amp;type, QObject *object)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dcd/musicconnectionpool_8h_source.html#l00035">musicconnectionpool.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:30 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

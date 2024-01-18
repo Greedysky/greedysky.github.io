@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/image/photo/musictxdownloadimagerequest.cpp File Reference</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicNetworkKits/image/background/musictxdownloadimagerequest.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -69,12 +69,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_50e730b1df64239952dca80656e1ad3b.html">image</a></li><li class="navelem"><a class="el" href="../../dir_b3522695a5d09171b8cd30d604989b6a.html">photo</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_62e2f48fc5a3fb059b4ecd18ff06eecd.html">musicNetworkKits</a></li><li class="navelem"><a class="el" href="../../dir_50e730b1df64239952dca80656e1ad3b.html">image</a></li><li class="navelem"><a class="el" href="../../dir_68c4070d8abf52e81d0d4fe0a815cd02.html">background</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">musictxdownloadimagerequest.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -84,68 +84,92 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <p><a href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a0d18d981c8489c7564180731579c877b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a0d18d981c8489c7564180731579c877b">ART_BACKGROUND_URL</a>&#160;&#160;&#160;&quot;dGJmTlZOK1QvMDJENUxjMDk5UVhBWHVCb001eWtnQ1hKSnhsRWxLczNvRm9FV0kwbHhocTk4aml5SCs1Ym5mQU44SU05c1VZYVFzR2hLTEpGQ0hCNmM1ZUlZVnhnMm92QXNGMFN3PT0=&quot;</td></tr>
-<tr class="separator:a0d18d981c8489c7564180731579c877b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4272fb777e35de50e1ed3dc09da6d32c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a4272fb777e35de50e1ed3dc09da6d32c">TX_SEARCH_URL</a>&#160;&#160;&#160;&quot;RVNEYVc1Z1l4Wk9Ma2QxMEl3bnNnNEJaS0hiZVlZNnBQZXlQTUIzZGFjMksyVkNPMkxaeXBnPT0=&quot;</td></tr>
-<tr class="separator:a4272fb777e35de50e1ed3dc09da6d32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ecc429d32270dbf927a7a7154942abb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a7ecc429d32270dbf927a7a7154942abb">TX_SEARCH_DATA_URL</a>&#160;&#160;&#160;&quot;bW8ybE03WEw1WmNmYzBuSTJWeTdPMFZNY0U2RDRYcjZla1djWmU2eU5ld2lZbytpaExzaG1MaDZ6U1FKTzVuWkZqZHJaL0gxN3ZiOTBIaFZwcmdpeU5NQllkQ1RaUzdVVmZ2UjFuWkF5SzlZSHYwajRKWEFXTUNBaGNab0V6U0UzOVdkMlpqM25CS212dEI2aU5KSUtLanJrcE5jU3JJUEEwSjhuVzFJV2xrM0FaWnFrUmladWxIUTlKUzF3RE5NR1RnUzJMNzRBTWF3Q0lLRmltZWc4QUh3b0dlZ1lxMTNXSXJLOGlWTlBEMmV4TkdlL2NzT0lqRW5UMHc9&quot;</td></tr>
-<tr class="separator:a7ecc429d32270dbf927a7a7154942abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9c8b2d097b64df02d6d5d589f7b6c9ab"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a9c8b2d097b64df02d6d5d589f7b6c9ab">ART_BACKGROUND_URL</a> = &quot;dGJmTlZOK1QvMDJENUxjMDk5UVhBWHVCb001eWtnQ1hKSnhsRWxLczNvRm9FV0kwbHhocTk4aml5SCs1Ym5mQU44SU05c1VZYVFzR2hLTEpGQ0hCNmM1ZUlZVnhnMm92QXNGMFN3PT0=&quot;</td></tr>
+<tr class="separator:a9c8b2d097b64df02d6d5d589f7b6c9ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a959f37fedff89631416f41a7e8511940"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a959f37fedff89631416f41a7e8511940">TX_SEARCH_URL</a> = &quot;RVNEYVc1Z1l4Wk9Ma2QxMEl3bnNnNEJaS0hiZVlZNnBQZXlQTUIzZGFjMksyVkNPMkxaeXBnPT0=&quot;</td></tr>
+<tr class="separator:a959f37fedff89631416f41a7e8511940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34829f6fc95db0f09d7f7b51848354c1"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp.html#a34829f6fc95db0f09d7f7b51848354c1">TX_SEARCH_DATA_URL</a> = &quot;bW8ybE03WEw1WmNmYzBuSTJWeTdPMFZNY0U2RDRYcjZla1djWmU2eU5ld2lZbytpaExzaG1MaDZ6U1FKTzVuWkZqZHJaL0gxN3ZiOTBIaFZwcmdpeU5NQllkQ1RaUzdVVmZ2UjFuWkF5SzlZSHYwajRKWEFXTUNBaGNab0V6U0UzOVdkMlpqM25CS212dEI2aU5KSUtLanJrcE5jU3JJUEEwSjhuVzFJV2xrM0FaWnFrUmladWxIUTlKUzF3RE5NR1RnUzJMNzRBTWF3Q0lLRmltZWc4QUh3b0dlZ1lxMTNXSXJLOGlWTlBEMmV4TkdlL2NzT0lqRW5UMHc9&quot;</td></tr>
+<tr class="separator:a34829f6fc95db0f09d7f7b51848354c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a0d18d981c8489c7564180731579c877b"></a>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a9c8b2d097b64df02d6d5d589f7b6c9ab"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define ART_BACKGROUND_URL&#160;&#160;&#160;&quot;dGJmTlZOK1QvMDJENUxjMDk5UVhBWHVCb001eWtnQ1hKSnhsRWxLczNvRm9FV0kwbHhocTk4aml5SCs1Ym5mQU44SU05c1VZYVFzR2hLTEpGQ0hCNmM1ZUlZVnhnMm92QXNGMFN3PT0=&quot;</td>
+          <td class="memname">constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char* ART_BACKGROUND_URL = &quot;dGJmTlZOK1QvMDJENUxjMDk5UVhBWHVCb001eWtnQ1hKSnhsRWxLczNvRm9FV0kwbHhocTk4aml5SCs1Ym5mQU44SU05c1VZYVFzR2hLTEpGQ0hCNmM1ZUlZVnhnMm92QXNGMFN3PT0=&quot;</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00004">4</a> of file <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html">musictxdownloadimagerequest.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00126">MusicTXDownloadBackgroundRequest::downLoadUrl()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00133">MusicTXDownloadBackgroundRequest::downLoadUrl()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ecc429d32270dbf927a7a7154942abb"></a>
+<a class="anchor" id="a34829f6fc95db0f09d7f7b51848354c1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define TX_SEARCH_DATA_URL&#160;&#160;&#160;&quot;bW8ybE03WEw1WmNmYzBuSTJWeTdPMFZNY0U2RDRYcjZla1djWmU2eU5ld2lZbytpaExzaG1MaDZ6U1FKTzVuWkZqZHJaL0gxN3ZiOTBIaFZwcmdpeU5NQllkQ1RaUzdVVmZ2UjFuWkF5SzlZSHYwajRKWEFXTUNBaGNab0V6U0UzOVdkMlpqM25CS212dEI2aU5KSUtLanJrcE5jU3JJUEEwSjhuVzFJV2xrM0FaWnFrUmladWxIUTlKUzF3RE5NR1RnUzJMNzRBTWF3Q0lLRmltZWc4QUh3b0dlZ1lxMTNXSXJLOGlWTlBEMmV4TkdlL2NzT0lqRW5UMHc9&quot;</td>
+          <td class="memname">constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char* TX_SEARCH_DATA_URL = &quot;bW8ybE03WEw1WmNmYzBuSTJWeTdPMFZNY0U2RDRYcjZla1djWmU2eU5ld2lZbytpaExzaG1MaDZ6U1FKTzVuWkZqZHJaL0gxN3ZiOTBIaFZwcmdpeU5NQllkQ1RaUzdVVmZ2UjFuWkF5SzlZSHYwajRKWEFXTUNBaGNab0V6U0UzOVdkMlpqM25CS212dEI2aU5KSUtLanJrcE5jU3JJUEEwSjhuVzFJV2xrM0FaWnFrUmladWxIUTlKUzF3RE5NR1RnUzJMNzRBTWF3Q0lLRmltZWc4QUh3b0dlZ1lxMTNXSXJLOGlWTlBEMmV4TkdlL2NzT0lqRW5UMHc9&quot;</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00006">6</a> of file <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html">musictxdownloadimagerequest.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00030">MusicTXDownloadBackgroundRequest::startRequest()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00032">MusicTXDownloadBackgroundRequest::startToRequest()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4272fb777e35de50e1ed3dc09da6d32c"></a>
+<a class="anchor" id="a959f37fedff89631416f41a7e8511940"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define TX_SEARCH_URL&#160;&#160;&#160;&quot;RVNEYVc1Z1l4Wk9Ma2QxMEl3bnNnNEJaS0hiZVlZNnBQZXlQTUIzZGFjMksyVkNPMkxaeXBnPT0=&quot;</td>
+          <td class="memname">constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char* TX_SEARCH_URL = &quot;RVNEYVc1Z1l4Wk9Ma2QxMEl3bnNnNEJaS0hiZVlZNnBQZXlQTUIzZGFjMksyVkNPMkxaeXBnPT0=&quot;</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00005">5</a> of file <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html">musictxdownloadimagerequest.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00030">MusicTXDownloadBackgroundRequest::startRequest()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d73/musictxdownloadimagerequest_8cpp_source.html#l00032">MusicTXDownloadBackgroundRequest::startToRequest()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:58 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

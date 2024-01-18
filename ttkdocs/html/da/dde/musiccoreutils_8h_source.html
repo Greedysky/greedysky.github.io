@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -104,22 +104,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d1/d60/namespace_t_t_k_1_1_core.html">   29</a></span>&#160;    <span class="keyword">namespace </span>Core</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a08230e5cef5dca47caed72fba1b000d8">sleep</a>(<span class="keywordtype">int</span> ms);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a88676222032933850df0e5a8772b3dc4">appVersionCheck</a>(<span class="keyword">const</span> QString &amp;o, <span class="keyword">const</span> QString &amp;d);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // MUSICCOREUTILS_H</span></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="namespace_t_t_k_html"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html">TTK</a></div><div class="ttdoc">The namespace of the application object. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/da4/miniprocess_8h_source.html#l00024">miniprocess.h:24</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_core_html_a08230e5cef5dca47caed72fba1b000d8"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a08230e5cef5dca47caed72fba1b000d8">TTK::Core::sleep</a></div><div class="ttdeci">TTK_MODULE_EXPORT void sleep(int ms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00033">musiccoreutils.cpp:33</a></div></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a08230e5cef5dca47caed72fba1b000d8">sleep</a>(<span class="keywordtype">int</span> ms);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a88676222032933850df0e5a8772b3dc4">appVersionCheck</a>(<span class="keyword">const</span> QString &amp;o, <span class="keyword">const</span> QString &amp;d);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a2e28573ba007d8817633c4316df996d5">resetBreakPoint</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">void</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#ae5a52e671886c7fe14ea077f8ccc0807">enableBreakPoint</a>(<span class="keywordtype">bool</span> enable);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <span class="keywordtype">bool</span> <a class="code" href="../../d1/d60/namespace_t_t_k_1_1_core.html#a2656bb381061b8d8c86c1a738d273f66">isBreakPointEnabled</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif // MUSICCOREUTILS_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_core_html_ae5a52e671886c7fe14ea077f8ccc0807"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#ae5a52e671886c7fe14ea077f8ccc0807">TTK::Core::enableBreakPoint</a></div><div class="ttdeci">TTK_MODULE_EXPORT void enableBreakPoint(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00064">musiccoreutils.cpp:64</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html">TTK</a></div><div class="ttdoc">The namespace of the process utils. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00024">ttkcompat.h:24</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_core_html_a2656bb381061b8d8c86c1a738d273f66"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a2656bb381061b8d8c86c1a738d273f66">TTK::Core::isBreakPointEnabled</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool isBreakPointEnabled()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00069">musiccoreutils.cpp:69</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_core_html_a08230e5cef5dca47caed72fba1b000d8"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a08230e5cef5dca47caed72fba1b000d8">TTK::Core::sleep</a></div><div class="ttdeci">TTK_MODULE_EXPORT void sleep(int ms)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00037">musiccoreutils.cpp:37</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_core_html_a2e28573ba007d8817633c4316df996d5"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a2e28573ba007d8817633c4316df996d5">TTK::Core::resetBreakPoint</a></div><div class="ttdeci">TTK_MODULE_EXPORT void resetBreakPoint()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00059">musiccoreutils.cpp:59</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_core_html_a88676222032933850df0e5a8772b3dc4"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a88676222032933850df0e5a8772b3dc4">TTK::Core::appVersionCheck</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool appVersionCheck(const QString &amp;o, const QString &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00042">musiccoreutils.cpp:42</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_core_html_a88676222032933850df0e5a8772b3dc4"><div class="ttname"><a href="../../d1/d60/namespace_t_t_k_1_1_core.html#a88676222032933850df0e5a8772b3dc4">TTK::Core::appVersionCheck</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool appVersionCheck(const QString &amp;o, const QString &amp;d)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d43/musiccoreutils_8cpp_source.html#l00046">musiccoreutils.cpp:46</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:39 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

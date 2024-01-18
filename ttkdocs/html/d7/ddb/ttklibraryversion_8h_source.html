@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,36 +82,43 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Library Module project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * the Free Software Foundation; either version 3 of the License, or</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * (at your option) any later version.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * This program is distributed in the hope that it will be useful,</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * GNU Lesser General Public License for more details.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * You should have received a copy of the GNU General Public License along</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * You should have received a copy of the GNU Lesser General Public License along</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//update time 2023.03.02</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a20d41152554c44625afab9ccdbeb1b1d">   23</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_VERSION         0x01240</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a4ceeb750d6f4763376314b92710e0866">   24</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_VERSION_STR     &quot;1.2.4.0&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a60abb59b05988429d95a87d0b0157031">   26</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_MAJOR_VERSION 1</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a64db8a7fb378c2476a6a7b595be0d8fb">   27</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_MIDLE_VERSION 2</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a9175504a82822aa14ba00060ee169857">   28</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_MINOR_VERSION 4</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a2f5cc4ffaa5a1280cfbf713de28a76c5">   29</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_PATCH_VERSION 0</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif // TTKLIBRARYVERSION_H</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../ttkversion.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//update time 2023.10.13</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a60abb59b05988429d95a87d0b0157031">   25</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_MAJOR_VERSION 1</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a9175504a82822aa14ba00060ee169857">   26</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_MINOR_VERSION 2</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a2f5cc4ffaa5a1280cfbf713de28a76c5">   27</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_PATCH_VERSION 9</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a20d41152554c44625afab9ccdbeb1b1d">   29</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_VERSION       TTK_VERSION_CHECK(TTK_LIBRARY_MAJOR_VERSION, TTK_LIBRARY_MINOR_VERSION, TTK_LIBRARY_PATCH_VERSION, 0)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a4ceeb750d6f4763376314b92710e0866">   30</a></span>&#160;<span class="preprocessor">#define TTK_LIBRARY_VERSION_STR   TTK_VERSION_CHECK_STR(TTK_LIBRARY_MAJOR_VERSION, TTK_LIBRARY_MINOR_VERSION, TTK_LIBRARY_PATCH_VERSION, 0)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#undef TTK_RC_FILEVERSION</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#undef TTK_RC_PRODUCTVERSION</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a2460e348877c7e762d0749fb7ed07712">   35</a></span>&#160;<span class="preprocessor">#define TTK_RC_FILEVERSION        TTK_LIBRARY_MAJOR_VERSION, TTK_LIBRARY_MINOR_VERSION, TTK_LIBRARY_PATCH_VERSION, 0</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/ddb/ttklibraryversion_8h.html#a770607e50f6ecd0ca8abc233e6d2ba4a">   36</a></span>&#160;<span class="preprocessor">#define TTK_RC_PRODUCTVERSION     TTK_LIBRARY_VERSION_STR</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // TTKLIBRARYVERSION_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:28 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

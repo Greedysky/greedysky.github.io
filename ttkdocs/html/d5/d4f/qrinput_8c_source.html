@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -131,16 +131,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    entry = (<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a>));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    entry = (<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a>));</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(entry == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a970bb9bf1b6fecea98c8cce84ad50743">mode</a> = <a class="code" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a> = <a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = NULL;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(size &gt; 0) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> == NULL) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            free(entry);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        memcpy(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>, data, (<span class="keywordtype">size_t</span>)size);</div>
@@ -154,9 +154,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d5/d4f/qrinput_8c.html#aa8d7538f2d18df91c1dc3aad0f8e9245">   75</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d4f/qrinput_8c.html#aa8d7538f2d18df91c1dc3aad0f8e9245">QRinput_List_freeEntry</a>(<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *entry)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span>(entry != NULL) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        free(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="../../dd/dff/bitstream_8c.html#a31912316aa3e80a99b43652415beab71">BitStream_free</a>(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ac5218ca09695bf13a42f7f18e9bf1d33">bstream</a>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        free(entry);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
@@ -164,14 +164,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *n;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    n = (<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a>));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    n = (<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../df/d7b/struct___q_rinput___list.html">QRinput_List</a>));</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(n == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a970bb9bf1b6fecea98c8cce84ad50743">mode</a> = entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a970bb9bf1b6fecea98c8cce84ad50743">mode</a>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a> = entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a>);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span>(n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> == NULL) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        free(n);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(n);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    memcpy(n-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>, entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>, (<span class="keywordtype">size_t</span>)entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a>);</div>
@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    input = (<a class="code" href="../../d2/db7/struct___q_rinput.html">QRinput</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d2/db7/struct___q_rinput.html">QRinput</a>));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    input = (<a class="code" href="../../d2/db7/struct___q_rinput.html">QRinput</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d2/db7/struct___q_rinput.html">QRinput</a>));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">if</span>(input == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a481ad94ce05c3a74804f1633f8a09cf8">head</a> = NULL;</div>
@@ -368,7 +368,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <a class="code" href="../../d5/d4f/qrinput_8c.html#aa8d7538f2d18df91c1dc3aad0f8e9245">QRinput_List_freeEntry</a>(list);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            list = next;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        }</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        free(input);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(input);</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
@@ -1244,7 +1244,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;{</div>
 <div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    <a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html">QRinput_InputList</a> *entry;</div>
 <div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;</div>
-<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;    entry = (<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html">QRinput_InputList</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html">QRinput_InputList</a>));</div>
+<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;    entry = (<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html">QRinput_InputList</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html">QRinput_InputList</a>));</div>
 <div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;    <span class="keywordflow">if</span>(entry == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;</div>
 <div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;    entry-&gt;<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html#ae8c7eebe23d1033e193195f6dea36d97">input</a> = input;</div>
@@ -1257,7 +1257,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;{</div>
 <div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;    <span class="keywordflow">if</span>(entry != NULL) {</div>
 <div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;        <a class="code" href="../../d5/d4f/qrinput_8c.html#a49404b1ca0e1d58a2d8ae18544606252">QRinput_free</a>(entry-&gt;<a class="code" href="../../d0/dd7/struct___q_rinput___input_list.html#ae8c7eebe23d1033e193195f6dea36d97">input</a>);</div>
-<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;        free(entry);</div>
+<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry);</div>
 <div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;    }</div>
 <div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;}</div>
 <div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;</div>
@@ -1265,7 +1265,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;{</div>
 <div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;    <a class="code" href="../../da/d76/struct___q_rinput___struct.html">QRinput_Struct</a> *s;</div>
 <div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;</div>
-<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;    s = (<a class="code" href="../../da/d76/struct___q_rinput___struct.html">QRinput_Struct</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../da/d76/struct___q_rinput___struct.html">QRinput_Struct</a>));</div>
+<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;    s = (<a class="code" href="../../da/d76/struct___q_rinput___struct.html">QRinput_Struct</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../da/d76/struct___q_rinput___struct.html">QRinput_Struct</a>));</div>
 <div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;    <span class="keywordflow">if</span>(s == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;</div>
 <div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;    s-&gt;<a class="code" href="../../da/d76/struct___q_rinput___struct.html#ae1b68ea889ffbcf415ed531f54bd189e">size</a> = 0;</div>
@@ -1316,7 +1316,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;            <a class="code" href="../../d5/d4f/qrinput_8c.html#ab9537cd64c5b0b647082a40d2c551950">QRinput_InputList_freeEntry</a>(list);</div>
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;            list = next;</div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;        }</div>
-<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;        free(s);</div>
+<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(s);</div>
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;    }</div>
 <div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;}</div>
 <div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;</div>
@@ -1340,11 +1340,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;{</div>
 <div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *data;</div>
 <div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;</div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    data = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)bytes);</div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    data = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)bytes);</div>
 <div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;    <span class="keywordflow">if</span>(data == NULL) <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;</div>
 <div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    memcpy(data, entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>, (<span class="keywordtype">size_t</span>)bytes);</div>
-<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;    free(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>);</div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a>);</div>
 <div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;    entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#ab1b2193ef5cbbc3ebac66c403c1e0d86">data</a> = data;</div>
 <div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;    entry-&gt;<a class="code" href="../../df/d7b/struct___q_rinput___list.html#a0e95d1f205d72e7f8ed60d0f3c612b7d">size</a> = bytes;</div>
 <div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;</div>
@@ -1653,6 +1653,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="qrinput_8c_html_a0d5c630884ac3836ea49db13e7326ac0"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#a0d5c630884ac3836ea49db13e7326ac0">QRinput_encodeModeECI</a></div><div class="ttdeci">static int QRinput_encodeModeECI(QRinput_List *entry, BitStream *bstream)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00785">qrinput.c:785</a></div></div>
 <div class="ttc" id="qrinput_8c_html_a22f22cf8a89dc6109ffa94669bfe1329"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#a22f22cf8a89dc6109ffa94669bfe1329">QRinput_estimateBitsModeKanji</a></div><div class="ttdeci">int QRinput_estimateBitsModeKanji(int size)</div><div class="ttdoc">Estimate the length of the encoded bit stream of kanji data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00614">qrinput.c:614</a></div></div>
 <div class="ttc" id="qrspec_8h_html_a9c04fabaa0e9f5a13f7446a12803df40"><div class="ttname"><a href="../../d0/d23/qrspec_8h.html#a9c04fabaa0e9f5a13f7446a12803df40">QRSPEC_MODEID_FNC1SECOND</a></div><div class="ttdeci">#define QRSPEC_MODEID_FNC1SECOND</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d23/qrspec_8h_source.html#l00170">qrspec.h:170</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="ioapi_8h_html_a7e43d41c2fe013a373b540cba02505cf"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a></div><div class="ttdeci">const char int mode</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00135">ioapi.h:135</a></div></div>
 <div class="ttc" id="qrinput_8c_html_aa4b22ccb80da9a90249b9122eedef39e"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#aa4b22ccb80da9a90249b9122eedef39e">QRinput_encodeModeKanji</a></div><div class="ttdeci">static int QRinput_encodeModeKanji(QRinput_List *entry, BitStream *bstream, int version, int mqr)</div><div class="ttdoc">Convert the kanji data and append to a bit stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00653">qrinput.c:653</a></div></div>
 <div class="ttc" id="mqrspec_8c_html_a2bfdaaeca169277f2855e9574df496ee"><div class="ttname"><a href="../../dc/dd4/mqrspec_8c.html#a2bfdaaeca169277f2855e9574df496ee">MQRspec_getECCLength</a></div><div class="ttdeci">int MQRspec_getECCLength(int version, QRecLevel level)</div><div class="ttdoc">Return maximum error correction code length (bytes) for the version. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd4/mqrspec_8c_source.html#l00073">mqrspec.c:73</a></div></div>
@@ -1663,6 +1664,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="qrencode_8h_html_ab7ec78b96e63c8f019bb328a8d4f55dba43d08a5e6ca772cf62b325b2f9014d84"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55dba43d08a5e6ca772cf62b325b2f9014d84">QR_MODE_STRUCTURE</a></div><div class="ttdoc">Internal use only. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00117">qrencode.h:117</a></div></div>
 <div class="ttc" id="qrinput_8c_html_a6193b49ebfeba2147b67f570328bf7d7"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#a6193b49ebfeba2147b67f570328bf7d7">QRinput_appendEntry</a></div><div class="ttdeci">static void QRinput_appendEntry(QRinput *input, QRinput_List *entry)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00209">qrinput.c:209</a></div></div>
 <div class="ttc" id="struct___q_rinput_html_aaa9a01082553cade177986ad7ffee5a1"><div class="ttname"><a href="../../d2/db7/struct___q_rinput.html#aaa9a01082553cade177986ad7ffee5a1">_QRinput::appid</a></div><div class="ttdeci">unsigned char appid</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d19/qrinput_8h_source.html#l00053">qrinput.h:53</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="qrinput_8c_html_add9b9c7925f8abbf632c8e259b6c38b1"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#add9b9c7925f8abbf632c8e259b6c38b1">QRinput_List_newEntry</a></div><div class="ttdeci">static QRinput_List * QRinput_List_newEntry(QRencodeMode mode, int size, const unsigned char *data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00046">qrinput.c:46</a></div></div>
 <div class="ttc" id="qrencode_8h_html_ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172">QR_MODE_NUL</a></div><div class="ttdoc">Terminator (NUL character). Internal use only. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00112">qrencode.h:112</a></div></div>
 <div class="ttc" id="struct___q_rinput___input_list_html"><div class="ttname"><a href="../../d0/dd7/struct___q_rinput___input_list.html">_QRinput_InputList</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d19/qrinput_8h_source.html#l00061">qrinput.h:61</a></div></div>
@@ -1675,7 +1677,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

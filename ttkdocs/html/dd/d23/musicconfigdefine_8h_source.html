@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -99,56 +99,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d07/musicobject_8h.html">musicobject.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifdef CONFIG_OUT_BUILD</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#  define APP_PATH_DIR              TTK::applicationPath() + TTK_VERSION_STR + TTK_SEPARATOR</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a6de4cd1b28493e94a997e048f03d0ac0">   29</a></span>&#160;<span class="preprocessor">#  define APP_PATH_DIR              TTK::applicationPath()</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">   24</a></span>&#160;<span class="preprocessor">#define TTK_DOWNLOAD_DIR_FULL      DOWNLOAD_DIR_FULL</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a315ca308ead3bcb1b7e9094b80cfae44">   25</a></span>&#160;<span class="preprocessor">#define TTK_LRC_DIR_FULL           LRC_DIR_FULL</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a9a7666f6200335f7cd1d4a9e03fa83aa">   26</a></span>&#160;<span class="preprocessor">#define TTK_MUSIC_DIR_FULL         MUSIC_DIR_FULL</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a4d1b67f54a26b329c0d27e841bf983ba">   28</a></span>&#160;<span class="preprocessor">#define TTK_CACHE_DIR_FULL         CACHE_DIR_FULL</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a7b9ce5a47a244fb2d059ebeb1584f016">   29</a></span>&#160;<span class="preprocessor">#define TTK_ART_DIR_FULL           ART_DIR_FULL</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a59e057afaa5f58acf2ce38732cc7722b">   30</a></span>&#160;<span class="preprocessor">#define TTK_BACKGROUND_DIR_FULL    BACKGROUND_DIR_FULL</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a857de55e47527c93fcb9ba5eae034ec8">   32</a></span>&#160;<span class="preprocessor">#define TTK_DOWNLOAD_DIR_FULL       APP_PATH_DIR + TTK_PDIR + DOWNLOAD_DIR</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a315ca308ead3bcb1b7e9094b80cfae44">   33</a></span>&#160;<span class="preprocessor">#define TTK_LRC_DIR_FULL            TTK_DOWNLOAD_DIR_FULL + LRC_DIR</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a9a7666f6200335f7cd1d4a9e03fa83aa">   34</a></span>&#160;<span class="preprocessor">#define TTK_MUSIC_DIR_FULL          TTK_DOWNLOAD_DIR_FULL + MUSIC_DIR</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a50ca5b1b0e670d377a55953e5ad63080">   35</a></span>&#160;<span class="preprocessor">#define TTK_MOVIE_DIR_FULL          TTK_DOWNLOAD_DIR_FULL + MOVIE_DIR</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a4d1b67f54a26b329c0d27e841bf983ba">   37</a></span>&#160;<span class="preprocessor">#define TTK_CACHE_DIR_FULL          CACHE_DIR_FULL</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a7b9ce5a47a244fb2d059ebeb1584f016">   38</a></span>&#160;<span class="preprocessor">#define TTK_ART_DIR_FULL            ART_DIR_FULL</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a59e057afaa5f58acf2ce38732cc7722b">   39</a></span>&#160;<span class="preprocessor">#define TTK_BACKGROUND_DIR_FULL     BACKGROUND_DIR_FULL</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a427f3b48bf8de272ee7c54f5dd776f9e">   41</a></span>&#160;<span class="preprocessor">#define TTK_COFIG_PATH_FULL         COFIG_PATH_FULL</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a0b0647b246e382980e5d6ef5615abd28">   42</a></span>&#160;<span class="preprocessor">#define TTK_PLAYLIST_PATH_FULL      PLAYLIST_PATH_FULL</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#ac06935bdb8dc5b750319b14b322db833">   43</a></span>&#160;<span class="preprocessor">#define TTK_NORMAL_DOWN_PATH_FULL   NORMAL_DOWN_PATH_FULL</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a71efc97c7d20443e2154b7c83a2ea962">   44</a></span>&#160;<span class="preprocessor">#define TTK_CLOUD_DOWN_PATH_FULL    CLOUD_DOWN_PATH_FULL</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a4e90ca19d225322c38046b9ea8f3197a">   45</a></span>&#160;<span class="preprocessor">#define TTK_CLOUD_UP_PATH_FULL      CLOUD_UP_PATH_FULL</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#adb21f59fd83afbbbb75d7cc7c63d0d47">   46</a></span>&#160;<span class="preprocessor">#define TTK_SEARCH_PATH_FULL        SEARCH_PATH_FULL</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a462bfb8f29cb89aea2d34caab6cadc2d">   47</a></span>&#160;<span class="preprocessor">#define TTK_USER_THEME_DIR_FULL     USER_THEME_DIR_FULL</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a57a6d277ae459972e54bb0da3188a71f">   49</a></span>&#160;<span class="preprocessor">#define TTK_THEME_DIR_FULL          APP_PATH_DIR + THEME_DIR</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a037fff33b6e8ef5bb184402caa36e3d5">   50</a></span>&#160;<span class="preprocessor">#define TTK_PLUGINS_DIR_FULL        APP_PATH_DIR + PLUGINS_DIR</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a979dee5176dad16e5af22f69660a6be4">   51</a></span>&#160;<span class="preprocessor">#define TTK_LANGUAGE_DIR_FULL       APP_PATH_DIR + LANGUAGE_DIR</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifdef Q_OS_WIN</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#  define TTK_SERVICE_FULL          APP_PATH_DIR + &quot;TTKService.exe&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a1fa1fd8b8dd63316c74ece8e49f17b68">   57</a></span>&#160;<span class="preprocessor">#  define TTK_ROUTINE_FULL          APP_PATH_DIR + TTK_PDIR + &quot;TTKRoutine.sh&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#abac0b4342f511f6561c93850f36cf450">   58</a></span>&#160;<span class="preprocessor">#  define TTK_MUSICPLAYER_FULL      APP_PATH_DIR + TTK_PDIR + &quot;TTKMusicPlayer.sh&quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a8d068e3a0a99da9655300a4853aedd65">   59</a></span>&#160;<span class="preprocessor">#  define TTK_INIT_FULL             APP_PATH_DIR + &quot;TTKInit.sh&quot;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a88d33a942fe8c65d259b1c911bfbab25">   60</a></span>&#160;<span class="preprocessor">#  define TTK_CONSOLE_FULL          APP_PATH_DIR + &quot;TTKConsole.sh&quot;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#accd6b5b1f36bb2986fd6100652361126">   61</a></span>&#160;<span class="preprocessor">#  define TTK_SERVICE_FULL          APP_PATH_DIR + &quot;TTKService.sh&quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a550860fed4cbf27e3103b6262427815a">   62</a></span>&#160;<span class="preprocessor">#  define TTK_ROUTINECOPY_FULL      APP_PATH_DIR + &quot;TTKRoutineCopy.sh&quot;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ttkversion_8h_html"><div class="ttname"><a href="../../d4/da6/ttkversion_8h.html">ttkversion.h</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html">ttkglobaldefine.h</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a427f3b48bf8de272ee7c54f5dd776f9e">   32</a></span>&#160;<span class="preprocessor">#define TTK_COFIG_PATH_FULL        COFIG_PATH_FULL</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a0b0647b246e382980e5d6ef5615abd28">   33</a></span>&#160;<span class="preprocessor">#define TTK_PLAYLIST_PATH_FULL     PLAYLIST_PATH_FULL</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#ac06935bdb8dc5b750319b14b322db833">   34</a></span>&#160;<span class="preprocessor">#define TTK_NORMAL_DOWN_PATH_FULL  NORMAL_DOWN_PATH_FULL</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a71efc97c7d20443e2154b7c83a2ea962">   35</a></span>&#160;<span class="preprocessor">#define TTK_CLOUD_DOWN_PATH_FULL   CLOUD_DOWN_PATH_FULL</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a4e90ca19d225322c38046b9ea8f3197a">   36</a></span>&#160;<span class="preprocessor">#define TTK_CLOUD_UP_PATH_FULL     CLOUD_UP_PATH_FULL</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#adb21f59fd83afbbbb75d7cc7c63d0d47">   37</a></span>&#160;<span class="preprocessor">#define TTK_SEARCH_PATH_FULL       SEARCH_PATH_FULL</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a462bfb8f29cb89aea2d34caab6cadc2d">   38</a></span>&#160;<span class="preprocessor">#define TTK_USER_THEME_DIR_FULL    USER_THEME_DIR_FULL</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a57a6d277ae459972e54bb0da3188a71f">   40</a></span>&#160;<span class="preprocessor">#define TTK_THEME_DIR_FULL         THEME_DIR_FULL</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a037fff33b6e8ef5bb184402caa36e3d5">   41</a></span>&#160;<span class="preprocessor">#define TTK_PLUGINS_DIR_FULL       PLUGINS_DIR_FULL</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d23/musicconfigdefine_8h.html#a979dee5176dad16e5af22f69660a6be4">   42</a></span>&#160;<span class="preprocessor">#define TTK_LANGUAGE_DIR_FULL      LANGUAGE_DIR_FULL</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif // MUSICCONFIGDEFINE_H</span></div>
 <div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:29 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

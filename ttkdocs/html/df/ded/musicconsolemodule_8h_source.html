@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -104,64 +104,64 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/de1/class_music_player.html">MusicPlayer</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d81/class_music_playlist.html">MusicPlaylist</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a> : <span class="keyword">public</span> QObject</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Q_OBJECT</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ~<a class="code" href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> initialize(<span class="keyword">const</span> QCoreApplication &amp;app);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> currentIndexChanged(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> switchPlayState();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> playPrevious();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> playNext();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> resetVolume();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> volumeDown();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> volumeUp();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> playOrder();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> playRandom();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> playlistLoop();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> playOneLoop();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> playOnce();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> setEnhancedOff();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> setEnhanced3D();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> setEnhancedNICAM();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> setEnhancedSubwoofer();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> setEnhancedVocal();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> print(qint64 position, qint64 duration) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">  130</a></span>&#160;    <a class="code" href="../../dd/de1/class_music_player.html">MusicPlayer</a>* <a class="code" href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">m_player</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">  131</a></span>&#160;    <a class="code" href="../../d7/d81/class_music_playlist.html">MusicPlaylist</a>* <a class="code" href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">m_playlist</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">  132</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">m_volume</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">  133</a></span>&#160;    QString <a class="code" href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">m_playbackMode</a>, m_enhanced;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif // MUSICCONSOLEMODULE_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">bool</span> initialize();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> currentIndexChanged(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> switchToPlayState();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> playPrevious();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> playNext();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> resetVolume();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> volumeDown();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> volumeUp();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> playOrder();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> playRandom();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> playlistLoop();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> playOneLoop();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> playOnce();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> setEnhancedOff();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> setEnhanced3D();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> setEnhancedNICAM();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> setEnhancedSubwoofer();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> setEnhancedVocal();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> print(qint64 position, qint64 duration) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">  133</a></span>&#160;    <a class="code" href="../../dd/de1/class_music_player.html">MusicPlayer</a>* <a class="code" href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">m_player</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">  134</a></span>&#160;    <a class="code" href="../../d7/d81/class_music_playlist.html">MusicPlaylist</a>* <a class="code" href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">m_playlist</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">  135</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">m_volume</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">  136</a></span>&#160;    QString <a class="code" href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">m_playbackMode</a>, m_enhanced;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;};</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif // MUSICCONSOLEMODULE_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="ttkcommandline_8h_html"><div class="ttname"><a href="../../dd/d05/ttkcommandline_8h.html">ttkcommandline.h</a></div></div>
-<div class="ttc" id="class_music_console_module_html_abfd664182bbd8c2e75c85d26522ed7af"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">MusicConsoleModule::m_player</a></div><div class="ttdeci">MusicPlayer * m_player</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00130">musicconsolemodule.h:130</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="class_music_console_module_html_ae012df9ce6184807ac7e5b53a5d9ec65"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">MusicConsoleModule::m_playlist</a></div><div class="ttdeci">MusicPlaylist * m_playlist</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00131">musicconsolemodule.h:131</a></div></div>
+<div class="ttc" id="class_music_console_module_html_abfd664182bbd8c2e75c85d26522ed7af"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#abfd664182bbd8c2e75c85d26522ed7af">MusicConsoleModule::m_player</a></div><div class="ttdeci">MusicPlayer * m_player</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00133">musicconsolemodule.h:133</a></div></div>
+<div class="ttc" id="class_music_console_module_html_ae012df9ce6184807ac7e5b53a5d9ec65"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#ae012df9ce6184807ac7e5b53a5d9ec65">MusicConsoleModule::m_playlist</a></div><div class="ttdeci">MusicPlaylist * m_playlist</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00134">musicconsolemodule.h:134</a></div></div>
 <div class="ttc" id="class_music_player_html"><div class="ttname"><a href="../../dd/de1/class_music_player.html">MusicPlayer</a></div><div class="ttdoc">The class of the music player. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d60/musicplayer_8h_source.html#l00031">musicplayer.h:31</a></div></div>
-<div class="ttc" id="class_music_console_module_html_aff1acd2bf039e893dc30b1a3859bfa0a"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">MusicConsoleModule::m_volume</a></div><div class="ttdeci">int m_volume</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00132">musicconsolemodule.h:132</a></div></div>
+<div class="ttc" id="class_music_console_module_html_aff1acd2bf039e893dc30b1a3859bfa0a"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">MusicConsoleModule::m_volume</a></div><div class="ttdeci">int m_volume</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00135">musicconsolemodule.h:135</a></div></div>
 <div class="ttc" id="musicobject_8h_html"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html">musicobject.h</a></div></div>
 <div class="ttc" id="class_music_console_module_html"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html">MusicConsoleModule</a></div><div class="ttdoc">The class of the music console module. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00031">musicconsolemodule.h:31</a></div></div>
-<div class="ttc" id="class_music_console_module_html_a02906d2eeaf9b1d65f81e9a2f80c4c5b"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">MusicConsoleModule::m_playbackMode</a></div><div class="ttdeci">QString m_playbackMode</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00133">musicconsolemodule.h:133</a></div></div>
-<div class="ttc" id="class_music_playlist_html"><div class="ttname"><a href="../../d7/d81/class_music_playlist.html">MusicPlaylist</a></div><div class="ttdoc">The class of the music play list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da9/musicplaylist_8h_source.html#l00061">musicplaylist.h:61</a></div></div>
+<div class="ttc" id="class_music_console_module_html_a02906d2eeaf9b1d65f81e9a2f80c4c5b"><div class="ttname"><a href="../../d0/dca/class_music_console_module.html#a02906d2eeaf9b1d65f81e9a2f80c4c5b">MusicConsoleModule::m_playbackMode</a></div><div class="ttdeci">QString m_playbackMode</div><div class="ttdef"><b>Definition:</b> <a href="../../df/ded/musicconsolemodule_8h_source.html#l00136">musicconsolemodule.h:136</a></div></div>
+<div class="ttc" id="class_music_playlist_html"><div class="ttname"><a href="../../d7/d81/class_music_playlist.html">MusicPlaylist</a></div><div class="ttdoc">The class of the music play list. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da9/musicplaylist_8h_source.html#l00063">musicplaylist.h:63</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

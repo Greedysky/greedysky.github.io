@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicsinglemanager.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKWidget/musicCoreKits/musicsinglemanager.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_513babb2681fcdf7997954d1c9925cd3.html">TTKWidget</a></li><li class="navelem"><a class="el" href="../../dir_0efe67f83b19119447cf13069a0485f9.html">musicCoreKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -102,60 +102,69 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#a532b048a95e25197337648dc11101c7d">   27</a></span>&#160;<span class="preprocessor">#define GENERATE_SINGLE_WIDGET_CLASS(name)                                 \</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">    GENERATE_SINGLE_WIDGET_PARENT(name, MusicApplication::instance())</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#a243eb38628cc939b34c4332c432e556d">   30</a></span>&#160;<span class="preprocessor">#define GENERATE_SINGLE_WIDGET_PARENT(name, widget)                        \</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">[](QWidget *parent)                                                        \</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">{                                                                          \</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">    MusicSingleManager *manager = G_SINGLE_MANAGER_PTR;                    \</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">    if(!manager-&gt;contains(#name))                                          \</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">    {                                                                      \</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        manager-&gt;appendObject(#name, new name(parent));                    \</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">    }                                                                      \</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">    name *w = TTKObjectCast(name*, manager-&gt;object(#name));                \</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    TTK::Widget::adjustWidgetPosition(w);                                  \</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">    w-&gt;raise();                                                            \</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">    w-&gt;show();                                                             \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    return w;                                                              \</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">}(widget)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d3/d42/class_music_single_manager.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> appendObject(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, QObject *<span class="keywordtype">object</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> removeObject(<span class="keyword">const</span> QString &amp;name);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QObject *object(<span class="keyword">const</span> QString &amp;name);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> contains(<span class="keyword">const</span> QString &amp;name) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">   72</a></span>&#160;    QMap&lt;QString, QObject*&gt; <a class="code" href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">m_parameter</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#abaad7e8c4ec87eb6869b576e81f42f81">   83</a></span>&#160;<span class="preprocessor">#define G_SINGLE_MANAGER_PTR makeMusicSingleManager()</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>* <a class="code" href="../../d4/d5e/musicsinglemanager_8h.html#a046f9ea5003bce9a287c787c3fa94ec4">makeMusicSingleManager</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#a5bbf40ce7d2189f69c55927c021355dc">   26</a></span>&#160;<span class="preprocessor">#define __SingleWidget__1(name)                                    \</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    __SingleWidget__2(name, MusicApplication::instance())</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#a3e0fa03f6dffc83b6858dd564772984b">   29</a></span>&#160;<span class="preprocessor">#define __SingleWidget__2(name, widget)                            \</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">    [](QWidget *parent)                                            \</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    {                                                              \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">        MusicSingleManager *manager = G_SINGLE_MANAGER_PTR;        \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">        if(!manager-&gt;contains(#name))                              \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">        {                                                          \</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">            manager-&gt;appendObject(#name, new name(parent));        \</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">        }                                                          \</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">        name *w = TTKObjectCast(name*, manager-&gt;object(#name));    \</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">        TTK::Widget::adjustWidgetPosition(w);                      \</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">        w-&gt;raise();                                                \</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">        w-&gt;show();                                                 \</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">        return w;                                                  \</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    }(widget)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// marco generate single widget</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#ifndef Q_CC_MSVC</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#a641c9f1715e59e8cb81dd7e088ede547">   46</a></span>&#160;<span class="preprocessor">#  define TTKGenerateSingleWidget(...) TTK_PP_OVERLOAD(__SingleWidget__, __VA_ARGS__)(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#  define TTKGenerateSingleWidget(...) TTK_PP_CAT(TTK_PP_OVERLOAD(__SingleWidget__, __VA_ARGS__)(__VA_ARGS__), TTK_PP_EMPTY())</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#afce0056bf5cb6ffb55f10b9b1134e97d">   51</a></span>&#160;<span class="preprocessor">#define TTKRemoveSingleWidget(name) G_SINGLE_MANAGER_PTR-&gt;removeObject(name);</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d3/d42/class_music_single_manager.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> appendObject(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>, QObject *<span class="keywordtype">object</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> removeObject(<span class="keyword">const</span> QString &amp;name);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    QObject *object(<span class="keyword">const</span> QString &amp;name);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> contains(<span class="keyword">const</span> QString &amp;name) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">   84</a></span>&#160;    QMap&lt;QString, QObject*&gt; <a class="code" href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">m_parameter</a>;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif // MUSICSINGLEMANAGER_H</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a>(<a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d4/d5e/musicsinglemanager_8h.html#abaad7e8c4ec87eb6869b576e81f42f81">   90</a></span>&#160;<span class="preprocessor">#define G_SINGLE_MANAGER_PTR makeMusicSingleManager()</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a>* <a class="code" href="../../d4/d5e/musicsinglemanager_8h.html#a046f9ea5003bce9a287c787c3fa94ec4">makeMusicSingleManager</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif // MUSICSINGLEMANAGER_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="ttksingleton_8h_html"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html">ttksingleton.h</a></div></div>
-<div class="ttc" id="class_music_single_manager_html_a8eac95efaa5d071f9ca74f2e10032971"><div class="ttname"><a href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">MusicSingleManager::m_parameter</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameter</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/musicsinglemanager_8h_source.html#l00072">musicsinglemanager.h:72</a></div></div>
-<div class="ttc" id="class_music_single_manager_html"><div class="ttname"><a href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a></div><div class="ttdoc">The class of the single object manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/musicsinglemanager_8h_source.html#l00050">musicsinglemanager.h:50</a></div></div>
+<div class="ttc" id="class_music_single_manager_html_a8eac95efaa5d071f9ca74f2e10032971"><div class="ttname"><a href="../../d3/d42/class_music_single_manager.html#a8eac95efaa5d071f9ca74f2e10032971">MusicSingleManager::m_parameter</a></div><div class="ttdeci">QMap&lt; QString, QObject * &gt; m_parameter</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/musicsinglemanager_8h_source.html#l00084">musicsinglemanager.h:84</a></div></div>
+<div class="ttc" id="class_music_single_manager_html"><div class="ttname"><a href="../../d3/d42/class_music_single_manager.html">MusicSingleManager</a></div><div class="ttdoc">The class of the single object manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d5e/musicsinglemanager_8h_source.html#l00057">musicsinglemanager.h:57</a></div></div>
 <div class="ttc" id="musicsinglemanager_8h_html_a046f9ea5003bce9a287c787c3fa94ec4"><div class="ttname"><a href="../../d4/d5e/musicsinglemanager_8h.html#a046f9ea5003bce9a287c787c3fa94ec4">makeMusicSingleManager</a></div><div class="ttdeci">TTK_MODULE_EXPORT MusicSingleManager * makeMusicSingleManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daf/musicsingleton_8cpp_source.html#l00034">musicsingleton.cpp:34</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00206">ttkglobal.h:206</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="ttksingleton_8h_html_a1d403b1577b05fa6b7e68d2b4bf9450f"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define TTK_DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00083">ttksingleton.h:83</a></div></div>
+<div class="ttc" id="ttksingleton_8h_html_a1d403b1577b05fa6b7e68d2b4bf9450f"><div class="ttname"><a href="../../d4/d3a/ttksingleton_8h.html#a1d403b1577b05fa6b7e68d2b4bf9450f">TTK_DECLARE_SINGLETON_CLASS</a></div><div class="ttdeci">#define TTK_DECLARE_SINGLETON_CLASS(Class)</div><div class="ttdoc">                                         //  Singleton Macro // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00086">ttksingleton.h:86</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00152">ttkqtglobal.h:152</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:41 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

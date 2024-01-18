@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -190,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">if</span>(pad &lt; 0 || pad &gt;= ((1&lt;&lt;symsize) -1 - nroots))</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">goto</span> done; <span class="comment">/* Too much padding */</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  rs = (<a class="code" href="../../db/df2/struct___r_s.html">RS</a> *)calloc(1,<span class="keyword">sizeof</span>(<a class="code" href="../../db/df2/struct___r_s.html">RS</a>));</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  rs = (<a class="code" href="../../db/df2/struct___r_s.html">RS</a> *)<a class="code" href="../../d4/d49/zutil_8c.html#a0659e28c2a1d3b0b2f8c3564c6645f9c">calloc</a>(1,<span class="keyword">sizeof</span>(<a class="code" href="../../db/df2/struct___r_s.html">RS</a>));</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">if</span>(rs == NULL)</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">goto</span> done;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
@@ -198,16 +198,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">nn</a> = (1&lt;&lt;symsize)-1;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a10c7fe66a2d97af43c41881c5c24ce92">pad</a> = pad;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">nn</a>+1));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">nn</a>+1));</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordflow">if</span>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a> == NULL){</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    free(rs);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    rs = NULL;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">goto</span> done;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">nn</a>+1));</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">nn</a>+1));</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordflow">if</span>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a> == NULL){</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    free(rs);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    rs = NULL;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">goto</span> done;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  }</div>
@@ -226,19 +226,19 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordflow">if</span>(sr != 1){</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">/* field generator polynomial is not primitive! */</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    free(rs);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    rs = NULL;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">goto</span> done;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  }</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="comment">/* Form RS code generator polynomial from its roots */</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#aa6785d02605d937bcb035e62936cc245">genpoly</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(nroots+1));</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#aa6785d02605d937bcb035e62936cc245">genpoly</a> = (<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d3/d91/rscode_8c.html#ae91c9d70e1e2c8b657e51de1fff60ada">data_t</a>)*(nroots+1));</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keywordflow">if</span>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#aa6785d02605d937bcb035e62936cc245">genpoly</a> == NULL){</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    free(rs);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs);</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    rs = NULL;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">goto</span> done;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  }</div>
@@ -282,10 +282,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
 <div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="../../d1/d2f/rscode_8h.html#aaf057e5186c6e64286c81ccb50245954">  207</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d91/rscode_8c.html#aaf057e5186c6e64286c81ccb50245954">free_rs_char</a>(<a class="code" href="../../db/df2/struct___r_s.html">RS</a> *rs)</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;{</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    free(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#aa6785d02605d937bcb035e62936cc245">genpoly</a>);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    free(rs);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#a998f0e035861187dd6fbef37ca5789ac">alpha_to</a>);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">index_of</a>);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs-&gt;<a class="code" href="../../db/df2/struct___r_s.html#aa6785d02605d937bcb035e62936cc245">genpoly</a>);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(rs);</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">/* The guts of the Reed-Solomon encoder, meant to be #included</span></div>
@@ -364,12 +364,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct___r_s_html_a046c7e4ece716d243101048247f6cde4"><div class="ttname"><a href="../../db/df2/struct___r_s.html#a046c7e4ece716d243101048247f6cde4">_RS::mm</a></div><div class="ttdeci">int mm</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00043">rscode.c:43</a></div></div>
 <div class="ttc" id="rscode_8c_html_a323d60150d94a9f5f599bb97726ac384"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#a323d60150d94a9f5f599bb97726ac384">PAD</a></div><div class="ttdeci">#define PAD</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00076">rscode.c:76</a></div></div>
 <div class="ttc" id="rscode_8c_html_a170755e30c36be4904106b7bb279b1ec"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#a170755e30c36be4904106b7bb279b1ec">NN</a></div><div class="ttdeci">#define NN</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00068">rscode.c:68</a></div></div>
+<div class="ttc" id="zutil_8c_html_a0659e28c2a1d3b0b2f8c3564c6645f9c"><div class="ttname"><a href="../../d4/d49/zutil_8c.html#a0659e28c2a1d3b0b2f8c3564c6645f9c">calloc</a></div><div class="ttdeci">voidp calloc(uInt items, uInt size)</div></div>
 <div class="ttc" id="rscode_8c_html_afae14aea58e6520b2057147833c699de"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#afae14aea58e6520b2057147833c699de">ALPHA_TO</a></div><div class="ttdeci">#define ALPHA_TO</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00069">rscode.c:69</a></div></div>
 <div class="ttc" id="rscode_8c_html_ab46bcabad74e2419539d64659328bf38"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#ab46bcabad74e2419539d64659328bf38">init_rs_char</a></div><div class="ttdeci">static RS * init_rs_char(int symsize, int gfpoly, int fcr, int prim, int nroots, int pad)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00088">rscode.c:88</a></div></div>
 <div class="ttc" id="rscode_8c_html_a30b2083fc85bcf1d600d701ec30db161"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#a30b2083fc85bcf1d600d701ec30db161">init_rs</a></div><div class="ttdeci">RS * init_rs(int symsize, int gfpoly, int fcr, int prim, int nroots, int pad)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00201">rscode.c:201</a></div></div>
 <div class="ttc" id="struct___r_s_html_a10c7fe66a2d97af43c41881c5c24ce92"><div class="ttname"><a href="../../db/df2/struct___r_s.html#a10c7fe66a2d97af43c41881c5c24ce92">_RS::pad</a></div><div class="ttdeci">int pad</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00052">rscode.c:52</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="struct___r_s_html_ab5663729b99e9ff8f7969e916fda2627"><div class="ttname"><a href="../../db/df2/struct___r_s.html#ab5663729b99e9ff8f7969e916fda2627">_RS::nn</a></div><div class="ttdeci">int nn</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00044">rscode.c:44</a></div></div>
 <div class="ttc" id="rscode_8c_html_aa3c4c7ec9c867587450e6e6a15deaf95"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#aa3c4c7ec9c867587450e6e6a15deaf95">encode_rs_char</a></div><div class="ttdeci">void encode_rs_char(RS *rs, const data_t *data, data_t *parity)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00246">rscode.c:246</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="struct___r_s_html_af3406fa5684f5c96c2cd523522959c47"><div class="ttname"><a href="../../db/df2/struct___r_s.html#af3406fa5684f5c96c2cd523522959c47">_RS::index_of</a></div><div class="ttdeci">data_t * index_of</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00046">rscode.c:46</a></div></div>
 <div class="ttc" id="rscode_8c_html_a0d158f1e3af2ab523eb8423db3e5bd6e"><div class="ttname"><a href="../../d3/d91/rscode_8c.html#a0d158f1e3af2ab523eb8423db3e5bd6e">A0</a></div><div class="ttdeci">#define A0</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00244">rscode.c:244</a></div></div>
 <div class="ttc" id="struct___r_s_html_a3e5a578b2322c98c7fc5bab914917b24"><div class="ttname"><a href="../../db/df2/struct___r_s.html#a3e5a578b2322c98c7fc5bab914917b24">_RS::prim</a></div><div class="ttdeci">int prim</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d91/rscode_8c_source.html#l00050">rscode.c:50</a></div></div>
@@ -377,7 +380,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

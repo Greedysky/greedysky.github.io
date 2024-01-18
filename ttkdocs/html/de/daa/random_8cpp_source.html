@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -78,37 +78,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../de/daa/random_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d79/random_8h.html">random.h</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#  include &lt;QRandomGenerator&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">initRandom</a>()</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    qsrand(QDateTime::currentMSecsSinceEpoch());</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">   16</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">random</a>(<span class="keywordtype">int</span> value)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> QRandomGenerator::global()-&gt;bounded(value);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> qrand() % value;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/ddc/ttkqtglobal_8h.html">ttkqtglobal.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#  include &lt;QRandomGenerator&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#a9c8dab404db90d5e2d3e9248e19aeaed">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#a9c8dab404db90d5e2d3e9248e19aeaed">initRandom</a>()</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if !TTK_QT_VERSION_CHECK(5,10,0)</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    qsrand(QDateTime::currentMSecsSinceEpoch());</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../d7/dd3/namespace_q_algorithm.html#a0ee0f5b917bdc9ac74d9926edf6c2b8b">   17</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/dd3/namespace_q_algorithm.html#a0ee0f5b917bdc9ac74d9926edf6c2b8b">random</a>(<span class="keywordtype">int</span> value)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,10,0)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> QRandomGenerator::global()-&gt;bounded(value);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> qrand() % value;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="ttc" id="namespace_q_algorithm_html_ae120d7ac315cfccd3e803529bc0c557f"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#ae120d7ac315cfccd3e803529bc0c557f">QAlgorithm::initRandom</a></div><div class="ttdeci">void initRandom()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00009">random.cpp:9</a></div></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="ttc" id="namespace_q_algorithm_html_a9c8dab404db90d5e2d3e9248e19aeaed"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#a9c8dab404db90d5e2d3e9248e19aeaed">QAlgorithm::initRandom</a></div><div class="ttdeci">void initRandom()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00010">random.cpp:10</a></div></div>
 <div class="ttc" id="namespace_q_algorithm_html"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00026">musictransitionanimationlabel.h:26</a></div></div>
-<div class="ttc" id="namespace_q_algorithm_html_ab7e56a055279331e129ab577b87880f3"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#ab7e56a055279331e129ab577b87880f3">QAlgorithm::random</a></div><div class="ttdeci">int random(int value)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00016">random.cpp:16</a></div></div>
+<div class="ttc" id="namespace_q_algorithm_html_a0ee0f5b917bdc9ac74d9926edf6c2b8b"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html#a0ee0f5b917bdc9ac74d9926edf6c2b8b">QAlgorithm::random</a></div><div class="ttdeci">int random(int value)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/daa/random_8cpp_source.html#l00017">random.cpp:17</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html">ttkqtglobal.h</a></div></div>
 <div class="ttc" id="random_8h_html"><div class="ttname"><a href="../../d1/d79/random_8h.html">random.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

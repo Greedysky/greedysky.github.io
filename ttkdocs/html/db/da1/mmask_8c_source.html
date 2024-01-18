@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *masked;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(masked == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="../../db/da1/mmask_8c.html#ad1c35d8f045be97b466f254dc27c7ca1">maskMakers</a>[mask](width, frame, masked);</div>
@@ -193,7 +193,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    width = <a class="code" href="../../dc/dd4/mqrspec_8c.html#aadf47a378b5cdb91d62b542e9d14bb54">MQRspec_getWidth</a>(version);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>(masked == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="../../db/da1/mmask_8c.html#ad1c35d8f045be97b466f254dc27c7ca1">maskMakers</a>[mask](width, frame, masked);</div>
@@ -232,7 +232,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    width = <a class="code" href="../../dc/dd4/mqrspec_8c.html#aadf47a378b5cdb91d62b542e9d14bb54">MQRspec_getWidth</a>(version);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">if</span>(mask == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    bestMask = NULL;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
@@ -243,13 +243,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        score = <a class="code" href="../../db/da1/mmask_8c.html#a6a3e58ab27a1445a9468e14b9d6fe0ac">MMask_evaluateSymbol</a>(width, mask);</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span>(score &gt; maxScore) {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            maxScore = score;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            free(bestMask);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(bestMask);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            bestMask = mask;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            mask = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">if</span>(mask == NULL) <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    free(mask);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(mask);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> bestMask;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
 <div class="ttc" id="mmask_8c_html_a3a1f51e79d46c1256f6968104407a294"><div class="ttname"><a href="../../db/da1/mmask_8c.html#a3a1f51e79d46c1256f6968104407a294">Mask_mask1</a></div><div class="ttdeci">static void Mask_mask1(int width, const unsigned char *s, unsigned char *d)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da1/mmask_8c_source.html#l00071">mmask.c:71</a></div></div>
@@ -269,13 +269,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="mqrspec_8c_html_a85659fa0b56c2eff589c96408713310e"><div class="ttname"><a href="../../dc/dd4/mqrspec_8c.html#a85659fa0b56c2eff589c96408713310e">MQRspec_getFormatInfo</a></div><div class="ttdeci">unsigned int MQRspec_getFormatInfo(int mask, int version, QRecLevel level)</div><div class="ttdoc">Return BCH encoded format information pattern. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd4/mqrspec_8c_source.html#l00137">mqrspec.c:137</a></div></div>
 <div class="ttc" id="mmask_8h_html"><div class="ttname"><a href="../../d2/d17/mmask_8h.html">mmask.h</a></div></div>
 <div class="ttc" id="mmask_8c_html_aceffe879f5f003612edad24b62427027"><div class="ttname"><a href="../../db/da1/mmask_8c.html#aceffe879f5f003612edad24b62427027">maskNum</a></div><div class="ttdeci">#define maskNum</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da1/mmask_8c_source.html#l00086">mmask.c:86</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="mmask_8c_html_a21b55d34e036e1ca341a10ff0872e3bc"><div class="ttname"><a href="../../db/da1/mmask_8c.html#a21b55d34e036e1ca341a10ff0872e3bc">Mask_mask2</a></div><div class="ttdeci">static void Mask_mask2(int width, const unsigned char *s, unsigned char *d)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da1/mmask_8c_source.html#l00076">mmask.c:76</a></div></div>
 <div class="ttc" id="mqrspec_8c_html_aadf47a378b5cdb91d62b542e9d14bb54"><div class="ttname"><a href="../../dc/dd4/mqrspec_8c.html#aadf47a378b5cdb91d62b542e9d14bb54">MQRspec_getWidth</a></div><div class="ttdeci">int MQRspec_getWidth(int version)</div><div class="ttdoc">Return the width of the symbol for the version. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dd4/mqrspec_8c_source.html#l00078">mqrspec.c:78</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="mmask_8c_html_ad1c35d8f045be97b466f254dc27c7ca1"><div class="ttname"><a href="../../db/da1/mmask_8c.html#ad1c35d8f045be97b466f254dc27c7ca1">maskMakers</a></div><div class="ttdeci">static MaskMaker * maskMakers[maskNum]</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da1/mmask_8c_source.html#l00088">mmask.c:88</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -87,35 +87,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* gzclose() is in a separate file so that it is linked in only if it is used.</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">   That way the other gzclose functions can be used instead to avoid linking in</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">   unneeded compression or decompression routines. */</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../dc/d41/gzclose_8c.html#aa7cbb6800b5c2e3a897b4470fbb3abcd">   11</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a> <a class="code" href="../../dc/d41/gzclose_8c.html#aa7cbb6800b5c2e3a897b4470fbb3abcd">gzclose</a>(file)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../df/db6/structgz_file__s.html">gzFile</a> file;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef NO_GZCOMPRESS</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> (file == NULL)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d4/dae/zlib_8h.html#aad97cde83a9a4bb77f5c3b03bb68e483">Z_STREAM_ERROR</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    state = (<a class="code" href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a>)file;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> state-&gt;mode == <a class="code" href="../../d5/d6d/gzguts_8h.html#a97ca7a8b458e75a004e828cb28ac264c">GZ_READ</a> ? <a class="code" href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a>(file) : <a class="code" href="../../d8/db6/gzwrite_8c.html#a6f657e5b498bef603821cdf41c8375d4">gzclose_w</a>(file);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a>(file);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="ttc" id="gzguts_8h_html_a97ca7a8b458e75a004e828cb28ac264c"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a97ca7a8b458e75a004e828cb28ac264c">GZ_READ</a></div><div class="ttdeci">#define GZ_READ</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00160">gzguts.h:160</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d4/dae/zlib_8h.html#a4546dd59f197e9fb0905632234785b0d">   11</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a> <a class="code" href="../../dc/d41/gzclose_8c.html#aa7cbb6800b5c2e3a897b4470fbb3abcd">gzclose</a>(<a class="code" href="../../df/db6/structgz_file__s.html">gzFile</a> file) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef NO_GZCOMPRESS</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a> <a class="code" href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span> (file == NULL)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d4/dae/zlib_8h.html#aad97cde83a9a4bb77f5c3b03bb68e483">Z_STREAM_ERROR</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    state = (<a class="code" href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a>)file;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> state-&gt;mode == <a class="code" href="../../d5/d6d/gzguts_8h.html#a97ca7a8b458e75a004e828cb28ac264c">GZ_READ</a> ? <a class="code" href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a>(file) : <a class="code" href="../../d8/db6/gzwrite_8c.html#a6f657e5b498bef603821cdf41c8375d4">gzclose_w</a>(file);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a>(file);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="ttc" id="gzguts_8h_html_a97ca7a8b458e75a004e828cb28ac264c"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a97ca7a8b458e75a004e828cb28ac264c">GZ_READ</a></div><div class="ttdeci">#define GZ_READ</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00159">gzguts.h:159</a></div></div>
 <div class="ttc" id="gzclose_8c_html_aa7cbb6800b5c2e3a897b4470fbb3abcd"><div class="ttname"><a href="../../dc/d41/gzclose_8c.html#aa7cbb6800b5c2e3a897b4470fbb3abcd">gzclose</a></div><div class="ttdeci">int ZEXPORT gzclose(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d41/gzclose_8c_source.html#l00011">gzclose.c:11</a></div></div>
 <div class="ttc" id="zlib_8h_html_aad97cde83a9a4bb77f5c3b03bb68e483"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#aad97cde83a9a4bb77f5c3b03bb68e483">Z_STREAM_ERROR</a></div><div class="ttdeci">#define Z_STREAM_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00181">zlib.h:181</a></div></div>
-<div class="ttc" id="gzread_8c_html_a74218c3c6e5eddf23a9f3cb2e08f9637"><div class="ttname"><a href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a></div><div class="ttdeci">int ZEXPORT gzclose_r(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df1/gzread_8c_source.html#l00623">gzread.c:623</a></div></div>
+<div class="ttc" id="gzread_8c_html_a74218c3c6e5eddf23a9f3cb2e08f9637"><div class="ttname"><a href="../../d0/df1/gzread_8c.html#a74218c3c6e5eddf23a9f3cb2e08f9637">gzclose_r</a></div><div class="ttdeci">int ZEXPORT gzclose_r(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/df1/gzread_8c_source.html#l00577">gzread.c:577</a></div></div>
 <div class="ttc" id="gzguts_8h_html"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html">gzguts.h</a></div></div>
-<div class="ttc" id="gzwrite_8c_html_a6f657e5b498bef603821cdf41c8375d4"><div class="ttname"><a href="../../d8/db6/gzwrite_8c.html#a6f657e5b498bef603821cdf41c8375d4">gzclose_w</a></div><div class="ttdeci">int ZEXPORT gzclose_w(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db6/gzwrite_8c_source.html#l00639">gzwrite.c:639</a></div></div>
-<div class="ttc" id="structgz_file__s_html"><div class="ttname"><a href="../../df/db6/structgz_file__s.html">gzFile_s</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l01834">zlib.h:1834</a></div></div>
-<div class="ttc" id="gzguts_8h_html_a15adc208a26903dbfe8c57720cf401c8"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a></div><div class="ttdeci">gz_state FAR * gz_statep</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00203">gzguts.h:203</a></div></div>
-<div class="ttc" id="zconf_8h_html_a181415878f03b95a7094309d824a14b6"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a></div><div class="ttdeci">#define ZEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00386">zconf.h:386</a></div></div>
+<div class="ttc" id="gzwrite_8c_html_a6f657e5b498bef603821cdf41c8375d4"><div class="ttname"><a href="../../d8/db6/gzwrite_8c.html#a6f657e5b498bef603821cdf41c8375d4">gzclose_w</a></div><div class="ttdeci">int ZEXPORT gzclose_w(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db6/gzwrite_8c_source.html#l00595">gzwrite.c:595</a></div></div>
+<div class="ttc" id="structgz_file__s_html"><div class="ttname"><a href="../../df/db6/structgz_file__s.html">gzFile_s</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l01837">zlib.h:1837</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a15adc208a26903dbfe8c57720cf401c8"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a15adc208a26903dbfe8c57720cf401c8">gz_statep</a></div><div class="ttdeci">gz_state FAR * gz_statep</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00202">gzguts.h:202</a></div></div>
+<div class="ttc" id="zconf_8h_html_a181415878f03b95a7094309d824a14b6"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a></div><div class="ttdeci">#define ZEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00390">zconf.h:390</a></div></div>
 <div class="ttc" id="http__parser_8c_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00279">http_parser.c:279</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:57 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

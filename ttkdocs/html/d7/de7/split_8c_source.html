@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/de7/split_8c.html#ab1cc1a3ff560049e22576031c7c2345b">   42</a></span>&#160;<span class="keywordtype">char</span> *<a class="code" href="../../d7/de7/split_8c.html#ab1cc1a3ff560049e22576031c7c2345b">strdup</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *s)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">size_t</span> len = strlen(s) + 1;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> *newstring = malloc(len);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> *newstring = <a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(len);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span>(newstring == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> (<span class="keywordtype">char</span> *)memcpy(newstring, s, len);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
@@ -391,7 +391,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        newstr = <a class="code" href="../../d7/de7/split_8c.html#a4f2e8d88f8fa2ecbaa2f01f3bca9df06">dupAndToUpper</a>(<span class="keywordtype">string</span>, hint);</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">if</span>(newstr == NULL) <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        ret = <a class="code" href="../../d7/de7/split_8c.html#a0129b2ee08b63c0e03c7f8ee29314412">Split_splitString</a>(newstr, input, hint);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        free(newstr);</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(newstr);</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        ret = <a class="code" href="../../d7/de7/split_8c.html#a0129b2ee08b63c0e03c7f8ee29314412">Split_splitString</a>(<span class="keywordtype">string</span>, input, hint);</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
@@ -423,16 +423,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="qrinput_8h_html"><div class="ttname"><a href="../../da/d19/qrinput_8h.html">qrinput.h</a></div></div>
 <div class="ttc" id="qrencode_8h_html_ab7ec78b96e63c8f019bb328a8d4f55dbab3edce4288e06c11609faa541e98031a"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55dbab3edce4288e06c11609faa541e98031a">QR_MODE_AN</a></div><div class="ttdoc">Alphabet-numeric mode. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00114">qrencode.h:114</a></div></div>
 <div class="ttc" id="split_8c_html_a84004ad51e10dd0e8471267ff215408d"><div class="ttname"><a href="../../d7/de7/split_8c.html#a84004ad51e10dd0e8471267ff215408d">Split_identifyMode</a></div><div class="ttdeci">static QRencodeMode Split_identifyMode(const char *string, QRencodeMode hint)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de7/split_8c_source.html#l00051">split.c:51</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="ioapi_8h_html_a7e43d41c2fe013a373b540cba02505cf"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a></div><div class="ttdeci">const char int mode</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00135">ioapi.h:135</a></div></div>
 <div class="ttc" id="qrinput_8c_html_ac84491797827e336704017988ea52bbd"><div class="ttname"><a href="../../d5/d4f/qrinput_8c.html#ac84491797827e336704017988ea52bbd">QRinput_estimateBitsMode8</a></div><div class="ttdeci">int QRinput_estimateBitsMode8(int size)</div><div class="ttdoc">Estimate the length of the encoded bit stream of 8 bit data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4f/qrinput_8c_source.html#l00564">qrinput.c:564</a></div></div>
 <div class="ttc" id="split_8c_html_ae8a53e87cb728a289c2895b332ec94e9"><div class="ttname"><a href="../../d7/de7/split_8c.html#ae8a53e87cb728a289c2895b332ec94e9">Split_eatAn</a></div><div class="ttdeci">static int Split_eatAn(const char *string, QRinput *input, QRencodeMode hint)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de7/split_8c_source.html#l00119">split.c:119</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="qrencode_8h_html_ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172">QR_MODE_NUL</a></div><div class="ttdoc">Terminator (NUL character). Internal use only. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00112">qrencode.h:112</a></div></div>
 <div class="ttc" id="split_8c_html_aac4e5af5e1e7eee878c758b5da2bef47"><div class="ttname"><a href="../../d7/de7/split_8c.html#aac4e5af5e1e7eee878c758b5da2bef47">Split_splitStringToQRinput</a></div><div class="ttdeci">int Split_splitStringToQRinput(const char *string, QRinput *input, QRencodeMode hint, int casesensitive)</div><div class="ttdoc">Split the input string (null terminated) into QRinput. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de7/split_8c_source.html#l00301">split.c:301</a></div></div>
 <div class="ttc" id="split_8c_html_ab17680d3ee3ee75119cd2d150562568e"><div class="ttname"><a href="../../d7/de7/split_8c.html#ab17680d3ee3ee75119cd2d150562568e">isdigit</a></div><div class="ttdeci">#define isdigit(__c__)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/de7/split_8c_source.html#l00037">split.c:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

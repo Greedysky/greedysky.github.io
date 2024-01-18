@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -74,16 +74,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">musicapplicationmodule.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d00/musicapplicationmodule_8h_source.html">musicapplicationmodule.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d1f/musicmobiledeviceswidget_8h_source.html">musicmobiledeviceswidget.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/da8/musicfileassociationwidget_8h_source.html">musicfileassociationwidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../da/d67/musictimerwidget_8h_source.html">musictimerwidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d5/d90/musicspectrumwidget_8h_source.html">musicspectrumwidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/dd1/musictimerautomodule_8h_source.html">musictimerautomodule.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc1/musicbackupmodule_8h_source.html">musicbackupmodule.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/dbd/musicmessagebox_8h_source.html">musicmessagebox.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/de1/musictoastlabel_8h_source.html">musictoastlabel.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/de1/musicequalizerdialog_8h_source.html">musicequalizerdialog.h</a>&quot;</code><br />
@@ -99,57 +101,76 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;<a class="el" href="../../de/d3b/musiccounterpvrequest_8h_source.html">musiccounterpvrequest.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d19/musicsourceupdaterequest_8h_source.html">musicsourceupdaterequest.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d8/d0a/musicscreensaverwidget_8h_source.html">musicscreensaverwidget.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d82/ttkdesktopwrapper_8h_source.html">ttkdesktopwrapper.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/dac/ttklibrary_8h_source.html">ttklibrary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dd0/ttkconcurrent_8h_source.html">ttkconcurrent.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d82/ttkdesktopwrapper_8h_source.html">ttkdesktopwrapper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d64/ttkfileassociation_8h_source.html">ttkfileassociation.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d62/ttkplatformsystem_8h_source.html">ttkplatformsystem.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/d4a/qdevicewatcher_8h_source.html">qdevicewatcher.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/dcf/qsyncconfig_8h_source.html">qsync/qsyncconfig.h</a>&quot;</code><br />
 </div>
 <p><a href="../../dd/d98/musicapplicationmodule_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a246e265e8d2e7804bd9a732001475877"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d98/musicapplicationmodule_8cpp.html#a246e265e8d2e7804bd9a732001475877">MARGIN_SIDE</a>&#160;&#160;&#160;10</td></tr>
-<tr class="separator:a246e265e8d2e7804bd9a732001475877"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dbfc2db237fae594e32eb33f389f0ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d98/musicapplicationmodule_8cpp.html#a7dbfc2db237fae594e32eb33f389f0ee">SYNC_HOST_URL</a>&#160;&#160;&#160;&quot;VDVnYUdYMW9xNnVWSnd6L0J6NHI2MFZ5d0R3R2NiRVF4VW5WckpNcUhnUT0=&quot;</td></tr>
-<tr class="separator:a7dbfc2db237fae594e32eb33f389f0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ade3aba057aac49d5549e59f843855c1f"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d98/musicapplicationmodule_8cpp.html#ade3aba057aac49d5549e59f843855c1f">MARGIN_SIDE</a> = 10</td></tr>
+<tr class="separator:ade3aba057aac49d5549e59f843855c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b18bb36a69a8a65e7dbc79406b84b7"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d98/musicapplicationmodule_8cpp.html#a53b18bb36a69a8a65e7dbc79406b84b7">SYNC_HOST_URL</a> = &quot;VDVnYUdYMW9xNnVWSnd6L0J6NHI2MFZ5d0R3R2NiRVF4VW5WckpNcUhnUT0=&quot;</td></tr>
+<tr class="separator:a53b18bb36a69a8a65e7dbc79406b84b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a246e265e8d2e7804bd9a732001475877"></a>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="ade3aba057aac49d5549e59f843855c1f"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define MARGIN_SIDE&#160;&#160;&#160;10</td>
+          <td class="memname">constexpr <a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> MARGIN_SIDE = 10</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00028">28</a> of file <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html">musicapplicationmodule.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html">musicapplicationmodule.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00169">MusicApplicationModule::sideAnimationByOn()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00215">MusicApplicationModule::sideAnimationByOn()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7dbfc2db237fae594e32eb33f389f0ee"></a>
+<a class="anchor" id="a53b18bb36a69a8a65e7dbc79406b84b7"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define SYNC_HOST_URL&#160;&#160;&#160;&quot;VDVnYUdYMW9xNnVWSnd6L0J6NHI2MFZ5d0R3R2NiRVF4VW5WckpNcUhnUT0=&quot;</td>
+          <td class="memname">constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char* SYNC_HOST_URL = &quot;VDVnYUdYMW9xNnVWSnd6L0J6NHI2MFZ5d0R3R2NiRVF4VW5WckpNcUhnUT0=&quot;</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00029">29</a> of file <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html">musicapplicationmodule.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00034">34</a> of file <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html">musicapplicationmodule.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00100">MusicApplicationModule::loadNetWorkSetting()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/d98/musicapplicationmodule_8cpp_source.html#l00116">MusicApplicationModule::loadNetWorkSetting()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:58 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

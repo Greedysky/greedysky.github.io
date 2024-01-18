@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -186,12 +186,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a> *raw;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">int</span> spec[5], ret;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    raw = (<a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a>));</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    raw = (<a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a>));</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span>(raw == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a> = <a class="code" href="../../d5/d4f/qrinput_8c.html#a575ced3650564b461c7eb0eee5c5e313">QRinput_getByteStream</a>(input);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a> == NULL) {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
@@ -201,15 +201,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#a3ffd48c9f259e9dc84bdf05ae4fc495e">b1</a> = <a class="code" href="../../d0/d23/qrspec_8h.html#a1974ecfdbcb1057138827d6fdf7b5242">QRspec_rsBlockNum1</a>(spec);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#a974ee31e3402e24f179578adf2abb29c">dataLength</a> = <a class="code" href="../../d0/d23/qrspec_8h.html#af9994be3b13374e437f7f4ffba0dbfb3">QRspec_rsDataLength</a>(spec);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#ae0e17d8f436e7bcb3fac935fa8787895">eccLength</a> = <a class="code" href="../../d0/d23/qrspec_8h.html#aac54eb12ba77239c5c8bebc5a94c3150">QRspec_rsEccLength</a>(spec);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">ecccode</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#ae0e17d8f436e7bcb3fac935fa8787895">eccLength</a>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">ecccode</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#ae0e17d8f436e7bcb3fac935fa8787895">eccLength</a>);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">ecccode</a> == NULL) {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        free(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a>);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#acc46d472ecc1cc9236ed1397b57ba3ab">blocks</a> = <a class="code" href="../../d0/d23/qrspec_8h.html#a8c05e8133654b44bbee597109dbdb280">QRspec_rsBlockNum</a>(spec);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#adc7c0ec5f88655e6c0aeb3ad9422fbe5">rsblock</a> = (<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a> *)calloc((<span class="keywordtype">size_t</span>)(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#acc46d472ecc1cc9236ed1397b57ba3ab">blocks</a>), <span class="keyword">sizeof</span>(<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a>));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#adc7c0ec5f88655e6c0aeb3ad9422fbe5">rsblock</a> = (<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a> *)<a class="code" href="../../d4/d49/zutil_8c.html#a0659e28c2a1d3b0b2f8c3564c6645f9c">calloc</a>((<span class="keywordtype">size_t</span>)(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#acc46d472ecc1cc9236ed1397b57ba3ab">blocks</a>), <span class="keyword">sizeof</span>(<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a>));</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#adc7c0ec5f88655e6c0aeb3ad9422fbe5">rsblock</a> == NULL) {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="../../d0/d95/qrencode_8c.html#a4bc665e51967fd23f6b6892de00597dd">QRraw_free</a>(raw);</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
@@ -251,10 +251,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../de/d2c/qrencode__inner_8h.html#afda239813e13647566c6aca474d16b9d">  178</a></span>&#160;<a class="code" href="../../db/d16/config_8h.html#a07e2e4f838c349e7ab5129b8e50896f6">STATIC_IN_RELEASE</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/d95/qrencode_8c.html#a4bc665e51967fd23f6b6892de00597dd">QRraw_free</a>(<a class="code" href="../../d9/d85/struct_q_r_raw_code.html">QRRawCode</a> *raw)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">if</span>(raw != NULL) {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        free(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a>);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        free(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">ecccode</a>);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        free(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#adc7c0ec5f88655e6c0aeb3ad9422fbe5">rsblock</a>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#abc8e77754d012aed3e1f30bb11e06517">datacode</a>);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">ecccode</a>);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d9/d85/struct_q_r_raw_code.html#adc7c0ec5f88655e6c0aeb3ad9422fbe5">rsblock</a>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
@@ -278,7 +278,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a> *raw;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    raw = (<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a>));</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    raw = (<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a>));</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">if</span>(raw == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#aafdd65b09fd50946f20a6aedd43e3632">version</a> = input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a4f6567d11fd6301d4efd0daa27481676">version</a>;</div>
@@ -287,17 +287,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#a47cf16f44a3c8a4f656a3245d154fa0c">oddbits</a> = raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#aef8d0f933df8def78c3c31062a77f5fe">dataLength</a> * 8 - <a class="code" href="../../dc/dd4/mqrspec_8c.html#af0661cc628fffb62dd11fc3767ddf2d8">MQRspec_getDataLengthBit</a>(input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a4f6567d11fd6301d4efd0daa27481676">version</a>, input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a7fe3d6d3b406da8f59726fbc2349ba35">level</a>);</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a> = <a class="code" href="../../d5/d4f/qrinput_8c.html#a575ced3650564b461c7eb0eee5c5e313">QRinput_getByteStream</a>(input);</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a> == NULL) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#af3b715f02f1af9733ab7325122b7125e">ecccode</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ac85c69963e0a9b261535d54af42d2c32">eccLength</a>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#af3b715f02f1af9733ab7325122b7125e">ecccode</a> = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ac85c69963e0a9b261535d54af42d2c32">eccLength</a>);</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#af3b715f02f1af9733ab7325122b7125e">ecccode</a> == NULL) {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        free(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a>);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#acb157bddd9cb89851a78f43240d9f7b2">rsblock</a> = (<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a> *)calloc(1, <span class="keyword">sizeof</span>(<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a>));</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#acb157bddd9cb89851a78f43240d9f7b2">rsblock</a> = (<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a> *)<a class="code" href="../../d4/d49/zutil_8c.html#a0659e28c2a1d3b0b2f8c3564c6645f9c">calloc</a>(1, <span class="keyword">sizeof</span>(<a class="code" href="../../dc/d10/struct_r_sblock.html">RSblock</a>));</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">if</span>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#acb157bddd9cb89851a78f43240d9f7b2">rsblock</a> == NULL) {</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <a class="code" href="../../d0/d95/qrencode_8c.html#a0b8b63850bc7500b0b46c6552150fe3b">MQRraw_free</a>(raw);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
@@ -328,10 +328,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="../../de/d2c/qrencode__inner_8h.html#a6f7510944ea30e0933e54c6dbad20306">  261</a></span>&#160;<a class="code" href="../../db/d16/config_8h.html#a07e2e4f838c349e7ab5129b8e50896f6">STATIC_IN_RELEASE</a> <span class="keywordtype">void</span> <a class="code" href="../../d0/d95/qrencode_8c.html#a0b8b63850bc7500b0b46c6552150fe3b">MQRraw_free</a>(<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html">MQRRawCode</a> *raw)</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;{</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span>(raw != NULL) {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        free(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a>);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        free(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#af3b715f02f1af9733ab7325122b7125e">ecccode</a>);</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        free(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#acb157bddd9cb89851a78f43240d9f7b2">rsblock</a>);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        free(raw);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#ab5b3d0a075926a5c10e00a530c40fe57">datacode</a>);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#af3b715f02f1af9733ab7325122b7125e">ecccode</a>);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw-&gt;<a class="code" href="../../d4/d70/struct_m_q_r_raw_code.html#acb157bddd9cb89851a78f43240d9f7b2">rsblock</a>);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(raw);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    }</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
@@ -433,7 +433,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; length; i++) {</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        p = <a class="code" href="../../d0/d95/qrencode_8c.html#a7949f94ef4f0cf38a06489e74af0826d">FrameFiller_next</a>(&amp;filler);</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordflow">if</span>(p == NULL) {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            free(frame);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(frame);</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        }</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        *p = (<span class="keywordtype">unsigned</span> char)(i &amp; 0x7f) | 0x80;</div>
@@ -475,7 +475,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;{</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *qrcode;</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    qrcode = (<a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a>));</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    qrcode = (<a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a>));</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">if</span>(qrcode == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#aa84ee8368a0cb437726e4eb4497784c0">version</a> = version;</div>
@@ -488,8 +488,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00421"></a><span class="lineno"><a class="line" href="../../d3/dbf/qrencode_8h.html#a7d072b1c17f9b0d30eeb8818bd9f749b">  421</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d95/qrencode_8c.html#af724395da2e575b3d9c1f616df534d65">QRcode_free</a>(<a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *qrcode)</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;{</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keywordflow">if</span>(qrcode != NULL) {</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        free(qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#ae6f826314cfb99f4926c4c5734997c35">data</a>);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        free(qrcode);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#ae6f826314cfb99f4926c4c5734997c35">data</a>);</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(qrcode);</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    }</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;}</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
@@ -560,7 +560,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="comment">/* masking */</span></div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordflow">if</span>(mask == -2) { <span class="comment">// just for debug purpose</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        memcpy(masked, frame, (<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(mask &lt; 0) {</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        masked = <a class="code" href="../../d9/d67/mask_8c.html#a845bb508281c7de437b3e54bcfe7f0e0">Mask_mask</a>(width, frame, input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a7fe3d6d3b406da8f59726fbc2349ba35">level</a>);</div>
@@ -572,12 +572,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    }</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    qrcode = <a class="code" href="../../d0/d95/qrencode_8c.html#af0333ba76b1b67fe5013a8236eb71485">QRcode_new</a>(version, width, masked);</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keywordflow">if</span>(qrcode == NULL) {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        free(masked);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(masked);</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    }</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;EXIT:</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <a class="code" href="../../d0/d95/qrencode_8c.html#a4bc665e51967fd23f6b6892de00597dd">QRraw_free</a>(raw);</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    free(frame);</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(frame);</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">return</span> qrcode;</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;}</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
@@ -647,7 +647,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;</div>
 <div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    <span class="comment">/* masking */</span></div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordflow">if</span>(mask == -2) { <span class="comment">// just for debug purpose</span></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)malloc((<span class="keywordtype">size_t</span>)(width * width));</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        masked = (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>((<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        memcpy(masked, frame, (<span class="keywordtype">size_t</span>)(width * width));</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(mask &lt; 0) {</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        masked = <a class="code" href="../../db/da1/mmask_8c.html#ad2e6ef896d57e49d36a42b32616db054">MMask_mask</a>(version, frame, input-&gt;<a class="code" href="../../d2/db7/struct___q_rinput.html#a7fe3d6d3b406da8f59726fbc2349ba35">level</a>);</div>
@@ -660,12 +660,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    qrcode = <a class="code" href="../../d0/d95/qrencode_8c.html#af0333ba76b1b67fe5013a8236eb71485">QRcode_new</a>(version, width, masked);</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">if</span>(qrcode == NULL) {</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        free(masked);</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(masked);</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    }</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;EXIT:</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <a class="code" href="../../d0/d95/qrencode_8c.html#a0b8b63850bc7500b0b46c6552150fe3b">MQRraw_free</a>(raw);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    free(frame);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(frame);</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keywordflow">return</span> qrcode;</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;}</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
@@ -817,7 +817,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;{</div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <a class="code" href="../../d4/dc0/struct___q_rcode___list.html">QRcode_List</a> *entry;</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    entry = (<a class="code" href="../../d4/dc0/struct___q_rcode___list.html">QRcode_List</a> *)malloc(<span class="keyword">sizeof</span>(<a class="code" href="../../d4/dc0/struct___q_rcode___list.html">QRcode_List</a>));</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    entry = (<a class="code" href="../../d4/dc0/struct___q_rcode___list.html">QRcode_List</a> *)<a class="code" href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a>(<span class="keyword">sizeof</span>(<a class="code" href="../../d4/dc0/struct___q_rcode___list.html">QRcode_List</a>));</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordflow">if</span>(entry == NULL) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    entry-&gt;<a class="code" href="../../d4/dc0/struct___q_rcode___list.html#ab84f6a9ad3836c3dd3309d0752f54160">next</a> = NULL;</div>
@@ -830,7 +830,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;{</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">if</span>(entry != NULL) {</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        <a class="code" href="../../d0/d95/qrencode_8c.html#af724395da2e575b3d9c1f616df534d65">QRcode_free</a>(entry-&gt;<a class="code" href="../../d4/dc0/struct___q_rcode___list.html#a3a611fa842869b6e21c1b66d1d61daab">code</a>);</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        free(entry);</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        <a class="code" href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a>(entry);</div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    }</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;}</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;</div>
@@ -1111,6 +1111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="qrinput_8h_html"><div class="ttname"><a href="../../da/d19/qrinput_8h.html">qrinput.h</a></div></div>
 <div class="ttc" id="struct___q_rinput___input_list_html_a46c3a7b29f71a09746191d8afb8e20fd"><div class="ttname"><a href="../../d0/dd7/struct___q_rinput___input_list.html#a46c3a7b29f71a09746191d8afb8e20fd">_QRinput_InputList::next</a></div><div class="ttdeci">QRinput_InputList * next</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d19/qrinput_8h_source.html#l00063">qrinput.h:63</a></div></div>
 <div class="ttc" id="qrencode_8c_html_a8772fe48e8516478ce0bdaf1040bf90b"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#a8772fe48e8516478ce0bdaf1040bf90b">QRraw_getCode</a></div><div class="ttdeci">STATIC_IN_RELEASE unsigned char QRraw_getCode(QRRawCode *raw)</div><div class="ttdoc">Return a code (byte). </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00155">qrencode.c:155</a></div></div>
+<div class="ttc" id="zutil_8c_html_a0659e28c2a1d3b0b2f8c3564c6645f9c"><div class="ttname"><a href="../../d4/d49/zutil_8c.html#a0659e28c2a1d3b0b2f8c3564c6645f9c">calloc</a></div><div class="ttdeci">voidp calloc(uInt items, uInt size)</div></div>
 <div class="ttc" id="qrencode_8c_html_af0333ba76b1b67fe5013a8236eb71485"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#af0333ba76b1b67fe5013a8236eb71485">QRcode_new</a></div><div class="ttdeci">STATIC_IN_RELEASE QRcode * QRcode_new(int version, int width, unsigned char *data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00407">qrencode.c:407</a></div></div>
 <div class="ttc" id="qrencode_8h_html_a35d70229ba985c61bbdab27b0f65740eab121be4d707624ee65e83b716a36e874"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#a35d70229ba985c61bbdab27b0f65740eab121be4d707624ee65e83b716a36e874">QR_ECLEVEL_L</a></div><div class="ttdoc">lowest </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00127">qrencode.h:127</a></div></div>
 <div class="ttc" id="mmask_8h_html"><div class="ttname"><a href="../../d2/d17/mmask_8h.html">mmask.h</a></div></div>
@@ -1127,6 +1128,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_q_r_raw_code_html_aa139ac1c46623ef22f4889ad5391eedf"><div class="ttname"><a href="../../d9/d85/struct_q_r_raw_code.html#aa139ac1c46623ef22f4889ad5391eedf">QRRawCode::ecccode</a></div><div class="ttdeci">unsigned char * ecccode</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00053">qrencode.c:53</a></div></div>
 <div class="ttc" id="qrencode_8c_html_a783505f2c593bbcffd7a2ccb9194ff4e"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#a783505f2c593bbcffd7a2ccb9194ff4e">QRraw_new</a></div><div class="ttdeci">STATIC_IN_RELEASE QRRawCode * QRraw_new(QRinput *input)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00105">qrencode.c:105</a></div></div>
 <div class="ttc" id="qrencode_8c_html_afc435991bbd7392c390624b084af514e"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#afc435991bbd7392c390624b084af514e">QRcode_List_size</a></div><div class="ttdeci">int QRcode_List_size(QRcode_List *qrlist)</div><div class="ttdoc">Return the number of symbols included in a QRcode_List. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00781">qrencode.c:781</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a6d9b026f3a32ae4cad5d108f9ee45986"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a6d9b026f3a32ae4cad5d108f9ee45986">free</a></div><div class="ttdeci">void free(voidpf ptr)</div></div>
 <div class="ttc" id="struct_m_q_r_raw_code_html_aef8d0f933df8def78c3c31062a77f5fe"><div class="ttname"><a href="../../d4/d70/struct_m_q_r_raw_code.html#aef8d0f933df8def78c3c31062a77f5fe">MQRRawCode::dataLength</a></div><div class="ttdeci">int dataLength</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00194">qrencode.c:194</a></div></div>
 <div class="ttc" id="struct_q_r_raw_code_html_a3ffd48c9f259e9dc84bdf05ae4fc495e"><div class="ttname"><a href="../../d9/d85/struct_q_r_raw_code.html#a3ffd48c9f259e9dc84bdf05ae4fc495e">QRRawCode::b1</a></div><div class="ttdeci">int b1</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00054">qrencode.c:54</a></div></div>
 <div class="ttc" id="rsecc_8c_html_aed99690dd9716a696fc0c233e51ff417"><div class="ttname"><a href="../../d6/deb/rsecc_8c.html#aed99690dd9716a696fc0c233e51ff417">RSECC_encode</a></div><div class="ttdeci">int RSECC_encode(size_t data_length, size_t ecc_length, const unsigned char *data, unsigned char *ecc)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/deb/rsecc_8c_source.html#l00103">rsecc.c:103</a></div></div>
@@ -1138,6 +1140,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="qrspec_8h_html_aaf7c159aa13afd2d978b5cf037e66387"><div class="ttname"><a href="../../d0/d23/qrspec_8h.html#aaf7c159aa13afd2d978b5cf037e66387">QRspec_rsEccCodes2</a></div><div class="ttdeci">#define QRspec_rsEccCodes2(__spec__)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d23/qrspec_8h_source.html#l00114">qrspec.h:114</a></div></div>
 <div class="ttc" id="qrencode_8c_html_a62438c11e91a3e43928d4ceaf5803f33"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#a62438c11e91a3e43928d4ceaf5803f33">QRcode_encodeString8bitStructured</a></div><div class="ttdeci">QRcode_List * QRcode_encodeString8bitStructured(const char *string, int version, QRecLevel level)</div><div class="ttdoc">Same to QRcode_encodeStringStructured(), but encode whole data in 8-bit mode. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00894">qrencode.c:894</a></div></div>
 <div class="ttc" id="struct_q_r_raw_code_html_af941c8114b377a9058569aa9c2ba5a27"><div class="ttname"><a href="../../d9/d85/struct_q_r_raw_code.html#af941c8114b377a9058569aa9c2ba5a27">QRRawCode::version</a></div><div class="ttdeci">int version</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00049">qrencode.c:49</a></div></div>
+<div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="qrencode_8h_html_ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172"><div class="ttname"><a href="../../d3/dbf/qrencode_8h.html#ab7ec78b96e63c8f019bb328a8d4f55dbad442f5c4a903268048cc1db855c8b172">QR_MODE_NUL</a></div><div class="ttdoc">Terminator (NUL character). Internal use only. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00112">qrencode.h:112</a></div></div>
 <div class="ttc" id="qrencode_8c_html_a7949f94ef4f0cf38a06489e74af0826d"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#a7949f94ef4f0cf38a06489e74af0826d">FrameFiller_next</a></div><div class="ttdeci">static unsigned char * FrameFiller_next(FrameFiller *filler)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00296">qrencode.c:296</a></div></div>
 <div class="ttc" id="struct___q_rinput___input_list_html"><div class="ttname"><a href="../../d0/dd7/struct___q_rinput___input_list.html">_QRinput_InputList</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d19/qrinput_8h_source.html#l00061">qrinput.h:61</a></div></div>
@@ -1150,7 +1153,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

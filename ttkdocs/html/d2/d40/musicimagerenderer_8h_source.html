@@ -27,9 +27,9 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.4.0.0</span>
+   &#160;<span id="projectnumber">3.5.0.0</span>
    </div>
-   <div id="projectbrief">TTKMusicPlayer that imitation Kugou music, the music player use of qmmp core library based on Qt for windows and linux</div>
+   <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
  </tr>
  </tbody>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2023 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -101,41 +101,41 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QSize&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2b/ttkabstractthread_8h.html">ttkabstractthread.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a> : <span class="keyword">public</span> <a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html">TTKAbstractThread</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a> : <span class="keyword">public</span> <a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html">TTKAbstractThread</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a>)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~<a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> setInputData(<span class="keyword">const</span> QByteArray &amp;data, <span class="keyword">const</span> QSize &amp;<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> renderFinished(<span class="keyword">const</span> QPixmap &amp;data);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">run</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">   56</a></span>&#160;    QSize <a class="code" href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">m_size</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">   57</a></span>&#160;    QByteArray <a class="code" href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">m_buffer</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ~<a class="code" href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setInputData(<span class="keyword">const</span> QByteArray &amp;data, <span class="keyword">const</span> QSize &amp;<a class="code" href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> renderFinished(<span class="keyword">const</span> QPixmap &amp;data);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">run</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif // MUSICIMAGERENDERER_H</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">   59</a></span>&#160;    QSize <a class="code" href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">m_size</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">   60</a></span>&#160;    QByteArray <a class="code" href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">m_buffer</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif // MUSICIMAGERENDERER_H</span></div>
+<div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
-<div class="ttc" id="ttkglobaldefine_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../de/d04/ttkglobaldefine_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d04/ttkglobaldefine_8h_source.html#l00027">ttkglobaldefine.h:27</a></div></div>
-<div class="ttc" id="ttkglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00206">ttkglobal.h:206</a></div></div>
-<div class="ttc" id="class_music_image_renderer_html_a5bfce22f4fdc802098e77ca93f971b4a"><div class="ttname"><a href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">MusicImageRenderer::m_size</a></div><div class="ttdeci">QSize m_size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d40/musicimagerenderer_8h_source.html#l00056">musicimagerenderer.h:56</a></div></div>
-<div class="ttc" id="class_music_image_renderer_html_a1817d7069555ba7f29c5ff5bb96ab00a"><div class="ttname"><a href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">MusicImageRenderer::m_buffer</a></div><div class="ttdeci">QByteArray m_buffer</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d40/musicimagerenderer_8h_source.html#l00057">musicimagerenderer.h:57</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_thread_html_a5bfb5e7164a6b5e09a1ca27ffb11e6a2"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">TTKAbstractThread::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dce/ttkabstractthread_8cpp_source.html#l00031">ttkabstractthread.cpp:31</a></div></div>
+<div class="ttc" id="class_music_image_renderer_html_a5bfce22f4fdc802098e77ca93f971b4a"><div class="ttname"><a href="../../d3/dec/class_music_image_renderer.html#a5bfce22f4fdc802098e77ca93f971b4a">MusicImageRenderer::m_size</a></div><div class="ttdeci">QSize m_size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d40/musicimagerenderer_8h_source.html#l00059">musicimagerenderer.h:59</a></div></div>
+<div class="ttc" id="class_music_image_renderer_html_a1817d7069555ba7f29c5ff5bb96ab00a"><div class="ttname"><a href="../../d3/dec/class_music_image_renderer.html#a1817d7069555ba7f29c5ff5bb96ab00a">MusicImageRenderer::m_buffer</a></div><div class="ttdeci">QByteArray m_buffer</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d40/musicimagerenderer_8h_source.html#l00060">musicimagerenderer.h:60</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00152">ttkqtglobal.h:152</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_thread_html_a5bfb5e7164a6b5e09a1ca27ffb11e6a2"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html#a5bfb5e7164a6b5e09a1ca27ffb11e6a2">TTKAbstractThread::run</a></div><div class="ttdeci">virtual void run() override</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dce/ttkabstractthread_8cpp_source.html#l00026">ttkabstractthread.cpp:26</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_thread_html"><div class="ttname"><a href="../../df/de7/class_t_t_k_abstract_thread.html">TTKAbstractThread</a></div><div class="ttdoc">The class of the ttk abstract thread. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2b/ttkabstractthread_8h_source.html#l00029">ttkabstractthread.h:29</a></div></div>
 <div class="ttc" id="class_music_image_renderer_html"><div class="ttname"><a href="../../d3/dec/class_music_image_renderer.html">MusicImageRenderer</a></div><div class="ttdoc">The class of the image render thread. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d40/musicimagerenderer_8h_source.html#l00028">musicimagerenderer.h:28</a></div></div>
 <div class="ttc" id="ttkabstractthread_8h_html"><div class="ttname"><a href="../../d9/d2b/ttkabstractthread_8h.html">ttkabstractthread.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2023 22:38:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 18 2024 21:11:30 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
