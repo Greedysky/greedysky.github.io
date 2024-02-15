@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -150,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items[i];</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>))</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            data.append(QString(<span class="stringliteral">&quot;#EXTINF:%1,%2 - %3&quot;</span>).arg(<a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>(song.playTime()) / <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>).arg(song.artist(), song.title()));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            data.append(QString(<span class="stringliteral">&quot;#EXTINF:%1,%2 - %3&quot;</span>).arg(<a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>(song.duration()) / <a class="code" href="../../d4/d67/ttknumberdefine_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>).arg(song.artist(), song.title()));</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            data.append(song.path());</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
@@ -177,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:11:38 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:56:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a> *uploadFile = <span class="keyword">new</span> <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    uploadFile-&gt;setText(tr(<span class="stringliteral">&quot;Open File&quot;</span>));</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    uploadFile-&gt;setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a1ccef847140d65ce94582e17f295ba92">TTK::UI::ColorStyle02</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#adb9e1e56334fb99c6fd6fb60662dda87">TTK::Widget::setLabelFontStyle</a>(uploadFile, <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439">TTK::FontStyleMode::Underline</a>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a1a9017acff58e070d28bdc8d40e45ab8">TTK::Widget::setFontStyle</a>(uploadFile, <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439">TTK::FontStyleMode::Underline</a>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    connect(uploadFile, SIGNAL(clicked()), SIGNAL(<a class="code" href="../../d0/df9/class_music_open_file_widget.html#a0017b215f804903ec59ca35059dda6ee">uploadFileClicked</a>()));</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    QLabel *uploadDirIcon = <span class="keyword">new</span> QLabel(<span class="keyword">this</span>);</div>
@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a> *uploadDir = <span class="keyword">new</span> <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    uploadDir-&gt;setText(tr(<span class="stringliteral">&quot;Open Dir&quot;</span>));</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    uploadDir-&gt;setStyleSheet(<a class="code" href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a1ccef847140d65ce94582e17f295ba92">TTK::UI::ColorStyle02</a>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#adb9e1e56334fb99c6fd6fb60662dda87">TTK::Widget::setLabelFontStyle</a>(uploadDir, <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439">TTK::FontStyleMode::Underline</a>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a1a9017acff58e070d28bdc8d40e45ab8">TTK::Widget::setFontStyle</a>(uploadDir, <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439">TTK::FontStyleMode::Underline</a>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    connect(uploadDir, SIGNAL(clicked()), SIGNAL(<a class="code" href="../../d0/df9/class_music_open_file_widget.html#af208774216d73782819108e5abcd2971">uploadDirClicked</a>()));</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    layout-&gt;addWidget(uploadFileIcon, 0, 0, Qt::AlignRight);</div>
@@ -125,16 +125,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicopenfilewidget_8h_html"><div class="ttname"><a href="../../dc/d0b/musicopenfilewidget_8h.html">musicopenfilewidget.h</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
 <div class="ttc" id="class_t_t_k_clicked_label_html"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html">TTKClickedLabel</a></div><div class="ttdoc">The class of the label widget that can click. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2d/ttkclickedlabel_8h_source.html#l00028">ttkclickedlabel.h:28</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_widget_html_adb9e1e56334fb99c6fd6fb60662dda87"><div class="ttname"><a href="../../d0/d27/namespace_t_t_k_1_1_widget.html#adb9e1e56334fb99c6fd6fb60662dda87">TTK::Widget::setLabelFontStyle</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setLabelFontStyle(QWidget *widget, TTK::FontStyleMode type)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00017">musicwidgetutils.cpp:17</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_widget_html_a1a9017acff58e070d28bdc8d40e45ab8"><div class="ttname"><a href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a1a9017acff58e070d28bdc8d40e45ab8">TTK::Widget::setFontStyle</a></div><div class="ttdeci">TTK_MODULE_EXPORT void setFontStyle(QWidget *widget, TTK::FontStyleMode type)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00017">musicwidgetutils.cpp:17</a></div></div>
 <div class="ttc" id="class_music_open_file_widget_html_af208774216d73782819108e5abcd2971"><div class="ttname"><a href="../../d0/df9/class_music_open_file_widget.html#af208774216d73782819108e5abcd2971">MusicOpenFileWidget::uploadDirClicked</a></div><div class="ttdeci">void uploadDirClicked()</div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a1ccef847140d65ce94582e17f295ba92"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a1ccef847140d65ce94582e17f295ba92">TTK::UI::ColorStyle02</a></div><div class="ttdeci">static const QString ColorStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00042">musicuiobject.h:42</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a1ccef847140d65ce94582e17f295ba92"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a1ccef847140d65ce94582e17f295ba92">TTK::UI::ColorStyle02</a></div><div class="ttdeci">static const QString ColorStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00040">musicuiobject.h:40</a></div></div>
 <div class="ttc" id="musicwidgetheaders_8h_html"><div class="ttname"><a href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a></div></div>
 <div class="ttc" id="class_music_open_file_widget_html_a0017b215f804903ec59ca35059dda6ee"><div class="ttname"><a href="../../d0/df9/class_music_open_file_widget.html#a0017b215f804903ec59ca35059dda6ee">MusicOpenFileWidget::uploadFileClicked</a></div><div class="ttdeci">void uploadFileClicked()</div></div>
 <div class="ttc" id="namespace_t_t_k_html_a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a3e1a3fd75cb5d2db69c533885bbe5b03a852721aa5fc738dfedff2945d71da439">TTK::FontStyleMode::Underline</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:11:41 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:56:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

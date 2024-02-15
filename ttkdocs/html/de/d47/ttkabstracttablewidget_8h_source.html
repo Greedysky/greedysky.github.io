@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html">TTKAbstractTableWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html">TTKAbstractTableWidget</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> multiSelectedIndexList() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a> selectedIndexList() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> itemCellEntered(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
@@ -119,32 +119,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeItems();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> setRowColor(<span class="keywordtype">int</span> row, <span class="keyword">const</span> QColor &amp;color) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">   71</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">isValid</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> !(rowCount() == 0 || currentRow() &lt; 0);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">   76</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">m_previousColorRow</a>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">   77</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">m_previousClickRow</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">   78</a></span>&#160;    QColor <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">m_backgroundColor</a>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> setRowColor(<span class="keywordtype">int</span> row, <span class="keyword">const</span> QColor &amp;color) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">   77</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">isValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> !(rowCount() == 0 || currentRow() &lt; 0);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif // TTKABSTRACTTABLEWIDGET_H</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">   82</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">m_previousColorRow</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">   83</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">m_previousClickRow</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">   84</a></span>&#160;    QColor <a class="code" href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">m_backgroundColor</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // TTKABSTRACTTABLEWIDGET_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a538359d30555b3b1f5256e189d58b0f9"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">TTKAbstractTableWidget::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00071">ttkabstracttablewidget.h:71</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a8cdbd08bd1eb701786bcdbd2f24fbbcf"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">TTKAbstractTableWidget::m_previousColorRow</a></div><div class="ttdeci">int m_previousColorRow</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00076">ttkabstracttablewidget.h:76</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a538359d30555b3b1f5256e189d58b0f9"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a538359d30555b3b1f5256e189d58b0f9">TTKAbstractTableWidget::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00077">ttkabstracttablewidget.h:77</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a8cdbd08bd1eb701786bcdbd2f24fbbcf"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a8cdbd08bd1eb701786bcdbd2f24fbbcf">TTKAbstractTableWidget::m_previousColorRow</a></div><div class="ttdeci">int m_previousColorRow</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00082">ttkabstracttablewidget.h:82</a></div></div>
 <div class="ttc" id="ttkqtglobal_8h_html_a11b2bea1d30833b7f3afd3ef5abb5237"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a11b2bea1d30833b7f3afd3ef5abb5237">TTKIntList</a></div><div class="ttdeci">QList&lt; int &gt; TTKIntList</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00188">ttkqtglobal.h:188</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a16af0e9852cd1b66e394e3a96db4524f"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">TTKAbstractTableWidget::m_backgroundColor</a></div><div class="ttdeci">QColor m_backgroundColor</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00078">ttkabstracttablewidget.h:78</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_table_widget_html_a16af0e9852cd1b66e394e3a96db4524f"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#a16af0e9852cd1b66e394e3a96db4524f">TTKAbstractTableWidget::m_backgroundColor</a></div><div class="ttdeci">QColor m_backgroundColor</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00084">ttkabstracttablewidget.h:84</a></div></div>
 <div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00152">ttkqtglobal.h:152</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_table_widget_html"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html">TTKAbstractTableWidget</a></div><div class="ttdoc">The class of the ttk abstract table widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00030">ttkabstracttablewidget.h:30</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_table_widget_html_af5cd195e57f306c30b7841e54427e1b8"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">TTKAbstractTableWidget::m_previousClickRow</a></div><div class="ttdeci">int m_previousClickRow</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00077">ttkabstracttablewidget.h:77</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_table_widget_html_af5cd195e57f306c30b7841e54427e1b8"><div class="ttname"><a href="../../d8/d51/class_t_t_k_abstract_table_widget.html#af5cd195e57f306c30b7841e54427e1b8">TTKAbstractTableWidget::m_previousClickRow</a></div><div class="ttdeci">int m_previousClickRow</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d47/ttkabstracttablewidget_8h_source.html#l00083">ttkabstracttablewidget.h:83</a></div></div>
 <div class="ttc" id="ttkitemdelegate_8h_html"><div class="ttname"><a href="../../d6/d41/ttkitemdelegate_8h.html">ttkitemdelegate.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:11:28 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:56:35 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -586,31 +586,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    }</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keyword">const</span> QStringList copy(<a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a0671bb4c17deee735f913a2d0a895192">m_currentShowLrcContainer</a>);</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; copy.count() - ts.count(); ++i)</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    {</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordflow">if</span>(copy.mid(i, ts.count()) == ts)</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        {</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a4a9d53cf5d2adbf81679ac3c1be121c5">findTime</a>(i + <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ac2eb67753323beb0cc45921410cfe1fd">lineMiddle</a>());</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        }</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    }</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;}</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;</div>
-<div class="line"><a name="l00521"></a><span class="lineno"><a class="line" href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">  521</a></span>&#160;QString <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">MusicLrcAnalysis::dataString</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    QString v;</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;s : <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ad42682cd6d1a20d1abcdb4afc93340b3">m_lrcContainer</a>.values())</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    {</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        v.append(s + <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    }</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="keywordflow">return</span> v;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;}</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
-<div class="line"><a name="l00531"></a><span class="lineno"><a class="line" href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">  531</a></span>&#160;QStringList <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">MusicLrcAnalysis::dataList</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ad42682cd6d1a20d1abcdb4afc93340b3">m_lrcContainer</a>.values();</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;}</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a0671bb4c17deee735f913a2d0a895192">m_currentShowLrcContainer</a>.count() - ts.count(); ++i)</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    {</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a0671bb4c17deee735f913a2d0a895192">m_currentShowLrcContainer</a>.mid(i, ts.count()) == ts)</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        {</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a4a9d53cf5d2adbf81679ac3c1be121c5">findTime</a>(i + <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ac2eb67753323beb0cc45921410cfe1fd">lineMiddle</a>());</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        }</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    }</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
+<div class="line"><a name="l00520"></a><span class="lineno"><a class="line" href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">  520</a></span>&#160;QString <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">MusicLrcAnalysis::dataString</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    QString v;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QString &amp;s : <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ad42682cd6d1a20d1abcdb4afc93340b3">m_lrcContainer</a>.values())</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    {</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        v.append(s + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    }</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;}</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
+<div class="line"><a name="l00530"></a><span class="lineno"><a class="line" href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">  530</a></span>&#160;QStringList <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">MusicLrcAnalysis::dataList</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d3/d52/class_music_lrc_analysis.html#ad42682cd6d1a20d1abcdb4afc93340b3">m_lrcContainer</a>.values();</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;}</div>
 <div class="ttc" id="class_music_lrc_analysis_html_a69989e9095179e42420450dc86f18de0ad7c8c85bf79bbe1b7188497c32c3b0ca"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a69989e9095179e42420450dc86f18de0ad7c8c85bf79bbe1b7188497c32c3b0ca">MusicLrcAnalysis::State::Failed</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a99bad3b2342ca5cff9afe06989b98ed6a2d5a4c7fddccac136e770cd6200e0284"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a99bad3b2342ca5cff9afe06989b98ed6a2d5a4c7fddccac136e770cd6200e0284">MusicLrcAnalysis::Format::Type05</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a0586fc4d666dcbe47d88343c6bab1337"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a0586fc4d666dcbe47d88343c6bab1337">MusicLrcAnalysis::isValid</a></div><div class="ttdeci">bool isValid() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00414">musiclrcanalysis.cpp:414</a></div></div>
@@ -623,7 +622,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkobject_8h_html_a32d6eb438be4592a2c9186a1f5f8a4a1"><div class="ttname"><a href="../../d3/dcf/ttkobject_8h.html#a32d6eb438be4592a2c9186a1f5f8a4a1">TTK_APP_NAME</a></div><div class="ttdeci">#define TTK_APP_NAME</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dcf/ttkobject_8h_source.html#l00025">ttkobject.h:25</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_abec1ca5a8958608d96e42d4e8e3a70da"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#abec1ca5a8958608d96e42d4e8e3a70da">MusicLrcAnalysis::setData</a></div><div class="ttdeci">State setData(const QByteArray &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00021">musiclrcanalysis.cpp:21</a></div></div>
 <div class="ttc" id="class_music_lrc_from_krc_html_aecc716974a215d87c106bb288035dc07"><div class="ttname"><a href="../../d8/d37/class_music_lrc_from_krc.html#aecc716974a215d87c106bb288035dc07">MusicLrcFromKrc::decodeString</a></div><div class="ttdeci">QByteArray decodeString() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00089">musiclrcfromkrc.cpp:89</a></div></div>
-<div class="ttc" id="class_music_lrc_analysis_html_adfbf237d9e90d0f2f537605fd9acce72"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">MusicLrcAnalysis::dataList</a></div><div class="ttdeci">QStringList dataList() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00531">musiclrcanalysis.cpp:531</a></div></div>
+<div class="ttc" id="class_music_lrc_analysis_html_adfbf237d9e90d0f2f537605fd9acce72"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#adfbf237d9e90d0f2f537605fd9acce72">MusicLrcAnalysis::dataList</a></div><div class="ttdeci">QStringList dataList() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00530">musiclrcanalysis.cpp:530</a></div></div>
 <div class="ttc" id="musicapplication_8h_html"><div class="ttname"><a href="../../d1/d24/musicapplication_8h.html">musicapplication.h</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a99bad3b2342ca5cff9afe06989b98ed6a9ad701f7a46e4301cb1d210aafa25045"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a99bad3b2342ca5cff9afe06989b98ed6a9ad701f7a46e4301cb1d210aafa25045">MusicLrcAnalysis::Format::Type06</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a69989e9095179e42420450dc86f18de0a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a69989e9095179e42420450dc86f18de0a505a83f220c02df2f85c3810cd9ceb38">MusicLrcAnalysis::State::Success</a></div></div>
@@ -658,7 +657,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_lrc_analysis_html_a952c125e7e9893f5346774f650e9ba28"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a952c125e7e9893f5346774f650e9ba28">MusicLrcAnalysis::MusicLrcAnalysis</a></div><div class="ttdeci">MusicLrcAnalysis(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00008">musiclrcanalysis.cpp:8</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a17e289de1c41505505cc7ce1ad7de436"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a17e289de1c41505505cc7ce1ad7de436">MusicLrcAnalysis::m_lineMax</a></div><div class="ttdeci">int m_lineMax</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d38/musiclrcanalysis_8h_source.html#l00190">musiclrcanalysis.h:190</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a99bad3b2342ca5cff9afe06989b98ed6a54129d794d31678df140f153ff3ed613"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a99bad3b2342ca5cff9afe06989b98ed6a54129d794d31678df140f153ff3ed613">MusicLrcAnalysis::Format::Type08</a></div></div>
-<div class="ttc" id="class_music_lrc_analysis_html_a357e14d38f6ac288777b68090ce40ab9"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">MusicLrcAnalysis::dataString</a></div><div class="ttdeci">QString dataString() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00521">musiclrcanalysis.cpp:521</a></div></div>
+<div class="ttc" id="class_music_lrc_analysis_html_a357e14d38f6ac288777b68090ce40ab9"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a357e14d38f6ac288777b68090ce40ab9">MusicLrcAnalysis::dataString</a></div><div class="ttdeci">QString dataString() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00520">musiclrcanalysis.cpp:520</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a99bad3b2342ca5cff9afe06989b98ed6a944a34ab90afebd95cb4553668c0df64"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a99bad3b2342ca5cff9afe06989b98ed6a944a34ab90afebd95cb4553668c0df64">MusicLrcAnalysis::Format::Type03</a></div></div>
 <div class="ttc" id="class_music_lrc_analysis_html_a7977c1ba3261bcd4840602da78c467c5"><div class="ttname"><a href="../../d3/d52/class_music_lrc_analysis.html#a7977c1ba3261bcd4840602da78c467c5">MusicLrcAnalysis::matchLrcLine</a></div><div class="ttdeci">void matchLrcLine(const QString &amp;oneLine)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d07/musiclrcanalysis_8cpp_source.html#l00167">musiclrcanalysis.cpp:167</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a79b1a29ce0824ca0493968dd6d5635c1"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a79b1a29ce0824ca0493968dd6d5635c1">TTKTime::toString</a></div><div class="ttdeci">static QString toString(qint64 time, const QString &amp;format) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00072">ttktime.cpp:72</a></div></div>
@@ -674,7 +673,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:11:31 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:56:41 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

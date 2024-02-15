@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -86,8 +86,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0bfe9ca41f97036df4bda63eb8802376"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d03/class_format.html#a0bfe9ca41f97036df4bda63eb8802376">songTrackValid</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;url)</td></tr>
-<tr class="separator:a0bfe9ca41f97036df4bda63eb8802376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a5b5fd1889d40d5605e9c2edb754e4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d03/class_format.html#a77a5b5fd1889d40d5605e9c2edb754e4">isTrack</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;url)</td></tr>
+<tr class="separator:a77a5b5fd1889d40d5605e9c2edb754e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120b53a24bda8fa83b6909bcdf2d25fa"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d03/class_format.html#a120b53a24bda8fa83b6909bcdf2d25fa">isRedirection</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;url)</td></tr>
+<tr class="separator:a120b53a24bda8fa83b6909bcdf2d25fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bc8a4ab27d465685fdc9af62dcaa804"><td class="memItemLeft" align="right" valign="top">static QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d03/class_format.html#a6bc8a4ab27d465685fdc9af62dcaa804">supportMusicFormats</a> ()</td></tr>
 <tr class="separator:a6bc8a4ab27d465685fdc9af62dcaa804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a436d835eeb1eed187fe3ee4744d7267a"><td class="memItemLeft" align="right" valign="top">static QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d03/class_format.html#a436d835eeb1eed187fe3ee4744d7267a">supportMusicInputFilterFormats</a> ()</td></tr>
@@ -101,7 +103,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d0/d0a/format_8h_source.html#l00029">29</a> of file <a class="el" href="../../d0/d0a/format_8h_source.html">format.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0bfe9ca41f97036df4bda63eb8802376"></a>
+<a class="anchor" id="a120b53a24bda8fa83b6909bcdf2d25fa"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -109,7 +111,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool Format::songTrackValid </td>
+          <td class="memname">static bool Format::isRedirection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;&#160;</td>
           <td class="paramname"><em>url</em></td><td>)</td>
@@ -122,9 +124,36 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Check song track is valid or not. </p>
+<p>Check song is dedirection valid or not. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00005">MusicFormats::songTrackValid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00010">MusicFormats::isRedirection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77a5b5fd1889d40d5605e9c2edb754e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Format::isTrack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check song is track valid or not. </p>
+
+<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00005">MusicFormats::isTrack()</a>.</p>
 
 </div>
 </div>
@@ -150,7 +179,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get player supported formats. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00010">MusicFormats::supportMusicFormats()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00015">MusicFormats::supportMusicFormats()</a>.</p>
 
 </div>
 </div>
@@ -176,7 +205,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get player supported input filter formats. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00015">MusicFormats::supportMusicInputFilterFormats()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00020">MusicFormats::supportMusicInputFilterFormats()</a>.</p>
 
 </div>
 </div>
@@ -202,7 +231,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get player supported input format . </p>
 
-<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00020">MusicFormats::supportMusicInputFormats()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/d9c/musicformats_8cpp_source.html#l00025">MusicFormats::supportMusicInputFormats()</a>.</p>
 
 </div>
 </div>
@@ -212,7 +241,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:12:20 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:57:10 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

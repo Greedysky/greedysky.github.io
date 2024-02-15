@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.5.0.0</span>
+   &#160;<span id="projectnumber">3.6.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -148,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> data;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#ab36269c9c163d8a778acc3b9e7ded471">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#ab36269c9c163d8a778acc3b9e7ded471">TTK::Image::fusionPixmap</a>(QPixmap &amp;back, <span class="keyword">const</span> QPixmap &amp;front, <span class="keyword">const</span> QPoint &amp;pt)</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#aaa12aef4e4d6be13df69ae67dba707b4">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#aaa12aef4e4d6be13df69ae67dba707b4">TTK::Image::fusionPixmap</a>(QImage &amp;back, <span class="keyword">const</span> QImage &amp;front, <span class="keyword">const</span> QPoint &amp;pt)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span>(front.isNull())</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
@@ -157,10 +157,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    QPainter painter(&amp;back);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    painter.drawPixmap(pt.x(), pt.y(), front);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    painter.drawImage(pt.x(), pt.y(), front);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#aaa12aef4e4d6be13df69ae67dba707b4">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#ab36269c9c163d8a778acc3b9e7ded471">TTK::Image::fusionPixmap</a>(QImage &amp;back, <span class="keyword">const</span> QImage &amp;front, <span class="keyword">const</span> QPoint &amp;pt)</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#ab36269c9c163d8a778acc3b9e7ded471">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#aaa12aef4e4d6be13df69ae67dba707b4">TTK::Image::fusionPixmap</a>(QPixmap &amp;back, <span class="keyword">const</span> QPixmap &amp;front, <span class="keyword">const</span> QPoint &amp;pt)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span>(front.isNull())</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
@@ -169,32 +169,32 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QPainter painter(&amp;back);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    painter.drawImage(pt.x(), pt.y(), front);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    painter.drawPixmap(pt.x(), pt.y(), front);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">   96</a></span>&#160;QPixmap <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">TTK::Image::grayScalePixmap</a>(<span class="keyword">const</span> QPixmap &amp;input, <span class="keywordtype">int</span> radius)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;QRgb <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#af7bc4b4482f633b081f8abd054aea106">TTK::Image::colorContrast</a>(<span class="keyword">const</span> QRgb color)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    QImage pix = input.toImage();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> w = 0; w &lt; pix.width(); ++w)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> h = 0; h &lt; pix.height(); ++h)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordtype">int</span> gray = qGray(pix.pixel(w, h)) + radius;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                gray = qBound(0, gray, 255);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">const</span> QRgb rgb = qRgb(gray, gray, gray);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            pix.setPixel(w, h, rgb);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> QPixmap::fromImage(pix);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;QRgb <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#af7bc4b4482f633b081f8abd054aea106">TTK::Image::colorContrast</a>(<span class="keyword">const</span> QRgb color)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// Counting the perceptive luminance - human eye favors green color...</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">int</span> v = 255 - (2.0 * qRed(color) + 3.0 * qGreen(color) + qBlue(color)) / 6.0;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        v = v &lt; 128 ? 0 : 255;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// 0, bright colors; 255, dark colors</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> qRgb(v, v, v);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// Counting the perceptive luminance - human eye favors green color...</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> v = 255 - (2.0 * qRed(color) + 3.0 * qGreen(color) + qBlue(color)) / 6.0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        v = v &lt; 128 ? 0 : 255;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// 0, bright colors; 255, dark colors</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> qRgb(v, v, v);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">  105</a></span>&#160;QPixmap <a class="code" href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">TTK::Image::grayScalePixmap</a>(<span class="keyword">const</span> QPixmap &amp;input, <span class="keywordtype">int</span> radius)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    QImage pix = input.toImage();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> w = 0; w &lt; pix.width(); ++w)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> h = 0; h &lt; pix.height(); ++h)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordtype">int</span> gray = qGray(pix.pixel(w, h)) + radius;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                gray = qBound(0, gray, 255);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">const</span> QRgb rgb = qRgb(gray, gray, gray);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            pix.setPixel(w, h, rgb);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> QPixmap::fromImage(pix);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../de/d84/musicimageutils_8cpp.html#ae264043923e166f374a5fe5a790e9ae3">  121</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="../../de/d84/musicimageutils_8cpp.html#ae264043923e166f374a5fe5a790e9ae3">colorBurnTransform</a>(<span class="keywordtype">int</span> c, <span class="keywordtype">int</span> delta)</div>
@@ -231,8 +231,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
 <div class="ttc" id="musicobject_8h_html_a2dd11af83968c0c50a40340f9673015b"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a2dd11af83968c0c50a40340f9673015b">JPG_FILE_SUFFIX</a></div><div class="ttdeci">#define JPG_FILE_SUFFIX</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00032">musicobject.h:32</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_image_html_a9c33b6b9bfa26ccecd2e92714b921dbc"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">TTK::Image::grayScalePixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT QPixmap grayScalePixmap(const QPixmap &amp;input, int radius=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00096">musicimageutils.cpp:96</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_image_html_ab36269c9c163d8a778acc3b9e7ded471"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#ab36269c9c163d8a778acc3b9e7ded471">TTK::Image::fusionPixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT void fusionPixmap(QPixmap &amp;back, const QPixmap &amp;front, const QPoint &amp;pt)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00072">musicimageutils.cpp:72</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_image_html_a9c33b6b9bfa26ccecd2e92714b921dbc"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#a9c33b6b9bfa26ccecd2e92714b921dbc">TTK::Image::grayScalePixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT QPixmap grayScalePixmap(const QPixmap &amp;input, int radius=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00105">musicimageutils.cpp:105</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_image_html_a7368d6169cd7b4134242c2a95a5e9094"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#a7368d6169cd7b4134242c2a95a5e9094">TTK::Image::roundedPixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT QPixmap roundedPixmap(const QPixmap &amp;input, int ratioX, int ratioY)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00007">musicimageutils.cpp:7</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_image_html_a0371ebf4879c7f572db58827ffdc43c1"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#a0371ebf4879c7f572db58827ffdc43c1">TTK::Image::generatePixmapData</a></div><div class="ttdeci">TTK_MODULE_EXPORT QByteArray generatePixmapData(const QPixmap &amp;input)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00055">musicimageutils.cpp:55</a></div></div>
 <div class="ttc" id="musicimageutils_8h_html"><div class="ttname"><a href="../../de/d18/musicimageutils_8h.html">musicimageutils.h</a></div></div>
@@ -240,10 +239,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicimageutils_8cpp_html_ae264043923e166f374a5fe5a790e9ae3"><div class="ttname"><a href="../../de/d84/musicimageutils_8cpp.html#ae264043923e166f374a5fe5a790e9ae3">colorBurnTransform</a></div><div class="ttdeci">static int colorBurnTransform(int c, int delta)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00121">musicimageutils.cpp:121</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_image_html_af7bc4b4482f633b081f8abd054aea106"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#af7bc4b4482f633b081f8abd054aea106">TTK::Image::colorContrast</a></div><div class="ttdeci">TTK_MODULE_EXPORT unsigned int colorContrast(const unsigned int color)</div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_image_html_a4401c07ed1da52cf959d73bf5f645f5e"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#a4401c07ed1da52cf959d73bf5f645f5e">TTK::Image::reRenderImage</a></div><div class="ttdeci">TTK_MODULE_EXPORT void reRenderImage(int delta, const QImage *input, QImage *output)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00140">musicimageutils.cpp:140</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_image_html_aaa12aef4e4d6be13df69ae67dba707b4"><div class="ttname"><a href="../../d9/d47/namespace_t_t_k_1_1_image.html#aaa12aef4e4d6be13df69ae67dba707b4">TTK::Image::fusionPixmap</a></div><div class="ttdeci">TTK_MODULE_EXPORT void fusionPixmap(QImage &amp;back, const QImage &amp;front, const QPoint &amp;pt)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d84/musicimageutils_8cpp_source.html#l00072">musicimageutils.cpp:72</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 18 2024 21:11:39 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 15 2024 15:56:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
