@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++17 新特性之std::optional | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在编程中，我们经常遇到这样的情况，我们可能返回/传递/使用某种类型的对象。也就是说，我们可以有某个类型的值，也可以没有任何值。因此，我们需要一种方法来模拟类似指针的语义，在指针中，我们可以使用nullptr来表示没有值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++17 新特性之std::optional">
+<meta property="og:url" content="http://greedysky.github.io/2023/11/10/C++17新特性之optional/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="在编程中，我们经常遇到这样的情况，我们可能返回/传递/使用某种类型的对象。也就是说，我们可以有某个类型的值，也可以没有任何值。因此，我们需要一种方法来模拟类似指针的语义，在指针中，我们可以使用nullptr来表示没有值。">
+<meta property="og:updated_time" content="2024-02-26T06:52:49.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++17 新特性之std::optional">
+<meta name="twitter:description" content="在编程中，我们经常遇到这样的情况，我们可能返回/传递/使用某种类型的对象。也就是说，我们可以有某个类型的值，也可以没有任何值。因此，我们需要一种方法来模拟类似指针的语义，在指针中，我们可以使用nullptr来表示没有值。">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++17新特性之optional" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/11/10/C++17新特性之optional/" class="article-date">
+      <time datetime="2023-11-10T12:35:06.000Z" itemprop="datePublished">2023-11-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++17 新特性之std::optional
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-17/">C++17</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;在编程中，我们经常遇到这样的情况，我们可能返回/传递/使用某种类型的对象。也就是说，我们可以有某个类型的值，也可以没有任何值。因此，我们需要一种方法来模拟类似指针的语义，在指针中，我们可以使用nullptr来表示没有值。<br>&#160; &#160; &#160; &#160;处理这个问题的方法是定义一个特定类型的对象，并用一个额外的布尔成员/标志来表示值是否存在。std::optional&lt;&gt;以一种类型安全的方式提供了这样的对象。<br>&#160; &#160; &#160; &#160;std::optional对象只是包含对象的内部内存加上一个布尔标志。因此，大小通常比包含的对象大一个字节。对于某些包含的类型，甚至可能根本没有大小开销，前提是附加信息可以放在包含的对象中。没有分配堆内存。对象使用与所包含类型相同的对齐方式。<br>&#160; &#160; &#160; &#160;然而，std::optional对象不仅仅是向值成员添加布尔标志功能的结构。例如，如果没有值，就不会为所包含的类型调用构造函数（因此，可以为对象提供没有值的默认状态）。<br>&#160; &#160; &#160; &#160;与std::variable&lt;&gt;和std::any一样，生成的任何对象都具有值语义。也就是说，复制被实现为一个深度复制，创建一个独立的对象，该对象带有标记，如果在它自己的内存中包含值，则包含值。复制一个std::optional&lt;&gt;而不包含值是廉价的;<br>&#160; &#160; &#160; &#160;使用包含的值复制std::optional&lt;&gt;与复制包含的类型/值一样便宜/昂贵。支持Move语义。</p>
+<h2 id="std-optional-lt-gt-返回值"><a href="#std-optional-lt-gt-返回值" class="headerlink" title="std::optional&lt;&gt;返回值"></a><strong>std::optional&lt;&gt;返回值</strong></h2><p>&#160; &#160; &#160; &#160;下面的程序演示了std::optional&lt;&gt;作为返回值的处理：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;optional&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"> </div><div class="line"><span class="comment">// convert string to int if possible:</span></div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; asInt(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; s)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">try</span> </div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">std</span>::stoi(s);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span>(...) </div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">std</span>::nullopt;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> s : &#123; <span class="string">"42"</span>, <span class="string">" 077"</span>, <span class="string">"hello"</span>, <span class="string">"0x33"</span> &#125;) </div><div class="line">    &#123;</div><div class="line">        <span class="comment">// convert s to int and use the result if possible:</span></div><div class="line">        <span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; oi = asInt(s);</div><div class="line">        <span class="keyword">if</span>(oi)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"convert '"</span> &lt;&lt; s &lt;&lt; <span class="string">"' to int: "</span> &lt;&lt; *oi &lt;&lt; <span class="string">"\n"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"can't convert '"</span> &lt;&lt; s &lt;&lt; <span class="string">"' to int\n"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在程序中，asInt()是一个函数，用于将传递的字符串转换为整数。然而，这可能不会成功。因此，使用std::optional&lt;&gt;，这样我们就可以返回“no int”，避免为它定义一个特殊的int值，或者向调用者抛出异常。因此，我们要么返回调用stoi()的结果，它用int初始化返回值，要么返回std::nullopt，这表明我们没有int值。<br>&#160; &#160; &#160; &#160;我们可以实现相同的行为如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; asInt(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; s)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; ret; <span class="comment">// initially no value</span></div><div class="line">    <span class="keyword">try</span> </div><div class="line">    &#123;</div><div class="line">        ret = <span class="built_in">std</span>::stoi(s);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span>(...) </div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在main()中，我们用不同的字符串调用这个函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> s : &#123;<span class="string">"42"</span>, <span class="string">" 077"</span>, <span class="string">"hello"</span>, <span class="string">"0x33"</span>&#125;) </div><div class="line">&#123;</div><div class="line">    <span class="comment">// convert s to int and use the result if possible:</span></div><div class="line">    <span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; oi = asInt(s);</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;对于每个返回的std::optional<int> oi，我们计算，是否有一个值（通过将对象计算为Boolean表达式），并通过“解引用”可选对象来访问该值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(oi) </div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"convert '"</span> &lt;&lt; s &lt;&lt; <span class="string">"' to int: "</span> &lt;&lt; *oi &lt;&lt; <span class="string">"\n"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></int></p>
+<p>&#160; &#160; &#160; &#160;注意，对于字符串“0x33”调用asInt()会产生0，因为stoi()不会将字符串解析为十六进制值。还可以通过如下方法来处理返回值，例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; oi = asInt(s);</div><div class="line"><span class="keyword">if</span>(oi.has_value()) </div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"convert '"</span> &lt;&lt; s &lt;&lt; <span class="string">"' to int: "</span> &lt;&lt; oi.value() &lt;&lt; <span class="string">"\n"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在这里has_value()用来检查是否有返回值，如果有通过value()来获取。value()比操作符<em>更安全，因为没有值而调用该接口的话会抛出异常。操作符</em>只有你确认有值的情况下才能使用，否则程序会出现未定义行为。<br>&#160; &#160; &#160; &#160;注意，可以通过使用新的类型std::string_view来改进asInt()。</p>
+<h2 id="std-optional-lt-gt-参数和数据成员"><a href="#std-optional-lt-gt-参数和数据成员" class="headerlink" title="std::optional&lt;&gt;参数和数据成员"></a><strong>std::optional&lt;&gt;参数和数据成员</strong></h2><p>&#160; &#160; &#160; &#160;使用std::optional&lt;&gt;的另一个例子是参数的std::optional传递和做为数据成员：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;optional&gt;</span></span></div><div class="line"> </div><div class="line"><span class="keyword">class</span> Name</div><div class="line">&#123;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> first;</div><div class="line">    <span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; middle;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> last;</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Name(<span class="built_in">std</span>::<span class="built_in">string</span> f,</div><div class="line">        <span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; m,</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> l)</div><div class="line">        : first&#123; <span class="built_in">std</span>::move(f) &#125;, middle&#123; <span class="built_in">std</span>::move(m) &#125;, last&#123; <span class="built_in">std</span>::move(l) &#125; </div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">friend</span> <span class="built_in">std</span>::ostream&amp; <span class="keyword">operator</span> &lt;&lt; (<span class="built_in">std</span>::ostream&amp; strm, <span class="keyword">const</span> Name&amp; n) </div><div class="line">    &#123;</div><div class="line">        strm &lt;&lt; n.first &lt;&lt; <span class="string">' '</span>;</div><div class="line">        <span class="keyword">if</span>(n.middle)</div><div class="line">        &#123;</div><div class="line">            strm &lt;&lt; n.middle.value() &lt;&lt; <span class="string">' '</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> strm &lt;&lt; n.last;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Name n&#123; <span class="string">"Jim"</span>, <span class="built_in">std</span>::nullopt, <span class="string">"Knopf"</span> &#125;;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    Name m&#123; <span class="string">"Donald"</span>, <span class="string">"Ervin"</span>, <span class="string">"Knuth"</span> &#125;;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;类Name表示由一个名字，可选的中间名，姓氏组成。成员中间被定义为std::optional&lt;&gt;，当没有中间名字时构造函数允许传递std::nullopt参数，这与中间名称为空字符串的状态不同。<br>&#160; &#160; &#160; &#160;注意，对于具有值语义的类型，定义初始化相应成员的构造函数的最佳方法是按值获取参数并将参数移动到成员。<br>&#160; &#160; &#160; &#160;还要注意，std::optional&lt;&gt;改变了对成员中间值的访问。使用middle作为布尔表达式可以判断是否有中间名，如果有的话可以使用value()方法来获取值。<br>&#160; &#160; &#160; &#160;另外一种访问optional值的方法是用一个成员函数value_or()，该方法如果不存在值，则允许指定的值。例如，在类名内部我们也可以实现：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; middle.value_or(<span class="string">""</span>); <span class="comment">// print middle name or nothing</span></div></pre></td></tr></table></figure></p>
+<h2 id="std-optional-lt-gt-类型"><a href="#std-optional-lt-gt-类型" class="headerlink" title="std::optional&lt;&gt;类型"></a><strong>std::optional&lt;&gt;类型</strong></h2><p>&#160; &#160; &#160; &#160;在标准库的头文件<optional>中定义了std::optional&lt;&gt;如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> </div><div class="line">&#123;</div><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class</span> optional;</div><div class="line">&#125;</div></pre></td></tr></table></figure></optional></p>
+<p>&#160; &#160; &#160; &#160;此外，定义了类型和对象如下：<br>&#160; &#160; &#160; &#160;std::nullopt_t类型的nullopt是一种没有值的对象；<br>&#160; &#160; &#160; &#160;异常类std::bad_optional_access，派生自std::Exception，用于std::optional&lt;&gt;对象没有值的情况下访问是抛出的异常。<br>&#160; &#160; &#160; &#160;可选对象还使用<utility>中定义的对象std::in_place（类型为std::in_place_t）来初始化带有多个参数的可选对象的值（参见下面）。</utility></p>
+<h2 id="std-optional-lt-gt-操作"><a href="#std-optional-lt-gt-操作" class="headerlink" title="std::optional&lt;&gt;操作"></a><strong>std::optional&lt;&gt;操作</strong></h2><p>&#160; &#160; &#160; &#160;下面std::optional操作列出了为std::optional&lt;&gt;提供的所有操作：<br>| 成员定义 | 说明 |<br>| :—: | :—: |<br>| constructors | 创建一个optional对象（可能调用包含类型的构造函数） |<br>| make_optional&lt;&gt;() | 创建一个optional对象（传递值来初始化它） |<br>| destructor | 销毁一个optional对象 |<br>| = | 分配一个新值 |<br>| emplace() | 为所包含的类型分配一个新值 |<br>| reset() | 销毁任何值（使对象为空） |<br>| has_value() | 返回对象是否具有值 |<br>| conversion to bool | 返回对象是否具有值 |<br>| * | 访问值（如果没有值，则未定义行为） |<br>| -&gt; | 访问值的成员（如果没有值，则为未定义的行为） |<br>| value() | 访问值（如果没有值，则抛出异常） |<br>| value_or() | 访问值（如果没有值，则使用提供的值） |<br>| swap() | 交换两个对象的值 |<br>| ==, !=, &lt; , &lt;=, &gt;, &gt;= | 比较两个optional对象 |<br>| hash&lt;&gt; | 函数对象类型来计算哈希值 |</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a><strong>构造函数</strong></h3><p>&#160; &#160; &#160; &#160;特殊构造函数允许将参数直接传递给所包含的类型。<br>&#160; &#160; &#160; &#160;可以创建一个没有值的可选对象。在这种情况下，必须指定包含的类型：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; o1;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; o2(<span class="built_in">std</span>::nullopt);</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这里不会为所包含的类型调用任何构造函数。<br>&#160; &#160; &#160; &#160;可以传递一个值来初始化所包含的类型。根据推导指南，不必指定所包含的类型，如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional o3&#123;<span class="number">42</span>&#125;; <span class="comment">// deduces optional&lt;int&gt;</span></div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; o4&#123;<span class="string">"hello"</span>&#125;;</div><div class="line"><span class="built_in">std</span>::optional o5&#123;<span class="string">"hello"</span>&#125;; <span class="comment">// deduces optional&lt;const char*&gt;</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;要初始化一个具有多个参数的可选对象，必须创建该对象或将std::in_place添加为第一个参数（所包含的类型无法推断）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional o6&#123;<span class="built_in">std</span>::<span class="keyword">complex</span>&#123;<span class="number">3.0</span>, <span class="number">4.0</span>&#125;&#125;;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt;&gt; o7&#123;<span class="built_in">std</span>::in_place, <span class="number">3.0</span>, <span class="number">4.0</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，第二种形式避免创建临时对象。通过使用这种形式，甚至可以传递初始化器列表和附加参数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// initialize set with lambda as sorting criterion:</span></div><div class="line"><span class="keyword">auto</span> sc = [] (<span class="keyword">int</span> x, <span class="keyword">int</span> y) </div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">std</span>::<span class="built_in">abs</span>(x) &lt; <span class="built_in">std</span>::<span class="built_in">abs</span>(y);</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">set</span>&lt;<span class="keyword">int</span>,<span class="keyword">decltype</span>(sc)&gt;&gt; o8&#123;<span class="built_in">std</span>::in_place, &#123;<span class="number">4</span>, <span class="number">8</span>, <span class="number">-7</span>, <span class="number">-2</span>, <span class="number">0</span>, <span class="number">5</span>&#125;, sc&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;可以复制可选对象（包括类型转换）：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional o5&#123;<span class="string">"hello"</span>&#125;; <span class="comment">// deduces optional&lt;const char*&gt;</span></div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; o9&#123;o5&#125;; <span class="comment">// OK</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，还有一个方便的函数make_optional&lt;&gt;()，它允许使用单个或多个参数初始化（不需要in_place参数）。像往常一样make……函数推导：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> o10 = <span class="built_in">std</span>::make_optional(<span class="number">3.0</span>); <span class="comment">// optional&lt;double&gt;</span></div><div class="line"><span class="keyword">auto</span> o11 = <span class="built_in">std</span>::make_optional(<span class="string">"hello"</span>); <span class="comment">// optional&lt;const char*&gt;</span></div><div class="line"><span class="keyword">auto</span> o12 = <span class="built_in">std</span>::make_optional&lt;<span class="built_in">std</span>::<span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt;&gt;(<span class="number">3.0</span>, <span class="number">4.0</span>);</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;然而，注意，没有构造函数接受一个值并根据它的值来决定是使用值初始化一个可选值还是使用nullopt。可以使用操作符<code>?:</code>，例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">multimap</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="built_in">std</span>::<span class="built_in">string</span>&gt; englishToGerman;</div><div class="line">...</div><div class="line"><span class="keyword">auto</span> pos = englishToGerman.find(<span class="string">"wisdom"</span>);</div><div class="line"><span class="keyword">auto</span> o13 = pos != englishToGerman.end()</div><div class="line">? <span class="built_in">std</span>::optional&#123;pos-&gt;second&#125;</div><div class="line">: <span class="built_in">std</span>::nullopt;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在这里，o13初始化为std::optional<std::string>，这是由于类模板参数的推导std::optionalf(pos-&gt;second)。对于std::nullopt类模板参数推导不起作用，但是运算符<code>?:</code>在推导表达式的结果类型时也将其转换为这种类型。</std::string></p>
+<h3 id="访问值"><a href="#访问值" class="headerlink" title="访问值"></a><strong>访问值</strong></h3><p>&#160; &#160; &#160; &#160;检查optional对象是否有值，可以将对象当做一个布尔表达式使用它，或者调用has_value()：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional o&#123;<span class="number">42</span>&#125;;</div><div class="line"><span class="keyword">if</span>(o) ... <span class="comment">// true</span></div><div class="line"><span class="keyword">if</span>(!o) ... <span class="comment">// false</span></div><div class="line"><span class="keyword">if</span>(o.has_value()) ... <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;为了访问该值，提供了指针语法。操作符*可以直接访问它所包含类型对象的值，而操作符-&gt;允许访问它所包含类型对象的成员：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional o&#123;<span class="built_in">std</span>::pair&#123;<span class="number">42</span>, <span class="string">"hello"</span>&#125;&#125;;</div><div class="line"><span class="keyword">auto</span> p = *o; <span class="comment">// initializes p as pair&lt;int,string&gt;</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; o-&gt;first; <span class="comment">// prints 42</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，这些操作符要求optional包含一个值。在没有值的情况下使用它们是未定义的行为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; o&#123;<span class="string">"hello"</span>&#125;;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *o; <span class="comment">// OK: prints “hello”</span></div><div class="line">o = <span class="built_in">std</span>::nullopt;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *o; <span class="comment">// undefined behavior</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，实际上第二个输出仍然会编译并执行一些输出，比如再次打印“hello”，因为用于optional对象值的底层内存没有被修改。<br>&#160; &#160; &#160; &#160;然而，你不能也不应该依赖它。如果你不知道一个可选对象是否有值，你只能调用以下函数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(o) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; *o; <span class="comment">// OK (might output nothing)</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;或者，您可以使用value()，如果没有包含值，它会抛出一个std::bad_optional_access异常：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; o.value(); <span class="comment">// OK (throws if no value)</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;bad_optional_access直接派生自std::exception。<br>&#160; &#160; &#160; &#160;最后，如果optional对象没有值，您可以请求该值并传递回退值，回退值将被使用：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; o.value_or(<span class="string">"fallback"</span>); <span class="comment">// OK (outputs fallback if no value)</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;回退参数作为rvalue引用传递，因此，如果不使用回退，则不需要花费任何代价，如果使用回退，则支持move语义。</p>
+<h3 id="比较操作"><a href="#比较操作" class="headerlink" title="比较操作"></a><strong>比较操作</strong></h3><p>&#160; &#160; &#160; &#160;可以使用通常的比较操作符。操作数可以是optional对象、包含类型的对象和std::nullopt。<br>&#160; &#160; &#160; &#160;如果两个操作数都是具有值的对象，则使用所包含类型的对应操作符。<br>&#160; &#160; &#160; &#160;如果两个操作数都是没有值的对象，则认为它们是相等的（==产生true，所有其他比较产生false）。<br>&#160; &#160; &#160; &#160;如果只有一个操作数是有值的对象，则没有值的操作数被认为小于另一个操作数。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; o0;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; o1&#123;<span class="number">42</span>&#125;;</div><div class="line">o0 == <span class="built_in">std</span>::nullopt <span class="comment">// yields true</span></div><div class="line">o0 == <span class="number">42</span> <span class="comment">// yields false</span></div><div class="line">o0 &lt; <span class="number">42</span> <span class="comment">// yields true</span></div><div class="line">o0 &gt; <span class="number">42</span> <span class="comment">// yields false</span></div><div class="line">o1 == <span class="number">42</span> <span class="comment">// yields true</span></div><div class="line">o0 &lt; o1 <span class="comment">// yields true</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这意味着对于无符号整型的optional对象有一个小于0的值，对于bool的optional对象有一个小于0的值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">unsigned</span>&gt; uo;</div><div class="line">uo &lt; <span class="number">0</span> <span class="comment">// yields true</span></div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">bool</span>&gt; bo;</div><div class="line">bo &lt; <span class="literal">false</span> <span class="comment">// yields true</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;同样，支持底层类型的隐式类型转换：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>&gt; o1&#123;<span class="number">42</span>&#125;;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">double</span>&gt; o2&#123;<span class="number">42.0</span>&#125;;</div><div class="line"> </div><div class="line">o2 == <span class="number">42</span> <span class="comment">// yields true</span></div><div class="line">o1 == o2 <span class="comment">// yields true</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，optional的bool值或原始指针值可能会导致一些意外。</p>
+<h3 id="修改值"><a href="#修改值" class="headerlink" title="修改值"></a><strong>修改值</strong></h3><p>&#160; &#160; &#160; &#160;通过赋值和emplace来修改值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt;&gt; o; <span class="comment">// has no value</span></div><div class="line"><span class="built_in">std</span>::optional ox&#123;<span class="number">77</span>&#125;; <span class="comment">// optional&lt;int&gt; with value 77</span></div><div class="line">o = <span class="number">42</span>; <span class="comment">// value becomes complex(42.0, 0.0)</span></div><div class="line">o = &#123;<span class="number">9.9</span>, <span class="number">4.4</span>&#125;; <span class="comment">// value becomes complex(9.9, 4.4)</span></div><div class="line">o = ox; <span class="comment">// OK, because int converts to complex&lt;double&gt;</span></div><div class="line">o = <span class="built_in">std</span>::nullopt; <span class="comment">// o no longer has a value</span></div><div class="line">o.emplace(<span class="number">5.5</span>, <span class="number">7.7</span>); <span class="comment">// value becomes complex(5.5, 7.7)</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;赋值std::nullopt将删除该值，如果之前有值，该值将调用所包含类型的析构函数。也可以通过调用reset()获得相同的效果：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">o.reset(); <span class="comment">// o no longer has a value</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;或赋值为空花括号：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">o = &#123;&#125;; <span class="comment">// o no longer has a value</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;最后，我们还可以使用操作符*修改值，因为它通过引用生成值。但是，请注意，这需要修改一个有存在的值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt;&gt; o;</div><div class="line">*o = <span class="number">42</span>; <span class="comment">// undefined behavior</span></div><div class="line">...</div><div class="line"><span class="keyword">if</span>(o) </div><div class="line">&#123;</div><div class="line">    *o = <span class="number">88</span>; <span class="comment">// OK: value becomes complex(88.0, 0.0)</span></div><div class="line">    *o = &#123;<span class="number">1.2</span>, <span class="number">3.4</span>&#125;; <span class="comment">// OK: value becomes complex(1.2, 3.4)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="移动语义"><a href="#移动语义" class="headerlink" title="移动语义"></a><strong>移动语义</strong></h3><p>&#160; &#160; &#160; &#160;std::optional&lt;&gt;也支持移动语义。如果将对象作为一个整体移动，则会复制状态并移动所包含的对象（如果有的话）。因此，一个从对象中移出的对象仍然具有相同的状态，但是移动后的值会变成是未指定的。但是也可以将一个值移动到或移出所包含的对象。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; os;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> s = <span class="string">"a very very very long string"</span>;</div><div class="line">os = <span class="built_in">std</span>::move(s); <span class="comment">// OK, moves</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> s2 = *os; <span class="comment">// OK copies</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> s3 = <span class="built_in">std</span>::move(*os); <span class="comment">// OK, moves</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;注意，在最后一次调用之后os仍然有一个字符串值，但是对于os对象这个值未指定的。因此，不能对移动后的对象的值做任何假设就去使用它。当然，可以给移动后的对象分配一个新的值。</p>
+<h3 id="Hashing"><a href="#Hashing" class="headerlink" title="Hashing"></a><strong>Hashing</strong></h3><p>&#160; &#160; &#160; &#160;std::optional对象的哈希值是包含的非常量类型（如果有的话）的哈希值。</p>
+<h2 id="特定情况"><a href="#特定情况" class="headerlink" title="特定情况"></a><strong>特定情况</strong></h2><h3 id="bool或者原始指针的optional"><a href="#bool或者原始指针的optional" class="headerlink" title="bool或者原始指针的optional"></a><strong>bool或者原始指针的optional</strong></h3><p>&#160; &#160; &#160; &#160;注意，使用比较操作符与使用optional对象作为布尔值具有不同的语义。如果包含的类型是bool或指针类型，这就会变得很混乱。例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">bool</span>&gt; ob&#123;<span class="literal">false</span>&#125;; <span class="comment">// has value, which is false</span></div><div class="line"><span class="keyword">if</span>(!ob) ... <span class="comment">// yields false</span></div><div class="line"><span class="keyword">if</span>(ob == <span class="literal">false</span>) ... <span class="comment">// yields true</span></div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="keyword">int</span>*&gt; op&#123;<span class="literal">nullptr</span>&#125;;</div><div class="line"><span class="keyword">if</span>(!op) ... <span class="comment">// yields false</span></div><div class="line"><span class="keyword">if</span>(op == <span class="literal">nullptr</span>) ... <span class="comment">// yields true</span></div></pre></td></tr></table></figure></p>
+<h3 id="Optional的Optional"><a href="#Optional的Optional" class="headerlink" title="Optional的Optional"></a><strong>Optional的Optional</strong></h3><p>&#160; &#160; &#160; &#160;原则上，你也可以定义一个optional的optional值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&gt; oos1;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&gt; oos2 = <span class="string">"hello"</span>;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&gt; oos3&#123;<span class="built_in">std</span>::in_place, <span class="built_in">std</span>::in_place, <span class="string">"hello"</span>&#125;;</div><div class="line"><span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::optional&lt;<span class="built_in">std</span>::<span class="keyword">complex</span>&lt;<span class="keyword">double</span>&gt;&gt;&gt; ooc&#123;<span class="built_in">std</span>::in_place, <span class="built_in">std</span>::in_place, <span class="number">4.2</span>, <span class="number">5.3</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;你也可以分配新的值，即使隐式转换：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oos1 = <span class="string">"hello"</span>; <span class="comment">// OK: assign new value</span></div><div class="line">ooc.emplace(<span class="built_in">std</span>::in_place, <span class="number">7.2</span>, <span class="number">8.3</span>);</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;由于optional的无值有两个层次，optional的optional使“无值”出现在外部或内部，可以有不同的语义含义：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*oos1 = <span class="built_in">std</span>::nullopt; <span class="comment">// inner optional has no value</span></div><div class="line">oos1 = <span class="built_in">std</span>::nullopt; <span class="comment">// outer optional has no value</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;但必须特别注意处理optional值：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!oos1) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"no value\n"</span>;</div><div class="line"><span class="keyword">if</span>(oos1 &amp;&amp; !*oos1) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"no inner value\n"</span>;</div><div class="line"><span class="keyword">if</span>(oos1 &amp;&amp; *oos1) <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"value: "</span> &lt;&lt; **oos1 &lt;&lt; <span class="string">'\n'</span>;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2023年11月10日 - 20时35分</p>
+        <p><span>最后更新:</span>2024年02月26日 - 14时52分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2023/11/10/C++17新特性之optional/" title="C++17 新特性之std::optional">http://greedysky.github.io/2023/11/10/C++17新特性之optional/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2023/11/10/C++17新特性之optional/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++17 新特性之带有初始化器的if和switch语句
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/08/20/C++array的神奇用法总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ array的神奇用法总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#std-optional-lt-gt-返回值"><span class="toc-number">1.</span> <span class="toc-text">std::optional<>返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-optional-lt-gt-参数和数据成员"><span class="toc-number">2.</span> <span class="toc-text">std::optional<>参数和数据成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-optional-lt-gt-类型"><span class="toc-number">3.</span> <span class="toc-text">std::optional<>类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-optional-lt-gt-操作"><span class="toc-number">4.</span> <span class="toc-text">std::optional<>操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数"><span class="toc-number">4.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问值"><span class="toc-number">4.2.</span> <span class="toc-text">访问值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较操作"><span class="toc-number">4.3.</span> <span class="toc-text">比较操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改值"><span class="toc-number">4.4.</span> <span class="toc-text">修改值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动语义"><span class="toc-number">4.5.</span> <span class="toc-text">移动语义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hashing"><span class="toc-number">4.6.</span> <span class="toc-text">Hashing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特定情况"><span class="toc-number">5.</span> <span class="toc-text">特定情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bool或者原始指针的optional"><span class="toc-number">5.1.</span> <span class="toc-text">bool或者原始指针的optional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optional的Optional"><span class="toc-number">5.2.</span> <span class="toc-text">Optional的Optional</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/" title="上一篇: C++17 新特性之带有初始化器的if和switch语句">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2023/08/20/C++array的神奇用法总结/" title="下一篇: C++ array的神奇用法总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2024 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

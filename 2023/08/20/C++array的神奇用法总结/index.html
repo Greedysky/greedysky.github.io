@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ array的神奇用法总结 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="std::array是在C++11标准中增加的STL容器，它的设计目的是提供与原生数组类似的功能与性能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ array的神奇用法总结">
+<meta property="og:url" content="http://greedysky.github.io/2023/08/20/C++array的神奇用法总结/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="std::array是在C++11标准中增加的STL容器，它的设计目的是提供与原生数组类似的功能与性能。">
+<meta property="og:updated_time" content="2024-02-26T06:52:22.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ array的神奇用法总结">
+<meta name="twitter:description" content="std::array是在C++11标准中增加的STL容器，它的设计目的是提供与原生数组类似的功能与性能。">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++array的神奇用法总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/08/20/C++array的神奇用法总结/" class="article-date">
+      <time datetime="2023-08-20T10:40:44.000Z" itemprop="datePublished">2023-08-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ array的神奇用法总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-17/">C++17</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;std::array是在C++11标准中增加的STL容器，它的设计目的是提供与原生数组类似的功能与性能。也正因此，使得std::array有很多与其他容器不同的特殊之处，比如：std::array的元素是直接存放在实例内部，而不是在堆上分配空间；std::array的大小必须在编译期确定；std::array的构造函数、析构函数和赋值操作符都是编译器隐式声明的……这让很s多用惯了std::vector这类容器的程序员不习惯，觉得std::array不好用。<br>&#160; &#160; &#160; &#160;但实际上，std::array的威力很可能被低估了。在这篇文章里，我会从各个角度介绍下std::array的用法，希望能带来一些启发。<br>&#160; &#160; &#160; &#160;本文的代码都在C++17环境下编译运行。当前主流的g++版本已经能支持C++17标准，但是很多版本（如gcc 7.3）的C++17特性不是默认打开的，需要手工添加编译选项-std=c++17。</p>
+<h2 id="自动推导数组大小"><a href="#自动推导数组大小" class="headerlink" title="自动推导数组大小"></a><strong>自动推导数组大小</strong></h2><p>&#160; &#160; &#160; &#160;很多项目中都会有类似这样的全局数组作为配置参数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">uint32_t</span> g_cfgPara[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;当程序员想要使用std::array替换原生数组时，麻烦来了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">array</span>&lt;<span class="keyword">uint32_t</span>, 8&gt; g_cfgPara = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;  <span class="comment">// 注意模板参数“8”</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;程序员不得不手工写出数组的大小，因为它是std::array的模板参数之一。如果这个数组很长，或者经常增删成员，对数组大小的维护工作恐怕不是那么愉快的。有人要抱怨了：std::array的声明用起来还没有原生数组方便，选它干啥？<br>&#160; &#160; &#160; &#160;但是，这个抱怨只该限于C++17之前， C++17带来了类模板参数推导特性， 你不再需要手工指定类模板的参数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">array</span> g_cfgPara = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;  <span class="comment">// 数组大小与成员类型自动推导</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;看起来很美好，但很快就会有人发现不对头：数组元素的类型是什么？还是std::uint32_t吗？<br>&#160; &#160; &#160; &#160;有人开始尝试只提供元素类型参数，让编译器自动推导长度，遗憾的是，它不会奏效。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">array</span>&lt;<span class="keyword">uint32_t</span>&gt; g_cfgPara = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;  <span class="comment">// 编译错误</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;好吧，暂时看起来std::array是不能像原生数组那样声明。下面我们来解决这个问题。</p>
+<h2 id="用函数返回std-array"><a href="#用函数返回std-array" class="headerlink" title="用函数返回std::array"></a><strong>用函数返回std::array</strong></h2><p>&#160; &#160; &#160; &#160;问题的解决思路是用函数模板来替代类模板——因为C++允许函数模板的部分参数自动推导——我们可以联想到std::make_pair、std::make_tuple这类辅助函数。巧的是， C++标准真的在TS v2试验版本中推出过std::make_array， 然而因为类模板参数推导的问世，这个工具函数后来被删掉了。<br>&#160; &#160; &#160; &#160;但显然，用户的需求还是存在的。于是在C++20中， 又新增了一个辅助函数std::to_array。<br>&#160; &#160; &#160; &#160;别被C++20给吓到了，这个函数的代码其实很简单，我们可以把它拿过来定义在自己的C++17代码中[1]。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">template&lt;typename R, typename P, size_t N, size_t... I&gt;</div><div class="line">constexpr array&lt;R, N&gt; to_array_impl(P (&amp;a)[N], std::index_sequence&lt;I...&gt;) noexcept</div><div class="line">&#123;</div><div class="line">    return &#123; &#123;a[I]...&#125; &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename T, size_t N&gt;</div><div class="line">constexpr auto to_array(T (&amp;a)[N]) noexcept</div><div class="line">&#123;</div><div class="line">    return to_array_impl&lt;std::remove_cv_t&lt;T&gt;, T, N&gt;(a, std::make_index_sequence&lt;N&gt;&#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename R, typename P, size_t N, size_t... I&gt;</div><div class="line">constexpr array&lt;R, N&gt; to_array_impl(P (&amp;&amp;a)[N], std::index_sequence&lt;I...&gt;) noexcept</div><div class="line">&#123;</div><div class="line">    return &#123; &#123;move(a[I])...&#125; &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename T, size_t N&gt;</div><div class="line">constexpr auto to_array(T (&amp;&amp;a)[N]) noexcept</div><div class="line">&#123;</div><div class="line">    return to_array_impl&lt;std::remove_cv_t&lt;T&gt;, T, N&gt;(move(a), std::make_index_sequence&lt;N&gt;&#123;&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;细心的朋友会注意到，上面这个定义与C++20的推荐实现有所差异，这是有目的的。稍后我会解释这么干的原因。<br>&#160; &#160; &#160; &#160;现在让我们尝试下用新方法解决老问题：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> g_cfgPara = to_array&lt;<span class="keyword">int</span>&gt;(&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;);  <span class="comment">// 类型不是uint32_t？</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;不对啊，为什么元素类型不是原来的std::uint32_t？<br>&#160; &#160; &#160; &#160;这是因为模板参数推导对std::initializer_list的元素拒绝隐式转换，如果你把to_array的模板参数从int改为uint32_t，会得到如下编译错误：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:51:61: error: no matching function for call to 'to_array&lt;uint32_t&gt;(&lt;brace-enclosed initializer list&gt;)'</div><div class="line"> auto g_cfgPara = to_array&lt;uint32_t&gt;(&#123;1, 2, 5, 6, 7, 9, 3, 4&#125;);</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:34:16: note: candidate: 'template&lt;class T, long long unsigned int N&gt; constexpr auto to_array(T (&amp;)[N])'</div><div class="line"> constexpr auto to_array(T (&amp;a)[N]) noexcept</div><div class="line">                ^~~~~~~~</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:34:16: note:   template argument deduction/substitution failed:</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:51:61: note:   mismatched types 'unsigned int' and 'int'</div><div class="line"> auto g_cfgPara = to_array&lt;uint32_t&gt;(&#123;1, 2, 5, 6, 7, 9, 3, 4&#125;);</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:46:16: note: candidate: 'template&lt;class T, long long unsigned int N&gt; constexpr auto to_array(T (&amp;&amp;)[N])'</div><div class="line"> constexpr auto to_array(T (&amp;&amp;a)[N]) noexcept</div><div class="line">                ^~~~~~~~</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:46:16: note:   template argument deduction/substitution failed:</div><div class="line">D:\Work\Source_Codes\MyProgram\VSCode\main.cpp:51:61: note:   mismatched types 'unsigned int' and 'int'</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;Hoho，有点惨是不，绕了一圈回到原点，还是不能强制指定类型。<br>&#160; &#160; &#160; &#160;这个时候，之前针对std::array做的修改派上用场了：我给to_array_impl增加了一个模板参数，让输入数组的元素和返回std::array的元素用不同的类型参数表示，这样就给类型转换带来了可能。为了实现转换到指定的类型，我们还需要添加两个工具函数：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">template&lt;typename R, typename P, size_t N&gt;</div><div class="line">constexpr auto to_typed_array(P (&amp;a)[N]) noexcept</div><div class="line">&#123;</div><div class="line">    return to_array_impl&lt;R, P, N&gt;(a, std::make_index_sequence&lt;N&gt;&#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename R, typename P, size_t N&gt;</div><div class="line">constexpr auto to_typed_array(P (&amp;&amp;a)[N]) noexcept</div><div class="line">&#123;</div><div class="line">    return to_array_impl&lt;R, P, N&gt;(move(a), std::make_index_sequence&lt;N&gt;&#123;&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这两个函数和to_array的区别是：它带有3个模板参数：第一个是要返回的std::array的元素类型，后两个和to_array一样。这样我们就可以通过指定第一个参数来实现定制std::array元素类型了。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> g_cfgPara = to_typed_array&lt;<span class="keyword">uint32_t</span>&gt;(&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">4</span>&#125;);  <span class="comment">// 自动把元素转换成uint32_t</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码可以编译通过和运行，但是却有类型转换的编译告警。当然，如果你胆子够大，可以在to_array_impl函数中放一个static_cast来消除告警。但是编译告警提示了我们一个不能忽视的问题：如果万一输入的数值溢出了怎么办？<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">auto</span> g_a = to_typed_array&lt;<span class="keyword">uint8_t</span>&gt;(&#123;<span class="number">256</span>, <span class="number">-1</span>&#125;);  <span class="comment">// 数字超出uint8_t范围</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;编译器还是一样的会让你编译通过和运行，g_a中的两个元素的值将分别为0和255。如果你不明白为什么这两个值和入参不一样，你该复习下整型溢出与回绕的知识了。<br>&#160; &#160; &#160; &#160;显然，这个方案还不完美。但我们可以继续改进。</p>
+<h2 id="编译期字面量数值合法性校验"><a href="#编译期字面量数值合法性校验" class="headerlink" title="编译期字面量数值合法性校验"></a><strong>编译期字面量数值合法性校验</strong></h2><p>&#160; &#160; &#160; &#160;首先能想到的做法是在to_array_impl函数中放入一个if判断之类的语句，对于超出目标数值范围的输入抛出异常或者做其他处理。这当然可行，但要注意的是这些工具函数是可以在运行期调用的，对于这种常用的基础函数来说，性能至关重要。一旦在里面加入了错误判断，意味着运行时的每一次调用性能都会下降。<br>&#160; &#160; &#160; &#160;理想的设计是：只有在编译期生成的数组才进行校验，并且报编译错误。但运行时调用函数时不要加入任何校验。<br>&#160; &#160; &#160; &#160;可惜的是，至少在C++20之前，没有办法指定函数只允许在编译期执行[2]。那有没有其他手段呢？<br>&#160; &#160; &#160; &#160;熟悉C++的人知道：C++的编译期处理大多可以用模板的trick来完成——因为模板参数一定是编译期常量。因此我们可以用模板参数来完成编译期处理——只要把数组元素全部作为模板的非类型参数就可以了。当然，这里有个问题：模板的非类型参数的类型怎么确定？正好C++17提供了auto模板参数的功能，可以派上用场：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">void</span> <span class="title">CheckIntRanges</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123;&#125;  <span class="comment">// 用于终结递归</span></div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">auto</span> M, <span class="keyword">auto</span>... N&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">void</span> <span class="title">CheckIntRanges</span><span class="params">()</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 防止无符号与有符号比较</span></div><div class="line">    <span class="keyword">static_assert</span>(!((<span class="built_in">std</span>::numeric_limits&lt;T&gt;::min() &gt;= <span class="number">0</span>) &amp;&amp; (M &lt; <span class="number">0</span>)));</div><div class="line">    <span class="comment">// 范围校验</span></div><div class="line">    <span class="keyword">static_assert</span>((M &gt;= <span class="built_in">std</span>::numeric_limits&lt;T&gt;::min()) &amp;&amp; </div><div class="line">                  (M &lt;= <span class="built_in">std</span>::numeric_limits&lt;T&gt;::max()));</div><div class="line">    CheckIntRanges&lt;T, N...&gt;();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">auto</span>... N&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">DeclareArray</span><span class="params">()</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    CheckIntRanges&lt;T, N...&gt;();</div><div class="line">    <span class="built_in">array</span>&lt;T, <span class="keyword">sizeof</span>...(N)&gt; a&#123;&#123;<span class="keyword">static_cast</span>&lt;T&gt;(N)...&#125;&#125;;</div><div class="line">    <span class="keyword">return</span> a;</div><div class="line">&#125;;</div><div class="line">注意这个函数中，所有的校验都通过<span class="keyword">static_assert</span>完成。这就保证了校验一定只会发生在编译期，不会带来任何运行时开销。</div><div class="line">DeclareArray的使用方法如下：<span class="keyword">constexpr</span> <span class="keyword">auto</span> a1 = DeclareArray&lt;<span class="keyword">uint8_t</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">255</span>&gt;();  <span class="comment">// 声明一个std::array&lt;uint8_t, 5&gt;，元素分别为1, 2, 3, 4, 255</span></div><div class="line"><span class="keyword">static_assert</span>(a1.size() == <span class="number">5</span>);</div><div class="line"><span class="keyword">static_assert</span>(a1[<span class="number">3</span>] == <span class="number">4</span>);</div><div class="line"><span class="keyword">auto</span> a2 = DeclareArray&lt;<span class="keyword">uint8_t</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">-1</span>&gt;();  <span class="comment">// 编译错误，-1超出uint8_t范围</span></div><div class="line"><span class="keyword">auto</span> a3 = DeclareArray&lt;<span class="keyword">uint16_t</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">65536</span>&gt;();  <span class="comment">// 编译错误，65536超出uint16_t范围</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这里有一个误区需要说明：有些人可能会把DeclareArray声明成这样：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, T... N&gt;  <span class="comment">// 注意N的类型为T</span></div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">DeclareArray</span><span class="params">()</span> <span class="keyword">noexcept</span></span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这么做的话，会发现对数值的校验总是能通过——因为模板参数在进入校验之前就已经被转换为T类型了。如果你的编译器不支持C++17的auto模板参数，那么可以通过使用std::uint64_t、std::int64_t这些“最大”的类型来间接达到目的。<br>&#160; &#160; &#160; &#160;另一点要说明的是，C++对于非类型模板参数的允许类型存在限制，DeclareArray的方法只能用于数组元素为基本类型的场景（至少在C++20以前如此）。但是这也足够了。如果数组的元素是自定义类型，就可以通过自定义的构造函数等方法来控制类型转换。<br>&#160; &#160; &#160; &#160;如果你看到这里觉得有点意思了，那就对了，后面还有更过瘾的</p>
+<h2 id="编译期生成数组"><a href="#编译期生成数组" class="headerlink" title="编译期生成数组"></a><strong>编译期生成数组</strong></h2><p>&#160; &#160; &#160; &#160;C++11中新增的constexpr修饰符可以在编译期完成很多计算工作。但是一般constexpr函数只能返回单个值，一旦你想用它返回一串对象的集合，就会遇到麻烦：STL容器都有动态内存申请功能，不能作为编译期常量（至少在C++20之前如此）；而原生数组作为返回值会退化为指针，导致返回悬空的指针。即使是返回数组的引用也是不行的，会产生悬空的引用。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">int</span>* <span class="title">Func</span><span class="params">()</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</div><div class="line">    <span class="keyword">return</span> a;  <span class="comment">// 严重错误！返回局部对象的地址</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;直到std::array的出现，这个问题才得到较好解决。std::array既可以作为编译期常量，又可以作为函数返回值。于是，它成为了编译期返回集合数据的首选。<br>&#160; &#160; &#160; &#160;在上面to_array等工具函数的实现中，我们已经见过了编译期返回数组是怎么做的。这里我们再大胆一点，写一个编译期冒泡排序：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> N&gt;</div><div class="line"><span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="built_in">array</span>&lt;T, N&gt; Sort(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">array</span>&lt;T, N&gt;&amp; numbers) <span class="keyword">noexcept</span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;T, N&gt; sorted(numbers);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = N - <span class="number">1</span>; j &gt; i; --j)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(sorted[j] &lt; sorted[j - <span class="number">1</span>])</div><div class="line">            &#123;</div><div class="line">                T t = sorted[j];</div><div class="line">                sorted[j] = sorted[j - <span class="number">1</span>];</div><div class="line">                sorted[j - <span class="number">1</span>] = t;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sorted;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="keyword">int</span>, 4&gt; before&#123;<span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>&#125;;</div><div class="line">    <span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="keyword">int</span>, 4&gt; after = Sort(before);</div><div class="line">    <span class="keyword">static_assert</span>(after[<span class="number">0</span>] == <span class="number">1</span>);</div><div class="line">    <span class="keyword">static_assert</span>(after[<span class="number">1</span>] == <span class="number">2</span>);</div><div class="line">    <span class="keyword">static_assert</span>(after[<span class="number">2</span>] == <span class="number">3</span>);</div><div class="line">    <span class="keyword">static_assert</span>(after[<span class="number">3</span>] == <span class="number">4</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;因为整个排序算法都是在编译期完成，所以我们没有必要太关注冒泡排序的效率问题。当然，只要你愿意，完全可以写出一个编译期快速排序——毕竟constexpr函数也可以在运行期使用，不好说会不会有哪个憨憨在运行时调用它。<br>&#160; &#160; &#160; &#160;在编写constexpr函数时，有两点需要注意：<br>&#160; &#160; &#160; &#160;1. constexpr函数中不能调用非constexpr函数。因此在交换元素时不能用std::swap，排序也不能直接调用std::sort。<br>&#160; &#160; &#160; &#160;2. 传入的数组是constexpr的，因此参数类型必须加上const，也不能对数据进行就地排序，必须返回一个新的数组。<br>&#160; &#160; &#160; &#160;虽然限制很多，但编译期算法的好处也是巨大的：如果运算中有数组越界等未定义行为，编译将会失败。相比起运行时的测试，编译期测试constexpr函数能有效的提前拦截问题。而且只要编译通过就意味着测试通过，比起额外跑白盒测试用例方便多了。<br>&#160; &#160; &#160; &#160;上面的一大串static_assert语句让人看了不舒服。这么写的原因是std::array的operator==函数并非constexpr（至少在C++20前如此）。但是我们也可以自己定义一个模板函数用于判断两个数组是否相等：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">template&lt;typename T, typename U, size_t M, size_t N&gt;</div><div class="line">constexpr bool EqualsImpl(const T&amp; lhs, const U&amp; rhs)</div><div class="line">&#123;</div><div class="line">    static_assert(M == N);</div><div class="line">    for(size_t i = 0; i &lt; M; ++i)</div><div class="line">    &#123;</div><div class="line">        if(lhs[i] != rhs[i])</div><div class="line">        &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename T, typename U&gt;</div><div class="line">constexpr bool Equals(const T&amp; lhs, const U&amp; rhs)</div><div class="line">&#123;</div><div class="line">    return EqualsImpl&lt;T, U, size(lhs), size(rhs)&gt;(lhs, rhs);</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;typename T, typename U, size_t N&gt;</div><div class="line">constexpr bool Equals(const T&amp; lhs, const U (&amp;rhs)[N])</div><div class="line">&#123;</div><div class="line">    return EqualsImpl&lt;T, const U (&amp;)[N], size(lhs), N&gt;(lhs, rhs);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    constexpr std::array&lt;int, 4&gt; before&#123;4, 2, 3, 1&#125;;</div><div class="line">    constexpr std::array&lt;int, 4&gt; after = Sort(before);</div><div class="line">    static_assert(Equals(after, &#123;1, 2, 3, 4&#125;));  // 比较std::array和原生数组</div><div class="line">    static_assert(!Equals(before, after));  // 比较两个std::array</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;我们定义的Equals比std::array的比较运算符更强大，甚至可以在std::array和原生数组之间进行比较。<br>&#160; &#160; &#160; &#160;对于Equals有两点需要说明：<br>&#160; &#160; &#160; &#160;1. std::size是C++17提供的工具函数，对各种容器和数组都能返回其大小。当然，这里的Equals只会允许编译期确定大小的容器传入，否则触发编译失败。<br>&#160; &#160; &#160; &#160;2. Equals定义了两个版本，这是被C++的一个限制所逼的迫不得已：C++禁止{…}这种std::initializer_list字面量被推导为模板参数类型，因此我们必须提供一个版本声明参数类型为数组，以便{1, 2, 3, 4}这种表达式能作为参数传进去。<br>&#160; &#160; &#160; &#160;编译期排序是一个启发性的尝试，我们可以用类似的方法生成其他的编译期集合常量，比如指定长度的自然数序列：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> N&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">NaturalNumbers</span><span class="params">()</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">array</span>&lt;T, N&gt; arr&#123;<span class="number">0</span>&#125;;  <span class="comment">// 显式初始化不能省</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; N; ++i)</div><div class="line">    &#123;</div><div class="line">        arr[i] = i + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> arr = NaturalNumbers&lt;<span class="keyword">uint32_t</span>, <span class="number">5</span>&gt;();</div><div class="line">    <span class="keyword">static_assert</span>(Equals(arr, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码的编译运行都没有问题，但它并不是推荐的做法。原因是在NaturalNumbers函数中，先定义了一个内容全0的局部数组，然后再挨个修改它的值，这样没有直接返回指定值的数组效率高。有人会想能不能把arr的初始化给去掉，但这样会导致编译错误——constexpr函数中不允许定义没有初始化的局部变量。<br>&#160; &#160; &#160; &#160;可能有人觉得这些计算都是编译期完成的，对运行效率没影响——但是不要忘了constexpr函数也可以在运行时调用。更好的做法可以参见前面to_array函数的实现，让数组的初始化一气呵成，省掉挨个赋值的步骤。<br>&#160; &#160; &#160; &#160;我们用这个新思路，写一个通用的数组生成器，它可以接受一个函数对象作为参数，通过调用这个函数对象来生成数组每个元素的值。下面的代码还演示了下如何用这个生成器在编译期生成奇数序列和斐波那契数列。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> T <span class="title">OddNumber</span><span class="params">(<span class="keyword">size_t</span> i)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> i * <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> T <span class="title">Fibonacci</span><span class="params">(<span class="keyword">size_t</span> i)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(i &lt;= <span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> Fibonacci&lt;T&gt;(i - <span class="number">1</span>) + Fibonacci&lt;T&gt;(i - <span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> N, <span class="keyword">typename</span> F, <span class="keyword">size_t</span>... I&gt;</div><div class="line"><span class="keyword">constexpr</span> <span class="built_in">array</span>&lt;<span class="built_in">std</span>::<span class="keyword">remove_cv_t</span>&lt;T&gt;, N&gt; GenerateArrayImpl(F f, <span class="built_in">std</span>::index_sequence&lt;I...&gt;) <span class="keyword">noexcept</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> &#123; &#123;f(I)...&#125; &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">size_t</span> N, <span class="keyword">typename</span> F, <span class="keyword">typename</span> T = <span class="keyword">invoke_result_t</span>&lt;F, <span class="keyword">size_t</span>&gt;&gt;</div><div class="line"><span class="keyword">constexpr</span> <span class="built_in">array</span>&lt;T, N&gt; GenerateArray(F f) <span class="keyword">noexcept</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> GenerateArrayImpl&lt;T, N&gt;(f, <span class="built_in">std</span>::make_index_sequence&lt;N&gt;&#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> oddNumbers = GenerateArray&lt;<span class="number">5</span>&gt;(OddNumber&lt;<span class="keyword">uint8_t</span>&gt;);</div><div class="line">    <span class="keyword">static_assert</span>(Equals(oddNumbers, &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;));</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> fiboNumbers = GenerateArray&lt;<span class="number">5</span>&gt;(Fibonacci&lt;<span class="keyword">uint32_t</span>&gt;);</div><div class="line">    <span class="keyword">static_assert</span>(Equals(fiboNumbers, &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>&#125;));</div><div class="line"></div><div class="line">    <span class="comment">// 甚至可以传入lambda来定制要生成的数字序列（限定C++17）</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> specified = GenerateArray&lt;<span class="number">3</span>&gt;([](<span class="keyword">size_t</span> i) &#123; <span class="keyword">return</span> i + <span class="number">10</span>; &#125;);</div><div class="line">    <span class="keyword">static_assert</span>(Equals(specified, &#123;<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>&#125;));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;最后那个传入lambda来定制数组的做法存在一个疑问：lambda是constexpr函数吗？答案为：可以是，但需要C++17支持。<br>&#160; &#160; &#160; &#160;GenerateArray这个数组生成器将会在后面发挥重大作用，继续往下看。</p>
+<h2 id="截取子数组"><a href="#截取子数组" class="headerlink" title="截取子数组"></a><strong>截取子数组</strong></h2><p>&#160; &#160; &#160; &#160;std::array并未提供输入一个指定区间来建立新容器的构造函数，但是借助上面的数组生成器，我们可以写个辅助函数来实现子数组生成操作（这里再次用上了lambda函数作为生成算法）。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">template&lt;size_t N, typename T&gt;</div><div class="line">constexpr auto SubArray(T&amp;&amp; t, size_t base) noexcept</div><div class="line">&#123;</div><div class="line">    return GenerateArray&lt;N&gt;([base, t = forward&lt;T&gt;(t)](size_t i) &#123; return t[base + i]; &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">template&lt;size_t N, typename T, size_t M&gt;</div><div class="line">constexpr auto SubArray(const T (&amp;t)[M], size_t base) noexcept</div><div class="line">&#123;</div><div class="line">    return GenerateArray&lt;N&gt;([base, &amp;t](size_t i) &#123; return t[base + i]; &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    // 以std::initializer_list字面量为原始数据</div><div class="line">    constexpr auto x = SubArray&lt;3&gt;(&#123;1, 2, 3, 4, 5, 6&#125;, 2);  // 下标为2开始，取3个元素</div><div class="line">    static_assert(Equals(x, &#123;3, 4, 5&#125;));</div><div class="line"></div><div class="line">    // 以std::array为原始数据</div><div class="line">    constexpr auto x1 = SubArray&lt;2&gt;(x, 1);  // 下标为1开始，取2个元素</div><div class="line">    static_assert(Equals(x1, &#123;4, 5&#125;));</div><div class="line"></div><div class="line">    // 以原生数组为原始数据</div><div class="line">    constexpr uint8_t a[] = &#123;9, 8, 7, 6, 5&#125;;</div><div class="line">    constexpr auto y = SubArray&lt;2&gt;(a, 3);</div><div class="line">    static_assert(Equals(y, &#123;6, 5&#125;));  // 下标为3开始，取2个元素</div><div class="line"></div><div class="line">    // 以字符串为原始数据，注意生成的数组不会自动加上'\0'</div><div class="line">    constexpr const char* str = "Hello world!";</div><div class="line">    constexpr auto z = SubArray&lt;5&gt;(str, 6);</div><div class="line">    static_assert(Equals(z, &#123;'w', 'o', 'r', 'l', 'd'&#125;));  // 下标为6开始，取5个元素</div><div class="line"> </div><div class="line">    // 以std::vector为原始数据，非编译期计算</div><div class="line">    vector&lt;int32_t&gt; v&#123;10, 11, 12, 13, 14&#125;;</div><div class="line">    size_t n = 2;</div><div class="line">    auto d = SubArray&lt;3&gt;(v, n);  // 运行时生成数组</div><div class="line">    assert(Equals(d, &#123;12, 13, 14&#125;));  // 注意不能用static_assert，不是编译期常量</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;使用SubArray时，模板参数N是要截取的子数组大小，入参t是任意能支持下标操作的类型，入参base是截取元素的起始位置。由于std::array的大小在编译期是确定的，因此N必须是编译期常量，但参数base可以是运行时变量。<br>&#160; &#160; &#160; &#160;当所有入参都是编译期常量时，生成的子数组也是编译期常量。<br>&#160; &#160; &#160; &#160;SubArray提供了两个版本，目的也是为了让std::initializer_list字面量可以作为参数传入。</p>
+<h2 id="拼接多个数组"><a href="#拼接多个数组" class="headerlink" title="拼接多个数组"></a><strong>拼接多个数组</strong></h2><p>&#160; &#160; &#160; &#160;采用类似的方式可以做多个数组的拼接，这里同样用了lambda作为生成函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">TotalLength</span><span class="params">(<span class="keyword">const</span> T&amp; arr)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> size(arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span>... T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">TotalLength</span><span class="params">(<span class="keyword">const</span> P&amp; p, <span class="keyword">const</span> T&amp;... arr)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> size(p) + TotalLength(arr...);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">PickElement</span><span class="params">(<span class="keyword">size_t</span> i, <span class="keyword">const</span> T&amp; arr)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> arr[i];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span>... T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">PickElement</span><span class="params">(<span class="keyword">size_t</span> i, <span class="keyword">const</span> P&amp; p, <span class="keyword">const</span> T&amp;... arr)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(i &lt; size(p))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> p[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> PickElement(i - size(p), arr...);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">ConcatArrays</span><span class="params">(<span class="keyword">const</span> T&amp;... arr)</span> <span class="keyword">noexcept</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> GenerateArray&lt;TotalLength(arr...)&gt;([&amp;arr...](<span class="keyword">size_t</span> i) &#123; <span class="keyword">return</span> PickElement(i, arr...); &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">int32_t</span> a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;  <span class="comment">// 原生数组</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> b = to_typed_array&lt;<span class="keyword">int32_t</span>&gt;(&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;);  <span class="comment">// std::array</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> c = DeclareArray&lt;<span class="keyword">int32_t</span>, <span class="number">7</span>, <span class="number">8</span>&gt;();  <span class="comment">// std::array</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> x = ConcatArrays(a, b, c);  <span class="comment">// 把3个数组拼接在一起</span></div><div class="line">    <span class="keyword">static_assert</span>(Equals(x, &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;和之前一样，ConcatArrays使用了模板参数来同时兼容原生数组和std::array，它甚至可以接受任何编译期确定长度的自定义类型参与拼接。<br>&#160; &#160; &#160; &#160;ConcatArrays函数因为可变参数的语法限制，没有再对std::initializer_list字面量进行适配，这导致std::initializer_list字面量不能再直接作为参数：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> x = ConcatArrays(a, &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;);  <span class="comment">// 编译错误</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;但是我们有办法规避这个问题：利用前面介绍过的工具把std::initializer_list先转成std::array就可以了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> x = ConcatArrays(a, to_array(&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;));  <span class="comment">// OK</span></div></pre></td></tr></table></figure></p>
+<h2 id="编译期拼接字符串"><a href="#编译期拼接字符串" class="headerlink" title="编译期拼接字符串"></a><strong>编译期拼接字符串</strong></h2><p>&#160; &#160; &#160; &#160;std::array适合用来表示字符串么？回答这个问题前，我们先看看原生数组是否适合表示字符串：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str[] = <span class="string">"abc"</span>;  <span class="comment">// str数组大小为4，包括结尾的'\0'</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;上面是很常见的写法。由于数组名可退化为指针，str可用于各种需要字符串的场合，如传给cout打印输出。<br>&#160; &#160; &#160; &#160;std::array作为对原生数组的替代，自然也适合用来表示字符串。有人可能会觉得std::array没法直接作为字符串类型使用，不太方便。但实际上只要调用data方法，std::array就会返回能作为字符串使用的指针：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> str = to_array(<span class="string">"abc"</span>);  <span class="comment">// to_array可以将字符串转换为std::array</span></div><div class="line"><span class="keyword">static_assert</span>(str.size() == <span class="number">4</span>);</div><div class="line"><span class="keyword">static_assert</span>(Equals(str, <span class="string">"abc"</span>));  <span class="comment">// Equals也可以接受字符串字面量</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; str.data();  <span class="comment">// 打印字符串内容</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;由于字符串字面量是char[]类型，因此前面所编写的工具函数，都可以将字符串作为输入参数。上面的Equals只是其中一个例子。<br>&#160; &#160; &#160; &#160;那之前写的数组拼接函数ConcatArrays能用于拼接字符串么？能，但结果和我们想的有差异：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> str = ConcatArrays(<span class="string">"abc"</span>, <span class="string">"def"</span>);</div><div class="line"><span class="keyword">static_assert</span>(str.size() == <span class="number">8</span>);  <span class="comment">// 长度不是7？</span></div><div class="line"><span class="keyword">static_assert</span>(Equals(str, &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'\0'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'\0'</span>&#125;));</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;因为每个字符串结尾都有’\0’结束符，用数组拼接方法把它们拼到一起时，中间的’\0’没有被去掉，导致结果字符串被切割为了多个C字符串。<br>&#160; &#160; &#160; &#160;这个问题解决起来也很容易，只要在拼接数组时把所有数组的最后一个元素（’\0’）去掉，并且在返回数组的末尾加上’\0’就可以了。下面的代码实现了字符串拼接功能，非类型参数E是字符串的结束符，通常为’\0’，但是也允许定制。我们甚至可以利用它来拼接结束符为其他值的对象，比如消息、报文等。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 最后一个字符，放入结束符</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">auto</span> E&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">PickChar</span><span class="params">(<span class="keyword">size_t</span> i)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> E;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">auto</span> E, <span class="keyword">typename</span> P, <span class="keyword">typename</span>... T&gt;</div><div class="line"><span class="function"><span class="keyword">constexpr</span> <span class="keyword">auto</span> <span class="title">PickChar</span><span class="params">(<span class="keyword">size_t</span> i, <span class="keyword">const</span> P&amp; p, <span class="keyword">const</span> T&amp;... arr)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(i &lt; (size(p) - <span class="number">1</span>))</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(p[i] == E)</div><div class="line">        &#123;  <span class="comment">// 结束符不允许出现在字符串中间</span></div><div class="line">            <span class="keyword">throw</span> <span class="string">"terminator in the middle"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> p[i];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span>(p[size(p) - <span class="number">1</span>] != E)</div><div class="line">    &#123;  <span class="comment">// 结束符必须是最后一个字符</span></div><div class="line">        <span class="keyword">throw</span> <span class="string">"terminator not at end"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> PickChar&lt;E&gt;(i - (size(p) - <span class="number">1</span>), arr...);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... T, <span class="keyword">auto</span> E = <span class="string">'\0'</span>&gt;</div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> ConcatStrings(<span class="keyword">const</span> T&amp;... str)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> GenerateArray&lt;TotalLength(str...) - <span class="keyword">sizeof</span>...(T) + <span class="number">1</span>&gt;([&amp;str...](<span class="keyword">size_t</span> i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> PickChar&lt;E&gt;(i, str...);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">char</span> a[] = <span class="string">"I "</span>;  <span class="comment">// 原生数组形式的字符串</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> b = to_array(<span class="string">"love "</span>);  <span class="comment">// std::array形式的字符串</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> str = ConcatStrings(a, b, <span class="string">"C++"</span>);  <span class="comment">// 拼接 数组 + std::array + 字符串字面量</span></div><div class="line">    <span class="keyword">static_assert</span>(Equals(str, <span class="string">"I love C++"</span>));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码中用了两个throw，这是为了校验输入的参数是否都为合法的字符串，即：字符串长度=容器长度-1。如果不符合该条件，会导致拼接结果的长度计算错误。<br>&#160; &#160; &#160; &#160;当编译期的计算抛出异常时，只会出现编译错误，因此只要不在运行时调用ConcatStrings，这两个throw语句不会有更多影响。但因为这个校验的存在，强烈不建议在运行期调用ConcatStrings做拼接，何况运行期也没必要用这种方法——std::string的加法操作它不香么？<br>&#160; &#160; &#160; &#160;有人会想：能否在编译期计算字符串的实际长度，而不是用容器的长度呢？这个方法看似可行，定义一个编译期计算字符串长度的函数确实很容易：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">auto</span> E = <span class="string">'\0'</span>&gt;</div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">size_t</span> StrLen(<span class="keyword">const</span> T&amp; str) <span class="keyword">noexcept</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">size_t</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(str[i] != E)</div><div class="line">    &#123;</div><div class="line">        ++i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keyword">char</span>* g_str = <span class="string">"abc"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 利用StrLen把一个字符串按实际长度转成std::array</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> str = SubArray&lt;StrLen(g_str) + <span class="number">1</span>&gt;(g_str, <span class="number">0</span>);</div><div class="line">    <span class="keyword">static_assert</span>(Equals(str, <span class="string">"abc"</span>));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;但是，一旦你试图把StrLen放到ConcatStrings的内部去声明数组长度，就会产生问题：C++的constexpr机制要求只有在能看到输入参数的constexpr属性的地方，才允许StrLen的返回结果确定为constexpr。而在函数内部时，看到的参数类型并不是constexpr。<br>&#160; &#160; &#160; &#160;当然我们可以变通一下，做出一些有趣的工具，比如使用万恶的宏：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 把一个字符串按实际长度转成std::array</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> StrToArray(x) SubArray<span class="meta-string">&lt;StrLen(x) + 1&gt;</span>(x, 0)</span></div><div class="line"><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keyword">char</span>* g_str = <span class="string">"abc"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 使用宏，可以让constexpr指针类型也参与编译期字符串的拼接</span></div><div class="line">    <span class="keyword">constexpr</span> <span class="keyword">auto</span> str = ConcatStrings(StrToArray(g_str), <span class="string">"def"</span>);</div><div class="line">    <span class="keyword">static_assert</span>(Equals(str, <span class="string">"abcdef"</span>));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;使用宏以后，ConcatStrings连编译期不确定大小的指针类型都可以间接作为输入了[3]。如果你狠得下心使用变参宏，甚至可以定义出按实际字符串长度计算结果数组长度的更通用拼接函数。但我严重怀疑这种需求的必要性——毕竟我们只是做编译期的拼接，而编译期的字符串不应该会有结束符位置不在末尾的场景。<br>&#160; &#160; &#160; &#160;看到这里的人，或多或少该佩服一下std::array的强大了。上面这些编译期操作，用原生数组很难完成吧？</p>
+<h2 id="展望C-20——打破更多的枷锁"><a href="#展望C-20——打破更多的枷锁" class="headerlink" title="展望C++20——打破更多的枷锁"></a><strong>展望C++20——打破更多的枷锁</strong></h2><p>&#160; &#160; &#160; &#160;我在文章中说了多少次“至少在C++20之前如此”？不记得了，但是能确定的是：C++20会带来很多美好的东西：std::array会有constexpr版本的比较运算符；函数可以用consteval限定只在编译期调用；模板非类型参数允许更多的类型；STL容器对象可以作为constexpr常量……所有这一切，都只是C++20的minor更新而已，在绝大多数的特性介绍中，它们连提都不会被提到！<br>&#160; &#160; &#160; &#160;可想而知，用上C++20以后，编程会发生多大的变化。那时我们再来找找更多有趣的用法</p>
+<h2 id="尾注"><a href="#尾注" class="headerlink" title="尾注"></a><strong>尾注</strong></h2><p>&#160; &#160; &#160; &#160;[1] to_array定义了两个版本，分别以左值引用和右值引用作为参数类型。按照C++11的最优实践，这样的函数本应该只定义一个版本并且使用完美转发。但是to_array的场景如果用万能引用会带来一个问题：C++禁止std::initializer_list字面量{…}被推导为模板类型参数，完美转发方案会导致std::initializer_list字面量不能作为to_array的入参。在后面内容中我们会看到多次这个限制所带来的影响。<br>&#160; &#160; &#160; &#160;[2] C++20加入了consteval修饰符，可以指定函数只允许在编译期调用。<br>&#160; &#160; &#160; &#160;[3] 需要注意的是：constexpr用于修饰指针时，表示的是指针本身为常量（而不是其指向的对象）。和const不同，constexpr并不允许放在类型声明表达式的中间。因此如果要在编译期计算一个constexpr指针指向的字符串长度，这个字符串必须位于静态数据区里，不能位于栈或者堆上（否则其地址无法在编译期确定）。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2023年08月20日 - 18时40分</p>
+        <p><span>最后更新:</span>2024年02月26日 - 14时52分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2023/08/20/C++array的神奇用法总结/" title="C++ array的神奇用法总结">http://greedysky.github.io/2023/08/20/C++array的神奇用法总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://greedysky.github.io/2023/08/20/C++array的神奇用法总结/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2023/11/10/C++17新特性之optional/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++17 新特性之std::optional
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/15/C++按值返回对象那些事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 按值返回对象那些事</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动推导数组大小"><span class="toc-number">2.</span> <span class="toc-text">自动推导数组大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用函数返回std-array"><span class="toc-number">3.</span> <span class="toc-text">用函数返回std::array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译期字面量数值合法性校验"><span class="toc-number">4.</span> <span class="toc-text">编译期字面量数值合法性校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译期生成数组"><span class="toc-number">5.</span> <span class="toc-text">编译期生成数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#截取子数组"><span class="toc-number">6.</span> <span class="toc-text">截取子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拼接多个数组"><span class="toc-number">7.</span> <span class="toc-text">拼接多个数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译期拼接字符串"><span class="toc-number">8.</span> <span class="toc-text">编译期拼接字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#展望C-20——打破更多的枷锁"><span class="toc-number">9.</span> <span class="toc-text">展望C++20——打破更多的枷锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尾注"><span class="toc-number">10.</span> <span class="toc-text">尾注</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2023/11/10/C++17新特性之optional/" title="上一篇: C++17 新特性之std::optional">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2023/05/15/C++按值返回对象那些事/" title="下一篇: C++ 按值返回对象那些事">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2024 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
