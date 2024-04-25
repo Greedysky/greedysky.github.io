@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -124,28 +124,25 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186aff1bf84f6ecfa3cd7bd0848503dd166b">   48</a></span>&#160;        DESCRIPTION  </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="../../d6/d52/class_tag_meta.html">TagMeta</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="../../d6/d52/class_tag_meta.html">TagMeta</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d6/d52/class_tag_meta.html">TagMeta</a>(<span class="keyword">const</span> QString &amp;file);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> readFile();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> readFile(<span class="keyword">const</span> QString &amp;path);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> read();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> write(Type tag, <span class="keyword">const</span> QString &amp;value, <span class="keywordtype">int</span> id3v2Version);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> writeMusicTag(Type tag, <span class="keyword">const</span> QString &amp;value, <span class="keywordtype">int</span> id3v2Version);</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#aa0b7205845112f0a31c8a3e6eaf77b26">   58</a></span>&#160;    <span class="keyword">inline</span> QMap&lt;Type, QString&gt; <a class="code" href="../../d6/d52/class_tag_meta.html#aa0b7205845112f0a31c8a3e6eaf77b26">musicTags</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_parameters; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">   61</a></span>&#160;    QString <a class="code" href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">m_path</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">   62</a></span>&#160;    QMap&lt;Type, QString&gt; <a class="code" href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">m_parameters</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">   58</a></span>&#160;    QString <a class="code" href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">m_path</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">   59</a></span>&#160;    QMap&lt;Type, QString&gt; <a class="code" href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">m_parameters</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186">TagMeta::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00031">tagmeta.h:31</a></div></div>
 <div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a7c6ac7e34e857a9945234f425ad54914"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a7c6ac7e34e857a9945234f425ad54914">TagMeta::TRACK</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00039">tagmeta.h:39</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a12e77acb29c6564f5adcb4c5ad25f642"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a12e77acb29c6564f5adcb4c5ad25f642">TagMeta::YEAR</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00038">tagmeta.h:38</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a43347a18c28c71822d86a835a6711042"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a43347a18c28c71822d86a835a6711042">TagMeta::URL</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00041">tagmeta.h:41</a></div></div>
-<div class="ttc" id="class_tag_meta_html_a7ad8159348bac1430fddbdd769f99b0e"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">TagMeta::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00061">tagmeta.h:61</a></div></div>
+<div class="ttc" id="class_tag_meta_html_a7ad8159348bac1430fddbdd769f99b0e"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a7ad8159348bac1430fddbdd769f99b0e">TagMeta::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00058">tagmeta.h:58</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a68cc667e82c73f9ee6db40a29d3ddf25"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a68cc667e82c73f9ee6db40a29d3ddf25">TagMeta::MODE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00045">tagmeta.h:45</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a1ee6ead99c2d00f4aacf34e4038a88f9"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a1ee6ead99c2d00f4aacf34e4038a88f9">TagMeta::ARTIST</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00034">tagmeta.h:34</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a7563d7a426be9f6031fd9a54a6fca841"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a7563d7a426be9f6031fd9a54a6fca841">TagMeta::BITRATE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00046">tagmeta.h:46</a></div></div>
@@ -157,15 +154,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a11bf369e55099bc98b36c5c5a7422ff1"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a11bf369e55099bc98b36c5c5a7422ff1">TagMeta::SAMPLERATE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00044">tagmeta.h:44</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186aa12992a76e01dcf9a4d89d868d06661d"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186aa12992a76e01dcf9a4d89d868d06661d">TagMeta::TITLE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00033">tagmeta.h:33</a></div></div>
-<div class="ttc" id="class_tag_meta_html_aa0b7205845112f0a31c8a3e6eaf77b26"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#aa0b7205845112f0a31c8a3e6eaf77b26">TagMeta::musicTags</a></div><div class="ttdeci">QMap&lt; Type, QString &gt; musicTags() const </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00058">tagmeta.h:58</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186acdcc47419caef7b133d3f2390dfa9119"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186acdcc47419caef7b133d3f2390dfa9119">TagMeta::GENRE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00037">tagmeta.h:37</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186ac4d91b10e922404875f89cb1374decc0"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186ac4d91b10e922404875f89cb1374decc0">TagMeta::CHANNEL</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00047">tagmeta.h:47</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186a52f2cd6a5be3dd10a6edec640d34c19f"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a52f2cd6a5be3dd10a6edec640d34c19f">TagMeta::FORMAT</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00043">tagmeta.h:43</a></div></div>
-<div class="ttc" id="class_tag_meta_html_aea661007126a25db4c7107899cad97c4"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">TagMeta::m_parameters</a></div><div class="ttdeci">QMap&lt; Type, QString &gt; m_parameters</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00062">tagmeta.h:62</a></div></div>
+<div class="ttc" id="class_tag_meta_html_aea661007126a25db4c7107899cad97c4"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#aea661007126a25db4c7107899cad97c4">TagMeta::m_parameters</a></div><div class="ttdeci">QMap&lt; Type, QString &gt; m_parameters</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00059">tagmeta.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

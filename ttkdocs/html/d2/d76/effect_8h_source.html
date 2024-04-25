@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d2/d76/effect_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2007-2022 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2007-2024 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -112,36 +112,37 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d6/d58/class_effect.html">Effect</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d6/d58/class_effect.html">Effect</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d58/class_effect.html">Effect</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> applyEffect(<a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a> *b) = 0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> configure(quint32 srate, <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> map);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    quint32 sampleRate() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> channels() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> channelMap() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d2/d77/class_audio_parameters.html">AudioParameters</a> audioParameters() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>* factory() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d6/d58/class_effect.html">Effect</a>* create(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">static</span> QList&lt;EffectFactory*&gt; factories();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">static</span> QList&lt;EffectFactory*&gt; enabledFactories();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">static</span> QString file(<span class="keyword">const</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setEnabled(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory, <span class="keywordtype">bool</span> enable = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> isEnabled(<span class="keyword">const</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>* factory);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *findFactory(<span class="keyword">const</span> QString &amp;shortName);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a69a9e6a515c7fb3a5d0ae0155be9ba03">  115</a></span>&#160;    <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *m_factory = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a9166c1975cb6f471861fd29734205983">  116</a></span>&#160;    quint32 m_freq = 0;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#abd15ec21c9f25262021efc77626b0f64">  117</a></span>&#160;    <span class="keywordtype">int</span> m_channels = 0;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">  118</a></span>&#160;    <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> <a class="code" href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">m_chan_map</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> loadPlugins();</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">  121</a></span>&#160;    <span class="keyword">static</span> QList&lt;QmmpPluginCache*&gt; *<a class="code" href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">m_cache</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">  122</a></span>&#160;    <span class="keyword">static</span> QStringList <a class="code" href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">m_enabledNames</a>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d6/d58/class_effect.html">Effect</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d58/class_effect.html">Effect</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> applyEffect(<a class="code" href="../../d5/d2a/class_buffer.html">Buffer</a> *b) = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> configure(quint32 srate, <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> map);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    quint32 sampleRate() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> channels() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> &amp;channelMap() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="../../d2/d77/class_audio_parameters.html">AudioParameters</a> audioParameters() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>* factory() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d6/d58/class_effect.html">Effect</a>* create(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">static</span> QList&lt;EffectFactory*&gt; factories();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> QList&lt;EffectFactory*&gt; enabledFactories();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">static</span> QString file(<span class="keyword">const</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setEnabled(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *factory, <span class="keywordtype">bool</span> enable = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> isEnabled(<span class="keyword">const</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>* factory);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *findFactory(<span class="keyword">const</span> QString &amp;shortName);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a69a9e6a515c7fb3a5d0ae0155be9ba03">  116</a></span>&#160;    <a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a> *m_factory = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a9166c1975cb6f471861fd29734205983">  117</a></span>&#160;    quint32 m_freq = 0;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#abd15ec21c9f25262021efc77626b0f64">  118</a></span>&#160;    <span class="keywordtype">int</span> m_channels = 0;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">  119</a></span>&#160;    <a class="code" href="../../d1/d72/class_channel_map.html">ChannelMap</a> <a class="code" href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">m_chan_map</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> loadPlugins();</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">  122</a></span>&#160;    <span class="keyword">static</span> QList&lt;QmmpPluginCache*&gt; *<a class="code" href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">m_cache</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">  123</a></span>&#160;    <span class="keyword">static</span> QStringList <a class="code" href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">m_enabledNames</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;};</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="effectfactory_8h_html"><div class="ttname"><a href="../../d6/dc2/effectfactory_8h.html">effectfactory.h</a></div></div>
 <div class="ttc" id="class_effect_html"><div class="ttname"><a href="../../d6/d58/class_effect.html">Effect</a></div><div class="ttdoc">The Effect class provides the base interface class of audio effects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00036">effect.h:36</a></div></div>
 <div class="ttc" id="class_audio_parameters_html"><div class="ttname"><a href="../../d2/d77/class_audio_parameters.html">AudioParameters</a></div><div class="ttdoc">The AudioParameters class keeps information about audio settings. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d32/audioparameters_8h_source.html#l00029">audioparameters.h:29</a></div></div>
@@ -151,15 +152,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_channel_map_html"><div class="ttname"><a href="../../d1/d72/class_channel_map.html">ChannelMap</a></div><div class="ttdoc">This class represents audio channel mapping. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9d/channelmap_8h_source.html#l00030">channelmap.h:30</a></div></div>
 <div class="ttc" id="buffer_8h_html"><div class="ttname"><a href="../../d5/d08/buffer_8h.html">buffer.h</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
-<div class="ttc" id="class_effect_html_ae201ac2e962c6d0b557d054eb0e6c0ea"><div class="ttname"><a href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">Effect::m_cache</a></div><div class="ttdeci">static QList&lt; QmmpPluginCache * &gt; * m_cache</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00121">effect.h:121</a></div></div>
+<div class="ttc" id="class_effect_html_ae201ac2e962c6d0b557d054eb0e6c0ea"><div class="ttname"><a href="../../d6/d58/class_effect.html#ae201ac2e962c6d0b557d054eb0e6c0ea">Effect::m_cache</a></div><div class="ttdeci">static QList&lt; QmmpPluginCache * &gt; * m_cache</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00122">effect.h:122</a></div></div>
 <div class="ttc" id="audioparameters_8h_html"><div class="ttname"><a href="../../d3/d32/audioparameters_8h.html">audioparameters.h</a></div></div>
 <div class="ttc" id="class_buffer_html"><div class="ttname"><a href="../../d5/d2a/class_buffer.html">Buffer</a></div><div class="ttdoc">Audio buffer class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d08/buffer_8h_source.html#l00033">buffer.h:33</a></div></div>
-<div class="ttc" id="class_effect_html_aa8420394e39fc1b7050006da7bd4d459"><div class="ttname"><a href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">Effect::m_enabledNames</a></div><div class="ttdeci">static QStringList m_enabledNames</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00122">effect.h:122</a></div></div>
-<div class="ttc" id="class_effect_html_a17f78779b86a1803e62713c643306434"><div class="ttname"><a href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">Effect::m_chan_map</a></div><div class="ttdeci">ChannelMap m_chan_map</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00118">effect.h:118</a></div></div>
+<div class="ttc" id="class_effect_html_aa8420394e39fc1b7050006da7bd4d459"><div class="ttname"><a href="../../d6/d58/class_effect.html#aa8420394e39fc1b7050006da7bd4d459">Effect::m_enabledNames</a></div><div class="ttdeci">static QStringList m_enabledNames</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00123">effect.h:123</a></div></div>
+<div class="ttc" id="class_effect_html_a17f78779b86a1803e62713c643306434"><div class="ttname"><a href="../../d6/d58/class_effect.html#a17f78779b86a1803e62713c643306434">Effect::m_chan_map</a></div><div class="ttdeci">ChannelMap m_chan_map</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00119">effect.h:119</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

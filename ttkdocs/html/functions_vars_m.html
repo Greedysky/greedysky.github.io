@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -135,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="dc/df8/class_music_video_quality_pop_widget.html#a0a43cb130868919fa66d67e3c320bb6b">MusicVideoQualityPopWidget</a>
 </li>
 <li>m_activeWindow
-: <a class="el" href="d7/d92/class_t_t_k_run_application_private.html#a348732e8c6352c0d1990adaefd3a5ff8">TTKRunApplicationPrivate</a>
+: <a class="el" href="de/d7a/class_t_t_k_application_private.html#a7c380d0aebcfbd86751afc23a4d83e2c">TTKApplicationPrivate</a>
 </li>
 <li>m_add_index
 : <a class="el" href="d4/d9f/class_recycler.html#ac869cdbfd268a217bf938380237c0e23">Recycler</a>
@@ -351,6 +351,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>m_blockedEffects
 : <a class="el" href="d2/ddc/class_qmmp_audio_engine.html#a9e3a8dab62e3748521ba0dd42a2a789d">QmmpAudioEngine</a>
+</li>
+<li>m_blurModule
+: <a class="el" href="da/d71/class_music_bottom_area_widget.html#a218c887c34f43604413daa2d51e6e59e">MusicBottomAreaWidget</a>
 </li>
 <li>m_body
 : <a class="el" href="dc/dbb/class_q_http_request_private.html#a2ccc8bffb7a12d5142b7c2636bccf472">QHttpRequestPrivate</a>
@@ -597,9 +600,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_counterRequest
 : <a class="el" href="de/dae/class_music_application_module.html#ae192125a4757f5b9f44c20a5508c138f">MusicApplicationModule</a>
 </li>
-<li>m_countIndex
-: <a class="el" href="da/d03/class_music_network_connection_test_widget.html#ab5bcf8f572e44d122cb393410999f54e">MusicNetworkConnectionTestWidget</a>
-</li>
 <li>m_cover
 : <a class="el" href="d2/dc2/struct_music_meta.html#a5318660d1e6138a433be2bb1ba40166d">MusicMeta</a>
 , <a class="el" href="d7/d41/struct_music_song_sharing_widget_1_1_item.html#a707ef67107b331e6e1034a51c07af717">MusicSongSharingWidget::Item</a>
@@ -834,6 +834,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dd/d5b/struct_music_plugin_property.html#a0aa114570fc07510a75747c1f88ecf82">MusicPluginProperty</a>
 , <a class="el" href="dd/d31/struct_music_result_data_item.html#a67c922082533512393d3fdac927322ee">MusicResultDataItem</a>
 , <a class="el" href="de/df9/class_t_t_k_command_line_option.html#abc3f0bc3d4ac55e04568c0183ec3e390">TTKCommandLineOption</a>
+, <a class="el" href="d0/db7/class_t_t_k_command_line_parser.html#a879b7012e5ca7832219b572bea00c4df">TTKCommandLineParser</a>
 </li>
 <li>m_desktopLrcSize
 : <a class="el" href="d2/d41/class_music_lrc_defines.html#a1e8eacadd5db1bacfc7a74cb71aa6a00">MusicLrcDefines</a>
@@ -1052,8 +1053,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_family
 : <a class="el" href="d9/ded/struct_music_preview_label_item.html#a0a92a46ef35777b85b7a810d897034f9">MusicPreviewLabelItem</a>
 </li>
-<li>m_favItem
-: <a class="el" href="d9/da8/class_music_t_t_k_f_m_radio_play_widget.html#a9cdca4238079fde8df5cf60583ea5294">MusicTTKFMRadioPlayWidget</a>
+<li>m_favItems
+: <a class="el" href="d9/da8/class_music_t_t_k_f_m_radio_play_widget.html#a077713a26c38e39295304c3622093dbc">MusicTTKFMRadioPlayWidget</a>
 </li>
 <li>m_file
 : <a class="el" href="d3/d5a/class_file_input_source.html#a02e176657ed69e22c7876d962544f205">FileInputSource</a>
@@ -1288,9 +1289,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_imagePath
 : <a class="el" href="d5/d72/class_music_file_information_widget.html#a40dcc5a140f4c8ffd8da1f6eb70b2007">MusicFileInformationWidget</a>
 </li>
-<li>m_imageQueue
-: <a class="el" href="d6/db0/class_music_download_queue_request.html#a1f2f543be29c9f80d596d642cd24c3b2">MusicDownloadQueueRequest</a>
-</li>
 <li>m_in_map
 : <a class="el" href="da/dbf/class_channel_converter.html#af67ffd551a44d32aa64352ad1029f525">ChannelConverter</a>
 </li>
@@ -1303,6 +1301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="d3/dfb/class_music_gif_label_widget.html#aaec8f562d463aa55b052c40d60c75451">MusicGifLabelWidget</a>
 , <a class="el" href="d4/de3/class_music_lrc_color.html#a595abd5994880f3a4a78323a887de2e6">MusicLrcColor</a>
 , <a class="el" href="d4/d2b/class_music_lrc_float_photo_item.html#a73bba41acf7dd25db898287d640135d9">MusicLrcFloatPhotoItem</a>
+, <a class="el" href="da/d03/class_music_network_connection_test_widget.html#a5f03eb55b7e146beb1ebd1bf270e4058">MusicNetworkConnectionTestWidget</a>
 , <a class="el" href="de/db8/class_music_playlist_1_1_shuffle.html#abe5301c175f79a2fa14a13613e1283b8">MusicPlaylist::Shuffle</a>
 , <a class="el" href="d0/d09/class_music_screen_saver_hover_item.html#a8d9e1a0e2fce4364b15c6e825d499d10">MusicScreenSaverHoverItem</a>
 , <a class="el" href="dc/dad/struct_music_skin_remote_item.html#af4d4a4a4791c48868519d2649ae24d3f">MusicSkinRemoteItem</a>
@@ -1785,6 +1784,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_member
 : <a class="el" href="dc/d74/class_visual.html#a81a4e2d92dbc6450b2fbf5045f3ca396">Visual</a>
 </li>
+<li>m_memory
+: <a class="el" href="d5/d45/class_music_process_server.html#acca0a7a6fa23c203378b750610ff31da">MusicProcessServer</a>
+</li>
 <li>m_menu
 : <a class="el" href="dc/d29/class_music_tool_menu_widget.html#a9c76b1e9d55a71e0d01e80123d6ae5c0">MusicToolMenuWidget</a>
 </li>
@@ -2137,7 +2139,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="d1/d3f/class_output_writer.html#ad62f71e60b3a7dfdd68d74e3b5db72ba">OutputWriter</a>
 </li>
 <li>m_peer
-: <a class="el" href="d7/d92/class_t_t_k_run_application_private.html#a9741be950e1e20f176d7192d723ce46b">TTKRunApplicationPrivate</a>
+: <a class="el" href="de/d7a/class_t_t_k_application_private.html#a314c1429cccec138bf5e71f353533d43">TTKApplicationPrivate</a>
+, <a class="el" href="d7/de4/class_t_t_k_core_application_private.html#a489c7b723ed74ec36f0ff33fd91c91f6">TTKCoreApplicationPrivate</a>
+, <a class="el" href="d3/de4/class_t_t_k_gui_application_private.html#a5a3da87b24cdb759e956baf70a884bc0">TTKGuiApplicationPrivate</a>
 </li>
 <li>m_percent
 : <a class="el" href="df/d49/class_q_r_code_q_widget_private.html#a3d1954d64977ab9dace6e5d67f964363">QRCodeQWidgetPrivate</a>
@@ -2426,7 +2430,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="de/dd1/class_music_web_d_j_radio_widget.html#a34c0df8be8503e74a414ff48ac78b455">MusicWebDJRadioWidget</a>
 </li>
 <li>m_queue
-: <a class="el" href="de/d3f/class_t_t_k_concurrent_queue.html#a2af6baea0425ef4303362138c2914f3a">TTKConcurrentQueue&lt; T &gt;</a>
+: <a class="el" href="d6/db0/class_music_download_queue_request.html#a4a6dc9bc07fc48d9ad3e8f86529ac688">MusicDownloadQueueRequest</a>
+, <a class="el" href="de/d3f/class_t_t_k_concurrent_queue.html#a2af6baea0425ef4303362138c2914f3a">TTKConcurrentQueue&lt; T &gt;</a>
 </li>
 <li>m_queueList
 : <a class="el" href="db/d06/class_music_down_load_manager.html#a52ea6af5905a440e21fbf18d66a9653a">MusicDownLoadManager</a>
@@ -2596,9 +2601,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_rightControl
 : <a class="el" href="d4/d31/class_music_cut_slider_widget.html#a980714e42426ce2fdefc4f55ac8ed88b">MusicCutSliderWidget</a>
 </li>
-<li>m_rippleModule
-: <a class="el" href="da/d71/class_music_bottom_area_widget.html#a652be8bcff52b29980ccf62e3990ec33">MusicBottomAreaWidget</a>
-</li>
 <li>m_root
 : <a class="el" href="dd/ddf/class_music_m_p_r_i_s_player.html#a3bfb8eacf0f67a8aa76d8bc4de738235">MusicMPRISPlayer</a>
 , <a class="el" href="d4/d8a/class_t_t_k_xml_helper.html#ae130c1e13647c25ffd1f44ad44c474c3">TTKXmlHelper</a>
@@ -2632,6 +2634,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>m_savePath
 : <a class="el" href="df/d6c/class_music_abstract_down_load_request.html#a498364154e14cfd5465f99d61a8a5f84">MusicAbstractDownLoadRequest</a>
+</li>
+<li>m_saveSettings
+: <a class="el" href="d0/ddf/class_qmmp_settings.html#adb065b3e94960a567e09d3d641170310">QmmpSettings</a>
 </li>
 <li>m_scale
 : <a class="el" href="d6/d06/class_q_algorithm_1_1_water_wave_private.html#af864f798983c4662070c35607aac9422">QAlgorithm::WaterWavePrivate</a>
@@ -2839,6 +2844,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_sizeStr
 : <a class="el" href="d6/de4/class_music_song.html#a2976c59e67dd6dc91b057aac4f5816ca">MusicSong</a>
 </li>
+<li>m_sizeTimer
+: <a class="el" href="dc/d8d/class_music_barrage_widget.html#a94ed390049ed82d45b4583e003dffb3c">MusicBarrageWidget</a>
+</li>
 <li>m_sizeValueBar
 : <a class="el" href="de/d4c/class_music_cloud_manager_widget.html#a946c88eb7c3cda558cf63deb62cfb2b0">MusicCloudManagerWidget</a>
 </li>
@@ -3028,6 +3036,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>m_status
 : <a class="el" href="da/d7d/class_music_download_batch_table_item.html#a54c5ab81fe36a6ecdf3c7613dc8348cd">MusicDownloadBatchTableItem</a>
 </li>
+<li>m_statusChanged
+: <a class="el" href="d9/da8/class_music_t_t_k_f_m_radio_play_widget.html#adbe0b958e55a29400ce188cac2b28ee1">MusicTTKFMRadioPlayWidget</a>
+</li>
 <li>m_statusLabel
 : <a class="el" href="dd/d56/class_music_abstract_item_query_widget.html#ad421c64ef3e9c84e4983f68b154f021d">MusicAbstractItemQueryWidget</a>
 </li>
@@ -3145,10 +3156,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="d6/d4a/class_music_lrc_manager.html#ab9f4ebcd0e4cb044b898d38fdb3f5645">MusicLrcManager</a>
 , <a class="el" href="db/d5e/class_music_network_thread.html#a7f1586d6af1e8a6af25d2b4dd1618563">MusicNetworkThread</a>
 , <a class="el" href="dd/de1/class_music_player.html#a48835e4bc42fa3b97ae590b26e3a32fb">MusicPlayer</a>
+, <a class="el" href="d5/d45/class_music_process_server.html#aa5f82bc2acba7f911a4250869f8e1868">MusicProcessServer</a>
 , <a class="el" href="d8/d84/class_music_round_animation_label.html#a81121b43d1609701a45f0a384f2df6dc">MusicRoundAnimationLabel</a>
 , <a class="el" href="df/d02/class_music_songs_list_function_widget.html#aa651bcb8a70a74264eaaa1d6f2db60be">MusicSongsListFunctionWidget</a>
 , <a class="el" href="de/da4/class_music_timer_auto_module.html#a155090d019b799e7f31f42b3ded7cdee">MusicTimerAutoModule</a>
-, <a class="el" href="d0/ddf/class_qmmp_settings.html#a0af65bb52308d89f0035c9473f84b19f">QmmpSettings</a>
 , <a class="el" href="d7/d92/class_round_animation_label.html#a90eccb365b5a5361ee71a12950622cf7">RoundAnimationLabel</a>
 , <a class="el" href="d2/db7/class_t_t_k_dispatch_manager.html#a94d10135d7af8633faf9ccd1ac0cea12">TTKDispatchManager</a>
 , <a class="el" href="dd/d41/class_t_t_k_semaphore_loop.html#afc392fa02116e34bb2bd03fda03df990">TTKSemaphoreLoop</a>
@@ -3214,11 +3225,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dd/d2f/class_music_remote_widget_for_rectangle.html#a874df0927139c6def3d714da140d5eb0">MusicRemoteWidgetForRectangle</a>
 </li>
 <li>m_topAreaLayout
-: <a class="el" href="d2/dec/class_music_ripple_specturm_module.html#a0c6d9ddd95c2a06ce37bb50def6900d3">MusicRippleSpecturmModule</a>
+: <a class="el" href="d1/d21/class_music_blur_specturm_module.html#ae3bed5ffd65368d834d6eab6c06d8da2">MusicBlurSpecturmModule</a>
 </li>
 <li>m_topAreaWidget
 : <a class="el" href="db/def/class_music_application.html#a8c2fa372cc3f1a9db8d35fa709ce5e19">MusicApplication</a>
-, <a class="el" href="d2/dec/class_music_ripple_specturm_module.html#a2d6e92778da37088624937d8e18fcd5b">MusicRippleSpecturmModule</a>
+, <a class="el" href="d1/d21/class_music_blur_specturm_module.html#ab7ed7fbec5130ac4d5ecc06ad72122f3">MusicBlurSpecturmModule</a>
 </li>
 <li>m_topLabel
 : <a class="el" href="df/dfe/class_music_comments_widget.html#a8fc731b0fcd815cd165b4d40a4e0166a">MusicCommentsWidget</a>
@@ -3471,7 +3482,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dc/d74/class_visual.html#a3a0e540a2ec03a34e678116e31f56d1d">Visual</a>
 </li>
 <li>m_visualWidget
-: <a class="el" href="d2/dec/class_music_ripple_specturm_module.html#a45fd84314831d6db04423996ced295a8">MusicRippleSpecturmModule</a>
+: <a class="el" href="d1/d21/class_music_blur_specturm_module.html#a96e1ad79eeb5117aa334b5e94dce5d21">MusicBlurSpecturmModule</a>
 </li>
 <li>m_volume
 : <a class="el" href="d0/dca/class_music_console_module.html#aff1acd2bf039e893dc30b1a3859bfa0a">MusicConsoleModule</a>
@@ -3607,7 +3618,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:58:17 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:55:15 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

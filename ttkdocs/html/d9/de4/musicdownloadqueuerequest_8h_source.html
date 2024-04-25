@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="../../d6/db0/class_music_download_queue_request.html">MusicDownloadQueueRequest</a>(<span class="keyword">const</span> MusicDownloadQueueDataList &amp;datas, <a class="code" href="../../dc/d63/namespace_t_t_k.html#ac086adc0c97e9b65ffd1f43a6baebdf3">TTK::Download</a> type, QObject *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ~<a class="code" href="../../d6/db0/class_music_download_queue_request.html">MusicDownloadQueueRequest</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> addImageQueue(<span class="keyword">const</span> MusicDownloadQueueDataList &amp;datas);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> addQueue(<span class="keyword">const</span> MusicDownloadQueueDataList &amp;datas);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d6c/class_music_abstract_down_load_request.html#a791f18b87db3399ffbf513d44e40d1fe">startToRequest</a>() <span class="keyword">override</span> <span class="keyword">final</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> abort();</div>
@@ -131,10 +131,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> startDownload(<span class="keyword">const</span> QString &amp;url);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> startOrderImageQueue();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> startOrderQueue();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d6/db0/class_music_download_queue_request.html#afa202d1075c8bc163caba757daebab9e">   96</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d6/db0/class_music_download_queue_request.html#afa202d1075c8bc163caba757daebab9e">m_isDownload</a>, m_isAbort;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d6/db0/class_music_download_queue_request.html#a1f2f543be29c9f80d596d642cd24c3b2">   97</a></span>&#160;    MusicDownloadQueueDataList <a class="code" href="../../d6/db0/class_music_download_queue_request.html#a1f2f543be29c9f80d596d642cd24c3b2">m_imageQueue</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d6/db0/class_music_download_queue_request.html#a4a6dc9bc07fc48d9ad3e8f86529ac688">   97</a></span>&#160;    MusicDownloadQueueDataList <a class="code" href="../../d6/db0/class_music_download_queue_request.html#a4a6dc9bc07fc48d9ad3e8f86529ac688">m_queue</a>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d6/db0/class_music_download_queue_request.html#afe9cb80b6c4ce75998d91bedd0dd322b">   98</a></span>&#160;    QNetworkRequest *<a class="code" href="../../d6/db0/class_music_download_queue_request.html#afe9cb80b6c4ce75998d91bedd0dd322b">m_request</a>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
@@ -152,14 +152,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_music_download_queue_data_html"><div class="ttname"><a href="../../d6/dc0/struct_music_download_queue_data.html">MusicDownloadQueueData</a></div><div class="ttdoc">The class of the download queue data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de4/musicdownloadqueuerequest_8h_source.html#l00027">musicdownloadqueuerequest.h:27</a></div></div>
 <div class="ttc" id="structcode_html"><div class="ttname"><a href="../../da/da8/structcode.html">code</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00024">inftrees.h:24</a></div></div>
 <div class="ttc" id="class_music_abstract_down_load_request_html_a791f18b87db3399ffbf513d44e40d1fe"><div class="ttname"><a href="../../df/d6c/class_music_abstract_down_load_request.html#a791f18b87db3399ffbf513d44e40d1fe">MusicAbstractDownLoadRequest::startToRequest</a></div><div class="ttdeci">virtual void startToRequest()=0</div></div>
-<div class="ttc" id="class_music_download_queue_request_html_a1f2f543be29c9f80d596d642cd24c3b2"><div class="ttname"><a href="../../d6/db0/class_music_download_queue_request.html#a1f2f543be29c9f80d596d642cd24c3b2">MusicDownloadQueueRequest::m_imageQueue</a></div><div class="ttdeci">MusicDownloadQueueDataList m_imageQueue</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de4/musicdownloadqueuerequest_8h_source.html#l00097">musicdownloadqueuerequest.h:97</a></div></div>
+<div class="ttc" id="class_music_download_queue_request_html_a4a6dc9bc07fc48d9ad3e8f86529ac688"><div class="ttname"><a href="../../d6/db0/class_music_download_queue_request.html#a4a6dc9bc07fc48d9ad3e8f86529ac688">MusicDownloadQueueRequest::m_queue</a></div><div class="ttdeci">MusicDownloadQueueDataList m_queue</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de4/musicdownloadqueuerequest_8h_source.html#l00097">musicdownloadqueuerequest.h:97</a></div></div>
 <div class="ttc" id="namespace_t_t_k_html_ac086adc0c97e9b65ffd1f43a6baebdf3"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ac086adc0c97e9b65ffd1f43a6baebdf3">TTK::Download</a></div><div class="ttdeci">Download</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de0/musicnetworkdefines_8h_source.html#l00027">musicnetworkdefines.h:27</a></div></div>
 <div class="ttc" id="struct_music_download_queue_data_html_a691235972428662af4321e8008438eec"><div class="ttname"><a href="../../d6/dc0/struct_music_download_queue_data.html#a691235972428662af4321e8008438eec">MusicDownloadQueueData::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdoc">download url/ </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/de4/musicdownloadqueuerequest_8h_source.html#l00030">musicdownloadqueuerequest.h:30</a></div></div>
 <div class="ttc" id="musicabstractdownloadrequest_8h_html"><div class="ttname"><a href="../../db/df2/musicabstractdownloadrequest_8h.html">musicabstractdownloadrequest.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:53:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

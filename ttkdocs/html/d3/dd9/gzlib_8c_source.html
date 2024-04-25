@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/dd9/gzlib_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* gzlib.c -- zlib functions common to reading and writing gzip files</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2004-2019 Mark Adler</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2004-2024 Mark Adler</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * For conditions of distribution and use, see copyright notice in zlib.h</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
@@ -642,41 +642,41 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;}</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="preprocessor">#ifndef INT_MAX</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">/* portably return maximum value for an int (when limits.h presumed not</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">   available) -- we need to do this to cover cases where 2&#39;s complement not</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">   used, since C standard permits 1&#39;s complement and sign-bit representations,</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">   otherwise we could just use ((unsigned)-1) &gt;&gt; 1 */</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">  571</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="../../d0/d6b/compress_8c.html#a59d4d7ef4d73655c759211ec33a5d44f">ZLIB_INTERNAL</a> <a class="code" href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">gz_intmax</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordtype">unsigned</span> p, q;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    p = 1;</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">/* portably return maximum value for an int (when limits.h presumed not</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">   available) -- we need to do this to cover cases where 2&#39;s complement not</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">   used, since C standard permits 1&#39;s complement and sign-bit representations,</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">   otherwise we could just use ((unsigned)-1) &gt;&gt; 1 */</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno"><a class="line" href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">  570</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="../../d0/d6b/compress_8c.html#a59d4d7ef4d73655c759211ec33a5d44f">ZLIB_INTERNAL</a> <a class="code" href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">gz_intmax</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="preprocessor">#ifdef INT_MAX</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">return</span> INT_MAX;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordtype">unsigned</span> p = 1, q;</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordflow">do</span> {</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        q = p;</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        p &lt;&lt;= 1;</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        p++;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    } <span class="keywordflow">while</span> (p &gt; q);</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keywordflow">return</span> q &gt;&gt; 1;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;}</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;}</div>
 <div class="ttc" id="zconf_8h_html_ac049a4b91bbe1112841d2890b206b890"><div class="ttname"><a href="../../de/d95/zconf_8h.html#ac049a4b91bbe1112841d2890b206b890">z_size_t</a></div><div class="ttdeci">unsigned long z_size_t</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00257">zconf.h:257</a></div></div>
 <div class="ttc" id="inflate_8h_html_a164ea0159d5f0b5f12a646f25f99eceaaba6788019f0f871f0aefcd5644635785"><div class="ttname"><a href="../../d9/d51/inflate_8h.html#a164ea0159d5f0b5f12a646f25f99eceaaba6788019f0f871f0aefcd5644635785">COPY</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d51/inflate_8h_source.html#l00036">inflate.h:36</a></div></div>
 <div class="ttc" id="structgz__state_html"><div class="ttname"><a href="../../d1/d4f/structgz__state.html">gz_state</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00169">gzguts.h:169</a></div></div>
 <div class="ttc" id="gzguts_8h_html_afe4b4578cd8417c83de400ece282ac3b"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#afe4b4578cd8417c83de400ece282ac3b">GZ_NONE</a></div><div class="ttdeci">#define GZ_NONE</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00158">gzguts.h:158</a></div></div>
 <div class="ttc" id="gzlib_8c_html_a824d669e463e728eccc79c6ce57674a0"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a824d669e463e728eccc79c6ce57674a0">gzeof</a></div><div class="ttdeci">int ZEXPORT gzeof(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00472">gzlib.c:472</a></div></div>
-<div class="ttc" id="zconf_8h_html_a8cf4661a88ec12823d7cbdd3fa629eb0"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a></div><div class="ttdeci">#define z_off_t</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00521">zconf.h:521</a></div></div>
-<div class="ttc" id="gzguts_8h_html_a87ad28552e786eaa1c31fed1950fdff4"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a87ad28552e786eaa1c31fed1950fdff4">GT_OFF</a></div><div class="ttdeci">#define GT_OFF(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00217">gzguts.h:217</a></div></div>
+<div class="ttc" id="zconf_8h_html_a8cf4661a88ec12823d7cbdd3fa629eb0"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a8cf4661a88ec12823d7cbdd3fa629eb0">z_off_t</a></div><div class="ttdeci">#define z_off_t</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00513">zconf.h:513</a></div></div>
+<div class="ttc" id="gzguts_8h_html_a87ad28552e786eaa1c31fed1950fdff4"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a87ad28552e786eaa1c31fed1950fdff4">GT_OFF</a></div><div class="ttdeci">#define GT_OFF(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00214">gzguts.h:214</a></div></div>
 <div class="ttc" id="gzlib_8c_html_a94ed0b2a86e8f1bfd619a5348688c56c"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a94ed0b2a86e8f1bfd619a5348688c56c">gzoffset64</a></div><div class="ttdeci">z_off64_t ZEXPORT gzoffset64(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00443">gzlib.c:443</a></div></div>
 <div class="ttc" id="gzguts_8h_html_aae0a1795746b0a2cb7989d2898280a19"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#aae0a1795746b0a2cb7989d2898280a19">GZ_APPEND</a></div><div class="ttdeci">#define GZ_APPEND</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00161">gzguts.h:161</a></div></div>
 <div class="ttc" id="gzguts_8h_html_a97ca7a8b458e75a004e828cb28ac264c"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#a97ca7a8b458e75a004e828cb28ac264c">GZ_READ</a></div><div class="ttdeci">#define GZ_READ</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6d/gzguts_8h_source.html#l00159">gzguts.h:159</a></div></div>
-<div class="ttc" id="zconf_8h_html_ab9923767082c7a76924b31493e60d42c"><div class="ttname"><a href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a></div><div class="ttdeci">#define z_off64_t</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00530">zconf.h:530</a></div></div>
+<div class="ttc" id="zconf_8h_html_ab9923767082c7a76924b31493e60d42c"><div class="ttname"><a href="../../de/d95/zconf_8h.html#ab9923767082c7a76924b31493e60d42c">z_off64_t</a></div><div class="ttdeci">#define z_off64_t</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00522">zconf.h:522</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a014d89bd76f74ef3a29c8f04b473eb76"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a014d89bd76f74ef3a29c8f04b473eb76">size</a></div><div class="ttdeci">voidpf void uLong size</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="gzlib_8c_html_ad3f4308666663c0a2510b0c6be031ad8"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#ad3f4308666663c0a2510b0c6be031ad8">gztell</a></div><div class="ttdeci">z_off_t ZEXPORT gztell(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00435">gzlib.c:435</a></div></div>
 <div class="ttc" id="compress_8c_html_a59d4d7ef4d73655c759211ec33a5d44f"><div class="ttname"><a href="../../d0/d6b/compress_8c.html#a59d4d7ef4d73655c759211ec33a5d44f">ZLIB_INTERNAL</a></div><div class="ttdeci">#define ZLIB_INTERNAL</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d6b/compress_8c_source.html#l00008">compress.c:8</a></div></div>
 <div class="ttc" id="zlib_8h_html_af01ccb5a9db8d415cde987d9553ad200"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#af01ccb5a9db8d415cde987d9553ad200">Z_FILTERED</a></div><div class="ttdeci">#define Z_FILTERED</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00196">zlib.h:196</a></div></div>
 <div class="ttc" id="structgz_file__s_html_a98038b7edb4ab55ee321fa388afb687e"><div class="ttname"><a href="../../df/db6/structgz_file__s.html#a98038b7edb4ab55ee321fa388afb687e">gzFile_s::pos</a></div><div class="ttdeci">z_off64_t pos</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l01840">zlib.h:1840</a></div></div>
 <div class="ttc" id="zlib_8h_html_aaa5c996fbc985d5ec43f99112c0ac4a6"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#aaa5c996fbc985d5ec43f99112c0ac4a6">Z_FIXED</a></div><div class="ttdeci">#define Z_FIXED</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00199">zlib.h:199</a></div></div>
-<div class="ttc" id="gzlib_8c_html_aa07235be00592e0af8582c73b52e7ee5"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">gz_intmax</a></div><div class="ttdeci">unsigned ZLIB_INTERNAL gz_intmax(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00571">gzlib.c:571</a></div></div>
+<div class="ttc" id="gzlib_8c_html_aa07235be00592e0af8582c73b52e7ee5"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#aa07235be00592e0af8582c73b52e7ee5">gz_intmax</a></div><div class="ttdeci">unsigned ZLIB_INTERNAL gz_intmax(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00570">gzlib.c:570</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a8ad8a13c88886b9f623034ff88570adb"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a8ad8a13c88886b9f623034ff88570adb">buf</a></div><div class="ttdeci">voidpf void * buf</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00136">ioapi.h:136</a></div></div>
 <div class="ttc" id="gzlib_8c_html_a3b6bca34940a55ff52fba6f099d065c0"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a3b6bca34940a55ff52fba6f099d065c0">gzrewind</a></div><div class="ttdeci">int ZEXPORT gzrewind(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00318">gzlib.c:318</a></div></div>
 <div class="ttc" id="gzlib_8c_html_a4e4262939145f46bee50a7913354a7e8"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a4e4262939145f46bee50a7913354a7e8">gztell64</a></div><div class="ttdeci">z_off64_t ZEXPORT gztell64(gzFile file)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00420">gzlib.c:420</a></div></div>
@@ -712,14 +712,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="gzlib_8c_html_a6ef81131bcc66eef4183431c814e6905"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a6ef81131bcc66eef4183431c814e6905">gzopen64</a></div><div class="ttdeci">gzFile ZEXPORT gzopen64(const char *path, const char *mode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00265">gzlib.c:265</a></div></div>
 <div class="ttc" id="gzguts_8h_html_adacbf80ddc99f9a9e0f6aa2bbf1fb0e9"><div class="ttname"><a href="../../d5/d6d/gzguts_8h.html#adacbf80ddc99f9a9e0f6aa2bbf1fb0e9">malloc</a></div><div class="ttdeci">voidp malloc(uInt size)</div></div>
 <div class="ttc" id="gzlib_8c_html_a0b826c4ce1c145c4bd5437fc04e83a6b"><div class="ttname"><a href="../../d3/dd9/gzlib_8c.html#a0b826c4ce1c145c4bd5437fc04e83a6b">gzseek64</a></div><div class="ttdeci">z_off64_t ZEXPORT gzseek64(gzFile file, z_off64_t offset, int whence)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dd9/gzlib_8c_source.html#l00339">gzlib.c:339</a></div></div>
-<div class="ttc" id="zconf_8h_html_a181415878f03b95a7094309d824a14b6"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a></div><div class="ttdeci">#define ZEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00390">zconf.h:390</a></div></div>
+<div class="ttc" id="zconf_8h_html_a181415878f03b95a7094309d824a14b6"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a181415878f03b95a7094309d824a14b6">ZEXPORT</a></div><div class="ttdeci">#define ZEXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00382">zconf.h:382</a></div></div>
 <div class="ttc" id="http__parser_8c_html_adc6e5733fc3c22f0a7b2914188c49c90"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#adc6e5733fc3c22f0a7b2914188c49c90">state</a></div><div class="ttdeci">state</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00279">http_parser.c:279</a></div></div>
 <div class="ttc" id="zlib_8h_html_af5387baee05124298e431ebe6fe96b17"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#af5387baee05124298e431ebe6fe96b17">Z_DEFAULT_COMPRESSION</a></div><div class="ttdeci">#define Z_DEFAULT_COMPRESSION</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00193">zlib.h:193</a></div></div>
 <div class="ttc" id="zlib_8h_html_af52c1220e7193d2da78332d75f9251ea"><div class="ttname"><a href="../../d4/dae/zlib_8h.html#af52c1220e7193d2da78332d75f9251ea">Z_RLE</a></div><div class="ttdeci">#define Z_RLE</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dae/zlib_8h_source.html#l00198">zlib.h:198</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

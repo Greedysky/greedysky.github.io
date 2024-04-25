@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d4/db5/class_music_translation_request.html#a53d68dcb112df78d2095abacac22f1b8">findAllPlugins</a>();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d4/db5/class_music_translation_request.html#a0af309854495e3c5dcee7da72152cc62">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">MusicTranslationRequest::downLoadFinished</a>(<span class="keyword">const</span> QString &amp;bytes)</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d4/db5/class_music_translation_request.html#a089e48c330fd5053a397b1bf8daf5ab1">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/db5/class_music_translation_request.html#a089e48c330fd5053a397b1bf8daf5ab1">MusicTranslationRequest::downLoadDataFinished</a>(<span class="keyword">const</span> QString &amp;bytes)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(bytes.isEmpty())</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
@@ -122,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(d)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        connect(d, SIGNAL(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ac3e904065571dfe04c96b1f4814a6c12">downLoadDataChanged</a>(QString)), SLOT(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">downLoadFinished</a>(QString)));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        connect(d, SIGNAL(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ac3e904065571dfe04c96b1f4814a6c12">downLoadDataChanged</a>(QString)), SLOT(<a class="code" href="../../d4/db5/class_music_translation_request.html#a089e48c330fd5053a397b1bf8daf5ab1">downLoadDataFinished</a>(QString)));</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">//</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        d-&gt;<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a9ee6684b4ea390f7d1c5a200f1a96aa0">setHeader</a>(<span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#af740de17c395aad85b87467b6d51cff0">header</a>(<span class="stringliteral">&quot;name&quot;</span>));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        d-&gt;<a class="code" href="../../d9/de9/class_music_abstract_translation_request.html#a0e36fe6ba4d958c1626728578d975d9e">startToRequest</a>(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#af740de17c395aad85b87467b6d51cff0">header</a>(<span class="stringliteral">&quot;data&quot;</span>).<a class="code" href="../../dc/d63/namespace_t_t_k.html#a130abbad436ee2ff05a888d216d2a833">toString</a>());</div>
@@ -134,8 +134,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="musicbingtranslationrequest_8h_html"><div class="ttname"><a href="../../de/d73/musicbingtranslationrequest_8h.html">musicbingtranslationrequest.h</a></div></div>
 <div class="ttc" id="class_music_abstract_translation_request_html"><div class="ttname"><a href="../../d9/de9/class_music_abstract_translation_request.html">MusicAbstractTranslationRequest</a></div><div class="ttdoc">The class of the translation words request. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dbe/musicabstracttranslationrequest_8h_source.html#l00027">musicabstracttranslationrequest.h:27</a></div></div>
 <div class="ttc" id="class_music_bing_translation_request_html"><div class="ttname"><a href="../../dd/d46/class_music_bing_translation_request.html">MusicBingTranslationRequest</a></div><div class="ttdoc">The class of the bing translation words request. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d73/musicbingtranslationrequest_8h_source.html#l00027">musicbingtranslationrequest.h:27</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_network_html_a42d3a48b4071bc84e4b07c27a3e480e7"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">TTKAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbd/ttkabstractnetwork_8cpp_source.html#l00032">ttkabstractnetwork.cpp:32</a></div></div>
 <div class="ttc" id="class_music_abstract_translation_request_html_a0e36fe6ba4d958c1626728578d975d9e"><div class="ttname"><a href="../../d9/de9/class_music_abstract_translation_request.html#a0e36fe6ba4d958c1626728578d975d9e">MusicAbstractTranslationRequest::startToRequest</a></div><div class="ttdeci">virtual void startToRequest(const QString &amp;data)=0</div></div>
+<div class="ttc" id="class_music_translation_request_html_a089e48c330fd5053a397b1bf8daf5ab1"><div class="ttname"><a href="../../d4/db5/class_music_translation_request.html#a089e48c330fd5053a397b1bf8daf5ab1">MusicTranslationRequest::downLoadDataFinished</a></div><div class="ttdeci">void downLoadDataFinished(const QString &amp;bytes)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d18/musictranslationrequest_8cpp_source.html#l00020">musictranslationrequest.cpp:20</a></div></div>
 <div class="ttc" id="musicbdtranslationrequest_8h_html"><div class="ttname"><a href="../../d8/d2e/musicbdtranslationrequest_8h.html">musicbdtranslationrequest.h</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_network_html_af740de17c395aad85b87467b6d51cff0"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#af740de17c395aad85b87467b6d51cff0">TTKAbstractNetwork::header</a></div><div class="ttdeci">const QVariant header(const QString &amp;key) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/ttkabstractnetwork_8h_source.html#l00071">ttkabstractnetwork.h:71</a></div></div>
 <div class="ttc" id="musicwytranslationrequest_8h_html"><div class="ttname"><a href="../../da/db5/musicwytranslationrequest_8h.html">musicwytranslationrequest.h</a></div></div>
@@ -152,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:53:48 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

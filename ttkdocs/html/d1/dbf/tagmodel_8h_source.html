@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/dbf/tagmodel_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2009-2022 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2009-2024 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -113,27 +113,30 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dc/d29/class_tag_model.html#a5d8aa3bd7d8874b93644f9fd04b8ab3eac66a1854c18c3dd30676b6e411ffac46">   40</a></span>&#160;        DefaultCaps = CreateRemove | Save,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_DECLARE_FLAGS(ModelCaps, ModelCap)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    explicit <a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>(ModelCaps f = DefaultCaps);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    virtual ~<a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    virtual QString <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    virtual QList&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData&gt; keys() const;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    virtual QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const = 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    virtual <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, const QString &amp;value) = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    virtual <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData key, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    virtual <span class="keywordtype">bool</span> exists() const;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    virtual <span class="keywordtype">void</span> create();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    virtual <span class="keywordtype">void</span> remove();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    virtual <span class="keywordtype">void</span> save();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    ModelCaps caps() const;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;private:</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../dc/d29/class_tag_model.html#af851a54e65736de760bbb70173f9a6fe">   98</a></span>&#160;    ModelCaps m_f = DefaultCaps;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    explicit <a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>(ModelCaps f = DefaultCaps);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    virtual ~<a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>() = default;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    virtual QString <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    virtual QList&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData&gt; keys() const;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    virtual QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    virtual <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, const QString &amp;value) = 0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    virtual <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData key, <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    virtual <span class="keywordtype">bool</span> exists() const;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    virtual <span class="keywordtype">void</span> create();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    virtual <span class="keywordtype">void</span> remove();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    virtual <span class="keywordtype">void</span> save();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    ModelCaps caps() const;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;private:</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../dc/d29/class_tag_model.html#af851a54e65736de760bbb70173f9a6fe">  100</a></span>&#160;    ModelCaps m_f = DefaultCaps;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(TagModel::ModelCaps)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(<a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a>::ModelCaps)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="class_tag_model_html"><div class="ttname"><a href="../../dc/d29/class_tag_model.html">TagModel</a></div><div class="ttdoc">The StateHandler class provides is the base interface class of tag editor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dbf/tagmodel_8h_source.html#l00030">tagmodel.h:30</a></div></div>
@@ -145,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

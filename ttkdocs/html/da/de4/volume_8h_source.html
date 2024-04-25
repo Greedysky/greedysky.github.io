@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../da/de4/volume_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2012-2022 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2012-2024 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -130,27 +130,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d7/d83/class_volume.html#a509d08208672144b93988bc741eea55ea6fd51491fe5642582362436a9b0abc6b">   61</a></span>&#160;        HasNotifySignal = 0x2, </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Q_DECLARE_FLAGS(VolumeFlags, VolumeFlag)</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d7/d83/class_volume.html#ab7114e028122cb524f489da63e987e9b">   68</a></span>&#160;    virtual ~<a class="code" href="../../d7/d83/class_volume.html">Volume</a>()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    virtual ~<a class="code" href="../../d7/d83/class_volume.html">Volume</a>() = default;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setVolume(<span class="keyword">const</span> <a class="code" href="../../da/d87/struct_volume_settings.html">VolumeSettings</a> &amp;volume) = 0;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../da/d87/struct_volume_settings.html">VolumeSettings</a> volume() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isMuted() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setMuted(<span class="keywordtype">bool</span> mute);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">virtual</span> VolumeFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;signals:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> changed();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d7/d83/class_volume.html#a32b5390cf345184adc791289ebf86568">  103</a></span>&#160;    <span class="keywordtype">bool</span> m_mutedInternal = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(Volume::VolumeFlags)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    virtual <span class="keywordtype">void</span> setVolume(<a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> <a class="code" href="../../da/d87/struct_volume_settings.html">VolumeSettings</a> &amp;volume) = 0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    virtual <a class="code" href="../../da/d87/struct_volume_settings.html">VolumeSettings</a> volume() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> = 0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    virtual <span class="keywordtype">bool</span> isMuted() const;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    virtual <span class="keywordtype">void</span> setMuted(<span class="keywordtype">bool</span> mute);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    virtual VolumeFlags <a class="code" href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a>() const;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;signals:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> changed();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;private:</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d7/d83/class_volume.html#a32b5390cf345184adc791289ebf86568">  102</a></span>&#160;    <span class="keywordtype">bool</span> m_mutedInternal = false;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(<a class="code" href="../../d7/d83/class_volume.html">Volume</a>::VolumeFlags)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="volume_8h_html_a4ab818c7410e21e8fb8c3adc3e13b33a"><div class="ttname"><a href="../../da/de4/volume_8h.html#a4ab818c7410e21e8fb8c3adc3e13b33a">operator==</a></div><div class="ttdeci">bool operator==(const VolumeSettings &amp;v1, const VolumeSettings &amp;v2)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00038">volume.h:38</a></div></div>
 <div class="ttc" id="struct_volume_settings_html"><div class="ttname"><a href="../../da/d87/struct_volume_settings.html">VolumeSettings</a></div><div class="ttdoc">The VolumeSettings structure stores volume levels. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00031">volume.h:31</a></div></div>
 <div class="ttc" id="http__parser_8h_html_ab6b306ef981f5e21bb41ea2c2dbe8cd9"><div class="ttname"><a href="../../d0/dd7/http__parser_8h.html#ab6b306ef981f5e21bb41ea2c2dbe8cd9">flags</a></div><div class="ttdeci">flags</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd7/http__parser_8h_source.html#l00135">http_parser.h:135</a></div></div>
@@ -161,10 +161,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="struct_volume_settings_html_afee17a240a59fe3e33a6f66ffe314441"><div class="ttname"><a href="../../da/d87/struct_volume_settings.html#afee17a240a59fe3e33a6f66ffe314441">VolumeSettings::right</a></div><div class="ttdeci">int right</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00034">volume.h:34</a></div></div>
 <div class="ttc" id="struct_volume_settings_html_a4e6400fe7a1a51efc0f4040451a5c902"><div class="ttname"><a href="../../da/d87/struct_volume_settings.html#a4e6400fe7a1a51efc0f4040451a5c902">VolumeSettings::left</a></div><div class="ttdeci">int left</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00033">volume.h:33</a></div></div>
 <div class="ttc" id="volume_8h_html_a28f47c6fd17fd2ea480bff4d41627d78"><div class="ttname"><a href="../../da/de4/volume_8h.html#a28f47c6fd17fd2ea480bff4d41627d78">operator!=</a></div><div class="ttdeci">bool operator!=(const VolumeSettings &amp;v1, const VolumeSettings &amp;v2)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00043">volume.h:43</a></div></div>
+<div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

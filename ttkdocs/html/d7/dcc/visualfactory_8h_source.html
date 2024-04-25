@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/dcc/visualfactory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2008-2022 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2008-2024 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -115,21 +115,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d52/class_visual_factory.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dd/d52/class_visual_factory.html#ab480e8d2742e4fb7d26b2e50ab67919c">   48</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../dd/d52/class_visual_factory.html#ab480e8d2742e4fb7d26b2e50ab67919c">~VisualFactory</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d2/d88/struct_visual_properties.html">VisualProperties</a> properties() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../dc/d74/class_visual.html">Visual</a> *create(QWidget *parent) = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d2/d88/struct_visual_properties.html">VisualProperties</a> properties() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../dc/d74/class_visual.html">Visual</a> *create(QWidget *parent) = 0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a>, <span class="stringliteral">&quot;VisualFactory/1.0&quot;</span>)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../dd/d52/class_visual_factory.html">VisualFactory</a>, <span class="stringliteral">&quot;VisualFactory/1.0&quot;</span>)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="struct_visual_properties_html_afea0a73dbaca05aece56d3ca63b17baa"><div class="ttname"><a href="../../d2/d88/struct_visual_properties.html#afea0a73dbaca05aece56d3ca63b17baa">VisualProperties::name</a></div><div class="ttdeci">QString name</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dcc/visualfactory_8h_source.html#l00034">visualfactory.h:34</a></div></div>
 <div class="ttc" id="class_visual_html"><div class="ttname"><a href="../../dc/d74/class_visual.html">Visual</a></div><div class="ttdoc">The Visual class provides the base interface class of visualizations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d6d/visual_8h_source.html#l00037">visual.h:37</a></div></div>
-<div class="ttc" id="class_visual_factory_html_ab480e8d2742e4fb7d26b2e50ab67919c"><div class="ttname"><a href="../../dd/d52/class_visual_factory.html#ab480e8d2742e4fb7d26b2e50ab67919c">VisualFactory::~VisualFactory</a></div><div class="ttdeci">virtual ~VisualFactory()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dcc/visualfactory_8h_source.html#l00048">visualfactory.h:48</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="class_visual_factory_html"><div class="ttname"><a href="../../dd/d52/class_visual_factory.html">VisualFactory</a></div><div class="ttdoc">Visual plugin interface (visual factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dcc/visualfactory_8h_source.html#l00042">visualfactory.h:42</a></div></div>
@@ -138,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -92,7 +92,7 @@ Macros</h2></td></tr>
 <tr class="separator:a59d4d7ef4d73655c759211ec33a5d44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08023ea6765c99d60a6a3840cd07156e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/zutil_8h.html#a08023ea6765c99d60a6a3840cd07156e">local</a>&#160;&#160;&#160;static</td></tr>
 <tr class="separator:a08023ea6765c99d60a6a3840cd07156e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66466516a4a71f3c78ccc40d203c92e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/zutil_8h.html#a66466516a4a71f3c78ccc40d203c92e5">ERR_MSG</a>(err)&#160;&#160;&#160;<a class="el" href="../../d6/dba/zutil_8h.html#a6eca777f454e3ba74a93593c4731a434">z_errmsg</a>[<a class="el" href="../../d4/dae/zlib_8h.html#a32916ba675b2d06463da2576b6a49d64">Z_NEED_DICT</a>-(err)]</td></tr>
+<tr class="memitem:a66466516a4a71f3c78ccc40d203c92e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/zutil_8h.html#a66466516a4a71f3c78ccc40d203c92e5">ERR_MSG</a>(err)&#160;&#160;&#160;<a class="el" href="../../d6/dba/zutil_8h.html#a6eca777f454e3ba74a93593c4731a434">z_errmsg</a>[(err) &lt; -6 || (err) &gt; 2 ? 9 : 2 - (err)]</td></tr>
 <tr class="separator:a66466516a4a71f3c78ccc40d203c92e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fcc2fe26110263e812ce50919b6a5c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dba/zutil_8h.html#a0fcc2fe26110263e812ce50919b6a5c1">ERR_RETURN</a>(strm,  err)&#160;&#160;&#160;return (strm-&gt;msg = <a class="el" href="../../d6/dba/zutil_8h.html#a66466516a4a71f3c78ccc40d203c92e5">ERR_MSG</a>(err), (err))</td></tr>
 <tr class="separator:a0fcc2fe26110263e812ce50919b6a5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,9 +199,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00252">252</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00231">231</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00986">_tr_flush_block()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01084">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00898">compress_block()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02013">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01885">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00202">gen_codes()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01331">longest_match()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00831">send_all_trees()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00751">send_tree()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00294">tr_static_init()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00995">_tr_flush_block()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l01093">_tr_tally()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00898">compress_block()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02038">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01910">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00202">gen_codes()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01348">longest_match()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00831">send_all_trees()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00751">send_tree()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00294">tr_static_init()</a>.</p>
 
 </div>
 </div>
@@ -247,7 +247,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00081">81</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00986">_tr_flush_block()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00995">_tr_flush_block()</a>.</p>
 
 </div>
 </div>
@@ -260,7 +260,7 @@ Variables</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">err</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="../../d6/dba/zutil_8h.html#a6eca777f454e3ba74a93593c4731a434">z_errmsg</a>[<a class="el" href="../../d4/dae/zlib_8h.html#a32916ba675b2d06463da2576b6a49d64">Z_NEED_DICT</a>-(err)]</td>
+          <td>&#160;&#160;&#160;<a class="el" href="../../d6/dba/zutil_8h.html#a6eca777f454e3ba74a93593c4731a434">z_errmsg</a>[(err) &lt; -6 || (err) &gt; 2 ? 9 : 2 - (err)]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -297,7 +297,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00061">61</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00934">deflate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00946">deflate()</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00206">206</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00185">185</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
 </div>
 </div>
@@ -355,7 +355,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00085">85</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01084">_tr_tally()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02013">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01331">longest_match()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l01093">_tr_tally()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02038">deflate_rle()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01348">longest_match()</a>.</p>
 
 </div>
 </div>
@@ -371,7 +371,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00084">84</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01786">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02013">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01885">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00379">deflateInit2_()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00544">deflateSetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00667">lm_init()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01811">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02038">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01910">deflate_slow()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00379">deflateInit2_()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00550">deflateSetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, and <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00673">lm_init()</a>.</p>
 
 </div>
 </div>
@@ -385,9 +385,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00202">202</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00181">181</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00934">deflate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00946">deflate()</a>.</p>
 
 </div>
 </div>
@@ -403,7 +403,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00088">88</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00934">deflate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00946">deflate()</a>.</p>
 
 </div>
 </div>
@@ -419,7 +419,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00080">80</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00886">_tr_align()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00986">_tr_flush_block()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00886">_tr_align()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00995">_tr_flush_block()</a>.</p>
 
 </div>
 </div>
@@ -453,7 +453,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00253">253</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00232">232</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>.</p>
 
@@ -483,7 +483,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00256">256</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00235">235</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +511,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00257">257</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00236">236</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00898">compress_block()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00202">gen_codes()</a>.</p>
 
@@ -531,9 +531,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00254">254</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00233">233</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00986">_tr_flush_block()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00798">build_bl_tree()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00538">gen_bitlen()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00202">gen_codes()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00621">inflateBackEnd()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00025">inflateBackInit_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01266">inflateEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00106">inflateResetKeep()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01298">inflateSetDictionary()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00831">send_all_trees()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00995">_tr_flush_block()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00798">build_bl_tree()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00538">gen_bitlen()</a>, <a class="el" href="../../d0/d90/trees_8c_source.html#l00202">gen_codes()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00621">inflateBackEnd()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00025">inflateBackInit_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01266">inflateEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00106">inflateResetKeep()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01298">inflateSetDictionary()</a>, and <a class="el" href="../../d0/d90/trees_8c_source.html#l00831">send_all_trees()</a>.</p>
 
 </div>
 </div>
@@ -551,9 +551,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00255">255</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00234">234</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01786">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02084">deflate_huff()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02013">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01885">deflate_slow()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/df3/inffast_8c_source.html#l00050">inflate_fast()</a>, and <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01811">deflate_fast()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02109">deflate_huff()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l02038">deflate_rle()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01910">deflate_slow()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/df3/inffast_8c_source.html#l00050">inflate_fast()</a>, and <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>.</p>
 
 </div>
 </div>
@@ -581,9 +581,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00269">269</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00248">248</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01246">deflateEnd()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01258">deflateEnd()</a>.</p>
 
 </div>
 </div>
@@ -617,9 +617,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00266">266</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00245">245</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01270">deflateCopy()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00379">deflateInit2_()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00025">inflateBackInit_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00368">updatewindow()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01282">deflateCopy()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00379">deflateInit2_()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00025">inflateBackInit_()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00368">updatewindow()</a>.</p>
 
 </div>
 </div>
@@ -647,9 +647,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00268">268</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00247">247</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01246">deflateEnd()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00621">inflateBackEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01266">inflateEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00141">inflateReset2()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01258">deflateEnd()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00621">inflateBackEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01266">inflateEnd()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00178">inflateInit2_()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00141">inflateReset2()</a>.</p>
 
 </div>
 </div>
@@ -683,7 +683,7 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">((((q) &gt;&gt; 24) &amp; 0xff) + (((q) &gt;&gt; 8) &amp; 0xff00) + \</div>
 <div class="line">                    (((q) &amp; 0xff00) &lt;&lt; 8) + (((q) &amp; 0xff) &lt;&lt; 24))</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00272">272</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dba/zutil_8h_source.html#l00251">251</a> of file <a class="el" href="../../d6/dba/zutil_8h_source.html">zutil.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>.</p>
 
@@ -977,7 +977,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d49/zutil_8c_source.html#l00145">145</a> of file <a class="el" href="../../d4/d49/zutil_8c_source.html">zutil.c</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00858">_tr_stored_block()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00934">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01602">deflate_stored()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01270">deflateCopy()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00610">deflateGetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00903">flush_pending()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01278">inflateGetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00218">read_buf()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00368">updatewindow()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d90/trees_8c_source.html#l00858">_tr_stored_block()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00946">deflate()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01627">deflate_stored()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l01282">deflateCopy()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00616">deflateGetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00251">fill_window()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00915">flush_pending()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00590">inflate()</a>, <a class="el" href="../../d0/deb/infback_8c_source.html#l00242">inflateBack()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01439">inflateCopy()</a>, <a class="el" href="../../d5/d6a/inflate_8c_source.html#l01278">inflateGetDictionary()</a>, <a class="el" href="../../d2/d0e/deflate_8c_source.html#l00218">read_buf()</a>, and <a class="el" href="../../d5/d6a/inflate_8c_source.html#l00368">updatewindow()</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1029,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:57:09 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:20 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

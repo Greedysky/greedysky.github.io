@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.7.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d8/da7/eqsettings_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2010-2022 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2010-2024 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -112,31 +112,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a9621906b51fc2d5ab038074929dfa220a06051ad19c7d5ef31a9b40e6fe866fe3">   39</a></span>&#160;        EQ_BANDS_25 = 25, </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a9621906b51fc2d5ab038074929dfa220ac50fab673c4442fb5ff5007a44faa29f">   40</a></span>&#160;        EQ_BANDS_31 = 31  </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;other);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a>(Bands bands = EQ_BANDS_10);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> isEnabled() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">double</span> gain(<span class="keywordtype">int</span> chan) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">double</span> preamp() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> bands() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> twoPasses() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> setEnabled(<span class="keywordtype">bool</span> enabled = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> setGain(<span class="keywordtype">int</span> band, <span class="keywordtype">double</span> gain);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> setPreamp(<span class="keywordtype">double</span> preamp);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> setTwoPasses(<span class="keywordtype">bool</span> enabled = <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/de4/volume_8h.html#a4ab818c7410e21e8fb8c3adc3e13b33a">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/de4/volume_8h.html#a28f47c6fd17fd2ea480bff4d41627d78">operator!=</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a860a64f2f6252b761d7c0f4bda0a72b5">  103</a></span>&#160;    <span class="keywordtype">double</span> m_gains[31] = { 0 };</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#accc0e62082bab44dd5e208b6bf769d2d">  104</a></span>&#160;    <span class="keywordtype">double</span> m_preamp = 0;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a160e8869160ce2c857af91b2457f9e22">  105</a></span>&#160;    <span class="keywordtype">bool</span> m_is_enabled = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a07b5862a338cff75785ee4b7d295644a">  106</a></span>&#160;    <span class="keywordtype">int</span> m_bands = 0;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a4090958bbf1d02a93ad4174bf1036e8c">  107</a></span>&#160;    <span class="keywordtype">bool</span> m_two_passes = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;other);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a>(Bands bands = EQ_BANDS_10);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> isEnabled() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">double</span> gain(<span class="keywordtype">int</span> chan) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">double</span> preamp() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> bands() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> twoPasses() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> setEnabled(<span class="keywordtype">bool</span> enabled = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> setGain(<span class="keywordtype">int</span> band, <span class="keywordtype">double</span> gain);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> setPreamp(<span class="keywordtype">double</span> preamp);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> setTwoPasses(<span class="keywordtype">bool</span> enabled = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/de4/volume_8h.html#a4ab818c7410e21e8fb8c3adc3e13b33a">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/de4/volume_8h.html#a28f47c6fd17fd2ea480bff4d41627d78">operator!=</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dc4/class_eq_settings.html">EqSettings</a> &amp;s) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a860a64f2f6252b761d7c0f4bda0a72b5">  105</a></span>&#160;    <span class="keywordtype">double</span> m_gains[31] = { 0 };</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#accc0e62082bab44dd5e208b6bf769d2d">  106</a></span>&#160;    <span class="keywordtype">double</span> m_preamp = 0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a160e8869160ce2c857af91b2457f9e22">  107</a></span>&#160;    <span class="keywordtype">bool</span> m_is_enabled = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a07b5862a338cff75785ee4b7d295644a">  108</a></span>&#160;    <span class="keywordtype">int</span> m_bands = 0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../dd/dc4/class_eq_settings.html#a4090958bbf1d02a93ad4174bf1036e8c">  109</a></span>&#160;    <span class="keywordtype">bool</span> m_two_passes = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="volume_8h_html_a4ab818c7410e21e8fb8c3adc3e13b33a"><div class="ttname"><a href="../../da/de4/volume_8h.html#a4ab818c7410e21e8fb8c3adc3e13b33a">operator==</a></div><div class="ttdeci">bool operator==(const VolumeSettings &amp;v1, const VolumeSettings &amp;v2)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/de4/volume_8h_source.html#l00038">volume.h:38</a></div></div>
 <div class="ttc" id="class_eq_settings_html"><div class="ttname"><a href="../../dd/dc4/class_eq_settings.html">EqSettings</a></div><div class="ttdoc">The EqSettings class helps to work with equalizer settings. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/da7/eqsettings_8h_source.html#l00029">eqsettings.h:29</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a></div></div>
@@ -146,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 15 2024 15:56:46 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
