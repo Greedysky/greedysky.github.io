@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -181,7 +181,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">if</span> ( ! v.isValid() ) { <span class="comment">// invalid or null?</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    str = <span class="stringliteral">&quot;null&quot;</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (( type == QMetaType::QVariantList ) || ( type == QMetaType::QStringList ))</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( type == QMetaType::QVariantList || type == QMetaType::QStringList )</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  { <span class="comment">// an array or a stringlist?</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">const</span> QVariantList list = v.toList();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    QList&lt;QByteArray&gt; values;</div>
@@ -354,11 +354,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> (( type == QMetaType::QString ) ||  ( type == QMetaType::QByteArray ))</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">if</span> ( type == QMetaType::QString || type == QMetaType::QByteArray )</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    { <span class="comment">// a string or a byte array?</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      str += escapeString( v.toString() );</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (( type == QMetaType::Double) || (type == QMetaType::Float))</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( type == QMetaType::Double || type == QMetaType::Float )</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    { <span class="comment">// a double or a float?</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> value = v.toDouble();</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">//  #if defined _WIN32 &amp;&amp; !defined(Q_OS_SYMBIAN)</span></div>
@@ -396,15 +396,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        }</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      }</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (( type == QMetaType::Bool))</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( type == QMetaType::Bool )</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    { <span class="comment">// boolean value?</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      str += ( v.toBool() ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span> );</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (( type == QMetaType::ULongLong))</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( type == QMetaType::ULongLong )</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    { <span class="comment">// large unsigned number?</span></div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      str += QByteArray::number( v.value&lt;qulonglong&gt;() );</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (( type == QMetaType::UInt))</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( type == QMetaType::UInt )</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    { <span class="comment">// unsigned int number?</span></div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      str += QByteArray::number( v.value&lt;quint32&gt;() );</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( v.canConvert&lt;qlonglong&gt;() ) { <span class="comment">// any signed number?</span></div>
@@ -582,7 +582,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_q_json_html_aa0f1b9f563c1f7c12564fce3aae93738a3b8e19d2965575df8e682fd5f4240379"><div class="ttname"><a href="../../d3/d7b/namespace_q_json.html#aa0f1b9f563c1f7c12564fce3aae93738a3b8e19d2965575df8e682fd5f4240379">QJson::IndentFull</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5f/serializer_8h_source.html#l00108">serializer.h:108</a></div></div>
 <div class="ttc" id="class_q_json_1_1_serializer_html"><div class="ttname"><a href="../../d8/d59/class_q_json_1_1_serializer.html">QJson::Serializer</a></div><div class="ttdoc">Main class used to convert QVariant objects to JSON data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5f/serializer_8h_source.html#l00151">serializer.h:151</a></div></div>
 <div class="ttc" id="class_serializer_1_1_serializer_private_html_aed990e3ca06cde5cbb45f22e707bae95"><div class="ttname"><a href="../../d5/de4/class_serializer_1_1_serializer_private.html#aed990e3ca06cde5cbb45f22e707bae95">QJson::Serializer::SerializerPrivate::errorMessage</a></div><div class="ttdeci">QString errorMessage</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/serializer_8cpp_source.html#l00061">serializer.cpp:61</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00053">ttkqtglobal.h:53</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00052">ttkqtglobal.h:52</a></div></div>
 <div class="ttc" id="namespace_q_json_html_aa0f1b9f563c1f7c12564fce3aae93738"><div class="ttname"><a href="../../d3/d7b/namespace_q_json.html#aa0f1b9f563c1f7c12564fce3aae93738">QJson::IndentMode</a></div><div class="ttdeci">IndentMode</div><div class="ttdoc">How the indentation should work. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5f/serializer_8h_source.html#l00103">serializer.h:103</a></div></div>
 <div class="ttc" id="class_q_json_1_1_serializer_html_a57046237d41e2e5d07b9a8185979a256"><div class="ttname"><a href="../../d8/d59/class_q_json_1_1_serializer.html#a57046237d41e2e5d07b9a8185979a256">QJson::Serializer::setIndentMode</a></div><div class="ttdeci">void setIndentMode(IndentMode mode=QJson::IndentNone)</div><div class="ttdoc">set output indentation mode as defined in QJson::IndentMode </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/serializer_8cpp_source.html#l00476">serializer.cpp:476</a></div></div>
 <div class="ttc" id="namespace_q_json_html"><div class="ttname"><a href="../../d3/d7b/namespace_q_json.html">QJson</a></div><div class="ttdoc">Namespace used by QJson. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d36/parser_8h_source.html#l00034">parser.h:34</a></div></div>
@@ -606,7 +606,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:54:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:11 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

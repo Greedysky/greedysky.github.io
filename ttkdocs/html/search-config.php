@@ -16,7 +16,7 @@ $translator = array(
   'search_matches' => "Matches:",
   'search' => "Search",
   'split_bar' => "",
-  'logo' => "Generated on Thu Apr 25 2024 20:55:15 for TTKMusicPlayer by&#160;\n<a href=\"http://www.doxygen.org/index.html\">\n<img class=\"footer\" src=\"doxygen.png\" alt=\"doxygen\"/></a> 1.8.8 ",
+  'logo' => "Generated on Tue Jun 18 2024 22:23:13 for TTKMusicPlayer by&#160;\n<a href=\"http://www.doxygen.org/index.html\">\n<img class=\"footer\" src=\"doxygen.png\" alt=\"doxygen\"/></a> 1.8.8 ",
 );
 
 </script>

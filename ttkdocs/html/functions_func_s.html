@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -144,6 +144,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="d9/d9a/class_music_song_meta.html#a048defe96f8f491794e61acfd1ebf2ec">MusicSongMeta</a>
 , <a class="el" href="dc/d29/class_tag_model.html#abf38896b6a572ce9ee540025f8365a1b">TagModel</a>
 , <a class="el" href="d9/d1d/class_t_t_k_abstract_xml.html#a5fea3b08200ce31c54f695742145dc86">TTKAbstractXml</a>
+, <a class="el" href="d8/d7d/class_t_t_k_log_output.html#a1ddc2ad29b26cc429462094defaf65dd">TTKLogOutput</a>
 </li>
 <li>saveAlbumImage()
 : <a class="el" href="d5/d72/class_music_file_information_widget.html#a5c8cbc94bd5877d9a7ec204e58b2f31e">MusicFileInformationWidget</a>
@@ -348,11 +349,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setArtist()
 : <a class="el" href="d9/d9a/class_music_song_meta.html#a1af4d4517be3e4be05dfb02b4146cf8d">MusicSongMeta</a>
 </li>
+<li>setArtistImageList()
+: <a class="el" href="d2/d01/class_music_background_manager.html#aa206f5951e34e4974d90776a98f350ac">MusicBackgroundManager</a>
+</li>
 <li>setArtistName()
 : <a class="el" href="d2/d01/class_music_background_manager.html#a3c98c09d005ab1f1c964ff0ebc09bd7f">MusicBackgroundManager</a>
-</li>
-<li>setArtistPhotoList()
-: <a class="el" href="d2/d01/class_music_background_manager.html#ae5c953893ff142468225f4f19bb39e93">MusicBackgroundManager</a>
 </li>
 <li>setAsArtistBackground()
 : <a class="el" href="d3/d96/class_music_top_area_widget.html#a451ab85f4e7e1cd43c1cd87928500553">MusicTopAreaWidget</a>
@@ -456,9 +457,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setComment()
 : <a class="el" href="d9/d9a/class_music_song_meta.html#a48cc85b58b2c794fb6d20067bcfb4fb9">MusicSongMeta</a>
 </li>
-<li>setConnectClass()
-: <a class="el" href="db/d43/class_music_playlist_query_table_widget.html#acd595a1010739bbf786ff7f9eef13670">MusicPlaylistQueryTableWidget</a>
-</li>
 <li>setControlEnabled()
 : <a class="el" href="df/d8b/class_music_equalizer_dialog.html#aeff6581860d4694f1be9dc3531887f03">MusicEqualizerDialog</a>
 , <a class="el" href="d6/da5/class_music_lrc_maker_widget.html#ad25834bd018acf2eb93414995235c56e">MusicLrcMakerWidget</a>
@@ -477,6 +475,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>setCurrentBackgroundTheme()
 : <a class="el" href="db/d13/class_music_background_skin_dialog.html#adf5fda525768677a4d105975864bace7">MusicBackgroundSkinDialog</a>
+</li>
+<li>setCurrentCategory()
+: <a class="el" href="da/d2f/class_music_playlist_query_widget.html#a8c9af878a28bd7a2d797ea195156f14c">MusicPlaylistQueryWidget</a>
 </li>
 <li>setCurrentFactory()
 : <a class="el" href="db/db4/class_output.html#a4ba6df1760f30cb9361a8e13ba55bd12">Output</a>
@@ -561,6 +562,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="d1/dc5/class_music_artist_list_query_widget.html#a15f5171e3db8c7684fc25ca6e398b963">MusicArtistListQueryWidget</a>
 , <a class="el" href="d0/def/class_music_artist_mvs_query_widget.html#a851261a3a4120b8653e2f2cc135520d4">MusicArtistMvsQueryWidget</a>
 , <a class="el" href="d3/d03/class_music_artist_query_widget.html#ac6a7c0ba08ee35bc48eadb65a8d46584">MusicArtistQueryWidget</a>
+, <a class="el" href="d4/d94/class_music_personal_radio_query_widget.html#af38f68c3c796bde57103aeb033db2fe1">MusicPersonalRadioQueryWidget</a>
 , <a class="el" href="da/d2f/class_music_playlist_query_widget.html#aa22b97bb95d8060545f342357aadba37">MusicPlaylistQueryWidget</a>
 , <a class="el" href="d0/d1d/class_music_recommend_query_widget.html#aa5197a4ab141d6595d55e9b4a4b775d6">MusicRecommendQueryWidget</a>
 , <a class="el" href="d7/d73/class_music_similar_query_widget.html#a90e493f50e6680521a1804d2c8988de8">MusicSimilarQueryWidget</a>
@@ -838,9 +840,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="da/d90/class_music_system_tray_menu.html#a7e4154b23bb2debc334267c7649060e5">MusicSystemTrayMenu</a>
 , <a class="el" href="d3/d96/class_music_top_area_widget.html#a45114a153f8e5f1bee7764086529839a">MusicTopAreaWidget</a>
 </li>
-<li>setLeftVolume()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#a86228c3affc6010eb048ac59253d3f37">MusicCoreMPlayer</a>
-</li>
 <li>setLength()
 : <a class="el" href="d6/d89/class_music_animation_stacked_widget.html#afba8bf49f0bc22452aa3f6ad7fc040e4">MusicAnimationStackedWidget</a>
 </li>
@@ -865,9 +864,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>setLoopStatus()
 : <a class="el" href="d2/d27/class_music_m_p_r_i_s_player_core.html#a59bcbe3b2a2b536b8cffd5733ee928c6">MusicMPRISPlayerCore</a>
-</li>
-<li>setLoveState()
-: <a class="el" href="de/d02/class_music_left_area_widget.html#ac8208a989a0104d737c96b9286be9e0e">MusicLeftAreaWidget</a>
 </li>
 <li>setLrcAnalysisModel()
 : <a class="el" href="dc/dbf/class_music_lrc_container.html#a2a765f243a8a35e35e76d6dbb950c810">MusicLrcContainer</a>
@@ -901,8 +897,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dd/d47/class_music_text_slider_widget.html#a689bc75b7e7563791c0eb70a74d82e89">MusicTextSliderWidget</a>
 </li>
 <li>setMedia()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#ada8e4eee2f705b07441480a9e3611cb7">MusicCoreMPlayer</a>
-, <a class="el" href="d8/de3/class_music_video_view.html#ae706349e72c2800516798b48df7785be">MusicVideoView</a>
+: <a class="el" href="d5/dad/class_music_core_m_player.html#a5058e3cfa96fe2687dc72b5d8b11c780">MusicCoreMPlayer</a>
+, <a class="el" href="d8/de3/class_music_video_view.html#a26f21fa89885cad060f6f47713ce7be3">MusicVideoView</a>
 </li>
 <li>setMetaData()
 : <a class="el" href="d8/d7a/class_cue_parser.html#aa8e4862199c06c27233e8350d70199f3">CueParser</a>
@@ -934,20 +930,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setMoving()
 : <a class="el" href="d5/d96/class_music_moving_clicked_slider.html#afe723a240be67032615dbc9fec44a324">MusicMovingClickedSlider</a>
 </li>
-<li>setMultiVoice()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#a9be6cca29f756b9733cc3a73278ddefe">MusicCoreMPlayer</a>
-</li>
 <li>setMusicMedia()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#a9a5fe36d70bcbaf4350b28d453ee4d40">MusicCoreMPlayer</a>
+: <a class="el" href="d5/dad/class_music_core_m_player.html#a4369d0e7eff229ef93c060d06a45e399">MusicCoreMPlayer</a>
 </li>
 <li>setMusicPlayCount()
 : <a class="el" href="da/d8b/class_music_songs_container_widget.html#abfaf9ab0d5da762c0eb97708cfcd61c1">MusicSongsContainerWidget</a>
 </li>
-<li>setMute()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#ad10c842127db0ea6c21f273dc26818cf">MusicCoreMPlayer</a>
-</li>
 <li>setMuted()
-: <a class="el" href="dd/de1/class_music_player.html#ac16b70f45b52e3a99bc302a0af630790">MusicPlayer</a>
+: <a class="el" href="d5/dad/class_music_core_m_player.html#aae9bb9dc3836eabc378b94f300d8db0b">MusicCoreMPlayer</a>
+, <a class="el" href="dd/de1/class_music_player.html#ac16b70f45b52e3a99bc302a0af630790">MusicPlayer</a>
 , <a class="el" href="d4/d98/class_sound_core.html#ac8c554b21da73aa9acf24d64a159e8bd">SoundCore</a>
 , <a class="el" href="d7/d83/class_volume.html#ac726bdf417823d1323d1b2bf403d8644">Volume</a>
 , <a class="el" href="db/d52/class_volume_handler.html#a8d4dfff978870d6fad27c934c00ca7bd">VolumeHandler</a>
@@ -978,11 +969,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="de/d69/class_music_network_proxy.html#a39042fdc6431b4a60002bfbe4d014fc3">MusicNetworkProxy</a>
 </li>
 <li>setPath()
-: <a class="el" href="d6/de4/class_music_song.html#aad0fcc7c0b66787fba6295c7d53a50dc">MusicSong</a>
+: <a class="el" href="d4/d2b/class_music_lrc_float_photo_item.html#a3dba9da2ad83a676976ebce8d39eb13f">MusicLrcFloatPhotoItem</a>
+, <a class="el" href="d6/de4/class_music_song.html#aad0fcc7c0b66787fba6295c7d53a50dc">MusicSong</a>
 , <a class="el" href="d1/dc5/class_track_info.html#aae5ece08ff8308ee05b527f272cd30b3">TrackInfo</a>
-</li>
-<li>setPhoto()
-: <a class="el" href="d4/d2b/class_music_lrc_float_photo_item.html#a2eff7364290da89473254549bd22ec09">MusicLrcFloatPhotoItem</a>
 </li>
 <li>setPixmap()
 : <a class="el" href="dc/d9d/class_music_background_palette.html#a7c955ceb40a4862ddecccfb75dcc041c">MusicBackgroundPalette</a>
@@ -1078,14 +1067,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dc/df8/class_music_video_quality_pop_widget.html#acb6843b585080f74d68d4d12e9613206">MusicVideoQualityPopWidget</a>
 </li>
 <li>setQueryInput()
-: <a class="el" href="d4/d25/class_music_album_query_table_widget.html#aecbb1ebbecbf1ff40991ddd71a183980">MusicAlbumQueryTableWidget</a>
-, <a class="el" href="d6/d43/class_music_artist_query_table_widget.html#a65d98d3865140177cb894d2434286554">MusicArtistQueryTableWidget</a>
-, <a class="el" href="d0/d0b/class_music_playlist_query_info_widget.html#a57365e40057f12e31b19690703867f2c">MusicPlaylistQueryInfoWidget</a>
-, <a class="el" href="db/d43/class_music_playlist_query_table_widget.html#a10e7766d79ebbc75d7ab356edb79b036">MusicPlaylistQueryTableWidget</a>
+: <a class="el" href="d0/d0b/class_music_playlist_query_info_widget.html#a57365e40057f12e31b19690703867f2c">MusicPlaylistQueryInfoWidget</a>
 , <a class="el" href="db/d8b/class_music_query_table_widget.html#ae362ab9d5d5f9c35afe1d1ab70dd8513">MusicQueryTableWidget</a>
-, <a class="el" href="df/ded/class_music_toplist_query_table_widget.html#a299ea323ee5ab5bd73756d7f8818e19c">MusicToplistQueryTableWidget</a>
-, <a class="el" href="d7/d3b/class_music_web_d_j_radio_info_table_widget.html#a495a7d795a9fbec616f8cf803365ae03">MusicWebDJRadioInfoTableWidget</a>
-, <a class="el" href="d9/dc4/class_music_web_m_v_radio_info_table_widget.html#a131df5244062e28e2f21d1f4361afb01">MusicWebMVRadioInfoTableWidget</a>
 </li>
 <li>setQueryMode()
 : <a class="el" href="de/dcf/class_music_abstract_query_request.html#a21cc1eeca381d1595da04b671eba5a45">MusicAbstractQueryRequest</a>
@@ -1097,7 +1080,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="dd/d25/class_music_songs_list_played_table_widget.html#a588746ef3a6ddb6352c058508a775958">MusicSongsListPlayedTableWidget</a>
 </li>
 <li>setRadioMedia()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#ab5f39c9a572e37b3de400e83c3834bec">MusicCoreMPlayer</a>
+: <a class="el" href="d5/dad/class_music_core_m_player.html#ae7efddd1c13ea77969e9aeedb41e10d2">MusicCoreMPlayer</a>
 </li>
 <li>setRandom()
 : <a class="el" href="d7/d22/class_music_desktop_wallpaper_thread.html#acc1f1fd6fc7eb03f5e344149186c310e">MusicDesktopWallpaperThread</a>
@@ -1143,14 +1126,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setResultDataItem()
 : <a class="el" href="d8/deb/class_music_artist_albums_item_widget.html#aad14dc9e6fc824f68de5eab74ea4382f">MusicArtistAlbumsItemWidget</a>
 , <a class="el" href="d5/d64/class_music_artist_list_query_item_widget.html#abe1509f517908538ab532f8308fe9d23">MusicArtistListQueryItemWidget</a>
+, <a class="el" href="d4/d94/class_music_personal_radio_query_widget.html#ab18d1d7c741f93888f7c050485ede51e">MusicPersonalRadioQueryWidget</a>
 , <a class="el" href="d0/d0b/class_music_playlist_query_info_widget.html#a870ff5f156001983dd7769d2a5448be0">MusicPlaylistQueryInfoWidget</a>
 , <a class="el" href="d7/dcc/class_music_playlist_query_item_widget.html#abe0da3c862d9f5733ba311f57ca37b5b">MusicPlaylistQueryItemWidget</a>
 , <a class="el" href="da/d4b/class_music_web_d_j_radio_category_item_widget.html#a5efe68cd59b7b3a740affad0c673a8dd">MusicWebDJRadioCategoryItemWidget</a>
 , <a class="el" href="d6/d73/class_music_web_d_j_radio_query_item_widget.html#ae22521067a59c02233257d4f6ef1c17c">MusicWebDJRadioQueryItemWidget</a>
 , <a class="el" href="df/d9f/class_music_web_m_v_radio_query_item_widget.html#a59476ec9f140383be81c156a82270a2e">MusicWebMVRadioQueryItemWidget</a>
-</li>
-<li>setRightVolume()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#abec4407b1cfe793517e44138eed43249">MusicCoreMPlayer</a>
 </li>
 <li>setRowColor()
 : <a class="el" href="d8/d51/class_t_t_k_abstract_table_widget.html#a26ee6da8ba44a6385c0fb8821462d26e">TTKAbstractTableWidget</a>
@@ -1215,6 +1196,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>setSongCountText()
 : <a class="el" href="dd/d56/class_music_abstract_item_query_widget.html#aca7cad1aeebfc01febbdbf64ab677005">MusicAbstractItemQueryWidget</a>
+</li>
+<li>setSongLoveState()
+: <a class="el" href="de/d02/class_music_left_area_widget.html#a58c50fa7e22680fa9c9101d224980938">MusicLeftAreaWidget</a>
 </li>
 <li>setSongMeta()
 : <a class="el" href="d6/d1e/class_music_download_meta_data_request.html#a7d48de594f227ce44b517d1c08484c41">MusicDownloadMetaDataRequest</a>
@@ -1348,7 +1332,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="d8/d3c/class_music_video_control_widget.html#a1023a77468240a80e5befe072b3e6137">MusicVideoControlWidget</a>
 , <a class="el" href="dc/d66/class_music_volume_pop_widget.html#abdaf5e989a10bb0e143ff60211f2ba24">MusicVolumePopWidget</a>
 , <a class="el" href="dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">TagModel</a>
-, <a class="el" href="d1/dc5/class_track_info.html#a5fe6ffdc4d3b72e1e96655a01eda5de0">TrackInfo</a>
+, <a class="el" href="d1/dc5/class_track_info.html#a81756c8dc7d4cb28c20fc44579e026d0">TrackInfo</a>
 </li>
 <li>setValues()
 : <a class="el" href="d1/dc5/class_track_info.html#a9bf52b0682a3b659f3ed9a80f39177b4">TrackInfo</a>
@@ -1357,7 +1341,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="d1/de7/class_q_http_request.html#afc13559668af3df8e91719a4a5839903">QHttpRequest</a>
 </li>
 <li>setVideoMedia()
-: <a class="el" href="d5/dad/class_music_core_m_player.html#adbf25601ece3985a11bca162632a0962">MusicCoreMPlayer</a>
+: <a class="el" href="d5/dad/class_music_core_m_player.html#ab2371a2b1c7fe32abb7ae2ba2908f4cb">MusicCoreMPlayer</a>
 </li>
 <li>setVisible()
 : <a class="el" href="d1/d21/class_music_blur_specturm_module.html#aabd61c16320229c3e9d7dd1029c650aa">MusicBlurSpecturmModule</a>
@@ -1388,7 +1372,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="d6/d06/class_q_algorithm_1_1_water_wave_private.html#a5a96b5cd3e6573b79eabfd22537a28cb">QAlgorithm::WaterWavePrivate</a>
 </li>
 <li>setWaveSourcePower()
-: <a class="el" href="d6/d06/class_q_algorithm_1_1_water_wave_private.html#a43e8754784f4b61bd01684d9858cc393">QAlgorithm::WaterWavePrivate</a>
+: <a class="el" href="d6/d06/class_q_algorithm_1_1_water_wave_private.html#a68a70cf51c21a8ba36e6845dade67546">QAlgorithm::WaterWavePrivate</a>
 </li>
 <li>setWindowConcise()
 : <a class="el" href="da/d71/class_music_bottom_area_widget.html#a27cc09717fb10b403021434a78c661ce">MusicBottomAreaWidget</a>
@@ -1422,12 +1406,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>shareTimeout()
 : <a class="el" href="de/d68/class_music_song_sharing_widget.html#a72ea5f14284e11960b50a51a379506ef">MusicSongSharingWidget</a>
 </li>
-<li>SharpeImage()
-: <a class="el" href="d2/d55/class_q_algorithm_1_1_sharpe_image.html#a5eee218433abd15709880433c1089485">QAlgorithm::SharpeImage</a>
-</li>
-<li>SharpeImagePrivate()
-: <a class="el" href="d8/dd6/class_q_algorithm_1_1_sharpe_image_private.html#a72b09a50b43c2ad614210cb8b4bb5178">QAlgorithm::SharpeImagePrivate</a>
-</li>
 <li>shl()
 : <a class="el" href="d4/d2c/structlarge__int_1_1detail__delegate.html#ac64b947420b94f193b38c4f03927a162">large_int::detail_delegate&lt; bool &gt;</a>
 </li>
@@ -1453,9 +1431,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>showAboutWidget()
 : <a class="el" href="de/dae/class_music_application_module.html#a77e106566b3bc83a7837f2c709196a23">MusicApplicationModule</a>
 </li>
-<li>showAdvancedSearchFound()
-: <a class="el" href="d3/d6a/class_music_right_area_widget.html#a94a08899df1bb83172028e896a694407">MusicRightAreaWidget</a>
-</li>
 <li>showAlbumFound()
 : <a class="el" href="d3/d6a/class_music_right_area_widget.html#a7e958fa7fecc1fdb1376aeaf61641527">MusicRightAreaWidget</a>
 </li>
@@ -1465,14 +1440,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>showAlbumSearchFound()
 : <a class="el" href="d3/d6a/class_music_right_area_widget.html#a868b6044aed75cb25f1b201f21366a81">MusicRightAreaWidget</a>
 </li>
-<li>showArtistCategoryFound()
-: <a class="el" href="d3/d6a/class_music_right_area_widget.html#a53401038c15e4a0ba9be0bdcc4a205f0">MusicRightAreaWidget</a>
-</li>
 <li>showArtistFound()
 : <a class="el" href="d3/d6a/class_music_right_area_widget.html#a6278af0ada32692b942d375aa268bbc2">MusicRightAreaWidget</a>
 </li>
-<li>showArtistPhoto()
-: <a class="el" href="d0/df7/class_music_lrc_float_photo_widget.html#a388901965425a18ff4b7636ca9f8224e">MusicLrcFloatPhotoWidget</a>
+<li>showArtistImage()
+: <a class="el" href="d0/df7/class_music_lrc_float_photo_widget.html#a0664bc2d70b479d375f2b1d993394546">MusicLrcFloatPhotoWidget</a>
 </li>
 <li>showArtistPhotoWidget()
 : <a class="el" href="d2/dd5/class_music_lrc_float_widget.html#a38c250f6f5df6a047676ff168532bd4f">MusicLrcFloatWidget</a>
@@ -1489,6 +1461,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>showBugReportView()
 : <a class="el" href="de/dae/class_music_application_module.html#a2a1438bbfff2462fee037d235e37d2ca">MusicApplicationModule</a>
+</li>
+<li>showCommentsFound()
+: <a class="el" href="d3/d6a/class_music_right_area_widget.html#ac3b6eee7e95de0ce5134a97576d13cf4">MusicRightAreaWidget</a>
 </li>
 <li>showComplexStyleRemote()
 : <a class="el" href="d3/d96/class_music_top_area_widget.html#a5fb03ff156d7d005ce7f1c94ff59abc7">MusicTopAreaWidget</a>
@@ -1592,6 +1567,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="d6/d10/class_music_background_palette_widget.html#a4782b1d11bf6fdba4ca69f2f20b90d00">MusicBackgroundPaletteWidget</a>
 , <a class="el" href="db/d13/class_music_background_skin_dialog.html#ab820e52e0733055f4da78bff7708904a">MusicBackgroundSkinDialog</a>
 </li>
+<li>showPersonalRadioFound()
+: <a class="el" href="d3/d6a/class_music_right_area_widget.html#a0f2e0f5c2012d7226370ea46f2871838">MusicRightAreaWidget</a>
+</li>
 <li>showPlayedMovieQueryWidget()
 : <a class="el" href="d8/daa/class_music_abstract_songs_list_table_widget.html#a4329503c734b62169a18116bee74283e">MusicAbstractSongsListTableWidget</a>
 </li>
@@ -1601,11 +1579,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>showPlayedSongSharedWidget()
 : <a class="el" href="d8/daa/class_music_abstract_songs_list_table_widget.html#a6e23aa8e951688771f5e14da8c0f6b81">MusicAbstractSongsListTableWidget</a>
 </li>
+<li>showPlaylistCategoryFound()
+: <a class="el" href="d3/d6a/class_music_right_area_widget.html#a8799dd8870d8141a89c0a1e1af12c16a">MusicRightAreaWidget</a>
+</li>
 <li>showPlaylistFound()
 : <a class="el" href="d3/d6a/class_music_right_area_widget.html#a0be027ab175d7553515b318b356649a8">MusicRightAreaWidget</a>
-</li>
-<li>showRecommendFound()
-: <a class="el" href="d3/d6a/class_music_right_area_widget.html#a3380e599ae356d51905e69e48f0f1966">MusicRightAreaWidget</a>
 </li>
 <li>showRectangleRemote()
 : <a class="el" href="d3/d96/class_music_top_area_widget.html#a43e3da37a1b551d98c8d482d781a2735">MusicTopAreaWidget</a>
@@ -1615,12 +1593,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>showSearchWidget()
 : <a class="el" href="da/d8b/class_music_songs_container_widget.html#ad3bfac3a8a8e67238942c9b4eb082cea">MusicSongsContainerWidget</a>
-</li>
-<li>showSettings()
-: <a class="el" href="dc/d36/class_decoder_factory.html#a24407786522162b760e1d37f6610603a">DecoderFactory</a>
-, <a class="el" href="de/d8b/class_effect_factory.html#a840a7367e1dd4af74a726e7460fa67d4">EffectFactory</a>
-, <a class="el" href="d6/d21/class_input_source_factory.html#a398beb241b79eaae518cfd60c4939e08">InputSourceFactory</a>
-, <a class="el" href="dc/db6/class_output_factory.html#a089f28e8afd320986db652d4d2c26df5">OutputFactory</a>
 </li>
 <li>showSettingWidget()
 : <a class="el" href="db/def/class_music_application.html#aa054ab5072bd2648d45ccf3f82c3f56f">MusicApplication</a>
@@ -1647,7 +1619,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>showSongCommentsWidget()
 : <a class="el" href="d7/df3/class_music_lrc_container_for_interior.html#a66bfe3893eed89e14f41ea315f22f977">MusicLrcContainerForInterior</a>
-, <a class="el" href="d3/d6a/class_music_right_area_widget.html#a698137b97c747dd6e9d3311ee4c710e8">MusicRightAreaWidget</a>
 </li>
 <li>showSongMainWidget()
 : <a class="el" href="d3/d6a/class_music_right_area_widget.html#a05e88bd682384bb231d8ecbf6c295eb1">MusicRightAreaWidget</a>
@@ -1681,9 +1652,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>showToolSetsWidget()
 : <a class="el" href="d3/d96/class_music_top_area_widget.html#a8311bb15520ca37d2c0b1c44c16cd37c">MusicTopAreaWidget</a>
-</li>
-<li>showToplistFound()
-: <a class="el" href="d3/d6a/class_music_right_area_widget.html#add93d36a78285946776c3a8cf4a5d8f1">MusicRightAreaWidget</a>
 </li>
 <li>showTransformWidget()
 : <a class="el" href="de/d40/class_music_songs_list_play_table_widget.html#af1e752c53092e0204bd416a90cbcf117">MusicSongsListPlayTableWidget</a>
@@ -1766,8 +1734,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>songListSortBy()
 : <a class="el" href="da/d8b/class_music_songs_container_widget.html#a9594aedc29faea9779f93bc2f3e9e1bd">MusicSongsContainerWidget</a>
-, <a class="el" href="de/d40/class_music_songs_list_play_table_widget.html#aaaddd6fadc849c4103a5271f31bdb0de">MusicSongsListPlayTableWidget</a>
-, <a class="el" href="d7/d93/class_music_songs_tool_box_top_widget.html#a1bfb549d7b70d51cec0dc43abfa0e81a">MusicSongsToolBoxTopWidget</a>
+, <a class="el" href="de/d40/class_music_songs_list_play_table_widget.html#acbb454a20a5d61ec4773b4178ba521b9">MusicSongsListPlayTableWidget</a>
+, <a class="el" href="d7/d93/class_music_songs_tool_box_top_widget.html#a8e4de5ed6d6258791a5a90b532f162e5">MusicSongsToolBoxTopWidget</a>
 , <a class="el" href="d0/df6/class_music_songs_tool_box_widget_item.html#a6971ccd69a6b6eff62e3262b8979365b">MusicSongsToolBoxWidgetItem</a>
 </li>
 <li>songMeta()
@@ -1913,6 +1881,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>startToDrag()
 : <a class="el" href="de/d40/class_music_songs_list_play_table_widget.html#af8d2c46fbbd714d9575720f4bfbed75a">MusicSongsListPlayTableWidget</a>
 </li>
+<li>startToListRequest()
+: <a class="el" href="d0/d4c/class_tool_f_m.html#a9d7d5907244214e04095a919085ae0c9">ToolFM</a>
+</li>
 <li>startToPage()
 : <a class="el" href="d6/d46/class_music_d_j_radio_program_category_request.html#a50d588d48952807698d5f7b2787fa0d8">MusicDJRadioProgramCategoryRequest</a>
 , <a class="el" href="dd/d05/class_music_k_g_playlist_comments_request.html#aa14b94851f6a415717648de61ca1d079">MusicKGPlaylistCommentsRequest</a>
@@ -1951,6 +1922,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="dc/d39/class_music_w_y_query_toplist_request.html#afdb1c25876e9764fba6e29e5d1ecc9bd">MusicWYQueryToplistRequest</a>
 , <a class="el" href="dc/d36/class_music_w_y_song_comments_request.html#a67d8df9c6655b9aeb2b10eefee450851">MusicWYSongCommentsRequest</a>
 </li>
+<li>startToQueryByText()
+: <a class="el" href="db/d8b/class_music_query_table_widget.html#a21cf843b486b2e5e57531a2b95f8ed11">MusicQueryTableWidget</a>
+</li>
 <li>startToQueryInfo()
 : <a class="el" href="d1/d12/class_music_k_g_query_playlist_request.html#aa19ec8479b78420a506392a679f8490b">MusicKGQueryPlaylistRequest</a>
 , <a class="el" href="d9/d2a/class_music_k_w_query_playlist_request.html#ab71b1619ece0a7dbfb0b7e698a5ed775">MusicKWQueryPlaylistRequest</a>
@@ -1980,13 +1954,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>startToRequest()
 : <a class="el" href="da/d56/class_music_abstract_download_image_request.html#a76ab312647cb01a9c9376a323a345e5c">MusicAbstractDownloadImageRequest</a>
 , <a class="el" href="df/d6c/class_music_abstract_down_load_request.html#a791f18b87db3399ffbf513d44e40d1fe">MusicAbstractDownLoadRequest</a>
-, <a class="el" href="d9/d7d/class_music_abstract_download_skin_request.html#a2aedfdca50a37c7c0c1e855d4c37c791">MusicAbstractDownloadSkinRequest</a>
+, <a class="el" href="d9/d7d/class_music_abstract_download_skin_request.html#a64e74febbdff2c6c41bad4b1a4956536">MusicAbstractDownloadSkinRequest</a>
 , <a class="el" href="d9/de9/class_music_abstract_translation_request.html#a0e36fe6ba4d958c1626728578d975d9e">MusicAbstractTranslationRequest</a>
 , <a class="el" href="dd/d78/class_music_background_remote_widget.html#aad89ac93f3e5a3f4714db081bf6ef802">MusicBackgroundRemoteWidget</a>
 , <a class="el" href="db/d07/class_music_barrage_request.html#a2f2a7bd107fa0ae59d63ee53f9003bc0">MusicBarrageRequest</a>
 , <a class="el" href="d8/da0/class_music_b_d_translation_request.html#a22e4e62c828518c3cabd3ed3786b6a35">MusicBDTranslationRequest</a>
 , <a class="el" href="dd/d46/class_music_bing_translation_request.html#a665c4d7ee30454179658f97bc2d88888">MusicBingTranslationRequest</a>
 , <a class="el" href="d7/d8f/class_music_b_p_download_background_request.html#a51bd72802b235c8a588e2af7b87658e3">MusicBPDownloadBackgroundRequest</a>
+, <a class="el" href="dd/d62/class_music_ci_ba_request.html#a6f7ff1b130dcdfeea7825ffb10bb41cb">MusicCiBaRequest</a>
 , <a class="el" href="d0/d4c/class_music_cover_request.html#aa144b134a93ea3fa58e8eb928d25b985">MusicCoverRequest</a>
 , <a class="el" href="df/d9b/class_music_cover_source_request.html#a95f68088c91327ef401b6809a17a717f">MusicCoverSourceRequest</a>
 , <a class="el" href="d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">MusicDataSourceRequest</a>
@@ -1996,8 +1971,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="da/d7d/class_music_download_batch_table_item.html#a585c4777303e86c3428066986cb594da">MusicDownloadBatchTableItem</a>
 , <a class="el" href="d5/dab/class_music_download_batch_table_widget.html#a4c1c5bb6eff93df2f6c085b30e727b3f">MusicDownloadBatchTableWidget</a>
 , <a class="el" href="df/dea/class_music_download_bing_skin_request.html#a164007302a5226029216184a7a7d20df">MusicDownloadBingSkinRequest</a>
-, <a class="el" href="d6/d4b/class_music_download_bird_skin_request.html#a81216cc12be9775a461a1209d4b12f1e">MusicDownloadBirdSkinRequest</a>
-, <a class="el" href="df/d09/class_music_download_data_request.html#a9100b07af76834312346a946e36d2f39">MusicDownloadDataRequest</a>
+, <a class="el" href="d6/d4b/class_music_download_bird_skin_request.html#a2b859eae4bc0038bb3123f29c2698e2d">MusicDownloadBirdSkinRequest</a>
+, <a class="el" href="df/d09/class_music_download_data_request.html#a93af5e06bfd2b789c0ced27c3affa88a">MusicDownloadDataRequest</a>
 , <a class="el" href="d6/d1e/class_music_download_meta_data_request.html#a970a571ca08a5912d4f0ff43cd28d8c8">MusicDownloadMetaDataRequest</a>
 , <a class="el" href="d6/db0/class_music_download_queue_request.html#a21b2ed7b81e348868875b4911f3f8dd8">MusicDownloadQueueRequest</a>
 , <a class="el" href="d1/d61/class_music_down_load_text_request.html#a393c1741d6be27ffa293643e85a41de2">MusicDownLoadTextRequest</a>
@@ -2019,6 +1994,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="d5/dc2/class_music_w_y_down_load_text_request.html#a66c77c428a66609f84ac8f837ee36605">MusicWYDownLoadTextRequest</a>
 , <a class="el" href="da/d1b/class_music_w_y_translation_request.html#ac63f87f9b7f91e3d2876cce56fdcc22f">MusicWYTranslationRequest</a>
 , <a class="el" href="d5/dc7/class_music_y_d_translation_request.html#ad24158c32e710bb4cd848e1e29dcc40f">MusicYDTranslationRequest</a>
+, <a class="el" href="d0/d4c/class_tool_f_m.html#a1ad3260f6a185161257f1693054fa83c">ToolFM</a>
 </li>
 <li>startToRequestMovie()
 : <a class="el" href="da/d7d/class_music_download_batch_table_item.html#a83910aeafc2ba5ac0f077774cee0615a">MusicDownloadBatchTableItem</a>
@@ -2305,7 +2281,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:55:14 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:23:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

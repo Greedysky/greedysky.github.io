@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -83,32 +83,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../dc/dbc/class_t_t_k_clicked_label.html#aada75f179a65d3eb9327c3edb590cab1">    5</a></span>&#160;<a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#aada75f179a65d3eb9327c3edb590cab1">TTKClickedLabel::TTKClickedLabel</a>(QWidget *parent)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    : QLabel(parent)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    setCursor(Qt::PointingHandCursor);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../dc/dbc/class_t_t_k_clicked_label.html#a7cd21b7573cc55d9b0a02d78ef610118">   11</a></span>&#160;<a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#aada75f179a65d3eb9327c3edb590cab1">TTKClickedLabel::TTKClickedLabel</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    : QLabel(text, parent)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    setCursor(Qt::PointingHandCursor);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">TTKClickedLabel::mousePressEvent</a>(QMouseEvent *event)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//    QLabel::mousePressEvent(event);</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(event-&gt;button() == Qt::LeftButton)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       Q_EMIT <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#a7b450fd6d86ad14e3feae3e4be605a16">clicked</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    , m_blockOption(false)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    setCursor(Qt::PointingHandCursor);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../dc/dbc/class_t_t_k_clicked_label.html#a7cd21b7573cc55d9b0a02d78ef610118">   12</a></span>&#160;<a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#aada75f179a65d3eb9327c3edb590cab1">TTKClickedLabel::TTKClickedLabel</a>(<span class="keyword">const</span> QString &amp;text, QWidget *parent)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    : QLabel(text, parent)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    , m_blockOption(false)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    setCursor(Qt::PointingHandCursor);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">TTKClickedLabel::mousePressEvent</a>(QMouseEvent *event)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//    QLabel::mousePressEvent(event);</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(event-&gt;button() == Qt::LeftButton &amp;&amp; !<a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#a43f42b13a11a5d9146c4de09144351e9">m_blockOption</a>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       Q_EMIT <a class="code" href="../../dc/dbc/class_t_t_k_clicked_label.html#a7b450fd6d86ad14e3feae3e4be605a16">clicked</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="ttc" id="class_t_t_k_clicked_label_html_aada75f179a65d3eb9327c3edb590cab1"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html#aada75f179a65d3eb9327c3edb590cab1">TTKClickedLabel::TTKClickedLabel</a></div><div class="ttdeci">TTKClickedLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/ttkclickedlabel_8cpp_source.html#l00005">ttkclickedlabel.cpp:5</a></div></div>
 <div class="ttc" id="ttkclickedlabel_8h_html"><div class="ttname"><a href="../../d9/d2d/ttkclickedlabel_8h.html">ttkclickedlabel.h</a></div></div>
-<div class="ttc" id="class_t_t_k_clicked_label_html_ab7ff26d08fba55ef592193c02887bb6f"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">TTKClickedLabel::mousePressEvent</a></div><div class="ttdeci">virtual void mousePressEvent(QMouseEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/ttkclickedlabel_8cpp_source.html#l00017">ttkclickedlabel.cpp:17</a></div></div>
+<div class="ttc" id="class_t_t_k_clicked_label_html_ab7ff26d08fba55ef592193c02887bb6f"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html#ab7ff26d08fba55ef592193c02887bb6f">TTKClickedLabel::mousePressEvent</a></div><div class="ttdeci">virtual void mousePressEvent(QMouseEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d6b/ttkclickedlabel_8cpp_source.html#l00019">ttkclickedlabel.cpp:19</a></div></div>
 <div class="ttc" id="class_t_t_k_clicked_label_html_a7b450fd6d86ad14e3feae3e4be605a16"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html#a7b450fd6d86ad14e3feae3e4be605a16">TTKClickedLabel::clicked</a></div><div class="ttdeci">void clicked()</div></div>
+<div class="ttc" id="class_t_t_k_clicked_label_html_a43f42b13a11a5d9146c4de09144351e9"><div class="ttname"><a href="../../dc/dbc/class_t_t_k_clicked_label.html#a43f42b13a11a5d9146c4de09144351e9">TTKClickedLabel::m_blockOption</a></div><div class="ttdeci">bool m_blockOption</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d2d/ttkclickedlabel_8h_source.html#l00056">ttkclickedlabel.h:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:53:42 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:03 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

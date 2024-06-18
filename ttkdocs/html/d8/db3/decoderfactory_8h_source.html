@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -129,13 +129,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../da/d56/class_decoder.html">Decoder</a> *create(<span class="keyword">const</span> QString &amp;path, QIODevice *input = <span class="keyword">nullptr</span>) = 0;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">virtual</span> QList&lt;TrackInfo*&gt; createPlayList(<span class="keyword">const</span> QString &amp;fileName, TrackInfo::Parts parts, QStringList *ignoredPaths) = 0;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a>* createMetaDataModel(<span class="keyword">const</span> QString &amp;path, <span class="keywordtype">bool</span> readOnly) = 0;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> showSettings(QWidget *parent) = 0;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../dc/d36/class_decoder_factory.html">DecoderFactory</a>, <span class="stringliteral">&quot;DecoderFactory/1.0&quot;</span>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">virtual</span> QDialog *createSettings(QWidget *parent) = 0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../dc/d36/class_decoder_factory.html">DecoderFactory</a>, <span class="stringliteral">&quot;DecoderFactory/1.0&quot;</span>)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="struct_decoder_properties_html_a694a08267ac72efa2ac3aeeb987aec1f"><div class="ttname"><a href="../../d9/d33/struct_decoder_properties.html#a694a08267ac72efa2ac3aeeb987aec1f">DecoderProperties::description</a></div><div class="ttdeci">QString description</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db3/decoderfactory_8h_source.html#l00038">decoderfactory.h:38</a></div></div>
 <div class="ttc" id="trackinfo_8h_html"><div class="ttname"><a href="../../de/d64/trackinfo_8h.html">trackinfo.h</a></div></div>
 <div class="ttc" id="struct_decoder_properties_html_afabecc54606fa6d5ee6bb182ef0a85dd"><div class="ttname"><a href="../../d9/d33/struct_decoder_properties.html#afabecc54606fa6d5ee6bb182ef0a85dd">DecoderProperties::contentTypes</a></div><div class="ttdeci">QStringList contentTypes</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/db3/decoderfactory_8h_source.html#l00039">decoderfactory.h:39</a></div></div>
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

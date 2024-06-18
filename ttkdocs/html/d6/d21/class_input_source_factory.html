@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -92,14 +92,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e3988e891f00c8d25aff98827c38379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13337e659a28211f4e29c678b405dd3c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../dc/d3d/class_input_source.html">InputSource</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d21/class_input_source_factory.html#a13337e659a28211f4e29c678b405dd3c">create</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;url, QObject *parent=nullptr)=0</td></tr>
 <tr class="separator:a13337e659a28211f4e29c678b405dd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a398beb241b79eaae518cfd60c4939e08"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d21/class_input_source_factory.html#a398beb241b79eaae518cfd60c4939e08">showSettings</a> (QWidget *parent)=0</td></tr>
-<tr class="separator:a398beb241b79eaae518cfd60c4939e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1feec7abefec20e0c1dead9b3ecf7e76"><td class="memItemLeft" align="right" valign="top">virtual QDialog *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d21/class_input_source_factory.html#a1feec7abefec20e0c1dead9b3ecf7e76">createSettings</a> (QWidget *parent)=0</td></tr>
+<tr class="separator:a1feec7abefec20e0c1dead9b3ecf7e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Transport plugin interface. </p>
 <dl class="section author"><dt>Author</dt><dd>Ilya Kotov <a href="#" onclick="location.href='mai'+'lto:'+'for'+'ko'+'tov'+'02'+'@ya'+'.r'+'u'; return false;">forko<span style="display: none;">.nosp@m.</span>tov0<span style="display: none;">.nosp@m.</span>2@ya.<span style="display: none;">.nosp@m.</span>ru</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d0/deb/inputsourcefactory_8h_source.html#l00046">46</a> of file <a class="el" href="../../d0/deb/inputsourcefactory_8h_source.html">inputsourcefactory.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/deb/inputsourcefactory_8h_source.html#l00047">47</a> of file <a class="el" href="../../d0/deb/inputsourcefactory_8h_source.html">inputsourcefactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="abb5cb308163807201ef9b32f034cfb24"></a>
 <div class="memitem">
@@ -167,6 +167,37 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1feec7abefec20e0c1dead9b3ecf7e76"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QDialog* InputSourceFactory::createSettings </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates settings dialog. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Parent widget. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Settings dialog pointer. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a6e3988e891f00c8d25aff98827c38379"></a>
 <div class="memitem">
 <div class="memproto">
@@ -193,43 +224,13 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a398beb241b79eaae518cfd60c4939e08"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void InputSourceFactory::showSettings </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Shows settings dialog. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">parent</td><td>Parent widget. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>TTKThirdParty/TTKqmmp/qmmp/<a class="el" href="../../d0/deb/inputsourcefactory_8h_source.html">inputsourcefactory.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:54:21 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:29 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

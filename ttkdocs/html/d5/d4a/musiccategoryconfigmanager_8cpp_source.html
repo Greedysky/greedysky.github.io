@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -114,22 +114,28 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keyword">const</span> QDomNode &amp;tagNode = tagNodes.item(j);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            category.<a class="code" href="../../df/d78/struct_music_results_category.html#a59deaf436f84a927a8f003af758903a3">m_category</a> = tagNode.toElement().attribute(<span class="stringliteral">&quot;value&quot;</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">const</span> QDomNodeList &amp;typeNodes = tagNode.childNodes();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; typeNodes.count(); ++k)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keyword">const</span> QDomElement &amp;element = typeNodes.item(k).toElement();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span>(category.<a class="code" href="../../df/d78/struct_music_results_category.html#a59deaf436f84a927a8f003af758903a3">m_category</a>.isEmpty())</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <a class="code" href="../../d2/dd7/struct_music_results_category_item.html">MusicResultsCategoryItem</a> item;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                item.<a class="code" href="../../d2/dd7/struct_music_results_category_item.html#ae7630d17ff2415ac62c10efb89ffea3f">m_key</a> = element.attribute(<span class="stringliteral">&quot;key&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                item.<a class="code" href="../../d2/dd7/struct_music_results_category_item.html#a552c52b18c5e9439b467cafe09674418">m_value</a> = element.attribute(<span class="stringliteral">&quot;value&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                category.<a class="code" href="../../df/d78/struct_music_results_category.html#a7738f41ec2471afbf9bae783eb80974a">m_items</a>.append(item);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            items.append(category);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">const</span> QDomNodeList &amp;typeNodes = tagNode.childNodes();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = 0; k &lt; typeNodes.count(); ++k)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">const</span> QDomElement &amp;element = typeNodes.item(k).toElement();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <a class="code" href="../../d2/dd7/struct_music_results_category_item.html">MusicResultsCategoryItem</a> item;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                item.<a class="code" href="../../d2/dd7/struct_music_results_category_item.html#ae7630d17ff2415ac62c10efb89ffea3f">m_key</a> = element.attribute(<span class="stringliteral">&quot;key&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                item.<a class="code" href="../../d2/dd7/struct_music_results_category_item.html#a552c52b18c5e9439b467cafe09674418">m_value</a> = element.attribute(<span class="stringliteral">&quot;value&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                category.<a class="code" href="../../df/d78/struct_music_results_category.html#a7738f41ec2471afbf9bae783eb80974a">m_items</a>.append(item);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            items.append(category);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 <div class="ttc" id="musiccategoryconfigmanager_8h_html"><div class="ttname"><a href="../../d4/dfd/musiccategoryconfigmanager_8h.html">musiccategoryconfigmanager.h</a></div></div>
 <div class="ttc" id="struct_music_results_category_item_html_a552c52b18c5e9439b467cafe09674418"><div class="ttname"><a href="../../d2/dd7/struct_music_results_category_item.html#a552c52b18c5e9439b467cafe09674418">MusicResultsCategoryItem::m_value</a></div><div class="ttdeci">QString m_value</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfd/musiccategoryconfigmanager_8h_source.html#l00030">musiccategoryconfigmanager.h:30</a></div></div>
 <div class="ttc" id="class_music_category_config_manager_html_ab1c4e6876f9bd305cbe5df2bc51c1c4ca12afa841b9f551c97df73d4dc3866150"><div class="ttname"><a href="../../d2/da6/class_music_category_config_manager.html#ab1c4e6876f9bd305cbe5df2bc51c1c4ca12afa841b9f551c97df73d4dc3866150">MusicCategoryConfigManager::Category::MovieList</a></div></div>
@@ -155,7 +161,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:53:43 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:03 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

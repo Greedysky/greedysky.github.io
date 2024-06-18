@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -98,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af5de415d074f61c423ae98f26b45cb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade246d20fd4227cb55f12d53d1cc3534"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d36/class_decoder_factory.html#ade246d20fd4227cb55f12d53d1cc3534">createMetaDataModel</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;path, bool readOnly)=0</td></tr>
 <tr class="separator:ade246d20fd4227cb55f12d53d1cc3534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24407786522162b760e1d37f6610603a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d36/class_decoder_factory.html#a24407786522162b760e1d37f6610603a">showSettings</a> (QWidget *parent)=0</td></tr>
-<tr class="separator:a24407786522162b760e1d37f6610603a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae851886468f0694517e6237b9952130b"><td class="memItemLeft" align="right" valign="top">virtual QDialog *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d36/class_decoder_factory.html#ae851886468f0694517e6237b9952130b">createSettings</a> (QWidget *parent)=0</td></tr>
+<tr class="separator:ae851886468f0694517e6237b9952130b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Input plugin interface (decoder factory). </p>
@@ -292,6 +292,37 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae851886468f0694517e6237b9952130b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QDialog* DecoderFactory::createSettings </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates settings dialog. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Parent widget. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Settings dialog pointer. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="abd5f184037bf0c66ef5ccd8f0f04703f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -318,43 +349,13 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a24407786522162b760e1d37f6610603a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void DecoderFactory::showSettings </td>
-          <td>(</td>
-          <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Shows settings dialog. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">parent</td><td>Parent widget. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>TTKThirdParty/TTKqmmp/qmmp/<a class="el" href="../../d8/db3/decoderfactory_8h_source.html">decoderfactory.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:54:20 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:29 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

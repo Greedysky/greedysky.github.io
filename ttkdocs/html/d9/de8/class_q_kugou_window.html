@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -74,6 +74,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-slots">Public Slots</a> &#124;
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-slots">Private Slots</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
@@ -101,9 +102,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:af590903deee92a9dcd3a6944b6bb7bca"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">Module</a> { <br />
-&#160;&#160;<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84">KuGouSong</a>, 
+&#160;&#160;<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa37bb49a21c1320508b26cb7ed0e02b41">None</a>, 
+<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84">KuGouSong</a>, 
 <a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa1836295740f91ac80e5b8e9ca77f48eb">KuGouRadio</a>, 
-<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa89af3f2c724ba4697b0979b1915fe05d">KuGouList</a>, 
 <a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaa565a89421629dfa316f23c0088eee3f1">KugouMovie</a>, 
 <br />
 &#160;&#160;<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bcaab54382c36fdace2583e04cb3f29533f5">KuGouSingle</a>
@@ -116,6 +117,11 @@ Public Slots</h2></td></tr>
 <tr class="memitem:a3facf1bd28f0322211ff1dddcc3e7dcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a3facf1bd28f0322211ff1dddcc3e7dcb">refresh</a> ()</td></tr>
 <tr class="separator:a3facf1bd28f0322211ff1dddcc3e7dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:a63ff14373673b00e0533ad1bcfa712d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a63ff14373673b00e0533ad1bcfa712d3">buttonClicked</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> index)</td></tr>
+<tr class="separator:a63ff14373673b00e0533ad1bcfa712d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad387650de81aab390b724d8312903cb6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#ad387650de81aab390b724d8312903cb6">QKugouWindow</a> (<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">Module</a> type, QWidget *parent=nullptr)</td></tr>
@@ -127,27 +133,15 @@ Public Member Functions</h2></td></tr>
 Private Slots</h2></td></tr>
 <tr class="memitem:a44af96c510e6dbc1a5741b9eb4fd3868"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a44af96c510e6dbc1a5741b9eb4fd3868">kugouSongIndexChanged</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> index)</td></tr>
 <tr class="separator:a44af96c510e6dbc1a5741b9eb4fd3868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a4ddbe96201423b02f17d4cdddf100a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a7a4ddbe96201423b02f17d4cdddf100a">kugouRadioIndexChanged</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> index)</td></tr>
-<tr class="separator:a7a4ddbe96201423b02f17d4cdddf100a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae8602d9783986754dfd71b2d45700a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#acae8602d9783986754dfd71b2d45700a">kugouMVIndexChanged</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> index)</td></tr>
-<tr class="separator:acae8602d9783986754dfd71b2d45700a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a8d3b978474980068743bb23880e1f115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a8d3b978474980068743bb23880e1f115">createWebViewer</a> ()</td></tr>
 <tr class="separator:a8d3b978474980068743bb23880e1f115"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a810664c5f32f834239e543bf4a7dc013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a810664c5f32f834239e543bf4a7dc013">createKugouSongWidget</a> ()</td></tr>
-<tr class="separator:a810664c5f32f834239e543bf4a7dc013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3dfef0bfc107d842c1996e1b3699159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#ae3dfef0bfc107d842c1996e1b3699159">createKugouRadioWidget</a> ()</td></tr>
-<tr class="separator:ae3dfef0bfc107d842c1996e1b3699159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0d2c59100e899cb00b8b5b31a62656c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#ab0d2c59100e899cb00b8b5b31a62656c">createKugouListWidget</a> ()</td></tr>
-<tr class="separator:ab0d2c59100e899cb00b8b5b31a62656c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a692b5ade7312cde0cc71928abdb2d8d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a692b5ade7312cde0cc71928abdb2d8d2">createKugouMovieWidget</a> ()</td></tr>
-<tr class="separator:a692b5ade7312cde0cc71928abdb2d8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7157c7f73a19754efab0b44a2facefe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a7157c7f73a19754efab0b44a2facefe6">createKugouSingleWidget</a> ()</td></tr>
-<tr class="separator:a7157c7f73a19754efab0b44a2facefe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c5bcff242d9123c7ef5670495cbcff2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a3c5bcff242d9123c7ef5670495cbcff2">changeClickedButtonStyle</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> index)</td></tr>
-<tr class="separator:a3c5bcff242d9123c7ef5670495cbcff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb7ca6e148d7b85ac02c729bf926843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#aebb7ca6e148d7b85ac02c729bf926843">createWebViewer</a> (<a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">Module</a> type)</td></tr>
+<tr class="separator:aebb7ca6e148d7b85ac02c729bf926843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350cbe1452b020fac5f221a568505931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/de8/class_q_kugou_window.html#a350cbe1452b020fac5f221a568505931">createKugouSongWidget</a> (bool power)</td></tr>
+<tr class="separator:a350cbe1452b020fac5f221a568505931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The class of the kugou window widget. </p>
@@ -165,17 +159,17 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84"></a>KuGouSong&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaa37bb49a21c1320508b26cb7ed0e02b41"></a>None&#160;</td><td class="fielddoc">
+<p>KuGou None </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaaa7a62fa3418ac9ce05dd048df91c8c84"></a>KuGouSong&#160;</td><td class="fielddoc">
 <p>KuGou Song </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaa1836295740f91ac80e5b8e9ca77f48eb"></a>KuGouRadio&#160;</td><td class="fielddoc">
 <p>KuGou Radio </p>
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaa89af3f2c724ba4697b0979b1915fe05d"></a>KuGouList&#160;</td><td class="fielddoc">
-<p>KuGou List </p>
-</td></tr>
 <tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaa565a89421629dfa316f23c0088eee3f1"></a>KugouMovie&#160;</td><td class="fielddoc">
-<p>Kugou Mv </p>
+<p>Kugou Movie </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="af590903deee92a9dcd3a6944b6bb7bcaab54382c36fdace2583e04cb3f29533f5"></a>KuGouSingle&#160;</td><td class="fielddoc">
 <p>KuGou Single </p>
@@ -222,12 +216,12 @@ Private Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">57</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00319">createKugouListWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00348">createKugouMovieWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00271">createKugouRadioWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00396">createKugouSingleWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00213">createKugouSongWidget()</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00038">KuGouList</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00039">KugouMovie</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00037">KuGouRadio</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00040">KuGouSingle</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00036">KuGouSong</a>, and <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00033">TTK_INIT_PRIVATE</a>.</p>
+<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00211">createKugouSongWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00155">createWebViewer()</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00037">KuGouSong</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00036">None</a>, and <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00033">TTK_INIT_PRIVATE</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a3c5bcff242d9123c7ef5670495cbcff2"></a>
+<a class="anchor" id="a63ff14373673b00e0533ad1bcfa712d3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -235,7 +229,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void QKugouWindow::changeClickedButtonStyle </td>
+          <td class="memname">void QKugouWindow::buttonClicked </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -244,141 +238,17 @@ Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Change clicked button style by index. </p>
+<p>Switch to selected item style. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00417">417</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00185">TTK::UI::PushButtonStyle01</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00192">TTK::UI::PushButtonStyle02</a>, and <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00171">kugouMVIndexChanged()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00157">kugouRadioIndexChanged()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00141">kugouSongIndexChanged()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00140">kugouSongIndexChanged()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab0d2c59100e899cb00b8b5b31a62656c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QKugouWindow::createKugouListWidget </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Create kugou list widget. </p>
-
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00319">319</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">createWebViewer()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00038">QKugouUrl::makeListUrl()</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00060">TTKObjectCast</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a692b5ade7312cde0cc71928abdb2d8d2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QKugouWindow::createKugouMovieWidget </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Create kugou movie widget. </p>
-
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00348">348</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">createWebViewer()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00171">kugouMVIndexChanged()</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00185">TTK::UI::PushButtonStyle01</a>, <a class="el" href="../../d9/d0e/ttkqtcompat_8h_source.html#l00101">QtButtonGroupConnect</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00165">TTK_SLOT</a>, and <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00486">TTK::UI::WidgetStyle01</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae3dfef0bfc107d842c1996e1b3699159"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QKugouWindow::createKugouRadioWidget </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Create kugou radio widget. </p>
-
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00271">271</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">createWebViewer()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00157">kugouRadioIndexChanged()</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00185">TTK::UI::PushButtonStyle01</a>, <a class="el" href="../../d9/d0e/ttkqtcompat_8h_source.html#l00101">QtButtonGroupConnect</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00165">TTK_SLOT</a>, and <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00486">TTK::UI::WidgetStyle01</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7157c7f73a19754efab0b44a2facefe6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QKugouWindow::createKugouSingleWidget </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Create kugou single widget. </p>
-
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00396">396</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">createWebViewer()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00058">QKugouUrl::makeKuiSheUrl()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">setUrl()</a>, and <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a810664c5f32f834239e543bf4a7dc013"></a>
+<a class="anchor" id="a350cbe1452b020fac5f221a568505931"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -388,7 +258,8 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void QKugouWindow::createKugouSongWidget </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>power</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -400,9 +271,9 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Create kugou song widget. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00213">213</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00211">211</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">createWebViewer()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00141">kugouSongIndexChanged()</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00185">TTK::UI::PushButtonStyle01</a>, <a class="el" href="../../d9/d0e/ttkqtcompat_8h_source.html#l00101">QtButtonGroupConnect</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00165">TTK_SLOT</a>, and <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00486">TTK::UI::WidgetStyle01</a>.</p>
+<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00155">createWebViewer()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00140">kugouSongIndexChanged()</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00187">TTK::UI::PushButtonStyle01</a>, <a class="el" href="../../d9/d0e/ttkqtcompat_8h_source.html#l00101">QtButtonGroupConnect</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">TTK_SLOT</a>, and <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00498">TTK::UI::WidgetStyle01</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
 
@@ -430,15 +301,15 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Create web view widget. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00155">155</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
 <p>References <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00319">createKugouListWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00348">createKugouMovieWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00271">createKugouRadioWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00396">createKugouSingleWidget()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00213">createKugouSongWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00211">createKugouSongWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00183">createWebViewer()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00057">QKugouWindow()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acae8602d9783986754dfd71b2d45700a"></a>
+<a class="anchor" id="aebb7ca6e148d7b85ac02c729bf926843"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -446,57 +317,24 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void QKugouWindow::kugouMVIndexChanged </td>
+          <td class="memname">void QKugouWindow::createWebViewer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d9/de8/class_q_kugou_window.html#af590903deee92a9dcd3a6944b6bb7bca">Module</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Kugou MV index changed. </p>
+<p>Create web view widget. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00171">171</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00183">183</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00417">changeClickedButtonStyle()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00043">QKugouUrl::makeMVRadioUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00048">QKugouUrl::makeMVRecommendUrl()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">setUrl()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00348">createKugouMovieWidget()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7a4ddbe96201423b02f17d4cdddf100a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QKugouWindow::kugouRadioIndexChanged </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Kugou radio index changed. </p>
-
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00157">157</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00417">changeClickedButtonStyle()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00033">QKugouUrl::makeRadioHighFmUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00028">QKugouUrl::makeRadioPublicUrl()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">setUrl()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00271">createKugouRadioWidget()</a>.</p>
+<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00155">createWebViewer()</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00039">KugouMovie</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00038">KuGouRadio</a>, <a class="el" href="../../d6/d60/qkugouwindow_8h_source.html#l00040">KuGouSingle</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00023">QKugouUrl::makeKuiSheUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00018">QKugouUrl::makeMovieRecommendUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00013">QKugouUrl::makeRadioPublicUrl()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00087">setUrl()</a>, <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, and <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00498">TTK::UI::WidgetStyle01</a>.</p>
 
 </div>
 </div>
@@ -523,11 +361,11 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Kugou song index changed. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00141">141</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00140">140</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00417">changeClickedButtonStyle()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00023">QKugouUrl::makeSongCategoryUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00013">QKugouUrl::makeSongRankUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00008">QKugouUrl::makeSongRecommendUrl()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00018">QKugouUrl::makeSongSingerUrl()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">setUrl()</a>.</p>
+<p>References <a class="el" href="../../d9/de8/class_q_kugou_window.html#a63ff14373673b00e0533ad1bcfa712d3">buttonClicked()</a>, <a class="el" href="../../d2/dca/qkugouurl_8cpp_source.html#l00008">QKugouUrl::makeSongRecommendUrl()</a>, <a class="el" href="../../d0/deb/musicuiobject_8h_source.html#l00195">TTK::UI::PushButtonStyle02</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00087">setUrl()</a>, and <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00213">createKugouSongWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00211">createKugouSongWidget()</a>.</p>
 
 </div>
 </div>
@@ -553,9 +391,9 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set web index refresh. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00117">117</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00177">TTK_SIGNLE_SHOT</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00165">TTK_SLOT</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00060">TTKObjectCast</a>.</p>
+<p>References <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00176">TTK_SIGNLE_SHOT</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">TTK_SLOT</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00059">TTKObjectCast</a>.</p>
 
 </div>
 </div>
@@ -574,11 +412,11 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set current web viewer url to show. </p>
 
-<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00087">87</a> of file <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html">qkugouwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00060">TTKObjectCast</a>.</p>
+<p>References <a class="el" href="../../dd/d24/ttkprivate_8h_source.html#l00041">TTK_D</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00059">TTKObjectCast</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00396">createKugouSingleWidget()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00171">kugouMVIndexChanged()</a>, <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00157">kugouRadioIndexChanged()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00141">kugouSongIndexChanged()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00183">createWebViewer()</a>, and <a class="el" href="../../d1/df8/qkugouwindow_8cpp_source.html#l00140">kugouSongIndexChanged()</a>.</p>
 
 </div>
 </div>
@@ -589,7 +427,7 @@ Private Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:55:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:58 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

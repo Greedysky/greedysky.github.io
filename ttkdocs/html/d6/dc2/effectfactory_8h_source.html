@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -103,7 +103,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>QWidget;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>QDialog;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d58/class_effect.html">Effect</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d6/dad/struct_effect_properties.html">   33</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div>
@@ -126,15 +126,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a> properties() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d6/dad/struct_effect_properties.html">EffectProperties</a> properties() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../d6/d58/class_effect.html">Effect</a> *create() = 0;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> showSettings(QWidget *parent) = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>, <span class="stringliteral">&quot;EffectFactory/1.0&quot;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> QDialog *createSettings(QWidget *parent) = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;Q_DECLARE_INTERFACE(<a class="code" href="../../de/d8b/class_effect_factory.html">EffectFactory</a>, <span class="stringliteral">&quot;EffectFactory/1.0&quot;</span>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="struct_effect_properties_html"><div class="ttname"><a href="../../d6/dad/struct_effect_properties.html">EffectProperties</a></div><div class="ttdoc">Structure to store effect plugin properties. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00033">effectfactory.h:33</a></div></div>
 <div class="ttc" id="class_effect_html"><div class="ttname"><a href="../../d6/d58/class_effect.html">Effect</a></div><div class="ttdoc">The Effect class provides the base interface class of audio effects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d76/effect_8h_source.html#l00036">effect.h:36</a></div></div>
 <div class="ttc" id="class_effect_factory_html"><div class="ttname"><a href="../../de/d8b/class_effect_factory.html">EffectFactory</a></div><div class="ttdoc">Effect plugin interface (effect factory). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dc2/effectfactory_8h_source.html#l00054">effectfactory.h:54</a></div></div>
@@ -147,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:54:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

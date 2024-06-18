@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">4.0.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;      m_blockAnimation(false)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="../../d5/d30/class_music_abstract_float_widget.html#a5ce09ef3bf0dab13b05cad4a37578185">m_animation</a> = <span class="keyword">new</span> QPropertyAnimation(<span class="keyword">this</span>, <span class="stringliteral">&quot;geometry&quot;</span>, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d5/d30/class_music_abstract_float_widget.html#a5ce09ef3bf0dab13b05cad4a37578185">m_animation</a>-&gt;setDuration(500);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d5/d30/class_music_abstract_float_widget.html#a5ce09ef3bf0dab13b05cad4a37578185">m_animation</a>-&gt;setDuration(<a class="code" href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a> / 2);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../d5/d30/class_music_abstract_float_widget.html#a7caaa143e786b843fe4db362f1790ad1">   11</a></span>&#160;<a class="code" href="../../d5/d30/class_music_abstract_float_widget.html#a7caaa143e786b843fe4db362f1790ad1">MusicAbstractFloatWidget::~MusicAbstractFloatWidget</a>()</div>
@@ -132,13 +132,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_music_abstract_float_widget_html_a7caaa143e786b843fe4db362f1790ad1"><div class="ttname"><a href="../../d5/d30/class_music_abstract_float_widget.html#a7caaa143e786b843fe4db362f1790ad1">MusicAbstractFloatWidget::~MusicAbstractFloatWidget</a></div><div class="ttdeci">~MusicAbstractFloatWidget()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/musicabstractfloatwidget_8cpp_source.html#l00011">musicabstractfloatwidget.cpp:11</a></div></div>
 <div class="ttc" id="class_music_abstract_float_widget_html_a3a029bb147925b58a03addaba3402b64"><div class="ttname"><a href="../../d5/d30/class_music_abstract_float_widget.html#a3a029bb147925b58a03addaba3402b64">MusicAbstractFloatWidget::leaveEvent</a></div><div class="ttdeci">virtual void leaveEvent(QEvent *event) override</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/musicabstractfloatwidget_8cpp_source.html#l00039">musicabstractfloatwidget.cpp:39</a></div></div>
 <div class="ttc" id="musicabstractfloatwidget_8h_html"><div class="ttname"><a href="../../d6/df0/musicabstractfloatwidget_8h.html">musicabstractfloatwidget.h</a></div></div>
+<div class="ttc" id="ttkglobal_8h_html_ac6187fd619686d0972b384b18edceca8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a></div><div class="ttdeci">#define TTK_DN_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00281">ttkglobal.h:281</a></div></div>
 <div class="ttc" id="class_music_abstract_float_widget_html_a493855430a0ca9101c8e688ecf9550b2"><div class="ttname"><a href="../../d5/d30/class_music_abstract_float_widget.html#a493855430a0ca9101c8e688ecf9550b2">MusicAbstractFloatWidget::m_rectEnter</a></div><div class="ttdeci">QRect m_rectEnter</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/df0/musicabstractfloatwidget_8h_source.html#l00069">musicabstractfloatwidget.h:69</a></div></div>
 <div class="ttc" id="class_music_abstract_float_widget_html_a8e72c533ccf479ab568f8ebef62083be"><div class="ttname"><a href="../../d5/d30/class_music_abstract_float_widget.html#a8e72c533ccf479ab568f8ebef62083be">MusicAbstractFloatWidget::MusicAbstractFloatWidget</a></div><div class="ttdeci">MusicAbstractFloatWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/musicabstractfloatwidget_8cpp_source.html#l00003">musicabstractfloatwidget.cpp:3</a></div></div>
 <div class="ttc" id="class_music_abstract_float_widget_html_ae23e313233919486aa412f275b465c85"><div class="ttname"><a href="../../d5/d30/class_music_abstract_float_widget.html#ae23e313233919486aa412f275b465c85">MusicAbstractFloatWidget::animationEnter</a></div><div class="ttdeci">void animationEnter()</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/musicabstractfloatwidget_8cpp_source.html#l00016">musicabstractfloatwidget.cpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 25 2024 20:53:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 18 2024 22:22:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
