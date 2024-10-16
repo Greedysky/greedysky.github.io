@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -102,24 +102,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dd/dec/namespace_q_dlna_helper.html">QDlnaHelper</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#ac8de760c01366c038fee3df0df8245e9">MakeRequest</a>(<span class="keyword">const</span> QString &amp;methord, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> length, <span class="keyword">const</span> QString &amp;soapAction, <span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">makeSocketGetReply</a>(<span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port, <span class="keyword">const</span> QString &amp;data);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">makeSocketGetReply</a>(<span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port, <span class="keyword">const</span> QString &amp;data);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a6147621d6ac16a8ff4daf8074fb1390c">makeRequest</a>(<span class="keyword">const</span> QString &amp;methord, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> length, <span class="keyword">const</span> QString &amp;soapAction, <span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a89dbdb72130a3d57de3a6fd29878578b">removeHttpHeader</a>(<span class="keyword">const</span> QString &amp;data);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a5f66671e54730cc65e048cabd90c451a">GetResponseCode</a>(<span class="keyword">const</span> QString &amp;data);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif // QDLNAHELPER_H</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a2345feab00db847587db6c2a7cbd62c8">isValid</a>(<span class="keyword">const</span> QString &amp;data);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">getResponseCode</a>(<span class="keyword">const</span> QString &amp;data);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // QDLNAHELPER_H</span></div>
 <div class="ttc" id="namespace_q_dlna_helper_html"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html">QDlnaHelper</a></div><div class="ttdoc">The namespace of the dlna helper. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00007">qdlnahelper.cpp:7</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_ac8de760c01366c038fee3df0df8245e9"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#ac8de760c01366c038fee3df0df8245e9">QDlnaHelper::MakeRequest</a></div><div class="ttdeci">QString MakeRequest(const QString &amp;methord, const QString &amp;url, int length, const QString &amp;soapAction, const QString &amp;ip, const QString &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00009">qdlnahelper.cpp:9</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a6147621d6ac16a8ff4daf8074fb1390c"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a6147621d6ac16a8ff4daf8074fb1390c">QDlnaHelper::makeRequest</a></div><div class="ttdeci">QString makeRequest(const QString &amp;methord, const QString &amp;url, int length, const QString &amp;soapAction, const QString &amp;ip, const QString &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00039">qdlnahelper.cpp:39</a></div></div>
 <div class="ttc" id="namespace_q_dlna_helper_html_a89dbdb72130a3d57de3a6fd29878578b"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a89dbdb72130a3d57de3a6fd29878578b">QDlnaHelper::removeHttpHeader</a></div><div class="ttdeci">QString removeHttpHeader(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00070">qdlnahelper.cpp:70</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_a4bb22be66bd007ed9fd0cef597f90f8f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">QDlnaHelper::makeSocketGetReply</a></div><div class="ttdeci">QString makeSocketGetReply(const QString &amp;ip, const QString &amp;port, const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00040">qdlnahelper.cpp:40</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_a5f66671e54730cc65e048cabd90c451a"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a5f66671e54730cc65e048cabd90c451a">QDlnaHelper::GetResponseCode</a></div><div class="ttdeci">int GetResponseCode(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00076">qdlnahelper.cpp:76</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a4bb22be66bd007ed9fd0cef597f90f8f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">QDlnaHelper::makeSocketGetReply</a></div><div class="ttdeci">QString makeSocketGetReply(const QString &amp;ip, const QString &amp;port, const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00009">qdlnahelper.cpp:9</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_afc4825ddc2eb9fca12a030c384ff163f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">QDlnaHelper::getResponseCode</a></div><div class="ttdeci">int getResponseCode(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00081">qdlnahelper.cpp:81</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a2345feab00db847587db6c2a7cbd62c8"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a2345feab00db847587db6c2a7cbd62c8">QDlnaHelper::isValid</a></div><div class="ttdeci">bool isValid(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00076">qdlnahelper.cpp:76</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:10 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

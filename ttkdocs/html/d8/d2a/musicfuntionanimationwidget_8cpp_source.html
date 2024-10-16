@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -96,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d3/d7a/class_music_background_widget.html#a40ab5e552eb3ea506e7931fd088cf285">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d7a/class_music_background_widget.html#a40ab5e552eb3ea506e7931fd088cf285">MusicBackgroundWidget::backgroundTransparent</a>(<span class="keywordtype">int</span> value)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d3/d7a/class_music_background_widget.html#a5df60176e59d08836ccb0cdbb8acef37">m_backgroundAlpha</a> = TTK::Image::boundValue&lt;int&gt;(0xFF, 0x10, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a91f67a513abe54bc1ff0a09c31197552">TTK_RN_MAX</a> - value);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="../../d3/d7a/class_music_background_widget.html#ab3066f988d31c0980e6e82ca73cf214d">m_backgroundTransparent</a> = TTK::Image::boundValue&lt;int&gt;(0xFF, 0x10, <a class="code" href="../../df/d7f/ttkglobal_8h.html#a91f67a513abe54bc1ff0a09c31197552">TTK_RN_MAX</a> - value);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    update();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QWidget::paintEvent(event);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    painter.fillRect(rect(), QColor(255, 255, 255, <a class="code" href="../../d3/d7a/class_music_background_widget.html#a5df60176e59d08836ccb0cdbb8acef37">m_backgroundAlpha</a>));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    painter.fillRect(rect(), QColor(255, 255, 255, <a class="code" href="../../d3/d7a/class_music_background_widget.html#ab3066f988d31c0980e6e82ca73cf214d">m_backgroundTransparent</a>));</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
@@ -379,6 +379,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <a class="code" href="../../de/d53/class_music_abstract_animation_widget.html#ac9dca8ad54765c79a099da0c4d209301">MusicAbstractAnimationWidget::switchToSelectedItemStyle</a>(index);</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a9eedf6a52b7a39ef145b6495c0958210"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a9eedf6a52b7a39ef145b6495c0958210">TTK::UI::FuncListForeClicked</a></div><div class="ttdeci">static constexpr const char * FuncListForeClicked</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1d/musicfunctionlistuiobject_8h_source.html#l00064">musicfunctionlistuiobject.h:64</a></div></div>
+<div class="ttc" id="class_music_background_widget_html_ab3066f988d31c0980e6e82ca73cf214d"><div class="ttname"><a href="../../d3/d7a/class_music_background_widget.html#ab3066f988d31c0980e6e82ca73cf214d">MusicBackgroundWidget::m_backgroundTransparent</a></div><div class="ttdeci">int m_backgroundTransparent</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d66/musicfuntionanimationwidget_8h_source.html#l00053">musicfuntionanimationwidget.h:53</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_abf5077f6c7eab688c9aef12e2544ad6f"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#abf5077f6c7eab688c9aef12e2544ad6f">TTK::UI::FuncMVFore</a></div><div class="ttdeci">static constexpr const char * FuncMVFore</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1d/musicfunctionlistuiobject_8h_source.html#l00073">musicfunctionlistuiobject.h:73</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_aa9f842a64cd3e4a3980720ff56189bd7"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#aa9f842a64cd3e4a3980720ff56189bd7">TTK::UI::FuncRadioFore</a></div><div class="ttdeci">static constexpr const char * FuncRadioFore</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1d/musicfunctionlistuiobject_8h_source.html#l00045">musicfunctionlistuiobject.h:45</a></div></div>
 <div class="ttc" id="class_music_option_animation_widget_html_ae274c2a445ad46fae469bab2524cf907"><div class="ttname"><a href="../../d4/d16/class_music_option_animation_widget.html#ae274c2a445ad46fae469bab2524cf907">MusicOptionAnimationWidget::MusicOptionAnimationWidget</a></div><div class="ttdeci">MusicOptionAnimationWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2a/musicfuntionanimationwidget_8cpp_source.html#l00196">musicfuntionanimationwidget.cpp:196</a></div></div>
@@ -451,7 +452,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a63c9a030e8240698f5d60859c6b2b6c2"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a63c9a030e8240698f5d60859c6b2b6c2">TTK::UI::ItemMusicClicked</a></div><div class="ttdeci">static constexpr const char * ItemMusicClicked</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d2f/musicleftitemlistuiobject_8h_source.html#l00036">musicleftitemlistuiobject.h:36</a></div></div>
 <div class="ttc" id="class_music_skin_animation_widget_html_af9ffcb91f0c4bdfd6c9b750acd47a526"><div class="ttname"><a href="../../d6/dfe/class_music_skin_animation_widget.html#af9ffcb91f0c4bdfd6c9b750acd47a526">MusicSkinAnimationWidget::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2a/musicfuntionanimationwidget_8cpp_source.html#l00281">musicfuntionanimationwidget.cpp:281</a></div></div>
 <div class="ttc" id="class_music_option_animation_widget_html_af483a3b7d33e206e1fd16d17a092d6e8"><div class="ttname"><a href="../../d4/d16/class_music_option_animation_widget.html#af483a3b7d33e206e1fd16d17a092d6e8">MusicOptionAnimationWidget::switchToSelectedItemStyle</a></div><div class="ttdeci">virtual void switchToSelectedItemStyle(int index) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2a/musicfuntionanimationwidget_8cpp_source.html#l00249">musicfuntionanimationwidget.cpp:249</a></div></div>
-<div class="ttc" id="class_music_background_widget_html_a5df60176e59d08836ccb0cdbb8acef37"><div class="ttname"><a href="../../d3/d7a/class_music_background_widget.html#a5df60176e59d08836ccb0cdbb8acef37">MusicBackgroundWidget::m_backgroundAlpha</a></div><div class="ttdeci">int m_backgroundAlpha</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d66/musicfuntionanimationwidget_8h_source.html#l00053">musicfuntionanimationwidget.h:53</a></div></div>
 <div class="ttc" id="musicfuntionanimationwidget_8h_html"><div class="ttname"><a href="../../d8/d66/musicfuntionanimationwidget_8h.html">musicfuntionanimationwidget.h</a></div></div>
 <div class="ttc" id="class_music_abstract_animation_widget_html"><div class="ttname"><a href="../../de/d53/class_music_abstract_animation_widget.html">MusicAbstractAnimationWidget</a></div><div class="ttdoc">The class of the animation base widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d66/musicfuntionanimationwidget_8h_source.html#l00090">musicfuntionanimationwidget.h:90</a></div></div>
 <div class="ttc" id="musicleftitemlistuiobject_8h_html"><div class="ttname"><a href="../../d2/d2f/musicleftitemlistuiobject_8h.html">musicleftitemlistuiobject.h</a></div></div>
@@ -462,7 +462,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:09 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

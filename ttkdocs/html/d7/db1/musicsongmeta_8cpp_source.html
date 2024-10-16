@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -468,108 +468,109 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a> &lt;&lt; meta;</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a5d414d9bc39b4d84f3a25926c4f3465c">m_offset</a> = <a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a>.count() - 1;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        }</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        qDeleteAll(infos);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a>.isEmpty())</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        {</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        QString <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9c2cb81d894d2e1a95c8161af18d71b6">description</a>;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d9/d33/struct_decoder_properties.html">DecoderProperties</a> &amp;properties = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#abd5f184037bf0c66ef5ccd8f0f04703f">properties</a>();</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        description += <span class="stringliteral">&quot;ShortName: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#ada1227645e91c0896f1f32f578f3da02">shortName</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        description += <span class="stringliteral">&quot;DecoderName: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#a8209871a71d976d6ec111b9f6db93e7b">name</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        description += <span class="stringliteral">&quot;Description: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#a694a08267ac72efa2ac3aeeb987aec1f">description</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a> *model = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#ade246d20fd4227cb55f12d53d1cc3534">createMetaDataModel</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordflow">if</span>(model)</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        {</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a5318660d1e6138a433be2bb1ba40166d">m_cover</a> = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#ac14c8fe8f111b2a1d5954fb426b2ac46">cover</a>();</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a33dd94b7faf453708076e0394b041671">m_lyrics</a> = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a60a30d7726e702e9bc4d5013467f399a">lyrics</a>();</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a> &amp;item : model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a48a5b41fa0517a90b2ab9d8c5f5d1866">extraProperties</a>())</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            {</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                <span class="keywordflow">if</span>(item.name() == <span class="stringliteral">&quot;Rating&quot;</span>)</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                {</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                    <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a685f1b9d76cf99491364ab6f2d0763f4">m_metaData</a>[<a class="code" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a738a1c20816cc5a807f6cb9c427c5f95">TagMeta::RATING</a>] = item.value().toString();</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                }</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                QString value = item.value().toString();</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                <span class="keywordflow">if</span>(value.contains(<a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>))</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                {</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                    value = <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a> + value;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                }</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                description += item.name() + <span class="stringliteral">&quot;: &quot;</span> + value + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            }</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a> &amp;item : model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a244fc9ceb4db1d46c62869a5b6d8fd06">descriptions</a>())</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            {</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                QString value = item.value().toString();</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                <span class="keywordflow">if</span>(value.contains(<a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>))</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                {</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                    value = <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a> + value;</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                }</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                description += item.name() + <span class="stringliteral">&quot;: &quot;</span> + value + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            }</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            <span class="keyword">delete</span> model;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        }</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a685f1b9d76cf99491364ab6f2d0763f4">m_metaData</a>[<a class="code" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186aff1bf84f6ecfa3cd7bd0848503dd166b">TagMeta::DESCRIPTION</a>] = <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9c2cb81d894d2e1a95c8161af18d71b6">description</a>;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    }</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">return</span> !<a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a>.isEmpty();</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
-<div class="line"><a name="l00454"></a><span class="lineno"><a class="line" href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">  454</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">MusicSongMeta::saveInformation</a>()</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;{</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <a class="code" href="../../dc/d36/class_decoder_factory.html">DecoderFactory</a> *factory = <a class="code" href="../../da/d56/class_decoder.html#a201decad91242472620a27f63e568231">Decoder::findByFilePath</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>);</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordflow">if</span>(!factory)</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    {</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    }</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a> *model = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#ade246d20fd4227cb55f12d53d1cc3534">createMetaDataModel</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">if</span>(model)</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    {</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        <span class="keyword">const</span> QList&lt;TagModel* &gt; &amp;tags = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#aed9ec53f0da7785a9d5d556557fe4a8c">tags</a>();</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        <span class="keywordflow">if</span>(!tags.isEmpty())</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        {</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;            <a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a> *tagModel = tags.front();</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;            <span class="keywordflow">if</span>(tags.count() == 3)</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            {</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                tagModel = tags[1]; <span class="comment">//id3v2 mode tag</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            }</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291ad49309f29314dd62dc0e63cbbb10bd40">Qmmp::ALBUM</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a692b283dc55844ac00375e5890f08125">album</a>());</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291abeee422867c9f4ee56a0d4789319fcb8">Qmmp::ARTIST</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a69f3598f2da44f1ecae93b64fb1a11ee">artist</a>());</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a7e89af3b9221df5a14941ec19b52b564">Qmmp::TITLE</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#ab4e982abbef5a2459ad5f569aef09060">title</a>());</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291ac4d2898239557a6b74d89bc5d62e03ac">Qmmp::YEAR</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#af0e8e612e8cf37b54d02d994fae17101">year</a>());</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a432ae5b91bc623507d48b96740ad1956">Qmmp::GENRE</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a63b09e40d620e027d3875dc8f107ffbb">genre</a>());</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a590ae10d25fc643ba54ff9c1d122a03b">Qmmp::TRACK</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#ae5056b52649a403c57365cfaad778a65">trackNum</a>());</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#abf38896b6a572ce9ee540025f8365a1b">save</a>();</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        }</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keyword">const</span> QPixmap &amp;pix = <a class="code" href="../../d9/d9a/class_music_song_meta.html#a3bd054180081dfef23d925604542a710">cover</a>();</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <span class="keywordflow">if</span>(!pix.isNull())</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        {</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;            model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#ab2cf601c0d83454bce8fc2e53d5c1bc8">setCover</a>(pix);</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        }</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        {</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;            model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#aa23aeeb4fb08d74f45e93656f785626a">removeCover</a>();</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        }</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    }</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keyword">delete</span> model;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;}</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        qDeleteAll(infos);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a>.isEmpty())</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        QString <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9c2cb81d894d2e1a95c8161af18d71b6">description</a>;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d9/d33/struct_decoder_properties.html">DecoderProperties</a> &amp;properties = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#abd5f184037bf0c66ef5ccd8f0f04703f">properties</a>();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        description += <span class="stringliteral">&quot;ShortName: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#ada1227645e91c0896f1f32f578f3da02">shortName</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        description += <span class="stringliteral">&quot;DecoderName: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#a8209871a71d976d6ec111b9f6db93e7b">name</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        description += <span class="stringliteral">&quot;Description: &quot;</span> + properties.<a class="code" href="../../d9/d33/struct_decoder_properties.html#a694a08267ac72efa2ac3aeeb987aec1f">description</a> + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a> *model = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#ade246d20fd4227cb55f12d53d1cc3534">createMetaDataModel</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">if</span>(model)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        {</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a5318660d1e6138a433be2bb1ba40166d">m_cover</a> = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#ac14c8fe8f111b2a1d5954fb426b2ac46">cover</a>();</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a33dd94b7faf453708076e0394b041671">m_lyrics</a> = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a60a30d7726e702e9bc4d5013467f399a">lyrics</a>();</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a> &amp;item : model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a48a5b41fa0517a90b2ab9d8c5f5d1866">extraProperties</a>())</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            {</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                <span class="keywordflow">if</span>(item.name() == <span class="stringliteral">&quot;Rating&quot;</span>)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                    <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a685f1b9d76cf99491364ab6f2d0763f4">m_metaData</a>[<a class="code" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186a738a1c20816cc5a807f6cb9c427c5f95">TagMeta::RATING</a>] = item.value().toString();</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                }</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                QString value = item.value().toString();</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                <span class="keywordflow">if</span>(value.contains(<a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>))</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                {</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                    value = <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a> + value;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                }</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                description += item.name() + <span class="stringliteral">&quot;: &quot;</span> + value + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            }</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../dd/d7d/class_meta_data_item.html">MetaDataItem</a> &amp;item : model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#a244fc9ceb4db1d46c62869a5b6d8fd06">descriptions</a>())</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            {</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                QString value = item.value().toString();</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                <span class="keywordflow">if</span>(value.contains(<a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>))</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                {</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                    value = <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a> + value;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                }</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                description += item.name() + <span class="stringliteral">&quot;: &quot;</span> + value + <a class="code" href="../../df/d7f/ttkglobal_8h.html#aac8376b0af0276f06ae80b113b60b0f7">TTK_LINEFEED</a>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                description += <a class="code" href="../../d7/db1/musicsongmeta_8cpp.html#a5f29c58df4f753bc17e0e96b5a36c93b">SPLITER</a>;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            <span class="keyword">delete</span> model;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        }</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9bdf8d33b8f04bc0d776bfedfde3214a">songMeta</a>()-&gt;<a class="code" href="../../d2/dc2/struct_music_meta.html#a685f1b9d76cf99491364ab6f2d0763f4">m_metaData</a>[<a class="code" href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186aff1bf84f6ecfa3cd7bd0848503dd166b">TagMeta::DESCRIPTION</a>] = <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9c2cb81d894d2e1a95c8161af18d71b6">description</a>;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    }</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">return</span> !<a class="code" href="../../d9/d9a/class_music_song_meta.html#a3b1cd7b9811680bc473c9ba564b4d1e2">m_songMetas</a>.isEmpty();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;}</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
+<div class="line"><a name="l00455"></a><span class="lineno"><a class="line" href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">  455</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">MusicSongMeta::saveInformation</a>()</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;{</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <a class="code" href="../../dc/d36/class_decoder_factory.html">DecoderFactory</a> *factory = <a class="code" href="../../da/d56/class_decoder.html#a201decad91242472620a27f63e568231">Decoder::findByFilePath</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">if</span>(!factory)</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    {</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <a class="code" href="../../df/dff/class_meta_data_model.html">MetaDataModel</a> *model = factory-&gt;<a class="code" href="../../dc/d36/class_decoder_factory.html#ade246d20fd4227cb55f12d53d1cc3534">createMetaDataModel</a>(<a class="code" href="../../d9/d9a/class_music_song_meta.html#abc3240168cc54c522efba2ba032595d5">m_path</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="keywordflow">if</span>(model)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    {</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        <span class="keyword">const</span> QList&lt;TagModel* &gt; &amp;tags = model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#aed9ec53f0da7785a9d5d556557fe4a8c">tags</a>();</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <span class="keywordflow">if</span>(!tags.isEmpty())</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        {</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;            <a class="code" href="../../dc/d29/class_tag_model.html">TagModel</a> *tagModel = tags.front();</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            <span class="keywordflow">if</span>(tags.count() == 3)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            {</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                tagModel = tags[1]; <span class="comment">//id3v2 mode tag</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            }</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291ad49309f29314dd62dc0e63cbbb10bd40">Qmmp::ALBUM</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a692b283dc55844ac00375e5890f08125">album</a>());</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291abeee422867c9f4ee56a0d4789319fcb8">Qmmp::ARTIST</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a69f3598f2da44f1ecae93b64fb1a11ee">artist</a>());</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a7e89af3b9221df5a14941ec19b52b564">Qmmp::TITLE</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#ab4e982abbef5a2459ad5f569aef09060">title</a>());</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291ac4d2898239557a6b74d89bc5d62e03ac">Qmmp::YEAR</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#af0e8e612e8cf37b54d02d994fae17101">year</a>());</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a432ae5b91bc623507d48b96740ad1956">Qmmp::GENRE</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#a63b09e40d620e027d3875dc8f107ffbb">genre</a>());</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#a36c6ca4548a380465c3843204a00177c">setValue</a>(<a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a590ae10d25fc643ba54ff9c1d122a03b">Qmmp::TRACK</a>, <a class="code" href="../../d9/d9a/class_music_song_meta.html#ae5056b52649a403c57365cfaad778a65">trackNum</a>());</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            tagModel-&gt;<a class="code" href="../../dc/d29/class_tag_model.html#abf38896b6a572ce9ee540025f8365a1b">save</a>();</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        }</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <span class="keyword">const</span> QPixmap &amp;pix = <a class="code" href="../../d9/d9a/class_music_song_meta.html#a3bd054180081dfef23d925604542a710">cover</a>();</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keywordflow">if</span>(!pix.isNull())</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        {</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;            model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#ab2cf601c0d83454bce8fc2e53d5c1bc8">setCover</a>(pix);</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        }</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        {</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;            model-&gt;<a class="code" href="../../df/dff/class_meta_data_model.html#aa23aeeb4fb08d74f45e93656f785626a">removeCover</a>();</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        }</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    }</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="keyword">delete</span> model;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;}</div>
 <div class="ttc" id="namespace_t_t_k_1_1_string_html_a80b86b125ce32423075ee1b7240c1108"><div class="ttname"><a href="../../d7/de7/namespace_t_t_k_1_1_string.html#a80b86b125ce32423075ee1b7240c1108">TTK::String::charactersReplace</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString charactersReplace(const QString &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dca/musicstringutils_8cpp_source.html#l00135">musicstringutils.cpp:135</a></div></div>
 <div class="ttc" id="class_qmmp_html_aa4a16a069a893d4bf425a793b03d8291a7e89af3b9221df5a14941ec19b52b564"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291a7e89af3b9221df5a14941ec19b52b564">Qmmp::TITLE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00091">qmmp.h:91</a></div></div>
 <div class="ttc" id="class_tag_meta_html_a1e9190627e5e7a242e65c80993fce186"><div class="ttname"><a href="../../d6/d52/class_tag_meta.html#a1e9190627e5e7a242e65c80993fce186">TagMeta::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dd6/tagmeta_8h_source.html#l00031">tagmeta.h:31</a></div></div>
@@ -617,7 +618,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_qmmp_html_ac807faa6265ad8c90cd566232a0b1613ac51d636d8002d6b81c8d7598c71b95e5"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#ac807faa6265ad8c90cd566232a0b1613ac51d636d8002d6b81c8d7598c71b95e5">Qmmp::SAMPLERATE</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00109">qmmp.h:109</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_ac5d849556283b7a67e14d6f64c2931ec"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#ac5d849556283b7a67e14d6f64c2931ec">MusicSongMeta::bitrate</a></div><div class="ttdeci">QString bitrate() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00234">musicsongmeta.cpp:234</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_a43ce52c9f693c35fa376ead92b180504"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a43ce52c9f693c35fa376ead92b180504">MusicSongMeta::clearSongMeta</a></div><div class="ttdeci">void clearSongMeta() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00315">musicsongmeta.cpp:315</a></div></div>
-<div class="ttc" id="class_music_song_meta_html_a9ee812469608b48d4784c87d9d81642a"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">MusicSongMeta::saveInformation</a></div><div class="ttdeci">bool saveInformation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00454">musicsongmeta.cpp:454</a></div></div>
+<div class="ttc" id="class_music_song_meta_html_a9ee812469608b48d4784c87d9d81642a"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#a9ee812469608b48d4784c87d9d81642a">MusicSongMeta::saveInformation</a></div><div class="ttdeci">bool saveInformation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00455">musicsongmeta.cpp:455</a></div></div>
 <div class="ttc" id="decoderfactory_8h_html"><div class="ttname"><a href="../../d8/db3/decoderfactory_8h.html">decoderfactory.h</a></div></div>
 <div class="ttc" id="class_meta_data_model_html"><div class="ttname"><a href="../../df/dff/class_meta_data_model.html">MetaDataModel</a></div><div class="ttdoc">The MetaDataModel is the base interface class of metadata access. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/db0/metadatamodel_8h_source.html#l00078">metadatamodel.h:78</a></div></div>
 <div class="ttc" id="class_music_song_meta_html_aa9b36e94eccff2052b86d89da2a092a3"><div class="ttname"><a href="../../d9/d9a/class_music_song_meta.html#aa9b36e94eccff2052b86d89da2a092a3">MusicSongMeta::setYear</a></div><div class="ttdeci">void setYear(const QString &amp;year) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/db1/musicsongmeta_8cpp_source.html#l00163">musicsongmeta.cpp:163</a></div></div>
@@ -690,7 +691,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

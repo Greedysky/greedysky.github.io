@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -85,65 +85,65 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dd/dec/namespace_q_dlna_helper.html">QDlnaHelper</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#ac8de760c01366c038fee3df0df8245e9">    9</a></span>&#160;QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#ac8de760c01366c038fee3df0df8245e9">MakeRequest</a>(<span class="keyword">const</span> QString &amp;methord, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> length, <span class="keyword">const</span> QString &amp;soapAction, <span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port)</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">    9</a></span>&#160;QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">makeSocketGetReply</a>(<span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port, <span class="keyword">const</span> QString &amp;data)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">//Make a request that is sent out to the DLNA server on the LAN using TCP</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    QString request = methord.toUpper() + <span class="stringliteral">&quot; /&quot;</span> + url + <span class="stringliteral">&quot; HTTP/1.1&quot;</span> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    request += <span class="stringliteral">&quot;Cache-Control: no-cache\n&quot;</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    request += <span class="stringliteral">&quot;Connection: Close\n&quot;</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    request += <span class="stringliteral">&quot;Pragma: no-cache\n&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    request += <span class="stringliteral">&quot;Host: &quot;</span> + ip + <span class="stringliteral">&quot;:&quot;</span> + port + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    request += <span class="stringliteral">&quot;User-Agent: Microsoft-Windows/6.3 UPnP/1.0 Microsoft-DLNA DLNADOC/1.50\n&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    request += <span class="stringliteral">&quot;FriendlyName.DLNA.ORG: &quot;</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,6,0)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    request += QSysInfo::machineHostName();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    request += <span class="stringliteral">&quot;Greedysky&quot;</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    request += <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(length &gt; 0)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        request += <span class="stringliteral">&quot;Content-Length: &quot;</span> + QString::number(length) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        request += <span class="stringliteral">&quot;Content-Type: text/xml; charset=\&quot;utf-8\&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span>(soapAction.length() &gt; 0)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        request += <span class="stringliteral">&quot;SOAPAction: \&quot;&quot;</span> + soapAction + <span class="stringliteral">&quot;\&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    request += <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> request;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">   40</a></span>&#160;QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">makeSocketGetReply</a>(<span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port, <span class="keyword">const</span> QString &amp;data)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QTcpSocket sock;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    sock.connectToHost(ip, port.toUShort());</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    constexpr <span class="keywordtype">int</span> timeout = 5000 / 2;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span>(sock.waitForConnected(timeout))</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        sock.write(data.toLatin1());</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t connect&quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(!sock.waitForBytesWritten(timeout))</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t write&quot;</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span>(sock.waitForReadyRead(timeout))</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> QString::fromUtf8(sock.readAll());</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t get an answer&quot;</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    QTcpSocket sock;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    sock.connectToHost(ip, port.toUShort());</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    constexpr <span class="keywordtype">int</span> timeout = 5000 / 2;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(sock.waitForConnected(timeout))</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        sock.write(data.toLatin1());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t connect&quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(!sock.waitForBytesWritten(timeout))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t write&quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(sock.waitForReadyRead(timeout))</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">return</span> QString::fromUtf8(sock.readAll());</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Couldn&#39;t get an answer&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a6147621d6ac16a8ff4daf8074fb1390c">   39</a></span>&#160;QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a6147621d6ac16a8ff4daf8074fb1390c">makeRequest</a>(<span class="keyword">const</span> QString &amp;methord, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> length, <span class="keyword">const</span> QString &amp;soapAction, <span class="keyword">const</span> QString &amp;ip, <span class="keyword">const</span> QString &amp;port)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//Make a request that is sent out to the DLNA server on the LAN using TCP</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    QString request = methord.toUpper() + <span class="stringliteral">&quot; /&quot;</span> + url + <span class="stringliteral">&quot; HTTP/1.1&quot;</span> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    request += <span class="stringliteral">&quot;Cache-Control: no-cache\n&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    request += <span class="stringliteral">&quot;Connection: Close\n&quot;</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    request += <span class="stringliteral">&quot;Pragma: no-cache\n&quot;</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    request += <span class="stringliteral">&quot;Host: &quot;</span> + ip + <span class="stringliteral">&quot;:&quot;</span> + port + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    request += <span class="stringliteral">&quot;User-Agent: Microsoft-Windows/6.3 UPnP/1.0 Microsoft-DLNA DLNADOC/1.50\n&quot;</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    request += <span class="stringliteral">&quot;FriendlyName.DLNA.ORG: &quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,6,0)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    request += QSysInfo::machineHostName();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    request += <span class="stringliteral">&quot;Greedysky&quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    request += <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(length &gt; 0)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        request += <span class="stringliteral">&quot;Content-Length: &quot;</span> + QString::number(length) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        request += <span class="stringliteral">&quot;Content-Type: text/xml; charset=\&quot;utf-8\&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(soapAction.length() &gt; 0)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        request += <span class="stringliteral">&quot;SOAPAction: \&quot;&quot;</span> + soapAction + <span class="stringliteral">&quot;\&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    request += <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> request;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a89dbdb72130a3d57de3a6fd29878578b">   70</a></span>&#160;QString <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a89dbdb72130a3d57de3a6fd29878578b">removeHttpHeader</a>(<span class="keyword">const</span> QString &amp;data)</div>
@@ -152,33 +152,39 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> (data_list.count() &gt;= 2) ? data_list[1] : QString();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a5f66671e54730cc65e048cabd90c451a">   76</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a5f66671e54730cc65e048cabd90c451a">GetResponseCode</a>(<span class="keyword">const</span> QString &amp;data)</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#a2345feab00db847587db6c2a7cbd62c8">   76</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#a2345feab00db847587db6c2a7cbd62c8">isValid</a>(<span class="keyword">const</span> QString &amp;data)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> QStringList &amp;data_list = data.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a17948601513e82e0f56b8cdc5518a8cf">TTK_SPACE</a>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>(data_list.count() &gt;= 2)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../da/da8/structcode.html">code</a> = data_list[1].toInt(&amp;ok);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span>(ok)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> code;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">getResponseCode</a>(data) == 200;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">   81</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">getResponseCode</a>(<span class="keyword">const</span> QString &amp;data)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">const</span> QStringList &amp;data_list = data.split(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a17948601513e82e0f56b8cdc5518a8cf">TTK_SPACE</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(data_list.count() &gt;= 2)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../da/da8/structcode.html">code</a> = data_list[1].toInt(&amp;ok);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span>(ok)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> code;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="ttc" id="namespace_q_dlna_helper_html"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html">QDlnaHelper</a></div><div class="ttdoc">The namespace of the dlna helper. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00007">qdlnahelper.cpp:7</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_ac8de760c01366c038fee3df0df8245e9"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#ac8de760c01366c038fee3df0df8245e9">QDlnaHelper::MakeRequest</a></div><div class="ttdeci">QString MakeRequest(const QString &amp;methord, const QString &amp;url, int length, const QString &amp;soapAction, const QString &amp;ip, const QString &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00009">qdlnahelper.cpp:9</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a6147621d6ac16a8ff4daf8074fb1390c"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a6147621d6ac16a8ff4daf8074fb1390c">QDlnaHelper::makeRequest</a></div><div class="ttdeci">QString makeRequest(const QString &amp;methord, const QString &amp;url, int length, const QString &amp;soapAction, const QString &amp;ip, const QString &amp;port)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00039">qdlnahelper.cpp:39</a></div></div>
 <div class="ttc" id="namespace_q_dlna_helper_html_a89dbdb72130a3d57de3a6fd29878578b"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a89dbdb72130a3d57de3a6fd29878578b">QDlnaHelper::removeHttpHeader</a></div><div class="ttdeci">QString removeHttpHeader(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00070">qdlnahelper.cpp:70</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_a4bb22be66bd007ed9fd0cef597f90f8f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">QDlnaHelper::makeSocketGetReply</a></div><div class="ttdeci">QString makeSocketGetReply(const QString &amp;ip, const QString &amp;port, const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00040">qdlnahelper.cpp:40</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a4bb22be66bd007ed9fd0cef597f90f8f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a4bb22be66bd007ed9fd0cef597f90f8f">QDlnaHelper::makeSocketGetReply</a></div><div class="ttdeci">QString makeSocketGetReply(const QString &amp;ip, const QString &amp;port, const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00009">qdlnahelper.cpp:9</a></div></div>
 <div class="ttc" id="qdlnahelper_8h_html"><div class="ttname"><a href="../../dc/d89/qdlnahelper_8h.html">qdlnahelper.h</a></div></div>
 <div class="ttc" id="structcode_html"><div class="ttname"><a href="../../da/da8/structcode.html">code</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00024">inftrees.h:24</a></div></div>
-<div class="ttc" id="namespace_q_dlna_helper_html_a5f66671e54730cc65e048cabd90c451a"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a5f66671e54730cc65e048cabd90c451a">QDlnaHelper::GetResponseCode</a></div><div class="ttdeci">int GetResponseCode(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00076">qdlnahelper.cpp:76</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_afc4825ddc2eb9fca12a030c384ff163f"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#afc4825ddc2eb9fca12a030c384ff163f">QDlnaHelper::getResponseCode</a></div><div class="ttdeci">int getResponseCode(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00081">qdlnahelper.cpp:81</a></div></div>
+<div class="ttc" id="namespace_q_dlna_helper_html_a2345feab00db847587db6c2a7cbd62c8"><div class="ttname"><a href="../../dd/dec/namespace_q_dlna_helper.html#a2345feab00db847587db6c2a7cbd62c8">QDlnaHelper::isValid</a></div><div class="ttdeci">bool isValid(const QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d56/qdlnahelper_8cpp_source.html#l00076">qdlnahelper.cpp:76</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a17948601513e82e0f56b8cdc5518a8cf"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a17948601513e82e0f56b8cdc5518a8cf">TTK_SPACE</a></div><div class="ttdeci">#define TTK_SPACE</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00195">ttkglobal.h:195</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:10 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:49 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

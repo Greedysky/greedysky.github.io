@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -75,6 +75,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">qdlnaclient.cpp File Reference</div>  </div>
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;<a class="el" href="../../d2/dc4/qdlnaxml_8h_source.html">qdlnaxml.h</a>&quot;</code><br />
 <code>#include &lt;QMap&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;QFileInfo&gt;</code><br />
 <code>#include &lt;QStringList&gt;</code><br />
 </div>
 <p><a href="../../d4/ded/qdlnaclient_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -94,6 +96,11 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of the dlna client private.  <a href="../../df/ded/class_q_dlna_client_private.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a811bc9dc6c8aa2b60e60744eb0d7998d"><td class="memItemLeft" align="right" valign="top">static qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#a811bc9dc6c8aa2b60e60744eb0d7998d">valueToSecond</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;value)</td></tr>
+<tr class="separator:a811bc9dc6c8aa2b60e60744eb0d7998d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a4ebfca030286bfd751f96ed3bc1d4495"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#a4ebfca030286bfd751f96ed3bc1d4495">AVTRANSPORT</a> = &quot;avtransport&quot;</td></tr>
@@ -102,11 +109,44 @@ Variables</h2></td></tr>
 <tr class="separator:a09610771bb681623b31ca150be19b823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae612bdcba85fd32354aeccb19204a0fa"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#ae612bdcba85fd32354aeccb19204a0fa">XML_FOOT</a> = &quot;&lt;/SOAP-ENV:Body&gt;\n&lt;/SOAP-ENV:Envelope&gt;\n&quot;</td></tr>
 <tr class="separator:ae612bdcba85fd32354aeccb19204a0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa529fae67e9a0ff6b01b0860febdc72a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#aa529fae67e9a0ff6b01b0860febdc72a">FRIENS_NAMES</a> = {&quot;friendlyname&quot;, &quot;friendlyName&quot;, &quot;FriendlyName&quot;, &quot;FriendlyName&quot;}</td></tr>
-<tr class="separator:aa529fae67e9a0ff6b01b0860febdc72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf0c52bb42413d01a0cd082d13b2ffc0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#abf0c52bb42413d01a0cd082d13b2ffc0">META_DATA</a></td></tr>
+<tr class="separator:abf0c52bb42413d01a0cd082d13b2ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb169b5cd8c9a2e05eba6563085236cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#abb169b5cd8c9a2e05eba6563085236cb">AVT_NAMES</a> = {&quot;avtransport&quot;, &quot;AVTransport&quot;}</td></tr>
 <tr class="separator:abb169b5cd8c9a2e05eba6563085236cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa529fae67e9a0ff6b01b0860febdc72a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ded/qdlnaclient_8cpp.html#aa529fae67e9a0ff6b01b0860febdc72a">FRIENS_NAMES</a> = {&quot;friendlyname&quot;, &quot;friendlyName&quot;, &quot;FriendlyName&quot;, &quot;FriendlyName&quot;}</td></tr>
+<tr class="separator:aa529fae67e9a0ff6b01b0860febdc72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a811bc9dc6c8aa2b60e60744eb0d7998d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static qint64 valueToSecond </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00242">242</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+
+<p>References <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00229">TTK_TIMES_FORMAT</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00247">QDlnaClient::position()</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="abb169b5cd8c9a2e05eba6563085236cb"></a>
 <div class="memitem">
@@ -126,9 +166,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00022">22</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00082">QDlnaClientPrivate::connectServer()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00084">QDlnaClientPrivate::connect()</a>.</p>
 
 </div>
 </div>
@@ -150,9 +190,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00009">9</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00082">QDlnaClientPrivate::connectServer()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00084">QDlnaClientPrivate::connect()</a>.</p>
 
 </div>
 </div>
@@ -174,9 +214,42 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00082">QDlnaClientPrivate::connectServer()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00084">QDlnaClientPrivate::connect()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf0c52bb42413d01a0cd082d13b2ffc0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString META_DATA</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;&amp;lt;DIDL-Lite xmlns=\&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/\&quot;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot; xmlns:upnp=\&quot;urn:schemas-upnp-org:metadata-1-0/upnp/\&quot;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot; xmlns:dc=\&quot;http://purl.org/dc/elements/1.1/\&quot;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot; xmlns:sec=\&quot;http://www.sec.co.kr/\&quot;&amp;gt;&amp;lt;item id=\&quot;f-0\&quot; parentID=\&quot;0\&quot; restricted=\&quot;0\&quot;&amp;gt;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot;&amp;lt;dc:title&amp;gt;%1&amp;lt;/dc:title&amp;gt;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot;&amp;lt;dc:creator&amp;gt;%2&amp;lt;/dc:creator&amp;gt;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot;&amp;lt;upnp:class&amp;gt;object.item.%3Item&amp;lt;/upnp:class&amp;gt;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot;&amp;lt;res protocolInfo=\&quot;http-get:*:%4:DLNA.ORG_OP=01;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01700000000000000000000000000000\&quot; &amp;gt;&quot;</span></div>
+<div class="line">                                 <span class="stringliteral">&quot;%5&amp;lt;/res&amp;gt;&amp;lt;/item&amp;gt;&amp;lt;/DIDL-Lite&amp;gt;&quot;</span></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00013">13</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00178">QDlnaClient::open()</a>.</p>
 
 </div>
 </div>
@@ -198,9 +271,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00011">11</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00222">QDlnaClient::pause()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00233">QDlnaClient::position()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00200">QDlnaClient::startPlay()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00211">QDlnaClient::stopPlay()</a>, and <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00184">QDlnaClient::uploadFileToPlay()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00178">QDlnaClient::open()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00209">QDlnaClient::pause()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00198">QDlnaClient::play()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00247">QDlnaClient::position()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00231">QDlnaClient::remove()</a>, and <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00220">QDlnaClient::stop()</a>.</p>
 
 </div>
 </div>
@@ -222,16 +295,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00011">11</a> of file <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html">qdlnaclient.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00222">QDlnaClient::pause()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00233">QDlnaClient::position()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00200">QDlnaClient::startPlay()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00211">QDlnaClient::stopPlay()</a>, and <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00184">QDlnaClient::uploadFileToPlay()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00178">QDlnaClient::open()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00209">QDlnaClient::pause()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00198">QDlnaClient::play()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00247">QDlnaClient::position()</a>, <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00231">QDlnaClient::remove()</a>, and <a class="el" href="../../d4/ded/qdlnaclient_8cpp_source.html#l00220">QDlnaClient::stop()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:28 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:50 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

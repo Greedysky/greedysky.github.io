@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../da/d53/class_music_w_y_query_artist_list_request.html#a6cb4022f35be520ecbb7c069f9c14d60">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d53/class_music_w_y_query_artist_list_request.html#a6cb4022f35be520ecbb7c069f9c14d60">MusicWYQueryArtistListRequest::startToPage</a>(<span class="keywordtype">int</span> <a class="code" href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a>)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(className() &lt;&lt; <span class="stringliteral">&quot;startToPage&quot;</span> &lt;&lt; offset);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(className() &lt;&lt; __FUNCTION__ &lt;&lt; offset);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ac97a7352cc7e16a054bf65785bfb3f2d">deleteAll</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../da/d84/class_music_page_query_request.html#a1ef556363e73fb42b577370485233863">m_totalSize</a> = <a class="code" href="../../da/d84/class_music_page_query_request.html#ab6834a1b9e93631e570dd18c5db1ec18">m_pageSize</a>; <span class="comment">// 0</span></div>
@@ -134,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../da/d53/class_music_w_y_query_artist_list_request.html#a2f8d9b0e19aedf6b253623518664a093">   56</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d53/class_music_w_y_query_artist_list_request.html#a2f8d9b0e19aedf6b253623518664a093">MusicWYQueryArtistListRequest::downLoadFinished</a>()</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(className() &lt;&lt; <span class="stringliteral">&quot;downLoadFinished&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(className() &lt;&lt; __FUNCTION__);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="../../de/dcf/class_music_abstract_query_request.html#ad42ba86f5dfccb7325ca8a6812395918">MusicQueryArtistListRequest::downLoadFinished</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a7a2c1a330eac43ffc2bd80b595001a72">m_reply</a> &amp;&amp; <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a7a2c1a330eac43ffc2bd80b595001a72">m_reply</a>-&gt;error() == QNetworkReply::NoError)</div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkabstractnetwork_8h_html_a0d8d733f4e75f0830dfa147cda02943f"><div class="ttname"><a href="../../d9/df6/ttkabstractnetwork_8h.html#a0d8d733f4e75f0830dfa147cda02943f">TTK_NETWORK_QUERY_CHECK</a></div><div class="ttdeci">#define TTK_NETWORK_QUERY_CHECK(VALUE)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/ttkabstractnetwork_8h_source.html#l00113">ttkabstractnetwork.h:113</a></div></div>
 <div class="ttc" id="musicpagequeryrequest_8h_html_a44a8fb93bdb0405df5c5b577aa5a5358"><div class="ttname"><a href="../../db/de8/musicpagequeryrequest_8h.html#a44a8fb93bdb0405df5c5b577aa5a5358">ARTIST_LIST_PAGE_SIZE</a></div><div class="ttdeci">#define ARTIST_LIST_PAGE_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de8/musicpagequeryrequest_8h_source.html#l00029">musicpagequeryrequest.h:29</a></div></div>
 <div class="ttc" id="struct_music_result_data_item_html"><div class="ttname"><a href="../../dd/d31/struct_music_result_data_item.html">MusicResultDataItem</a></div><div class="ttdoc">The class of the search result data item. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dc4/musicabstractqueryrequest_8h_source.html#l00064">musicabstractqueryrequest.h:64</a></div></div>
-<div class="ttc" id="class_t_t_k_abstract_network_html_ac97a7352cc7e16a054bf65785bfb3f2d"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#ac97a7352cc7e16a054bf65785bfb3f2d">TTKAbstractNetwork::deleteAll</a></div><div class="ttdeci">virtual void deleteAll()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbd/ttkabstractnetwork_8cpp_source.html#l00022">ttkabstractnetwork.cpp:22</a></div></div>
+<div class="ttc" id="class_t_t_k_abstract_network_html_ac97a7352cc7e16a054bf65785bfb3f2d"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#ac97a7352cc7e16a054bf65785bfb3f2d">TTKAbstractNetwork::deleteAll</a></div><div class="ttdeci">virtual void deleteAll()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbd/ttkabstractnetwork_8cpp_source.html#l00025">ttkabstractnetwork.cpp:25</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_network_html_a7a2c1a330eac43ffc2bd80b595001a72"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#a7a2c1a330eac43ffc2bd80b595001a72">TTKAbstractNetwork::m_reply</a></div><div class="ttdeci">QNetworkReply * m_reply</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df6/ttkabstractnetwork_8h_source.html#l00108">ttkabstractnetwork.h:108</a></div></div>
 <div class="ttc" id="class_music_page_query_request_html_a7f1103056bfdd8f03e2006bcdc2f8e6d"><div class="ttname"><a href="../../da/d84/class_music_page_query_request.html#a7f1103056bfdd8f03e2006bcdc2f8e6d">MusicPageQueryRequest::m_pageIndex</a></div><div class="ttdeci">int m_pageIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de8/musicpagequeryrequest_8h_source.html#l00075">musicpagequeryrequest.h:75</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a1daad8268b80975623b9919c0e969b43"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a1daad8268b80975623b9919c0e969b43">TTK_SPLITER</a></div><div class="ttdeci">#define TTK_SPLITER</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00202">ttkglobal.h:202</a></div></div>
@@ -207,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:04 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

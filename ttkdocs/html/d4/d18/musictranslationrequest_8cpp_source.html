@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.0.0.0</span>
+   &#160;<span id="projectnumber">4.1.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -85,14 +85,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d4/db5/class_music_translation_request.html#a479f8fd58e619b640e015e4da75aebdf">    7</a></span>&#160;<a class="code" href="../../d4/db5/class_music_translation_request.html#a479f8fd58e619b640e015e4da75aebdf">MusicTranslationRequest::MusicTranslationRequest</a>(QObject *parent)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    : <a class="code" href="../../da/d9c/class_music_abstract_network.html">MusicAbstractNetwork</a>(parent),</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      m_pluginIndex(-1)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;      m_pluginSelector(-1)</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="../../d4/db5/class_music_translation_request.html#a164da8b0b102f829faea29ed1ae168e5">   14</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/db5/class_music_translation_request.html#a164da8b0b102f829faea29ed1ae168e5">MusicTranslationRequest::startToRequest</a>()</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d4/db5/class_music_translation_request.html#a43e5e6ab1f1d704215019d206867be6a">m_pluginIndex</a> = -1;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d4/db5/class_music_translation_request.html#aa90de60d22540b21f20b34694edcad2d">m_pluginSelector</a> = -1;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../d4/db5/class_music_translation_request.html#a53d68dcb112df78d2095abacac22f1b8">findAllPlugins</a>();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d4/db5/class_music_translation_request.html#a53d68dcb112df78d2095abacac22f1b8">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/db5/class_music_translation_request.html#a53d68dcb112df78d2095abacac22f1b8">MusicTranslationRequest::findAllPlugins</a>()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="../../d9/de9/class_music_abstract_translation_request.html">MusicAbstractTranslationRequest</a> *d = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">switch</span>(++<a class="code" href="../../d4/db5/class_music_translation_request.html#a43e5e6ab1f1d704215019d206867be6a">m_pluginIndex</a>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">switch</span>(++<a class="code" href="../../d4/db5/class_music_translation_request.html#aa90de60d22540b21f20b34694edcad2d">m_pluginSelector</a>)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> 0: d = <span class="keyword">new</span> <a class="code" href="../../da/d1b/class_music_w_y_translation_request.html">MusicWYTranslationRequest</a>(<span class="keyword">this</span>); <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">case</span> 1: d = <span class="keyword">new</span> <a class="code" href="../../dd/d46/class_music_bing_translation_request.html">MusicBingTranslationRequest</a>(<span class="keyword">this</span>); <span class="keywordflow">break</span>;</div>
@@ -145,14 +145,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_t_t_k_html_a130abbad436ee2ff05a888d216d2a833"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a130abbad436ee2ff05a888d216d2a833">TTK::toString</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString toString(Record type)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4e/musicdownloadrecordconfigmanager_8cpp_source.html#l00003">musicdownloadrecordconfigmanager.cpp:3</a></div></div>
 <div class="ttc" id="musicydtranslationrequest_8h_html"><div class="ttname"><a href="../../d1/d43/musicydtranslationrequest_8h.html">musicydtranslationrequest.h</a></div></div>
 <div class="ttc" id="class_music_b_d_translation_request_html"><div class="ttname"><a href="../../d8/da0/class_music_b_d_translation_request.html">MusicBDTranslationRequest</a></div><div class="ttdoc">The class of the baidu translation words request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d2e/musicbdtranslationrequest_8h_source.html#l00027">musicbdtranslationrequest.h:27</a></div></div>
+<div class="ttc" id="class_music_translation_request_html_aa90de60d22540b21f20b34694edcad2d"><div class="ttname"><a href="../../d4/db5/class_music_translation_request.html#aa90de60d22540b21f20b34694edcad2d">MusicTranslationRequest::m_pluginSelector</a></div><div class="ttdeci">int m_pluginSelector</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d0c/musictranslationrequest_8h_source.html#l00055">musictranslationrequest.h:55</a></div></div>
 <div class="ttc" id="musictranslationrequest_8h_html"><div class="ttname"><a href="../../d3/d0c/musictranslationrequest_8h.html">musictranslationrequest.h</a></div></div>
 <div class="ttc" id="class_music_y_d_translation_request_html"><div class="ttname"><a href="../../d5/dc7/class_music_y_d_translation_request.html">MusicYDTranslationRequest</a></div><div class="ttdoc">The class of the yandex translation words request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d43/musicydtranslationrequest_8h_source.html#l00027">musicydtranslationrequest.h:27</a></div></div>
 <div class="ttc" id="class_music_translation_request_html_a53d68dcb112df78d2095abacac22f1b8"><div class="ttname"><a href="../../d4/db5/class_music_translation_request.html#a53d68dcb112df78d2095abacac22f1b8">MusicTranslationRequest::findAllPlugins</a></div><div class="ttdeci">void findAllPlugins()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d18/musictranslationrequest_8cpp_source.html#l00032">musictranslationrequest.cpp:32</a></div></div>
-<div class="ttc" id="class_music_translation_request_html_a43e5e6ab1f1d704215019d206867be6a"><div class="ttname"><a href="../../d4/db5/class_music_translation_request.html#a43e5e6ab1f1d704215019d206867be6a">MusicTranslationRequest::m_pluginIndex</a></div><div class="ttdeci">int m_pluginIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d0c/musictranslationrequest_8h_source.html#l00055">musictranslationrequest.h:55</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 18 2024 22:22:05 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 16 2024 22:16:47 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
