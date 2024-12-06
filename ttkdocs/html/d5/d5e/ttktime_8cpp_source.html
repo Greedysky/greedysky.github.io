@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.1.0</span>
+   &#160;<span id="projectnumber">4.1.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -204,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d4/dc5/class_t_t_k_time.html#a8b4ab10408488efa443503cbdf9416f6">TTKTime::fromString</a>(time, <span class="stringliteral">&quot;mm:ss&quot;</span>).<a class="code" href="../../d4/dc5/class_t_t_k_time.html#ac527ab73a6b702eed714c45772325cc2">toValue</a>();</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d4/dc5/class_t_t_k_time.html#a7074b2087334c16c7593e386af2d8c33">  128</a></span>&#160;QString <a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>(qint64 time<span class="comment">/*, bool greedy*/</span>) noexcept</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d4/dc5/class_t_t_k_time.html#a7074b2087334c16c7593e386af2d8c33">  128</a></span>&#160;QString <a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>(qint64 time) noexcept</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d4/dc5/class_t_t_k_time.html">TTKTime</a> t(time);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span>(time &lt; <a class="code" href="../../df/d7f/ttkglobal_8h.html#abc2d3cbf27d29ac5b390ffa57c3e9aed">TTK_DN_H2MS</a>)</div>
@@ -325,7 +325,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="../../d4/dfc/class_t_t_k_date_time.html#aa86b3b992589aeb732fe3f7e8460c6a2">  249</a></span>&#160;qint64 <a class="code" href="../../d4/dfc/class_t_t_k_date_time.html#aa86b3b992589aeb732fe3f7e8460c6a2">TTKDateTime::currentTimestamp</a>()</div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="../../d4/dfc/class_t_t_k_date_time.html#a57741b9b717bf5f4e5087fcf0abd1d6a">  249</a></span>&#160;qint64 <a class="code" href="../../d4/dfc/class_t_t_k_date_time.html#a57741b9b717bf5f4e5087fcf0abd1d6a">TTKDateTime::currentTimestamp</a>() noexcept</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;{</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">return</span> QDateTime::currentMSecsSinceEpoch();</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
@@ -343,6 +343,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_time_html_afbde7dbec1b1c3f806723fd7aeea5b40"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#afbde7dbec1b1c3f806723fd7aeea5b40">TTKTime::minute</a></div><div class="ttdeci">int minute() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0a/ttktime_8h_source.html#l00082">ttktime.h:82</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_ae1ae3dbd82f52c02b02d880dc559cc24"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#ae1ae3dbd82f52c02b02d880dc559cc24">TTKTime::operator+</a></div><div class="ttdeci">TTKTime operator+(const TTKTime &amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00190">ttktime.cpp:190</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a046682059bbccac07f0a6db355f6b337"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a046682059bbccac07f0a6db355f6b337">TTKTime::operator/=</a></div><div class="ttdeci">TTKTime &amp; operator/=(const int other) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00184">ttktime.cpp:184</a></div></div>
+<div class="ttc" id="class_t_t_k_date_time_html_a57741b9b717bf5f4e5087fcf0abd1d6a"><div class="ttname"><a href="../../d4/dfc/class_t_t_k_date_time.html#a57741b9b717bf5f4e5087fcf0abd1d6a">TTKDateTime::currentTimestamp</a></div><div class="ttdeci">static qint64 currentTimestamp() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00249">ttktime.cpp:249</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_afc3dddfa8b6d30f319c9c35d18eb6947"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#afc3dddfa8b6d30f319c9c35d18eb6947">TTKTime::operator-=</a></div><div class="ttdeci">TTKTime &amp; operator-=(const TTKTime &amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00166">ttktime.cpp:166</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a0932974d173d671ad1d7770a96b59e12"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a0932974d173d671ad1d7770a96b59e12">TTKTime::fromValue</a></div><div class="ttdeci">void fromValue(int day, int hour, int min, int sec, int msec=0) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00082">ttktime.cpp:82</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a7a3b7ea9c07b5bacc06d6be1b70b49b8"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a7a3b7ea9c07b5bacc06d6be1b70b49b8">TTKTime::TTKTime</a></div><div class="ttdeci">TTKTime() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00025">ttktime.cpp:25</a></div></div>
@@ -369,7 +370,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_time_html_a77dd835b43e7ea9c0d75c636ef2ac981"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a77dd835b43e7ea9c0d75c636ef2ac981">TTKTime::m_second</a></div><div class="ttdeci">int m_second</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0a/ttktime_8h_source.html#l00186">ttktime.h:186</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a608e50a50aa672885eef93c44ff137f2"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a608e50a50aa672885eef93c44ff137f2">TTKTime::m_msecond</a></div><div class="ttdeci">int m_msecond</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0a/ttktime_8h_source.html#l00186">ttktime.h:186</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html">TTKTime</a></div><div class="ttdoc">The class of the ttk time object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d0a/ttktime_8h_source.html#l00028">ttktime.h:28</a></div></div>
-<div class="ttc" id="class_t_t_k_date_time_html_aa86b3b992589aeb732fe3f7e8460c6a2"><div class="ttname"><a href="../../d4/dfc/class_t_t_k_date_time.html#aa86b3b992589aeb732fe3f7e8460c6a2">TTKDateTime::currentTimestamp</a></div><div class="ttdeci">static qint64 currentTimestamp()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00249">ttktime.cpp:249</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ac6187fd619686d0972b384b18edceca8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a></div><div class="ttdeci">#define TTK_DN_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00281">ttkglobal.h:281</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a774b050299c6053efff50fb7749cbfe9"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a774b050299c6053efff50fb7749cbfe9">TTKTime::operator-</a></div><div class="ttdeci">TTKTime operator-(const TTKTime &amp;other) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00200">ttktime.cpp:200</a></div></div>
 <div class="ttc" id="class_t_t_k_time_html_a51378715f32c4f1f3a0a38aa6bafffac"><div class="ttname"><a href="../../d4/dc5/class_t_t_k_time.html#a51378715f32c4f1f3a0a38aa6bafffac">TTKTime::isValid</a></div><div class="ttdeci">bool isValid() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00059">ttktime.cpp:59</a></div></div>
@@ -387,7 +387,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 23 2024 21:13:44 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 6 2024 20:23:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.1.0</span>
+   &#160;<span id="projectnumber">4.1.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -89,37 +89,33 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="../../df/d9b/class_music_cover_source_request.html#a95f68088c91327ef401b6809a17a717f">   10</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d9b/class_music_cover_source_request.html#a95f68088c91327ef401b6809a17a717f">MusicCoverSourceRequest::startToRequest</a>(<span class="keyword">const</span> QString &amp;url)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a> *d = <span class="keyword">new</span> <a class="code" href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    connect(d, SIGNAL(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ad88d3ac539dccfba06a516587b61c5c9">downLoadRawDataChanged</a>(QByteArray)), SLOT(<a class="code" href="../../df/d9b/class_music_cover_source_request.html#a78fd7b091b16aab4fce4bef2e60b671a">downLoadFinished</a>(QByteArray)));</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    connect(d, SIGNAL(<a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ad88d3ac539dccfba06a516587b61c5c9">downLoadRawDataChanged</a>(QByteArray)), SLOT(<a class="code" href="../../df/d9b/class_music_cover_source_request.html#a728bd200769d16963b07de960a503ecf">downLoadRawDataFinished</a>(QByteArray)));</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    d-&gt;<a class="code" href="../../d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">startToRequest</a>(url);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../df/d9b/class_music_cover_source_request.html#a78fd7b091b16aab4fce4bef2e60b671a">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d9b/class_music_cover_source_request.html#a78fd7b091b16aab4fce4bef2e60b671a">MusicCoverSourceRequest::downLoadFinished</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="../../df/d9b/class_music_cover_source_request.html#a728bd200769d16963b07de960a503ecf">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d9b/class_music_cover_source_request.html#a728bd200769d16963b07de960a503ecf">MusicCoverSourceRequest::downLoadRawDataFinished</a>(<span class="keyword">const</span> QByteArray &amp;bytes)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">MusicCoverRequest::downLoadFinished</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../df/d9b/class_music_cover_source_request.html#af31a41cc47ae31539bde98f433969a2a">   22</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../df/d9b/class_music_cover_source_request.html#a78fd7b091b16aab4fce4bef2e60b671a">MusicCoverSourceRequest::downLoadFinished</a>(<span class="keyword">const</span> QByteArray &amp;bytes)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">MusicCoverRequest::downLoadFinished</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_EMIT <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ad88d3ac539dccfba06a516587b61c5c9">downLoadRawDataChanged</a>(bytes);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    deleteLater();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Q_EMIT <a class="code" href="../../df/d02/class_t_t_k_abstract_network.html#ad88d3ac539dccfba06a516587b61c5c9">downLoadRawDataChanged</a>(bytes);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="../../d0/d4c/class_music_cover_request.html#a656bb0935655d175a04a17b0c51e6151">deleteAll</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="ttc" id="class_t_t_k_abstract_network_html_ad88d3ac539dccfba06a516587b61c5c9"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#ad88d3ac539dccfba06a516587b61c5c9">TTKAbstractNetwork::downLoadRawDataChanged</a></div><div class="ttdeci">void downLoadRawDataChanged(const QByteArray &amp;bytes)</div></div>
 <div class="ttc" id="musicdatasourcerequest_8h_html"><div class="ttname"><a href="../../d2/d23/musicdatasourcerequest_8h.html">musicdatasourcerequest.h</a></div></div>
 <div class="ttc" id="class_music_cover_source_request_html_a95f68088c91327ef401b6809a17a717f"><div class="ttname"><a href="../../df/d9b/class_music_cover_source_request.html#a95f68088c91327ef401b6809a17a717f">MusicCoverSourceRequest::startToRequest</a></div><div class="ttdeci">virtual void startToRequest(const QString &amp;url) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musiccoversourcerequest_8cpp_source.html#l00010">musiccoversourcerequest.cpp:10</a></div></div>
 <div class="ttc" id="class_music_cover_source_request_html_a903fb02a4ee8cbb822f15380ad4c68ea"><div class="ttname"><a href="../../df/d9b/class_music_cover_source_request.html#a903fb02a4ee8cbb822f15380ad4c68ea">MusicCoverSourceRequest::MusicCoverSourceRequest</a></div><div class="ttdeci">MusicCoverSourceRequest(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musiccoversourcerequest_8cpp_source.html#l00004">musiccoversourcerequest.cpp:4</a></div></div>
+<div class="ttc" id="class_music_cover_request_html_a656bb0935655d175a04a17b0c51e6151"><div class="ttname"><a href="../../d0/d4c/class_music_cover_request.html#a656bb0935655d175a04a17b0c51e6151">MusicCoverRequest::deleteAll</a></div><div class="ttdeci">virtual void deleteAll() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d29/musiccoverrequest_8cpp_source.html#l00009">musiccoverrequest.cpp:9</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_network_html_a42d3a48b4071bc84e4b07c27a3e480e7"><div class="ttname"><a href="../../df/d02/class_t_t_k_abstract_network.html#a42d3a48b4071bc84e4b07c27a3e480e7">TTKAbstractNetwork::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbd/ttkabstractnetwork_8cpp_source.html#l00035">ttkabstractnetwork.cpp:35</a></div></div>
 <div class="ttc" id="musiccoversourcerequest_8h_html"><div class="ttname"><a href="../../d1/de1/musiccoversourcerequest_8h.html">musiccoversourcerequest.h</a></div></div>
+<div class="ttc" id="class_music_cover_source_request_html_a728bd200769d16963b07de960a503ecf"><div class="ttname"><a href="../../df/d9b/class_music_cover_source_request.html#a728bd200769d16963b07de960a503ecf">MusicCoverSourceRequest::downLoadRawDataFinished</a></div><div class="ttdeci">void downLoadRawDataFinished(const QByteArray &amp;bytes)</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musiccoversourcerequest_8cpp_source.html#l00017">musiccoversourcerequest.cpp:17</a></div></div>
 <div class="ttc" id="class_music_data_source_request_html"><div class="ttname"><a href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a></div><div class="ttdoc">The class of the data source download request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d23/musicdatasourcerequest_8h_source.html#l00027">musicdatasourcerequest.h:27</a></div></div>
 <div class="ttc" id="class_music_data_source_request_html_aeb3e60b15035000501fce77c9dc2a602"><div class="ttname"><a href="../../d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">MusicDataSourceRequest::startToRequest</a></div><div class="ttdeci">void startToRequest(const QString &amp;url)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/musicdatasourcerequest_8cpp_source.html#l00015">musicdatasourcerequest.cpp:15</a></div></div>
-<div class="ttc" id="class_music_cover_source_request_html_a78fd7b091b16aab4fce4bef2e60b671a"><div class="ttname"><a href="../../df/d9b/class_music_cover_source_request.html#a78fd7b091b16aab4fce4bef2e60b671a">MusicCoverSourceRequest::downLoadFinished</a></div><div class="ttdeci">virtual void downLoadFinished() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d39/musiccoversourcerequest_8cpp_source.html#l00017">musiccoversourcerequest.cpp:17</a></div></div>
 <div class="ttc" id="class_music_cover_request_html"><div class="ttname"><a href="../../d0/d4c/class_music_cover_request.html">MusicCoverRequest</a></div><div class="ttdoc">The class of the cover data download request. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d1c/musiccoverrequest_8h_source.html#l00027">musiccoverrequest.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 23 2024 21:13:45 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 6 2024 20:23:34 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

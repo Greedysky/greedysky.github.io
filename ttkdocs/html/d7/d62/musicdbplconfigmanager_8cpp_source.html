@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.1.0</span>
+   &#160;<span id="projectnumber">4.1.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -180,7 +180,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        item.m_songs &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(filePath, <a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>((<span class="keywordtype">int</span>)duration * <a class="code" href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>));</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        item.m_songs &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(filePath, <a class="code" href="../../d4/dc5/class_t_t_k_time.html#abd0e8d297083b03d6bdfcf47a9a8c163">TTKTime::formatDuration</a>(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a32e25a5408ff341ddf9026019e94ab45">TTKStaticCast</a>(<span class="keywordtype">int</span>, duration) * <a class="code" href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>));</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span>(minorver &lt;= 2)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="comment">// legacy filetype support</span></div>
@@ -284,6 +284,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    Q_UNUSED(items);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
+<div class="ttc" id="ttkglobal_8h_html_a32e25a5408ff341ddf9026019e94ab45"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a32e25a5408ff341ddf9026019e94ab45">TTKStaticCast</a></div><div class="ttdeci">#define TTKStaticCast(x, y)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00159">ttkglobal.h:159</a></div></div>
 <div class="ttc" id="class_t_t_k_file_interface_html_a2baee72529b171c78b918e0d71fe3554"><div class="ttname"><a href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">TTKFileInterface::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d1e/ttkfileinterface_8h_source.html#l00059">ttkfileinterface.h:59</a></div></div>
 <div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="musicdbplconfigmanager_8cpp_html_ab0d28dcb4cb8da29fa779b3a498dc03d"><div class="ttname"><a href="../../d7/d62/musicdbplconfigmanager_8cpp.html#ab0d28dcb4cb8da29fa779b3a498dc03d">PLAYLIST_MAJOR_VER</a></div><div class="ttdeci">static constexpr int PLAYLIST_MAJOR_VER</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d62/musicdbplconfigmanager_8cpp_source.html#l00003">musicdbplconfigmanager.cpp:3</a></div></div>
@@ -305,7 +306,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 23 2024 21:13:45 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 6 2024 20:23:34 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

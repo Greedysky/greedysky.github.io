@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.1.0</span>
+   &#160;<span id="projectnumber">4.1.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2024 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -101,53 +101,60 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/df0/namespace_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a> : <span class="keyword">public</span> <a class="code" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ~<a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> initialize(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> openFileDir();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> openImageFileDir();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> deleteAlbumImage();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> saveAlbumImage();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> editTag();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> saveTag();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> setEditLineEnabled(<span class="keywordtype">bool</span> enabled);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">   83</a></span>&#160;    Ui::MusicFileInformationWidget *<a class="code" href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">m_ui</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">   84</a></span>&#160;    QString <a class="code" href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">m_path</a>, m_imagePath;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">   85</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">m_deleteImage</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../dc/df0/namespace_ui.html">Ui</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a> : <span class="keyword">public</span> <a class="code" href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ~<a class="code" href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> initialize(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> openFileDir();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> openImageFileDir();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> deleteAlbumImage();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> saveAlbumImage();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> openDynamicImage();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> downLoadFinished(<span class="keyword">const</span> QString &amp;bytes);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> editTag();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> saveTag();</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif // MUSICFILEINFORMATIONWIDGET_H</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> setEditLineEnabled(<span class="keywordtype">bool</span> enabled);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">   93</a></span>&#160;    Ui::MusicFileInformationWidget *<a class="code" href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">m_ui</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">   94</a></span>&#160;    QString <a class="code" href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">m_path</a>, m_imagePath;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">   95</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">m_deleteImage</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d5/d72/class_music_file_information_widget.html#a6e362e1e24a3261b8f6f8a5d0a19447d">   96</a></span>&#160;    <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a> *<a class="code" href="../../d5/d72/class_music_file_information_widget.html#a6e362e1e24a3261b8f6f8a5d0a19447d">m_player</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // MUSICFILEINFORMATIONWIDGET_H</span></div>
 <div class="ttc" id="musicabstractmovedialog_8h_html"><div class="ttname"><a href="../../da/d49/musicabstractmovedialog_8h.html">musicabstractmovedialog.h</a></div></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="../../dc/df0/namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d24/musicapplication_8h_source.html#l00036">musicapplication.h:36</a></div></div>
-<div class="ttc" id="class_music_file_information_widget_html_aa51900386d1e44be988d5fcd16ffdbbd"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">MusicFileInformationWidget::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00084">musicfileinformationwidget.h:84</a></div></div>
-<div class="ttc" id="class_music_file_information_widget_html_a0e0ceb65275ca25d9b979e73e39c1084"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">MusicFileInformationWidget::m_ui</a></div><div class="ttdeci">Ui::MusicFileInformationWidget * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00083">musicfileinformationwidget.h:83</a></div></div>
+<div class="ttc" id="class_music_file_information_widget_html_aa51900386d1e44be988d5fcd16ffdbbd"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#aa51900386d1e44be988d5fcd16ffdbbd">MusicFileInformationWidget::m_path</a></div><div class="ttdeci">QString m_path</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00094">musicfileinformationwidget.h:94</a></div></div>
+<div class="ttc" id="class_music_file_information_widget_html_a0e0ceb65275ca25d9b979e73e39c1084"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#a0e0ceb65275ca25d9b979e73e39c1084">MusicFileInformationWidget::m_ui</a></div><div class="ttdeci">Ui::MusicFileInformationWidget * m_ui</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00093">musicfileinformationwidget.h:93</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
-<div class="ttc" id="class_music_file_information_widget_html_a5b2fb1a401eefeac76dd5f5a6ca3df10"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">MusicFileInformationWidget::m_deleteImage</a></div><div class="ttdeci">bool m_deleteImage</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00085">musicfileinformationwidget.h:85</a></div></div>
-<div class="ttc" id="class_music_file_information_widget_html"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a></div><div class="ttdoc">The class of the file information widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00032">musicfileinformationwidget.h:32</a></div></div>
+<div class="ttc" id="class_music_file_information_widget_html_a5b2fb1a401eefeac76dd5f5a6ca3df10"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#a5b2fb1a401eefeac76dd5f5a6ca3df10">MusicFileInformationWidget::m_deleteImage</a></div><div class="ttdeci">bool m_deleteImage</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00095">musicfileinformationwidget.h:95</a></div></div>
+<div class="ttc" id="class_music_file_information_widget_html"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html">MusicFileInformationWidget</a></div><div class="ttdoc">The class of the file information widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00034">musicfileinformationwidget.h:34</a></div></div>
+<div class="ttc" id="class_music_file_information_widget_html_a6e362e1e24a3261b8f6f8a5d0a19447d"><div class="ttname"><a href="../../d5/d72/class_music_file_information_widget.html#a6e362e1e24a3261b8f6f8a5d0a19447d">MusicFileInformationWidget::m_player</a></div><div class="ttdeci">MusicCoreMPlayer * m_player</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicfileinformationwidget_8h_source.html#l00096">musicfileinformationwidget.h:96</a></div></div>
 <div class="ttc" id="musicwidgetheaders_8h_html"><div class="ttname"><a href="../../dc/d17/musicwidgetheaders_8h.html">musicwidgetheaders.h</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00151">ttkqtglobal.h:151</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00168">ttkqtglobal.h:168</a></div></div>
 <div class="ttc" id="class_music_abstract_move_dialog_html"><div class="ttname"><a href="../../da/db2/class_music_abstract_move_dialog.html">MusicAbstractMoveDialog</a></div><div class="ttdoc">The class of the moving dialog base. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d49/musicabstractmovedialog_8h_source.html#l00028">musicabstractmovedialog.h:28</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a></div><div class="ttdoc">The class of the mplayer core. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00030">musiccoremplayer.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 23 2024 21:13:45 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 6 2024 20:23:35 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

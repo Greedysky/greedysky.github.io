@@ -24,10 +24,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="../../lb_app_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.1.0</span>
+   &#160;<span id="projectnumber">4.1.2.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -266,7 +266,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
 <div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="../../dd/dd6/class_music_song_search_pop_widget.html#ad533e6cbadf0e10e28e6ada7473f8ea6">  188</a></span>&#160;QString <a class="code" href="../../dd/dd6/class_music_song_search_pop_widget.html#ad533e6cbadf0e10e28e6ada7473f8ea6">MusicSongSearchPopWidget::utcTimeToLocal</a>(<span class="keyword">const</span> QString &amp;time)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">const</span> qint64 t = (<a class="code" href="../../d4/dfc/class_t_t_k_date_time.html#aa86b3b992589aeb732fe3f7e8460c6a2">TTKDateTime::currentTimestamp</a>() - time.toLongLong()) / <a class="code" href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">const</span> qint64 t = (<a class="code" href="../../d4/dfc/class_t_t_k_date_time.html#a57741b9b717bf5f4e5087fcf0abd1d6a">TTKDateTime::currentTimestamp</a>() - time.toLongLong()) / <a class="code" href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a>;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">if</span>(t &lt; <a class="code" href="../../df/d7f/ttkglobal_8h.html#a40a2861ea6190518b385236471417980">TTK_DN_M2S</a>)</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    {</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">return</span> QString::number(t) + tr(<span class="stringliteral">&quot;ss&quot;</span>);</div>
@@ -311,6 +311,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a4ab22248dacfcc5d418f2f76a89f59e9"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a4ab22248dacfcc5d418f2f76a89f59e9">TTK::UI::BorderStyle01</a></div><div class="ttdeci">static const QString BorderStyle01</div><div class="ttdoc">border </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00119">musicuiobject.h:119</a></div></div>
 <div class="ttc" id="class_music_song_search_pop_widget_html_a599b3782467c37bcbf353a0a13d111de"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a599b3782467c37bcbf353a0a13d111de">MusicSongSearchPopWidget::initialize</a></div><div class="ttdeci">void initialize(QWidget *parent)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d31/musicsongsearchpopwidget_8cpp_source.html#l00122">musicsongsearchpopwidget.cpp:122</a></div></div>
 <div class="ttc" id="class_music_song_search_pop_widget_html_a2f6b2b184ead3a45e7380a4fb9ef7b31"><div class="ttname"><a href="../../dd/dd6/class_music_song_search_pop_widget.html#a2f6b2b184ead3a45e7380a4fb9ef7b31">MusicSongSearchPopWidget::MusicSongSearchPopWidget</a></div><div class="ttdeci">MusicSongSearchPopWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d31/musicsongsearchpopwidget_8cpp_source.html#l00085">musicsongsearchpopwidget.cpp:85</a></div></div>
+<div class="ttc" id="class_t_t_k_date_time_html_a57741b9b717bf5f4e5087fcf0abd1d6a"><div class="ttname"><a href="../../d4/dfc/class_t_t_k_date_time.html#a57741b9b717bf5f4e5087fcf0abd1d6a">TTKDateTime::currentTimestamp</a></div><div class="ttdeci">static qint64 currentTimestamp() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00249">ttktime.cpp:249</a></div></div>
 <div class="ttc" id="musicsongsearchpopwidget_8cpp_html_a37d83374eecdfccd82cd62ad560c7828"><div class="ttname"><a href="../../d4/d31/musicsongsearchpopwidget_8cpp.html#a37d83374eecdfccd82cd62ad560c7828">MAX_ITEM_COUNT</a></div><div class="ttdeci">static constexpr int MAX_ITEM_COUNT</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d31/musicsongsearchpopwidget_8cpp_source.html#l00005">musicsongsearchpopwidget.cpp:5</a></div></div>
 <div class="ttc" id="musicsongsearchpopwidget_8h_html"><div class="ttname"><a href="../../d6/deb/musicsongsearchpopwidget_8h.html">musicsongsearchpopwidget.h</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_xml_html_a70089f2cedc552864996a04ee9469ee3"><div class="ttname"><a href="../../d9/d1d/class_t_t_k_abstract_xml.html#a70089f2cedc552864996a04ee9469ee3">TTKAbstractXml::fromFile</a></div><div class="ttdeci">bool fromFile(const QString &amp;name)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d40/ttkabstractxml_8cpp_source.html#l00125">ttkabstractxml.cpp:125</a></div></div>
@@ -343,7 +344,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a1c44e1483769266a62a131b0d650e0a7"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a1c44e1483769266a62a131b0d650e0a7">TTK::UI::BackgroundStyle10</a></div><div class="ttdeci">static const QString BackgroundStyle10</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00109">musicuiobject.h:109</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a3b31cb598332a4d29ca938b769bb04ce"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a3b31cb598332a4d29ca938b769bb04ce">TTK_DN_D2S</a></div><div class="ttdeci">#define TTK_DN_D2S</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00301">ttkglobal.h:301</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a00cb52247a7ffdea07620be6851b8462"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a00cb52247a7ffdea07620be6851b8462">TTK::UI::ColorStyle03</a></div><div class="ttdeci">static const QString ColorStyle03</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00043">musicuiobject.h:43</a></div></div>
-<div class="ttc" id="class_t_t_k_date_time_html_aa86b3b992589aeb732fe3f7e8460c6a2"><div class="ttname"><a href="../../d4/dfc/class_t_t_k_date_time.html#aa86b3b992589aeb732fe3f7e8460c6a2">TTKDateTime::currentTimestamp</a></div><div class="ttdeci">static qint64 currentTimestamp()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5e/ttktime_8cpp_source.html#l00249">ttktime.cpp:249</a></div></div>
 <div class="ttc" id="musicobject_8h_html_a43bac5a8858b7a5eedad16805108d503"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#a43bac5a8858b7a5eedad16805108d503">SEARCH_PATH_FULL</a></div><div class="ttdeci">#define SEARCH_PATH_FULL</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00140">musicobject.h:140</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ac6187fd619686d0972b384b18edceca8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a></div><div class="ttdeci">#define TTK_DN_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00281">ttkglobal.h:281</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_u_i_html_a333432536aaeb02e3f352feb49c839ff"><div class="ttname"><a href="../../d6/d7e/namespace_t_t_k_1_1_u_i.html#a333432536aaeb02e3f352feb49c839ff">TTK::UI::FontStyle02</a></div><div class="ttdeci">static const QString FontStyle02</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/deb/musicuiobject_8h_source.html#l00141">musicuiobject.h:141</a></div></div>
@@ -359,7 +359,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 23 2024 21:13:45 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 6 2024 20:23:35 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
