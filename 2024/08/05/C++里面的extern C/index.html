@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++里面的extern C | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文详细解析extern &quot;C&quot;的底层原理与实际应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++里面的extern C">
+<meta property="og:url" content="https://greedysky.github.io/2024/08/05/C++里面的extern C/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="本文详细解析extern &quot;C&quot;的底层原理与实际应用。">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/1.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/2.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/3.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/4.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/5.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/6.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/7.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/8.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/9.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/10.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/11.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/12.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/13.webp">
+<meta property="og:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/14.webp">
+<meta property="og:updated_time" content="2025-01-19T11:21:49.139Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++里面的extern C">
+<meta name="twitter:description" content="本文详细解析extern &quot;C&quot;的底层原理与实际应用。">
+<meta name="twitter:image" content="https://greedysky.github.io/image/2ef4909f10fb7e3d03a744c451a430271b/1.webp">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++里面的extern C" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/08/05/C++里面的extern C/" class="article-date">
+      <time datetime="2024-08-05T06:45:30.000Z" itemprop="datePublished">2024-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++里面的extern C
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;本文详细解析extern “C”的底层原理与实际应用。<br>&#160; &#160; &#160; &#160;在你工作过的系统里，不知能否看到类似下面的代码。<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/1.webp" alt="demo"><br>&#160; &#160; &#160; &#160;这好像没有什么问题，你应该还会想：“嗯⋯是啊，我们的代码都是这样写的，从来没有因此碰到过什么麻烦啊～”。<br>&#160; &#160; &#160; &#160;你说的没错，如果你的头文件从来没有被任何C++程序引用过的话。<br>&#160; &#160; &#160; &#160;这与C++有什么关系呢? 看看<code>__cplusplus</code>（注意前面是两个下划线） 的名字你就应该知道它与C++有很大关系。<code>__cplusplus</code>是一个C++规范规定的预定义宏。<br>&#160; &#160; &#160; &#160;你可以信任的是：所有的现代C++编译器都预先定义了它；而所有C语言编译器则不会。另外，按照规范<code>__cplusplus</code>的值应该等于199711L，然而不是所有的编译器都照此实现，比如g++编译器就将它的值定义为1。<br>&#160; &#160; &#160; &#160;所以，如果上述代码被C语言程序引用的话，它的内容就等价于下列代码。<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/2.webp" alt="demo"><br>&#160; &#160; &#160; &#160;在这种情况下，既然<code>extern &quot;C&quot;</code>经过预处理之后根本就不存在，那么它和<code>#include</code>指令之间的关系问题自然也就是无中生有。</p>
+<h2 id="extern-“C”的前世今生"><a href="#extern-“C”的前世今生" class="headerlink" title="extern “C”的前世今生"></a><strong>extern “C”的前世今生</strong></h2><p>&#160; &#160; &#160; &#160;在C++编译器里，有一位暗黑破坏神，专门从事一份称作“名字粉碎”(<strong>name mangling</strong>)的工作。当把一个C++的源文件投入编译的时候，它就开始工作，把每一个它在源文件里看到的外部可见的名字粉碎的面目全非，然后存储到二进制目标文件的符号表里。<br>&#160; &#160; &#160; &#160;之所以在C++的世界里存在这样一个怪物，是因为C++允许对一个名字给予不同的定义，只要在语义上没有二义性就好。<br>&#160; &#160; &#160; &#160;比如，你可以让两个函数是同名的，只要它们的参数列表不同即可，这就是函数重载(<strong>function overloading</strong>)；甚至，你可以让两个函数的原型声明是完全相同的，只要它们所处的名字空间(<code>namespace</code>)不一样即可。<br>&#160; &#160; &#160; &#160;事实上，当处于不同的名字空间时，所有的名字都是可以重复的，无论是函数名，变量名，还是类型名。<br>&#160; &#160; &#160; &#160;另外，C++程序的构造方式仍然继承了C语言的传统：编译器把每一个通过命令行指定的源代码文件看做一个独立的编译单元，生成目标文件；然后，链接器通过查找这些目标文件的符号表将它们链接在一起生成可执行程序。<br>&#160; &#160; &#160; &#160;编译和链接是两个阶段的事情；事实上，编译器和链接器是两个完全独立的工具。编译器可以通过语义分析知道那些同名的符号之间的差别；而链接器却只能通过目标文件符号表中保存的名字来识别对象。<br>&#160; &#160; &#160; &#160;所以，编译器进行名字粉碎的目的是为了让链接器在工作的时候不陷入困惑，将所有名字重新编码，生成全局唯一，不重复的新名字，让链接器能够准确识别每个名字所对应的对象。<br>&#160; &#160; &#160; &#160;但 C语言却是一门单一名字空间的语言，也不允许函数重载，也就是说，在一个编译和链接的范围之内，C语言不允许存在同名对象。<br>&#160; &#160; &#160; &#160;比如，在一个编译单元内部，不允许存在同名的函数，无论这个函数是否用static修饰；在一个可执行程序对应的所有目标文件里，不允许存在同名对象，无论它代表一个全局变量，还是一个函数。<br>&#160; &#160; &#160; &#160;所以，C语言编译器不需要对任何名字进行复杂的处理（或者仅仅对名字进行简单一致的修饰（decoration），比如在名字前面统一的加上单下划线_）。<br>&#160; &#160; &#160; &#160;C++的缔造者Bjarne Stroustrup在最初就把——能够兼容C，能够复用大量已经存在的C库——列为C++语言的重要目标。<br>&#160; &#160; &#160; &#160;但两种语言的编译器对待名字的处理方式是不一致的，这就给链接过程带来了麻烦。<br>&#160; &#160; &#160; &#160;例如，现有一个名为<code>my_handle.h</code>的头文件，内容如下：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/3.webp" alt="demo"><br>&#160; &#160; &#160; &#160;然后使用C语言编译器编译<code>my_handle.c</code>，生成目标文件<code>my_handle.o</code>。<br>&#160; &#160; &#160; &#160;由于C语言编译器不对名字进行粉碎，所以在<code>my_handle.o</code>的符号表里，这三个函数的名字和源代码文件中的声明是一致的。<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/4.webp" alt="demo"><br>&#160; &#160; &#160; &#160;随后，我们想让一个C++程序调用这些函数，所以，它也包含了头文件<code>my_handle.h</code>。<br>&#160; &#160; &#160; &#160;假设这个C++源代码文件的名字叫<code>my_handle_client.cpp</code>，其内容如下：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/5.webp" alt="demo"><br>&#160; &#160; &#160; &#160;其中，粗体的部分就是那三个函数的名字被粉碎后的样子。<br>&#160; &#160; &#160; &#160;然后，为了让程序可以工作，你必须将<code>my_handle.o</code>和<code>my_handle_client.o</code>放在一起链接。由于在两个目标文件对于同一对象的命名不一样，链接器将报告相关的“符号未定义”错误。<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/6.webp" alt="demo"><br>&#160; &#160; &#160; &#160;为了解决这一问题，C++引入了链接规范(<code>linkage specification</code>)的概念，表示法为extern”language string”，C++编译器普遍支持的”language string”有”C”和”C++”，分别对应C语言和C++语言。<br>&#160; &#160; &#160; &#160;链接规范的作用是告诉C++编译：对于所有使用了链接规范进行修饰的声明或定义，应该按照指定语言的方式来处理，比如名字，调用习惯（calling convention）等等。<br>&#160; &#160; &#160; &#160;<strong>链接规范的用法有两种：</strong><br>&#160; &#160; &#160; &#160;1.单个声明的链接规范，比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;2.一组声明的链接规范，比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span></div><div class="line">&#123;</div><div class="line">　　<span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span>;</div><div class="line">　　<span class="function"><span class="keyword">int</span> <span class="title">bar</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;对我们之前的例子而言，如果我们把头文件<code>my_handle.h</code>的内容改成：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/7.webp" alt="demo"><br>&#160; &#160; &#160; &#160;然后使用C++编译器重新编译<code>my_handle_client.cpp</code>，所生成目标文件<code>my_handle_client.o</code>中的符号表就变为：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/8.webp" alt="demo"><br>&#160; &#160; &#160; &#160;从中我们可以看出，此时，用<code>extern &quot;C&quot;</code>修饰了的声明，其生成的符号和C语言编译器生成的符号保持了一致。这样，当你再次把<code>my_handle.o</code>和<code>my_handle_client.o</code>放在一起链接的时候，就不会再有之前的“符号未定义”错误了。<br>&#160; &#160; &#160; &#160;但此时，如果你重新编译<code>my_handle.c</code>，C语言编译器将会报告“语法错误”，因为extern”C”是C++的语法，C语言编译器不认识它。此时，可以按照我们之前已经讨论的，使用宏<code>__cplusplus</code>来识别C和C++编译器。修改后的<code>my_handle.h</code>的代码如下：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/9.webp" alt="demo"> </p>
+<h2 id="小心门后的未知世界"><a href="#小心门后的未知世界" class="headerlink" title="小心门后的未知世界"></a><strong>小心门后的未知世界</strong></h2><p>&#160; &#160; &#160; &#160;在我们清楚了<code>extern &quot;C&quot;</code>的来历和用途之后，回到我们本来的话题上，为什么不能把<code>#include</code>指令放置在<code>extern &quot;C&quot; { ... }</code>里面？<br>&#160; &#160; &#160; &#160;我们先来看一个例子，现有a.h，b.h，c.h以及foo.cpp，其中foo.cpp包含c.h，c.h包含b.h，b.h包含a.h，如下：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/10.webp" alt="demo"><br>&#160; &#160; &#160; &#160;现使用C++编译器的预处理选项来编译foo.cpp，得到下面的结果：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/11.webp" alt="demo"><br>&#160; &#160; &#160; &#160;正如你看到的，当你把<code>#include</code>指令放置在<code>extern &quot;C&quot; { }</code>里的时候，则会造成<code>extern &quot;C&quot; { }</code>的嵌套。这种嵌套是被C++规范允许的。当嵌套发生时，以最内层的嵌套为准。比如在下面代码中，函数foo会使用C++的链接规范，而函数bar则会使用C的链接规范。<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/12.webp" alt="demo"><br>&#160; &#160; &#160; &#160;如果能够保证一个C语言头文件直接或间接依赖的所有头文件也都是C语言的，那么按照C++语言规范，这种嵌套应该不会有什么问题。<br>&#160; &#160; &#160; &#160;但具体到某些编译器的实现，比如MSVC2005，却可能由于<code>extern &quot;C&quot; { }</code>的嵌套过深而报告错误。<br>&#160; &#160; &#160; &#160;不要因此而责备微软，因为就这个问题而言，这种嵌套是毫无意义的。你完全可以通过把#include指令放置在<code>extern &quot;C&quot; { }</code>的外面来避免嵌套。<br>&#160; &#160; &#160; &#160;拿之前的例子来说，如果我们把各个头文件的<code>#include</code>指令都移到<code>extern &quot;C&quot; { }</code>之外，然后使用C++编译器的预处理选项来编译foo.cpp，就会得到下面的结果：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/13.webp" alt="demo"><br>&#160; &#160; &#160; &#160;这样的结果肯定不会引起编译问题的结果——即便是使用MSVC。<br>&#160; &#160; &#160; &#160;把<code>#include</code>指令放置在<code>extern &quot;C&quot; { }</code>里面的另外一个重大风险是，你可能会无意中改变一个函数声明的链接规范。比如：有两个头文件a.h，b.h，其中b.h包含a.h，如下：<br><img src="/image/2ef4909f10fb7e3d03a744c451a430271b/14.webp" alt="demo"><br>&#160; &#160; &#160; &#160;按照a.h作者的本意，函数foo是一个C++自由函数，其链接规范为”C++”。但在b.h中，由于<code>#include &quot;a.h&quot;</code>被放到了<code>extern &quot;C&quot; { }</code>的内部，函数foo的链接规范被不正确地更改了。<br>&#160; &#160; &#160; &#160;由于每一条 #include 指令后面都隐藏这一个未知的世界，除非你刻意去探索，否则你永远都不知道，当你把一条条#include指令放置于<code>extern &quot;C&quot; { }</code>里面的时候，到底会产生怎样的结果，会带来何种的风险。<br>&#160; &#160; &#160; &#160;或许你会说，“我可以去查看这些被包含的头文件，我可以保证它们不会带来麻烦”。但，何必呢？毕竟，我们完全可以不必为不必要的事情买单，不是吗？</p>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a><strong>Q &amp; A</strong></h2><p>&#160; &#160; &#160; &#160;<strong>Q: 难道任何<code>#include</code>指令都不能放在<code>extern &quot;C&quot;</code>里面吗？</strong><br>&#160; &#160; &#160; &#160;<strong>A: 正像这个世界的大多数规则一样，总会存在特殊情况。</strong><br>&#160; &#160; &#160; &#160;有时候，你可能利用头文件机制“巧妙”的解决一些问题。比如，<code>#pragma pack</code>的问题。这些头文件和常规的头文件作用是不一样的，它们里面不会放置C的函数声明或者变量定义，链接规范不会对它们的内容产生影响。这种情况下，你可以不必遵守这些规则。<br>&#160; &#160; &#160; &#160;更加一般的原则是，在你明白了这所有的原理之后，只要你明白自己在干什么，那就去做吧。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>Q: 你只说了不应该放入<code>extern &quot;C&quot;</code>的，但什么可以放入呢？</strong><br>&#160; &#160; &#160; &#160;<strong>A: 链接规范仅仅用于修饰函数和变量，以及函数类型。所以，严格的讲，你只应该把这三种对象放置于<code>extern &quot;C&quot;</code>的内部。</strong><br>&#160; &#160; &#160; &#160;但，你把C语言的其它元素，比如非函数类型定义（结构体，枚举等）放入<code>extern &quot;C&quot;</code>内部，也不会带来任何影响。更不用说宏定义预处理指令了。<br>&#160; &#160; &#160; &#160;所以，如果你更加看重良好组织和管理的习惯，你应该只在必须使用<code>extern &quot;C&quot;</code>声明的地方使用它。即使你比较懒惰，绝大多数情况下，把一个头件自身的所有定义和声明都放置在<code>extern &quot;C&quot;</code>里面也不会有太大的问题。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>Q: 如果一个带有函数/变量声明的C头文件里没有<code>extern &quot;C&quot;</code>声明怎么办？</strong><br>&#160; &#160; &#160; &#160;<strong>A: 如果你可以判断，这个头文件永远不可能让C++代码来使用，那么就不要管它。</strong><br>&#160; &#160; &#160; &#160;但现实是，大多数情况下，你无法准确的推测未来。你在现在就加上这个<code>extern &quot;C&quot;</code>，这花不了你多少成本，但如果你现在没有加，等到将来这个头文件无意中被别人的C++程序包含的时候，别人很可能需要更高的成本来定位错误和修复问题。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>Q: 如果我的C+ +程序想包含一个C头文件a.h，它的内容包含了C的函数/变量声明，但它们却没有使用<code>extern &quot;C&quot;</code>链接规范，该怎么办？</strong><br>&#160; &#160; &#160; &#160;<strong>A: 在a.h里面加上它。</strong><br>&#160; &#160; &#160; &#160;某些人可能会建议你，如果a.h没有<code>extern &quot;C&quot;</code>，而b.cpp包含了a.h，可以在b.cpp里加上 ：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span></div><div class="line">&#123;</div><div class="line">　　<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"a.h"</span></span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这是一个邪恶的方案，原因在之前我们已经阐述。但值得探讨的是，这种方案这背后却可能隐含着一个假设，即我们不能修改a.h。不能修改的原因可能来自两个方面：<br>&#160; &#160; &#160; &#160;1. 头文件代码属于其它团队或者第三方公司，你没有修改代码的权限；<br>&#160; &#160; &#160; &#160;2. 虽然你拥有修改代码的权限，但由于这个头文件属于遗留系统，冒然修改可能会带来不可预知的问题。<br>&#160; &#160; &#160; &#160;对于第一种情况，不要试图自己进行workaround，因为这会给你带来不必要的麻烦。正确的解决方案是，把它当作一个bug，发送缺陷报告给相应的团队 或第三方公司。<br>&#160; &#160; &#160; &#160;如果是自己公司的团队或你已经付费的第三方公司，他们有义务为你进行这样的修改。如果他们不明白这件事情的重要性，告诉他们。如果这些头文 件属于一个免费开源软件，自己进行正确的修改，并发布patch给其开发团队。<br>&#160; &#160; &#160; &#160;在第二种情况下，你需要抛弃掉这种不必要的安全意识。<br>&#160; &#160; &#160; &#160;因为，首先，对于大多数头文件而言，这种修改都不是一种复杂的，高风险的修改，一切都在可控的范围之 内；<br>&#160; &#160; &#160; &#160;其次，如果某个头文件混乱而复杂，虽然对于遗留系统的哲学应该是：“在它还没有带来麻烦之前不要动它”，但现在麻烦已经来了，逃避不如正视，所以上策 是，将其视作一个可以整理到干净合理状态的良好机会。<br>&#160; &#160; &#160; &#160;</p>
+<h2 id="c-调用-c-的方法（关键是要让c的函数按照c的方式编译，而不是c-的方式）"><a href="#c-调用-c-的方法（关键是要让c的函数按照c的方式编译，而不是c-的方式）" class="headerlink" title="c++ 调用 c 的方法（关键是要让c的函数按照c的方式编译，而不是c++的方式）"></a><strong>c++ 调用 c 的方法（关键是要让c的函数按照c的方式编译，而不是c++的方式）</strong></h2><p>&#160; &#160; &#160; &#160;(1) cfun.h如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _C_FUN_H_</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _C_FUN_H_</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cfun</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;cppfun.cpp 如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//#include "cfun.h"  不需要包含cfun.h</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cppfun.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span>     <span class="function"><span class="keyword">void</span> <span class="title">cfun</span><span class="params">()</span></span>; <span class="comment">//声明为 extern void cfun(); 错误</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cppfun</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"this is cpp fun call"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    cfun();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;(2) cfun.h同上<br>&#160; &#160; &#160; &#160;cppfun.cpp 如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span></div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cfun.h"</span><span class="comment">//注意include语句一定要单独占一行;</span></span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cppfun.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cppfun</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"this is cpp fun call"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    cfun();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;(3) cfun.h如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _C_FUN_H_</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _C_FUN_H_</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span></div><div class="line">&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">cfun</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;cppfun.cpp如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cfun.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cppfun.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cppfun</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"this is cpp fun call"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    cfun();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;</p>
+<h2 id="c调用c-（关键是C-提供一个符合-C-调用惯例的函数）"><a href="#c调用c-（关键是C-提供一个符合-C-调用惯例的函数）" class="headerlink" title=" c调用c++（关键是C++ 提供一个符合 C 调用惯例的函数）"></a><strong> c调用c++（关键是C++ 提供一个符合 C 调用惯例的函数）</strong></h2><p>&#160; &#160; &#160; &#160;在vs2010上测试时，没有声明什么extern等，只在在cfun.c中包含cppfun.h，然后调用cppfun()也可以编译运行，在gcc下就编译出错，按照c++/c的标准这种做法应该是错误的。以下方法两种编译器都可以运行<br>&#160; &#160; &#160; &#160;cppfun.h如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _CPP_FUN_H_</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _CPP_FUN_H_</span></div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> <span class="function"><span class="keyword">void</span> <span class="title">cppfun</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;cfun.c如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//#include "cppfun.h" //不要包含头文件，否则编译出错</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"cfun.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cfun</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"this is c fun call\n"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">cppfun</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">    cfun();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    cppfun();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2024/08/05/C++里面的extern C/">C++里面的extern C</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2024年08月05日 - 14时45分</p>
+        <p><span>最后更新:</span>2025年01月19日 - 19时21分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2024/08/05/C++里面的extern C/" title="C++里面的extern C">https://greedysky.github.io/2024/08/05/C++里面的extern C/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2024/08/05/C++里面的extern C/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2024/06/20/C++17新特性之内联变量/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++17新特性之内联变量</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#extern-“C”的前世今生"><span class="toc-number">1.</span> <span class="toc-text">extern “C”的前世今生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小心门后的未知世界"><span class="toc-number">2.</span> <span class="toc-text">小心门后的未知世界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Q-amp-A"><span class="toc-number">3.</span> <span class="toc-text">Q & A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-调用-c-的方法（关键是要让c的函数按照c的方式编译，而不是c-的方式）"><span class="toc-number">4.</span> <span class="toc-text">c++ 调用 c 的方法（关键是要让c的函数按照c的方式编译，而不是c++的方式）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c调用c-（关键是C-提供一个符合-C-调用惯例的函数）"><span class="toc-number">5.</span> <span class="toc-text"> c调用c++（关键是C++ 提供一个符合 C 调用惯例的函数）</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2024/06/20/C++17新特性之内联变量/" title="下一篇: C++17新特性之内联变量">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/08/05/C++里面的extern C/">C++里面的extern C</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/C++17新特性之内联变量/">C++17新特性之内联变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2025 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

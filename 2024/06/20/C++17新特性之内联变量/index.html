@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++17新特性之内联变量 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从C++17开始，在编写C++代码时就可以在头文件中定义inline变量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++17新特性之内联变量">
+<meta property="og:url" content="https://greedysky.github.io/2024/06/20/C++17新特性之内联变量/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="从C++17开始，在编写C++代码时就可以在头文件中定义inline变量。">
+<meta property="og:updated_time" content="2025-01-19T10:20:47.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++17新特性之内联变量">
+<meta name="twitter:description" content="从C++17开始，在编写C++代码时就可以在头文件中定义inline变量。">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++17新特性之内联变量" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/06/20/C++17新特性之内联变量/" class="article-date">
+      <time datetime="2024-06-20T11:22:45.000Z" itemprop="datePublished">2024-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++17新特性之内联变量
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-17/">C++17</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;从C++17开始，在编写C++代码时就可以在头文件中定义inline变量。且在编译时也不会报错，如果同时有多份代码文件引用了该头文件，编译器也不会报错。不管怎么说，这是一种进步。实际编写时可以如下代码所示：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> MyClass &#123;</div><div class="line"><span class="keyword">inline</span> <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> strValue&#123;<span class="string">"OK"</span>&#125;; <span class="comment">// OK（自C++17起 ）</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">inline</span> MyClass myGlobalObj; <span class="comment">// 即 使 被 多 个CPP文 件 包 含 也OK</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;需要注意的是，编写时在同一个代码文件中要保证定义对象的唯一性。</p>
+<h2 id="内联变量的缘起"><a href="#内联变量的缘起" class="headerlink" title="内联变量的缘起"></a><strong>内联变量的缘起</strong></h2><p>&#160; &#160; &#160; &#160;按照一次定义原则，一个变量或者实体只能出现一个编译单元内，除非这个变量或者实体使用了inline进行修饰。如下面的代码。如果在一个类中定义了一个静态成员变量，然后在类的外部进行初始化，本身符合一次定义原则。但是如果在多个CPP文件同时包含了该头文件，在链接时编译器会报错。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> MyClass &#123;</div><div class="line"><span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg;</div><div class="line">...</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 如 果 被 多 个CPP文 件 包 含 会 导 致 链 接ERROR</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> MyClass::msg&#123;<span class="string">"OK"</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;那么如何解决这个问题呢？可能会有些同学说，将类的定义包含在预处理里面。代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MYCLASS_H</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MYCLASS_H</span></div><div class="line"><span class="keyword">class</span> MyClass &#123;</div><div class="line"><span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg;</div><div class="line">...</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 如 果 被 多 个CPP文 件 包 含 会 导 致 链 接ERROR</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> MyClass::msg&#123;<span class="string">"OK"</span>&#125;; </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这样类定义包含在多个代码文件的时候的就不会有链接错误了吧？实际上，错误依旧存在。那么在C++17以前，有哪些解决方法呢?</p>
+<h2 id="编程秘籍"><a href="#编程秘籍" class="headerlink" title="编程秘籍"></a><strong>编程秘籍</strong></h2><p>&#160; &#160; &#160; &#160;实际上，根据不同的使用场景，可以有不同的方案。<br>&#160; &#160; &#160; &#160;1.可以定义一个返回 static 的局部变量的内联函数。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">inline</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span>&amp; <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg&#123;<span class="string">"OK"</span>&#125;;</div><div class="line">    <span class="keyword">return</span> msg;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;2.可以定义一个返回该值的 static 的成员函数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> MyClass &#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span>&amp; <span class="title">getMsg</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg&#123;<span class="string">"OK"</span>&#125;;</div><div class="line">      <span class="keyword">return</span> msg;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;3.可以为静态数据成员定义一个模板类，然后继承它<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> = <span class="keyword">void</span>&gt;</div><div class="line"><span class="keyword">class</span> MyClassStatics</div><div class="line">&#123;</div><div class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> MyClassStatics&lt;T&gt;::msg&#123;<span class="string">"OK"</span>&#125;;</div><div class="line"><span class="keyword">class</span> MyClass : <span class="keyword">public</span> MyClassStatics&lt;&gt;</div><div class="line">&#123;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;同样，如果有学习过C++14的同学还会想到使用变量模板，如下所示：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = <span class="built_in">std</span>::<span class="built_in">string</span>&gt;</div><div class="line">T myGlobalMsg&#123;<span class="string">"OK"</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;从上面可以看到，及时没有C++17在实际编程时也能解决遇到的问题。但是当跳出来再看这些方法的时候，就会注意到在实际使用时会存在一些问题。如上面的方法会导致签名重载、可读性变差、全局变量初始化延迟等一些问题。变量初始化延迟也会和我们固有的认知产生矛盾。因为我们定义一个变量的时候默认就已经被立即初始化了。</p>
+<h2 id="内联变量的使用"><a href="#内联变量的使用" class="headerlink" title="内联变量的使用"></a><strong>内联变量的使用</strong></h2><p>&#160; &#160; &#160; &#160;C++17中内联变量的使用可以帮助我们解决实际编程中的问题而又不失优雅。使用inline后，即使定义的全局对象被多个文件引用也只会有一个全局对象。如下面的代码，就不会出现之前的链接问题。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> MyClass &#123;</div><div class="line"><span class="keyword">inline</span> <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> msg&#123;<span class="string">"OK"</span>&#125;;</div><div class="line">...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">inline</span> MyClass myGlobalObj;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;除此之外，需要还需要注意的是，在一个类的内部定义了一个自身类型的静态变量时需要在类的外部进行重新定义。如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> MyData &#123;</div><div class="line"><span class="keyword">int</span> value;</div><div class="line">MyData(<span class="keyword">int</span> i) : value&#123;i&#125; &#123;</div><div class="line">&#125;</div><div class="line"><span class="keyword">static</span> MyData max;</div><div class="line">...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">inline</span> MyData MyData::max&#123;<span class="number">0</span>&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="constexpr-static和inline"><a href="#constexpr-static和inline" class="headerlink" title="constexpr static和inline"></a><strong>constexpr static和inline</strong></h2><p>&#160; &#160; &#160; &#160;从C++17开始，如果在编程时继续使用constexpr static修饰变量，实际上编译器就会默认是内联变量。如下面定义的代码:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> MY_DATA &#123;</div><div class="line">  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">int</span> n = <span class="number">5</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码实际上和下面的代码是等效的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> MY_DATA &#123;</div><div class="line">  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">int</span> n = <span class="number">5</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="内联变量和thread-local"><a href="#内联变量和thread-local" class="headerlink" title="内联变量和thread_local"></a><strong>内联变量和thread_local</strong></h2><p>&#160; &#160; &#160; &#160;在支持C++17的编译器编程时使用thread_local可以给每一个线程定义一个属于自己的内联变量。如下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> THREAD_NODE&#123;</div><div class="line">  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">thread_local</span> <span class="built_in">std</span>::<span class="built_in">string</span> strName;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">inline</span> <span class="keyword">thread_local</span> <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; vCache;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;如上，通过thread_local修饰的内联变量就给每一个线程对象创建的属于自己的内联变量。<br>&#160; &#160; &#160; &#160;下面，通过一段代码来对此功能进行说明，先介绍下功能，代码主要定义了一个类，类中包含三个成员变量，分别是内联变量、使用了thread_local修饰了的内联变量以及一个本地的成员变量；除此之外定义了一个自身类型的用thread_local修饰的内联变量，以保证不同的线程拥有自己的内联变量。main函数分别对内联变量进行打印和输出，具体代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"><span class="keyword">struct</span> MyData &#123;</div><div class="line">    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="built_in">std</span>::<span class="built_in">string</span> gName = <span class="string">"global"</span>; </div><div class="line">    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">thread_local</span> <span class="built_in">std</span>::<span class="built_in">string</span> tName = <span class="string">"tls"</span>; </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> lName = <span class="string">"local"</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span> <span class="keyword">const</span> </span>&#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; msg &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"- gName: "</span> &lt;&lt; gName &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"- tName: "</span> &lt;&lt; tName &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"- lName: "</span> &lt;&lt; lName &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">inline</span> <span class="keyword">thread_local</span> MyData myThreadData; </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    myThreadData.print(<span class="string">"foo() begin:"</span>);</div><div class="line">    myThreadData.gName = <span class="string">"thread2 name"</span>;</div><div class="line">    myThreadData.tName = <span class="string">"thread2 name"</span>;</div><div class="line">    myThreadData.lName = <span class="string">"thread2 name"</span>;</div><div class="line">    myThreadData.print(<span class="string">"foo() end:"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    myThreadData.print(<span class="string">"main() begin:"</span>);</div><div class="line">    myThreadData.gName = <span class="string">"thraed1 name"</span>;</div><div class="line">    myThreadData.tName = <span class="string">"thread1 name"</span>;</div><div class="line">    myThreadData.lName = <span class="string">"thread1 name"</span>;</div><div class="line">    myThreadData.print(<span class="string">"main() later:"</span>);</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t</span><span class="params">(foo)</span></span>;</div><div class="line">    t.join();</div><div class="line">    myThreadData.print(<span class="string">"main() end:"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;代码执行结果为：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">main() begin:</div><div class="line">- gName: global</div><div class="line">- tName: tls</div><div class="line">- lName: local</div><div class="line">main() later:</div><div class="line">- gName: thraed1 name</div><div class="line">- tName: thread1 name</div><div class="line">- lName: thread1 name</div><div class="line">foo() begin:</div><div class="line">- gName: thraed1 name</div><div class="line">- tName: tls</div><div class="line">- lName: local</div><div class="line">foo() end:</div><div class="line">- gName: thread2 name</div><div class="line">- tName: thread2 name</div><div class="line">- lName: thread2 name</div><div class="line">main() end:</div><div class="line">- gName: thread2 name</div><div class="line">- tName: thread1 name</div><div class="line">- lName: thread1 name</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;从执行结果可以看出：在代码28-30行对变量赋值后再次打印原来的值已经被修改，但是在接下来的线程执行中，线程函数foo()对内联变量重新进行赋值。最后第34行的代码输出中，只有全量内联变量被线程函数的值覆盖，使用了thread_local修饰的内联变量依旧是main线程中的赋值，这也证明了前面的描述。既：thread_local修饰后，可以保证每个线程独立拥有自己的内联变量。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2024/06/20/C++17新特性之内联变量/">C++17新特性之内联变量</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2024年06月20日 - 19时22分</p>
+        <p><span>最后更新:</span>2025年01月19日 - 18时20分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2024/06/20/C++17新特性之内联变量/" title="C++17新特性之内联变量">https://greedysky.github.io/2024/06/20/C++17新特性之内联变量/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2024/06/20/C++17新特性之内联变量/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2024/08/05/C++里面的extern C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++里面的extern C
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++17 新特性之带有初始化器的if和switch语句</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内联变量的缘起"><span class="toc-number">1.</span> <span class="toc-text">内联变量的缘起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编程秘籍"><span class="toc-number">2.</span> <span class="toc-text">编程秘籍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内联变量的使用"><span class="toc-number">3.</span> <span class="toc-text">内联变量的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constexpr-static和inline"><span class="toc-number">4.</span> <span class="toc-text">constexpr static和inline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内联变量和thread-local"><span class="toc-number">5.</span> <span class="toc-text">内联变量和thread_local</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2024/08/05/C++里面的extern C/" title="上一篇: C++里面的extern C">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/" title="下一篇: C++17 新特性之带有初始化器的if和switch语句">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/08/05/C++里面的extern C/">C++里面的extern C</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/C++17新特性之内联变量/">C++17新特性之内联变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2025 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
