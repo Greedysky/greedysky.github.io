@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.2.0</span>
+   &#160;<span id="projectnumber">4.1.3.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -117,37 +117,47 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html">   39</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/dcc/namespacestd.html">std</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#if !defined(_MSC_VER) &amp;&amp; !TTK_HAS_CXX14</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tp, <span class="keyword">typename</span> _Up = _Tp&gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">   44</a></span>&#160;<span class="keyword">inline</span> _Tp <a class="code" href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">exchange</a>(_Tp &amp;__obj, _Up &amp;&amp;__new_val) noexcept</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    _Tp __old_val = std::move(__obj);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    __obj = std::forward&lt;_Up&gt;(__new_val);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> __old_val;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#if !TTK_HAS_CXX17</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tp&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">   54</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keyword">const</span> _Tp&amp; <a class="code" href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">clamp</a>(<span class="keyword">const</span> _Tp &amp;_Val, <span class="keyword">const</span> _Tp &amp;_Min_val, <span class="keyword">const</span> _Tp &amp;_Max_val)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#if !TTK_HAS_CXX14</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Tp&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#aa9f31e8838657e142868524eca599817">   44</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d8/dcc/namespacestd.html#aa9f31e8838657e142868524eca599817">remove_extent_t</a> = <span class="keyword">typename</span> remove_extent&lt;_Tp&gt;::type;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Tp&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a3bc0ff8d42850eabb6bcbe2440a844ff">   48</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d8/dcc/namespacestd.html#a3bc0ff8d42850eabb6bcbe2440a844ff">remove_all_extents_t</a> = <span class="keyword">typename</span> remove_all_extents&lt;_Tp&gt;::type;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#if !defined(_MSC_VER) &amp;&amp; !TTK_HAS_CXX14</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tp, <span class="keyword">typename</span> _Up = _Tp&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">   54</a></span>&#160;<span class="keyword">inline</span> _Tp <a class="code" href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">exchange</a>(_Tp &amp;__obj, _Up &amp;&amp;__new_val) noexcept</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">TTK::max</a>(_Min_val, <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">TTK::min</a>(_Max_val, _Val));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    _Tp __old_val = std::move(__obj);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    __obj = std::forward&lt;_Up&gt;(__new_val);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> __old_val;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif // TTKCOMPAT_H</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#if !TTK_HAS_CXX17</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> _Tp&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">   64</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keyword">const</span> _Tp&amp; <a class="code" href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">clamp</a>(<span class="keyword">const</span> _Tp &amp;_Val, <span class="keyword">const</span> _Tp &amp;_Min_val, <span class="keyword">const</span> _Tp &amp;_Max_val)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">TTK::max</a>(_Min_val, <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">TTK::min</a>(_Max_val, _Val));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // TTKCOMPAT_H</span></div>
+<div class="ttc" id="namespacestd_html_a3bc0ff8d42850eabb6bcbe2440a844ff"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a3bc0ff8d42850eabb6bcbe2440a844ff">std::remove_all_extents_t</a></div><div class="ttdeci">typename remove_all_extents&lt; _Tp &gt;::type remove_all_extents_t</div><div class="ttdoc">Alias template for remove_all_extents. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00048">ttkcompat.h:48</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html">ttkglobal.h</a></div></div>
+<div class="ttc" id="namespacestd_html_aa9f31e8838657e142868524eca599817"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#aa9f31e8838657e142868524eca599817">std::remove_extent_t</a></div><div class="ttdeci">typename remove_extent&lt; _Tp &gt;::type remove_extent_t</div><div class="ttdoc">Alias template for remove_extent. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00044">ttkcompat.h:44</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00039">ttkcompat.h:39</a></div></div>
-<div class="ttc" id="namespacestd_html_afc1f3aae4dbb25ac2e2df95aaea5e92f"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">std::exchange</a></div><div class="ttdeci">_Tp exchange(_Tp &amp;__obj, _Up &amp;&amp;__new_val) noexcept</div><div class="ttdoc">Assign __new_val to __obj and return its previous value. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00044">ttkcompat.h:44</a></div></div>
+<div class="ttc" id="namespacestd_html_afc1f3aae4dbb25ac2e2df95aaea5e92f"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#afc1f3aae4dbb25ac2e2df95aaea5e92f">std::exchange</a></div><div class="ttdeci">_Tp exchange(_Tp &amp;__obj, _Up &amp;&amp;__new_val) noexcept</div><div class="ttdoc">Assign __new_val to __obj and return its previous value. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00054">ttkcompat.h:54</a></div></div>
 <div class="ttc" id="namespace_t_t_k_html_af5cf08c1e8771638e0256f6ea46cf06d"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">TTK::max</a></div><div class="ttdeci">constexpr const _Tp &amp; max(const _Tp &amp;a, const _Tp &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00033">ttkcompat.h:33</a></div></div>
 <div class="ttc" id="namespace_t_t_k_html"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html">TTK</a></div><div class="ttdoc">The namespace of the process utils. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00024">ttkcompat.h:24</a></div></div>
 <div class="ttc" id="namespace_t_t_k_html_ab25a3fe48bc4859bc6891df480e2a8b2"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">TTK::min</a></div><div class="ttdeci">constexpr const _Tp &amp; min(const _Tp &amp;a, const _Tp &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00027">ttkcompat.h:27</a></div></div>
-<div class="ttc" id="namespacestd_html_a26b6b6f4137595703158e0ee61bf7164"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">std::clamp</a></div><div class="ttdeci">constexpr const _Tp &amp; clamp(const _Tp &amp;_Val, const _Tp &amp;_Min_val, const _Tp &amp;_Max_val)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00054">ttkcompat.h:54</a></div></div>
+<div class="ttc" id="namespacestd_html_a26b6b6f4137595703158e0ee61bf7164"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a26b6b6f4137595703158e0ee61bf7164">std::clamp</a></div><div class="ttdeci">constexpr const _Tp &amp; clamp(const _Tp &amp;_Val, const _Tp &amp;_Min_val, const _Tp &amp;_Max_val)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00064">ttkcompat.h:64</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 6 2024 20:23:33 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

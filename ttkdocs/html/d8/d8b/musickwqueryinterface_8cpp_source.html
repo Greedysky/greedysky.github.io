@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.2.0</span>
+   &#160;<span id="projectnumber">4.1.3.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song property in v1 module&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song&quot;</span> &lt;&lt; bitrate &lt;&lt; <span class="stringliteral">&quot;kbps property in v1 module&quot;</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QString quality;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>((format.contains(<span class="stringliteral">&quot;MP3128&quot;</span>) || format.contains(<span class="stringliteral">&quot;128kmp3&quot;</span>)) &amp;&amp; bitrate == <a class="code" href="../../df/d7f/ttkglobal_8h.html#a1c79eefa9d8dc5ecd0a2a9e3d17dc6f0">TTK_BN_128</a>)</div>
@@ -172,10 +172,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span>(format == suffix)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html">TTK::MusicSongProperty</a> prop;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a5e52993ba8e55309375200b9189662b6">m_bitrate</a> = bitrate;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#aa92c45c46d11b8b0cbbb69e561e076f9">m_format</a> = <a class="code" href="../../d7/de7/namespace_t_t_k_1_1_string.html#a1c9078716d51249e5eba2ae794b2fc73">suffix</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a6f9b106c2075a04c21d739583abd4ce5">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a029e91df00bee20827bc598561798657">m_url</a> = value[<span class="stringliteral">&quot;url&quot;</span>].toString();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a029e91df00bee20827bc598561798657">m_url</a> = value[<span class="stringliteral">&quot;url&quot;</span>].toString();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a6f9b106c2075a04c21d739583abd4ce5">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#aa92c45c46d11b8b0cbbb69e561e076f9">m_format</a> = <a class="code" href="../../d7/de7/namespace_t_t_k_1_1_string.html#a1c9078716d51249e5eba2ae794b2fc73">suffix</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a5e52993ba8e55309375200b9189662b6">m_bitrate</a> = bitrate;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                info-&gt;<a class="code" href="../../d9/d48/struct_t_t_k_1_1_music_song_information.html#af2d1cfe52321feff4258c6e9d84b2147">m_songProps</a>.append(prop);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
@@ -192,7 +192,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song property in v2 module&quot;</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song&quot;</span> &lt;&lt; bitrate &lt;&lt; <span class="stringliteral">&quot;kbps property in v2 module&quot;</span>);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    QString quality;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>((format.contains(<span class="stringliteral">&quot;MP3128&quot;</span>) || format.contains(<span class="stringliteral">&quot;128kmp3&quot;</span>)) &amp;&amp; bitrate == <a class="code" href="../../df/d7f/ttkglobal_8h.html#a1c79eefa9d8dc5ecd0a2a9e3d17dc6f0">TTK_BN_128</a>)</div>
@@ -238,9 +238,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        {</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html">TTK::MusicSongProperty</a> prop;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a029e91df00bee20827bc598561798657">m_url</a> = regx.cap(1);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a5e52993ba8e55309375200b9189662b6">m_bitrate</a> = bitrate;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a6f9b106c2075a04c21d739583abd4ce5">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#aa92c45c46d11b8b0cbbb69e561e076f9">m_format</a> = <a class="code" href="../../d7/de7/namespace_t_t_k_1_1_string.html#a1c9078716d51249e5eba2ae794b2fc73">suffix</a>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a6f9b106c2075a04c21d739583abd4ce5">m_size</a> = <a class="code" href="../../df/d7f/ttkglobal_8h.html#afde13c82a0f65dc314931a45db30d64a">TTK_DEFAULT_STR</a>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a5e52993ba8e55309375200b9189662b6">m_bitrate</a> = bitrate;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keywordflow">if</span>(prop.<a class="code" href="../../d6/dd3/struct_t_t_k_1_1_music_song_property.html#a029e91df00bee20827bc598561798657">m_url</a>.isEmpty() || info-&gt;<a class="code" href="../../d9/d48/struct_t_t_k_1_1_music_song_information.html#af2d1cfe52321feff4258c6e9d84b2147">m_songProps</a>.contains(prop))</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            {</div>
@@ -262,7 +262,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song property in v3 module&quot;</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">TTK_INFO_STREAM</a>(<span class="stringliteral">&quot;parse song&quot;</span> &lt;&lt; bitrate &lt;&lt; <span class="stringliteral">&quot;kbps property in v3 module&quot;</span>);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">if</span>(((format.contains(<span class="stringliteral">&quot;MP3128&quot;</span>) || format.contains(<span class="stringliteral">&quot;128kmp3&quot;</span>)) &amp;&amp; bitrate == <a class="code" href="../../df/d7f/ttkglobal_8h.html#a1c79eefa9d8dc5ecd0a2a9e3d17dc6f0">TTK_BN_128</a>) ||</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;       ((format.contains(<span class="stringliteral">&quot;MP3H&quot;</span>) || format.contains(<span class="stringliteral">&quot;320kmp3&quot;</span>)) &amp;&amp; bitrate == <a class="code" href="../../df/d7f/ttkglobal_8h.html#ab715d224cfc768f48e8d60773ee30faf">TTK_BN_320</a>) ||</div>
@@ -363,7 +363,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 6 2024 20:23:34 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2025 21:07:13 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.2.0</span>
+   &#160;<span id="projectnumber">4.1.3.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d77/qsyncutils_8h.html">qsync/qsyncutils.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a55e09a96fc727c662dec3d4ebf7dbc8d">    6</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a55e09a96fc727c662dec3d4ebf7dbc8d">OS_VERSION_URL</a> = <span class="stringliteral">&quot;version&quot;</span>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a36c307109f68a4f73c56ede74337e05d">    6</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a36c307109f68a4f73c56ede74337e05d">QUERY_VERSION_URL</a> = <span class="stringliteral">&quot;version&quot;</span>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="../../d2/dcc/class_music_source_update_request.html#ad3cf51b58f8454b6f20bf5dc498b4a51">    8</a></span>&#160;<a class="code" href="../../d2/dcc/class_music_source_update_request.html#ad3cf51b58f8454b6f20bf5dc498b4a51">MusicSourceUpdateRequest::MusicSourceUpdateRequest</a>(QObject *parent)</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    : QObject(parent)</div>
@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a> *d = <span class="keyword">new</span> <a class="code" href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a>(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    connect(d, SIGNAL(downLoadRawDataChanged(QByteArray)), SLOT(<a class="code" href="../../d2/dcc/class_music_source_update_request.html#a016cc52cb37d1c531addd9aeef97d8c3">downLoadFinished</a>(QByteArray)));</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    d-&gt;<a class="code" href="../../d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">startToRequest</a>(<a class="code" href="../../d9/d86/class_q_sync_utils.html#a944c48215705ed663e9ea5f590274e3d">QSyncUtils::makeDataBucketUrl</a>() + <a class="code" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a55e09a96fc727c662dec3d4ebf7dbc8d">OS_VERSION_URL</a>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    d-&gt;<a class="code" href="../../d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">startToRequest</a>(<a class="code" href="../../d9/d86/class_q_sync_utils.html#a944c48215705ed663e9ea5f590274e3d">QSyncUtils::makeDataBucketUrl</a>() + <a class="code" href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a36c307109f68a4f73c56ede74337e05d">QUERY_VERSION_URL</a>);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d2/dcc/class_music_source_update_request.html#af81b3cf1b16b6997cfccaad09d539164">   21</a></span>&#160;QString <a class="code" href="../../d2/dcc/class_music_source_update_request.html#af81b3cf1b16b6997cfccaad09d539164">MusicSourceUpdateRequest::version</a>()<span class="keyword"> const</span></div>
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="ttc" id="musicdatasourcerequest_8h_html"><div class="ttname"><a href="../../d2/d23/musicdatasourcerequest_8h.html">musicdatasourcerequest.h</a></div></div>
-<div class="ttc" id="musicsourceupdaterequest_8cpp_html_a55e09a96fc727c662dec3d4ebf7dbc8d"><div class="ttname"><a href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a55e09a96fc727c662dec3d4ebf7dbc8d">OS_VERSION_URL</a></div><div class="ttdeci">static constexpr const char * OS_VERSION_URL</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6b/musicsourceupdaterequest_8cpp_source.html#l00006">musicsourceupdaterequest.cpp:6</a></div></div>
+<div class="ttc" id="musicsourceupdaterequest_8cpp_html_a36c307109f68a4f73c56ede74337e05d"><div class="ttname"><a href="../../d7/d6b/musicsourceupdaterequest_8cpp.html#a36c307109f68a4f73c56ede74337e05d">QUERY_VERSION_URL</a></div><div class="ttdeci">static constexpr const char * QUERY_VERSION_URL</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6b/musicsourceupdaterequest_8cpp_source.html#l00006">musicsourceupdaterequest.cpp:6</a></div></div>
 <div class="ttc" id="class_music_source_update_request_html_a9f5af0d36374b9fc207aaca938408c51"><div class="ttname"><a href="../../d2/dcc/class_music_source_update_request.html#a9f5af0d36374b9fc207aaca938408c51">MusicSourceUpdateRequest::isLastedVersion</a></div><div class="ttdeci">bool isLastedVersion() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6b/musicsourceupdaterequest_8cpp_source.html#l00031">musicsourceupdaterequest.cpp:31</a></div></div>
 <div class="ttc" id="musicsourceupdaterequest_8h_html"><div class="ttname"><a href="../../dd/d19/musicsourceupdaterequest_8h.html">musicsourceupdaterequest.h</a></div></div>
 <div class="ttc" id="class_music_source_update_request_html_a016cc52cb37d1c531addd9aeef97d8c3"><div class="ttname"><a href="../../d2/dcc/class_music_source_update_request.html#a016cc52cb37d1c531addd9aeef97d8c3">MusicSourceUpdateRequest::downLoadFinished</a></div><div class="ttdeci">void downLoadFinished(const QByteArray &amp;bytes)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d6b/musicsourceupdaterequest_8cpp_source.html#l00044">musicsourceupdaterequest.cpp:44</a></div></div>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 6 2024 20:23:34 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 21 2025 21:07:13 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
