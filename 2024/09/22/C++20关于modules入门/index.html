@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++20关于modules入门 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以前一直有了解C++20的新特性，但是因为编译器对此支持的比较少，所以很少实践。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++20关于modules入门">
+<meta property="og:url" content="https://greedysky.github.io/2024/09/22/C++20关于modules入门/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="以前一直有了解C++20的新特性，但是因为编译器对此支持的比较少，所以很少实践。">
+<meta property="og:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/1.png">
+<meta property="og:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/2.png">
+<meta property="og:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/3.png">
+<meta property="og:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/4.png">
+<meta property="og:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/5.png">
+<meta property="og:updated_time" content="2025-01-24T14:01:03.959Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++20关于modules入门">
+<meta name="twitter:description" content="以前一直有了解C++20的新特性，但是因为编译器对此支持的比较少，所以很少实践。">
+<meta name="twitter:image" content="https://greedysky.github.io/image/5d884c88deb40545fbea0a6bc0edc1a091/1.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++20关于modules入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/09/22/C++20关于modules入门/" class="article-date">
+      <time datetime="2024-09-22T02:35:46.000Z" itemprop="datePublished">2024-09-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++20关于modules入门
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-20/">C++20</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;以前一直有了解C++20的新特性，但是因为编译器对此支持的比较少，所以很少实践。<br>&#160; &#160; &#160; &#160;近期才知道MSVC已经全面支持了C++20的新特性，所以打算全部实践一下，最近在MSVC上跑通了modules，这里分享一下modules的使用方法（注意，以下Case仅适用于MSVC上，估计其它编译器的使用方式与此有些差异）。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>那modules是什么？它有什么作用？</strong><br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;以前C++中想使用外部某个函数或变量需要使用#include来引用头文件，但include这种做法其实就是把文件的内容原封不动的复制过来，如果一个复杂的头文件被好多个源文件include，那整个项目的编译速度也会降低，而且很多时候也会把一些复杂的宏定义引入进来，造成宏污染等等。<br>&#160; &#160; &#160; &#160;而modules就是为了解决这种问题而引入的，它是一种组件思想，一个module编译一次后，它的结果会被保存在二进制文件中，一个module可以选择把什么内容暴露给外面使用，剩下的只有内部可见。其它想使用此module的模块直接使用即可，无需再次编译，可以重用。最主要的是，使用modules的项目，编译速度比include的方式快的多，记得之前看过一组测试数据（好像是哪个会议上C++之父贴出来的），modules项目的编译速度是include的25倍左右。<br>&#160; &#160; &#160; &#160;如果你的项目中已经使用了C++20，真的可以考虑把include方式转换为modules方式。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>在MSVC中怎么使用modules？</strong><br>&#160; &#160; &#160; &#160;我的编译器是VS2019，经我测试，想要VS中跑通modules需要一些前置条件，比如需要安装modules相关的环境包，可以在VS installer中安装：<br><img src="/image/5d884c88deb40545fbea0a6bc0edc1a091/1.png" alt="demo"><br>&#160; &#160; &#160; &#160;其次在自己的项目中，需要把C++标准改为C++20或者C++latest：<br><img src="/image/5d884c88deb40545fbea0a6bc0edc1a091/2.png" alt="demo"><br>&#160; &#160; &#160; &#160;还有一点，需要在VS中启用modules功能：<br><img src="/image/5d884c88deb40545fbea0a6bc0edc1a091/3.png" alt="demo"><br>&#160; &#160; &#160; &#160;这三项都配置后，你应该就可以成功使用modules功能了。<br>&#160; &#160; &#160; &#160;看下我的测试用例：<br><img src="/image/5d884c88deb40545fbea0a6bc0edc1a091/4.png" alt="demo"><br>&#160; &#160; &#160; &#160;Example.ixx可以理解为是头文件，它定义了可以对外暴露的接口，后缀名是.ixx，开头以export module name表示该module的名字是name。<br>&#160; &#160; &#160; &#160;前面加了export的修饰的函数或类表示可以对外暴露，外部可以使用。而module :private; 后面的表示内部的东西，只有内部可见和使用，外部不能使用，比如Example.ixx中的PrivateFunc，如果外部使用，编译时就会报错。<br>&#160; &#160; &#160; &#160;模块接口文件的后缀名一般是.ixx，实现接口的文件后缀名和原来的C++一样，还是.cpp。<br>&#160; &#160; &#160; &#160;看我的Example.cpp，第一行中的module Example，表示在module Example空间，自然而然可以访问到Example module中的内容，这里你也可以看的到，里面定义了ixx中声明的接口。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>那import std.core; 是什么作用？</strong><br>&#160; &#160; &#160; &#160;import表示导入xxx模块，import后就可以使用对应模块的功能，比如想要使用std::cout，那就需要import std.core。<br>&#160; &#160; &#160; &#160;<br>&#160; &#160; &#160; &#160;<strong>那我们以前使用的那些标准库的函数，都对应什么module？</strong><br>&#160; &#160; &#160; &#160;在MSVC中是这样：<br>&#160; &#160; &#160; &#160;1. std.regex提供头文件<regex>的内容<br>&#160; &#160; &#160; &#160;2. std.filesystem提供头文件<filesystem>的内容<br>&#160; &#160; &#160; &#160;3. std.memory提供头文件<memory>的内容<br>&#160; &#160; &#160; &#160;4. std.threading提供了头文件<atomic>、<condition_variable>、<future>、<mutex>、<shared_mutex>和<thread>的内容<br>&#160; &#160; &#160; &#160;5. 除此之外的功能都由std.core提供。<br>&#160; &#160; &#160; &#160;要使用某些模块，直接添加import声明即可：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="built_in">std</span>.filesystem;</div><div class="line"><span class="keyword">import</span> <span class="built_in">std</span>.core;</div></pre></td></tr></table></figure></thread></shared_mutex></mutex></future></condition_variable></atomic></memory></filesystem></regex></p>
+<p>&#160; &#160; &#160; &#160;再看下我的main函数所在的测试文件：<br><img src="/image/5d884c88deb40545fbea0a6bc0edc1a091/5.png" alt="demo"><br>&#160; &#160; &#160; &#160;想要使用Example module中export出的功能，直接import Example即可，剩下的使用方式和以前类似。<br>&#160; &#160; &#160; &#160;介绍到这里，大家就可以在VS中写一个modules的Demo了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2024/09/22/C++20关于modules入门/">C++20关于modules入门</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2024年09月22日 - 10时35分</p>
+        <p><span>最后更新:</span>2025年01月24日 - 22时01分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2024/09/22/C++20关于modules入门/" title="C++20关于modules入门">https://greedysky.github.io/2024/09/22/C++20关于modules入门/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2024/09/22/C++20关于modules入门/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2024/10/30/C++ invoke与function的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++ invoke与function的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/08/05/C++里面的extern C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++里面的extern C</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2024/10/30/C++ invoke与function的区别/" title="上一篇: C++ invoke与function的区别">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2024/08/05/C++里面的extern C/" title="下一篇: C++里面的extern C">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/10/30/C++ invoke与function的区别/">C++ invoke与function的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/22/C++20关于modules入门/">C++20关于modules入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/05/C++里面的extern C/">C++里面的extern C</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/C++17新特性之内联变量/">C++17新特性之内联变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2025 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
