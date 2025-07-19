@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKModule/TTKCore/musicCoreKits/musicplaylistmanager.h Source File</title>
+<title>TTKMusicPlayer: TTKModule/TTKCore/musicPlaylistKits/musicplaylistmanager.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_cdb827944d14da6ecd194bf977faeffb.html">musicCoreKits</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_b0c31800a24c8b6c2c7d69dd639f6300.html">TTKModule</a></li><li class="navelem"><a class="el" href="../../dir_452c542c93172c4357a6f21adb6be77b.html">TTKCore</a></li><li class="navelem"><a class="el" href="../../dir_5dea234e53e02abb9cf20e28161b42e7.html">musicPlaylistKits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -107,49 +107,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> writeSongItem(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> readSongItems(<span class="keyword">const</span> QStringList &amp;paths, MusicSongItemList &amp;items);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> readTKPLConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> writeTKPLConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> readM3UConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> writeM3UConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> readPLSConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> writePLSConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> readWPLConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> writeWPLConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> readXSPFConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">bool</span> writeXSPFConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> readJSPFConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> writeJSPFConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> readASXConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> writeASXConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">bool</span> readFPLConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> readDBPLConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> readCSVConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> writeCSVConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">bool</span> readTXTConfig(<span class="keyword">const</span> QString &amp;path, MusicSongItemList &amp;items);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> writeTXTConfig(<span class="keyword">const</span> QString &amp;path, <span class="keyword">const</span> MusicSongItemList &amp;item);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif // MUSICPLAYLISTMANAGER_H</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // MUSICPLAYLISTMANAGER_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="class_music_playlist_manager_html"><div class="ttname"><a href="../../d1/d71/class_music_playlist_manager.html">MusicPlaylistManager</a></div><div class="ttdoc">The class of the playlist manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d18/musicplaylistmanager_8h_source.html#l00027">musicplaylistmanager.h:27</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00168">ttkqtglobal.h:168</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
 <div class="ttc" id="musicsong_8h_html"><div class="ttname"><a href="../../d4/d03/musicsong_8h.html">musicsong.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

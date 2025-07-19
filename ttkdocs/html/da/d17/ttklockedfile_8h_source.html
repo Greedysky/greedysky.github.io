@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -115,17 +115,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a2c1431992f51c8bafa2e86b889e267dbaa0706f099e93bbe8bf8f08698c2c2721">   42</a></span>&#160;            WriteLock</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        };</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedFile</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedFile</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedFile</a>() noexcept;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        explicit <a class="code" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedFile</a>(<a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>) noexcept;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        ~<a class="code" href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html">TTKLockedFile</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">bool</span> open(OpenMode <a class="code" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> lock(LockMode <a class="code" href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a>, <span class="keywordtype">bool</span> block = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> lock(LockMode mode, <span class="keywordtype">bool</span> block = true);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> unlock();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> isLocked() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        LockMode lockMode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    #ifdef Q_OS_WIN</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> isLocked() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        LockMode lockMode() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    private:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="preprocessor">#ifdef Q_OS_WIN</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        Qt::HANDLE m_wmutex;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        Qt::HANDLE m_rmutex;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        QVector&lt;Qt::HANDLE&gt; m_rmutexes;</div>
@@ -149,10 +149,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html_a2c1431992f51c8bafa2e86b889e267dbada6dddf35113ba2ad0cfc71fdc43e337"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a2c1431992f51c8bafa2e86b889e267dbada6dddf35113ba2ad0cfc71fdc43e337">TTKLockedPrivate::TTKLockedFile::ReadLock</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00041">ttklockedfile.h:41</a></div></div>
 <div class="ttc" id="class_t_t_k_locked_private_1_1_t_t_k_locked_file_html_a2c1431992f51c8bafa2e86b889e267db"><div class="ttname"><a href="../../d7/dbc/class_t_t_k_locked_private_1_1_t_t_k_locked_file.html#a2c1431992f51c8bafa2e86b889e267db">TTKLockedPrivate::TTKLockedFile::LockMode</a></div><div class="ttdeci">LockMode</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d17/ttklockedfile_8h_source.html#l00038">ttklockedfile.h:38</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a7e43d41c2fe013a373b540cba02505cf"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a7e43d41c2fe013a373b540cba02505cf">mode</a></div><div class="ttdeci">const char int mode</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00135">ioapi.h:135</a></div></div>
+<div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

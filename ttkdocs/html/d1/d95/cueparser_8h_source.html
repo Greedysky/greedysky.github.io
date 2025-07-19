@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d95/cueparser_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2008-2024 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2008-2025 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../d8/d7a/class_cue_parser.html">CueParser</a>(<span class="keyword">const</span> QByteArray &amp;data, <span class="keyword">const</span> QByteArray &amp;codecName = QByteArray());</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ~<a class="code" href="../../d8/d7a/class_cue_parser.html">CueParser</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> loadData(<span class="keyword">const</span> QByteArray &amp;data, <span class="keyword">const</span> QByteArray &amp;codecName = QByteArray());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> loadData(<span class="keyword">const</span> QByteArray &amp;data, <span class="keyword">const</span> QByteArray &amp;codecName = <span class="stringliteral">&quot;UTF-8&quot;</span>);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> loadData(<span class="keyword">const</span> QByteArray &amp;data, QTextCodec *codec);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QList&lt;TrackInfo*&gt; createPlayList(<span class="keywordtype">int</span> track = -1) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> QStringList &amp;files() <span class="keyword">const</span>;</div>
@@ -123,12 +123,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    QString url(<span class="keywordtype">int</span> track) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">int</span> count() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> isEmpty() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="../../d1/dc5/class_track_info.html">TrackInfo</a> *info(<span class="keywordtype">int</span> track) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d1/dc5/class_track_info.html">TrackInfo</a> *info(<span class="keywordtype">int</span> track) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> setDuration(<span class="keyword">const</span> QString &amp;file, qint64 duration);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> setDuration(qint64 duration);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> setProperties(<span class="keyword">const</span> QString &amp;file, <span class="keyword">const</span> QMap&lt;Qmmp::TrackProperty, QString&gt; &amp;properties);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> setProperties(<span class="keyword">const</span> QMap&lt;Qmmp::TrackProperty, QString&gt; &amp;properties);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> setMetaData(<span class="keywordtype">int</span> track, <a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291">Qmmp::MetaData</a> <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, <span class="keyword">const</span> QVariant &amp;value);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> setMetaData(<span class="keywordtype">int</span> track, <a class="code" href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291">Qmmp::MetaData</a> <a class="code" href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, <span class="keyword">const</span> QVariant &amp;value);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> setUrl(<span class="keyword">const</span> QString &amp;scheme, <span class="keyword">const</span> QString &amp;path);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> clear();</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
@@ -150,10 +150,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="trackinfo_8h_html"><div class="ttname"><a href="../../de/d64/trackinfo_8h.html">trackinfo.h</a></div></div>
-<div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a601c4660e8a1a14a1b87fe387e934d19"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a601c4660e8a1a14a1b87fe387e934d19">offset</a></div><div class="ttdeci">voidpf uLong offset</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/db7/ioapi_8h_source.html#l00142">ioapi.h:142</a></div></div>
-<div class="ttc" id="class_qmmp_html_aa4a16a069a893d4bf425a793b03d8291"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291">Qmmp::MetaData</a></div><div class="ttdeci">MetaData</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00094">qmmp.h:94</a></div></div>
+<div class="ttc" id="class_qmmp_html_aa4a16a069a893d4bf425a793b03d8291"><div class="ttname"><a href="../../d9/d95/class_qmmp.html#aa4a16a069a893d4bf425a793b03d8291">Qmmp::MetaData</a></div><div class="ttdeci">MetaData</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00101">qmmp.h:101</a></div></div>
 <div class="ttc" id="class_track_info_html"><div class="ttname"><a href="../../d1/dc5/class_track_info.html">TrackInfo</a></div><div class="ttdoc">The TrackInfo class stores metadata and other information about track. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d64/trackinfo_8h_source.html#l00032">trackinfo.h:32</a></div></div>
+<div class="ttc" id="musiclrcparser_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00030">musiclrcparser.cpp:30</a></div></div>
 <div class="ttc" id="class_cue_parser_html_a3ef5811cd90678a2dbe6121c55dd1380"><div class="ttname"><a href="../../d8/d7a/class_cue_parser.html#a3ef5811cd90678a2dbe6121c55dd1380">CueParser::m_files</a></div><div class="ttdeci">QStringList m_files</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d95/cueparser_8h_source.html#l00150">cueparser.h:150</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="struct_cue_parser_1_1_c_u_e_track_html"><div class="ttname"><a href="../../d4/d35/struct_cue_parser_1_1_c_u_e_track.html">CueParser::CUETrack</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d95/cueparser_8h_source.html#l00142">cueparser.h:142</a></div></div>
@@ -164,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:15 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -104,40 +104,43 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../d0/dfe/class_q_json_1_1_parser.html">QJson::Parser</a> json;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">const</span> QVariant &amp;data = json.<a class="code" href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">parse</a>(bytes, &amp;ok);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span>(ok)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            QVariantMap value = data.toMap();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span>(value.contains(<span class="stringliteral">&quot;result&quot;</span>))</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                value = value[<span class="stringliteral">&quot;result&quot;</span>].toMap();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                line = value[<span class="stringliteral">&quot;operators&quot;</span>].toString();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_EMIT <a class="code" href="../../db/dac/class_music_network_operator.html#a55f60cbd8473c6ffacfa04cb66da4282">queryNetworkOperatorFinished</a>(line);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    deleteLater();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="../../df/ddb/class_q_json_parse_error.html">QJsonParseError</a> ok;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../db/d31/class_q_json_document.html">QJsonDocument</a> &amp;json = <a class="code" href="../../db/d31/class_q_json_document.html#a909119e9dad7db43ec354a8f88d9422d">QJsonDocument::fromJson</a>(bytes, &amp;ok);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../df/ddb/class_q_json_parse_error.html#a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12">QJsonParseError::NoError</a> == ok.<a class="code" href="../../df/ddb/class_q_json_parse_error.html#a3636b88fbac26b7fb0549a401ed71489">error</a>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            QVariantMap value = json.<a class="code" href="../../db/d31/class_q_json_document.html#a074f0d203a6459c7894ae62e791a1234">toVariant</a>().toMap();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span>(value.contains(<span class="stringliteral">&quot;result&quot;</span>))</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                value = value[<span class="stringliteral">&quot;result&quot;</span>].toMap();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                line = value[<span class="stringliteral">&quot;operators&quot;</span>].toString();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Q_EMIT <a class="code" href="../../db/dac/class_music_network_operator.html#a55f60cbd8473c6ffacfa04cb66da4282">queryNetworkOperatorFinished</a>(line);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    deleteLater();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="ttc" id="class_q_json_parse_error_html_a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html#a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12">QJsonParseError::NoError</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00033">QJsonParseError.h:33</a></div></div>
 <div class="ttc" id="musicdatasourcerequest_8h_html"><div class="ttname"><a href="../../d2/d23/musicdatasourcerequest_8h.html">musicdatasourcerequest.h</a></div></div>
+<div class="ttc" id="class_q_json_document_html_a074f0d203a6459c7894ae62e791a1234"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a074f0d203a6459c7894ae62e791a1234">QJsonDocument::toVariant</a></div><div class="ttdeci">QVariant toVariant() const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00303">QJsonDocument.cpp:303</a></div></div>
+<div class="ttc" id="class_q_json_document_html_a909119e9dad7db43ec354a8f88d9422d"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a909119e9dad7db43ec354a8f88d9422d">QJsonDocument::fromJson</a></div><div class="ttdeci">static QJsonDocument fromJson(const QByteArray &amp;json, QJsonParseError *error=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00370">QJsonDocument.cpp:370</a></div></div>
 <div class="ttc" id="musicnetworkoperator_8h_html"><div class="ttname"><a href="../../db/d8e/musicnetworkoperator_8h.html">musicnetworkoperator.h</a></div></div>
+<div class="ttc" id="class_q_json_parse_error_html_a3636b88fbac26b7fb0549a401ed71489"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html#a3636b88fbac26b7fb0549a401ed71489">QJsonParseError::error</a></div><div class="ttdeci">ParseError error</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00054">QJsonParseError.h:54</a></div></div>
 <div class="ttc" id="class_music_network_operator_html_a55f60cbd8473c6ffacfa04cb66da4282"><div class="ttname"><a href="../../db/dac/class_music_network_operator.html#a55f60cbd8473c6ffacfa04cb66da4282">MusicNetworkOperator::queryNetworkOperatorFinished</a></div><div class="ttdeci">void queryNetworkOperatorFinished(const QString &amp;name)</div></div>
 <div class="ttc" id="class_music_data_source_request_html"><div class="ttname"><a href="../../d4/d54/class_music_data_source_request.html">MusicDataSourceRequest</a></div><div class="ttdoc">The class of the data source download request. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d23/musicdatasourcerequest_8h_source.html#l00027">musicdatasourcerequest.h:27</a></div></div>
-<div class="ttc" id="class_q_json_1_1_parser_html_a9d57257adc3638a8b992cf4dc39a30bf"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">QJson::Parser::parse</a></div><div class="ttdeci">QVariant parse(QIODevice *io, bool *ok=0)</div><div class="ttdoc">Read JSON string from the I/O Device and converts it to a QVariant object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddd/parser_8cpp_source.html#l00069">parser.cpp:69</a></div></div>
+<div class="ttc" id="class_q_json_parse_error_html"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html">QJsonParseError</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00030">QJsonParseError.h:30</a></div></div>
 <div class="ttc" id="class_music_data_source_request_html_aeb3e60b15035000501fce77c9dc2a602"><div class="ttname"><a href="../../d4/d54/class_music_data_source_request.html#aeb3e60b15035000501fce77c9dc2a602">MusicDataSourceRequest::startToRequest</a></div><div class="ttdeci">void startToRequest(const QString &amp;url)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/musicdatasourcerequest_8cpp_source.html#l00015">musicdatasourcerequest.cpp:15</a></div></div>
+<div class="ttc" id="class_q_json_document_html"><div class="ttname"><a href="../../db/d31/class_q_json_document.html">QJsonDocument</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d86/_q_json_document_8h_source.html#l00037">QJsonDocument.h:37</a></div></div>
 <div class="ttc" id="class_music_network_operator_html_a13416fd2d3e3b92c2d48631fe2221298"><div class="ttname"><a href="../../db/dac/class_music_network_operator.html#a13416fd2d3e3b92c2d48631fe2221298">MusicNetworkOperator::startToRequest</a></div><div class="ttdeci">void startToRequest()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d78/musicnetworkoperator_8cpp_source.html#l00012">musicnetworkoperator.cpp:12</a></div></div>
 <div class="ttc" id="musicnetworkoperator_8cpp_html_a2fac286766a49bc736125702ad7ef936"><div class="ttname"><a href="../../d6/d78/musicnetworkoperator_8cpp.html#a2fac286766a49bc736125702ad7ef936">IP_CHECK_URL</a></div><div class="ttdeci">static constexpr const char * IP_CHECK_URL</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d78/musicnetworkoperator_8cpp_source.html#l00004">musicnetworkoperator.cpp:4</a></div></div>
 <div class="ttc" id="class_music_network_operator_html_a181dd19f2a21e76a722a5ee283e1732f"><div class="ttname"><a href="../../db/dac/class_music_network_operator.html#a181dd19f2a21e76a722a5ee283e1732f">MusicNetworkOperator::MusicNetworkOperator</a></div><div class="ttdeci">MusicNetworkOperator(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d78/musicnetworkoperator_8cpp_source.html#l00006">musicnetworkoperator.cpp:6</a></div></div>
-<div class="ttc" id="class_q_json_1_1_parser_html"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html">QJson::Parser</a></div><div class="ttdoc">Main class used to convert JSON data to QVariant objects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d36/parser_8h_source.html#l00040">parser.h:40</a></div></div>
 <div class="ttc" id="class_music_network_operator_html_adcc78dafca72658bb9c7f79ad3196915"><div class="ttname"><a href="../../db/dac/class_music_network_operator.html#adcc78dafca72658bb9c7f79ad3196915">MusicNetworkOperator::downLoadFinished</a></div><div class="ttdeci">void downLoadFinished(const QByteArray &amp;bytes)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d78/musicnetworkoperator_8cpp_source.html#l00019">musicnetworkoperator.cpp:19</a></div></div>
-<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00070">ttklogger.h:70</a></div></div>
+<div class="ttc" id="ttklogger_8h_html_a16e9b2113f7aa8a39af56725532fa835"><div class="ttname"><a href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">TTK_ERROR_STREAM</a></div><div class="ttdeci">#define TTK_ERROR_STREAM(msg)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d2b/ttklogger_8h_source.html#l00076">ttklogger.h:76</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_algorithm_html_adefec422c2d248a2fe5c507beca6b4e4"><div class="ttname"><a href="../../d3/d53/namespace_t_t_k_1_1_algorithm.html#adefec422c2d248a2fe5c507beca6b4e4">TTK::Algorithm::mdII</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString mdII(const QString &amp;data, bool encode)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dfd/musicalgorithmutils_8cpp_source.html#l00041">musicalgorithmutils.cpp:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:13 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:01 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

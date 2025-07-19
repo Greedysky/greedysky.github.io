@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -79,126 +79,125 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <a href="../../d5/db7/musicjspfconfigmanager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d37/musicjspfconfigmanager_8h.html">musicjspfconfigmanager.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d36/parser_8h.html">qjson/parser.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d5f/serializer_8h.html">qjson/serializer.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">    6</a></span>&#160;<a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">MusicJSPFConfigManager::MusicJSPFConfigManager</a>()</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html">MusicPlaylistRenderer</a>()</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    , <a class="code" href="../../d5/dd0/class_t_t_k_abstract_read_write_interface.html">MusicPlaylistInterface</a>()</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">MusicJSPFConfigManager::readBuffer</a>(MusicSongItemList &amp;items)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> item;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">m_itemName</a> = QFileInfo(<a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.fileName()).baseName();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d0/dfe/class_q_json_1_1_parser.html">QJson::Parser</a> json;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> QVariant &amp;data = json.<a class="code" href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">parse</a>(<a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.readAll(), &amp;ok);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span>(!ok)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    QVariantMap value = data.toMap();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">const</span> QVariantList &amp;datas = value[<span class="stringliteral">&quot;trackList&quot;</span>].toList();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;var : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(datas))</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span>(var.isNull())</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        value = var.toMap();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        value = value[<span class="stringliteral">&quot;track&quot;</span>].toMap();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> QString &amp;path = value[<span class="stringliteral">&quot;location&quot;</span>].toString();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span>(!path.isEmpty())</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(path, value[<span class="stringliteral">&quot;duration&quot;</span>].<a class="code" href="../../dc/d63/namespace_t_t_k.html#a130abbad436ee2ff05a888d216d2a833">toString</a>());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d05/json_8h.html">qjson/json.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">    5</a></span>&#160;<a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">MusicJSPFConfigManager::MusicJSPFConfigManager</a>()</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    : <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html">MusicPlaylistRenderer</a>()</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    , <a class="code" href="../../d5/dd0/class_t_t_k_abstract_read_write_interface.html">MusicPlaylistInterface</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">   12</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">MusicJSPFConfigManager::readBuffer</a>(MusicSongItemList &amp;items)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> item;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">m_itemName</a> = QFileInfo(<a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.fileName()).baseName();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="../../df/ddb/class_q_json_parse_error.html">QJsonParseError</a> ok;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../db/d31/class_q_json_document.html">QJsonDocument</a> &amp;json = <a class="code" href="../../db/d31/class_q_json_document.html#a909119e9dad7db43ec354a8f88d9422d">QJsonDocument::fromJson</a>(<a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.readAll(), &amp;ok);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../df/ddb/class_q_json_parse_error.html#a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12">QJsonParseError::NoError</a> != ok.<a class="code" href="../../df/ddb/class_q_json_parse_error.html#a3636b88fbac26b7fb0549a401ed71489">error</a>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QVariantMap value = json.<a class="code" href="../../db/d31/class_q_json_document.html#a074f0d203a6459c7894ae62e791a1234">toVariant</a>().toMap();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> QVariantList &amp;datas = value[<span class="stringliteral">&quot;trackList&quot;</span>].toList();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> QVariant &amp;var : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(datas))</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span>(var.isNull())</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        value = var.toMap();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        value = value[<span class="stringliteral">&quot;track&quot;</span>].toMap();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> QString &amp;path = value[<span class="stringliteral">&quot;location&quot;</span>].toString();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span>(!path.isEmpty())</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a> &lt;&lt; <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a>(path, value[<span class="stringliteral">&quot;duration&quot;</span>].<a class="code" href="../../dc/d63/namespace_t_t_k.html#aded0023560d3c716f4a5c78beb326ebc">toString</a>());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.close();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.close();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.isEmpty())</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        items &lt;&lt; item;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">   54</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">MusicJSPFConfigManager::writeBuffer</a>(<span class="keyword">const</span> MusicSongItemList &amp;items)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty())</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    QVariantMap datas;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; items.count(); ++i)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        QVariantList tracks;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items[i];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>))</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            QVariantMap meta;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            meta[<span class="stringliteral">&quot;location&quot;</span>] = song.path();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            meta[<span class="stringliteral">&quot;title&quot;</span>] = song.title();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            meta[<span class="stringliteral">&quot;creator&quot;</span>] = song.artist();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            meta[<span class="stringliteral">&quot;duration&quot;</span>] = song.duration();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            meta[<span class="stringliteral">&quot;album&quot;</span>] = QString();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            meta[<span class="stringliteral">&quot;trackNum&quot;</span>] = QString();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            meta[<span class="stringliteral">&quot;year&quot;</span>] = QString();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            QVariantMap track;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            track[<span class="stringliteral">&quot;track&quot;</span>] = meta;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            tracks.push_back(track);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(!tracks.isEmpty())</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            datas[<span class="stringliteral">&quot;trackList&quot;</span>] = tracks;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="../../d8/d59/class_q_json_1_1_serializer.html">QJson::Serializer</a> json;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> ok = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">const</span> QByteArray &amp;output = json.<a class="code" href="../../d8/d59/class_q_json_1_1_serializer.html#aa92d60f9b4b503a44511611eed50f548">serialize</a>(datas, &amp;ok);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span>(!ok)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.write(output);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.close();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(!item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>.isEmpty())</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        items &lt;&lt; item;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">   52</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">MusicJSPFConfigManager::writeBuffer</a>(<span class="keyword">const</span> MusicSongItemList &amp;items)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(items.isEmpty())</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    QVariantMap datas;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; items.count(); ++i)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        QVariantList tracks;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a> &amp;item = items[i];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <a class="code" href="../../d6/de4/class_music_song.html">MusicSong</a> &amp;song : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(item.<a class="code" href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">m_songs</a>))</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            QVariantMap meta;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            meta[<span class="stringliteral">&quot;location&quot;</span>] = song.path();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            meta[<span class="stringliteral">&quot;title&quot;</span>] = song.title();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            meta[<span class="stringliteral">&quot;creator&quot;</span>] = song.artist();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            meta[<span class="stringliteral">&quot;duration&quot;</span>] = song.duration();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            meta[<span class="stringliteral">&quot;album&quot;</span>] = QString();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            meta[<span class="stringliteral">&quot;trackNum&quot;</span>] = QString();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            meta[<span class="stringliteral">&quot;year&quot;</span>] = QString();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            QVariantMap track;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            track[<span class="stringliteral">&quot;track&quot;</span>] = meta;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            tracks.push_back(track);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(!tracks.isEmpty())</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            datas[<span class="stringliteral">&quot;trackList&quot;</span>] = tracks;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../db/d31/class_q_json_document.html">QJsonDocument</a> &amp;json = <a class="code" href="../../db/d31/class_q_json_document.html#a3f5b10ca610da2b5f0c9af7946d95a56">QJsonDocument::fromVariant</a>(datas);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0) &amp;&amp; !TTK_QT_VERSION_CHECK(5,1,0)</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.write(json.<a class="code" href="../../db/d31/class_q_json_document.html#ae054188bc86d151c50cfb9a8fb9bdf6a">toJson</a>());</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.write(json.<a class="code" href="../../db/d31/class_q_json_document.html#ae054188bc86d151c50cfb9a8fb9bdf6a">toJson</a>(<a class="code" href="../../db/d31/class_q_json_document.html#a45baa90ac84352ae28d5e6e56849aaaaa1fbf0ba7be5626a01ba382d33c42314b">QJsonDocument::Indented</a>));</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">m_file</a>.close();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="ttc" id="class_q_json_document_html_a3f5b10ca610da2b5f0c9af7946d95a56"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a3f5b10ca610da2b5f0c9af7946d95a56">QJsonDocument::fromVariant</a></div><div class="ttdeci">static QJsonDocument fromVariant(const QVariant &amp;variant)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00401">QJsonDocument.cpp:401</a></div></div>
 <div class="ttc" id="class_t_t_k_file_interface_html_a2baee72529b171c78b918e0d71fe3554"><div class="ttname"><a href="../../d7/ddf/class_t_t_k_file_interface.html#a2baee72529b171c78b918e0d71fe3554">TTKFileInterface::m_file</a></div><div class="ttdeci">QFile m_file</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d1e/ttkfileinterface_8h_source.html#l00059">ttkfileinterface.h:59</a></div></div>
-<div class="ttc" id="class_music_j_s_p_f_config_manager_html_aa0fdb913f7d9e0d2d54dacbb7ce2c90f"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">MusicJSPFConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00054">musicjspfconfigmanager.cpp:54</a></div></div>
-<div class="ttc" id="serializer_8h_html"><div class="ttname"><a href="../../dd/d5f/serializer_8h.html">serializer.h</a></div></div>
-<div class="ttc" id="class_q_json_1_1_serializer_html"><div class="ttname"><a href="../../d8/d59/class_q_json_1_1_serializer.html">QJson::Serializer</a></div><div class="ttdoc">Main class used to convert QVariant objects to JSON data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d5f/serializer_8h_source.html#l00151">serializer.h:151</a></div></div>
-<div class="ttc" id="parser_8h_html"><div class="ttname"><a href="../../d5/d36/parser_8h.html">parser.h</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00051">ttkqtglobal.h:51</a></div></div>
-<div class="ttc" id="class_music_j_s_p_f_config_manager_html_aba21f0327a01809abc5ec57690c9dec5"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">MusicJSPFConfigManager::readBuffer</a></div><div class="ttdeci">virtual bool readBuffer(MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00013">musicjspfconfigmanager.cpp:13</a></div></div>
-<div class="ttc" id="class_q_json_1_1_parser_html_a9d57257adc3638a8b992cf4dc39a30bf"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html#a9d57257adc3638a8b992cf4dc39a30bf">QJson::Parser::parse</a></div><div class="ttdeci">QVariant parse(QIODevice *io, bool *ok=0)</div><div class="ttdoc">Read JSON string from the I/O Device and converts it to a QVariant object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddd/parser_8cpp_source.html#l00069">parser.cpp:69</a></div></div>
-<div class="ttc" id="class_music_j_s_p_f_config_manager_html_a3a58855d27d5617e768657f7467a0aa6"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">MusicJSPFConfigManager::MusicJSPFConfigManager</a></div><div class="ttdeci">MusicJSPFConfigManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00006">musicjspfconfigmanager.cpp:6</a></div></div>
+<div class="ttc" id="class_music_j_s_p_f_config_manager_html_aa0fdb913f7d9e0d2d54dacbb7ce2c90f"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aa0fdb913f7d9e0d2d54dacbb7ce2c90f">MusicJSPFConfigManager::writeBuffer</a></div><div class="ttdeci">virtual bool writeBuffer(const MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00052">musicjspfconfigmanager.cpp:52</a></div></div>
+<div class="ttc" id="class_q_json_parse_error_html_a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html#a5348ef861714c75366fce1f66c2be974a140102976a7c344c08823b545ad4ad12">QJsonParseError::NoError</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00033">QJsonParseError.h:33</a></div></div>
+<div class="ttc" id="class_q_json_document_html_a074f0d203a6459c7894ae62e791a1234"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a074f0d203a6459c7894ae62e791a1234">QJsonDocument::toVariant</a></div><div class="ttdeci">QVariant toVariant() const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00303">QJsonDocument.cpp:303</a></div></div>
+<div class="ttc" id="class_q_json_document_html_a909119e9dad7db43ec354a8f88d9422d"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a909119e9dad7db43ec354a8f88d9422d">QJsonDocument::fromJson</a></div><div class="ttdeci">static QJsonDocument fromJson(const QByteArray &amp;json, QJsonParseError *error=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00370">QJsonDocument.cpp:370</a></div></div>
+<div class="ttc" id="class_q_json_document_html_a45baa90ac84352ae28d5e6e56849aaaaa1fbf0ba7be5626a01ba382d33c42314b"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a45baa90ac84352ae28d5e6e56849aaaaa1fbf0ba7be5626a01ba382d33c42314b">QJsonDocument::Indented</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d86/_q_json_document_8h_source.html#l00045">QJsonDocument.h:45</a></div></div>
+<div class="ttc" id="class_q_json_parse_error_html_a3636b88fbac26b7fb0549a401ed71489"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html#a3636b88fbac26b7fb0549a401ed71489">QJsonParseError::error</a></div><div class="ttdeci">ParseError error</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00054">QJsonParseError.h:54</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">ttkqtglobal.h:57</a></div></div>
+<div class="ttc" id="json_8h_html"><div class="ttname"><a href="../../d4/d05/json_8h.html">json.h</a></div></div>
+<div class="ttc" id="class_music_j_s_p_f_config_manager_html_aba21f0327a01809abc5ec57690c9dec5"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#aba21f0327a01809abc5ec57690c9dec5">MusicJSPFConfigManager::readBuffer</a></div><div class="ttdeci">virtual bool readBuffer(MusicSongItemList &amp;items) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00012">musicjspfconfigmanager.cpp:12</a></div></div>
+<div class="ttc" id="class_q_json_parse_error_html"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html">QJsonParseError</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00030">QJsonParseError.h:30</a></div></div>
+<div class="ttc" id="class_music_j_s_p_f_config_manager_html_a3a58855d27d5617e768657f7467a0aa6"><div class="ttname"><a href="../../d4/d07/class_music_j_s_p_f_config_manager.html#a3a58855d27d5617e768657f7467a0aa6">MusicJSPFConfigManager::MusicJSPFConfigManager</a></div><div class="ttdeci">MusicJSPFConfigManager()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/db7/musicjspfconfigmanager_8cpp_source.html#l00005">musicjspfconfigmanager.cpp:5</a></div></div>
+<div class="ttc" id="class_q_json_document_html"><div class="ttname"><a href="../../db/d31/class_q_json_document.html">QJsonDocument</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d86/_q_json_document_8h_source.html#l00037">QJsonDocument.h:37</a></div></div>
 <div class="ttc" id="class_t_t_k_abstract_read_write_interface_html"><div class="ttname"><a href="../../d5/dd0/class_t_t_k_abstract_read_write_interface.html">TTKAbstractReadWriteInterface</a></div><div class="ttdoc">The class of the read write interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d62/ttkabstractbufferinterface_8h_source.html#l00070">ttkabstractbufferinterface.h:70</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_aded0023560d3c716f4a5c78beb326ebc"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#aded0023560d3c716f4a5c78beb326ebc">TTK::toString</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString toString(Record type) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4e/musicdownloadrecordconfigmanager_8cpp_source.html#l00003">musicdownloadrecordconfigmanager.cpp:3</a></div></div>
 <div class="ttc" id="struct_music_song_item_html"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html">MusicSongItem</a></div><div class="ttdoc">The class of the music song item. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00161">musicsong.h:161</a></div></div>
-<div class="ttc" id="namespace_t_t_k_html_a130abbad436ee2ff05a888d216d2a833"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a130abbad436ee2ff05a888d216d2a833">TTK::toString</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString toString(Record type)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4e/musicdownloadrecordconfigmanager_8cpp_source.html#l00003">musicdownloadrecordconfigmanager.cpp:3</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a1a5dd7c4ac17ddf9535651527cd3e501"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a1a5dd7c4ac17ddf9535651527cd3e501">MusicSongItem::m_songs</a></div><div class="ttdeci">MusicSongList m_songs</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00167">musicsong.h:167</a></div></div>
 <div class="ttc" id="struct_music_song_item_html_a6cb400779ddad9caf5196d329f2c60b4"><div class="ttname"><a href="../../d3/d40/struct_music_song_item.html#a6cb400779ddad9caf5196d329f2c60b4">MusicSongItem::m_itemName</a></div><div class="ttdeci">QString m_itemName</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00165">musicsong.h:165</a></div></div>
 <div class="ttc" id="class_music_song_html"><div class="ttname"><a href="../../d6/de4/class_music_song.html">MusicSong</a></div><div class="ttdoc">The class of the music song info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d03/musicsong_8h_source.html#l00028">musicsong.h:28</a></div></div>
-<div class="ttc" id="class_q_json_1_1_parser_html"><div class="ttname"><a href="../../d0/dfe/class_q_json_1_1_parser.html">QJson::Parser</a></div><div class="ttdoc">Main class used to convert JSON data to QVariant objects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d36/parser_8h_source.html#l00040">parser.h:40</a></div></div>
 <div class="ttc" id="musicjspfconfigmanager_8h_html"><div class="ttname"><a href="../../d3/d37/musicjspfconfigmanager_8h.html">musicjspfconfigmanager.h</a></div></div>
+<div class="ttc" id="class_q_json_document_html_ae054188bc86d151c50cfb9a8fb9bdf6a"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#ae054188bc86d151c50cfb9a8fb9bdf6a">QJsonDocument::toJson</a></div><div class="ttdeci">QByteArray toJson(JsonFormat format=Indented) const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00283">QJsonDocument.cpp:283</a></div></div>
 <div class="ttc" id="class_t_t_k_file_interface_html"><div class="ttname"><a href="../../d7/ddf/class_t_t_k_file_interface.html">TTKFileInterface</a></div><div class="ttdoc">The class of the ttk file interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d1e/ttkfileinterface_8h_source.html#l00028">ttkfileinterface.h:28</a></div></div>
-<div class="ttc" id="class_q_json_1_1_serializer_html_aa92d60f9b4b503a44511611eed50f548"><div class="ttname"><a href="../../d8/d59/class_q_json_1_1_serializer.html#aa92d60f9b4b503a44511611eed50f548">QJson::Serializer::serialize</a></div><div class="ttdeci">void serialize(const QVariant &amp;variant, QIODevice *out, bool *ok)</div><div class="ttdoc">This method generates a textual JSON representation and outputs it to the passed in I/O Device...</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d74/serializer_8cpp_source.html#l00420">serializer.cpp:420</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:13 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKCommon/ttksingleton.h Source File</title>
+<title>TTKMusicPlayer: TTKCommon/base/ttksingleton.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li><li class="navelem"><a class="el" href="../../dir_5f51c6c9a04facff21b75f63478342ca.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -105,16 +105,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d1/d00/class_t_t_k_singleton.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a>* instance();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ~<a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">   48</a></span>&#160;    <span class="keyword">static</span> QMutex <a class="code" href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">m_mutex</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">   49</a></span>&#160;    <span class="keyword">static</span> QScopedPointer&lt;T&gt; <a class="code" href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">m_instance</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a>(<a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a>(<a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d1/d70/http__parser_8c.html#ad24d0de3f597ca60dd95c4bc59c2ff73">T</a>* instance();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~<a class="code" href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">   49</a></span>&#160;    <span class="keyword">static</span> QMutex <a class="code" href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">m_mutex</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">   50</a></span>&#160;    <span class="keyword">static</span> QScopedPointer&lt;T&gt; <a class="code" href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">m_instance</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
@@ -148,13 +148,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkmoduleexport_8h_html"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a></div></div>
 <div class="ttc" id="class_t_t_k_singleton_html"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html">TTKSingleton</a></div><div class="ttdoc">The class of the singleton base. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00030">ttksingleton.h:30</a></div></div>
 <div class="ttc" id="class_t_t_k_singleton_html_acd1e682eafb91791c2fd6346ea5bda76"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html#acd1e682eafb91791c2fd6346ea5bda76">TTKSingleton::instance</a></div><div class="ttdeci">static T * instance()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00064">ttksingleton.h:64</a></div></div>
-<div class="ttc" id="class_t_t_k_singleton_html_a474b9c0548d60765b8867f4fd78b30e1"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">TTKSingleton::m_mutex</a></div><div class="ttdeci">static QMutex m_mutex</div><div class="ttdoc">                                         //  Singleton Implementation // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00048">ttksingleton.h:48</a></div></div>
-<div class="ttc" id="class_t_t_k_singleton_html_a0ce93463dac684d86ce1a5d4ecfec3ef"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">TTKSingleton::m_instance</a></div><div class="ttdeci">static QScopedPointer&lt; T &gt; m_instance</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00049">ttksingleton.h:49</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a38cad424af54e468422e977593b752de"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a></div><div class="ttdeci">#define TTK_DISABLE_COPY(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00157">ttkqtglobal.h:157</a></div></div>
+<div class="ttc" id="class_t_t_k_singleton_html_a474b9c0548d60765b8867f4fd78b30e1"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html#a474b9c0548d60765b8867f4fd78b30e1">TTKSingleton::m_mutex</a></div><div class="ttdeci">static QMutex m_mutex</div><div class="ttdoc">                                         //  Singleton Implementation // // </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00049">ttksingleton.h:49</a></div></div>
+<div class="ttc" id="class_t_t_k_singleton_html_a0ce93463dac684d86ce1a5d4ecfec3ef"><div class="ttname"><a href="../../d1/d00/class_t_t_k_singleton.html#a0ce93463dac684d86ce1a5d4ecfec3ef">TTKSingleton::m_instance</a></div><div class="ttdeci">static QScopedPointer&lt; T &gt; m_instance</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/ttksingleton_8h_source.html#l00050">ttksingleton.h:50</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a38cad424af54e468422e977593b752de"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a></div><div class="ttdeci">#define TTK_DISABLE_COPY(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00153">ttkqtglobal.h:153</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

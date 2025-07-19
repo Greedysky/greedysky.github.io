@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>TTKMusicPlayer: TTKCommon/ttklogger.h Source File</title>
+<title>TTKMusicPlayer: TTKCommon/base/ttklogger.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_0789ab1dcb00d08779a25eecfcfdb274.html">TTKCommon</a></li><li class="navelem"><a class="el" href="../../dir_5f51c6c9a04facff21b75f63478342ca.html">base</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -121,61 +121,74 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">    __hit__ = true; \</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  }</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// log stream count base macro</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae333dffd78995c80624ef9bae23bd908">   46</a></span>&#160;<span class="preprocessor">#define __TTK_COUNT_STREAM__(count, level, msg) \</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">  static int __last__ = 1; \</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">  if(count &gt; 0 &amp;&amp; ++__last__ &gt; count) \</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">  { \</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">    __last__ = 1; \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">  }</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">// log stream period base macro</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a8e0d3e5c918ddc939191fb08276654f1">   54</a></span>&#160;<span class="preprocessor">#define __TTK_PERIOD_STREAM__(period, level, msg) \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">  static qint64 __last__ = 0; \</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">  const qint64 __now__ = QDateTime::currentMSecsSinceEpoch(); \</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">  if(__last__ + period * 1000 &lt;= __now__ || __now__ &lt; __last__) \</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">  { \</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    __last__ = __now__; \</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">  }</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a7851d3fcd07a1e0e4abcace1a77c63b1">   64</a></span>&#160;<span class="preprocessor">#define TTK_LOG_STREAM(msg) __TTK_LOG_OUTPUT__ &lt;&lt; msg</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a08659fb0435d0defe09eb28d72ef7f44">   66</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM(msg) { __TTK_BASE_STREAM__(&quot;T&quot;, msg); }</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a718231c211cdef34b70fb8647166a6db">   67</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM(msg) { __TTK_BASE_STREAM__(&quot;D&quot;, msg); }</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">   68</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM(msg)  { __TTK_BASE_STREAM__(&quot;I&quot;, msg); }</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">   69</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM(msg)  { __TTK_BASE_STREAM__(&quot;W&quot;, msg); }</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">   70</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM(msg) { __TTK_BASE_STREAM__(&quot;E&quot;, msg); }</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae80c99409f8b715037fd2f4049341b7a">   71</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM(msg) { __TTK_BASE_STREAM__(&quot;F&quot;, msg); }</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#afa0bcae88f6c7d85faf5791b18cf024b">   73</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;T&quot;, msg) }</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac9a70e3fa3f8e90f60cefe8091c5406d">   74</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;D&quot;, msg) }</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a20cf11d68765424adf03081a0fa939dd">   75</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_ONCE(msg)  { __TTK_ONCE_STREAM__(&quot;I&quot;, msg) }</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#afff87ce15cc1883aac6eec86d3bcb787">   76</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_ONCE(msg)  { __TTK_ONCE_STREAM__(&quot;W&quot;, msg) }</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#aa87aa2809f8be653360c374ab022dcd4">   77</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;E&quot;, msg) }</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a71b7a257e3fdc39b4145405321a20bdd">   78</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;F&quot;, msg) }</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a0825319c562da4bda24eda948b741759">   80</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;T&quot;, msg) }</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a496b3e5b1c301dfd0445fcdb0f1cc937">   81</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;D&quot;, msg) }</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a00483f6a1021401b3221571139c0a247">   82</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_COUNT(count, msg)  { __TTK_COUNT_STREAM__(count, &quot;I&quot;, msg) }</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a7f50fdb97ce5c8de9a475f85632a11a3">   83</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_COUNT(count, msg)  { __TTK_COUNT_STREAM__(count, &quot;W&quot;, msg) }</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#aaa953b2820cad3d413c23d7e3a107faf">   84</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;E&quot;, msg) }</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a268cc312103c2ed9b2c16ebcfc022490">   85</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;F&quot;, msg) }</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae8f442dbc4f27041bf62e996c7e39b68">   87</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;T&quot;, msg) }</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac91486a57753e87fd9e57f21da08870c">   88</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;D&quot;, msg) }</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a53da36f6cfddbe78178f7731c1b597bc">   89</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_PERIOD(period, msg)  { __TTK_PERIOD_STREAM__(period, &quot;I&quot;, msg) }</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac60d9bdfe84815da884231fc60397267">   90</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_PERIOD(period, msg)  { __TTK_PERIOD_STREAM__(period, &quot;W&quot;, msg) }</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a0f2181b9428065203b692e2a56ac0680">   91</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;E&quot;, msg) }</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a3de56c46b62aebe4df49e325be08cd8f">   92</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;F&quot;, msg) }</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif // TTKLOGGER_H</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// log stream condition base macro</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a975012ea297c26385be1afc2476438bf">   46</a></span>&#160;<span class="preprocessor">#define __TTK_COND_STREAM__(cond, level, msg) \</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">  if(cond) \</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">  }</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// log stream count base macro</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae333dffd78995c80624ef9bae23bd908">   52</a></span>&#160;<span class="preprocessor">#define __TTK_COUNT_STREAM__(count, level, msg) \</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">  static int __last__ = 1; \</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">  if(count &gt; 0 &amp;&amp; ++__last__ &gt; count) \</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    __last__ = 1; \</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">  }</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">// log stream period base macro</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a8e0d3e5c918ddc939191fb08276654f1">   60</a></span>&#160;<span class="preprocessor">#define __TTK_PERIOD_STREAM__(period, level, msg) \</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">  static qint64 __last__ = 0; \</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">  const qint64 __now__ = QDateTime::currentMSecsSinceEpoch(); \</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">  if(__last__ + period * 1000 &lt;= __now__ || __now__ &lt; __last__) \</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">    __last__ = __now__; \</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    __TTK_BASE_STREAM__(level, msg); \</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">  }</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a7851d3fcd07a1e0e4abcace1a77c63b1">   70</a></span>&#160;<span class="preprocessor">#define TTK_LOG_STREAM(msg) __TTK_LOG_OUTPUT__ &lt;&lt; msg</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a08659fb0435d0defe09eb28d72ef7f44">   72</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM(msg) { __TTK_BASE_STREAM__(&quot;T&quot;, msg); }</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a718231c211cdef34b70fb8647166a6db">   73</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM(msg) { __TTK_BASE_STREAM__(&quot;D&quot;, msg); }</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a9fa285d0a923aa0f4f5a9e5052ed5e0e">   74</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM(msg)  { __TTK_BASE_STREAM__(&quot;I&quot;, msg); }</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a11b29d3d13ee219d60d2646d53cd3425">   75</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM(msg)  { __TTK_BASE_STREAM__(&quot;W&quot;, msg); }</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a16e9b2113f7aa8a39af56725532fa835">   76</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM(msg) { __TTK_BASE_STREAM__(&quot;E&quot;, msg); }</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae80c99409f8b715037fd2f4049341b7a">   77</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM(msg) { __TTK_BASE_STREAM__(&quot;F&quot;, msg); }</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#afa0bcae88f6c7d85faf5791b18cf024b">   79</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;T&quot;, msg) }</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac9a70e3fa3f8e90f60cefe8091c5406d">   80</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;D&quot;, msg) }</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a20cf11d68765424adf03081a0fa939dd">   81</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_ONCE(msg)  { __TTK_ONCE_STREAM__(&quot;I&quot;, msg) }</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#afff87ce15cc1883aac6eec86d3bcb787">   82</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_ONCE(msg)  { __TTK_ONCE_STREAM__(&quot;W&quot;, msg) }</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#aa87aa2809f8be653360c374ab022dcd4">   83</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;E&quot;, msg) }</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a71b7a257e3fdc39b4145405321a20bdd">   84</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_ONCE(msg) { __TTK_ONCE_STREAM__(&quot;F&quot;, msg) }</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a51523936983789b259910a64c2183461">   86</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_COND(cond, msg) { __TTK_COND_STREAM__(cond, &quot;T&quot;, msg) }</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a4a4599b2fdb183952cd9937e751a704d">   87</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_COND(cond, msg) { __TTK_COND_STREAM__(cond, &quot;D&quot;, msg) }</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a63473aee316e3aee2ba012a5f496c2f4">   88</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_COND(cond, msg)  { __TTK_COND_STREAM__(cond, &quot;I&quot;, msg) }</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a7607c754420a4e47edcd25d758ed0897">   89</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_COND(cond, msg)  { __TTK_COND_STREAM__(cond, &quot;W&quot;, msg) }</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#acc692701d62288af14fe038645b08f5c">   90</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_COND(cond, msg) { __TTK_COND_STREAM__(cond, &quot;E&quot;, msg) }</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a9e82859f6224d3c38ca3bc90e481096d">   91</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_COND(cond, msg) { __TTK_COND_STREAM__(cond, &quot;F&quot;, msg) }</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a0825319c562da4bda24eda948b741759">   93</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;T&quot;, msg) }</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a496b3e5b1c301dfd0445fcdb0f1cc937">   94</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;D&quot;, msg) }</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a00483f6a1021401b3221571139c0a247">   95</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_COUNT(count, msg)  { __TTK_COUNT_STREAM__(count, &quot;I&quot;, msg) }</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a7f50fdb97ce5c8de9a475f85632a11a3">   96</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_COUNT(count, msg)  { __TTK_COUNT_STREAM__(count, &quot;W&quot;, msg) }</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#aaa953b2820cad3d413c23d7e3a107faf">   97</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;E&quot;, msg) }</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a268cc312103c2ed9b2c16ebcfc022490">   98</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_COUNT(count, msg) { __TTK_COUNT_STREAM__(count, &quot;F&quot;, msg) }</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ae8f442dbc4f27041bf62e996c7e39b68">  100</a></span>&#160;<span class="preprocessor">#define TTK_TRACE_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;T&quot;, msg) }</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac91486a57753e87fd9e57f21da08870c">  101</a></span>&#160;<span class="preprocessor">#define TTK_DEBUG_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;D&quot;, msg) }</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a53da36f6cfddbe78178f7731c1b597bc">  102</a></span>&#160;<span class="preprocessor">#define TTK_INFO_STREAM_PERIOD(period, msg)  { __TTK_PERIOD_STREAM__(period, &quot;I&quot;, msg) }</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#ac60d9bdfe84815da884231fc60397267">  103</a></span>&#160;<span class="preprocessor">#define TTK_WARN_STREAM_PERIOD(period, msg)  { __TTK_PERIOD_STREAM__(period, &quot;W&quot;, msg) }</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a0f2181b9428065203b692e2a56ac0680">  104</a></span>&#160;<span class="preprocessor">#define TTK_ERROR_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;E&quot;, msg) }</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d5/d2b/ttklogger_8h.html#a3de56c46b62aebe4df49e325be08cd8f">  105</a></span>&#160;<span class="preprocessor">#define TTK_FATAL_STREAM_PERIOD(period, msg) { __TTK_PERIOD_STREAM__(period, &quot;F&quot;, msg) }</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // TTKLOGGER_H</span></div>
 <div class="ttc" id="ttkglobal_8h_html"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html">ttkglobal.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

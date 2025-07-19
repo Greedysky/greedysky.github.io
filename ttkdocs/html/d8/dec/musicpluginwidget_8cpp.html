@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -74,15 +74,19 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">musicpluginwidget.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d2/de8/musicpluginwidget_8h_source.html">musicpluginwidget.h</a>&quot;</code><br />
-<code>#include &quot;ui_musicpluginwidget.h&quot;</code><br />
+<code>#include &quot;ui_musicqmmppluginwidget.h&quot;</code><br />
+<code>#include &quot;ui_musicserverpluginwidget.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d13/musicitemdelegate_8h_source.html">musicitemdelegate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html">musicsettingmanager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/d8d/musicpluginproperty_8h_source.html">musicpluginproperty.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d05/json_8h_source.html">qjson/json.h</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="../../d8/db3/decoderfactory_8h_source.html">qmmp/decoderfactory.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../d6/dc2/effectfactory_8h_source.html">qmmp/effectfactory.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="../../d7/dcc/visualfactory_8h_source.html">qmmp/visualfactory.h</a>&gt;</code><br />
@@ -99,14 +103,44 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d55/class_music_plugin_item.html">MusicPluginItem</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of the plugin item widget.  <a href="../../d7/d55/class_music_plugin_item.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/class_music_qmmp_plugin_item.html">MusicQmmpPluginItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of the qmmp plugin item widget.  <a href="../../de/deb/class_music_qmmp_plugin_item.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a842e111975ffe30d0e55f1e16ccd3084"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dec/musicpluginwidget_8cpp.html#a842e111975ffe30d0e55f1e16ccd3084">QUERY_PLUGINS_URL</a> = &quot;resource/plugins&quot;</td></tr>
+<tr class="separator:a842e111975ffe30d0e55f1e16ccd3084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a842e111975ffe30d0e55f1e16ccd3084"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char* QUERY_PLUGINS_URL = &quot;resource/plugins&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d8/dec/musicpluginwidget_8cpp_source.html#l00337">337</a> of file <a class="el" href="../../d8/dec/musicpluginwidget_8cpp_source.html">musicpluginwidget.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/dec/musicpluginwidget_8cpp_source.html#l00434">MusicServerPluginTableWidget::addCellItems()</a>, and <a class="el" href="../../d8/dec/musicpluginwidget_8cpp_source.html#l00358">MusicServerPluginTableWidget::save()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:16 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:09 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

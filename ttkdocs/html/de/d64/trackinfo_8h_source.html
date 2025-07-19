@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -78,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d64/trackinfo_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2018-2024 by Ilya Kotov                                 *</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   Copyright (C) 2018-2025 by Ilya Kotov                                 *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   forkotov02@ya.ru                                                      *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *                                                                         *</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify  *</span></div>
@@ -127,56 +127,58 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    qint64 duration() const;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> isEmpty() const;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    const QString &amp;path() const;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    const QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    const QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">double</span> value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    const QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    const QString value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty <a class="code" href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">double</span> value(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey <a class="code" href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>) const;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; &amp;metaData() const;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; &amp;properties() const;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; &amp;replayGainInfo() const;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Parts parts() const;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> setDuration(qint64 duration);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, const QVariant &amp;value);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty key, const QVariant &amp;value);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey key, <span class="keywordtype">double</span> value);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey key, const QString &amp;value);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; &amp;metaData);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; &amp;properties);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; &amp;replayGainInfo);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; &amp;metaData);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; &amp;properties);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; &amp;replayGainInfo);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">void</span> setPath(const QString &amp;path);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> clear(Parts parts);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    static QString pathFromUrl(const QString &amp;url, <span class="keywordtype">int</span> *track = <span class="keywordtype">nullptr</span>);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;private:</div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a53656feede7dad3bdb3d2ef01b48e9c2">  175</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; m_metaData;</div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a19a9b5f09b7ef0f25f6e8024166fdef2">  176</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; m_properties;</div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a9bf816f8c47d0fedfcab8cc7ea6cf7f7">  177</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; m_replayGainInfo;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a2092fe23071b2530963c41808920acd0">  178</a></span>&#160;    Parts m_parts = Parts();</div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#aaaa0635a1d8b91624157ad2d89b759cd">  179</a></span>&#160;    QString m_path;</div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#ad49961fc775be7fe9041f9b6c802e8eb">  180</a></span>&#160;    qint64 m_duration = 0;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;};</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(<a class="code" href="../../d1/dc5/class_track_info.html">TrackInfo</a>::Parts)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData <a class="code" href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a>, const QVariant &amp;value);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData key, const <span class="keywordtype">char</span> *value);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty key, const QVariant &amp;value);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty key, const <span class="keywordtype">char</span> *value);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey key, <span class="keywordtype">double</span> value);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> setValue(<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey key, const QString &amp;value);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; &amp;metaData);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; &amp;properties);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> setValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; &amp;replayGainInfo);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; &amp;metaData);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; &amp;properties);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> updateValues(const QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; &amp;replayGainInfo);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">void</span> setPath(const QString &amp;path);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> clear(Parts parts);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    static QString pathFromUrl(const QString &amp;url, <span class="keywordtype">int</span> *track = <span class="keywordtype">nullptr</span>);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;private:</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a53656feede7dad3bdb3d2ef01b48e9c2">  184</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::MetaData, QString&gt; m_metaData;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a19a9b5f09b7ef0f25f6e8024166fdef2">  185</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::TrackProperty, QString&gt; m_properties;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a9bf816f8c47d0fedfcab8cc7ea6cf7f7">  186</a></span>&#160;    QMap&lt;<a class="code" href="../../d9/d95/class_qmmp.html">Qmmp</a>::ReplayGainKey, <span class="keywordtype">double</span>&gt; m_replayGainInfo;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#a2092fe23071b2530963c41808920acd0">  187</a></span>&#160;    Parts m_parts = Parts();</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#aaaa0635a1d8b91624157ad2d89b759cd">  188</a></span>&#160;    QString m_path;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="../../d1/dc5/class_track_info.html#ad49961fc775be7fe9041f9b6c802e8eb">  189</a></span>&#160;    qint64 m_duration = 0;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;};</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;Q_DECLARE_OPERATORS_FOR_FLAGS(<a class="code" href="../../d1/dc5/class_track_info.html">TrackInfo</a>::Parts)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="qmmp_8h_html"><div class="ttname"><a href="../../d8/d30/qmmp_8h.html">qmmp.h</a></div></div>
-<div class="ttc" id="musiclrcfromkrc_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d8/d45/musiclrcfromkrc_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d45/musiclrcfromkrc_8cpp_source.html#l00009">musiclrcfromkrc.cpp:9</a></div></div>
 <div class="ttc" id="class_track_info_html"><div class="ttname"><a href="../../d1/dc5/class_track_info.html">TrackInfo</a></div><div class="ttdoc">The TrackInfo class stores metadata and other information about track. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d64/trackinfo_8h_source.html#l00032">trackinfo.h:32</a></div></div>
 <div class="ttc" id="class_track_info_html_a9027261d42ac51bfc013e91c348f9879"><div class="ttname"><a href="../../d1/dc5/class_track_info.html#a9027261d42ac51bfc013e91c348f9879">TrackInfo::Part</a></div><div class="ttdeci">Part</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d64/trackinfo_8h_source.html#l00051">trackinfo.h:51</a></div></div>
+<div class="ttc" id="musiclrcparser_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00030">musiclrcparser.cpp:30</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="regularexpression_8h_html"><div class="ttname"><a href="../../d9/deb/regularexpression_8h.html">regularexpression.h</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
-<div class="ttc" id="class_qmmp_html"><div class="ttname"><a href="../../d9/d95/class_qmmp.html">Qmmp</a></div><div class="ttdoc">The Qmmp class stores global settings and enums. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00076">qmmp.h:76</a></div></div>
+<div class="ttc" id="class_qmmp_html"><div class="ttname"><a href="../../d9/d95/class_qmmp.html">Qmmp</a></div><div class="ttdoc">The Qmmp class stores global settings and enums. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d30/qmmp_8h_source.html#l00083">qmmp.h:83</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:15 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

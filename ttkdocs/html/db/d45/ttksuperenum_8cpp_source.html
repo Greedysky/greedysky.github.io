@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -102,27 +102,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a4d97f8f2ee372bf151dedfe60a6b3bf2">   26</a></span>&#160;QString <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a4d97f8f2ee372bf151dedfe60a6b3bf2">TTKSuperEnum::keyToString</a>(<span class="keywordtype">int</span> value)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#ab714e1f6049d500411d3292efcad1bcc">   26</a></span>&#160;QString <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#ab714e1f6049d500411d3292efcad1bcc">TTKSuperEnum::keyToString</a>(<span class="keywordtype">int</span> value) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a1709434955dbc8545251aa0939c33b06">TTKSuperEnum::Null</a> == value)</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;Null&quot;</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;it = <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">m_enumValue</a>.find(value);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> it != <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">m_enumValue</a>.end() ? it-&gt;second : <span class="stringliteral">&quot;Invalid&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;it = m_enumValue.find(value);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> it != m_enumValue.end() ? it-&gt;second : <span class="stringliteral">&quot;Invalid&quot;</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a51f4124c413cf247065a23ecc93b8704">   37</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a51f4124c413cf247065a23ecc93b8704">TTKSuperEnum::stringToKey</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(<span class="stringliteral">&quot;Null&quot;</span> == name)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d2c/class_t_t_k_super_enum.html#a148070e53aaed2af9d150e5b2f404721">   37</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a148070e53aaed2af9d150e5b2f404721">TTKSuperEnum::stringToKey</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span>(<span class="stringliteral">&quot;Null&quot;</span> == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a1709434955dbc8545251aa0939c33b06">TTKSuperEnum::Null</a>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;&amp;item : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(<a class="code" href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">m_enumValue</a>))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp;&amp;item : <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a>(m_enumValue))</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span>(item.second == name)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span>(item.second == <a class="code" href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a>)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> item.first;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
@@ -131,16 +131,16 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="ttc" id="class_t_t_k_super_enum_html_a1709434955dbc8545251aa0939c33b06"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a1709434955dbc8545251aa0939c33b06">TTKSuperEnum::Null</a></div><div class="ttdeci">static constexpr int Null</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00031">ttksuperenum.h:31</a></div></div>
 <div class="ttc" id="ttksuperenum_8h_html"><div class="ttname"><a href="../../dc/d62/ttksuperenum_8h.html">ttksuperenum.h</a></div></div>
-<div class="ttc" id="class_t_t_k_super_enum_html_a4d97f8f2ee372bf151dedfe60a6b3bf2"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a4d97f8f2ee372bf151dedfe60a6b3bf2">TTKSuperEnum::keyToString</a></div><div class="ttdeci">QString keyToString(int value) const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d45/ttksuperenum_8cpp_source.html#l00026">ttksuperenum.cpp:26</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00051">ttkqtglobal.h:51</a></div></div>
+<div class="ttc" id="ttkqtglobal_8h_html_a9cc3df3121d7396376c3d7c580b9491d"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a9cc3df3121d7396376c3d7c580b9491d">qAsConst</a></div><div class="ttdeci">#define qAsConst</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">ttkqtglobal.h:57</a></div></div>
 <div class="ttc" id="http__parser_8c_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="../../d1/d70/http__parser_8c.html#a8f8f80d37794cde9472343e4487ba3eb">name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d70/http__parser_8c_source.html#l00458">http_parser.c:458</a></div></div>
+<div class="ttc" id="class_t_t_k_super_enum_html_a148070e53aaed2af9d150e5b2f404721"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a148070e53aaed2af9d150e5b2f404721">TTKSuperEnum::stringToKey</a></div><div class="ttdeci">int stringToKey(const QString &amp;name) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d45/ttksuperenum_8cpp_source.html#l00037">ttksuperenum.cpp:37</a></div></div>
+<div class="ttc" id="class_t_t_k_super_enum_html_ab714e1f6049d500411d3292efcad1bcc"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#ab714e1f6049d500411d3292efcad1bcc">TTKSuperEnum::keyToString</a></div><div class="ttdeci">QString keyToString(int value) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d45/ttksuperenum_8cpp_source.html#l00026">ttksuperenum.cpp:26</a></div></div>
 <div class="ttc" id="class_t_t_k_super_enum_html_aa6a9119fa9f84c04d9bf66faf9d33abe"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#aa6a9119fa9f84c04d9bf66faf9d33abe">TTKSuperEnum::TTKSuperEnum</a></div><div class="ttdeci">TTKSuperEnum(const QString &amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d45/ttksuperenum_8cpp_source.html#l00005">ttksuperenum.cpp:5</a></div></div>
 <div class="ttc" id="class_t_t_k_super_enum_html_a2c2f4f171ead659cb4210c4fa3211764"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a2c2f4f171ead659cb4210c4fa3211764">TTKSuperEnum::m_enumValue</a></div><div class="ttdeci">std::unordered_map&lt; int, QString &gt; m_enumValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d62/ttksuperenum_8h_source.html#l00049">ttksuperenum.h:49</a></div></div>
-<div class="ttc" id="class_t_t_k_super_enum_html_a51f4124c413cf247065a23ecc93b8704"><div class="ttname"><a href="../../d6/d2c/class_t_t_k_super_enum.html#a51f4124c413cf247065a23ecc93b8704">TTKSuperEnum::stringToKey</a></div><div class="ttdeci">int stringToKey(const QString &amp;name) const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d45/ttksuperenum_8cpp_source.html#l00037">ttksuperenum.cpp:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:12 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

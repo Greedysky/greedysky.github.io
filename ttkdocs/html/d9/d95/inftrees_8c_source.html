@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                <span class="keywordtype">unsigned</span> <a class="code" href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a> *bits, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a> *work) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">unsigned</span> len;               <span class="comment">/* a code&#39;s length in bits */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">unsigned</span> sym;               <span class="comment">/* index of code symbols */</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">min</a>, <a class="code" href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">max</a>;          <span class="comment">/* minimum and maximum code lengths */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3f7a12954c5b584551fde54343949f01">min</a>, <a class="code" href="../../dc/d63/namespace_t_t_k.html#a0d45dc9e838236cf630769ea6a553df9">max</a>;          <span class="comment">/* minimum and maximum code lengths */</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">unsigned</span> root;              <span class="comment">/* number of index bits for root table */</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">unsigned</span> curr;              <span class="comment">/* number of index bits for current table */</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">unsigned</span> drop;              <span class="comment">/* code bits to drop for sub-table */</span></div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    root = *bits;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">for</span> (max = <a class="code" href="../../d9/d95/inftrees_8c.html#a6fcad31e688110d9d61bdcc99b2a59d7">MAXBITS</a>; max &gt;= 1; max--)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span> (count[max] != 0) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span> (root &gt; max) root = <a class="code" href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">max</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span> (root &gt; max) root = <a class="code" href="../../dc/d63/namespace_t_t_k.html#a0d45dc9e838236cf630769ea6a553df9">max</a>;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> (max == 0) {                     <span class="comment">/* no symbols to code at all */</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        here.<a class="code" href="../../da/da8/structcode.html#a4f075d73a9177d05cc7d332105295b83">op</a> = (<span class="keywordtype">unsigned</span> char)64;    <span class="comment">/* invalid code marker */</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        here.<a class="code" href="../../da/da8/structcode.html#a5defcebb356dca1a5a8d39995f28d66b">bits</a> = (<span class="keywordtype">unsigned</span> char)1;</div>
@@ -197,9 +197,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        *bits = 1;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> 0;     <span class="comment">/* no symbols, but wait for decoding to report error */</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">for</span> (min = 1; min &lt; <a class="code" href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">max</a>; min++)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">for</span> (min = 1; min &lt; <a class="code" href="../../dc/d63/namespace_t_t_k.html#a0d45dc9e838236cf630769ea6a553df9">max</a>; min++)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span> (count[min] != 0) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> (root &lt; min) root = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">min</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">if</span> (root &lt; min) root = <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3f7a12954c5b584551fde54343949f01">min</a>;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">/* check for an over-subscribed or incomplete set of lengths */</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    left = 1;</div>
@@ -271,7 +271,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">/* initialize state for loop */</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    huff = 0;                   <span class="comment">/* starting code */</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    sym = 0;                    <span class="comment">/* starting code symbol */</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    len = <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">min</a>;                  <span class="comment">/* starting code length */</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    len = <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3f7a12954c5b584551fde54343949f01">min</a>;                  <span class="comment">/* starting code length */</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    next = *table;              <span class="comment">/* current table to fill in */</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    curr = root;                <span class="comment">/* current table index bits */</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    drop = 0;                   <span class="comment">/* current bits to drop from code for index */</span></div>
@@ -335,7 +335,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                drop = root;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="comment">/* increment past last table */</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            next += <a class="code" href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">min</a>;            <span class="comment">/* here min is 1 &lt;&lt; curr */</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            next += <a class="code" href="../../dc/d63/namespace_t_t_k.html#a3f7a12954c5b584551fde54343949f01">min</a>;            <span class="comment">/* here min is 1 &lt;&lt; curr */</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="comment">/* determine length of next table */</span></div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            curr = len - drop;</div>
@@ -377,11 +377,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
 <div class="ttc" id="structcode_html_a6f9c73627997e8fc6df02e620cf9a6f5"><div class="ttname"><a href="../../da/da8/structcode.html#a6f9c73627997e8fc6df02e620cf9a6f5">code::val</a></div><div class="ttdeci">unsigned short val</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00027">inftrees.h:27</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_a3f7a12954c5b584551fde54343949f01"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a3f7a12954c5b584551fde54343949f01">TTK::min</a></div><div class="ttdeci">constexpr const _Tp &amp; min(const _Tp &amp;a, const _Tp &amp;b) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00027">ttkcompat.h:27</a></div></div>
 <div class="ttc" id="inftrees_8h_html_a0f33f5acf9079ff1f054fa235df2443bafd7fbb659c736b26e79316ef09a2a9a1"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html#a0f33f5acf9079ff1f054fa235df2443bafd7fbb659c736b26e79316ef09a2a9a1">DISTS</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00057">inftrees.h:57</a></div></div>
 <div class="ttc" id="compress_8c_html_a59d4d7ef4d73655c759211ec33a5d44f"><div class="ttname"><a href="../../d0/d6b/compress_8c.html#a59d4d7ef4d73655c759211ec33a5d44f">ZLIB_INTERNAL</a></div><div class="ttdeci">#define ZLIB_INTERNAL</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d6b/compress_8c_source.html#l00008">compress.c:8</a></div></div>
 <div class="ttc" id="ioapi_8h_html_a787fa3cf048117ba7123753c1e74fcd6"><div class="ttname"><a href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a></div><div class="ttdeci">typedef int(ZCALLBACK *close_file_func) OF((voidpf opaque</div></div>
 <div class="ttc" id="structcode_html_a4f075d73a9177d05cc7d332105295b83"><div class="ttname"><a href="../../da/da8/structcode.html#a4f075d73a9177d05cc7d332105295b83">code::op</a></div><div class="ttdeci">unsigned char op</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00025">inftrees.h:25</a></div></div>
-<div class="ttc" id="namespace_t_t_k_html_af5cf08c1e8771638e0256f6ea46cf06d"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#af5cf08c1e8771638e0256f6ea46cf06d">TTK::max</a></div><div class="ttdeci">constexpr const _Tp &amp; max(const _Tp &amp;a, const _Tp &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00033">ttkcompat.h:33</a></div></div>
 <div class="ttc" id="inftrees_8c_html_a773e6164ab27c6f3ea71144dfc487c7f"><div class="ttname"><a href="../../d9/d95/inftrees_8c.html#a773e6164ab27c6f3ea71144dfc487c7f">inflate_table</a></div><div class="ttdeci">int ZLIB_INTERNAL inflate_table(codetype type, unsigned short FAR *lens, unsigned codes, code FAR *FAR *table, unsigned FAR *bits, unsigned short FAR *work)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/inftrees_8c_source.html#l00032">inftrees.c:32</a></div></div>
 <div class="ttc" id="inftrees_8h_html_a9785642d346454e272be30a8016dff04"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html#a9785642d346454e272be30a8016dff04">ENOUGH_LENS</a></div><div class="ttdeci">#define ENOUGH_LENS</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00049">inftrees.h:49</a></div></div>
 <div class="ttc" id="inftrees_8h_html_a0f33f5acf9079ff1f054fa235df2443ba4f2ec4135d8cf82c6c35780e470cac28"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html#a0f33f5acf9079ff1f054fa235df2443ba4f2ec4135d8cf82c6c35780e470cac28">CODES</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00055">inftrees.h:55</a></div></div>
@@ -391,15 +391,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="inftrees_8h_html_a0f33f5acf9079ff1f054fa235df2443b"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html#a0f33f5acf9079ff1f054fa235df2443b">codetype</a></div><div class="ttdeci">codetype</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00054">inftrees.h:54</a></div></div>
 <div class="ttc" id="structcode_html"><div class="ttname"><a href="../../da/da8/structcode.html">code</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00024">inftrees.h:24</a></div></div>
 <div class="ttc" id="inftrees_8c_html_a6fcad31e688110d9d61bdcc99b2a59d7"><div class="ttname"><a href="../../d9/d95/inftrees_8c.html#a6fcad31e688110d9d61bdcc99b2a59d7">MAXBITS</a></div><div class="ttdeci">#define MAXBITS</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d95/inftrees_8c_source.html#l00009">inftrees.c:9</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_a0d45dc9e838236cf630769ea6a553df9"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a0d45dc9e838236cf630769ea6a553df9">TTK::max</a></div><div class="ttdeci">constexpr const _Tp &amp; max(const _Tp &amp;a, const _Tp &amp;b) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00033">ttkcompat.h:33</a></div></div>
 <div class="ttc" id="inftrees_8h_html_a0f33f5acf9079ff1f054fa235df2443ba86b0f8050ddd8ae0b99e2f9323ad00a1"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html#a0f33f5acf9079ff1f054fa235df2443ba86b0f8050ddd8ae0b99e2f9323ad00a1">LENS</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00056">inftrees.h:56</a></div></div>
 <div class="ttc" id="inftrees_8h_html"><div class="ttname"><a href="../../d4/d0d/inftrees_8h.html">inftrees.h</a></div></div>
 <div class="ttc" id="zutil_8h_html"><div class="ttname"><a href="../../d6/dba/zutil_8h.html">zutil.h</a></div></div>
 <div class="ttc" id="zconf_8h_html_aef060b3456fdcc093a7210a762d5f2ed"><div class="ttname"><a href="../../de/d95/zconf_8h.html#aef060b3456fdcc093a7210a762d5f2ed">FAR</a></div><div class="ttdeci">#define FAR</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00389">zconf.h:389</a></div></div>
-<div class="ttc" id="namespace_t_t_k_html_ab25a3fe48bc4859bc6891df480e2a8b2"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#ab25a3fe48bc4859bc6891df480e2a8b2">TTK::min</a></div><div class="ttdeci">constexpr const _Tp &amp; min(const _Tp &amp;a, const _Tp &amp;b)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00027">ttkcompat.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:15 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.1.3.0</span>
+   &#160;<span id="projectnumber">4.2.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../dc/dbb/class_q_http_request_private.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dbb/class_q_http_request_private.html">QHttpRequestPrivate</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d29/class_t_t_k_private.html">TTKPrivate</a>&lt;QHttpRequest&gt;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="../../dc/dbb/class_q_http_request_private.html#adb8c4aa3dc241fcd755b9ea4c1b23c44">QHttpRequestPrivate</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="../../dc/dbb/class_q_http_request_private.html#a26609aa27b789c089a349738f5a1cdf2">QHttpRequestPrivate</a>() noexcept;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../dc/dbb/class_q_http_request_private.html#a01d4121c36cf9fdaaac242414957ffaf">   12</a></span>&#160;    <a class="code" href="../../dc/d0e/class_q_http_connection.html">QHttpConnection</a> *<a class="code" href="../../dc/dbb/class_q_http_request_private.html#a01d4121c36cf9fdaaac242414957ffaf">m_connection</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="../../dc/dbb/class_q_http_request_private.html#a84a1976407b9059416464c66b1f98ff1">   13</a></span>&#160;    <a class="code" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a> <a class="code" href="../../dc/dbb/class_q_http_request_private.html#a84a1976407b9059416464c66b1f98ff1">m_headers</a>;</div>
@@ -97,9 +97,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dc/dbb/class_q_http_request_private.html#adb8c4aa3dc241fcd755b9ea4c1b23c44">   24</a></span>&#160;<a class="code" href="../../dc/dbb/class_q_http_request_private.html#adb8c4aa3dc241fcd755b9ea4c1b23c44">QHttpRequestPrivate::QHttpRequestPrivate</a>()</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : m_connection(nullptr),</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      m_url(<span class="stringliteral">&quot;http://localhost/&quot;</span>),</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../dc/dbb/class_q_http_request_private.html#a26609aa27b789c089a349738f5a1cdf2">   24</a></span>&#160;<a class="code" href="../../dc/dbb/class_q_http_request_private.html#a26609aa27b789c089a349738f5a1cdf2">QHttpRequestPrivate::QHttpRequestPrivate</a>() noexcept</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : m_connection(<span class="keywordtype">nullptr</span>),</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      m_url(&quot;http:<span class="comment">//localhost/&quot;),</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      m_success(false)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
@@ -117,31 +117,31 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d1/de7/class_q_http_request.html#aef0728ba36a1868dd27ecce6fa0b7959">   42</a></span>&#160;QString <a class="code" href="../../d1/de7/class_q_http_request.html#aef0728ba36a1868dd27ecce6fa0b7959">QHttpRequest::header</a>(<span class="keyword">const</span> QString &amp;field)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_headers.value(field.toLower(), <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">const</span> <a class="code" href="../../d8/d4c/qhttpserverfwd_8h.html#aad7e73ed2a372edbfbc239f2939eda1a">HeaderHash</a> &amp;<a class="code" href="../../d1/de7/class_q_http_request.html#a00a61462101fd8e3c37abd047df8ac18">QHttpRequest::headers</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_headers;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/de7/class_q_http_request.html#af448fb58674e8d879fa425d649f683e6">QHttpRequest::httpVersion</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_version;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">const</span> QUrl &amp;<a class="code" href="../../d1/de7/class_q_http_request.html#ac368084428182e3285b5c87d058f6846">QHttpRequest::url</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_url;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">const</span> QString <a class="code" href="../../d1/de7/class_q_http_request.html#a460566887370fd97135122c472fd6808">QHttpRequest::path</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_url.path();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
@@ -152,31 +152,31 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<a class="code" href="../../d1/de7/class_q_http_request.html#a107e6e86fad49626a3fb5bd0306f32c9">QHttpRequest::HttpMethod</a> <a class="code" href="../../d1/de7/class_q_http_request.html#ae7d76f5f6512b7ebff64c664c0fb748a">QHttpRequest::method</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_method;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">const</span> QString &amp;<a class="code" href="../../d1/de7/class_q_http_request.html#ae0506626e5e77875b78655db5cb3693d">QHttpRequest::remoteAddress</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_remoteAddress;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;quint16 <a class="code" href="../../d1/de7/class_q_http_request.html#ad5668569ac3629d2033b43209fc8885a">QHttpRequest::remotePort</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_remotePort;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d1/de7/class_q_http_request.html#a7b0e5979de7fc4e503492346fff27875">   95</a></span>&#160;<span class="keyword">const</span> QByteArray &amp;<a class="code" href="../../d1/de7/class_q_http_request.html#a7b0e5979de7fc4e503492346fff27875">QHttpRequest::body</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_body;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../d1/de7/class_q_http_request.html#a029b9b2c8e669369839116d43a62e44c">  101</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d1/de7/class_q_http_request.html#a029b9b2c8e669369839116d43a62e44c">QHttpRequest::successful</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../d1/de7/class_q_http_request.html">QHttpRequest</a>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_success;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
@@ -254,12 +254,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_http_request_private_html_a66acb0bb44875f15b7364318ad2c521a"><div class="ttname"><a href="../../dc/dbb/class_q_http_request_private.html#a66acb0bb44875f15b7364318ad2c521a">QHttpRequestPrivate::m_remoteAddress</a></div><div class="ttdeci">QString m_remoteAddress</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00017">qhttprequest.cpp:17</a></div></div>
 <div class="ttc" id="class_q_http_request_private_html_a8133064309a7f223a90e0980908b3dd5"><div class="ttname"><a href="../../dc/dbb/class_q_http_request_private.html#a8133064309a7f223a90e0980908b3dd5">QHttpRequestPrivate::m_success</a></div><div class="ttdeci">bool m_success</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00020">qhttprequest.cpp:20</a></div></div>
 <div class="ttc" id="class_q_http_request_html_aef0728ba36a1868dd27ecce6fa0b7959"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#aef0728ba36a1868dd27ecce6fa0b7959">QHttpRequest::header</a></div><div class="ttdeci">QString header(const QString &amp;field)</div><div class="ttdoc">Get the value of a header. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00042">qhttprequest.cpp:42</a></div></div>
-<div class="ttc" id="class_q_http_request_private_html_adb8c4aa3dc241fcd755b9ea4c1b23c44"><div class="ttname"><a href="../../dc/dbb/class_q_http_request_private.html#adb8c4aa3dc241fcd755b9ea4c1b23c44">QHttpRequestPrivate::QHttpRequestPrivate</a></div><div class="ttdeci">QHttpRequestPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00024">qhttprequest.cpp:24</a></div></div>
 <div class="ttc" id="class_q_http_request_html_af448fb58674e8d879fa425d649f683e6"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#af448fb58674e8d879fa425d649f683e6">QHttpRequest::httpVersion</a></div><div class="ttdeci">const QString &amp; httpVersion() const </div><div class="ttdoc">The HTTP version of the request. </div></div>
 <div class="ttc" id="class_q_http_request_private_html_a138b2c963ceabe88e2f37881ca02cfee"><div class="ttname"><a href="../../dc/dbb/class_q_http_request_private.html#a138b2c963ceabe88e2f37881ca02cfee">QHttpRequestPrivate::m_remotePort</a></div><div class="ttdeci">quint16 m_remotePort</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00018">qhttprequest.cpp:18</a></div></div>
 <div class="ttc" id="class_q_http_request_html_a9a64905946aa1ec5bea386352046e968"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#a9a64905946aa1ec5bea386352046e968">QHttpRequest::setSuccessful</a></div><div class="ttdeci">void setSuccessful(bool success)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00148">qhttprequest.cpp:148</a></div></div>
 <div class="ttc" id="class_q_http_request_html_afc13559668af3df8e91719a4a5839903"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#afc13559668af3df8e91719a4a5839903">QHttpRequest::setVersion</a></div><div class="ttdeci">void setVersion(const QString &amp;version)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00130">qhttprequest.cpp:130</a></div></div>
 <div class="ttc" id="class_q_http_request_html_a029b9b2c8e669369839116d43a62e44c"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#a029b9b2c8e669369839116d43a62e44c">QHttpRequest::successful</a></div><div class="ttdeci">bool successful() const </div><div class="ttdoc">If this request was successfully received. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00101">qhttprequest.cpp:101</a></div></div>
+<div class="ttc" id="class_q_http_request_private_html_a26609aa27b789c089a349738f5a1cdf2"><div class="ttname"><a href="../../dc/dbb/class_q_http_request_private.html#a26609aa27b789c089a349738f5a1cdf2">QHttpRequestPrivate::QHttpRequestPrivate</a></div><div class="ttdeci">QHttpRequestPrivate() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00024">qhttprequest.cpp:24</a></div></div>
 <div class="ttc" id="class_q_http_request_html_a3f69e8bb19457d40515b90a827e9eafa"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#a3f69e8bb19457d40515b90a827e9eafa">QHttpRequest::setRemoteAddress</a></div><div class="ttdeci">void setRemoteAddress(const QString &amp;address)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00154">qhttprequest.cpp:154</a></div></div>
 <div class="ttc" id="class_q_http_request_html_ad5668569ac3629d2033b43209fc8885a"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#ad5668569ac3629d2033b43209fc8885a">QHttpRequest::remotePort</a></div><div class="ttdeci">quint16 remotePort() const </div><div class="ttdoc">Outbound connection port for the client. </div></div>
 <div class="ttc" id="class_q_http_request_html_aed03beda6def19d0889c09ffcb94490a"><div class="ttname"><a href="../../d1/de7/class_q_http_request.html#aed03beda6def19d0889c09ffcb94490a">QHttpRequest::setMethod</a></div><div class="ttdeci">void setMethod(HttpMethod method)</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/ded/qhttprequest_8cpp_source.html#l00124">qhttprequest.cpp:124</a></div></div>
@@ -284,7 +284,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 21 2025 21:07:14 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 19 2025 16:53:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
