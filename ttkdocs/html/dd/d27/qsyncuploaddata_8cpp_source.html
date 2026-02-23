@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -155,17 +155,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(reply-&gt;error() == QNetworkReply::NoError)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac7f2a824dcc6eb38cbc254d42e7e043e">uploadFileFinished</a>(d-&gt;m_uploadTime);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac20e0d26948e3c599cdac11d46b8695d">uploadFileFinished</a>(d-&gt;m_uploadTime, <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac7f2a824dcc6eb38cbc254d42e7e043e">uploadFileFinished</a>(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a063416ce5425f4f6e1b210a630c9cb99">TTK_NAN_STR</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac20e0d26948e3c599cdac11d46b8695d">uploadFileFinished</a>(d-&gt;m_uploadTime, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        reply-&gt;deleteLater();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac7f2a824dcc6eb38cbc254d42e7e043e">uploadFileFinished</a>(<a class="code" href="../../df/d7f/ttkglobal_8h.html#a063416ce5425f4f6e1b210a630c9cb99">TTK_NAN_STR</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        Q_EMIT <a class="code" href="../../dd/d9d/class_q_sync_upload_data.html#ac20e0d26948e3c599cdac11d46b8695d">uploadFileFinished</a>(d-&gt;m_uploadTime, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
@@ -181,16 +181,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_sync_data_interface_html_ad571dcc1d7a5441d82f2da2ca9b419aa"><div class="ttname"><a href="../../dc/d2e/class_q_sync_data_interface.html#ad571dcc1d7a5441d82f2da2ca9b419aa">QSyncDataInterface::replyError</a></div><div class="ttdeci">void replyError(QNetworkReply::NetworkError error)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/da9/qsyncdatainterface_8cpp_source.html#l00018">qsyncdatainterface.cpp:18</a></div></div>
 <div class="ttc" id="struct_q_sync_config_html_af5a871ae988411a60f5a3b2df43294bd"><div class="ttname"><a href="../../d3/d19/struct_q_sync_config.html#af5a871ae988411a60f5a3b2df43294bd">QSyncConfig::HOST</a></div><div class="ttdeci">static QString HOST</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dcf/qsyncconfig_8h_source.html#l00032">qsyncconfig.h:32</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_private_html_ab2ffe174d1fa66d439d7eb37516404d5"><div class="ttname"><a href="../../db/d7c/class_q_sync_upload_data_private.html#ab2ffe174d1fa66d439d7eb37516404d5">QSyncUploadDataPrivate::m_uploadTime</a></div><div class="ttdeci">QString m_uploadTime</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00017">qsyncuploaddata.cpp:17</a></div></div>
-<div class="ttc" id="class_q_sync_upload_data_html_ac7f2a824dcc6eb38cbc254d42e7e043e"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html#ac7f2a824dcc6eb38cbc254d42e7e043e">QSyncUploadData::uploadFileFinished</a></div><div class="ttdeci">void uploadFileFinished(const QString &amp;time)</div></div>
 <div class="ttc" id="class_q_sync_data_interface_html"><div class="ttname"><a href="../../dc/d2e/class_q_sync_data_interface.html">QSyncDataInterface</a></div><div class="ttdoc">The class of the sync cloud data interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dfe/qsyncdatainterface_8h_source.html#l00033">qsyncdatainterface.h:33</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ad5a39cff1cb5666b4ba41871b0865511"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ad5a39cff1cb5666b4ba41871b0865511">TTK_DOT</a></div><div class="ttdeci">#define TTK_DOT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00266">ttkglobal.h:266</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_html_a8b1d0e528c053b48956136902842e942"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html#a8b1d0e528c053b48956136902842e942">QSyncUploadData::receiveDataFromServer</a></div><div class="ttdeci">virtual void receiveDataFromServer() overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00074">qsyncuploaddata.cpp:74</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_html_abde66ea9fccf588fee4953b0e86dbb0b"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html#abde66ea9fccf588fee4953b0e86dbb0b">QSyncUploadData::uploadProgressChanged</a></div><div class="ttdeci">void uploadProgressChanged(const QString &amp;time, qint64 bytesSent, qint64 bytesTotal)</div></div>
-<div class="ttc" id="ttkglobal_8h_html_a063416ce5425f4f6e1b210a630c9cb99"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a063416ce5425f4f6e1b210a630c9cb99">TTK_NAN_STR</a></div><div class="ttdeci">#define TTK_NAN_STR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00277">ttkglobal.h:277</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_html"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html">QSyncUploadData</a></div><div class="ttdoc">The class of the sync cloud upload data. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d1f/qsyncuploaddata_8h_source.html#l00027">qsyncuploaddata.h:27</a></div></div>
 <div class="ttc" id="qsyncuploaddata_8h_html"><div class="ttname"><a href="../../dd/d1f/qsyncuploaddata_8h.html">qsyncuploaddata.h</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_html_ad82796c6701b55a4b5d15a9737da147f"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html#ad82796c6701b55a4b5d15a9737da147f">QSyncUploadData::QSyncUploadData</a></div><div class="ttdeci">QSyncUploadData(QNetworkAccessManager *networkManager, QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00022">qsyncuploaddata.cpp:22</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00269">ttkglobal.h:269</a></div></div>
+<div class="ttc" id="class_q_sync_upload_data_html_ac20e0d26948e3c599cdac11d46b8695d"><div class="ttname"><a href="../../dd/d9d/class_q_sync_upload_data.html#ac20e0d26948e3c599cdac11d46b8695d">QSyncUploadData::uploadFileFinished</a></div><div class="ttdeci">void uploadFileFinished(const QString &amp;time, bool state)</div></div>
 <div class="ttc" id="ttkqtglobal_8h_html_a8abc3964446ee2dbb01a90e269266fff"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a8abc3964446ee2dbb01a90e269266fff">TTK_SLOT</a></div><div class="ttdeci">#define TTK_SLOT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00177">ttkqtglobal.h:177</a></div></div>
 <div class="ttc" id="class_q_sync_upload_data_private_html_a3355bdfb8ec51e7fe5c7b52b825f68a2"><div class="ttname"><a href="../../db/d7c/class_q_sync_upload_data_private.html#a3355bdfb8ec51e7fe5c7b52b825f68a2">QSyncUploadDataPrivate::QSyncUploadDataPrivate</a></div><div class="ttdeci">QSyncUploadDataPrivate()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d27/qsyncuploaddata_8cpp_source.html#l00012">qsyncuploaddata.cpp:12</a></div></div>
 <div class="ttc" id="ttkprivate_8h_html_ab32a662a6425fc058787ad73d4311919"><div class="ttname"><a href="../../dd/d24/ttkprivate_8h.html#ab32a662a6425fc058787ad73d4311919">TTK_CREATE_PRIVATE</a></div><div class="ttdeci">#define TTK_CREATE_PRIVATE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d24/ttkprivate_8h_source.html#l00024">ttkprivate.h:24</a></div></div>
@@ -204,7 +203,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

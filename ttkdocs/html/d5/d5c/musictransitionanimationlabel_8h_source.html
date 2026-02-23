@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -110,68 +110,66 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a> : <span class="keyword">public</span> QLabel</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a>)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">   39</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">Module</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        FadeEffect,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        BlindsEffect,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        CubeEffect,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        WaterEffect,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        LeftToRightEffect,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        TopToBottomEffect,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        MAX = 6</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">   62</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">setAnimation</a>(<span class="keywordtype">bool</span> enable) noexcept { m_animationEnabled = enable; }</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">   66</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">animation</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_animationEnabled; }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> QPixmap&amp; renderPixmap() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> start();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">bool</span> isRunning() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;public Q_SLOTS:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> setPixmap(const QPixmap &amp;pix);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;private Q_SLOTS:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> valueChanged(const QVariant &amp;value);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> animationFinished();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;private:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    virtual <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) override final;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a1735193a3ab5e4c42c629da0bf480144">  109</a></span>&#160;    <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">Module</a> m_type;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ac6b6a3c0fe1d18f01be59a0697e75731">  110</a></span>&#160;    <span class="keywordtype">bool</span> m_isAnimating;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a5a9fb3f17328359462ab1f968090ddef">  111</a></span>&#160;    <span class="keywordtype">int</span> m_currentValue;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#abdf6482343638c25e52f935775fc7433">  112</a></span>&#160;    <span class="keywordtype">bool</span> m_animationEnabled;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ac9625c6bb1cd319718db9f0282c6339e">  113</a></span>&#160;    QPixmap m_renderPixmap;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a0ba587e9e26b2b312f668d2894973d11">  114</a></span>&#160;    QPixmap m_currentPixmap, m_previousPixmap;</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#aee10e580ff0b1c8b4722083ee7cf9f42">  115</a></span>&#160;    QPropertyAnimation *m_animation;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a1122a7308352ef013541feb461b32c36">  116</a></span>&#160;    <a class="code" href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a>::ImageRender *m_imageRender;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif // MUSICTRANSITIONANIMATIONLABEL_H</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">   38</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">Module</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        FadeEffect,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        BlindsEffect,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        CubeEffect,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        WaterEffect,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        LeftToRightEffect,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        TopToBottomEffect,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        MAX = 6</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ~<a class="code" href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">   61</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">setAnimation</a>(<span class="keywordtype">bool</span> enable) noexcept { m_animationEnabled = enable; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">   65</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">animation</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_animationEnabled; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">const</span> QPixmap&amp; renderPixmap() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> start();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> stop();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">bool</span> isRunning() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;public Q_SLOTS:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> setPixmap(const QPixmap &amp;pix);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;private Q_SLOTS:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> valueChanged(const QVariant &amp;value);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> animationFinished();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;private:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    virtual <span class="keywordtype">void</span> paintEvent(QPaintEvent *event) override final;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a1735193a3ab5e4c42c629da0bf480144">  108</a></span>&#160;    <a class="code" href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">Module</a> m_type;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ac6b6a3c0fe1d18f01be59a0697e75731">  109</a></span>&#160;    <span class="keywordtype">bool</span> m_isAnimating;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a5a9fb3f17328359462ab1f968090ddef">  110</a></span>&#160;    <span class="keywordtype">int</span> m_currentValue;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#abdf6482343638c25e52f935775fc7433">  111</a></span>&#160;    <span class="keywordtype">bool</span> m_animationEnabled;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#ac9625c6bb1cd319718db9f0282c6339e">  112</a></span>&#160;    QPixmap m_renderPixmap;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a0ba587e9e26b2b312f668d2894973d11">  113</a></span>&#160;    QPixmap m_currentPixmap, m_previousPixmap;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#aee10e580ff0b1c8b4722083ee7cf9f42">  114</a></span>&#160;    QPropertyAnimation *m_animation;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d4/de8/class_music_transition_animation_label.html#a1122a7308352ef013541feb461b32c36">  115</a></span>&#160;    <a class="code" href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a>::ImageRender *m_imageRender;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif // MUSICTRANSITIONANIMATIONLABEL_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
-<div class="ttc" id="class_music_transition_animation_label_html_ab452d4870444d7f31bc9434afe904cb8"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">MusicTransitionAnimationLabel::animation</a></div><div class="ttdeci">bool animation() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00066">musictransitionanimationlabel.h:66</a></div></div>
+<div class="ttc" id="class_music_transition_animation_label_html_ab452d4870444d7f31bc9434afe904cb8"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#ab452d4870444d7f31bc9434afe904cb8">MusicTransitionAnimationLabel::animation</a></div><div class="ttdeci">bool animation() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00065">musictransitionanimationlabel.h:65</a></div></div>
 <div class="ttc" id="class_q_algorithm_1_1_image_render_html"><div class="ttname"><a href="../../db/dce/class_q_algorithm_1_1_image_render.html">QAlgorithm::ImageRender</a></div><div class="ttdoc">The class of the image render. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d6a/imagewrapper_8h_source.html#l00035">imagewrapper.h:35</a></div></div>
-<div class="ttc" id="class_music_transition_animation_label_html_a99f38c32a01dfde99f4e7d5fc58b4ab2"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">MusicTransitionAnimationLabel::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00039">musictransitionanimationlabel.h:39</a></div></div>
+<div class="ttc" id="class_music_transition_animation_label_html_a99f38c32a01dfde99f4e7d5fc58b4ab2"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#a99f38c32a01dfde99f4e7d5fc58b4ab2">MusicTransitionAnimationLabel::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00038">musictransitionanimationlabel.h:38</a></div></div>
 <div class="ttc" id="namespace_q_algorithm_html"><div class="ttname"><a href="../../d7/dd3/namespace_q_algorithm.html">QAlgorithm</a></div><div class="ttdoc">The namespace of the algorithm. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00026">musictransitionanimationlabel.h:26</a></div></div>
 <div class="ttc" id="class_music_transition_animation_label_html"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html">MusicTransitionAnimationLabel</a></div><div class="ttdoc">The class of the label transition animation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00034">musictransitionanimationlabel.h:34</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
-<div class="ttc" id="class_music_transition_animation_label_html_a6bd99d8040ace047d372e150578d717c"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">MusicTransitionAnimationLabel::setAnimation</a></div><div class="ttdeci">void setAnimation(bool enable) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00062">musictransitionanimationlabel.h:62</a></div></div>
+<div class="ttc" id="class_music_transition_animation_label_html_a6bd99d8040ace047d372e150578d717c"><div class="ttname"><a href="../../d4/de8/class_music_transition_animation_label.html#a6bd99d8040ace047d372e150578d717c">MusicTransitionAnimationLabel::setAnimation</a></div><div class="ttdeci">void setAnimation(bool enable) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5c/musictransitionanimationlabel_8h_source.html#l00061">musictransitionanimationlabel.h:61</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

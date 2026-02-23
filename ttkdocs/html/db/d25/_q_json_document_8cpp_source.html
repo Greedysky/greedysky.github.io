@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -103,11 +103,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d3c/_q_json_array_8h.html">QJsonArray.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d49/_q_json_parser_8h.html">QJsonParser.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QtCore/QStringList&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QtCore/QByteArray&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QtCore/QTextStream&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QtCore/QTextCodec&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;QtCore/QtCore&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;QStringList&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;QByteArray&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;QTextStream&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;QTextCodec&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;QtCore&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// Name: QJsonDocument</span></div>
@@ -294,7 +294,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d2/dfd/class_q_json_value.html#aee9b4909178e859e3c428353c7c0c2c7a0d3cd4a662f2cd5381cf50b4c890703d">QJsonValue::Double</a>:</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                <span class="keywordtype">double</span> d = v.<a class="code" href="../../d2/dfd/class_q_json_value.html#a02d1621243f6aae3665983973009a619">toDouble</a> ();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordtype">double</span> d = v.<a class="code" href="../../d2/dfd/class_q_json_value.html#a02d1621243f6aae3665983973009a619">toDouble</a>();</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                <span class="keywordflow">if</span> (qIsFinite(d)) {</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                        <span class="comment">// +2 to format to ensure the expected precision</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                        ss &lt;&lt;  QByteArray::number(d, <span class="charliteral">&#39;g&#39;</span>, 15 + 2); <span class="comment">// ::digits10 is 15</span></div>
@@ -538,7 +538,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_json_value_html_a274a582d62019a0059085c2fad24133e"><div class="ttname"><a href="../../d2/dfd/class_q_json_value.html#a274a582d62019a0059085c2fad24133e">QJsonValue::toBool</a></div><div class="ttdeci">bool toBool(bool defaultValue=false) const </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddb/_q_json_value_8cpp_source.html#l00263">QJsonValue.cpp:263</a></div></div>
 <div class="ttc" id="class_q_json_object_html_a95520c205b87c7a2c19ae2066c5c1210"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html#a95520c205b87c7a2c19ae2066c5c1210">QJsonObject::fromVariantMap</a></div><div class="ttdeci">static QJsonObject fromVariantMap(const QVariantMap &amp;map)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d60/_q_json_object_8cpp_source.html#l00261">QJsonObject.cpp:261</a></div></div>
 <div class="ttc" id="class_q_json_document_html_adefedf49a18cb012eec527c1440fe247"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#adefedf49a18cb012eec527c1440fe247">QJsonDocument::rawData</a></div><div class="ttdeci">const char * rawData(int *size) const </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00349">QJsonDocument.cpp:349</a></div></div>
-<div class="ttc" id="class_q_json_object_html_a4f425f3f635997a53d952bc067924d2e"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html#a4f425f3f635997a53d952bc067924d2e">QJsonObject::const_iterator</a></div><div class="ttdeci">QMap&lt; QString, QJsonValue &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../df/de3/_q_json_object_8h_source.html#l00047">QJsonObject.h:47</a></div></div>
+<div class="ttc" id="class_q_json_object_html_a4f425f3f635997a53d952bc067924d2e"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html#a4f425f3f635997a53d952bc067924d2e">QJsonObject::const_iterator</a></div><div class="ttdeci">QMap&lt; QString, QJsonValue &gt;::const_iterator const_iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../df/de3/_q_json_object_8h_source.html#l00046">QJsonObject.h:46</a></div></div>
 <div class="ttc" id="class_q_json_parser_html_ae7b0cc518065baed9a13a8ff758be213"><div class="ttname"><a href="../../da/d7e/class_q_json_parser.html#ae7b0cc518065baed9a13a8ff758be213">QJsonParser::parse</a></div><div class="ttdeci">QJsonRoot * parse()</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d28/_q_json_parser_8cpp_source.html#l00065">QJsonParser.cpp:65</a></div></div>
 <div class="ttc" id="class_q_json_value_html_a2498ed442703b7689c94384b66e06fac"><div class="ttname"><a href="../../d2/dfd/class_q_json_value.html#a2498ed442703b7689c94384b66e06fac">QJsonValue::toObject</a></div><div class="ttdeci">QJsonObject toObject(const QJsonObject &amp;defaultValue) const </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/ddb/_q_json_value_8cpp_source.html#l00296">QJsonValue.cpp:296</a></div></div>
 <div class="ttc" id="class_q_json_document_html_aaa79c6c9c25216a3385ae16fa576b5b7"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#aaa79c6c9c25216a3385ae16fa576b5b7">QJsonDocument::setObject</a></div><div class="ttdeci">void setObject(const QJsonObject &amp;object)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00151">QJsonDocument.cpp:151</a></div></div>
@@ -547,7 +547,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_json_array_html_a086fc585eba2f97ecad6f533a925074e"><div class="ttname"><a href="../../db/d5f/class_q_json_array.html#a086fc585eba2f97ecad6f533a925074e">QJsonArray::fromStringList</a></div><div class="ttdeci">static QJsonArray fromStringList(const QStringList &amp;list)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dfc/_q_json_array_8cpp_source.html#l00350">QJsonArray.cpp:350</a></div></div>
 <div class="ttc" id="class_q_json_object_html_ac4fcdcad988970c3bbadde59ef56b53f"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html#ac4fcdcad988970c3bbadde59ef56b53f">QJsonObject::fromVariantHash</a></div><div class="ttdeci">static QJsonObject fromVariantHash(const QVariantHash &amp;hash)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d60/_q_json_object_8cpp_source.html#l00272">QJsonObject.cpp:272</a></div></div>
 <div class="ttc" id="class_q_json_value_html_aee9b4909178e859e3c428353c7c0c2c7afc4b83fa45cd5fdbd282fc88b165b590"><div class="ttname"><a href="../../d2/dfd/class_q_json_value.html#aee9b4909178e859e3c428353c7c0c2c7afc4b83fa45cd5fdbd282fc88b165b590">QJsonValue::Undefined</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dca/_q_json_value_8h_source.html#l00045">QJsonValue.h:45</a></div></div>
-<div class="ttc" id="class_q_json_object_html"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html">QJsonObject</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/de3/_q_json_object_8h_source.html#l00036">QJsonObject.h:36</a></div></div>
+<div class="ttc" id="class_q_json_object_html"><div class="ttname"><a href="../../dc/d68/class_q_json_object.html">QJsonObject</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/de3/_q_json_object_8h_source.html#l00035">QJsonObject.h:35</a></div></div>
 <div class="ttc" id="class_q_json_parser_html"><div class="ttname"><a href="../../da/d7e/class_q_json_parser.html">QJsonParser</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d49/_q_json_parser_8h_source.html#l00036">QJsonParser.h:36</a></div></div>
 <div class="ttc" id="class_q_json_document_html_a43341ebba8d5e7a698644c2ac58ddd8c"><div class="ttname"><a href="../../db/d31/class_q_json_document.html#a43341ebba8d5e7a698644c2ac58ddd8c">QJsonDocument::~QJsonDocument</a></div><div class="ttdeci">~QJsonDocument()</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d25/_q_json_document_8cpp_source.html#l00065">QJsonDocument.cpp:65</a></div></div>
 <div class="ttc" id="class_q_json_parse_error_html"><div class="ttname"><a href="../../df/ddb/class_q_json_parse_error.html">QJsonParseError</a></div><div class="ttdef"><b>Definition:</b> <a href="../../df/d74/_q_json_parse_error_8h_source.html#l00030">QJsonParseError.h:30</a></div></div>
@@ -577,7 +577,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

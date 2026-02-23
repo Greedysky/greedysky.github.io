@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,9 +84,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <code>#include &quot;<a class="el" href="../../de/d3d/musicruntimemanager_8h_source.html">musicruntimemanager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/d21/musicconfigmodule_8h_source.html">musicconfigmodule.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/d9f/musicprocessmanager_8h_source.html">musicprocessmanager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d84/ttkdumper_8h_source.html">ttkdumper.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d2b/ttkdesktopscreen_8h_source.html">ttkdesktopscreen.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d6a/ttkglobalinterface_8h_source.html">ttkglobalinterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d7a/ttkinitialization_8h_source.html">ttkinitialization.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/dd7/ttkprocess_8h_source.html">ttkprocess.h</a>&quot;</code><br />
 <code>#include &lt;QTranslator&gt;</code><br />
 </div>
 <p><a href="../../d2/ddd/musicservicemain_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -95,8 +94,6 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 Functions</h2></td></tr>
 <tr class="memitem:a1ce55c50d8402f49fd8df208d0f524eb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/ddd/musicservicemain_8cpp.html#a1ce55c50d8402f49fd8df208d0f524eb">cleanupCache</a> ()</td></tr>
 <tr class="separator:a1ce55c50d8402f49fd8df208d0f524eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27378d354e63feb01af6c5f566f7ec14"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/ddd/musicservicemain_8cpp.html#a27378d354e63feb01af6c5f566f7ec14">loadApplicationScaleFactor</a> ()</td></tr>
-<tr class="separator:a27378d354e63feb01af6c5f566f7ec14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/ddd/musicservicemain_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (<a class="el" href="../../d2/db7/ioapi_8h.html#a787fa3cf048117ba7123753c1e74fcd6">int</a> argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -123,40 +120,11 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>clean thirdparty process </p>
 
-<p>Definition at line <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00017">17</a> of file <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html">musicservicemain.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00015">15</a> of file <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html">musicservicemain.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/d63/namespace_t_t_k.html#ae5bca83221101c066d26e3f3015d5bac">TTK::killProcessByName()</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00114">MAKE_GAIN_NAME</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00113">MAKE_PLAYER_NAME</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00112">MAKE_TRANSFORM_NAME</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00028">TTK_COLOR_FILE</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00029">TTK_IMAGE_FILE</a>, <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00074">TTK_INFO_STREAM</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00031">TTK_RECORD_DATA_FILE</a>, and <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00030">TTK_RECORD_FILE</a>.</p>
+<p>References <a class="el" href="../../dc/d63/namespace_t_t_k.html#ae5bca83221101c066d26e3f3015d5bac">TTK::killProcessByName()</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00115">MAKE_GAIN_NAME</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00114">MAKE_PLAYER_NAME</a>, <a class="el" href="../../d8/d07/musicobject_8h_source.html#l00113">MAKE_TRANSFORM_NAME</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00027">TTK_COLOR_FILE</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00028">TTK_IMAGE_FILE</a>, <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00074">TTK_INFO_STREAM</a>, <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00030">TTK_RECORD_DATA_FILE</a>, and <a class="el" href="../../d2/d77/musicotherdefine_8h_source.html#l00029">TTK_RECORD_FILE</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00051">main()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a27378d354e63feb01af6c5f566f7ec14"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void loadApplicationScaleFactor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html">musicservicemain.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/d66/ttkdesktopscreen_8cpp_source.html#l00240">TTKDesktopScreen::dotsPerInch()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00051">main()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00032">main()</a>.</p>
 
 </div>
 </div>
@@ -184,16 +152,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html">musicservicemain.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html">musicservicemain.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00017">cleanupCache()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00148">MusicRunTimeManager::configVersionCheck()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00107">MusicRunTimeManager::execute()</a>, <a class="el" href="../../d6/d30/musicprocessmanager_8cpp_source.html#l00008">MusicProcessClient::execute()</a>, <a class="el" href="../../d1/d77/ttkdumper_8cpp_source.html#l00226">TTKDumper::execute()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00032">MusicMPRISPlayer::execute()</a>, <a class="el" href="../../d6/d30/musicprocessmanager_8cpp_source.html#l00050">MusicProcessServer::execute()</a>, <a class="el" href="../../dd/d7a/ttkapplication_8cpp_source.html#l00047">TTKApplication::isRunning()</a>, <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00033">loadApplicationScaleFactor()</a>, <a class="el" href="../../d2/d72/musicconfigmodule_8cpp_source.html#l00029">MusicConfigModule::reset()</a>, <a class="el" href="../../d4/d02/ttkglobalinterface_8cpp_source.html#l00010">TTK::setApplicationFont()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00142">MusicRunTimeManager::translator()</a>, <a class="el" href="../../d3/dcf/ttkobject_8h_source.html#l00026">TTK_APP_COME_NAME</a>, <a class="el" href="../../d3/dcf/ttkobject_8h_source.html#l00025">TTK_APP_NAME</a>, <a class="el" href="../../d3/dcf/ttkobject_8h_source.html#l00034">TTK_APP_RUN_NAME</a>, <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00076">TTK_ERROR_STREAM</a>, <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00074">TTK_INFO_STREAM</a>, <a class="el" href="../../d3/dcf/ttkobject_8h_source.html#l00024">TTK_SERVICE_NAME</a>, <a class="el" href="../../d3/dcf/ttkobject_8h_source.html#l00035">TTK_SERVICE_RUN_NAME</a>, and <a class="el" href="../../d2/d72/musicconfigmodule_8cpp_source.html#l00011">MusicConfigModule::valid()</a>.</p>
+<p>References <a class="el" href="../../d0/d7a/ttkinitialization_8h_source.html#l00036">TTK::All</a>, <a class="el" href="../../d2/ddd/musicservicemain_8cpp_source.html#l00015">cleanupCache()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00145">MusicRunTimeManager::configVersionCheck()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00105">MusicRunTimeManager::execute()</a>, <a class="el" href="../../d6/d30/musicprocessmanager_8cpp_source.html#l00010">MusicProcessClient::execute()</a>, <a class="el" href="../../d2/d72/musicconfigmodule_8cpp_source.html#l00011">MusicConfigModule::execute()</a>, <a class="el" href="../../d1/d8f/musicmprisplayer_8cpp_source.html#l00032">MusicMPRISPlayer::execute()</a>, <a class="el" href="../../d6/d30/musicprocessmanager_8cpp_source.html#l00051">MusicProcessServer::execute()</a>, <a class="el" href="../../d4/db2/ttkinitialization_8cpp_source.html#l00041">TTK::initialize()</a>, <a class="el" href="../../dd/d7a/ttkapplication_8cpp_source.html#l00047">TTKApplication::isRunning()</a>, <a class="el" href="../../d2/d72/musicconfigmodule_8cpp_source.html#l00029">MusicConfigModule::reset()</a>, <a class="el" href="../../d5/d15/musicruntimemanager_8cpp_source.html#l00139">MusicRunTimeManager::translator()</a>, <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00076">TTK_ERROR_STREAM</a>, and <a class="el" href="../../d5/d2b/ttklogger_8h_source.html#l00074">TTK_INFO_STREAM</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:09 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:57 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

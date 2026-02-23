@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -83,15 +83,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;Carbon/Carbon.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../de/d02/qglobalshortcut__p_8h_source.html">qglobalshortcut_p.h</a>&quot;</code><br />
-<code>#include &lt;QMap&gt;</code><br />
+<code>#include &lt;QHash&gt;</code><br />
 <code>#include &lt;QApplication&gt;</code><br />
 </div>
 <p><a href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a29e97a95ec25cafb6cb1494d44178717"><td class="memItemLeft" align="right" valign="top">typedef QPair&lt; uint, uint &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a></td></tr>
-<tr class="separator:a29e97a95ec25cafb6cb1494d44178717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a249be3655c1a3b95032d197c1b36fc4d"><td class="memItemLeft" align="right" valign="top">typedef QPair&lt; quint32, quint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a249be3655c1a3b95032d197c1b36fc4d">Identifier</a></td></tr>
+<tr class="separator:a249be3655c1a3b95032d197c1b36fc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -100,22 +100,18 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af5fef1868e142ee19fcffef24dea1345"><td class="memItemLeft" align="right" valign="top">static QMap&lt; quint32, EventHotKeyRef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#af5fef1868e142ee19fcffef24dea1345">keyRefs</a></td></tr>
-<tr class="separator:af5fef1868e142ee19fcffef24dea1345"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdcc4878f9533b3f23e29347d97ac794"><td class="memItemLeft" align="right" valign="top">static QHash&lt; <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a>, quint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#afdcc4878f9533b3f23e29347d97ac794">keyIDs</a></td></tr>
-<tr class="separator:afdcc4878f9533b3f23e29347d97ac794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb43c1a627e6ebf0702efaea6eac91e5"><td class="memItemLeft" align="right" valign="top">static quint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#abb43c1a627e6ebf0702efaea6eac91e5">hotKeySerial</a> = 0</td></tr>
-<tr class="separator:abb43c1a627e6ebf0702efaea6eac91e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1dd7c5ee6cc3350ae8d509d5c275d1e"><td class="memItemLeft" align="right" valign="top">static QHash&lt; <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a249be3655c1a3b95032d197c1b36fc4d">Identifier</a>, EventHotKeyRef &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#af1dd7c5ee6cc3350ae8d509d5c275d1e">keyRefs</a></td></tr>
+<tr class="separator:af1dd7c5ee6cc3350ae8d509d5c275d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7479583926130aa399525927254f1b1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#ab7479583926130aa399525927254f1b1">q_mac_handler_installed</a> = false</td></tr>
 <tr class="separator:ab7479583926130aa399525927254f1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a class="anchor" id="a29e97a95ec25cafb6cb1494d44178717"></a>
+<a class="anchor" id="a249be3655c1a3b95032d197c1b36fc4d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef QPair&lt;uint, uint&gt; <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a></td>
+          <td class="memname">typedef QPair&lt;quint32, quint32&gt; <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a249be3655c1a3b95032d197c1b36fc4d">Identifier</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -155,14 +151,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00012">12</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00160">QGlobalShortcutPrivate::registerShortcut()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00165">QGlobalShortcutPrivate::registerShortcut()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="abb43c1a627e6ebf0702efaea6eac91e5"></a>
+<a class="anchor" id="af1dd7c5ee6cc3350ae8d509d5c275d1e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -170,55 +166,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">quint32 hotKeySerial = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00009">9</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00160">QGlobalShortcutPrivate::registerShortcut()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afdcc4878f9533b3f23e29347d97ac794"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QHash&lt;<a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a29e97a95ec25cafb6cb1494d44178717">Identifier</a>, quint32&gt; keyIDs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00021">QGlobalShortcutPrivate::eventFilter()</a>, <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00160">QGlobalShortcutPrivate::registerShortcut()</a>, and <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00185">QGlobalShortcutPrivate::unregisterShortcut()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af5fef1868e142ee19fcffef24dea1345"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMap&lt;quint32, EventHotKeyRef&gt; keyRefs</td>
+          <td class="memname">QHash&lt;<a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp.html#a249be3655c1a3b95032d197c1b36fc4d">Identifier</a>, EventHotKeyRef&gt; keyRefs</td>
         </tr>
       </table>
   </td>
@@ -230,7 +178,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00007">7</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00160">QGlobalShortcutPrivate::registerShortcut()</a>, and <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00185">QGlobalShortcutPrivate::unregisterShortcut()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00165">QGlobalShortcutPrivate::registerShortcut()</a>, and <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00188">QGlobalShortcutPrivate::unregisterShortcut()</a>.</p>
 
 </div>
 </div>
@@ -252,16 +200,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00010">10</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00008">8</a> of file <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html">qglobalshortcut_mac.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00160">QGlobalShortcutPrivate::registerShortcut()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d1a/qglobalshortcut__mac_8cpp_source.html#l00165">QGlobalShortcutPrivate::registerShortcut()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:10 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:57 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

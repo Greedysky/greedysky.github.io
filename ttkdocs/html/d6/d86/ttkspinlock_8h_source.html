@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Library Module project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span></div>
@@ -105,82 +105,82 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a>(<a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">   34</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">lock</a>() noexcept</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">while</span>(m_lock.test_and_set(std::memory_order_acquire))</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="comment">// wait for spin lock to unlock</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            std::this_thread::yield();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">   43</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">try_lock</a>() noexcept</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> !m_lock.test_and_set(std::memory_order_acquire);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">   48</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">unlock</a>() noexcept</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        m_lock.clear(std::memory_order_release);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#a68767e3b3ae9974f747c3804b744b408">   54</a></span>&#160;    std::atomic_flag m_lock = ATOMIC_FLAG_INIT;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a>(<a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">   65</a></span>&#160;    <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">TTKSpinLockGuard</a>(<a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>&amp; lock) noexcept</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        : m_lock(lock)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        m_lock.lock();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">   71</a></span>&#160;    <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">~TTKSpinLockGuard</a>() noexcept</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        m_lock.unlock();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">   77</a></span>&#160;    <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a> &amp;<a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">m_lock</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">// compatiblity for std spin_lock</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/dcc/namespacestd.html">std</a></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">   85</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">spin_lock</a> = <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">   86</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">spin_lock_guard</a> = <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#ab3a9360d37b510ad864990aaf1754a1c">   88</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">spinlock</a> = <a class="code" href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">spin_lock</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a729059a4bd285b0b1147b8197759e3f6">   89</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">spinlock_guard</a> = <a class="code" href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">spin_lock_guard</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // TTKSPINLOCK_H</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">   40</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">lock</a>() noexcept</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">while</span>(m_lock.test_and_set(std::memory_order_acquire))</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="comment">// wait for spin lock to unlock</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            std::this_thread::yield();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">   52</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">try_lock</a>() noexcept</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> !m_lock.test_and_set(std::memory_order_acquire);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">   60</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">unlock</a>() noexcept</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        m_lock.clear(std::memory_order_release);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d4/d43/class_t_t_k_spin_lock.html#a68767e3b3ae9974f747c3804b744b408">   66</a></span>&#160;    std::atomic_flag m_lock = ATOMIC_FLAG_INIT;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">   73</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a>(<a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">   80</a></span>&#160;    <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">TTKSpinLockGuard</a>(<a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>&amp; lock) noexcept</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        : m_lock(lock)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        m_lock.lock();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">   89</a></span>&#160;    <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">~TTKSpinLockGuard</a>() noexcept</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        m_lock.unlock();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">   95</a></span>&#160;    <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a> &amp;<a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">m_lock</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">// compatiblity for std spin_lock</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/dcc/namespacestd.html">std</a></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">  103</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">spin_lock</a> = <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">  104</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">spin_lock_guard</a> = <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#ab3a9360d37b510ad864990aaf1754a1c">  106</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d4/d43/class_t_t_k_spin_lock.html">spinlock</a> = <a class="code" href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">spin_lock</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d8/dcc/namespacestd.html#a729059a4bd285b0b1147b8197759e3f6">  107</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">spinlock_guard</a> = <a class="code" href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">spin_lock_guard</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif // TTKSPINLOCK_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="class_t_t_k_spin_lock_html"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html">TTKSpinLock</a></div><div class="ttdoc">The class of the spin lock. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00028">ttkspinlock.h:28</a></div></div>
 <div class="ttc" id="ttkmoduleexport_8h_html"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="../../d8/dcc/namespacestd.html">std</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00039">ttkcompat.h:39</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_html_af5f767b3d36b4c7cdc1cb3551dac970c"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">TTKSpinLock::unlock</a></div><div class="ttdeci">void unlock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00048">ttkspinlock.h:48</a></div></div>
-<div class="ttc" id="namespacestd_html_a1753f36b19f1a36ff0b448bc85f4724c"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">std::spin_lock</a></div><div class="ttdeci">TTKSpinLock spin_lock</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00085">ttkspinlock.h:85</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_guard_html_a0bab76cd806a5355f996c0962b9267a9"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">TTKSpinLockGuard::m_lock</a></div><div class="ttdeci">TTKSpinLock &amp; m_lock</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00077">ttkspinlock.h:77</a></div></div>
-<div class="ttc" id="namespacestd_html_a0f33ec89e47cfad1fccd47045b4e347a"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">std::spin_lock_guard</a></div><div class="ttdeci">TTKSpinLockGuard spin_lock_guard</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00086">ttkspinlock.h:86</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_guard_html_ab9bf4f0f3743432443ff3731c9971d7e"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">TTKSpinLockGuard::~TTKSpinLockGuard</a></div><div class="ttdeci">~TTKSpinLockGuard() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00071">ttkspinlock.h:71</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_html_af1b9d020b532416dcd597ca0d838a66a"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">TTKSpinLock::lock</a></div><div class="ttdeci">void lock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00034">ttkspinlock.h:34</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_guard_html_ae226de62774d20674cbbdbaf518ab616"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">TTKSpinLockGuard::TTKSpinLockGuard</a></div><div class="ttdeci">TTKSpinLockGuard(TTKSpinLock &amp;lock) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00065">ttkspinlock.h:65</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_guard_html"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a></div><div class="ttdoc">The class of the spin lock guard. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00061">ttkspinlock.h:61</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_html_af5f767b3d36b4c7cdc1cb3551dac970c"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#af5f767b3d36b4c7cdc1cb3551dac970c">TTKSpinLock::unlock</a></div><div class="ttdeci">void unlock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00060">ttkspinlock.h:60</a></div></div>
+<div class="ttc" id="namespacestd_html_a1753f36b19f1a36ff0b448bc85f4724c"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a1753f36b19f1a36ff0b448bc85f4724c">std::spin_lock</a></div><div class="ttdeci">TTKSpinLock spin_lock</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00103">ttkspinlock.h:103</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_guard_html_a0bab76cd806a5355f996c0962b9267a9"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#a0bab76cd806a5355f996c0962b9267a9">TTKSpinLockGuard::m_lock</a></div><div class="ttdeci">TTKSpinLock &amp; m_lock</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00095">ttkspinlock.h:95</a></div></div>
+<div class="ttc" id="namespacestd_html_a0f33ec89e47cfad1fccd47045b4e347a"><div class="ttname"><a href="../../d8/dcc/namespacestd.html#a0f33ec89e47cfad1fccd47045b4e347a">std::spin_lock_guard</a></div><div class="ttdeci">TTKSpinLockGuard spin_lock_guard</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00104">ttkspinlock.h:104</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_guard_html_ab9bf4f0f3743432443ff3731c9971d7e"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ab9bf4f0f3743432443ff3731c9971d7e">TTKSpinLockGuard::~TTKSpinLockGuard</a></div><div class="ttdeci">~TTKSpinLockGuard() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00089">ttkspinlock.h:89</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_html_af1b9d020b532416dcd597ca0d838a66a"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#af1b9d020b532416dcd597ca0d838a66a">TTKSpinLock::lock</a></div><div class="ttdeci">void lock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00040">ttkspinlock.h:40</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_guard_html_ae226de62774d20674cbbdbaf518ab616"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html#ae226de62774d20674cbbdbaf518ab616">TTKSpinLockGuard::TTKSpinLockGuard</a></div><div class="ttdeci">TTKSpinLockGuard(TTKSpinLock &amp;lock) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00080">ttkspinlock.h:80</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_guard_html"><div class="ttname"><a href="../../d0/d1f/class_t_t_k_spin_lock_guard.html">TTKSpinLockGuard</a></div><div class="ttdoc">The class of the spin lock guard. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00073">ttkspinlock.h:73</a></div></div>
 <div class="ttc" id="ttkqtglobal_8h_html_a38cad424af54e468422e977593b752de"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a38cad424af54e468422e977593b752de">TTK_DISABLE_COPY</a></div><div class="ttdeci">#define TTK_DISABLE_COPY(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00153">ttkqtglobal.h:153</a></div></div>
-<div class="ttc" id="class_t_t_k_spin_lock_html_ae4ecd27a2d7ae8cf2197f2fab1dcc6a6"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">TTKSpinLock::try_lock</a></div><div class="ttdeci">bool try_lock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00043">ttkspinlock.h:43</a></div></div>
+<div class="ttc" id="class_t_t_k_spin_lock_html_ae4ecd27a2d7ae8cf2197f2fab1dcc6a6"><div class="ttname"><a href="../../d4/d43/class_t_t_k_spin_lock.html#ae4ecd27a2d7ae8cf2197f2fab1dcc6a6">TTKSpinLock::try_lock</a></div><div class="ttdeci">bool try_lock() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d86/ttkspinlock_8h_source.html#l00052">ttkspinlock.h:52</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

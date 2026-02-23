@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -117,36 +117,37 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QWidget::paintEvent(event);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    painter.fillRect(0, 0, width(), 25, QColor(200, 200, 200, 70));</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">m_currentValue</a> != 0)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        painter.fillRect(0, 0, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">m_currentValue</a> * 1.0 / <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#a72df8ca27593e0ea8ad274fdb8ce60ca">m_maxValue</a> * width(), 20, QColor(100, 100, 100, 70));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    painter.setPen(QColor(50, 50, 50));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    painter.drawText(QRect(10, 0, width() / 2, 20), Qt::AlignVCenter | Qt::AlignLeft, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#af3b4f5aee074821efb9b7d10f673a6bc">m_frontText</a>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    painter.setPen(QColor(50, 50, 50));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    painter.drawText(QRect(width() / 2, 0, width() / 2 - 10, 20), Qt::AlignVCenter | Qt::AlignRight, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#af3256f01b4abc465fc64277a6960851d">m_backText</a>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    painter.fillRect(0, 0, width(), 25, QColor(200, 200, 200, 70));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">m_currentValue</a> != 0)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        painter.fillRect(0, 0, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">m_currentValue</a> * 1.0 / <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#a72df8ca27593e0ea8ad274fdb8ce60ca">m_maxValue</a> * width(), 20, QColor(100, 100, 100, 70));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    painter.setPen(QColor(50, 50, 50));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    painter.drawText(QRect(10, 0, width() / 2, 20), Qt::AlignVCenter | Qt::AlignLeft, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#af3b4f5aee074821efb9b7d10f673a6bc">m_frontText</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    painter.setPen(QColor(50, 50, 50));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    painter.drawText(QRect(width() / 2, 0, width() / 2 - 10, 20), Qt::AlignVCenter | Qt::AlignRight, <a class="code" href="../../dd/d47/class_music_text_slider_widget.html#af3256f01b4abc465fc64277a6960851d">m_backText</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="ttc" id="class_music_text_slider_widget_html_a71fbf4eae700c88ae464cab5938abb0d"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a71fbf4eae700c88ae464cab5938abb0d">MusicTextSliderWidget::setValue</a></div><div class="ttdeci">void setValue(int value)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00019">musictextsliderwidget.cpp:19</a></div></div>
 <div class="ttc" id="musictextsliderwidget_8h_html"><div class="ttname"><a href="../../dc/db5/musictextsliderwidget_8h.html">musictextsliderwidget.h</a></div></div>
 <div class="ttc" id="class_music_text_slider_widget_html_a2892c46c969361195ae48e74a02f46cf"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a2892c46c969361195ae48e74a02f46cf">MusicTextSliderWidget::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00037">musictextsliderwidget.cpp:37</a></div></div>
-<div class="ttc" id="class_music_text_slider_widget_html_af3256f01b4abc465fc64277a6960851d"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#af3256f01b4abc465fc64277a6960851d">MusicTextSliderWidget::m_backText</a></div><div class="ttdeci">QString m_backText</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00062">musictextsliderwidget.h:62</a></div></div>
+<div class="ttc" id="class_music_text_slider_widget_html_af3256f01b4abc465fc64277a6960851d"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#af3256f01b4abc465fc64277a6960851d">MusicTextSliderWidget::m_backText</a></div><div class="ttdeci">QString m_backText</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00061">musictextsliderwidget.h:61</a></div></div>
 <div class="ttc" id="class_music_text_slider_widget_html_a689bc75b7e7563791c0eb70a74d82e89"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a689bc75b7e7563791c0eb70a74d82e89">MusicTextSliderWidget::setMaxValue</a></div><div class="ttdeci">void setMaxValue(int max)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00013">musictextsliderwidget.cpp:13</a></div></div>
-<div class="ttc" id="class_music_text_slider_widget_html_af3b4f5aee074821efb9b7d10f673a6bc"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#af3b4f5aee074821efb9b7d10f673a6bc">MusicTextSliderWidget::m_frontText</a></div><div class="ttdeci">QString m_frontText</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00062">musictextsliderwidget.h:62</a></div></div>
+<div class="ttc" id="class_music_text_slider_widget_html_af3b4f5aee074821efb9b7d10f673a6bc"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#af3b4f5aee074821efb9b7d10f673a6bc">MusicTextSliderWidget::m_frontText</a></div><div class="ttdeci">QString m_frontText</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00061">musictextsliderwidget.h:61</a></div></div>
 <div class="ttc" id="class_music_text_slider_widget_html_a291a8380af2016a6db580143804d64bd"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a291a8380af2016a6db580143804d64bd">MusicTextSliderWidget::MusicTextSliderWidget</a></div><div class="ttdeci">MusicTextSliderWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00005">musictextsliderwidget.cpp:5</a></div></div>
 <div class="ttc" id="class_music_text_slider_widget_html_a0a7cee8982e7cbb3f04af8b8e737bcd4"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a0a7cee8982e7cbb3f04af8b8e737bcd4">MusicTextSliderWidget::setBackText</a></div><div class="ttdeci">void setBackText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00031">musictextsliderwidget.cpp:31</a></div></div>
 <div class="ttc" id="namespace_t_t_k_html_a0d45dc9e838236cf630769ea6a553df9"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a0d45dc9e838236cf630769ea6a553df9">TTK::max</a></div><div class="ttdeci">constexpr const _Tp &amp; max(const _Tp &amp;a, const _Tp &amp;b) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d7f/ttkcompat_8h_source.html#l00033">ttkcompat.h:33</a></div></div>
-<div class="ttc" id="class_music_text_slider_widget_html_ad8159cd83545eb3f58a8a33652e57803"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">MusicTextSliderWidget::m_currentValue</a></div><div class="ttdeci">int m_currentValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00061">musictextsliderwidget.h:61</a></div></div>
+<div class="ttc" id="class_music_text_slider_widget_html_ad8159cd83545eb3f58a8a33652e57803"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#ad8159cd83545eb3f58a8a33652e57803">MusicTextSliderWidget::m_currentValue</a></div><div class="ttdeci">int m_currentValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00060">musictextsliderwidget.h:60</a></div></div>
 <div class="ttc" id="class_music_text_slider_widget_html_a38d09d2ad57fa8309095605813dc0bed"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a38d09d2ad57fa8309095605813dc0bed">MusicTextSliderWidget::setFrontText</a></div><div class="ttdeci">void setFrontText(const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d41/musictextsliderwidget_8cpp_source.html#l00025">musictextsliderwidget.cpp:25</a></div></div>
-<div class="ttc" id="class_music_text_slider_widget_html_a72df8ca27593e0ea8ad274fdb8ce60ca"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a72df8ca27593e0ea8ad274fdb8ce60ca">MusicTextSliderWidget::m_maxValue</a></div><div class="ttdeci">int m_maxValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00061">musictextsliderwidget.h:61</a></div></div>
+<div class="ttc" id="class_music_text_slider_widget_html_a72df8ca27593e0ea8ad274fdb8ce60ca"><div class="ttname"><a href="../../dd/d47/class_music_text_slider_widget.html#a72df8ca27593e0ea8ad274fdb8ce60ca">MusicTextSliderWidget::m_maxValue</a></div><div class="ttdeci">int m_maxValue</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/db5/musictextsliderwidget_8h_source.html#l00060">musictextsliderwidget.h:60</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

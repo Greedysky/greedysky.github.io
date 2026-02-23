@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -130,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_peer-&gt;applicationId();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d2a/class_t_t_k_gui_application.html#a0334b21ee1187c4281d475cb9db53a33">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../dc/d2a/class_t_t_k_gui_application.html#a0334b21ee1187c4281d475cb9db53a33">TTKGuiApplication::sendMessage</a>(<span class="keyword">const</span> QString &amp;message, <span class="keywordtype">int</span> timeout)</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d2a/class_t_t_k_gui_application.html#a0334b21ee1187c4281d475cb9db53a33">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../dc/d2a/class_t_t_k_gui_application.html#a0334b21ee1187c4281d475cb9db53a33">TTKGuiApplication::sendMessage</a>(<span class="keyword">const</span> QString &amp;<a class="code" href="../../d4/db2/ttkinitialization_8cpp.html#a69b0a516b7f968451e2f3a3f7dd550c8">message</a>, <span class="keywordtype">int</span> timeout)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<a class="code" href="../../dc/d2a/class_t_t_k_gui_application.html">TTKGuiApplication</a>);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> d-&gt;m_peer-&gt;sendMessage(message, timeout);</div>
@@ -142,6 +142,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    d-&gt;m_peer = <span class="keyword">new</span> <a class="code" href="../../db/d19/class_t_t_k_local_peer.html">TTKLocalPeer</a>(<span class="keyword">this</span>, <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    connect(d-&gt;m_peer, SIGNAL(<a class="code" href="../../dc/d2a/class_t_t_k_gui_application.html#ada0abd8a2cce565af3606650aa913c4e">messageReceived</a>(QString)), SIGNAL(<a class="code" href="../../dc/d2a/class_t_t_k_gui_application.html#ada0abd8a2cce565af3606650aa913c4e">messageReceived</a>(QString)));</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="ttc" id="ttkinitialization_8cpp_html_a69b0a516b7f968451e2f3a3f7dd550c8"><div class="ttname"><a href="../../d4/db2/ttkinitialization_8cpp.html#a69b0a516b7f968451e2f3a3f7dd550c8">message</a></div><div class="ttdeci">static QString message(const TTK::Attribute attr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/db2/ttkinitialization_8cpp_source.html#l00030">ttkinitialization.cpp:30</a></div></div>
 <div class="ttc" id="class_t_t_k_gui_application_html_abb7b8efaf1ef2fcb6d8688a6e43ce7c7"><div class="ttname"><a href="../../dc/d2a/class_t_t_k_gui_application.html#abb7b8efaf1ef2fcb6d8688a6e43ce7c7">TTKGuiApplication::initialize</a></div><div class="ttdeci">void initialize(const QString &amp;id={})</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d75/ttkguiapplication_8cpp_source.html#l00063">ttkguiapplication.cpp:63</a></div></div>
 <div class="ttc" id="class_t_t_k_gui_application_private_html_a5a3da87b24cdb759e956baf70a884bc0"><div class="ttname"><a href="../../d3/de4/class_t_t_k_gui_application_private.html#a5a3da87b24cdb759e956baf70a884bc0">TTKGuiApplicationPrivate::m_peer</a></div><div class="ttdeci">TTKLocalPeer * m_peer</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d75/ttkguiapplication_8cpp_source.html#l00015">ttkguiapplication.cpp:15</a></div></div>
 <div class="ttc" id="class_t_t_k_local_peer_html"><div class="ttname"><a href="../../db/d19/class_t_t_k_local_peer.html">TTKLocalPeer</a></div><div class="ttdoc">The class of the ttk local peer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d0b/ttklocalpeer_8h_source.html#l00029">ttklocalpeer.h:29</a></div></div>
@@ -163,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

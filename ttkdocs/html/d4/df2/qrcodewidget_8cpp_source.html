@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -236,49 +236,50 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../da/d56/class_q_r_code_q_widget.html#a3078803263e90fdd78855d8484fd64cc">  160</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d56/class_q_r_code_q_widget.html#a3078803263e90fdd78855d8484fd64cc">QRCodeQWidget::paintEvent</a>(QPaintEvent *event)</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="../../dd/d24/ttkprivate_8h.html#a8eedd09c47b53d5e42ca132295c5e1ef">TTK_D</a>(<span class="keyword">const</span> <a class="code" href="../../da/d56/class_q_r_code_q_widget.html">QRCodeQWidget</a>);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    QWidget::paintEvent (event);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    QWidget::paintEvent(event);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *qrcode = <a class="code" href="../../d0/d95/qrencode_8c.html#a4cebc3c670efe1b8866b14c42737fc8f">QRcode_encodeString</a>(d-&gt;m_text.constData(), 7, d-&gt;m_level, d-&gt;m_mode, d-&gt;m_casesen);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span>(qrcode)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *point = qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#ae6f826314cfb99f4926c4c5734997c35">data</a>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        painter.setPen(Qt::NoPen);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        painter.fillRect(0, 0, width(), height(), d-&gt;m_background);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> scale = (width () - 2.0 * d-&gt;m_margin) / qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        painter.setBrush(d-&gt;m_foreground);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>; ++x)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>; ++y)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">if</span>(*point &amp; 1)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    QRectF r(d-&gt;m_margin + y * scale, d-&gt;m_margin + x * scale, scale, scale);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    painter.drawRects(&amp;r, 1);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                ++point;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        point = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="../../d0/d95/qrencode_8c.html#af724395da2e575b3d9c1f616df534d65">QRcode_free</a>(qrcode);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        painter.setBrush(d-&gt;m_background);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> icon_width = (width () - 2.0 * d-&gt;m_margin) * d-&gt;m_percent;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> icon_height = icon_width;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> wrap_x = (width () - icon_width) / 2.0;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> wrap_y = (width () - icon_height) / 2.0;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keyword">const</span> QRectF wrap(wrap_x - 5, wrap_y - 5, icon_width + 10, icon_height + 10);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        painter.drawRoundedRect(wrap, 10, 10);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        QPixmap image(d-&gt;m_iconPath);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">const</span> QRectF target(wrap_x, wrap_y, icon_width, icon_height);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">const</span> QRectF source(0, 0, image.width (), image.height ());</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        painter.drawPixmap(target, image, source);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    qrcode = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="../../df/de2/struct_q_rcode.html">QRcode</a> *qrcode = <a class="code" href="../../d0/d95/qrencode_8c.html#a4cebc3c670efe1b8866b14c42737fc8f">QRcode_encodeString</a>(d-&gt;m_text.constData(), 7, d-&gt;m_level, d-&gt;m_mode, d-&gt;m_casesen);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span>(qrcode)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *point = qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#ae6f826314cfb99f4926c4c5734997c35">data</a>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        painter.setPen(Qt::NoPen);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        painter.fillRect(0, 0, width(), height(), d-&gt;m_background);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> scale = (width() - 2.0 * d-&gt;m_margin) / qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        painter.setBrush(d-&gt;m_foreground);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x = 0; x &lt; qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>; ++x)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> y = 0; y &lt; qrcode-&gt;<a class="code" href="../../df/de2/struct_q_rcode.html#a70faea92be5450849d2252f286fc4cb2">width</a>; ++y)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                <span class="keywordflow">if</span>(*point &amp; 1)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                    QRectF r(d-&gt;m_margin + y * scale, d-&gt;m_margin + x * scale, scale, scale);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                    painter.drawRects(&amp;r, 1);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                ++point;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        point = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <a class="code" href="../../d0/d95/qrencode_8c.html#af724395da2e575b3d9c1f616df534d65">QRcode_free</a>(qrcode);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        painter.setBrush(d-&gt;m_background);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> icon_width = (width() - 2.0 * d-&gt;m_margin) * d-&gt;m_percent;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> icon_height = icon_width;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> wrap_x = (width() - icon_width) / 2.0;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> wrap_y = (width() - icon_height) / 2.0;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keyword">const</span> QRectF wrap(wrap_x - 5, wrap_y - 5, icon_width + 10, icon_height + 10);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        painter.drawRoundedRect(wrap, 10, 10);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        QPixmap image(d-&gt;m_iconPath);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">const</span> QRectF target(wrap_x, wrap_y, icon_width, icon_height);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keyword">const</span> QRectF source(0, 0, image.width(), image.height());</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        painter.drawPixmap(target, image, source);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    qrcode = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}</div>
 <div class="ttc" id="qrencode_8c_html_af724395da2e575b3d9c1f616df534d65"><div class="ttname"><a href="../../d0/d95/qrencode_8c.html#af724395da2e575b3d9c1f616df534d65">QRcode_free</a></div><div class="ttdeci">void QRcode_free(QRcode *qrcode)</div><div class="ttdoc">Free the instance of QRcode class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d95/qrencode_8c_source.html#l00421">qrencode.c:421</a></div></div>
 <div class="ttc" id="struct_q_rcode_html"><div class="ttname"><a href="../../df/de2/struct_q_rcode.html">QRcode</a></div><div class="ttdoc">QRcode class. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/dbf/qrencode_8h_source.html#l00377">qrencode.h:377</a></div></div>
 <div class="ttc" id="class_q_r_code_q_widget_html_a1e4613a6de6fa071769497c294a0220b"><div class="ttname"><a href="../../da/d56/class_q_r_code_q_widget.html#a1e4613a6de6fa071769497c294a0220b">QRCodeQWidget::setCaseSensitive</a></div><div class="ttdeci">void setCaseSensitive(bool flag)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/df2/qrcodewidget_8cpp_source.html#l00087">qrcodewidget.cpp:87</a></div></div>
@@ -329,7 +330,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:06 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -98,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * with this program; If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> ***************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QtCore/qglobal.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QtGlobal&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../de/d87/qdevicewatcher__p_8h.html#ab2a9895b64f2006cc0860708dadc7f77">   23</a></span>&#160;<span class="preprocessor">#define CONFIG_SOCKETNOTIFIER 1</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../de/d87/qdevicewatcher__p_8h.html#afd2a58dee371d9804ee82b00f7a8554e">   24</a></span>&#160;<span class="preprocessor">#define CONFIG_TCPSOCKET 0  //QtNetwork</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
@@ -117,10 +117,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#  define WIN32_LEAN_AND_MEAN</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#  include &lt;QtCore/QBuffer&gt;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#  include &lt;QBuffer&gt;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif //Q_OS_WIN</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;QtCore/QList&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;QtCore/QThread&gt;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;QThread&gt;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d24/ttkprivate_8h.html">ttkprivate.h</a>&quot;</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a>;</div>
@@ -163,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">   88</a></span>&#160;    <a class="code" href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a> *<a class="code" href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">watcher</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> initialize();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#a175f6da2a4ab6e87890923c35513cf25">initialize</a>();</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#if CONFIG_THREAD</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> run();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif //CONFIG_THREAD</span></div>
@@ -194,6 +194,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="class_q_device_watcher_html"><div class="ttname"><a href="../../d1/d02/class_q_device_watcher.html">QDeviceWatcher</a></div><div class="ttdoc">The class of the device watcher. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4a/qdevicewatcher_8h_source.html#l00031">qdevicewatcher.h:31</a></div></div>
 <div class="ttc" id="qdevicewatcher__p_8h_html_a4e13e4c79d9b04e4914c95c37c3694bc"><div class="ttname"><a href="../../de/d87/qdevicewatcher__p_8h.html#a4e13e4c79d9b04e4914c95c37c3694bc">CONFIG_THREAD</a></div><div class="ttdeci">#define CONFIG_THREAD</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d87/qdevicewatcher__p_8h_source.html#l00034">qdevicewatcher_p.h:34</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_a175f6da2a4ab6e87890923c35513cf25"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a175f6da2a4ab6e87890923c35513cf25">TTK::initialize</a></div><div class="ttdeci">TTK_MODULE_EXPORT void initialize(TTK::Attribute attr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/db2/ttkinitialization_8cpp_source.html#l00041">ttkinitialization.cpp:41</a></div></div>
 <div class="ttc" id="class_q_device_watcher_private_html_a2b32368276599bdea24e182b8018bb96"><div class="ttname"><a href="../../d9/db1/class_q_device_watcher_private.html#a2b32368276599bdea24e182b8018bb96">QDeviceWatcherPrivate::QDeviceWatcherPrivate</a></div><div class="ttdeci">QDeviceWatcherPrivate(QObject *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d87/qdevicewatcher__p_8h_source.html#l00061">qdevicewatcher_p.h:61</a></div></div>
 <div class="ttc" id="class_q_device_watcher_private_html"><div class="ttname"><a href="../../d9/db1/class_q_device_watcher_private.html">QDeviceWatcherPrivate</a></div><div class="ttdoc">The class of the device watcher private. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d87/qdevicewatcher__p_8h_source.html#l00052">qdevicewatcher_p.h:52</a></div></div>
 <div class="ttc" id="class_q_device_watcher_private_html_aad20900d0dd9c1459c0dbde3d320dfa6"><div class="ttname"><a href="../../d9/db1/class_q_device_watcher_private.html#aad20900d0dd9c1459c0dbde3d320dfa6">QDeviceWatcherPrivate::watcher</a></div><div class="ttdeci">QDeviceWatcher * watcher</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d87/qdevicewatcher__p_8h_source.html#l00088">qdevicewatcher_p.h:88</a></div></div>
@@ -203,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

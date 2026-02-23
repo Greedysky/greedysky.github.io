@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -131,13 +131,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(!parent)</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> QSize &amp;windowSize = <a class="code" href="../../db/d13/class_t_t_k_desktop_screen.html#a2fe84be7051896432511355954608b60">TTKDesktopScreen::screenGeometry</a>().size();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        move((windowSize.width() - width()) / 2, windowSize.height() - 200);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> QRect &amp;rect = <a class="code" href="../../db/d13/class_t_t_k_desktop_screen.html#a3eb8d0a14979eac711f24691028d132c">TTKDesktopScreen::currentGeometry</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        move(rect.x() + (rect.width() - width()) / 2, rect.y() + rect.height() - 200);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">const</span> QPoint &amp;globalPoint = parent-&gt;mapToGlobal(QPoint(0, 0));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        move(globalPoint.x() + (parent-&gt;width() - width()) / 2, globalPoint.y() + (parent-&gt;height() - height()) / 2);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">const</span> QPoint &amp;point = parent-&gt;mapToGlobal(QPoint(0, 0));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        move(point.x() + (parent-&gt;width() - width()) / 2, point.y() + (parent-&gt;height() - height()) / 2);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    show();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
@@ -168,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    Q_UNUSED(event);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    painter.setRenderHint(QPainter::Antialiasing);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    painter.setPen(Qt::NoPen);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    painter.setBrush(QColor(0, 0, 0, 175));</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    painter.drawRoundedRect(rect(), 6, 6);</div>
@@ -186,21 +186,21 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_toast_label_html_af980aba9efaff6777372e173db5bf9c1"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#af980aba9efaff6777372e173db5bf9c1">TTKToastLabel::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00087">ttktoastlabel.cpp:87</a></div></div>
 <div class="ttc" id="class_t_t_k_toast_label_html_a847ee573853c1f04b72a4143f981fc0c"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a847ee573853c1f04b72a4143f981fc0c">TTKToastLabel::~TTKToastLabel</a></div><div class="ttdeci">~TTKToastLabel()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00029">ttktoastlabel.cpp:29</a></div></div>
 <div class="ttc" id="class_t_t_k_toast_label_html_aaf76430d95ee03c3f112e62fb8501e4e"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#aaf76430d95ee03c3f112e62fb8501e4e">TTKToastLabel::closeAnimation</a></div><div class="ttdeci">void closeAnimation()</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00073">ttktoastlabel.cpp:73</a></div></div>
+<div class="ttc" id="class_t_t_k_desktop_screen_html_a3eb8d0a14979eac711f24691028d132c"><div class="ttname"><a href="../../db/d13/class_t_t_k_desktop_screen.html#a3eb8d0a14979eac711f24691028d132c">TTKDesktopScreen::currentGeometry</a></div><div class="ttdeci">static QRect currentGeometry()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d66/ttkdesktopscreen_8cpp_source.html#l00122">ttkdesktopscreen.cpp:122</a></div></div>
 <div class="ttc" id="ttkqtcompat_8h_html_ac9d0ec7ca395f4b681495852e65f13c4"><div class="ttname"><a href="../../d9/d0e/ttkqtcompat_8h.html#ac9d0ec7ca395f4b681495852e65f13c4">QtFontWidth</a></div><div class="ttdeci">#define QtFontWidth(p, t)</div><div class="ttdoc">Font string width. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00031">ttkqtcompat.h:31</a></div></div>
 <div class="ttc" id="class_t_t_k_toast_label_html"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html">TTKToastLabel</a></div><div class="ttdoc">The class of the toast widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00029">ttktoastlabel.h:29</a></div></div>
-<div class="ttc" id="class_t_t_k_toast_label_html_a21efe61e9437fe24a35e9c5de58ed664"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a21efe61e9437fe24a35e9c5de58ed664">TTKToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00086">ttktoastlabel.h:86</a></div></div>
-<div class="ttc" id="class_t_t_k_toast_label_html_a5a2acb4f86480a08a2b128885d20af26"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a5a2acb4f86480a08a2b128885d20af26">TTKToastLabel::m_margin</a></div><div class="ttdeci">QPoint m_margin</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00087">ttktoastlabel.h:87</a></div></div>
+<div class="ttc" id="class_t_t_k_toast_label_html_a21efe61e9437fe24a35e9c5de58ed664"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a21efe61e9437fe24a35e9c5de58ed664">TTKToastLabel::m_font</a></div><div class="ttdeci">QFont m_font</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00085">ttktoastlabel.h:85</a></div></div>
+<div class="ttc" id="class_t_t_k_toast_label_html_a5a2acb4f86480a08a2b128885d20af26"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#a5a2acb4f86480a08a2b128885d20af26">TTKToastLabel::m_margin</a></div><div class="ttdeci">QPoint m_margin</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00086">ttktoastlabel.h:86</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_ac6187fd619686d0972b384b18edceca8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#ac6187fd619686d0972b384b18edceca8">TTK_DN_S2MS</a></div><div class="ttdeci">#define TTK_DN_S2MS</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00355">ttkglobal.h:355</a></div></div>
 <div class="ttc" id="ttkdesktopscreen_8h_html"><div class="ttname"><a href="../../dd/d2b/ttkdesktopscreen_8h.html">ttkdesktopscreen.h</a></div></div>
-<div class="ttc" id="class_t_t_k_desktop_screen_html_a2fe84be7051896432511355954608b60"><div class="ttname"><a href="../../db/d13/class_t_t_k_desktop_screen.html#a2fe84be7051896432511355954608b60">TTKDesktopScreen::screenGeometry</a></div><div class="ttdeci">static QRect screenGeometry(int index=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d66/ttkdesktopscreen_8cpp_source.html#l00064">ttkdesktopscreen.cpp:64</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
-<div class="ttc" id="class_t_t_k_toast_label_html_ad458dde30c5dec5cf056a4f208636634"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#ad458dde30c5dec5cf056a4f208636634">TTKToastLabel::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00088">ttktoastlabel.h:88</a></div></div>
+<div class="ttc" id="class_t_t_k_toast_label_html_ad458dde30c5dec5cf056a4f208636634"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#ad458dde30c5dec5cf056a4f208636634">TTKToastLabel::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbb/ttktoastlabel_8h_source.html#l00087">ttktoastlabel.h:87</a></div></div>
 <div class="ttc" id="class_t_t_k_toast_label_html_ac578662da9336d6ac4630110b9b191bf"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#ac578662da9336d6ac4630110b9b191bf">TTKToastLabel::timerInterval</a></div><div class="ttdeci">int timerInterval() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00040">ttktoastlabel.cpp:40</a></div></div>
 <div class="ttc" id="class_t_t_k_toast_label_html_ad3e126f8285a7c9ed0f1ab0ae81a6334"><div class="ttname"><a href="../../d0/d1b/class_t_t_k_toast_label.html#ad3e126f8285a7c9ed0f1ab0ae81a6334">TTKToastLabel::TTKToastLabel</a></div><div class="ttdeci">TTKToastLabel(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d3d/ttktoastlabel_8cpp_source.html#l00007">ttktoastlabel.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

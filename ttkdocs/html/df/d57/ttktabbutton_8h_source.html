@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Library Module project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span></div>
@@ -105,43 +105,41 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a> : <span class="keyword">public</span> QWidget</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> addButtons(<span class="keyword">const</span> QStringList &amp;titles);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> setButtonEnabled(<span class="keywordtype">bool</span> enabled);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">   55</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">currentIndex</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_currentIndex; }</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">   59</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">count</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_buttonGroup-&gt;buttons().count(); }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> buttonClicked(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">   74</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">m_currentIndex</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">   75</a></span>&#160;    QButtonGroup *<a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">m_buttonGroup</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif // TTKTABBUTTON_H</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ~<a class="code" href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> addButtons(<span class="keyword">const</span> QStringList &amp;titles);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setButtonEnabled(<span class="keywordtype">bool</span> enabled);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">   54</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">currentIndex</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_currentIndex; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">   58</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">count</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_buttonGroup-&gt;buttons().count(); }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> buttonClicked(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">   73</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">m_currentIndex</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">   74</a></span>&#160;    QButtonGroup *<a class="code" href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">m_buttonGroup</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // TTKTABBUTTON_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="ttkmoduleexport_8h_html"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a></div></div>
-<div class="ttc" id="class_t_t_k_tab_button_html_a34ef8b6c10688409eb2c8e61fdf26c88"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">TTKTabButton::m_currentIndex</a></div><div class="ttdeci">int m_currentIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00074">ttktabbutton.h:74</a></div></div>
-<div class="ttc" id="class_t_t_k_tab_button_html_aaa7e8e28c489a2a6904a947f2a3ec161"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">TTKTabButton::count</a></div><div class="ttdeci">int count() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00059">ttktabbutton.h:59</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
-<div class="ttc" id="class_t_t_k_tab_button_html_a7ada509d5152fbcfa9526b1c2b2a5160"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">TTKTabButton::m_buttonGroup</a></div><div class="ttdeci">QButtonGroup * m_buttonGroup</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00075">ttktabbutton.h:75</a></div></div>
-<div class="ttc" id="class_t_t_k_tab_button_html_adf59f44d694e19704d15eba615c64f02"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">TTKTabButton::currentIndex</a></div><div class="ttdeci">int currentIndex() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00055">ttktabbutton.h:55</a></div></div>
+<div class="ttc" id="class_t_t_k_tab_button_html_a34ef8b6c10688409eb2c8e61fdf26c88"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#a34ef8b6c10688409eb2c8e61fdf26c88">TTKTabButton::m_currentIndex</a></div><div class="ttdeci">int m_currentIndex</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00073">ttktabbutton.h:73</a></div></div>
+<div class="ttc" id="class_t_t_k_tab_button_html_aaa7e8e28c489a2a6904a947f2a3ec161"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#aaa7e8e28c489a2a6904a947f2a3ec161">TTKTabButton::count</a></div><div class="ttdeci">int count() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00058">ttktabbutton.h:58</a></div></div>
+<div class="ttc" id="class_t_t_k_tab_button_html_a7ada509d5152fbcfa9526b1c2b2a5160"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#a7ada509d5152fbcfa9526b1c2b2a5160">TTKTabButton::m_buttonGroup</a></div><div class="ttdeci">QButtonGroup * m_buttonGroup</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00074">ttktabbutton.h:74</a></div></div>
+<div class="ttc" id="class_t_t_k_tab_button_html_adf59f44d694e19704d15eba615c64f02"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html#adf59f44d694e19704d15eba615c64f02">TTKTabButton::currentIndex</a></div><div class="ttdeci">int currentIndex() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00054">ttktabbutton.h:54</a></div></div>
 <div class="ttc" id="class_t_t_k_tab_button_html"><div class="ttname"><a href="../../db/dd2/class_t_t_k_tab_button.html">TTKTabButton</a></div><div class="ttdoc">The class of the tab button module. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d57/ttktabbutton_8h_source.html#l00029">ttktabbutton.h:29</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

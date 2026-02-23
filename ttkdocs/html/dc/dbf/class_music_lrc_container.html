@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -137,10 +137,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e9276ecdb82ec63366d9c54bd958b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e880a8ac1f925a5eea35d4c116a529e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#a3e880a8ac1f925a5eea35d4c116a529e">~MusicLrcContainer</a> ()</td></tr>
 <tr class="separator:a3e880a8ac1f925a5eea35d4c116a529e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0329307b19d8f5b3d7fc88ba327a934b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#a0329307b19d8f5b3d7fc88ba327a934b">startDrawLrc</a> ()=0</td></tr>
-<tr class="separator:a0329307b19d8f5b3d7fc88ba327a934b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd67e2d225805489896e7316add08bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#affd67e2d225805489896e7316add08bb">stopDrawLrc</a> ()=0</td></tr>
-<tr class="separator:affd67e2d225805489896e7316add08bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65a60d11640e3bdfbddb54309f8612b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#ad65a60d11640e3bdfbddb54309f8612b">start</a> ()=0</td></tr>
+<tr class="separator:ad65a60d11640e3bdfbddb54309f8612b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac21d7a6fda76b45273f3b81899461f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#acac21d7a6fda76b45273f3b81899461f">stop</a> ()=0</td></tr>
+<tr class="separator:acac21d7a6fda76b45273f3b81899461f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab2c0c37508becf086683cbbfc7be37f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#aab2c0c37508becf086683cbbfc7be37f">applyParameter</a> ()</td></tr>
 <tr class="separator:aab2c0c37508becf086683cbbfc7be37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace430631872395896c5aef0ab9788c7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#ace430631872395896c5aef0ab9788c7b">setLinearGradientColor</a> (<a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14aba">MusicLrcColor::Color</a> color)</td></tr>
@@ -160,8 +160,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ab5240d387199b608051401471ef75d3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#ab5240d387199b608051401471ef75d3e">clearAllMusicLRCManager</a> ()</td></tr>
-<tr class="separator:ab5240d387199b608051401471ef75d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a127d3f61a219d786fb56581314010abd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dbf/class_music_lrc_container.html#a127d3f61a219d786fb56581314010abd">clearAllManagers</a> ()</td></tr>
+<tr class="separator:a127d3f61a219d786fb56581314010abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -186,7 +186,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p>The class of the lrc container base. </p>
 <dl class="section author"><dt>Author</dt><dd>Greedysky <a href="#" onclick="location.href='mai'+'lto:'+'gre'+'ed'+'ysk'+'y@'+'163'+'.c'+'om'; return false;">greed<span style="display: none;">.nosp@m.</span>ysky<span style="display: none;">.nosp@m.</span>@163.<span style="display: none;">.nosp@m.</span>com</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00036">36</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00037">37</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8e9276ecdb82ec63366d9c54bd958b8c"></a>
 <div class="memitem">
@@ -262,9 +262,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">21</a> of file <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html">musiclrccontainer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00223">G_SETTING_PTR</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00031">LRC_DESKTOP_PREFIX</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00030">LRC_DESKTOP_TPYE</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_containerType</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>, <a class="el" href="../../dc/d4d/musiclrcmanager_8cpp_source.html#l00127">TTK::readColorConfig()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00044">setLinearGradientColor()</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
+<p>References <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00223">G_SETTING_PTR</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00032">LRC_DESKTOP_PREFIX</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00031">LRC_DESKTOP_TPYE</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_containerType</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>, <a class="el" href="../../dc/d4d/musiclrcmanager_8cpp_source.html#l00127">TTK::readColorConfig()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00044">setLinearGradientColor()</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00091">MusicLrcContainerForInterior::applyParameter()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00047">MusicLrcContainerForDesktop::applyParameter()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00047">MusicLrcContainerForDesktop::applyParameter()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00091">MusicLrcContainerForInterior::applyParameter()</a>.</p>
 
 </div>
 </div>
@@ -295,7 +295,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa4d74f163577afcc2a07fcafad69ac122">MusicLrcColor::DBlack</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaaed22dfc71a68225e3077d75f271d7922">MusicLrcColor::DBlue</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaab1649a2b6b8fc7518d09d690435dec1c">MusicLrcColor::DGreen</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa8ee9b97a34aa72c3804b4ff7c23848af">MusicLrcColor::DPurple</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa700df823549c7403399057d5c5392b60">MusicLrcColor::DRed</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa2bdeddcebbfad95d7c5f9fc407778f11">MusicLrcColor::DWhite</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa84262017763e001f2ab0766483e43d84">MusicLrcColor::DYellow</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa4dd17eb76b4366461865709b916da106">MusicLrcColor::IBlue</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa1f32a1d2d1376ff290136e2b06e243e8">MusicLrcColor::IGray</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa8e3026f648696023d1526afeb5b0ba13">MusicLrcColor::IGreen</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa6df5110abe3663ff94662d317f4f8ad7">MusicLrcColor::IIndigo</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaaba4efb6682d99a05fbec4e15b3b6154e">MusicLrcColor::IOrange</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa7e38f9e36304e1c21ac4ee3ae7c68608">MusicLrcColor::IPink</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa45c2593ad5105c67fc2b6ecf724258fe">MusicLrcColor::IPurple</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa8edb0c1a4e18d4259606e00328e5d1b6">MusicLrcColor::IRed</a>, <a class="el" href="../../d4/de3/class_music_lrc_color.html#a95f62e629be662696c4e0bc631a14abaa313a0bd2931e6128ef351872c1c0f40c">MusicLrcColor::IYellow</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00044">setLinearGradientColor()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00166">MusicLrcContainerForDesktop::createColorMenu()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00626">MusicLrcContainerForInterior::createColorMenu()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00166">MusicLrcContainerForDesktop::createColorMenu()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00657">MusicLrcContainerForInterior::createColorMenu()</a>.</p>
 
 </div>
 </div>
@@ -328,7 +328,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab5240d387199b608051401471ef75d3e"></a>
+<a class="anchor" id="a127d3f61a219d786fb56581314010abd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -336,7 +336,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MusicLrcContainer::clearAllMusicLRCManager </td>
+          <td class="memname">void MusicLrcContainer::clearAllManagers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -348,13 +348,13 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Clear all music lrc manager. </p>
+<p>Clear all lrc manager. </p>
 
 <p>Definition at line <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00130">130</a> of file <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html">musiclrccontainer.cpp</a>.</p>
 
 <p>References <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00026">MusicLrcContainerForDesktop::~MusicLrcContainerForDesktop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00068">MusicLrcContainerForInterior::~MusicLrcContainerForInterior()</a>, and <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00040">MusicLrcContainerForWallpaper::~MusicLrcContainerForWallpaper()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00026">MusicLrcContainerForDesktop::~MusicLrcContainerForDesktop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00068">MusicLrcContainerForInterior::~MusicLrcContainerForInterior()</a>, and <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00096">MusicLrcContainerForWallpaper::~MusicLrcContainerForWallpaper()</a>.</p>
 
 </div>
 </div>
@@ -384,7 +384,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../dc/dbf/class_music_lrc_container.html#ac47b7a6b1bb7e9d6d48177ff88a1a442">showCurrentLrcColorSetting()</a>, and <a class="el" href="../../dc/dbf/class_music_lrc_container.html#a6a16d341a8372027b9a8f4c822607075">showCurrentLrcSetting()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00166">MusicLrcContainerForDesktop::createColorMenu()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00626">MusicLrcContainerForInterior::createColorMenu()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00166">MusicLrcContainerForDesktop::createColorMenu()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00657">MusicLrcContainerForInterior::createColorMenu()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
 
 </div>
 </div>
@@ -410,7 +410,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current lrc should update. </p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
 
 </div>
 </div>
@@ -466,7 +466,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00149">m_linkLocalLrc</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>, and <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>.</p>
 
 </div>
 </div>
@@ -546,7 +546,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../d4/de8/musicabstractmovedialog_8cpp_source.html#l00027">MusicAbstractMoveDialog::exec()</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_currentSongName</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00154">m_lrcSearchWidget</a>, and <a class="el" href="../../d1/da0/musiclrcsearchwidget_8cpp_source.html#l00053">MusicLrcSearchWidget::setCurrentSongName()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
 
 </div>
 </div>
@@ -577,7 +577,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../d1/d70/http__parser_8c_source.html#l00458">name</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00180">MusicRightAreaWidget::loadCurrentSongLrc()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00187">MusicRightAreaWidget::loadCurrentSongLrc()</a>.</p>
 
 </div>
 </div>
@@ -618,7 +618,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00150">m_currentTime</a>, and <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00150">m_totalTime</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00151">MusicRightAreaWidget::updateCurrentLrc()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00158">MusicRightAreaWidget::updateCurrentLrc()</a>.</p>
 
 </div>
 </div>
@@ -641,7 +641,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="../../dc/d4d/musiclrcmanager_8cpp_source.html#l00020">TTK::mapIndexToColor()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00077">changeCurrentLrcColor()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00184">MusicLrcContainerForWallpaper::setItemStyleSheet()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00880">MusicLrcContainerForInterior::setItemStyleSheet()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00077">changeCurrentLrcColor()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00243">MusicLrcContainerForWallpaper::setItemStyleSheet()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00854">MusicLrcContainerForInterior::setItemStyleSheet()</a>.</p>
 
 </div>
 </div>
@@ -662,7 +662,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html">musiclrccontainer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00102">MusicSettingManager::DLrcColor</a>, <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00223">G_SETTING_PTR</a>, <a class="el" href="../../dc/dbf/class_music_lrc_container.html#a0dd2f4a01cea3d0d7f3d201af26b43d9">linearGradientColorChanged()</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00030">LRC_DESKTOP_TPYE</a>, <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00093">MusicSettingManager::LrcColor</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_containerType</a>, <a class="el" href="../../d1/d52/musiclrcmanager_8h_source.html#l00067">MusicLrcColor::m_index</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
+<p>References <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00101">MusicSettingManager::DLrcColor</a>, <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00223">G_SETTING_PTR</a>, <a class="el" href="../../dc/dbf/class_music_lrc_container.html#a0dd2f4a01cea3d0d7f3d201af26b43d9">linearGradientColorChanged()</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00031">LRC_DESKTOP_TPYE</a>, <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00092">MusicSettingManager::LrcColor</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_containerType</a>, <a class="el" href="../../d1/d52/musiclrcmanager_8h_source.html#l00067">MusicLrcColor::m_index</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">m_lrcManagers</a>, <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
 
 </div>
 </div>
@@ -691,7 +691,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00089">89</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00098">MusicLrcContainerForWallpaper::setLrcAnalysisModel()</a>, <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00081">MusicRightAreaWidget::setupUi()</a>, and <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00691">MusicRightAreaWidget::setWindowLrcTypeChanged()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00155">MusicLrcContainerForWallpaper::setLrcAnalysisModel()</a>, <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00088">MusicRightAreaWidget::setupUi()</a>, and <a class="el" href="../../dc/d39/musicrightareawidget_8cpp_source.html#l00693">MusicRightAreaWidget::setWindowLrcTypeChanged()</a>.</p>
 
 </div>
 </div>
@@ -771,13 +771,13 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00114">114</a> of file <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html">musiclrccontainer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d7/d89/musiclrcmakerwidget_8cpp_source.html#l00231">MusicLrcMakerWidget::durationChanged()</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_currentSongName</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00150">m_totalTime</a>, <a class="el" href="../../d7/d89/musiclrcmakerwidget_8cpp_source.html#l00185">MusicLrcMakerWidget::setCurrentSongName()</a>, and <a class="el" href="../../d4/d5e/musicsinglemanager_8h_source.html#l00046">TTKGenerateSingleWidget</a>.</p>
+<p>References <a class="el" href="../../d7/d89/musiclrcmakerwidget_8cpp_source.html#l00232">MusicLrcMakerWidget::durationChanged()</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">m_currentSongName</a>, <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00150">m_totalTime</a>, <a class="el" href="../../d7/d89/musiclrcmakerwidget_8cpp_source.html#l00186">MusicLrcMakerWidget::setCurrentSongName()</a>, and <a class="el" href="../../d4/d5e/musicsinglemanager_8h_source.html#l00046">TTK_GENERATE_SINGLE_WIDGET</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00677">MusicLrcContainerForInterior::createNoLrcCurrentInfo()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00708">MusicLrcContainerForInterior::createNoLrcCurrentInfo()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00195">MusicLrcContainerForDesktop::creatToolBarWidget()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0329307b19d8f5b3d7fc88ba327a934b"></a>
+<a class="anchor" id="ad65a60d11640e3bdfbddb54309f8612b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -785,7 +785,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void MusicLrcContainer::startDrawLrc </td>
+          <td class="memname">virtual void MusicLrcContainer::start </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -799,11 +799,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Start timer clock to draw lrc. Subclass should implement this function. </p>
 
-<p>Implemented in <a class="el" href="../../db/d4f/class_music_lrc_container_for_desktop.html#abc719bd9e4e9f08ec69fdac04c84fc36">MusicLrcContainerForDesktop</a>, <a class="el" href="../../d7/df3/class_music_lrc_container_for_interior.html#a7552557deb3f45c35db95a4902aeba17">MusicLrcContainerForInterior</a>, and <a class="el" href="../../d0/d13/class_music_lrc_container_for_wallpaper.html#a0d42a7d9ee6845dda140940de7262e9b">MusicLrcContainerForWallpaper</a>.</p>
+<p>Implemented in <a class="el" href="../../db/d4f/class_music_lrc_container_for_desktop.html#a93460bb3091d162a2fb3ff7cc07a8b37">MusicLrcContainerForDesktop</a>, <a class="el" href="../../d7/df3/class_music_lrc_container_for_interior.html#aa1f0d7675d8ee874d0830e5379b41fd3">MusicLrcContainerForInterior</a>, and <a class="el" href="../../d0/d13/class_music_lrc_container_for_wallpaper.html#a3d38ee4301bdfded1f3408df1b660a2c">MusicLrcContainerForWallpaper</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="affd67e2d225805489896e7316add08bb"></a>
+<a class="anchor" id="acac21d7a6fda76b45273f3b81899461f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -811,7 +811,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void MusicLrcContainer::stopDrawLrc </td>
+          <td class="memname">virtual void MusicLrcContainer::stop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -825,7 +825,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Stop timer clock to draw lrc. Subclass should implement this function. </p>
 
-<p>Implemented in <a class="el" href="../../db/d4f/class_music_lrc_container_for_desktop.html#a73d03c551006ad870aaa5a71f1015d3a">MusicLrcContainerForDesktop</a>, <a class="el" href="../../d7/df3/class_music_lrc_container_for_interior.html#a0707552add0a375b78a838ec5e70907d">MusicLrcContainerForInterior</a>, and <a class="el" href="../../d0/d13/class_music_lrc_container_for_wallpaper.html#a34a02f4dfecdb03fac4b197fe5ed3a00">MusicLrcContainerForWallpaper</a>.</p>
+<p>Implemented in <a class="el" href="../../db/d4f/class_music_lrc_container_for_desktop.html#a79c54820926da2e214cf268019394e11">MusicLrcContainerForDesktop</a>, <a class="el" href="../../d7/df3/class_music_lrc_container_for_interior.html#a81b686b9e1ef6be5814d80b51d2b23df">MusicLrcContainerForInterior</a>, and <a class="el" href="../../d0/d13/class_music_lrc_container_for_wallpaper.html#ae5fca926889bf3019de19345b08c54e4">MusicLrcContainerForWallpaper</a>.</p>
 
 </div>
 </div>
@@ -878,7 +878,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">151</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00010">MusicLrcContainerForDesktop::MusicLrcContainerForDesktop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00028">MusicLrcContainerForInterior::MusicLrcContainerForInterior()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00008">MusicLrcContainerForWallpaper::MusicLrcContainerForWallpaper()</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00049">setLinearGradientColor()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00010">MusicLrcContainerForDesktop::MusicLrcContainerForDesktop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00028">MusicLrcContainerForInterior::MusicLrcContainerForInterior()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00064">MusicLrcContainerForWallpaper::MusicLrcContainerForWallpaper()</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00049">setLinearGradientColor()</a>.</p>
 
 </div>
 </div>
@@ -902,7 +902,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00151">151</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00316">MusicLrcContainerForInterior::queryTranslatedLrcFinished()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00106">searchMusicLrcs()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00287">MusicLrcContainerForInterior::showLocalLinkWidget()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00114">showLrcMakedWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00309">MusicLrcContainerForInterior::showLrcPosterWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00294">MusicLrcContainerForInterior::showSongCommentsWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00350">MusicLrcContainerForInterior::showSongMovieClicked()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00099">MusicLrcContainerForDesktop::statusCopyFrom()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00106">searchMusicLrcs()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00290">MusicLrcContainerForInterior::showLocalLinkWidget()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00114">showLrcMakedWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00314">MusicLrcContainerForInterior::showLrcPosterWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00297">MusicLrcContainerForInterior::showSongCommentsWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00321">MusicLrcContainerForInterior::showSongMovieWidget()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00099">MusicLrcContainerForDesktop::statusCopyFrom()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00347">MusicLrcContainerForInterior::translatedLrcData()</a>.</p>
 
 </div>
 </div>
@@ -926,7 +926,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00150">150</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00067">MusicLrcContainerForDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00449">MusicLrcContainerHorizontalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00530">MusicLrcContainerVerticalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00953">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00649">MusicLrcContainerForInterior::revertTimeSpeed()</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00060">setCurrentTime()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00067">MusicLrcContainerForDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00449">MusicLrcContainerHorizontalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00530">MusicLrcContainerVerticalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00927">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00060">setCurrentTime()</a>, and <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00680">MusicLrcContainerForInterior::setTimePosition()</a>.</p>
 
 </div>
 </div>
@@ -950,7 +950,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00149">149</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00121">linkLrcStateChanged()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00394">MusicLrcContainerForDesktop::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, and <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00121">linkLrcStateChanged()</a>.</p>
 
 </div>
 </div>
@@ -974,7 +974,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00152">152</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00391">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00175">MusicLrcContainerForWallpaper::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00699">MusicLrcContainerForInterior::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00281">MusicLrcContainerForInterior::lrcCopyClipboard()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00276">MusicLrcContainerForInterior::lrcOpenFileDir()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00508">MusicLrcContainerForInterior::mouseMoveEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00560">MusicLrcContainerForInterior::mouseReleaseEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00589">MusicLrcContainerForInterior::paintEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00316">MusicLrcContainerForInterior::queryTranslatedLrcFinished()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00953">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00649">MusicLrcContainerForInterior::revertTimeSpeed()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00265">MusicLrcContainerForInterior::saveLrcTimeChanged()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00765">MusicLrcContainerForInterior::setItemStyleSheet()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00148">MusicLrcContainerForInterior::setLrcSize()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00930">MusicLrcContainerForInterior::setLrcSizeProperty()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00143">MusicLrcContainerForInterior::setSongTimeSpeed()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00309">MusicLrcContainerForInterior::showLrcPosterWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00689">MusicLrcContainerForInterior::showNoLrcCurrentInfo()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00080">MusicLrcContainerForInterior::startDrawLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00085">MusicLrcContainerForInterior::stopDrawLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00138">MusicLrcContainerForInterior::text()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00376">MusicLrcContainerForInterior::translatedLrcData()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00165">MusicLrcContainerForWallpaper::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00364">MusicLrcContainerForInterior::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00108">MusicLrcContainerForInterior::updateCurrentLrc()</a>, and <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00115">MusicLrcContainerForWallpaper::updateCurrentLrc()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00365">MusicLrcContainerForInterior::contextMenuEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00145">MusicLrcContainerForInterior::findTimePosition()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00234">MusicLrcContainerForWallpaper::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00730">MusicLrcContainerForInterior::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00284">MusicLrcContainerForInterior::lrcCopyClipboard()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00279">MusicLrcContainerForInterior::lrcOpenFileDir()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00482">MusicLrcContainerForInterior::mouseMoveEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00534">MusicLrcContainerForInterior::mouseReleaseEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00563">MusicLrcContainerForInterior::paintEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00927">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00268">MusicLrcContainerForInterior::saveLrcTimeChanged()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00739">MusicLrcContainerForInterior::setItemStyleSheet()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00150">MusicLrcContainerForInterior::setLrcSize()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00904">MusicLrcContainerForInterior::setLrcSizeProperty()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00680">MusicLrcContainerForInterior::setTimePosition()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00314">MusicLrcContainerForInterior::showLrcPosterWidget()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00720">MusicLrcContainerForInterior::showNoLrcCurrentInfo()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00080">MusicLrcContainerForInterior::start()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00085">MusicLrcContainerForInterior::stop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00140">MusicLrcContainerForInterior::text()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00347">MusicLrcContainerForInterior::translatedLrcData()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00224">MusicLrcContainerForWallpaper::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00335">MusicLrcContainerForInterior::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00110">MusicLrcContainerForInterior::updateCurrentLrc()</a>, and <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00172">MusicLrcContainerForWallpaper::updateCurrentLrc()</a>.</p>
 
 </div>
 </div>
@@ -998,7 +998,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html#l00153">153</a> of file <a class="el" href="../../db/dcd/musiclrccontainer_8h_source.html">musiclrccontainer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00057">MusicLrcContainerForWallpaper::applyParameter()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00047">MusicLrcContainerForDesktop::applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00130">clearAllMusicLRCManager()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00067">MusicLrcContainerForDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00175">MusicLrcContainerForWallpaper::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00449">MusicLrcContainerHorizontalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00530">MusicLrcContainerVerticalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00699">MusicLrcContainerForInterior::initCurrentLrc()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00121">linkLrcStateChanged()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00508">MusicLrcContainerForInterior::mouseMoveEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00028">MusicLrcContainerForInterior::MusicLrcContainerForInterior()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00422">MusicLrcContainerHorizontalDesktop::MusicLrcContainerHorizontalDesktop()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00503">MusicLrcContainerVerticalDesktop::MusicLrcContainerVerticalDesktop()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00324">MusicLrcContainerForDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00481">MusicLrcContainerHorizontalDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00562">MusicLrcContainerVerticalDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00953">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00184">MusicLrcContainerForWallpaper::setItemStyleSheet()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00880">MusicLrcContainerForInterior::setItemStyleSheet()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00049">setLinearGradientColor()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00098">MusicLrcContainerForWallpaper::setLrcAnalysisModel()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00148">MusicLrcContainerForInterior::setLrcSize()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00930">MusicLrcContainerForInterior::setLrcSizeProperty()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00187">MusicLrcContainerForDesktop::setSelfPosition()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00145">MusicLrcContainerForDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00467">MusicLrcContainerHorizontalDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00548">MusicLrcContainerVerticalDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00046">MusicLrcContainerForWallpaper::startDrawLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00080">MusicLrcContainerForInterior::startDrawLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00034">MusicLrcContainerForDesktop::startDrawLrc()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00051">MusicLrcContainerForWallpaper::stopDrawLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00085">MusicLrcContainerForInterior::stopDrawLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00039">MusicLrcContainerForDesktop::stopDrawLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00138">MusicLrcContainerForInterior::text()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00165">MusicLrcContainerForWallpaper::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00364">MusicLrcContainerForInterior::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00117">MusicLrcContainerForInterior::updateCurrentLrc()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00126">MusicLrcContainerForWallpaper::updateCurrentLrc()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00080">MusicLrcContainerForDesktop::updateCurrentLrc()</a>.</p>
+<p>Referenced by <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00114">MusicLrcContainerForWallpaper::applyParameter()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00047">MusicLrcContainerForDesktop::applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00021">applyParameter()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00130">clearAllManagers()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00067">MusicLrcContainerForDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00234">MusicLrcContainerForWallpaper::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00449">MusicLrcContainerHorizontalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00530">MusicLrcContainerVerticalDesktop::initCurrentLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00730">MusicLrcContainerForInterior::initCurrentLrc()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00121">linkLrcStateChanged()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00482">MusicLrcContainerForInterior::mouseMoveEvent()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00028">MusicLrcContainerForInterior::MusicLrcContainerForInterior()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00422">MusicLrcContainerHorizontalDesktop::MusicLrcContainerHorizontalDesktop()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00503">MusicLrcContainerVerticalDesktop::MusicLrcContainerVerticalDesktop()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00324">MusicLrcContainerForDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00481">MusicLrcContainerHorizontalDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00562">MusicLrcContainerVerticalDesktop::resizeLrcSizeArea()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00927">MusicLrcContainerForInterior::resizeWidth()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00243">MusicLrcContainerForWallpaper::setItemStyleSheet()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00854">MusicLrcContainerForInterior::setItemStyleSheet()</a>, <a class="el" href="../../d7/d14/musiclrccontainer_8cpp_source.html#l00049">setLinearGradientColor()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00155">MusicLrcContainerForWallpaper::setLrcAnalysisModel()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00150">MusicLrcContainerForInterior::setLrcSize()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00904">MusicLrcContainerForInterior::setLrcSizeProperty()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00187">MusicLrcContainerForDesktop::setSelfPosition()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00145">MusicLrcContainerForDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00467">MusicLrcContainerHorizontalDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00548">MusicLrcContainerVerticalDesktop::setSingleLineTypeChanged()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00103">MusicLrcContainerForWallpaper::start()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00034">MusicLrcContainerForDesktop::start()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00080">MusicLrcContainerForInterior::start()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00108">MusicLrcContainerForWallpaper::stop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00085">MusicLrcContainerForInterior::stop()</a>, <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00039">MusicLrcContainerForDesktop::stop()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00140">MusicLrcContainerForInterior::text()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00224">MusicLrcContainerForWallpaper::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00335">MusicLrcContainerForInterior::updateAnimationLrc()</a>, <a class="el" href="../../d1/d29/musiclrccontainerforinterior_8cpp_source.html#l00119">MusicLrcContainerForInterior::updateCurrentLrc()</a>, <a class="el" href="../../d1/d86/musiclrccontainerforwallpaper_8cpp_source.html#l00183">MusicLrcContainerForWallpaper::updateCurrentLrc()</a>, and <a class="el" href="../../d5/d19/musiclrccontainerfordesktop_8cpp_source.html#l00080">MusicLrcContainerForDesktop::updateCurrentLrc()</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1057,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:13 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

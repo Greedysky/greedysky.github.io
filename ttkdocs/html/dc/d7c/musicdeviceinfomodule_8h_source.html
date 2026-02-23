@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -127,34 +127,32 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../db/d45/class_music_device_info_module.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a> : <span class="keyword">public</span> QObject</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> disksProperty(<span class="keyword">const</span> QString &amp;drive) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    MusicDeviceInfoItemList removableDrive();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> handleReadyRead();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    QProcess *m_process;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">   88</a></span>&#160;    MusicDeviceInfoItemList <a class="code" href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">m_items</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // MUSICDEVICEINFOMODULE_H</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ~<a class="code" href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> disksProperty(<span class="keyword">const</span> QString &amp;drive) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    MusicDeviceInfoItemList removableDrive();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifdef Q_OS_UNIX</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> handleReadyRead();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QProcess *m_process;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">   87</a></span>&#160;    MusicDeviceInfoItemList <a class="code" href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">m_items</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif // MUSICDEVICEINFOMODULE_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
 <div class="ttc" id="class_music_device_info_module_html"><div class="ttname"><a href="../../db/d45/class_music_device_info_module.html">MusicDeviceInfoModule</a></div><div class="ttdoc">The class of the system device info. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00054">musicdeviceinfomodule.h:54</a></div></div>
-<div class="ttc" id="class_music_device_info_module_html_ab0325c30a67f2c7deeef00298f7fa954"><div class="ttname"><a href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">MusicDeviceInfoModule::m_items</a></div><div class="ttdeci">MusicDeviceInfoItemList m_items</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00088">musicdeviceinfomodule.h:88</a></div></div>
+<div class="ttc" id="class_music_device_info_module_html_ab0325c30a67f2c7deeef00298f7fa954"><div class="ttname"><a href="../../db/d45/class_music_device_info_module.html#ab0325c30a67f2c7deeef00298f7fa954">MusicDeviceInfoModule::m_items</a></div><div class="ttdeci">MusicDeviceInfoItemList m_items</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00087">musicdeviceinfomodule.h:87</a></div></div>
 <div class="ttc" id="struct_music_device_info_item_html_a03f2a56825881a5de8610bb4e669b37e"><div class="ttname"><a href="../../d6/d92/struct_music_device_info_item.html#a03f2a56825881a5de8610bb4e669b37e">MusicDeviceInfoItem::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00040">musicdeviceinfomodule.h:40</a></div></div>
 <div class="ttc" id="struct_music_device_info_item_html"><div class="ttname"><a href="../../d6/d92/struct_music_device_info_item.html">MusicDeviceInfoItem</a></div><div class="ttdoc">The class of the system device info item. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00028">musicdeviceinfomodule.h:28</a></div></div>
 <div class="ttc" id="struct_music_device_info_item_html_a3bd4a437db882e4705a4743debd3916e"><div class="ttname"><a href="../../d6/d92/struct_music_device_info_item.html#a3bd4a437db882e4705a4743debd3916e">MusicDeviceInfoItem::m_usedBytes</a></div><div class="ttdeci">int m_usedBytes</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00032">musicdeviceinfomodule.h:32</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
 <div class="ttc" id="struct_music_device_info_item_html_af61cb56eefba0f07bcdc70ece539f936"><div class="ttname"><a href="../../d6/d92/struct_music_device_info_item.html#af61cb56eefba0f07bcdc70ece539f936">MusicDeviceInfoItem::isValid</a></div><div class="ttdeci">bool isValid() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d7c/musicdeviceinfomodule_8h_source.html#l00035">musicdeviceinfomodule.h:35</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
 <div class="ttc" id="musicdeviceinfomodule_8h_html_a41d23655a514d6f90280c1b8a09b0989"><div class="ttname"><a href="../../dc/d7c/musicdeviceinfomodule_8h.html#a41d23655a514d6f90280c1b8a09b0989">TTK_DECLARE_LIST</a></div><div class="ttdeci">TTK_DECLARE_LIST(MusicDeviceInfoItem)</div></div>
@@ -165,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

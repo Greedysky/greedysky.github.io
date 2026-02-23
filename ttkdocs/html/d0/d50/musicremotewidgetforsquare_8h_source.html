@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -105,40 +105,38 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a> : <span class="keyword">public</span> <a class="code" href="../../d5/ddc/class_music_remote_widget.html">MusicRemoteWidget</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> enterTimeout();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> leaveTimeout();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(<a class="code" href="../../d9/d0e/ttkqtcompat_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a> *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">   60</a></span>&#160;    QGraphicsOpacityEffect *m_effect[4];</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">   61</a></span>&#160;    QTimer <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">m_enterTimer</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">   62</a></span>&#160;    QTimer <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">m_leaveTimer</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">   63</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // MUSICREMOTEWIDGETFORSQUARE_H</span></div>
-<div class="ttc" id="ttkqtcompat_8h_html_a4114c390bfece4ce512bab28832337c8"><div class="ttname"><a href="../../d9/d0e/ttkqtcompat_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a></div><div class="ttdeci">#define QtEnterEvent</div><div class="ttdoc">Event enter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00160">ttkqtcompat.h:160</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ~<a class="code" href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> enterTimeout();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> leaveTimeout();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterEvent(<a class="code" href="../../d9/d0e/ttkqtcompat_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a> *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> leaveEvent(QEvent *event) <span class="keyword">override</span> <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a6d586403c510b6d7ba6cce05400e3031">   59</a></span>&#160;    QGraphicsOpacityEffect *m_effect[4];</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">   60</a></span>&#160;    QTimer <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">m_enterTimer</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">   61</a></span>&#160;    QTimer <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">m_leaveTimer</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">   62</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">m_interval</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // MUSICREMOTEWIDGETFORSQUARE_H</span></div>
+<div class="ttc" id="ttkqtcompat_8h_html_a4114c390bfece4ce512bab28832337c8"><div class="ttname"><a href="../../d9/d0e/ttkqtcompat_8h.html#a4114c390bfece4ce512bab28832337c8">QtEnterEvent</a></div><div class="ttdeci">#define QtEnterEvent</div><div class="ttdoc">Event enter. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00178">ttkqtcompat.h:178</a></div></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
-<div class="ttc" id="class_music_remote_widget_for_square_html_a136f998d8aed747ce2f90840f7befb9d"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">MusicRemoteWidgetForSquare::m_enterTimer</a></div><div class="ttdeci">QTimer m_enterTimer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00061">musicremotewidgetforsquare.h:61</a></div></div>
+<div class="ttc" id="class_music_remote_widget_for_square_html_a136f998d8aed747ce2f90840f7befb9d"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#a136f998d8aed747ce2f90840f7befb9d">MusicRemoteWidgetForSquare::m_enterTimer</a></div><div class="ttdeci">QTimer m_enterTimer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00060">musicremotewidgetforsquare.h:60</a></div></div>
 <div class="ttc" id="class_music_remote_widget_for_square_html"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html">MusicRemoteWidgetForSquare</a></div><div class="ttdoc">The class of the desktop square remote widget. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00029">musicremotewidgetforsquare.h:29</a></div></div>
-<div class="ttc" id="class_music_remote_widget_for_square_html_ad816a992350b946ef0f5349dcde2232a"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">MusicRemoteWidgetForSquare::m_leaveTimer</a></div><div class="ttdeci">QTimer m_leaveTimer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00062">musicremotewidgetforsquare.h:62</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
+<div class="ttc" id="class_music_remote_widget_for_square_html_ad816a992350b946ef0f5349dcde2232a"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#ad816a992350b946ef0f5349dcde2232a">MusicRemoteWidgetForSquare::m_leaveTimer</a></div><div class="ttdeci">QTimer m_leaveTimer</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00061">musicremotewidgetforsquare.h:61</a></div></div>
 <div class="ttc" id="class_music_remote_widget_html"><div class="ttname"><a href="../../d5/ddc/class_music_remote_widget.html">MusicRemoteWidget</a></div><div class="ttdoc">The class of the desktop remote widget base. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df6/musicremotewidget_8h_source.html#l00032">musicremotewidget.h:32</a></div></div>
 <div class="ttc" id="musicremotewidget_8h_html"><div class="ttname"><a href="../../d3/df6/musicremotewidget_8h.html">musicremotewidget.h</a></div></div>
-<div class="ttc" id="class_music_remote_widget_for_square_html_a740747326b555683321933d233bfc583"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">MusicRemoteWidgetForSquare::m_interval</a></div><div class="ttdeci">float m_interval</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00063">musicremotewidgetforsquare.h:63</a></div></div>
+<div class="ttc" id="class_music_remote_widget_for_square_html_a740747326b555683321933d233bfc583"><div class="ttname"><a href="../../df/de7/class_music_remote_widget_for_square.html#a740747326b555683321933d233bfc583">MusicRemoteWidgetForSquare::m_interval</a></div><div class="ttdeci">float m_interval</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d50/musicremotewidgetforsquare_8h_source.html#l00062">musicremotewidgetforsquare.h:62</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:03 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:55 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

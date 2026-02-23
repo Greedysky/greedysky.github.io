@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -105,12 +105,12 @@ Public Types</h2></td></tr>
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a2e6d66e23dd92cab6291fa2961635d9f">WidgetPosition</a> = 0x1001, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792">WidgetSize</a> = 0x1002, 
 <br />
-&#160;&#160;<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a68f258fe0607a2972bc965b9cfefc872">UserPermission</a> = 0x1003, 
-<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a5551601f5d9ee7572defffaa00aaa020">ConfigVersion</a> = 0x2000, 
+&#160;&#160;<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a5551601f5d9ee7572defffaa00aaa020">ConfigVersion</a> = 0x2000, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611ae27b983fa45a436c7c1985fa041270a5">PlayMode</a> = 0x2001, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a60d24e701fcba61d53df65a155b77e3e">Volume</a> = 0x2002, 
+<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611affe01db6e1970f3c5e630a044d65f316">LastPlayIndex</a> = 0x2003, 
 <br />
-&#160;&#160;<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611affe01db6e1970f3c5e630a044d65f316">LastPlayIndex</a> = 0x2003, 
+&#160;&#160;<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a68f258fe0607a2972bc965b9cfefc872">UserPermission</a> = 0x2004, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a833c5229f8eb10094443994a91b87b2a">LanguageIndex</a> = 0x3000, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a59a3db51c8fcf64bcf6954becfc30809">StartUpMode</a> = 0x3001, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a51e847f863f18bf5280c680c9b63e463">StartUpPlayMode</a> = 0x3002, 
@@ -222,7 +222,8 @@ Public Types</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611af750227b2ae0c3452c4f58226324b838">DownloadDownloadLimitSize</a> = 0xC006, 
 <a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a6a27be0050ea758f4e34b117a058aa87">DownloadUploadLimitSize</a> = 0xC007, 
-<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a1468fcbbf05f0a7c3d3a2f8f21a903e5">DownloadFileNameRule</a> = 0xC008
+<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a1468fcbbf05f0a7c3d3a2f8f21a903e5">DownloadFileNameRule</a> = 0xC008, 
+<a class="el" href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a7e60b9b9357e177933b3abd87cd5a5c2">DownloadServerPriority</a> = 0xC009
 <br />
  }</td></tr>
 <tr class="separator:a197ee2f5b421c06504a70793a16d6611"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,305 +274,308 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a431813c2b9a62125cd7bf39553568bee"></a>Null&#160;</td><td class="fielddoc">
-<p>No Parameter </p>
+<p>No parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a9b3a890f0bca8384274e25ff41c447b4"></a>ScreenSize&#160;</td><td class="fielddoc">
-<p>Screen Size Parameter </p>
+<p>Screen size parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a2e6d66e23dd92cab6291fa2961635d9f"></a>WidgetPosition&#160;</td><td class="fielddoc">
-<p>Widget Position Parameter </p>
+<p>Widget position parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792"></a>WidgetSize&#160;</td><td class="fielddoc">
-<p>Widget Size Parameter </p>
-</td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a68f258fe0607a2972bc965b9cfefc872"></a>UserPermission&#160;</td><td class="fielddoc">
-<p>User Permission Parameter </p>
+<p>Widget size parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a5551601f5d9ee7572defffaa00aaa020"></a>ConfigVersion&#160;</td><td class="fielddoc">
-<p>Config Version Parameter </p>
+<p>Config version parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ae27b983fa45a436c7c1985fa041270a5"></a>PlayMode&#160;</td><td class="fielddoc">
-<p>Play Mode Parameter </p>
+<p>Play mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a60d24e701fcba61d53df65a155b77e3e"></a>Volume&#160;</td><td class="fielddoc">
-<p><a class="el" href="../../d7/d83/class_volume.html" title="The Volume class provides asbtract volume interface. ">Volume</a> Parameter </p>
+<p><a class="el" href="../../d7/d83/class_volume.html" title="The Volume class provides asbtract volume interface. ">Volume</a> parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611affe01db6e1970f3c5e630a044d65f316"></a>LastPlayIndex&#160;</td><td class="fielddoc">
-<p>Last Play <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Last play index parameter </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a68f258fe0607a2972bc965b9cfefc872"></a>UserPermission&#160;</td><td class="fielddoc">
+<p>User permission parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a833c5229f8eb10094443994a91b87b2a"></a>LanguageIndex&#160;</td><td class="fielddoc">
-<p>Language <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Language index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a59a3db51c8fcf64bcf6954becfc30809"></a>StartUpMode&#160;</td><td class="fielddoc">
-<p>Start Up Mode Parameter </p>
+<p>Start up mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a51e847f863f18bf5280c680c9b63e463"></a>StartUpPlayMode&#160;</td><td class="fielddoc">
-<p>Start Up Play Mode Parameter </p>
+<p>Start up play mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611adb06290d98f588706f5d06074b4d311c"></a>CloseEventMode&#160;</td><td class="fielddoc">
-<p>Close Event Parameter </p>
+<p>Close event parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a83a41f903743134be91fae3ddceabdae"></a>CloseNetWorkMode&#160;</td><td class="fielddoc">
-<p>Close NetWork Parameter </p>
+<p>Close netWork parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611abee169f214cb929b001b9944e2c391a4"></a>FileAssociationMode&#160;</td><td class="fielddoc">
-<p>File Association Parameter </p>
+<p>File association parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611acd5a6423a44e3808108580df47c19251"></a>FileAssociationValue&#160;</td><td class="fielddoc">
-<p>File Association Value Parameter </p>
+<p>File association value parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611afe9ed5209384b3f9d9312d56e31926e2"></a>WindowConciseMode&#160;</td><td class="fielddoc">
-<p>Window Concise Parameter </p>
+<p>Window concise parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ad0c718cdaba67b7bc05e7ce36bd08106"></a>RemoteWidgetMode&#160;</td><td class="fielddoc">
-<p>Remote Widget Mode Parameter </p>
+<p>Remote widget mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a16f9a4a9752fbb0106b722b362e9e69b"></a>WindowQuitMode&#160;</td><td class="fielddoc">
-<p>Window Quit Mode Parameter </p>
+<p>Window quit mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a9f4ed0deb65e2b674ba6c5195d5aba42"></a>ExtraDevicePath&#160;</td><td class="fielddoc">
-<p>Extra Device Path Parameter </p>
+<p>Extra device path parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a13f82c36b85df01811018a94b104a40e"></a>LastFileDialogPath&#160;</td><td class="fielddoc">
-<p>Last File Dialog Path Parameter </p>
+<p>Last file dialog path parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611aba60cee5119b5e0e063c0faf2fb90934"></a>MediaLibraryPath&#160;</td><td class="fielddoc">
-<p>Media Library Path Parameter </p>
+<p>Media library path parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a4c82a18b7feb46f508971a42285de1c7"></a>BackgroundThemeValue&#160;</td><td class="fielddoc">
-<p>Background Theme Parameter </p>
+<p>Background theme parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab0f8ed7434a4968276fe4b69dcb5bb7b"></a>BackgroundTransparent&#160;</td><td class="fielddoc">
-<p>Background Transparent Parameter </p>
+<p>Background transparent parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a81ef8e1c8b399349c6383c6f78df9614"></a>BackgroundListTransparent&#160;</td><td class="fielddoc">
-<p>Background List Transparent Parameter </p>
+<p>Background list transparent parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611afc6b268b48b57bd833ac42e3dfee2bf7"></a>BackgroundTransparentEnable&#160;</td><td class="fielddoc">
-<p>Background Transparent Enable Parameter </p>
+<p>Background transparent enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a3989cf930e3d32abbd2a9184b551ff1b"></a>HotkeyEnable&#160;</td><td class="fielddoc">
-<p>Hotkey Enable Parameter </p>
+<p>Hotkey enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a7382706869a648da4f1868d520ee1a21"></a>HotkeyValue&#160;</td><td class="fielddoc">
-<p>Hotkey String Parameter </p>
+<p>Hotkey string parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1fe80147e0cfd5650a605de40f680156"></a>OtherCheckUpdateEnable&#160;</td><td class="fielddoc">
-<p>Other Check Update Parameter </p>
+<p>Other check update parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ae69ffcca2f865d959c21adad770c6f83"></a>OtherReadAlbumCover&#160;</td><td class="fielddoc">
-<p>Other Read File Album Parameter </p>
+<p>Other read file album parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a60da3b88c3ec8aa74b01297ff76d76fd"></a>OtherReadFileInfo&#160;</td><td class="fielddoc">
-<p>Other Read File Info Parameter </p>
+<p>Other read file info parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a0e49daf60fdd73f6d0a4d6c31c9c0254"></a>OtherWriteAlbumCover&#160;</td><td class="fielddoc">
-<p>Other Write File Album Parameter </p>
+<p>Other write file album parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611afa2151a4e3c4db721c596f20648e9e78"></a>OtherWriteFileInfo&#160;</td><td class="fielddoc">
-<p>Other Write File Info Parameter </p>
+<p>Other write file info parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a8ac838c923f40a64ed7fc269e3c48070"></a>OtherSideByMode&#160;</td><td class="fielddoc">
-<p>Other App Side By Mode Parameter </p>
+<p>Other app side by mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a53fcdaefba02651c1aec8256719b61cf"></a>OtherSideByInMode&#160;</td><td class="fielddoc">
-<p>Other App Side By In Mode Parameter </p>
+<p>Other app side by in mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611affa6b9d84971356c01ff516f58ef7b0e"></a>OtherLrcKTVMode&#160;</td><td class="fielddoc">
-<p>Other Lrc KTV Mode Parameter </p>
+<p>Other lrc KTV mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ac4e7346e4ca59920c54aaa6d04b1ee7c"></a>OtherScreenSaverEnable&#160;</td><td class="fielddoc">
-<p>Other Screen Saver Enable Parameter </p>
+<p>Other screen saver enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a296292f615f79e6771bbf1a2b12f6464"></a>OtherScreenSaverTime&#160;</td><td class="fielddoc">
-<p>Other Screen Saver Time Parameter </p>
+<p>Other screen saver time parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a01a1bf9cf8d6d9c21d46afcc33471229"></a>OtherScreenSaverIndex&#160;</td><td class="fielddoc">
-<p>Other Screen Saver <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Other screen saver index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a0cef03cd1e795a7f7b3da20615784791"></a>OtherPlaylistAutoSaveEnable&#160;</td><td class="fielddoc">
-<p>Other Playlist Auto Save Enable Parameter </p>
+<p>Other playlist auto save enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab0221851adc913944575912112826266"></a>OtherRandomShuffleMode&#160;</td><td class="fielddoc">
-<p>Other Random Shuffle Mode Parameter </p>
+<p>Other random shuffle mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611aaab13b07c7745ddce3e6ada44ed9cda9"></a>OtherHighDpiScalingEnable&#160;</td><td class="fielddoc">
-<p>Other High DPI Scaling Enable Parameter </p>
+<p>Other high DPI scaling enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a7610ac458bf35cc4e8e601cb2e4ef845"></a>OtherLogTrackEnable&#160;</td><td class="fielddoc">
-<p>Other Log Track Enable Parameter </p>
+<p>Other log track enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ad17bb7a9fa8a7aae66f4930cc3be5c02"></a>RippleLowPowerMode&#160;</td><td class="fielddoc">
-<p>Ripple Low Power Mode Parameter </p>
+<p>Ripple low power mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a4498180a796602f57e9ee6591ccfd4ba"></a>RippleSpectrumEnable&#160;</td><td class="fielddoc">
-<p>Ripple Spectrum Enable Parameter </p>
+<p>Ripple spectrum enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a0cf1c35e7e3b50488b395ca99ae1af24"></a>RippleSpectrumColor&#160;</td><td class="fielddoc">
-<p>Ripple Spectrum Color Parameter </p>
+<p>Ripple spectrum color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ad8056c15bddcf3dc7222383a8c056201"></a>RippleSpectrumTransparent&#160;</td><td class="fielddoc">
-<p>Ripple Spectrum Transparent Parameter </p>
+<p>Ripple spectrum transparent parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611af930264056d065dd085f2b5f072d6e53"></a>ShowInteriorLrc&#160;</td><td class="fielddoc">
-<p>Show Interior Lrc Parameter </p>
+<p>Show interior lrc parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a148bdcb61b232f1b30d37e947be4e8ba"></a>LrcColor&#160;</td><td class="fielddoc">
-<p>Lrc Color Parameter </p>
+<p>Lrc color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611aa05ae661c567ff2f96dc1b9b59d57a03"></a>LrcSize&#160;</td><td class="fielddoc">
-<p>Lrc Size Parameter </p>
+<p>Lrc size parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611add65c476160065dc00ded4386f0e97ed"></a>LrcType&#160;</td><td class="fielddoc">
-<p>Lrc Type Parameter </p>
+<p>Lrc type parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a11b89f63a41c156b9d7ca0fcf5dab9cf"></a>LrcFamily&#160;</td><td class="fielddoc">
-<p>Lrc Family Parameter </p>
+<p>Lrc family parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a3525caefc54cd1211667e782b785f961"></a>LrcFrontgroundColor&#160;</td><td class="fielddoc">
-<p>Lrc Frontground Color Parameter </p>
+<p>Lrc frontground color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab7e088b46b3678c76db785c47efda977"></a>LrcBackgroundColor&#160;</td><td class="fielddoc">
-<p>Lrc Background Color Parameter </p>
+<p>Lrc background color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a32d44bf9807f88eaaa3b5793b96f67cb"></a>LrcColorTransparent&#160;</td><td class="fielddoc">
-<p>Lrc Color Transparent Parameter </p>
+<p>Lrc color transparent parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a96315b98d4952dc225ecd4f911d870c6"></a>ShowDesktopLrc&#160;</td><td class="fielddoc">
-<p>Show Desktop Lrc Parameter </p>
+<p>Show desktop lrc parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a0aefa24c27b2eaf748ebb60c673a1ee9"></a>DLrcColor&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Color Parameter </p>
+<p>Desktop lrc color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab85b9c0f691e1f1f4379588e4f2018a6"></a>DLrcSize&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Size Parameter </p>
+<p>Desktop lrc size parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a04b9d7b6b6bd8f5626d5bde602e872ac"></a>DLrcType&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Type Parameter </p>
+<p>Desktop lrc type parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a3740f8ee444da7b6ac076c1d027cc510"></a>DLrcFamily&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Family Parameter </p>
+<p>Desktop lrc family parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a60e10126121ce8cf4e237a3cc7d3a193"></a>DLrcFrontgroundColor&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Frontground Color Parameter </p>
+<p>Desktop lrc frontground color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a9284d8d88f510d2f8846a46d3f43cecd"></a>DLrcBackgroundColor&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Background Color Parameter </p>
+<p>Desktop lrc background color parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a8dbdb032fff64fcdc2c52b1d234d27c7"></a>DLrcColorTransparent&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Color Transparent Parameter </p>
+<p>Desktop lrc color transparent parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab5063bb65ffc2e9f68d84841bdbf2b94"></a>DLrcWindowMode&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Window Mode Parameter </p>
+<p>Desktop lrc window mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611aeb34f724d00486a6f306e3940781591d"></a>DLrcSingleLineMode&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Single Line Mode Parameter </p>
+<p>Desktop lrc single line Mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a9e94dece3021aa3a0cc10c33574f02da"></a>DLrcLockedMode&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Locked Mode Parameter </p>
+<p>Desktop lrc locked mode parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a328146041651a730cd9827dc7f946021"></a>DLrcGeometry&#160;</td><td class="fielddoc">
-<p>Desktop Lrc Geometry Parameter </p>
+<p>Desktop lrc geometry parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a4b1be8497f10e5df0a1dc763cd032370"></a>EqualizerEnable&#160;</td><td class="fielddoc">
-<p>Equalizer Enable Parameter </p>
+<p>Equalizer enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a443b98eee2f1a001263901bd1cf2f884"></a>EqualizerValue&#160;</td><td class="fielddoc">
-<p>Equalizer Value Parameter </p>
+<p>Equalizer value parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a94adc70041a316a3c4e9268875ad64a7"></a>EqualizerIndex&#160;</td><td class="fielddoc">
-<p>Equalizer <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Equalizer index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a3e1d913d2a3f1f4dbad5b5876054a135"></a>EnhancedMusicIndex&#160;</td><td class="fielddoc">
-<p>Enhanced Music Parameter </p>
+<p>Enhanced music parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a98f456954cb1157c8e908e3344979335"></a>EnhancedFadeEnable&#160;</td><td class="fielddoc">
-<p>Enhanced Fade Enable Parameter </p>
+<p>Enhanced fade enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a8329f62ddba9737a1765e87361fda4c4"></a>EnhancedFadeInValue&#160;</td><td class="fielddoc">
-<p>Enhanced Fade In Value Parameter </p>
+<p>Enhanced fade in value parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a34b4edbeeb04b79fdeef09748e25b851"></a>EnhancedFadeOutValue&#160;</td><td class="fielddoc">
-<p>Enhanced Fade Out Value Parameter </p>
+<p>Enhanced fade out value parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611aefd63b1804625bd79b813a33e12051e9"></a>EnhancedEffectValue&#160;</td><td class="fielddoc">
-<p>Enhanced <a class="el" href="../../d6/d58/class_effect.html" title="The Effect class provides the base interface class of audio effects. ">Effect</a> Value Parameter </p>
+<p>Enhanced effect value parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611af922699a29efb296a0b75f751d0a918c"></a>TimerAutoIndex&#160;</td><td class="fielddoc">
-<p>Timer Auto <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Timer auto index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1c247dcf87e8c59fd019a5f00f9f6a79"></a>TimerAutoPlayMode&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Parameter </p>
+<p>Timer auto play parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ac0e13a32ccb9689df6bbf30fcb737c44"></a>TimerAutoPlayHour&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Hour Parameter </p>
+<p>Timer auto play hour parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a9b142636efd7d72a0da8b261a3899c7c"></a>TimerAutoPlaySecond&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Second Parameter </p>
+<p>Timer auto play second parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a123a1c49c69fe626ba8f4ea1c4986d68"></a>TimerAutoPlayRepeat&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Repeat Parameter </p>
+<p>Timer auto play repeat parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a30d9cd5499498b5244afca616f14ea92"></a>TimerAutoPlayItemIndex&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Item <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Timer auto play item index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611abd12cc8723f7b0699b3272c6b4fdd598"></a>TimerAutoPlaySongIndex&#160;</td><td class="fielddoc">
-<p>Timer Auto Play Song <a class="el" href="../../dc/d6f/struct_index.html">Index</a> Parameter </p>
+<p>Timer auto play song index parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a86c149af46383e76abcaa6fb9815e303"></a>TimerAutoStopMode&#160;</td><td class="fielddoc">
-<p>Timer Auto Stop Parameter </p>
+<p>Timer auto stop parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1bfc250e6044737126bc6e0bb0afa3e1"></a>TimerAutoStopHour&#160;</td><td class="fielddoc">
-<p>Timer Auto Stop Hour Parameter </p>
+<p>Timer auto stop hour parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a560003c048251b0241d228953e5312f7"></a>TimerAutoStopSecond&#160;</td><td class="fielddoc">
-<p>Timer Auto Stop Second Parameter </p>
+<p>Timer auto stop second parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ae2d3d7eaf4b1391898398b77318e5203"></a>TimerAutoStopRepeat&#160;</td><td class="fielddoc">
-<p>Timer Auto Stop Repeat Parameter </p>
+<p>Timer auto stop repeat parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a7635a59d3423c6ad2f09056cf2b5f674"></a>TimerAutoShutdownMode&#160;</td><td class="fielddoc">
-<p>Timer Auto Shutdown Parameter </p>
+<p>Timer auto shutdown parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a081603adbb93bc6ffe012f6fec10e160"></a>TimerAutoShutdownHour&#160;</td><td class="fielddoc">
-<p>Timer Auto Shutdown Hour Parameter </p>
+<p>Timer auto shutdown Hour parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611accab0ee7c209b86271b4ae10bd14ff8e"></a>TimerAutoShutdownSecond&#160;</td><td class="fielddoc">
-<p>Timer Auto Shutdown Second Parameter </p>
+<p>Timer auto shutdown Second parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1a4bc1b8d3feb2a709f489ec2df74a82"></a>TimerAutoShutdownRepeat&#160;</td><td class="fielddoc">
-<p>Timer Auto Shutdown Repeat Parameter </p>
+<p>Timer auto shutdown Repeat parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ae980fea7478642b97fd7e2630f53b25d"></a>DownloadMusicDirPath&#160;</td><td class="fielddoc">
-<p>Download Music Dir Path Parameter </p>
+<p>Download music dir path parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611ab2d115d0f11375aed023107279b26fb1"></a>DownloadLrcDirPath&#160;</td><td class="fielddoc">
-<p>Download Lrc Dir Path Parameter </p>
+<p>Download lrc dir path parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a09a98420015fd6a068fdfe403f485b2d"></a>DownloadServerIndex&#160;</td><td class="fielddoc">
-<p>Download Server Parameter </p>
+<p>Download server parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1d000fa5af3fd09fb6ceb873f95a907f"></a>DownloadCacheEnable&#160;</td><td class="fielddoc">
-<p>Download Cache Enable Parameter </p>
+<p>Download cache enable parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611af0aea6790ae9a67dc1430a52a2dbfe8c"></a>DownloadCacheSize&#160;</td><td class="fielddoc">
-<p>Download Cache Size Parameter </p>
+<p>Download cache size parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a022f938b93eb097cd243f5f75720c718"></a>DownloadLimitEnable&#160;</td><td class="fielddoc">
-<p>Download Limit Parameter </p>
+<p>Download limit parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611af750227b2ae0c3452c4f58226324b838"></a>DownloadDownloadLimitSize&#160;</td><td class="fielddoc">
-<p>Download Download Limit Parameter </p>
+<p>Download download limit parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a6a27be0050ea758f4e34b117a058aa87"></a>DownloadUploadLimitSize&#160;</td><td class="fielddoc">
-<p>Download Upload Limit Parameter </p>
+<p>Download upload limit parameter </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a1468fcbbf05f0a7c3d3a2f8f21a903e5"></a>DownloadFileNameRule&#160;</td><td class="fielddoc">
-<p>Download File Name Rule Parameter </p>
+<p>Download file name rule parameter </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a197ee2f5b421c06504a70793a16d6611a7e60b9b9357e177933b3abd87cd5a5c2"></a>DownloadServerPriority&#160;</td><td class="fielddoc">
+<p>Download server priority parameter </p>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00036">36</a> of file <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html">musicsettingmanager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00035">35</a> of file <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html">musicsettingmanager.h</a>.</p>
 
 </div>
 </div>
@@ -754,7 +758,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html#l00210">210</a> of file <a class="el" href="../../dd/d2f/musicsettingmanager_8h_source.html">musicsettingmanager.h</a>.</p>
 
-<p>References <a class="el" href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00030">key</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
+<p>References <a class="el" href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00031">key</a>, and <a class="el" href="../../df/d7f/ttkglobal_8h_source.html#l00231">TTKStaticCast</a>.</p>
 
 </div>
 </div>
@@ -863,7 +867,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:15 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:10:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

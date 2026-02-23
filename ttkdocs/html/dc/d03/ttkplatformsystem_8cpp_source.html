@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#  include &lt;qt_windows.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#elif defined Q_OS_LINUX</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#  include &lt;QFile&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#  include &lt;QRegExp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#  include &quot;<a class="code" href="../../da/d12/ttkregularexpression_8h.html">ttkregularexpression.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="../../da/d3f/class_t_t_k_platform_system.html#a0c7ac75704d0e4739fd7a9b362aee44f">   11</a></span>&#160;<a class="code" href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3e">TTKPlatformSystem::System</a> <a class="code" href="../../da/d3f/class_t_t_k_platform_system.html#a0c7ac75704d0e4739fd7a9b362aee44f">TTKPlatformSystem::systemName</a>()</div>
@@ -178,10 +178,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    QFile file(<span class="stringliteral">&quot;/etc/lsb-release&quot;</span>);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(file.open(QIODevice::ReadOnly))</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">const</span> QRegExp regx(<span class="stringliteral">&quot;DISTRIB_ID=(\\w+)&quot;</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">if</span>(regx.indexIn(QString(file.readAll())) != -1)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d3/d5e/class_t_t_k_regular_expression.html">TTKRegularExpression</a> regx(<span class="stringliteral">&quot;DISTRIB_ID=(\\w+)&quot;</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">if</span>(regx.<a class="code" href="../../d3/d5e/class_t_t_k_regular_expression.html#a04a1c29cd324d7ceebc7fae2789fb14e">match</a>(QString(file.readAll())) != -1)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">const</span> QString &amp;system = regx.cap(1).toLower();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">const</span> QString &amp;system = regx.<a class="code" href="../../d3/d5e/class_t_t_k_regular_expression.html#a9a3d3aa979d9fe2432fd752e298da276">captured</a>(1).toLower();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span>(system == <span class="stringliteral">&quot;ubuntu&quot;</span>)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
@@ -210,6 +210,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea0e4f5c6abb795a7fc8fdbc72a8fa7e53"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea0e4f5c6abb795a7fc8fdbc72a8fa7e53">TTKPlatformSystem::System::Win11</a></div></div>
 <div class="ttc" id="ttkqtglobal_8h_html_ab3bcb6244a7d240e0efc1b184da83228"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#ab3bcb6244a7d240e0efc1b184da83228">TTKVoidCast</a></div><div class="ttdeci">#define TTKVoidCast(x)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00088">ttkqtglobal.h:88</a></div></div>
+<div class="ttc" id="class_t_t_k_regular_expression_html_a9a3d3aa979d9fe2432fd752e298da276"><div class="ttname"><a href="../../d3/d5e/class_t_t_k_regular_expression.html#a9a3d3aa979d9fe2432fd752e298da276">TTKRegularExpression::captured</a></div><div class="ttdeci">QString captured(int index) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9f/ttkregularexpression_8cpp_source.html#l00079">ttkregularexpression.cpp:79</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3eaabccd03bd8a762761e4f8c4dac063540"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3eaabccd03bd8a762761e4f8c4dac063540">TTKPlatformSystem::System::WinMe</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea07d98a978840ae02e32312eedf2003eb"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea07d98a978840ae02e32312eedf2003eb">TTKPlatformSystem::System::WinServer2008R2</a></div></div>
 <div class="ttc" id="ttkplatformsystem_8h_html"><div class="ttname"><a href="../../d5/d62/ttkplatformsystem_8h.html">ttkplatformsystem.h</a></div></div>
@@ -217,6 +218,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3eadbc5b4e0077cf1e6d1f13dd8077927dd"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3eadbc5b4e0077cf1e6d1f13dd8077927dd">TTKPlatformSystem::System::WinServer2008</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3eaedc9f0a5a5d57797bf68e37364743831"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3eaedc9f0a5a5d57797bf68e37364743831">TTKPlatformSystem::System::Linux</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea2db3b39554a65e74dc71060aef77a2a5"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea2db3b39554a65e74dc71060aef77a2a5">TTKPlatformSystem::System::Win2000</a></div></div>
+<div class="ttc" id="ttkregularexpression_8h_html"><div class="ttname"><a href="../../da/d12/ttkregularexpression_8h.html">ttkregularexpression.h</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3eabc28fabac9a9f6ad41a2c379f2f208c2"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3eabc28fabac9a9f6ad41a2c379f2f208c2">TTKPlatformSystem::System::WinXPProfessionalEdition</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea08a5d6486b5ab80c4aed527aa4cec172"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea08a5d6486b5ab80c4aed527aa4cec172">TTKPlatformSystem::System::Win98</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea1cabf752fddda0d2b56494fef256644a"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea1cabf752fddda0d2b56494fef256644a">TTKPlatformSystem::System::LinuxUbuntu</a></div></div>
@@ -229,9 +231,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea820daf803dbb02697f8a0e1d72fd9949"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea820daf803dbb02697f8a0e1d72fd9949">TTKPlatformSystem::System::WinServer2003R2</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea4fd90aab9752619ceaa899a9ba150cb8"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea4fd90aab9752619ceaa899a9ba150cb8">TTKPlatformSystem::System::WinXP</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea1748c0644a50090814d3e170723ccc5c"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea1748c0644a50090814d3e170723ccc5c">TTKPlatformSystem::System::Mac</a></div></div>
+<div class="ttc" id="class_t_t_k_regular_expression_html"><div class="ttname"><a href="../../d3/d5e/class_t_t_k_regular_expression.html">TTKRegularExpression</a></div><div class="ttdoc">The class of the regular expression. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d12/ttkregularexpression_8h_source.html#l00032">ttkregularexpression.h:32</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea0b59ea526cf7f09cafbd44a830e2d426"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea0b59ea526cf7f09cafbd44a830e2d426">TTKPlatformSystem::System::WinVista</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea6dfef76047531cabb2f6441add99cc16"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea6dfef76047531cabb2f6441add99cc16">TTKPlatformSystem::System::Win7</a></div></div>
-<div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3e"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3e">TTKPlatformSystem::System</a></div><div class="ttdeci">System</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d62/ttkplatformsystem_8h_source.html#l00031">ttkplatformsystem.h:31</a></div></div>
+<div class="ttc" id="class_t_t_k_regular_expression_html_a04a1c29cd324d7ceebc7fae2789fb14e"><div class="ttname"><a href="../../d3/d5e/class_t_t_k_regular_expression.html#a04a1c29cd324d7ceebc7fae2789fb14e">TTKRegularExpression::match</a></div><div class="ttdeci">int match(const QString &amp;str, int pos=0)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d9f/ttkregularexpression_8cpp_source.html#l00069">ttkregularexpression.cpp:69</a></div></div>
+<div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3e"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3e">TTKPlatformSystem::System</a></div><div class="ttdeci">System</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d62/ttkplatformsystem_8h_source.html#l00030">ttkplatformsystem.h:30</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea19be07927f4e4998431d0fb9efa06866"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea19be07927f4e4998431d0fb9efa06866">TTKPlatformSystem::System::LinuxCentOS</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3eaae152848155b6ec437a4744df8c96e40"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3eaae152848155b6ec437a4744df8c96e40">TTKPlatformSystem::System::Win95</a></div></div>
 <div class="ttc" id="class_t_t_k_platform_system_html_a9593b217136e81e37157ef64e493cc3ea5d64ef9414269c0d0fdc8a9fc31d484a"><div class="ttname"><a href="../../da/d3f/class_t_t_k_platform_system.html#a9593b217136e81e37157ef64e493cc3ea5d64ef9414269c0d0fdc8a9fc31d484a">TTKPlatformSystem::System::Win8</a></div></div>
@@ -240,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

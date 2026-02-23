@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -158,43 +158,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#ad092b111c1e8368df807933b5d66aa37">   80</a></span>&#160;QString <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#ad092b111c1e8368df807933b5d66aa37">TTK::Url::urlPrettyEncode</a>(QString &amp;data)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    data = QUrl(data).toString(QUrl::FullyEncoded);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    data = QUrl(data).toEncoded();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">   90</a></span>&#160;QString <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a>(QString &amp;data)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    data = QUrl(data).toString();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    data = QByteArray::fromPercentEncoding(data.toUtf8());</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a5cd606a489857538364870e397ff7670">  100</a></span>&#160;QByteArray <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#ad092b111c1e8368df807933b5d66aa37">TTK::Url::urlPrettyEncode</a>(QByteArray &amp;data)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    data = QUrl(data).toString(QUrl::FullyEncoded).toUtf8();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    data = QUrl(data).toEncoded();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a06ab16791f7b530e9f6f2c09ce30b29c">  110</a></span>&#160;QByteArray <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a>(QByteArray &amp;data)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    data = QUrl::fromEncoded(data).toString(QUrl::FullyDecoded).toUtf8();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    data = QByteArray::fromPercentEncoding(data);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    data = QUrl(data).toEncoded();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">   86</a></span>&#160;QString <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a>(QString &amp;data)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    data = QUrl(data).toString();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    data = QUrl::fromPercentEncoding(data.toUtf8());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a5cd606a489857538364870e397ff7670">   96</a></span>&#160;QByteArray <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#ad092b111c1e8368df807933b5d66aa37">TTK::Url::urlPrettyEncode</a>(QByteArray &amp;data)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    data = QUrl(data).toEncoded();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a06ab16791f7b530e9f6f2c09ce30b29c">  102</a></span>&#160;QByteArray <a class="code" href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a>(QByteArray &amp;data)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#if TTK_QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    data = QUrl::fromEncoded(data).toString(QUrl::FullyDecoded).toUtf8();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    data = QByteArray::fromPercentEncoding(data);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
 <div class="ttc" id="ttkplatformsystem_8h_html"><div class="ttname"><a href="../../d5/d62/ttkplatformsystem_8h.html">ttkplatformsystem.h</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_url_html_a2fef7f64be0aec95cead31f433083475"><div class="ttname"><a href="../../d1/d88/namespace_t_t_k_1_1_url.html#a2fef7f64be0aec95cead31f433083475">TTK::Url::urlEncode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString urlEncode(QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dfa/musicurlutils_8cpp_source.html#l00048">musicurlutils.cpp:48</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_url_html_a6136467d95a46c9e4cf7ce305d17bbc6"><div class="ttname"><a href="../../d1/d88/namespace_t_t_k_1_1_url.html#a6136467d95a46c9e4cf7ce305d17bbc6">TTK::Url::execute</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool execute(const QString &amp;path)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dfa/musicurlutils_8cpp_source.html#l00013">musicurlutils.cpp:13</a></div></div>
@@ -205,12 +197,12 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="ttkglobal_8h_html_a7e2bd829dabed34d8e7c01d681731be8"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a7e2bd829dabed34d8e7c01d681731be8">TTK_SEPARATOR</a></div><div class="ttdeci">#define TTK_SEPARATOR</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00269">ttkglobal.h:269</a></div></div>
 <div class="ttc" id="unzip_8c_html_a08023ea6765c99d60a6a3840cd07156e"><div class="ttname"><a href="../../d6/da7/unzip_8c.html#a08023ea6765c99d60a6a3840cd07156e">local</a></div><div class="ttdeci">#define local</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/da7/unzip_8c_source.html#l00091">unzip.c:91</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_url_html_a9bfbfb7e2aa74ee61193ffc212bbdd08"><div class="ttname"><a href="../../d1/d88/namespace_t_t_k_1_1_url.html#a9bfbfb7e2aa74ee61193ffc212bbdd08">TTK::Url::openUrl</a></div><div class="ttdeci">TTK_MODULE_EXPORT bool openUrl(const QString &amp;path, bool local=true)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dfa/musicurlutils_8cpp_source.html#l00023">musicurlutils.cpp:23</a></div></div>
-<div class="ttc" id="namespace_t_t_k_1_1_url_html_a0089ed2385331284c97d1f92a0de82eb"><div class="ttname"><a href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString urlPrettyDecode(QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dfa/musicurlutils_8cpp_source.html#l00090">musicurlutils.cpp:90</a></div></div>
+<div class="ttc" id="namespace_t_t_k_1_1_url_html_a0089ed2385331284c97d1f92a0de82eb"><div class="ttname"><a href="../../d1/d88/namespace_t_t_k_1_1_url.html#a0089ed2385331284c97d1f92a0de82eb">TTK::Url::urlPrettyDecode</a></div><div class="ttdeci">TTK_MODULE_EXPORT QString urlPrettyDecode(QString &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dfa/musicurlutils_8cpp_source.html#l00086">musicurlutils.cpp:86</a></div></div>
 <div class="ttc" id="musicurlutils_8h_html"><div class="ttname"><a href="../../de/d91/musicurlutils_8h.html">musicurlutils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

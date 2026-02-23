@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -115,84 +115,85 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QWidget::paintEvent(event);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    QFont f(font());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    f.setBold(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    painter.setFont(f);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> textWidth = <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a7893c3a603b179968d60438c34a4d4b6">TTK::Widget::fontTextWidth</a>(font(), <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(textWidth &lt; 1)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> x = -<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">while</span>(x &lt; width())</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        painter.drawText(x, 0, textWidth, height(), Qt::AlignLeft | Qt::AlignVCenter, <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        x += textWidth;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">MusicMarqueeWidget::showEvent</a>(QShowEvent *event)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    QWidget::showEvent(event);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a> = startTimer(30);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">MusicMarqueeWidget::timerEvent</a>(QTimerEvent *event)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span>(event-&gt;timerId() == <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a>)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        ++<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a> &gt;= <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a7893c3a603b179968d60438c34a4d4b6">TTK::Widget::fontTextWidth</a>(font(), <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>))</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a> = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        scroll(-1, 0);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        QWidget::timerEvent(event);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">MusicMarqueeWidget::hideEvent</a>(QHideEvent *event)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    QWidget::hideEvent(event);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    killTimer(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a> = 0;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">   88</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">MusicMarqueeWidget::resizeEvent</a>(QResizeEvent *event)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    QWidget::resizeEvent(event);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4b236f75e5a9c74f143aad8d8a78552b">setText</a>(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a8596311fbcdfb65945da35897066414c">text</a>());</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="ttc" id="class_music_marquee_widget_html_a1d0eff7ec70571e45df29ba9c2741e91"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">MusicMarqueeWidget::hideEvent</a></div><div class="ttdeci">virtual void hideEvent(QHideEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00081">musicmarqueewidget.cpp:81</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a3a8862971f757b503cb4cafe756349ef"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">MusicMarqueeWidget::m_offset</a></div><div class="ttdeci">int m_offset</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00066">musicmarqueewidget.h:66</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    painter.setRenderHint(QPainter::TextAntialiasing);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    QFont f(font());</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    f.setBold(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    painter.setFont(f);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> textWidth = <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a7893c3a603b179968d60438c34a4d4b6">TTK::Widget::fontTextWidth</a>(font(), <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span>(textWidth &lt; 1)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> x = -<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">while</span>(x &lt; width())</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        painter.drawText(x, 0, textWidth, height(), Qt::AlignLeft | Qt::AlignVCenter, <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        x += textWidth;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">MusicMarqueeWidget::showEvent</a>(QShowEvent *event)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    QWidget::showEvent(event);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a> = startTimer(30);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">MusicMarqueeWidget::timerEvent</a>(QTimerEvent *event)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span>(event-&gt;timerId() == <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        ++<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a> &gt;= <a class="code" href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a7893c3a603b179968d60438c34a4d4b6">TTK::Widget::fontTextWidth</a>(font(), <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">m_text</a>))</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">m_offset</a> = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        scroll(-1, 0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        QWidget::timerEvent(event);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">MusicMarqueeWidget::hideEvent</a>(QHideEvent *event)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    QWidget::hideEvent(event);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    killTimer(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">m_timerId</a> = 0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">MusicMarqueeWidget::resizeEvent</a>(QResizeEvent *event)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QWidget::resizeEvent(event);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a4b236f75e5a9c74f143aad8d8a78552b">setText</a>(<a class="code" href="../../d7/dd5/class_music_marquee_widget.html#a8596311fbcdfb65945da35897066414c">text</a>());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="ttc" id="class_music_marquee_widget_html_a1d0eff7ec70571e45df29ba9c2741e91"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a1d0eff7ec70571e45df29ba9c2741e91">MusicMarqueeWidget::hideEvent</a></div><div class="ttdeci">virtual void hideEvent(QHideEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00082">musicmarqueewidget.cpp:82</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a3a8862971f757b503cb4cafe756349ef"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a3a8862971f757b503cb4cafe756349ef">MusicMarqueeWidget::m_offset</a></div><div class="ttdeci">int m_offset</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00065">musicmarqueewidget.h:65</a></div></div>
 <div class="ttc" id="musicwidgetutils_8h_html"><div class="ttname"><a href="../../d3/d4c/musicwidgetutils_8h.html">musicwidgetutils.h</a></div></div>
 <div class="ttc" id="musicmarqueewidget_8h_html"><div class="ttname"><a href="../../d0/dc2/musicmarqueewidget_8h.html">musicmarqueewidget.h</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a5e4c9416c119b91a3026dcfa7d945c1c"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">MusicMarqueeWidget::showEvent</a></div><div class="ttdeci">virtual void showEvent(QShowEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00058">musicmarqueewidget.cpp:58</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a8596311fbcdfb65945da35897066414c"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a8596311fbcdfb65945da35897066414c">MusicMarqueeWidget::text</a></div><div class="ttdeci">QString text() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00049">musicmarqueewidget.h:49</a></div></div>
-<div class="ttc" id="class_music_setting_manager_html_a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792">MusicSettingManager::WidgetSize</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00041">musicsettingmanager.h:41</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a5e4c9416c119b91a3026dcfa7d945c1c"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a5e4c9416c119b91a3026dcfa7d945c1c">MusicMarqueeWidget::showEvent</a></div><div class="ttdeci">virtual void showEvent(QShowEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00059">musicmarqueewidget.cpp:59</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a8596311fbcdfb65945da35897066414c"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a8596311fbcdfb65945da35897066414c">MusicMarqueeWidget::text</a></div><div class="ttdeci">QString text() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00048">musicmarqueewidget.h:48</a></div></div>
+<div class="ttc" id="class_music_setting_manager_html_a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792"><div class="ttname"><a href="../../db/d01/class_music_setting_manager.html#a197ee2f5b421c06504a70793a16d6611a3ff9277d0bd6ea9aba619e7fb3a2a792">MusicSettingManager::WidgetSize</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00040">musicsettingmanager.h:40</a></div></div>
 <div class="ttc" id="class_music_marquee_widget_html_ad57cc94985f1e85bc88ac0634a6f0368"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#ad57cc94985f1e85bc88ac0634a6f0368">MusicMarqueeWidget::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00035">musicmarqueewidget.cpp:35</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_ad5e0312230e6fc56cca30a7567f0c881"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">MusicMarqueeWidget::timerEvent</a></div><div class="ttdeci">virtual void timerEvent(QTimerEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00064">musicmarqueewidget.cpp:64</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_ad5e0312230e6fc56cca30a7567f0c881"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#ad5e0312230e6fc56cca30a7567f0c881">MusicMarqueeWidget::timerEvent</a></div><div class="ttdeci">virtual void timerEvent(QTimerEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00065">musicmarqueewidget.cpp:65</a></div></div>
 <div class="ttc" id="class_music_marquee_widget_html_a4b236f75e5a9c74f143aad8d8a78552b"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a4b236f75e5a9c74f143aad8d8a78552b">MusicMarqueeWidget::setText</a></div><div class="ttdeci">void setText(const QString &amp;newText)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00014">musicmarqueewidget.cpp:14</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html">musicsettingmanager.h</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_aad758e61c99f5a84bf27dda8d229e69b"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#aad758e61c99f5a84bf27dda8d229e69b">MusicMarqueeWidget::m_effectOnResize</a></div><div class="ttdeci">bool m_effectOnResize</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00067">musicmarqueewidget.h:67</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_aad758e61c99f5a84bf27dda8d229e69b"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#aad758e61c99f5a84bf27dda8d229e69b">MusicMarqueeWidget::m_effectOnResize</a></div><div class="ttdeci">bool m_effectOnResize</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00066">musicmarqueewidget.h:66</a></div></div>
 <div class="ttc" id="namespace_t_t_k_1_1_widget_html_a7893c3a603b179968d60438c34a4d4b6"><div class="ttname"><a href="../../d0/d27/namespace_t_t_k_1_1_widget.html#a7893c3a603b179968d60438c34a4d4b6">TTK::Widget::fontTextWidth</a></div><div class="ttdeci">TTK_MODULE_EXPORT int fontTextWidth(const QFont &amp;font, const QString &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d90/musicwidgetutils_8cpp_source.html#l00049">musicwidgetutils.cpp:49</a></div></div>
 <div class="ttc" id="class_music_marquee_widget_html_a1a994da6afea74f3a46f144d50790647"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a1a994da6afea74f3a46f144d50790647">MusicMarqueeWidget::MusicMarqueeWidget</a></div><div class="ttdeci">MusicMarqueeWidget(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00005">musicmarqueewidget.cpp:5</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a9becfe1891ed27bd7c130a52238c12cb"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">MusicMarqueeWidget::resizeEvent</a></div><div class="ttdeci">virtual void resizeEvent(QResizeEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00088">musicmarqueewidget.cpp:88</a></div></div>
-<div class="ttc" id="musicobject_8h_html_ad2895e76b2d6926246c57cdb09ea1f62"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#ad2895e76b2d6926246c57cdb09ea1f62">WINDOW_WIDTH_MIN</a></div><div class="ttdeci">#define WINDOW_WIDTH_MIN</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00167">musicobject.h:167</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a9becfe1891ed27bd7c130a52238c12cb"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a9becfe1891ed27bd7c130a52238c12cb">MusicMarqueeWidget::resizeEvent</a></div><div class="ttdeci">virtual void resizeEvent(QResizeEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00089">musicmarqueewidget.cpp:89</a></div></div>
+<div class="ttc" id="musicobject_8h_html_ad2895e76b2d6926246c57cdb09ea1f62"><div class="ttname"><a href="../../d8/d07/musicobject_8h.html#ad2895e76b2d6926246c57cdb09ea1f62">WINDOW_WIDTH_MIN</a></div><div class="ttdeci">#define WINDOW_WIDTH_MIN</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00172">musicobject.h:172</a></div></div>
 <div class="ttc" id="class_music_marquee_widget_html_a997b60b1ce4ba923b98a4ad27b89620d"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a997b60b1ce4ba923b98a4ad27b89620d">MusicMarqueeWidget::sizeHint</a></div><div class="ttdeci">virtual QSize sizeHint() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../de/de6/musicmarqueewidget_8cpp_source.html#l00030">musicmarqueewidget.cpp:30</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a89e822223a708849b3a0517677f6cb91"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">MusicMarqueeWidget::m_timerId</a></div><div class="ttdeci">int m_timerId</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00066">musicmarqueewidget.h:66</a></div></div>
-<div class="ttc" id="class_music_marquee_widget_html_a4aaac1c345ababa1cbc5a0c961692985"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">MusicMarqueeWidget::m_text</a></div><div class="ttdeci">QString m_text</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00065">musicmarqueewidget.h:65</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a89e822223a708849b3a0517677f6cb91"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a89e822223a708849b3a0517677f6cb91">MusicMarqueeWidget::m_timerId</a></div><div class="ttdeci">int m_timerId</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00065">musicmarqueewidget.h:65</a></div></div>
+<div class="ttc" id="class_music_marquee_widget_html_a4aaac1c345ababa1cbc5a0c961692985"><div class="ttname"><a href="../../d7/dd5/class_music_marquee_widget.html#a4aaac1c345ababa1cbc5a0c961692985">MusicMarqueeWidget::m_text</a></div><div class="ttdeci">QString m_text</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dc2/musicmarqueewidget_8h_source.html#l00064">musicmarqueewidget.h:64</a></div></div>
 <div class="ttc" id="musicsettingmanager_8h_html_aa4b1c2dd92254ebaec27b4f02b2fa404"><div class="ttname"><a href="../../dd/d2f/musicsettingmanager_8h.html#aa4b1c2dd92254ebaec27b4f02b2fa404">G_SETTING_PTR</a></div><div class="ttdeci">#define G_SETTING_PTR</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2f/musicsettingmanager_8h_source.html#l00223">musicsettingmanager.h:223</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:02 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:54 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

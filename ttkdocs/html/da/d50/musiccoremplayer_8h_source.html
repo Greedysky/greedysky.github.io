@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Music Player project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -106,81 +106,79 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a> : <span class="keyword">public</span> QObject</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">   35</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        Null,   </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        Radio,  </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        Music,  </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Video,  </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        Movie,  </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ~<a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> setMedia(Module type, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId = -1);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setPosition(qint64 pos);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> setMuted(<span class="keywordtype">bool</span> mute);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> setVolume(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> isPlaying() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">   78</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">state</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_playState; }</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">   82</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">category</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_category; }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> durationChanged(qint64 duration);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> mediaChanged(<span class="keyword">const</span> QString &amp;url);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> finished(<span class="keywordtype">int</span> <a class="code" href="../../da/da8/structcode.html">code</a>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> play();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> stop();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> dataRecieved();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> positionRecieved();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> durationRecieved();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> standardRecieved();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> timeout();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> checkTimerout();</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> closeModule();</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> setRadioMedia(<span class="keyword">const</span> QString &amp;url);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> setMusicMedia(<span class="keyword">const</span> QString &amp;url);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span> setVideoMedia(<span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> setMovieMedia(<span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">  160</a></span>&#160;    QProcess *<a class="code" href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">m_process</a>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">  161</a></span>&#160;    <a class="code" href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">m_playState</a>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">  162</a></span>&#160;    <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">m_category</a>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">  163</a></span>&#160;    QTimer <a class="code" href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">m_timer</a>, m_checkTimer;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;};</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif // MUSICCOREMPLAYER_H</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">   34</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Null,   </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        Radio,  </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        Music,  </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        Video,  </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Movie,  </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ~<a class="code" href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setMedia(Module type, <span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId = -1);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> setPosition(qint64 pos);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> setMuted(<span class="keywordtype">bool</span> mute);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> setVolume(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> isPlaying() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">   77</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">state</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_playState; }</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">   81</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">category</a>() <a class="code" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> noexcept { <span class="keywordflow">return</span> m_category; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> positionChanged(qint64 position);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> durationChanged(qint64 duration);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> mediaChanged(<span class="keyword">const</span> QString &amp;url);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> finished(<span class="keywordtype">int</span> <a class="code" href="../../da/da8/structcode.html">code</a>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">public</span> Q_SLOTS:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> play();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> stop();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> dataRecieved();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> positionRecieved();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> durationRecieved();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> standardRecieved();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> timeout();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> checkTimerout();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> closeModule();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> setRadioMedia(<span class="keyword">const</span> QString &amp;url);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span> setMusicMedia(<span class="keyword">const</span> QString &amp;url);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">void</span> setVideoMedia(<span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> setMovieMedia(<span class="keyword">const</span> QString &amp;url, <span class="keywordtype">int</span> winId);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">  159</a></span>&#160;    QProcess *<a class="code" href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">m_process</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">  160</a></span>&#160;    <a class="code" href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">m_playState</a>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">  161</a></span>&#160;    <a class="code" href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">Module</a> <a class="code" href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">m_category</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">  162</a></span>&#160;    QTimer <a class="code" href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">m_timer</a>, m_checkTimer;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif // MUSICCOREMPLAYER_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
-<div class="ttc" id="namespace_t_t_k_html_a2f622ce83ac6bebe611d14abae44ab7c"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a></div><div class="ttdeci">PlayState</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00178">musicobject.h:178</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_a4ef2d741e6907908e9bd024f966b3381"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">MusicCoreMPlayer::m_category</a></div><div class="ttdeci">Module m_category</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00162">musiccoremplayer.h:162</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_a5c20a125a7a327062bd9e5d39e1418e6"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">MusicCoreMPlayer::m_playState</a></div><div class="ttdeci">TTK::PlayState m_playState</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00161">musiccoremplayer.h:161</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_a49c53d8cf233c22acdbe69e5df7cb5fe"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">MusicCoreMPlayer::state</a></div><div class="ttdeci">TTK::PlayState state() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00078">musiccoremplayer.h:78</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_abb0cffb355d1da24888fa0e003ba1a4f"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">MusicCoreMPlayer::category</a></div><div class="ttdeci">Module category() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00082">musiccoremplayer.h:82</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_a0ca4c72ddfdbfdabf20c84396a02c23d"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">MusicCoreMPlayer::m_process</a></div><div class="ttdeci">QProcess * m_process</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00160">musiccoremplayer.h:160</a></div></div>
+<div class="ttc" id="namespace_t_t_k_html_a2f622ce83ac6bebe611d14abae44ab7c"><div class="ttname"><a href="../../dc/d63/namespace_t_t_k.html#a2f622ce83ac6bebe611d14abae44ab7c">TTK::PlayState</a></div><div class="ttdeci">PlayState</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d07/musicobject_8h_source.html#l00183">musicobject.h:183</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_a4ef2d741e6907908e9bd024f966b3381"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a4ef2d741e6907908e9bd024f966b3381">MusicCoreMPlayer::m_category</a></div><div class="ttdeci">Module m_category</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00161">musiccoremplayer.h:161</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_a5c20a125a7a327062bd9e5d39e1418e6"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a5c20a125a7a327062bd9e5d39e1418e6">MusicCoreMPlayer::m_playState</a></div><div class="ttdeci">TTK::PlayState m_playState</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00160">musiccoremplayer.h:160</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_a49c53d8cf233c22acdbe69e5df7cb5fe"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a49c53d8cf233c22acdbe69e5df7cb5fe">MusicCoreMPlayer::state</a></div><div class="ttdeci">TTK::PlayState state() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00077">musiccoremplayer.h:77</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_abb0cffb355d1da24888fa0e003ba1a4f"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#abb0cffb355d1da24888fa0e003ba1a4f">MusicCoreMPlayer::category</a></div><div class="ttdeci">Module category() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00081">musiccoremplayer.h:81</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_a0ca4c72ddfdbfdabf20c84396a02c23d"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#a0ca4c72ddfdbfdabf20c84396a02c23d">MusicCoreMPlayer::m_process</a></div><div class="ttdeci">QProcess * m_process</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00159">musiccoremplayer.h:159</a></div></div>
 <div class="ttc" id="class_music_core_m_player_html"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html">MusicCoreMPlayer</a></div><div class="ttdoc">The class of the mplayer core. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00030">musiccoremplayer.h:30</a></div></div>
 <div class="ttc" id="structcode_html"><div class="ttname"><a href="../../da/da8/structcode.html">code</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d0d/inftrees_8h_source.html#l00024">inftrees.h:24</a></div></div>
 <div class="ttc" id="musicglobaldefine_8h_html"><div class="ttname"><a href="../../d6/d9b/musicglobaldefine_8h.html">musicglobaldefine.h</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_abb84c404237439f49e8a065783b11dc6"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">MusicCoreMPlayer::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00163">musiccoremplayer.h:163</a></div></div>
-<div class="ttc" id="class_music_core_m_player_html_aea1fc623320f4bf58bc008e0039bb5e9"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">MusicCoreMPlayer::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00035">musiccoremplayer.h:35</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_abb84c404237439f49e8a065783b11dc6"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#abb84c404237439f49e8a065783b11dc6">MusicCoreMPlayer::m_timer</a></div><div class="ttdeci">QTimer m_timer</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00162">musiccoremplayer.h:162</a></div></div>
+<div class="ttc" id="class_music_core_m_player_html_aea1fc623320f4bf58bc008e0039bb5e9"><div class="ttname"><a href="../../d5/dad/class_music_core_m_player.html#aea1fc623320f4bf58bc008e0039bb5e9">MusicCoreMPlayer::Module</a></div><div class="ttdeci">Module</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d50/musiccoremplayer_8h_source.html#l00034">musiccoremplayer.h:34</a></div></div>
 <div class="ttc" id="zconf_8h_html_a2c212835823e3c54a8ab6d95c652660e"><div class="ttname"><a href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a></div><div class="ttdeci">#define const</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d95/zconf_8h_source.html#l00233">zconf.h:233</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

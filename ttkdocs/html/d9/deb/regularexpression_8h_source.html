@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="contents">
 <a href="../../d9/deb/regularexpression_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * This file is part of the TTK qmmp plugin project</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * it under the terms of the GNU General Public License as published by</span></div>
@@ -99,50 +99,80 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define REGULAREXPRESSION_H</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#if QT_VERSION &gt;= QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#  include &lt;QRegularExpression&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#if QT_VERSION &lt; QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#  include &lt;QRegExp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#  include &lt;QRegExp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#  include &lt;QRegularExpression&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a> <a class="code" href="../../de/db1/class_regular_expression.html">RegularExpression</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="../../de/db1/class_regular_expression.html">RegularExpression</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../de/db1/class_regular_expression.html">RegularExpression</a>(<span class="keyword">const</span> QString &amp;pattern);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> hasMatch(<span class="keyword">const</span> QString &amp;str);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    QString value(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> QString escape(<span class="keyword">const</span> QString &amp;str);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if QT_VERSION &gt;= QT_VERSION_CHECK(5,0,0)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">operator</span> QRegularExpression () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">   46</a></span>&#160;    QRegularExpression <a class="code" href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">m_regular</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#  if QT_VERSION &gt;= QT_VERSION_CHECK(5,1,0)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">   48</a></span>&#160;    QRegularExpressionMatch <a class="code" href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">m_match</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#  else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QString m_match;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#  endif</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">operator</span> QRegExp () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QRegExp m_regular;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_regular_expression_html_a3cf9f43cb5edb0b722a136ef9c577447"><div class="ttname"><a href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">RegularExpression::m_match</a></div><div class="ttdeci">QRegularExpressionMatch m_match</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00048">regularexpression.h:48</a></div></div>
-<div class="ttc" id="class_regular_expression_html_a8a468aa8382aa4772c5377788bd43736"><div class="ttname"><a href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">RegularExpression::m_regular</a></div><div class="ttdeci">QRegularExpression m_regular</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00046">regularexpression.h:46</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971">   35</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971">PatternOption</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971a50bb3a5d86a8e2f864cf1169b92b7a61">   37</a></span>&#160;        NoPatternOption          = 0x0000,</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971af2752e530f5ca45296494a5297475887">   38</a></span>&#160;        CaseInsensitiveOption    = 0x0001,</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971ad5018cc574cf432f2aa1a05db7a25bfb">   39</a></span>&#160;        InvertedGreedinessOption = 0x0010,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="../../d6/db0/ttklocalpeer_8cpp.html#a5b56f9525ce0c09d8529248b2029d0c0">RegularExpression</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d6/db0/ttklocalpeer_8cpp.html#a5b56f9525ce0c09d8529248b2029d0c0">RegularExpression</a>(<span class="keyword">const</span> QString &amp;pattern, <span class="keywordtype">int</span> option = NoPatternOption);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QString pattern() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setPattern(<span class="keyword">const</span> QString &amp;v);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> patternOptions() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> setPatternOptions(<span class="keyword">const</span> <span class="keywordtype">int</span> option);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> hasMatch(<span class="keyword">const</span> QString &amp;str);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> match(<span class="keyword">const</span> QString &amp;str, <span class="keywordtype">int</span> pos = 0);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    QString captured(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> capturedLength() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">bool</span> isGreediness() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> setGreediness(<span class="keywordtype">bool</span> v);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> isCaseSensitivity() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> setCaseSensitivity(<span class="keywordtype">bool</span> v);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> QString escape(<span class="keyword">const</span> QString &amp;str);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#if QT_VERSION &lt; QT_VERSION_CHECK(5,0,0)</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">const</span> QRegExp &amp;value() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">operator</span> QRegExp &amp;();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">operator</span> <span class="keyword">const</span> QRegExp &amp;() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    QRegExp m_regular;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">const</span> QRegularExpression &amp;value() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">operator</span> QRegularExpression &amp;();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">operator</span> <span class="keyword">const</span> QRegularExpression &amp;() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">  124</a></span>&#160;    QRegularExpression <a class="code" href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">m_regular</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">  125</a></span>&#160;    QRegularExpressionMatch <a class="code" href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">m_match</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // REGULAREXPRESSION_H</span></div>
+<div class="ttc" id="class_regular_expression_html_a259ffdc88c49a3584c79c8865b544971"><div class="ttname"><a href="../../de/db1/class_regular_expression.html#a259ffdc88c49a3584c79c8865b544971">RegularExpression::PatternOption</a></div><div class="ttdeci">PatternOption</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00035">regularexpression.h:35</a></div></div>
+<div class="ttc" id="class_regular_expression_html_a3cf9f43cb5edb0b722a136ef9c577447"><div class="ttname"><a href="../../de/db1/class_regular_expression.html#a3cf9f43cb5edb0b722a136ef9c577447">RegularExpression::m_match</a></div><div class="ttdeci">QRegularExpressionMatch m_match</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00125">regularexpression.h:125</a></div></div>
+<div class="ttc" id="class_regular_expression_html_a8a468aa8382aa4772c5377788bd43736"><div class="ttname"><a href="../../de/db1/class_regular_expression.html#a8a468aa8382aa4772c5377788bd43736">RegularExpression::m_regular</a></div><div class="ttdeci">QRegularExpression m_regular</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00124">regularexpression.h:124</a></div></div>
+<div class="ttc" id="ttklocalpeer_8cpp_html_a5b56f9525ce0c09d8529248b2029d0c0"><div class="ttname"><a href="../../d6/db0/ttklocalpeer_8cpp.html#a5b56f9525ce0c09d8529248b2029d0c0">RegularExpression</a></div><div class="ttdeci">#define RegularExpression</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db0/ttklocalpeer_8cpp_source.html#l00015">ttklocalpeer.cpp:15</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html">qmmp_export.h</a></div></div>
 <div class="ttc" id="qmmp__export_8h_html_ae57db6e0c0f040f03506ccfc59947d30"><div class="ttname"><a href="../../df/df6/qmmp__export_8h.html#ae57db6e0c0f040f03506ccfc59947d30">QMMP_EXPORT</a></div><div class="ttdeci">#define QMMP_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../df/df6/qmmp__export_8h_source.html#l00029">qmmp_export.h:29</a></div></div>
 <div class="ttc" id="class_regular_expression_html"><div class="ttname"><a href="../../de/db1/class_regular_expression.html">RegularExpression</a></div><div class="ttdoc">The class of the regular expression. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/deb/regularexpression_8h_source.html#l00032">regularexpression.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

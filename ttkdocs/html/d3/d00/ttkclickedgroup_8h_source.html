@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">/***************************************************************************</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * This file is part of the TTK Library Module project</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2025 Greedysky Studio</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2015 - 2026 Greedysky Studio</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This program is free software; you can redistribute it and/or modify</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * it under the terms of the GNU Lesser General Public License as published by</span></div>
@@ -104,33 +104,53 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/d0e/class_t_t_k_clicked_group.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a> <a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html">TTKClickedGroup</a> : <span class="keyword">public</span> QObject</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a>(<a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html">TTKClickedGroup</a>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html">TTKClickedGroup</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> mapped(QWidget *widget);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;Q_SIGNALS:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html">TTKClickedGroup</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> addWidget(QWidget *widget, <span class="keywordtype">int</span> <span class="keywordtype">id</span> = -1);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> removeWidget(QWidget *widget);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QList&lt;QWidget*&gt; items() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QWidget *widget(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d7/d0e/class_t_t_k_clicked_group.html#a8621921bca9a6a103a8244e6d44e2640">   56</a></span>&#160;    QWidgetList <a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html#a8621921bca9a6a103a8244e6d44e2640">m_container</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // TTKCLICKEDGROUP_H</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setId(QWidget *widget, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> id(QWidget *widget) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;Q_SIGNALS:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> clicked(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span> Q_SLOTS:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html">   77</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html">Data</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#a4b2c6e46cc7c7a7c28eab2ddbb335046">   79</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#a4b2c6e46cc7c7a7c28eab2ddbb335046">m_id</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#aa125d1c2c388dbfa539c9a2f991c5771">   80</a></span>&#160;        QWidget *<a class="code" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#aa125d1c2c388dbfa539c9a2f991c5771">m_widget</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#aff9719cb4cba0ff2c65468bfb6169944">   82</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/db4/ttkoptional_8h.html#aa68e1347fa7215f8a5dd768494041f44">operator ==</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html">Data</a> &amp;other) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">return</span> m_widget == other.m_widget;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d7/d0e/class_t_t_k_clicked_group.html#a68611fbafbda90bacd05423ca7e1ff0f">   88</a></span>&#160;    QList&lt;Data&gt; <a class="code" href="../../d7/d0e/class_t_t_k_clicked_group.html#a68611fbafbda90bacd05423ca7e1ff0f">m_container</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // TTKCLICKEDGROUP_H</span></div>
 <div class="ttc" id="ttkmoduleexport_8h_html_a1901ac8ec2858494367d44f9a048f597"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html#a1901ac8ec2858494367d44f9a048f597">TTK_MODULE_EXPORT</a></div><div class="ttdeci">#define TTK_MODULE_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db0/ttkmoduleexport_8h_source.html#l00027">ttkmoduleexport.h:27</a></div></div>
+<div class="ttc" id="ttkoptional_8h_html_aa68e1347fa7215f8a5dd768494041f44"><div class="ttname"><a href="../../dd/db4/ttkoptional_8h.html#aa68e1347fa7215f8a5dd768494041f44">operator==</a></div><div class="ttdeci">bool operator==(const TTKOptional&lt; T &gt; &amp;v, const T &amp;other)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db4/ttkoptional_8h_source.html#l00144">ttkoptional.h:144</a></div></div>
+<div class="ttc" id="struct_t_t_k_clicked_group_1_1_data_html_aa125d1c2c388dbfa539c9a2f991c5771"><div class="ttname"><a href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#aa125d1c2c388dbfa539c9a2f991c5771">TTKClickedGroup::Data::m_widget</a></div><div class="ttdeci">QWidget * m_widget</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00080">ttkclickedgroup.h:80</a></div></div>
 <div class="ttc" id="ttkmoduleexport_8h_html"><div class="ttname"><a href="../../d9/db0/ttkmoduleexport_8h.html">ttkmoduleexport.h</a></div></div>
-<div class="ttc" id="ttkqtglobal_8h_html_a5dc0d6a3b589488a5e20f4796d3c83f4"><div class="ttname"><a href="../../d9/ddc/ttkqtglobal_8h.html#a5dc0d6a3b589488a5e20f4796d3c83f4">TTK_DECLARE_MODULE</a></div><div class="ttdeci">#define TTK_DECLARE_MODULE(Class)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/ddc/ttkqtglobal_8h_source.html#l00164">ttkqtglobal.h:164</a></div></div>
-<div class="ttc" id="class_t_t_k_clicked_group_html_a8621921bca9a6a103a8244e6d44e2640"><div class="ttname"><a href="../../d7/d0e/class_t_t_k_clicked_group.html#a8621921bca9a6a103a8244e6d44e2640">TTKClickedGroup::m_container</a></div><div class="ttdeci">QWidgetList m_container</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00056">ttkclickedgroup.h:56</a></div></div>
+<div class="ttc" id="class_t_t_k_clicked_group_html_a68611fbafbda90bacd05423ca7e1ff0f"><div class="ttname"><a href="../../d7/d0e/class_t_t_k_clicked_group.html#a68611fbafbda90bacd05423ca7e1ff0f">TTKClickedGroup::m_container</a></div><div class="ttdeci">QList&lt; Data &gt; m_container</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00088">ttkclickedgroup.h:88</a></div></div>
+<div class="ttc" id="struct_t_t_k_clicked_group_1_1_data_html_a4b2c6e46cc7c7a7c28eab2ddbb335046"><div class="ttname"><a href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html#a4b2c6e46cc7c7a7c28eab2ddbb335046">TTKClickedGroup::Data::m_id</a></div><div class="ttdeci">int m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00079">ttkclickedgroup.h:79</a></div></div>
+<div class="ttc" id="struct_t_t_k_clicked_group_1_1_data_html"><div class="ttname"><a href="../../dd/d90/struct_t_t_k_clicked_group_1_1_data.html">TTKClickedGroup::Data</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00077">ttkclickedgroup.h:77</a></div></div>
 <div class="ttc" id="class_t_t_k_clicked_group_html"><div class="ttname"><a href="../../d7/d0e/class_t_t_k_clicked_group.html">TTKClickedGroup</a></div><div class="ttdoc">The class of the label widget click group mapper. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/ttkclickedgroup_8h_source.html#l00028">ttkclickedgroup.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:52:59 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

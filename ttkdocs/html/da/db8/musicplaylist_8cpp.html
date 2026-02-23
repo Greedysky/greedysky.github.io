@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -88,13 +88,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5c1508e7e1c66b5e88d70fda16c6a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db8/musicplaylist_8cpp.html#a5c1508e7e1c66b5e88d70fda16c6a4fe">GENERATE_RANDOM_INDEX</a>(index)&#160;&#160;&#160;m_currentIndex = m_shuffle.isEnabled() ? find(m_shuffle.setCurrentIndex(index)) : (<a class="el" href="../../dc/d63/namespace_t_t_k.html#adf7d9e150584541f0a391ba3fcaf732f">TTK::random</a>() % m_mediaList.count());</td></tr>
+<tr class="memitem:a5c1508e7e1c66b5e88d70fda16c6a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db8/musicplaylist_8cpp.html#a5c1508e7e1c66b5e88d70fda16c6a4fe">GENERATE_RANDOM_INDEX</a>(index)&#160;&#160;&#160;m_currentIndex = m_shuffle.isEnabled() ? find(m_shuffle.setCurrentIndex(index)) : <a class="el" href="../../dc/d63/namespace_t_t_k.html#adf7d9e150584541f0a391ba3fcaf732f">TTK::random</a>(m_mediaList.count());</td></tr>
 <tr class="separator:a5c1508e7e1c66b5e88d70fda16c6a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5a898028c1fe9bb12beb067912114b79"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db8/musicplaylist_8cpp.html#a5a898028c1fe9bb12beb067912114b79">updatePlayItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> TTK::IndexPropertyList &amp;indexs, MusicPlayItemList &amp;items)</td></tr>
-<tr class="separator:a5a898028c1fe9bb12beb067912114b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1910a4d21e3eafa223923000a2c43d89"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db8/musicplaylist_8cpp.html#a1910a4d21e3eafa223923000a2c43d89">updatePlayItems</a> (<a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> TTK::IndexPropertyList &amp;rows, MusicPlayItemList &amp;items)</td></tr>
+<tr class="separator:a1910a4d21e3eafa223923000a2c43d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a5c1508e7e1c66b5e88d70fda16c6a4fe"></a>
@@ -106,19 +106,19 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">index</td><td>)</td>
-          <td>&#160;&#160;&#160;m_currentIndex = m_shuffle.isEnabled() ? find(m_shuffle.setCurrentIndex(index)) : (<a class="el" href="../../dc/d63/namespace_t_t_k.html#adf7d9e150584541f0a391ba3fcaf732f">TTK::random</a>() % m_mediaList.count());</td>
+          <td>&#160;&#160;&#160;m_currentIndex = m_shuffle.isEnabled() ? find(m_shuffle.setCurrentIndex(index)) : <a class="el" href="../../dc/d63/namespace_t_t_k.html#adf7d9e150584541f0a391ba3fcaf732f">TTK::random</a>(m_mediaList.count());</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00248">248</a> of file <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html">musicplaylist.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00234">234</a> of file <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html">musicplaylist.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00251">MusicPlaylist::setCurrentIndex()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00237">MusicPlaylist::setCurrentIndex()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5a898028c1fe9bb12beb067912114b79"></a>
+<a class="anchor" id="a1910a4d21e3eafa223923000a2c43d89"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -129,7 +129,7 @@ Functions</h2></td></tr>
           <td class="memname">static void updatePlayItems </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../de/d95/zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> TTK::IndexPropertyList &amp;&#160;</td>
-          <td class="paramname"><em>indexs</em>, </td>
+          <td class="paramname"><em>rows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -150,18 +150,18 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00150">150</a> of file <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html">musicplaylist.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00130">130</a> of file <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html">musicplaylist.cpp</a>.</p>
 
 <p>References <a class="el" href="../../d9/ddc/ttkqtglobal_8h_source.html#l00057">qAsConst</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00167">MusicPlaylist::update()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/db8/musicplaylist_8cpp_source.html#l00147">MusicPlaylist::update()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:08 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -110,14 +110,14 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> QCryptographicHash::hash(total, QCryptographicHash::Sha1).toBase64();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d57/qsyncutils_8cpp.html#a27f7ec8833636434f2470c05bc94208f">   34</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a27f7ec8833636434f2470c05bc94208f">self_define_header_prefix</a> = <span class="stringliteral">&quot;x-oss-&quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d57/qsyncutils_8cpp.html#a86b038f05621f9c66a35bb43d4f0bcb9">   34</a></span>&#160;<span class="keyword">static</span> constexpr <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a86b038f05621f9c66a35bb43d4f0bcb9">self_define_header_prefix</a> = <span class="stringliteral">&quot;x-oss-&quot;</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d4/d57/qsyncutils_8cpp.html#aa3320b0cac60460f344d0b105e2ddd0a">   36</a></span>&#160;<span class="keyword">static</span> <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#aa3f978cc7e6435715fb3439b8bac517e">TTKStringMap</a> <a class="code" href="../../d4/d57/qsyncutils_8cpp.html#aa3320b0cac60460f344d0b105e2ddd0a">formatHeader</a>(<span class="keyword">const</span> <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#aa3f978cc7e6435715fb3439b8bac517e">TTKStringMap</a> &amp;headers)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="../../d9/ddc/ttkqtglobal_8h.html#aa3f978cc7e6435715fb3439b8bac517e">TTKStringMap</a> value;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = headers.constBegin(); it != headers.constEnd(); ++it)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(it.key().startsWith(<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a27f7ec8833636434f2470c05bc94208f">self_define_header_prefix</a>, Qt::CaseInsensitive))</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span>(it.key().startsWith(<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a86b038f05621f9c66a35bb43d4f0bcb9">self_define_header_prefix</a>, Qt::CaseInsensitive))</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            value.insert(it.key().toLower(), it.value());</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
@@ -143,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = origin_headers.constBegin(); it != origin_headers.constEnd(); ++it)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span>(it.key().startsWith(<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a27f7ec8833636434f2470c05bc94208f">self_define_header_prefix</a>))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span>(it.key().startsWith(<a class="code" href="../../d4/d57/qsyncutils_8cpp.html#a86b038f05621f9c66a35bb43d4f0bcb9">self_define_header_prefix</a>))</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                canonicalized_headers += it.key() + <span class="stringliteral">&quot;:&quot;</span> + it.value() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
@@ -172,10 +172,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="ttc" id="class_q_sync_utils_html_a7d4c0a15458b01236ad357424190917f"><div class="ttname"><a href="../../d9/d86/class_q_sync_utils.html#a7d4c0a15458b01236ad357424190917f">QSyncUtils::GMT</a></div><div class="ttdeci">static QString GMT()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00083">qsyncutils.cpp:83</a></div></div>
 <div class="ttc" id="ttkglobal_8h_html_a9e2b560a3bd2c4bcff3d957835951694"><div class="ttname"><a href="../../df/d7f/ttkglobal_8h.html#a9e2b560a3bd2c4bcff3d957835951694">HTTP_PROTOCOL</a></div><div class="ttdeci">#define HTTP_PROTOCOL</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d7f/ttkglobal_8h_source.html#l00285">ttkglobal.h:285</a></div></div>
 <div class="ttc" id="struct_q_sync_config_html_af5a871ae988411a60f5a3b2df43294bd"><div class="ttname"><a href="../../d3/d19/struct_q_sync_config.html#af5a871ae988411a60f5a3b2df43294bd">QSyncConfig::HOST</a></div><div class="ttdeci">static QString HOST</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dcf/qsyncconfig_8h_source.html#l00032">qsyncconfig.h:32</a></div></div>
-<div class="ttc" id="qsyncutils_8cpp_html_a27f7ec8833636434f2470c05bc94208f"><div class="ttname"><a href="../../d4/d57/qsyncutils_8cpp.html#a27f7ec8833636434f2470c05bc94208f">self_define_header_prefix</a></div><div class="ttdeci">static const char * self_define_header_prefix</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00034">qsyncutils.cpp:34</a></div></div>
 <div class="ttc" id="qsyncconfig_8h_html"><div class="ttname"><a href="../../d4/dcf/qsyncconfig_8h.html">qsyncconfig.h</a></div></div>
+<div class="ttc" id="qsyncutils_8cpp_html_a86b038f05621f9c66a35bb43d4f0bcb9"><div class="ttname"><a href="../../d4/d57/qsyncutils_8cpp.html#a86b038f05621f9c66a35bb43d4f0bcb9">self_define_header_prefix</a></div><div class="ttdeci">static constexpr const char * self_define_header_prefix</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00034">qsyncutils.cpp:34</a></div></div>
 <div class="ttc" id="qsyncutils_8h_html"><div class="ttname"><a href="../../de/d77/qsyncutils_8h.html">qsyncutils.h</a></div></div>
-<div class="ttc" id="musiclrcparser_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00030">musiclrcparser.cpp:30</a></div></div>
+<div class="ttc" id="musiclrcparser_8cpp_html_a4cb1b1f1ae3671d5c1818f9d4d20ea3b"><div class="ttname"><a href="../../d2/d5d/musiclrcparser_8cpp.html#a4cb1b1f1ae3671d5c1818f9d4d20ea3b">key</a></div><div class="ttdeci">static constexpr wchar_t key[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d5d/musiclrcparser_8cpp_source.html#l00031">musiclrcparser.cpp:31</a></div></div>
 <div class="ttc" id="unzip_8c_html_a08023ea6765c99d60a6a3840cd07156e"><div class="ttname"><a href="../../d6/da7/unzip_8c.html#a08023ea6765c99d60a6a3840cd07156e">local</a></div><div class="ttdeci">#define local</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/da7/unzip_8c_source.html#l00091">unzip.c:91</a></div></div>
 <div class="ttc" id="qsyncconfig_8h_html_ae974651a9bad71295ed6869e5e05a3fd"><div class="ttname"><a href="../../d4/dcf/qsyncconfig_8h.html#ae974651a9bad71295ed6869e5e05a3fd">SYNC_DATA_BUCKET</a></div><div class="ttdeci">#define SYNC_DATA_BUCKET</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dcf/qsyncconfig_8h_source.html#l00024">qsyncconfig.h:24</a></div></div>
 <div class="ttc" id="qsyncutils_8cpp_html_aa3320b0cac60460f344d0b105e2ddd0a"><div class="ttname"><a href="../../d4/d57/qsyncutils_8cpp.html#aa3320b0cac60460f344d0b105e2ddd0a">formatHeader</a></div><div class="ttdeci">static TTKStringMap formatHeader(const TTKStringMap &amp;headers)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d57/qsyncutils_8cpp_source.html#l00036">qsyncutils.cpp:36</a></div></div>
@@ -187,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:07 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:56 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

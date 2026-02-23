@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="../../qicon.dll"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">TTKMusicPlayer
-   &#160;<span id="projectnumber">4.2.0.0</span>
+   &#160;<span id="projectnumber">4.3.0.0</span>
    </div>
    <div id="projectbrief">TTKMusicPlayer imitates Kugou UI, the music player uses of qmmp core library based on Qt for windows and linux</div>
   </td>
@@ -93,12 +93,13 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> w = <a class="code" href="../../d9/d0e/ttkqtcompat_8h.html#ac9d0ec7ca395f4b681495852e65f13c4">QtFontWidth</a>(ftm, text()) + 15;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    QPainter painter(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    painter.setFont(font());</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    painter.drawText(rect(), Qt::AlignLeft | Qt::AlignVCenter, text());</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    painter.setPen(QPen(QColor(0, 0, 0, 25), 1));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    painter.drawLine(w, height() / 2, width(), height() / 2);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    painter.setFont(font());</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    painter.drawText(rect(), Qt::AlignLeft | Qt::AlignVCenter, text());</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    painter.setPen(QPen(QColor(0, 0, 0, 25), 1));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    painter.drawLine(w, height() / 2, width(), height() / 2);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="ttc" id="ttkthemelinelabel_8h_html"><div class="ttname"><a href="../../d0/d3d/ttkthemelinelabel_8h.html">ttkthemelinelabel.h</a></div></div>
 <div class="ttc" id="ttkqtcompat_8h_html_ac9d0ec7ca395f4b681495852e65f13c4"><div class="ttname"><a href="../../d9/d0e/ttkqtcompat_8h.html#ac9d0ec7ca395f4b681495852e65f13c4">QtFontWidth</a></div><div class="ttdeci">#define QtFontWidth(p, t)</div><div class="ttdoc">Font string width. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d0e/ttkqtcompat_8h_source.html#l00031">ttkqtcompat.h:31</a></div></div>
 <div class="ttc" id="class_t_t_k_theme_line_label_html_a3d89c8396fc14ed9000cbb42f1e08697"><div class="ttname"><a href="../../d8/dc7/class_t_t_k_theme_line_label.html#a3d89c8396fc14ed9000cbb42f1e08697">TTKThemeLineLabel::paintEvent</a></div><div class="ttdeci">virtual void paintEvent(QPaintEvent *event) overridefinal</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d1d/ttkthemelinelabel_8cpp_source.html#l00011">ttkthemelinelabel.cpp:11</a></div></div>
@@ -106,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 19 2025 16:53:00 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 23 2026 13:09:53 for TTKMusicPlayer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
