@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>虚函数的性能真的那么差吗？ | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中性能很差的虚函数~~。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="虚函数的性能真的那么差吗？">
+<meta property="og:url" content="https://greedysky.github.io/2025/09/13/虚函数的性能/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中性能很差的虚函数~~。">
+<meta property="og:image" content="https://greedysky.github.io/af910fb7fba69cc15ab132c644f24e56/1.png">
+<meta property="og:updated_time" content="2026-03-02T14:22:18.571Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="虚函数的性能真的那么差吗？">
+<meta name="twitter:description" content="在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中性能很差的虚函数~~。">
+<meta name="twitter:image" content="https://greedysky.github.io/af910fb7fba69cc15ab132c644f24e56/1.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-虚函数的性能" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2025/09/13/虚函数的性能/" class="article-date">
+      <time datetime="2025-09-13T04:32:49.000Z" itemprop="datePublished">2025-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      虚函数的性能真的那么差吗？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中<strong>性能很差的虚函数</strong>~~。</p>
+<h2 id="关于虚函数"><a href="#关于虚函数" class="headerlink" title="关于虚函数"></a><strong>关于虚函数</strong></h2><p>&#160; &#160; &#160; &#160;对于虚函数(virtual function)的实现机制，在此就不再赘述了，本节我们聊聊关于虚函数的性能消耗这块。</p>
+<p>&#160; &#160; &#160; &#160;下面且看一个例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfun</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">vfun</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">vfun</span><span class="params">(Base *b)</span></span></div><div class="line">&#123;</div><div class="line">   b-&gt;vfun();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(Base *b)</span></span></div><div class="line">&#123;</div><div class="line">   b-&gt;fun();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;emm，相信很多人看过Stanley B. Lippman的&lt;<inside the="" c++="" object="" model="">&gt;一书，其中讲到，在编译器的实现机制中，<strong>非静态成员函数</strong>需要通过对象实例来调用，因为它们隐式地接收一个指向对象本身的<strong>this</strong>指针作为第一个参数。换句话说，就是编译器对成员函数的实现中，会将成员函数实现成为与普通函数一样，唯一的区别就是在函数参数末尾会增加一个隐式参数-<strong>this</strong>指针。</inside></p>
+<p>&#160; &#160; &#160; &#160;那么，上面Base类中，fun()函数的实现，在编译器看来，可能如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M4BaseFvvE(Base * <span class="number">_</span><span class="keyword">this</span>)</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;继续看下面这段代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">   Base *b1 = <span class="literal">nullptr</span>;</div><div class="line">   Base *b2 = <span class="literal">nullptr</span>;</div><div class="line">   b1 = <span class="keyword">new</span> Base;</div><div class="line">   b2 = <span class="keyword">new</span> Derived;</div><div class="line">   b1-&gt;vfun();</div><div class="line">   b2-&gt;vfun();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在上述代码中，有两个Base类型的指针，分别指向基类Base和派生类Derived，那么其调用机制又如何呢？</p>
+<p>&#160; &#160; &#160; &#160;首先，与非virtual函数实现机制一样，对于virtual函数，都会增加一个默认的指向实际对象的this指针。</p>
+<p>&#160; &#160; &#160; &#160;其次，编译器在包含虚函数的类中添加一个隐含的指针<strong>vptr</strong>指向类的虚函数表，一般情况下，这个<strong>vptr</strong>指针在对象的最前面</p>
+<p>&#160; &#160; &#160; &#160;最后，在运行时，通过查找虚函数表，进而找到正确的应该被调用的函数。</p>
+<p>&#160; &#160; &#160; &#160;也就是说，对于虚函数的调用，最终，编译器可能会变成：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(*b1-&gt;vptr[i])(p); <span class="comment">// p为实际对象的地址，即Base对象</span></div><div class="line">(*b1-&gt;vptr[i])(p); <span class="comment">// p为实际对象的地址，即Derived对象</span></div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;好了，上述这个过程仅仅是本文的后续内容的一个铺垫，往往，我们说虚函数性能差，是因为<strong>虚表的查找过程导致性能较普通函数或者普通成员函数查</strong>，嗯，相信很多人和我一样，认为这个差，是很差~~</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a><strong>性能</strong></h2><p>&#160; &#160; &#160; &#160;直到我昨天在查阅某个问题的时候，恰好看了一张各种操作的性能分析图，算是颠覆了之前的某些认知。</p>
+<p>&#160; &#160; &#160; &#160;好了，图来了~~<br><img src="af910fb7fba69cc15ab132c644f24e56/1.png" alt="DEMO"><br>&#160; &#160; &#160; &#160;从上图可以看出，我们所理解的虚函数性能（准确的说是查虚表）的性能，与L3差不多，整数除法操作的一半性能。</p>
+<p>&#160; &#160; &#160; &#160;基于上图，可以看下代码中哪些地方可以优化，当然了，可以从底部开始（如果非要从顶部开始的话，也没人拦着~），如果非要总结的话，那就如下几点：</p>
+<p>&#160; &#160; &#160; &#160;• 一次IO毁所有<br>&#160; &#160; &#160; &#160;• 多线程只是可选，如果单线程能完成且性能不错的前提下，慎用多线程，毕竟其上下文切换开销很大<br>&#160; &#160; &#160; &#160;• 异常处理的性能损耗超过我们想象<br>&#160; &#160; &#160; &#160;• 尽量避免系统/内核调用</p>
+<p>&#160; &#160; &#160; &#160;最后，以潇洒哥的一句话，结束本文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">抛开业务场景谈性能优化都是耍流氓</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2025/09/13/虚函数的性能/">虚函数的性能真的那么差吗？</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2025年09月13日 - 12时32分</p>
+        <p><span>最后更新:</span>2026年03月02日 - 22时22分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2025/09/13/虚函数的性能/" title="虚函数的性能真的那么差吗？">https://greedysky.github.io/2025/09/13/虚函数的性能/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2025/09/13/虚函数的性能/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2025/10/26/了解惯用法之PIMPL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          从示例入手了解惯用法之PIMPL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/07/03/C++ string继承之番外篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ string继承之番外篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于虚函数"><span class="toc-number">1.</span> <span class="toc-text">关于虚函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能"><span class="toc-number">2.</span> <span class="toc-text">性能</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2025/10/26/了解惯用法之PIMPL/" title="上一篇: 从示例入手了解惯用法之PIMPL">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2025/07/03/C++ string继承之番外篇/" title="下一篇: C++ string继承之番外篇">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/12/18/sizeof(void)之谜/">sizeof(void)之谜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/26/了解惯用法之PIMPL/">从示例入手了解惯用法之PIMPL</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/13/虚函数的性能/">虚函数的性能真的那么差吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/07/03/C++ string继承之番外篇/">C++ string继承之番外篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/21/C++ 手撕一个HashMap/">C++ 手撕一个HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/11/Empty Base Optimization/">Empty Base Optimization</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/06/谈谈POD/">谈谈POD</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/10/30/C++invoke与function的区别/">C++ invoke与function的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/22/C++20关于modules入门/">C++20 关于modules入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/05/C++里面的extern C/">C++ 里面的extern C</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/C++17新特性之内联变量/">C++17 新特性之内联变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2026 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

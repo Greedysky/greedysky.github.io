@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++ string继承之番外篇 | Greedysky&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有个面试环节，经常问的一个问题就是std::string能否被继承，一开始可能是技术问题，后面多了，就被玩成了梗，不过梗归梗，今天借助这篇文章，聊聊继承相关的Mordern新特性--override和final。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ string继承之番外篇">
+<meta property="og:url" content="https://greedysky.github.io/2025/07/03/C++ string继承之番外篇/index.html">
+<meta property="og:site_name" content="Greedysky's Blog">
+<meta property="og:description" content="有个面试环节，经常问的一个问题就是std::string能否被继承，一开始可能是技术问题，后面多了，就被玩成了梗，不过梗归梗，今天借助这篇文章，聊聊继承相关的Mordern新特性--override和final。">
+<meta property="og:updated_time" content="2026-03-02T14:23:44.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ string继承之番外篇">
+<meta name="twitter:description" content="有个面试环节，经常问的一个问题就是std::string能否被继承，一开始可能是技术问题，后面多了，就被玩成了梗，不过梗归梗，今天借助这篇文章，聊聊继承相关的Mordern新特性--override和final。">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Greedysky</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Where there is a will, there is a way.</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">个人首页</a></li>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/ttk">天天酷音</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/C-11/" style="font-size: 17.5px;">C++11</a> <a href="/tags/C-17/" style="font-size: 15px;">C++17</a> <a href="/tags/C-20/" style="font-size: 12.5px;">C++20</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3094">天天酷音</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3219">编程思想</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3221">C++编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://download.csdn.net/album/detail/3222">Qt编程</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://qt-project.org/">Qt</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.qtcn.org/">QtCN</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">世界那么大，我想出去走走！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Greedysky</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.jpg" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Greedysky</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Where there is a will, there is a way.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">个人首页</a></li>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/ttk">天天酷音</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=laahoa2npqWhpdXk5Lv2_vg" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Greedysky" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/3846499529" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C++ string继承之番外篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2025/07/03/C++ string继承之番外篇/" class="article-date">
+      <time datetime="2025-07-03T08:32:47.000Z" itemprop="datePublished">2025-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++ string继承之番外篇
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术专帖/">技术专帖</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#160; &#160; &#160; &#160;有个面试环节，经常问的一个问题就是std::string能否被继承，一开始可能是技术问题，后面多了，就被玩成了梗，不过梗归梗，今天借助这篇文章，聊聊继承相关的Mordern新特性–override和final。这俩特性相对于其他引入的特性，性能上没有带来大的提升，唯一或者说比较重要的好处则是能让我们的程序在继承类和覆写虚函数时更安全，更清晰。</p>
+<h2 id="override"><a href="#override" class="headerlink" title="override"></a><strong>override</strong></h2><p>&#160; &#160; &#160; &#160;记得之前在实现某个功能的时候，发现预期输出与实际输出不相符，查了好久，最后才发现，在继承类中声明和定义的虚函数与父类中不是一个😁。</p>
+<p>&#160; &#160; &#160; &#160;通常情况下，我们会像如下这样写代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;当然了，有时候也会写如下这种：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> <span class="keyword">const</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f() const"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;然后像往常一样去调用虚函数:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Base *b = <span class="keyword">new</span> Derived;</div><div class="line">b-&gt;f();</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;满心欢喜的以为会输出<code>Derived::f() const</code>，结果却输出<code>Base::f()</code>。emm，这是因为void f()和void f() const是两个不同的类型函数，子类中定义的void f() const并没有覆盖父类的void f()，这就是上面指向子类的指针调用输出的是父类函数的原因。</p>
+<p>&#160; &#160; &#160; &#160;为了能尽早的发现问题所在，C++11引入了新的关键字override：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In a member function declaration or definition, override specifier ensures that the function is virtual and is overriding a virtual function from a base class. The program is ill-formed (a compile-time error is generated) if this is not true.</div><div class="line"></div><div class="line">override is an identifier with a special meaning when used after member function declarators: it&apos;s not a reserved keyword otherwise.</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;使用override来避免上述方式如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> override</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f() const"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时，如果像前面那样，在子类中新增一个const关键字，即：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> override</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f() const"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;编译器会报错如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">'virtual void Derived::f() const' marked 'override', but does not override</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;很简单吧，加个关键字，让编译器来检查我们又没有正确覆盖父类的虚函数，这样可以将很多问题暴露在编译阶段，何乐而不为呢~~</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a><strong>final</strong></h2><p>&#160; &#160; &#160; &#160;如果说override的出现是为了更好的为继承服务，那么final的出现则是为了结束继承。</p>
+<p>&#160; &#160; &#160; &#160;回到我们文首的那道题目<code>std::string</code>能否被继承，如果时间在2008年的话，单纯针对这个问题，我可能会回答<code>是</code>，如果是现在的话，可能会犹豫，毕竟Modern C++中新的关键字final的出现，称其为继承终结者也不为过哈哈。</p>
+<p>&#160; &#160; &#160; &#160;不过，看了gcc11.2的源码，也尝试在本地对std::string继承尝试了下，是可以的（此处仅针对能否继承，撇开内存泄漏等其它因素哈）。至于为什么没有做限制，下面这个答案摘自SO，应该具有说服力：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">The LWG discussed this issue at the recent meeting in Kona Feb. 6-10, 2012. This is LWG issue 2113.</div><div class="line"></div><div class="line">The LWG decided to mark LWG 2113 as NAD (not a defect), with the rationale that the standard is already clear that existing classes such as containers and std::string can not be marked final by the implementation.</div><div class="line"></div><div class="line">The discussion included the fact that while it may be frowned on to derive from such classes, it is clearly legal to do so in C++98/03. And making it illegal in C++11 would break far too much code.</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;其实，前面已经提到了，C++11中引入了final就是为了终结继承，不过这种也分为两种：函数和类。</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h3><p>&#160; &#160; &#160; &#160;如果想要一个函数不再被其子类覆盖，只需要在函数后加final即可：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> final</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时，如果有另外一个类继承于Derived，且覆写了f()函数，即：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Derived1 : <span class="keyword">public</span> Derived</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;那么编译器则会报如下错误：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error: virtual function 'virtual void d::f()' overriding final function</div></pre></td></tr></table></figure></p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a><strong>类</strong></h3><p>&#160; &#160; &#160; &#160;如果想要一个类不被继承，则在该类的定义后面加上final即可：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived final : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> final</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时，如果某个类继承与Derived，则编译器会报如下错误：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">error: cannot derive from 'final' base 'Derived' in derived type 'Derived1'</div></pre></td></tr></table></figure></p>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a><strong>好处</strong></h3><p>&#160; &#160; &#160; &#160;提到继承或者虚函数，很多人会想到性能差，虚函数表跳转等，其实，这个观点有点笼统或者说过于垄断，且看下面一个例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">lass Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> final</span></div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f()"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Call</span><span class="params">(Derived&amp; d)</span></span></div><div class="line">&#123;</div><div class="line">    d.f();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;在Call()函数中，其参数为const Derived类型引用，在函数体内直径调用该对象的f()函数，此时，不妨闭眼一分钟，看看这个时候会不会通过虚函数表跳转来调用相应的函数？</p>
+<p>&#160; &#160; &#160; &#160;好了，且看下汇编的实现吧(仅仅是Call函数部分)：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.LC0:</div><div class="line">        .<span class="built_in">string</span> <span class="string">"Derived::f()"</span></div><div class="line">Call(Derived&amp;):</div><div class="line">        mov     edx, <span class="number">12</span></div><div class="line">        mov     esi, OFFSET FLAT:.LC0</div><div class="line">        mov     edi, OFFSET FLAT:<span class="number">_</span>ZSt4cout</div><div class="line">        jmp     <span class="built_in">std</span>::basic_ostream&lt;<span class="keyword">char</span>, <span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt; &gt;&amp; <span class="built_in">std</span>::<span class="number">__</span>ostream_insert&lt;<span class="keyword">char</span>, <span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt; &gt;(<span class="built_in">std</span>::basic_ostream&lt;<span class="keyword">char</span>, <span class="built_in">std</span>::char_traits&lt;<span class="keyword">char</span>&gt; &gt;&amp;, <span class="keyword">char</span> <span class="keyword">const</span>*, <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;通过上述汇编，可以看出，虽然void f()是一个虚函数，但经过编译器分析有化后(此步骤称为<code>Devirtualization</code>)，编译器会尝试在编译阶段而不是运行阶段去调用虚函数，因此省略了通过虚函数表跳转这个过程，最终得到的是如上结果，即直接将f() inline到Call中，直接调用std::cout输出。</p>
+<p>&#160; &#160; &#160; &#160;此时，如果将Call()函数参数变成<strong>Base&amp;</strong>，则汇编代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Call(Base&amp;):</div><div class="line">        mov     rax, QWORD PTR [rdi]</div><div class="line">        jmp     [QWORD PTR [rax]]</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时，会先通过d获取到虚函数表，然后通过虚函数表间接调用<strong>Derived::f()</strong>。</p>
+<p>&#160; &#160; &#160; &#160;其实，讲到这块，想要说的已经差不多了，在继承某个类的时候，加上一个final，无非是告诉编译器，这个类以后不会再被继承，你随意发挥随意优化吧~~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2025/07/03/C++ string继承之番外篇/">C++ string继承之番外篇</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
+        <p><span>发布时间:</span>2025年07月03日 - 16时32分</p>
+        <p><span>最后更新:</span>2026年03月02日 - 22时23分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2025/07/03/C++ string继承之番外篇/" title="C++ string继承之番外篇">https://greedysky.github.io/2025/07/03/C++ string继承之番外篇/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2025/07/03/C++ string继承之番外篇/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2025/09/13/虚函数的性能/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          虚函数的性能真的那么差吗？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/02/21/C++ 手撕一个HashMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 手撕一个HashMap</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#override"><span class="toc-number">1.</span> <span class="toc-text">override</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">2.</span> <span class="toc-text">final</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">2.1.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-number">2.2.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好处"><span class="toc-number">2.3.</span> <span class="toc-text">好处</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2025/09/13/虚函数的性能/" title="上一篇: 虚函数的性能真的那么差吗？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2025/02/21/C++ 手撕一个HashMap/" title="下一篇: C++ 手撕一个HashMap">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/12/18/sizeof(void)之谜/">sizeof(void)之谜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/26/了解惯用法之PIMPL/">从示例入手了解惯用法之PIMPL</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/09/13/虚函数的性能/">虚函数的性能真的那么差吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/07/03/C++ string继承之番外篇/">C++ string继承之番外篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/21/C++ 手撕一个HashMap/">C++ 手撕一个HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/11/Empty Base Optimization/">Empty Base Optimization</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/06/谈谈POD/">谈谈POD</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/10/30/C++invoke与function的区别/">C++ invoke与function的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/22/C++20关于modules入门/">C++20 关于modules入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/05/C++里面的extern C/">C++ 里面的extern C</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/C++17新特性之内联变量/">C++17 新特性之内联变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/02/25/C++17新特性之带有初始化器的if和switch语句/">C++17 新特性之带有初始化器的if和switch语句</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/11/10/C++17新特性之optional/">C++17 新特性之std::optional</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/08/20/C++array的神奇用法总结/">C++ array的神奇用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/05/15/C++按值返回对象那些事/">C++ 按值返回对象那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/30/C++手撸一个智能指针/">C++ 手撸一个智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/25/C++map容器erase的正确姿势/">C++ map容器erase的正确姿势</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/01/C++inline函数简介/">C++ inline函数简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/07/C++迭代器iterator的实现原理/">C++ 迭代器iterator的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/10/C++typeid关键字详解/">C++ typeid关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/20/C++11范围for的实现原理/">C++11 范围for的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/C++为什么空类大小是1/">C++ 为什么空类大小是1</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/11/25/C++模板之SFINAE和enable_if分析/">C++ 模板之SFINAE和enable_if分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/27/C++STL萃取机制/">C++ STL萃取机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/27/C++高阶操作之模板元编程/">C++ 高阶操作：模板元编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/17/C++模板特化与偏特化/">C++ 模板特化与偏特化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/02/C++type-traits分析/">C++ type traits分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/07/23/C++20协程初探/">C++20 协程初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/05/18/C++20标准正式发布/">C++20 标准正式发布</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/01/C++17折叠表达式/">C++17 折叠表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/03/05/C++线程安全的单例模式/">C++ 线程安全的单例模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/10/C++volatile详解/">C++ volatile详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/04/C++assert函数用法总结与注意事项/">C++ assert 函数用法总结与注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/29/C++优先队列priority_queue/">C++ 优先队列priority_queue</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/21/C++多线程的互斥锁应用RAII机制/">C++ 多线程的互斥锁应用RAII机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/12/C++6种内存顺序/">C++ 6 种内存顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/03/C++11中的Lambda函数/">C++11 中的 Lambda 函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/13/C++11右值引用与完美转发/">C++11 右值引用与完美转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/08/C++虚函数表及多态内部原理详解/">C++ 虚函数表及多态内部原理详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/02/C++仿函数了解一下/">C++ 仿函数了解一下</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/C++字符编码的转换/">C++ 字符编码的转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/20/C++11中智能指针的原理详解/">C++11 中智能指针的原理、使用、实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/02/20/C++20最新进展/">C++20 最新进展：加入模块化和协程，进入特性冻结阶段</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/08/C++建议用nullptr而不是NULL/">C++ 建议用 nullptr 而不是 NULL</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/C++一句话帮你理解typedef的用法/">C++ 一句话帮你理解 typedef 的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/C++中是如何调用C接口/">C++ 中是如何调用 C 接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/12/C++shared_ptr从原理来看看栈溢出的危害/">C++ shared_ptr 从原理来看看栈溢出的危害</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/15/C++11中的左值右值和将亡值/">C++11 中的左值、右值和将亡值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/08/C++函数指针与指针函数/">C++ 函数指针与指针函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/28/C++string类详解/">C++ string 类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/30/C++17中那些值得关注的特性/">C++17 中那些值得关注的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/06/C++17新特性Top19/">你需要了解的 C++ 17 Top 19 新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/19/C++vector使用注意事项/">C++ vector使用注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/20/C++类的默认函数/">C++ 类的默认函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/C++const的使用/">C++ const的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/22/C++对象数组与对象指针/">C++ 对象数组与对象指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/C++指针详解/">C++ 指针详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/12/C++NULL和0/">C++ NULL，0，'\0'，"0"，"\0"</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/字符串匹配的Boyer-Moore算法/">字符串匹配的Boyer-Moore算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/C++11新特性之thread/">C++11 新特性之thread</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/C++11新特性之constexpr关键字/">C++11 新特性之constexpr关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/C++11新特性之列表初始化/">C++11 新特性之列表初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/13/C++11新特性之基于范围的for循环/">C++11 新特性之基于范围的for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/C++11新特性之条件变量/">C++11 新特性之条件变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/C++11新特性之锁/">C++11 新特性之锁</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/C++11新特性之强制类型转换/">C++11 新特性之强制类型转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/C++11新特性之枚举/">C++11 新特性之枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/31/C++11新特性之auto关键字/">C++11 新特性之auto关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/20/C++11新特性之正则表达式/">C++11 新特性之正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/C++11新特性之template/">C++11 新特性之template</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/C++11新特性之右值引用与移动/">C++11 新特性之右值引用与移动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/24/C++11新特性之随机数库/">C++11 新特性之随机数库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/C++11新特性之Class/">C++11 新特性之Class</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/29/C++11新特性之智能指针/">C++11 新特性之智能指针</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/21/C++11新特性之容器相关特性/">C++11 新特性之容器相关特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/06/C++11新特性之lambda/">C++11 新特性之lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/30/C++11新特性之类型推断与类型获取/">C++11 新特性之类型推断与类型获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/02/C++11新特性之新类型与初始化/">C++11 新特性之新类型与初始化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/12/C++虚函数占用大小/">C++ 虚函数占用大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/Markdown/">Markdown使用指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/C++explicit关键字/">C++ explicit关键字</a></li></ul>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2026 Greedysky
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme by Greedysky
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://libs.baidu.com/require.js/2.1.6/require.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
