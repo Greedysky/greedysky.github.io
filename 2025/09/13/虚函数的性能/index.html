@@ -11,12 +11,12 @@
 <meta property="og:url" content="https://greedysky.github.io/2025/09/13/虚函数的性能/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
 <meta property="og:description" content="在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中性能很差的虚函数~~。">
-<meta property="og:image" content="https://greedysky.github.io/af910fb7fba69cc15ab132c644f24e56/1.png">
-<meta property="og:updated_time" content="2026-03-02T14:22:18.571Z">
+<meta property="og:image" content="https://greedysky.github.io/image/af910fb7fba69cc15ab132c644f24e56/3.webp">
+<meta property="og:updated_time" content="2026-03-03T12:44:58.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚函数的性能真的那么差吗？">
 <meta name="twitter:description" content="在查阅某个问题的时候，突然看到了关于各个操作的性能损耗，今天就借助这篇文章，聊聊我们印象中性能很差的虚函数~~。">
-<meta name="twitter:image" content="https://greedysky.github.io/af910fb7fba69cc15ab132c644f24e56/1.png">
+<meta name="twitter:image" content="https://greedysky.github.io/image/af910fb7fba69cc15ab132c644f24e56/3.webp">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -286,7 +286,8 @@
 <p>&#160; &#160; &#160; &#160;也就是说，对于虚函数的调用，最终，编译器可能会变成：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(*b1-&gt;vptr[i])(p); <span class="comment">// p为实际对象的地址，即Base对象</span></div><div class="line">(*b1-&gt;vptr[i])(p); <span class="comment">// p为实际对象的地址，即Derived对象</span></div></pre></td></tr></table></figure></p>
 <p>&#160; &#160; &#160; &#160;好了，上述这个过程仅仅是本文的后续内容的一个铺垫，往往，我们说虚函数性能差，是因为<strong>虚表的查找过程导致性能较普通函数或者普通成员函数查</strong>，嗯，相信很多人和我一样，认为这个差，是很差~~</p>
 <h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a><strong>性能</strong></h2><p>&#160; &#160; &#160; &#160;直到我昨天在查阅某个问题的时候，恰好看了一张各种操作的性能分析图，算是颠覆了之前的某些认知。</p>
-<p>&#160; &#160; &#160; &#160;好了，图来了~~<br><img src="af910fb7fba69cc15ab132c644f24e56/1.png" alt="DEMO"><br>&#160; &#160; &#160; &#160;从上图可以看出，我们所理解的虚函数性能（准确的说是查虚表）的性能，与L3差不多，整数除法操作的一半性能。</p>
+<p>&#160; &#160; &#160; &#160;好了，图来了~~<br><img src="/image/af910fb7fba69cc15ab132c644f24e56/3.webp" alt="demo"></p>
+<p>&#160; &#160; &#160; &#160;从上图可以看出，我们所理解的虚函数性能（准确的说是查虚表）的性能，与L3差不多，整数除法操作的一半性能。</p>
 <p>&#160; &#160; &#160; &#160;基于上图，可以看下代码中哪些地方可以优化，当然了，可以从底部开始（如果非要从顶部开始的话，也没人拦着~），如果非要总结的话，那就如下几点：</p>
 <p>&#160; &#160; &#160; &#160;• 一次IO毁所有<br>&#160; &#160; &#160; &#160;• 多线程只是可选，如果单线程能完成且性能不错的前提下，慎用多线程，毕竟其上下文切换开销很大<br>&#160; &#160; &#160; &#160;• 异常处理的性能损耗超过我们想象<br>&#160; &#160; &#160; &#160;• 尽量避免系统/内核调用</p>
 <p>&#160; &#160; &#160; &#160;最后，以潇洒哥的一句话，结束本文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">抛开业务场景谈性能优化都是耍流氓</div></pre></td></tr></table></figure></p>
@@ -301,7 +302,7 @@
         <p><span>本文标题:</span><a href="/2025/09/13/虚函数的性能/">虚函数的性能真的那么差吗？</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
         <p><span>发布时间:</span>2025年09月13日 - 12时32分</p>
-        <p><span>最后更新:</span>2026年03月02日 - 22时22分</p>
+        <p><span>最后更新:</span>2026年03月03日 - 20时44分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2025/09/13/虚函数的性能/" title="虚函数的性能真的那么差吗？">https://greedysky.github.io/2025/09/13/虚函数的性能/</a>
             <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2025/09/13/虚函数的性能/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
