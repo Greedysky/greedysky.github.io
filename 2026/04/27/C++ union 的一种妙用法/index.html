@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C++ NULL，0，&#39;\0&#39;，&quot;0&quot;，&quot;\0&quot; | Greedysky&#39;s Blog</title>
+  <title>C++ union 的一种妙用法 | Greedysky&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在C语言中，我们有时候看到NULL，有时候也看到&apos;&apos;，那它们之间有什么区别呢？">
+  <meta name="description" content="union，人皆知而鲜用的一个类。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ NULL，0，'\0'，"0"，"\0"">
-<meta property="og:url" content="https://greedysky.github.io/2017/11/12/C++NULL和0/index.html">
+<meta property="og:title" content="C++ union 的一种妙用法">
+<meta property="og:url" content="https://greedysky.github.io/2026/04/27/C++ union 的一种妙用法/index.html">
 <meta property="og:site_name" content="Greedysky's Blog">
-<meta property="og:description" content="在C语言中，我们有时候看到NULL，有时候也看到&apos;&apos;，那它们之间有什么区别呢？">
-<meta property="og:updated_time" content="2022-12-04T13:11:50.444Z">
+<meta property="og:description" content="union，人皆知而鲜用的一个类。">
+<meta property="og:updated_time" content="2026-05-04T14:05:38.864Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ NULL，0，'\0'，"0"，"\0"">
-<meta name="twitter:description" content="在C语言中，我们有时候看到NULL，有时候也看到&apos;&apos;，那它们之间有什么区别呢？">
+<meta name="twitter:title" content="C++ union 的一种妙用法">
+<meta name="twitter:description" content="union，人皆知而鲜用的一个类。">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -229,11 +229,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-C++NULL和0" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C++ union 的一种妙用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/12/C++NULL和0/" class="article-date">
-      <time datetime="2017-11-12T10:34:54.000Z" itemprop="datePublished">2017-11-12</time>
+      <a href="/2026/04/27/C++ union 的一种妙用法/" class="article-date">
+      <time datetime="2026-04-27T13:23:56.000Z" itemprop="datePublished">2026-04-27</time>
 </a>
     </div>
   
@@ -246,7 +246,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C++ NULL，0，&#39;\0&#39;，&quot;0&quot;，&quot;\0&quot;
+      C++ union 的一种妙用法
     </h1>
   
 
@@ -271,22 +271,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>&#160; &#160; &#160; &#160;在C语言中，我们有时候看到NULL，有时候也看到’’，那它们之间有什么区别呢？</p>
-<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a><strong>本质</strong></h2><p>&#160; &#160; &#160; &#160;本质来说，NULL，0，’’都是一样的，都是值0。是的，你没有听错。说到这本文差不多应该结束了。不过为了不被打，还是继续说一说。它们虽然值都是0，但是含义却是不一样的。</p>
-<h2 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a><strong>NULL</strong></h2><p>&#160; &#160; &#160; &#160;虽然值是0，但是它的含义不一样，或者说它的类型不一样。NULL是指针类型，不过它是空指针，即值为0。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a = <span class="literal">NULL</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%p"</span>,a);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;我们编译它：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gcc -o null null.c</div><div class="line">null.c: In function ‘main’:</div><div class="line">null.c:<span class="number">14</span>:<span class="number">10</span>: warning: initialization makes integer from pointer without a cast [-Wint-conversion]</div><div class="line">  <span class="keyword">int</span> a = <span class="literal">NULL</span>;</div><div class="line">          ^</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;它给了我们一个警告，提示尝试将指针转换为整数。这也就正验证了我们前面的说法。<br>&#160; &#160; &#160; &#160;实际上NULL通常是如下定义：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NULL (void*)0</span></div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;所以，如果要给一个指针类型初始化，那么你给它一个NULL，使得能够明显的看到这是一个指正。当然，在C++中，你更应该使用nullptr，而不是NULL。</p>
-<h2 id="‘-0’"><a href="#‘-0’" class="headerlink" title="‘\0’"></a><strong>‘\0’</strong></h2><p>&#160; &#160; &#160; &#160;我们都知道是转义符，用单引号包起来，再加转义，实际上就是0，只不过它表示的是字符。就向下面这样：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    char a = '';</div><div class="line">    char b = '0';</div><div class="line">    printf("a = %d,b = %d",a,b);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;编译运行：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gcc -o nul nul.c</div><div class="line">./nul</div><div class="line">a = <span class="number">0</span>,b = <span class="number">48</span></div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;我们最常见到的就是它作为字符串的结束符。所以我们常常会看到下面这样的写法：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">char str[16];</div><div class="line">/*do something*/</div><div class="line">str[15] = '';</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;还记得printf是如何打印字符串，以及strcmp比较停止规则吗？是的，它们都以遇到’’结束。注意，它和’0’完全不一样。通过打印就可以看到了，实际上’’的值就是0。需要特别注意的是，如果’’的0后面跟八进制的数，则会被转义。所以’0’与’0’的值一致。</p>
-<h2 id="0"><a href="#0" class="headerlink" title="0"></a><strong>0</strong></h2><p>&#160; &#160; &#160; &#160;这个不用多解释。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="“0”"><a href="#“0”" class="headerlink" title="“0”"></a><strong>“0”</strong></h2><p>&#160; &#160; &#160; &#160;用双引号包裹的0是字符串，我们看不到的是它结尾还有一个\0<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> str[] = <span class="string">"0"</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof str is %d,string len is %d"</span>,<span class="keyword">sizeof</span>(str),<span class="built_in">strlen</span>(str));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&#160; &#160; &#160; &#160;运行结果：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">sizeof</span> str is <span class="number">2</span>,<span class="built_in">string</span> len is <span class="number">1</span></div></pre></td></tr></table></figure></p>
-<h2 id="“-0”"><a href="#“-0”" class="headerlink" title="“\0”"></a><strong>“\0”</strong></h2><p>&#160; &#160; &#160; &#160;这也是字符串，只不过是两个空字符。使用strlen计算字符串长度为0。</p>
-<h2 id="“-”"><a href="#“-”" class="headerlink" title="“ ”"></a><strong>“ ”</strong></h2><p>&#160; &#160; &#160; &#160;字符串。字符串长度为1，占用空间2字节，是一个空格加空字符。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h2><p>&#160; &#160; &#160; &#160;到这里你应该明白了，它们的值可能一样，但赋予的含义却不一样，为了代码良好的可读性，你应该在恰当的时候使用合适的值。</p>
+        <p>&#160; &#160; &#160; &#160;<code>union</code>人皆知而鲜用的一个类。</p>
+<p>&#160; &#160; &#160; &#160;C++ 标准定义为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">A union is a class defined with the class-key union.</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;我最近在写代码时，用到了如下实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">template&lt;typename T&gt;</div><div class="line">struct constant_init</div><div class="line">&#123;</div><div class="line">    union</div><div class="line">    &#123;</div><div class="line">        T obj;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    constexpr constant_init() : obj() &#123;&#125;</div><div class="line">    ~constant_init() &#123; /* do nothing, union object is not destroyed */&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这是从标准库中学到的一种技巧。</p>
+<p>&#160; &#160; &#160; &#160;constant_init 用来在编译期创建一个类型 T 的对象 obj，obj 就放在了匿名的 union 中。</p>
+<p>&#160; &#160; &#160; &#160;为何要把一个对象放在 union 中？</p>
+<p>&#160; &#160; &#160; &#160;只因不想让该对象被销毁。</p>
+<p>&#160; &#160; &#160; &#160;union 便有此用，标准描述为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Absent default member initializers, if any non-static data member of a union has a non-trivial default constructor, copy constructor, move constructor, copy assignment operator, move assignment operator, or destructor, the corresponding member function of the union will be implicitly deleted unless it is user-provided.</div><div class="line">在没有默认成员初始化器的情况下，如果 union 的任一非静态数据成员具有非平凡的默认构造函数、拷贝构造函数、移动构造函数、拷贝赋值运行符、移动赋值运算符或析构函数，则其相应的成员函数将被隐式删除（除非用户显式定义）。</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">union</span> S</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> str;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;S 无法使用，因为 std::string 导致它的对应成员函数被隐式删除了。</p>
+<p>&#160; &#160; &#160; &#160;可以通过以下方式来解决。</p>
+<p>&#160; &#160; &#160; &#160;一，使用 default member initializer：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">union</span> S</div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> a;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> str = <span class="string">"union str"</span>; <span class="comment">// default member initializer</span></div><div class="line">    ~S() &#123;&#125; <span class="comment">// explicitly define a destructor</span></div><div class="line">&#125; s;</div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; s.str;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;default member initializer 会构造一个 std::string 对象，于是成员 str 处于激活状态。此时，S 的默认构造函数不会被删除，但析构函数依旧被移除，需要显式写出（但 std::string 依旧不会被析构，必须显式调用析构）。</p>
+<p>&#160; &#160; &#160; &#160;二，聚合初始化：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">union</span> S</div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> str;</div><div class="line">    <span class="keyword">int</span> a;</div><div class="line">    ~S() &#123;&#125; <span class="comment">// explicitly define a destructor</span></div><div class="line">&#125; s = &#123; <span class="string">"union str"</span>s &#125;;</div><div class="line"></div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; s.str;</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;此时，S 的构造函数也被删除了。但是，聚合初始化能够初始化构造函数被删除的对象，聚合初始化的类本身就不允许有构造函数。<br>需要注意，union 的聚合初始化，默认初始化第一个成员，所以 str 被挪到最前面了。</p>
+<p>&#160; &#160; &#160; &#160;三，显式写出被删除的函数。这个就不必给例子了。</p>
+<p>&#160; &#160; &#160; &#160;介绍完关键知识，现在看回 constant_init。</p>
+<p>&#160; &#160; &#160; &#160;这个类的目的是，不想 T 对象被析构，union 的特性刚好满足此需求。</p>
+<p>&#160; &#160; &#160; &#160;为什么不想被析构？因为有些对象需要在程序的整个生命周期内，一直有效。</p>
+<p>&#160; &#160; &#160; &#160;最经典的一个例子就是标准中的 std::error_category，它用来为 std::error_code 指定域对象，std::error_code 的 operator== 通过域对象的地址来进行比较，所以域对象必须一直有效，也因此，它的实现依赖于单例模式。然而，单例模式也有析构顺序的问题，如果析构过早，后面又要使用该对象，需要令其“重生”。该问题我在 C++ DP.07 Singleton 中讲过，也讲过一种“重生”的技巧。constant_init 的实现也是为了规避此问题。</p>
+<p>&#160; &#160; &#160; &#160;然这只是其一，constant_init 的构造函数是 constexpr 的。这个小细节也十分必要，它是为了规避 SIOF（Static Initialization Order Fiasco） 问题。我在An In-depth Look at C++ Keyword: static 一文中也有详尽的描述。</p>
+<p>&#160; &#160; &#160; &#160;另外，正确使用 constant_init 也是极具细节的事。下面是一个正确使用的例子：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">namespace</div><div class="line">&#123;</div><div class="line"></div><div class="line">template&lt;typename T&gt;</div><div class="line">struct constant_init</div><div class="line">&#123;</div><div class="line">    union</div><div class="line">    &#123;</div><div class="line">        T obj;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    constexpr constant_init() : obj() &#123;&#125;</div><div class="line">    ~constant_init() &#123; /* do nothing, union object is not destroyed */&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct some_class &#123;&#125;;</div><div class="line"></div><div class="line">constant_init&lt;some_class&gt; some_class_instantance &#123;&#125;;</div><div class="line"></div><div class="line">&#125; // anonymous namespace</div></pre></td></tr></table></figure></p>
+<p>&#160; &#160; &#160; &#160;这段代码不应该放在头文件中，而应该放在实现文件中。</p>
+<p>&#160; &#160; &#160; &#160;这个原因，我在C++ Adventures: Namespaces 一文中也有详细描述。</p>
+<p>&#160; &#160; &#160; &#160;这也是此处使用 Unnamed(Anonymous) namespace 的原因。</p>
+<p>&#160; &#160; &#160; &#160;可见，这个技巧涉及的技术细节多如牛毛，任何一点不明白，就会误用。相比起来，union 倒是其中知识量最小的一个。</p>
+<p>&#160; &#160; &#160; &#160;读罢此文，相信大家能够掌握这一技巧。</p>
 
       
     </div>
@@ -295,13 +306,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/12/C++NULL和0/">C++ NULL，0，&#39;\0&#39;，&quot;0&quot;，&quot;\0&quot;</a></p>
+        <p><span>本文标题:</span><a href="/2026/04/27/C++ union 的一种妙用法/">C++ union 的一种妙用法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Greedysky 的个人博客">Greedysky</a></p>
-        <p><span>发布时间:</span>2017年11月12日 - 18时34分</p>
-        <p><span>最后更新:</span>2022年12月04日 - 21时11分</p>
+        <p><span>发布时间:</span>2026年04月27日 - 21时23分</p>
+        <p><span>最后更新:</span>2026年05月04日 - 22时05分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/12/C++NULL和0/" title="C++ NULL，0，&#39;\0&#39;，&quot;0&quot;，&quot;\0&quot;">https://greedysky.github.io/2017/11/12/C++NULL和0/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2017/11/12/C++NULL和0/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2026/04/27/C++ union 的一种妙用法/" title="C++ union 的一种妙用法">https://greedysky.github.io/2026/04/27/C++ union 的一种妙用法/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://greedysky.github.io/2026/04/27/C++ union 的一种妙用法/　　作者: Greedysky" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -314,18 +325,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/12/09/C++指针详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          C++ 指针详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/01/字符串匹配的Boyer-Moore算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">字符串匹配的Boyer-Moore算法</div>
+    <a href="/2026/02/27/C++ 指针等于地址加偏移量/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++ 指针等于地址加偏移量</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -336,7 +338,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本质"><span class="toc-number">2.</span> <span class="toc-text">本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NULL"><span class="toc-number">3.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#‘-0’"><span class="toc-number">4.</span> <span class="toc-text">‘\0’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0"><span class="toc-number">5.</span> <span class="toc-text">0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“0”"><span class="toc-number">6.</span> <span class="toc-text">“0”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-0”"><span class="toc-number">7.</span> <span class="toc-text">“\0”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“-”"><span class="toc-number">8.</span> <span class="toc-text">“ ”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -376,13 +378,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/09/C++指针详解/" title="上一篇: C++ 指针详解">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/09/01/字符串匹配的Boyer-Moore算法/" title="下一篇: 字符串匹配的Boyer-Moore算法">
+            <a href="/2026/02/27/C++ 指针等于地址加偏移量/" title="下一篇: C++ 指针等于地址加偏移量">
                 <i class="fa fa-angle-right"></i>
             </a>
         
